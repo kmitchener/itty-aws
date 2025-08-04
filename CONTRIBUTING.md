@@ -9,7 +9,7 @@ This project uses AWS API models from the official [`aws/api-models-aws`](https:
 When cloning this repository, you need to initialize and update the submodule:
 
 ```bash
-git submodule update --init
+git submodule update --init --recursive
 ```
 
 ### Updating to Latest AWS Models
