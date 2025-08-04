@@ -164,24 +164,6 @@ export function createServiceProxy<T>(
               let errorType = "UnknownError";
               let errorMessage = "Unknown error";
 
-              if (
-                metadata.protocol === "ec2Query" ||
-                metadata.protocol === "awsQuery"
-              ) {
-                // EC2 XML error format: <Response><Errors><Error><Code>...</Code><Message>...</Message></Error></Errors></Response>
-                const error =
-                  errorData?.Response?.Errors?.Error || errorData?.Error;
-                if (error) {
-                  errorType = error.Code || "UnknownError";
-                  errorMessage = error.Message || "Unknown error";
-                }
-              } else {
-                // JSON error format
-                errorType =
-                  errorData.__type || errorData.code || "UnknownError";
-                errorMessage =
-                  errorData.message || errorData.Message || "Unknown error";
-              }
               const requestId =
                 response.headers.get("x-amzn-requestid") ||
                 response.headers.get("x-amz-request-id");
