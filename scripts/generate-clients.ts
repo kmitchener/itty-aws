@@ -2,6 +2,7 @@ import { FileSystem } from "@effect/platform";
 import { NodeFileSystem } from "@effect/platform-node";
 import { Effect } from "effect";
 import type { Manifest, Shape } from "./manifest.ts";
+import { loadAllLocalManifests } from "./manifest.ts";
 
 // Configuration flags
 const INCLUDE_DOCUMENTATION = false; // Set to false to disable JSDoc comments
@@ -510,7 +511,7 @@ const generateUnionType = (
 const generateEnumType = (
   name: string,
   shape: Extract<Shape, { type: "enum" }>,
-  options: TypeGenOptions,
+  _options: TypeGenOptions,
 ): string => {
   const doc = getDocumentation(shape.traits);
   let code = doc ? `${doc}\n` : "";
@@ -581,9 +582,6 @@ const generateMapType = (
 
 const generateServiceCode = (serviceName: string, manifest: Manifest) =>
   Effect.gen(function* () {
-    // Helper to determine if we need void type
-    let needsVoid = false;
-
     // Check if we need Data import (only if there are error classes)
     let needsDataImport = false;
 
@@ -592,7 +590,7 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
 
     // Check if there's a ResponseError conflict
     const hasResponseErrorConflict = Object.entries(manifest.shapes).some(
-      ([shapeId, shape]) => {
+      ([shapeId, _shape]) => {
         if (shapeId.includes("#")) {
           const shapeName = extractShapeName(shapeId);
           return shapeName === "ResponseError";
@@ -782,7 +780,7 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     // Track all shape names to detect duplicates
     const shapeNameCounts = new Map<string, number>();
 
-    for (const [shapeId, shape] of allShapes) {
+    for (const [shapeId, _shape] of allShapes) {
       const shapeName = extractShapeName(shapeId);
 
       // Note: We no longer skip service-specific "Unit" types. Only smithy.api#Unit is mapped to `{}` at reference time.
@@ -857,14 +855,6 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
               extractShapeName(operation.shape.output.target),
             ) || extractShapeName(operation.shape.output.target)
         : "{}";
-
-      // Check if output is void
-      if (
-        !operation.shape.output ||
-        operation.shape.output.target === "smithy.api#Unit"
-      ) {
-        needsVoid = true;
-      }
 
       // Generate error union type
       const errors = operation.shape.errors || [];
@@ -1067,14 +1057,16 @@ const generateMetadataFile = (servicesMetadata: Record<string, any>) => {
   let code = `// Auto-generated service metadata
 export const serviceMetadata = {\n`;
 
-  Object.entries(servicesMetadata).forEach(([service, meta]) => {
-    code += `  "${service}": {\n`;
-    code += `    sdkId: "${meta.sdkId}",\n`;
-    code += `    endpointPrefix: "${meta.endpointPrefix}",\n`;
-    code += `    protocol: "${meta.protocol}",\n`;
-    code += `    targetPrefix: "${meta.targetPrefix}",\n`;
-    code += "  },\n";
-  });
+  Object.entries(servicesMetadata)
+    .sort(([a], [b]) => a.localeCompare(b)) // Sort alphabetically by service name
+    .forEach(([service, meta]) => {
+      code += `  "${service}": {\n`;
+      code += `    sdkId: "${meta.sdkId}",\n`;
+      code += `    endpointPrefix: "${meta.endpointPrefix}",\n`;
+      code += `    protocol: "${meta.protocol}",\n`;
+      code += `    targetPrefix: "${meta.targetPrefix}",\n`;
+      code += "  },\n";
+    });
 
   code += "} as const;\n";
   return code;
@@ -1147,24 +1139,15 @@ const program = Effect.gen(function* () {
     friendlyName: string;
   }> = [];
 
-  // Read all manifest files from the manifests directory
-  const manifestFiles = yield* fs.readDirectory("manifests");
-
-  // Filter for .json files only
-  const jsonFiles = manifestFiles.filter((file) => file.endsWith(".json"));
+  // Load all manifests from aws-models/models/ directory
+  const manifests = yield* loadAllLocalManifests();
 
   // Create services directory
   yield* fs.makeDirectory("src/services", { recursive: true });
 
-  // Process each manifest file
-  for (const manifestFile of jsonFiles) {
-    const serviceName = manifestFile.replace(".json", "");
-    const manifestPath = `manifests/${manifestFile}`;
-
+  // Process each manifest
+  for (const { serviceName, manifest } of manifests) {
     try {
-      const manifestContent = yield* fs.readFileString(manifestPath);
-      const manifest = JSON.parse(manifestContent) as Manifest;
-
       // Find service shape to get the sdkId and service interface name
       const serviceShapeEntry = Object.entries(manifest.shapes).find(
         ([, shape]) => shape.type === "service",
@@ -1174,7 +1157,7 @@ const program = Effect.gen(function* () {
       }
 
       const [serviceShapeId, serviceShape] = serviceShapeEntry;
-      const serviceShapeName = extractShapeName(serviceShapeId);
+      const _serviceShapeName = extractShapeName(serviceShapeId);
       const serviceTraits = serviceShape.traits || {};
       const serviceInfo = (serviceTraits["aws.api#service"] as any) || {};
       const sdkId = serviceInfo.sdkId || serviceName;
@@ -1220,7 +1203,7 @@ const program = Effect.gen(function* () {
       // Write the generated file
       const outputPath = `src/services/${serviceName}.ts`;
       yield* fs.writeFileString(outputPath, code);
-    } catch (error) {
+    } catch (_error) {
       // Continue with other services instead of failing completely
     }
   }

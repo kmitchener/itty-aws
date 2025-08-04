@@ -14,8 +14,8 @@
  *   every operation's *output* shape, and a parse function per operation.
  */
 
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from "node:fs";
+import * as path from "node:path";
 
 type SmithyId = string;
 
@@ -390,7 +390,7 @@ export const EC2_REGISTRY = REGISTRY;
 export type EC2ShapeId = ShapeId;
 `;
 
-const source = header + dynamicParserFn + registryExport + "\n";
+const source = `${header + dynamicParserFn + registryExport}\n`;
 
 /** Write output */
 fs.writeFileSync(outFile, source, "utf8");
