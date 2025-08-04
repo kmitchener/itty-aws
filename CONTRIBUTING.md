@@ -17,25 +17,6 @@ git submodule update --init
 To update the AWS models to the latest version:
 
 ```bash
-# Navigate to the aws-models submodule
-cd aws-models
-
-# Pull the latest changes
-git pull origin main
-
-# Navigate back to the root
-cd ..
-
-# Stage the submodule update
-git add aws-models
-
-# Commit the update
-git commit -m "Update AWS models to latest version"
-```
-
-### Alternative: One-line Update
-
-```bash
 git submodule update --remote aws-models
 git add aws-models
 git commit -m "Update AWS models to latest version"
