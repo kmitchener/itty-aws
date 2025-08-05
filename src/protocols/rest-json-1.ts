@@ -15,6 +15,7 @@ export class RestJson1Handler implements ProtocolHandler {
   getHeaders(
     _action: string,
     _metadata: ServiceMetadata,
+    _body?: string,
   ): Record<string, string> {
     return {
       "Content-Type": this.contentType,
@@ -27,7 +28,11 @@ export class RestJson1Handler implements ProtocolHandler {
     return JSON.parse(responseText);
   }
 
-  parseError(responseText: string, _statusCode: number): unknown {
+  parseError(
+    responseText: string,
+    _statusCode: number,
+    _headers?: Headers,
+  ): unknown {
     try {
       return JSON.parse(responseText);
     } catch {

@@ -22,6 +22,7 @@ export class AwsQueryHandler implements ProtocolHandler {
   getHeaders(
     _action: string,
     _metadata: ServiceMetadata,
+    _body?: string,
   ): Record<string, string> {
     return {
       "Content-Type": this.contentType,
@@ -39,7 +40,11 @@ export class AwsQueryHandler implements ProtocolHandler {
     }
   }
 
-  parseError(responseText: string, _statusCode: number): unknown {
+  parseError(
+    responseText: string,
+    _statusCode: number,
+    _headers?: Headers,
+  ): unknown {
     try {
       // Try JSON first, then fall back to raw text
       return JSON.parse(responseText);

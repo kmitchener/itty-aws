@@ -18,9 +18,17 @@ export interface ProtocolHandler {
     metadata: ServiceMetadata,
   ): string;
 
-  getHeaders(action: string, metadata: ServiceMetadata): Record<string, string>;
+  getHeaders(
+    action: string,
+    metadata: ServiceMetadata,
+    body?: string,
+  ): Record<string, string>;
 
   // Translate protocol-specific response (e.g. XML) into JSON
   parseResponse(responseText: string, statusCode: number): unknown;
-  parseError(responseText: string, statusCode: number): unknown;
+  parseError(
+    responseText: string,
+    statusCode: number,
+    headers?: Headers,
+  ): unknown;
 }

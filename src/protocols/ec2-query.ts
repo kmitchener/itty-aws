@@ -23,6 +23,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
   getHeaders(
     _action: string,
     _metadata: ServiceMetadata,
+    _body?: string,
   ): Record<string, string> {
     return {
       "Content-Type": this.contentType,
@@ -36,7 +37,11 @@ export class Ec2QueryHandler implements ProtocolHandler {
     return parseEC2Response(responseText);
   }
 
-  parseError(responseText: string, _statusCode: number): unknown {
+  parseError(
+    responseText: string,
+    _statusCode: number,
+    _headers?: Headers,
+  ): unknown {
     try {
       // Parse as EC2 XML response, which may contain error information
       return parseEC2Response(responseText);

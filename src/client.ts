@@ -127,16 +127,16 @@ export function createServiceProxy<T>(
             // Get protocol handler for this service
             const protocolHandler = protocolRegistry.get(metadata.protocol);
 
-            // Get headers from protocol handler
-            const headers = protocolHandler.getHeaders(action, metadata);
+            // Serialize request body using protocol handler
+            const body = protocolHandler.buildRequest(input, action, metadata);
+
+            // Get headers from protocol handler (with body for Content-Length)
+            const headers = protocolHandler.getHeaders(action, metadata, body);
 
             // Use custom endpoint or construct AWS endpoint
             const endpoint = resolvedConfig.endpoint
               ? resolvedConfig.endpoint
               : `https://${metadata.endpointPrefix}.${resolvedConfig.region}.amazonaws.com/`;
-
-            // Serialize request body using protocol handler
-            const body = protocolHandler.buildRequest(input, action, metadata);
 
             const response = yield* Effect.promise(() =>
               client.fetch(endpoint, {
@@ -158,6 +158,7 @@ export function createServiceProxy<T>(
               const errorData = protocolHandler.parseError(
                 responseText,
                 statusCode,
+                response.headers,
               );
 
               // Extract error info from different response formats

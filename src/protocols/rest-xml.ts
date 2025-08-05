@@ -17,6 +17,7 @@ export class RestXmlHandler implements ProtocolHandler {
   getHeaders(
     _action: string,
     _metadata: ServiceMetadata,
+    _body?: string,
   ): Record<string, string> {
     return {
       "Content-Type": this.contentType,
@@ -35,7 +36,11 @@ export class RestXmlHandler implements ProtocolHandler {
     }
   }
 
-  parseError(responseText: string, _statusCode: number): unknown {
+  parseError(
+    responseText: string,
+    _statusCode: number,
+    _headers?: Headers,
+  ): unknown {
     try {
       // TODO: Implement proper XML error parsing for S3
       return JSON.parse(responseText);
