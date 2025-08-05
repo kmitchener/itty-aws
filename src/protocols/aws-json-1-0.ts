@@ -48,7 +48,7 @@ export class AwsJson10Handler implements ProtocolHandler {
 
     // Extract error type according to AWS JSON 1.0 spec
     let errorType = this.extractErrorType(errorBody, headers);
-    
+
     return {
       ...errorBody,
       __type: errorType,
@@ -58,14 +58,17 @@ export class AwsJson10Handler implements ProtocolHandler {
   private jsonReplacer(_key: string, value: any): any {
     // Handle special numeric values as per AWS JSON 1.0 spec
     if (typeof value === "number") {
-      if (value === Infinity) return "Infinity";
-      if (value === -Infinity) return "-Infinity";
+      if (value === Number.POSITIVE_INFINITY) return "Infinity";
+      if (value === Number.NEGATIVE_INFINITY) return "-Infinity";
       if (Number.isNaN(value)) return "NaN";
     }
     return value;
   }
 
-  private extractErrorType(errorBody: any, headers?: Headers): string | undefined {
+  private extractErrorType(
+    errorBody: any,
+    headers?: Headers,
+  ): string | undefined {
     // AWS JSON 1.0 spec: check __type, X-Amzn-Errortype header, or code field
     if (errorBody.__type) {
       return this.sanitizeErrorType(errorBody.__type);
@@ -86,7 +89,7 @@ export class AwsJson10Handler implements ProtocolHandler {
   private sanitizeErrorType(errorType: string): string {
     // Remove common prefixes and suffixes as per AWS spec
     let sanitized = errorType;
-    
+
     // Remove timestamp suffix (e.g., ":2023-01-01T00:00:00Z")
     const colonIndex = sanitized.indexOf(":");
     if (colonIndex !== -1) {

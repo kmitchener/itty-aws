@@ -1,7 +1,7 @@
 import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
 
 function customJsonStringify(value: unknown): string {
-  return JSON.stringify(value, (key, val) => {
+  return JSON.stringify(value, (_key, val) => {
     if (typeof val === "number") {
       if (Number.isNaN(val)) return "NaN";
       if (val === Number.POSITIVE_INFINITY) return "Infinity";

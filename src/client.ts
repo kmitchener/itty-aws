@@ -155,7 +155,7 @@ export function createServiceProxy<T>(
               return protocolHandler.parseResponse(responseText, 200);
             } else {
               // Error handling
-              const errorData = protocolHandler.parseError(
+              const _errorData = protocolHandler.parseError(
                 responseText,
                 statusCode,
                 response.headers,
