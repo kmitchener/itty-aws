@@ -2,13 +2,13 @@
 
 /**
  * Generate compact EC2 metadata for runtime use
- * 
+ *
  * This script extracts minimal metadata from the EC2 Smithy model needed
  * for EC2 Query protocol request/response handling at runtime.
- * 
+ *
  * Usage:
  *   bun scripts/generate-ec2-metadata.ts [input-path] [output-path]
- *   
+ *
  * Example:
  *   bun scripts/generate-ec2-metadata.ts aws-models/models/ec2/service/2016-11-15/ec2-2016-11-15.json src/ec2-metadata.ts
  */
@@ -16,36 +16,48 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export type ShapeKind = "structure" | "list" | "map" | "string" | "integer" | "boolean" | "timestamp" | "blob" | "enum" | "double" | "long" | "float";
+export type ShapeKind =
+  | "structure"
+  | "list"
+  | "map"
+  | "string"
+  | "integer"
+  | "boolean"
+  | "timestamp"
+  | "blob"
+  | "enum"
+  | "double"
+  | "long"
+  | "float";
 
 export interface MemberMeta {
-  target: string;                 // referenced shape id
-  locationName?: string;          // xml/query field name override
-  queryName?: string;             // for EC2 filter/list names when needed
-  flattened?: boolean;            // smithy.api#xmlFlattened / aws.query#flattened
+  target: string; // referenced shape id
+  locationName?: string; // xml/query field name override
+  queryName?: string; // for EC2 filter/list names when needed
+  flattened?: boolean; // smithy.api#xmlFlattened / aws.query#flattened
   timestampFormat?: "iso8601" | "epoch-seconds" | "http-date";
 }
 
 export interface ShapeMeta {
   type: ShapeKind;
-  xmlName?: string;               // wrapper or element name override
+  xmlName?: string; // wrapper or element name override
   members?: Record<string, MemberMeta>; // for structure
-  member?: MemberMeta;            // for list
-  key?: MemberMeta;               // for map
-  value?: MemberMeta;             // for map
-  enum?: string[];                // optional
-  flattened?: boolean;            // for lists/maps
+  member?: MemberMeta; // for list
+  key?: MemberMeta; // for map
+  value?: MemberMeta; // for map
+  enum?: string[]; // optional
+  flattened?: boolean; // for lists/maps
 }
 
 export interface OperationMeta {
-  name: string;                   // DescribeRegions
-  input?: string;                 // shape id
-  output?: string;                // shape id
-  responseWrapper?: string;       // xml wrapper (often `${name}Response`)
+  name: string; // DescribeRegions
+  input?: string; // shape id
+  output?: string; // shape id
+  responseWrapper?: string; // xml wrapper (often `${name}Response`)
 }
 
 export interface Ec2ModelMeta {
-  version: string;                // "2016-11-15"
+  version: string; // "2016-11-15"
   operations: Record<string, OperationMeta>;
   shapes: Record<string, ShapeMeta>;
 }
@@ -57,7 +69,7 @@ function toShapeMeta(id: string, rawShapes: any): ShapeMeta {
   if (!s?.type) {
     throw new Error(`Invalid shape ${id}: missing type`);
   }
-  
+
   const t = s.type as ShapeKind;
   const meta: ShapeMeta = { type: t };
 
@@ -71,27 +83,37 @@ function toShapeMeta(id: string, rawShapes: any): ShapeMeta {
     for (const [mName, m] of Object.entries<any>(s.members ?? {})) {
       const mm: MemberMeta = { target: m.target };
       const traits = m.traits ?? {};
-      
-      if (traits["smithy.api#xmlName"]) mm.locationName = traits["smithy.api#xmlName"];
-      if (traits["aws.query#queryName"]) mm.queryName = traits["aws.query#queryName"];
-      if (traits["smithy.api#xmlFlattened"] || traits["aws.query#flattened"]) mm.flattened = true;
-      if (traits["smithy.api#timestampFormat"]) mm.timestampFormat = traits["smithy.api#timestampFormat"];
-      
+
+      if (traits["smithy.api#xmlName"])
+        mm.locationName = traits["smithy.api#xmlName"];
+      if (traits["aws.query#queryName"])
+        mm.queryName = traits["aws.query#queryName"];
+      if (traits["smithy.api#xmlFlattened"] || traits["aws.query#flattened"])
+        mm.flattened = true;
+      if (traits["smithy.api#timestampFormat"])
+        mm.timestampFormat = traits["smithy.api#timestampFormat"];
+
       meta.members![mName] = mm;
     }
   } else if (t === "list") {
     const mem = s.member;
     const mm: MemberMeta = { target: mem.target };
     const traits = mem.traits ?? {};
-    
-    if (traits["smithy.api#xmlName"]) mm.locationName = traits["smithy.api#xmlName"];
-    if (traits["aws.query#queryName"]) mm.queryName = traits["aws.query#queryName"];
-    if (traits["smithy.api#xmlFlattened"] || traits["aws.query#flattened"]) mm.flattened = true;
-    
+
+    if (traits["smithy.api#xmlName"])
+      mm.locationName = traits["smithy.api#xmlName"];
+    if (traits["aws.query#queryName"])
+      mm.queryName = traits["aws.query#queryName"];
+    if (traits["smithy.api#xmlFlattened"] || traits["aws.query#flattened"])
+      mm.flattened = true;
+
     meta.member = mm;
-    
+
     // Check if the list itself is flattened
-    if (s.traits?.["smithy.api#xmlFlattened"] || s.traits?.["aws.query#flattened"]) {
+    if (
+      s.traits?.["smithy.api#xmlFlattened"] ||
+      s.traits?.["aws.query#flattened"]
+    ) {
       meta.flattened = true;
     }
   } else if (t === "map") {
@@ -99,9 +121,12 @@ function toShapeMeta(id: string, rawShapes: any): ShapeMeta {
     const v = s.value;
     meta.key = { target: k.target };
     meta.value = { target: v.target };
-    
+
     // Check if the map itself is flattened
-    if (s.traits?.["smithy.api#xmlFlattened"] || s.traits?.["aws.query#flattened"]) {
+    if (
+      s.traits?.["smithy.api#xmlFlattened"] ||
+      s.traits?.["aws.query#flattened"]
+    ) {
       meta.flattened = true;
     }
   } else if (t === "string" && Array.isArray(s.enum)) {
@@ -113,12 +138,15 @@ function toShapeMeta(id: string, rawShapes: any): ShapeMeta {
 
 function main(inPath?: string, outPath?: string) {
   // Default paths if not provided
-  const inputPath = inPath ?? "aws-models/models/ec2/service/2016-11-15/ec2-2016-11-15.json";
+  const inputPath =
+    inPath ?? "aws-models/models/ec2/service/2016-11-15/ec2-2016-11-15.json";
   const outputPath = outPath ?? "src/ec2-metadata.ts";
 
   if (!fs.existsSync(inputPath)) {
     console.error(`Input file not found: ${inputPath}`);
-    console.error("Please ensure the aws-models git submodule is initialized and updated.");
+    console.error(
+      "Please ensure the aws-models git submodule is initialized and updated.",
+    );
     process.exit(1);
   }
 
@@ -130,7 +158,7 @@ function main(inPath?: string, outPath?: string) {
 
   const operations: Record<string, OperationMeta> = {};
   const reachableShapes = new Set<string>();
-  
+
   // First pass: collect operations and find reachable shapes
   for (const [id, shape] of Object.entries<any>(shapes)) {
     if (shape.type === "operation") {
@@ -138,11 +166,10 @@ function main(inPath?: string, outPath?: string) {
       const input = shape.input?.target;
       const output = shape.output?.target;
       const responseWrapper =
-        shape.traits?.["aws.query#resultWrapper"] ??
-        (name + "Response");
-      
+        shape.traits?.["aws.query#resultWrapper"] ?? `${name}Response`;
+
       operations[name] = { name, input, output, responseWrapper };
-      
+
       // Add reachable shapes from input/output
       if (input) reachableShapes.add(input);
       if (output) reachableShapes.add(output);
@@ -153,12 +180,12 @@ function main(inPath?: string, outPath?: string) {
   function collectDependencies(id: string, visited = new Set<string>()) {
     if (visited.has(id) || id.startsWith("smithy.api#")) return;
     visited.add(id);
-    
+
     const shape = shapes[id];
     if (!shape) return;
-    
+
     reachableShapes.add(id);
-    
+
     if (shape.type === "structure" && shape.members) {
       for (const member of Object.values<any>(shape.members)) {
         collectDependencies(member.target, visited);
@@ -181,7 +208,7 @@ function main(inPath?: string, outPath?: string) {
   for (const id of reachableShapes) {
     const shape = shapes[id];
     if (!shape?.type) continue;
-    
+
     try {
       outShapes[id] = toShapeMeta(id, shapes);
     } catch (error) {
@@ -231,7 +258,7 @@ export interface Ec2ModelMeta {
 export const ec2ModelMeta: Ec2ModelMeta = ${JSON.stringify(
     { version, operations, shapes: outShapes },
     null,
-    2
+    2,
   )} as const;
 
 // Convenience lookup functions
