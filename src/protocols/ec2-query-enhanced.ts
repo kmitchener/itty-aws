@@ -1,19 +1,22 @@
 import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
+import { type Ec2ModelMeta, type ShapeMeta, type MemberMeta } from "../ec2-metadata.js";
 import { XMLParser } from "fast-xml-parser";
 
-let ec2ModelMeta: any = null;
+let ec2ModelMeta: Ec2ModelMeta | null = null;
 
-// Try to load the metadata synchronously at module load time
-try {
-  // Use dynamic import but don't await it - this will fail gracefully
-  import("../ec2-metadata.js").then(({ ec2ModelMeta: meta }) => {
-    ec2ModelMeta = meta;
-  }).catch(() => {
-    // Metadata not available, will use fallback
-    ec2ModelMeta = null;
-  });
-} catch {
-  // Module not found or error during import
+// Lazy load the metadata to avoid circular dependencies
+function getEc2ModelMeta(): Ec2ModelMeta | null {
+  if (!ec2ModelMeta) {
+    try {
+      // Try synchronous import (this will only work if the module is already loaded)
+      const { ec2ModelMeta: meta } = require("../ec2-metadata.js");
+      ec2ModelMeta = meta;
+    } catch {
+      // If synchronous import fails, return null and fallback to basic implementation
+      return null;
+    }
+  }
+  return ec2ModelMeta;
 }
 
 const xmlParser = new XMLParser({
@@ -32,22 +35,22 @@ function safeParseXml(xmlText: string): any {
 }
 
 function toParams(
-  shapes: Record<string, any>,
+  shapes: Record<string, ShapeMeta>,
   shapeId: string,
   value: any,
   prefix: string,
   out: Record<string, string>
 ) {
-  const shape = shapes?.[shapeId];
+  const shape = shapes[shapeId];
   if (!shape) return;
 
   switch (shape.type) {
     case "structure": {
       if (value == null) return;
       for (const [memberName, member] of Object.entries(shape.members ?? {})) {
-        const fieldName = (member as any).locationName ?? memberName;
+        const fieldName = member.locationName ?? memberName;
         const nextPrefix = prefix ? `${prefix}.${fieldName}` : fieldName;
-        toParams(shapes, (member as any).target, value[memberName], nextPrefix, out);
+        toParams(shapes, member.target, value[memberName], nextPrefix, out);
       }
       break;
     }
@@ -55,6 +58,8 @@ function toParams(
     case "list": {
       if (!Array.isArray(value)) return;
       const memberName = shape.member?.locationName ?? shape.member?.queryName ?? "member";
+      // EC2 Query usually uses 1-based indices with no "member" word for many lists (e.g., Filter.1, Filter.1.Value.1)
+      // We'll support both patterns by preferring plain indices when flattened=true.
       const flattened = shape.member?.flattened || shape.flattened;
       value.forEach((item, i) => {
         const idx = i + 1;
@@ -105,6 +110,7 @@ function toParams(
 
     case "blob": {
       if (value == null) return;
+      // base64 encode if not a string
       out[prefix] = typeof value === "string" ? value : Buffer.from(value).toString("base64");
       break;
     }
@@ -117,21 +123,21 @@ function toParams(
 }
 
 function fromXml(
-  shapes: Record<string, any>,
+  shapes: Record<string, ShapeMeta>,
   shapeId: string,
   node: any
 ): any {
-  const shape = shapes?.[shapeId];
+  const shape = shapes[shapeId];
   if (!shape) return node;
 
   switch (shape.type) {
     case "structure": {
       const out: any = {};
       for (const [memberName, member] of Object.entries(shape.members ?? {})) {
-        const key = (member as any).locationName ?? memberName;
+        const key = member.locationName ?? memberName;
         const child = node?.[key];
         if (child !== undefined) {
-          out[memberName] = fromXml(shapes, (member as any).target, child);
+          out[memberName] = fromXml(shapes, member.target, child);
         }
       }
       return out;
@@ -142,7 +148,7 @@ function fromXml(
       const flattened = shape.member?.flattened || shape.flattened;
       const arrNode = flattened ? node : node?.[memberName];
       const items = Array.isArray(arrNode) ? arrNode : arrNode != null ? [arrNode] : [];
-      return items.map((it: any) => fromXml(shapes, shape.member!.target, it));
+      return items.map((it) => fromXml(shapes, shape.member!.target, it));
     }
 
     case "map": {
@@ -158,6 +164,7 @@ function fromXml(
     }
 
     case "timestamp": {
+      // Coerce common forms
       if (typeof node === "number") return new Date(node * 1000).toISOString();
       if (/^\d+$/.test(String(node))) return new Date(Number(node) * 1000).toISOString();
       const d = new Date(node);
@@ -179,98 +186,92 @@ function fromXml(
 }
 
 function findResponseWrapperName(doc: any): string {
+  // Find the top-level wrapper: <ActionResponse>…</ActionResponse>
   const keys = Object.keys(doc);
   return keys.find(key => key.endsWith("Response")) || keys[0];
 }
 
-export class Ec2QueryHandler implements ProtocolHandler {
-  readonly name = "ec2Query";
-  readonly contentType = "application/x-www-form-urlencoded; charset=utf-8";
+export const Ec2QueryHandler: ProtocolHandler = {
+  name: "ec2Query",
+  contentType: "application/x-www-form-urlencoded; charset=utf-8",
 
-  buildRequest(
-    input: unknown,
-    action: string,
-    _metadata: ServiceMetadata,
-  ): string {
-    // For now, use fallback synchronous implementation
-    // The enhanced version with metadata will be used when available
-    const params = new URLSearchParams();
-    params.append("Action", action);
-    params.append("Version", "2016-11-15");
+  buildRequest(input, action, metadata) {
+    const model = getEc2ModelMeta();
     
-    // Try to use enhanced flattening if metadata is available synchronously
-    if (ec2ModelMeta) {
-      const op = ec2ModelMeta.operations[action];
-      if (op) {
-        const enhancedParams: Record<string, string> = {
-          Action: op.name,
-          Version: ec2ModelMeta.version,
-        };
-
-        if (op.input && input) {
-          toParams(ec2ModelMeta.shapes, op.input, input, "", enhancedParams);
+    // Fallback to basic implementation if model metadata is not available
+    if (!model) {
+      const params = new URLSearchParams();
+      params.append("Action", action);
+      params.append("Version", "2016-11-15");
+      
+      // Basic parameter serialization (without schema validation)
+      if (input && typeof input === 'object') {
+        for (const [key, value] of Object.entries(input as Record<string, any>)) {
+          if (value != null) {
+            params.append(key, String(value));
+          }
         }
-
-        const usp = new URLSearchParams();
-        for (const [k, v] of Object.entries(enhancedParams)) usp.append(k, v);
-        return usp.toString();
       }
+      
+      return params.toString();
     }
-    
-    // Fallback to simple flattening
-    this.flattenObject(input, "", params);
-    return params.toString();
-  }
 
-  getHeaders(
-    _action: string,
-    _metadata: ServiceMetadata,
-    _body?: string,
-  ): Record<string, string> {
+    const op = model.operations[action];
+    if (!op) throw new Error(`Unknown EC2 operation: ${action}`);
+
+    const params: Record<string, string> = {
+      Action: op.name,
+      Version: model.version,
+    };
+
+    if (op.input && input) {
+      toParams(model.shapes, op.input, input, "", params);
+    }
+
+    // Form-encode (EC2 accepts POST with body form-encoded)
+    const usp = new URLSearchParams();
+    for (const [k, v] of Object.entries(params)) usp.append(k, v);
+    return usp.toString();
+  },
+
+  getHeaders(action, metadata, body) {
     return {
       "Content-Type": this.contentType,
       "User-Agent": "itty-aws",
     };
-  }
+  },
 
-  parseResponse(responseText: string, statusCode: number): unknown {
-    if (statusCode >= 400) return this.parseError(responseText, statusCode);
-    if (!responseText) return {};
+  parseResponse(xmlText, statusCode) {
+    if (statusCode >= 400) return this.parseError(xmlText, statusCode);
 
-    const doc = safeParseXml(responseText);
+    const doc = safeParseXml(xmlText);
     if (!doc) return {};
 
-    // Try to use enhanced parsing if metadata is available synchronously
-    if (ec2ModelMeta) {
-      const wrapperName = findResponseWrapperName(doc);
-      const payloadNode = doc[wrapperName] ?? doc;
-      
-      const opName = wrapperName.replace(/Response$/, "");
-      const opMeta = ec2ModelMeta.operations[opName];
-      const outShape = opMeta?.output;
-      
-      if (outShape) {
-        return fromXml(ec2ModelMeta.shapes, outShape, payloadNode);
-      }
-    }
+    // Find the top-level wrapper: <ActionResponse>…</ActionResponse>
+    const wrapperName = findResponseWrapperName(doc);
+    const payloadNode = doc[wrapperName] ?? doc;
+    
+    const model = getEc2ModelMeta();
+    
+    // If model is not available, return basic parsing
+    if (!model) return payloadNode;
 
-    // Fallback to existing EC2 parser if available
-    try {
-      // Try to use existing parsers synchronously - they should be loaded already
-      const { parseEC2Response } = require("../ec2-parsers.js");
-      return parseEC2Response(responseText);
-    } catch {
-      return doc;
-    }
-  }
+    // Find operation by wrapper name
+    const opName = wrapperName.replace(/Response$/, "");
+    const opMeta = model.operations[opName];
+    const outShape = opMeta?.output;
+    
+    if (!outShape) return payloadNode;
 
-  parseError(
-    responseText: string,
-    statusCode: number,
-    headers?: Headers,
-  ): unknown {
-    const doc = safeParseXml(responseText);
+    return fromXml(model.shapes, outShape, payloadNode);
+  },
 
+  parseError(xmlText, statusCode, headers) {
+    const doc = safeParseXml(xmlText);
+
+    // Handle common patterns:
+    // 1) <Response><Errors><Error><Code>..</Code><Message>..</Message></Error></Errors><RequestID>..</RequestID></Response>
+    // 2) <ErrorResponse><Error><Code>..</Code><Message>..</Message></Error><RequestId>..</RequestId></ErrorResponse>
     const err =
       doc?.Response?.Errors?.Error ??
       doc?.ErrorResponse?.Error ??
@@ -290,36 +291,5 @@ export class Ec2QueryHandler implements ProtocolHandler {
     e.name = String(code);
     e.$metadata = { statusCode, requestId };
     return e;
-  }
-
-  private flattenObject(
-    obj: any,
-    prefix: string,
-    params: URLSearchParams,
-  ): void {
-    if (!obj || typeof obj !== "object") return;
-
-    for (const key in obj) {
-      if (Object.hasOwn(obj, key)) {
-        const value = obj[key];
-        const paramKey = prefix ? `${prefix}.${key}` : key;
-
-        if (value !== null && value !== undefined) {
-          if (Array.isArray(value)) {
-            value.forEach((item, index) => {
-              if (typeof item === "object") {
-                this.flattenObject(item, `${paramKey}.${index + 1}`, params);
-              } else {
-                params.append(`${paramKey}.${index + 1}`, String(item));
-              }
-            });
-          } else if (typeof value === "object") {
-            this.flattenObject(value, paramKey, params);
-          } else {
-            params.append(paramKey, String(value));
-          }
-        }
-      }
-    }
-  }
-}
+  },
+};
