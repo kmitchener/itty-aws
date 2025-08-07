@@ -155,23 +155,42 @@ export function createServiceProxy<T>(
               return protocolHandler.parseResponse(responseText, 200);
             } else {
               // Error handling
-              const _errorData = protocolHandler.parseError(
+              const errorData = protocolHandler.parseError(
                 responseText,
                 statusCode,
                 response.headers,
               );
 
-              // Extract error info from different response formats
+              // Extract error info from protocol-specific error data
               let errorType = "UnknownError";
               let errorMessage = "Unknown error";
+              let requestId: string | undefined;
 
-              const requestId =
-                response.headers.get("x-amzn-requestid") ||
-                response.headers.get("x-amz-request-id");
+              // Handle different protocol error formats
+              if (errorData && typeof errorData === "object") {
+                if ("name" in errorData && "$metadata" in errorData) {
+                  // EC2 Query protocol format (Error object)
+                  errorType = (errorData as any).name;
+                  errorMessage = (errorData as any).message || "Unknown error";
+                  requestId = (errorData as any).$metadata?.requestId;
+                } else {
+                  // AWS JSON protocol format (plain object)
+                  errorType = (errorData as any).__type || (errorData as any).code || "UnknownError";
+                  errorMessage = (errorData as any).message || "Unknown error";
+                }
+              }
+
+              // Fallback to headers for request ID if not found in error data
+              if (!requestId) {
+                requestId =
+                  response.headers.get("x-amzn-requestid") ||
+                  response.headers.get("x-amz-request-id") ||
+                  undefined;
+              }
 
               const errorMeta: AwsErrorMeta = {
                 statusCode,
-                requestId: requestId || undefined,
+                requestId,
               };
 
               // Extract simple error name from AWS namespaced error type

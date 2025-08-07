@@ -774,8 +774,8 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     if (needsBufferSupport) {
       code += `import type { Buffer } from "node:buffer";\n`;
     }
-    code += `import type { CommonAwsError } from "../error.ts";\n`;
-    code += `import { AWSServiceClient } from "../client.ts";\n\n`;
+    code += `import type { CommonAwsError } from "../../error.ts";\n`;
+    code += `import { AWSServiceClient } from "../../client.ts";\n\n`;
 
     // First pass: Build type name mapping for conflicting types and track all type names
     const allShapes = Object.entries(manifest.shapes)
@@ -1092,23 +1092,37 @@ export const serviceMetadata = {\n`;
 
 // Generate index file that exports all services
 const generateIndexFile = (
-  serviceExports: Array<{ serviceName: string; sdkId: string }>,
+  serviceExports: Array<{
+    serviceName: string;
+    serviceInterfaceName: string;
+    friendlyName: string;
+  }>,
 ) => {
   let code = "// Auto-generated service exports\n\n";
 
   // Sort exports alphabetically by export name
   const sortedExports = serviceExports
-    .map(({ serviceName, sdkId }) => ({
+    .map(({ serviceName, serviceInterfaceName, friendlyName }) => ({
       serviceName,
-      sdkId,
-      exportName: sdkId.replace(/\s+/g, ""),
+      serviceInterfaceName,
+      friendlyName,
     }))
-    .sort((a, b) => a.exportName.localeCompare(b.exportName));
+    .sort((a, b) => a.friendlyName.localeCompare(b.friendlyName));
 
   // Export all services as namespaces using AWS's official naming
-  sortedExports.forEach(({ serviceName, exportName }) => {
-    code += `export * as ${exportName} from "./${serviceName}.ts";\n`;
-  });
+  // If the friendly name differs from the interface name, alias it
+
+  sortedExports.forEach(
+    ({ serviceName, serviceInterfaceName, friendlyName }) => {
+      const exportName = friendlyName.replace(/\s+/g, "");
+
+      if (exportName !== serviceInterfaceName) {
+        code += `export { ${serviceInterfaceName} as ${exportName} } from "./${serviceName}/index.ts";\n`;
+      } else {
+        code += `export { ${serviceInterfaceName} } from "./${serviceName}/index.ts";\n`;
+      }
+    },
+  );
 
   return code;
 };
@@ -1136,15 +1150,52 @@ const generateAwsFile = (
 
       // If the friendly name differs from the interface name, alias it
       if (exportName !== serviceInterfaceName) {
-        code += `export { ${serviceInterfaceName} as ${exportName} } from "./services/${serviceName}.ts";\n`;
+        code += `export { ${serviceInterfaceName} as ${exportName} } from "./services/${serviceName}/index.ts";\n`;
       } else {
-        code += `export { ${serviceInterfaceName} } from "./services/${serviceName}.ts";\n`;
+        code += `export { ${serviceInterfaceName} } from "./services/${serviceName}/index.ts";\n`;
       }
     },
   );
 
   return code;
 };
+
+// Generate package.json exports for all services
+const updatePackageJsonExports = (
+  serviceExports: Array<{ serviceName: string; sdkId: string }>,
+) =>
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+
+    // Read current package.json
+    const packageJsonContent = yield* fs.readFileString("package.json");
+    const packageJson = JSON.parse(packageJsonContent);
+
+    // Create exports object with main export
+    const exports: Record<string, any> = {
+      ".": packageJson.exports["."], // Keep existing main export
+    };
+
+    // Add service exports sorted alphabetically
+    const sortedServices = serviceExports.sort((a, b) =>
+      a.serviceName.localeCompare(b.serviceName),
+    );
+
+    for (const { serviceName } of sortedServices) {
+      exports[`./${serviceName}`] = {
+        bun: `./src/services/${serviceName}/index.ts`,
+        import: `./dist/services/${serviceName}/index.js`,
+        types: `./dist/services/${serviceName}/index.d.ts`,
+      };
+    }
+
+    // Update package.json
+    packageJson.exports = exports;
+
+    // Write back to file with proper formatting
+    const updatedContent = `${JSON.stringify(packageJson, null, 2)}\n`;
+    yield* fs.writeFileString("package.json", updatedContent);
+  });
 
 // Main program
 const program = Effect.gen(function* () {
@@ -1219,7 +1270,9 @@ const program = Effect.gen(function* () {
       });
 
       // Write the generated file
-      const outputPath = `src/services/${serviceName}.ts`;
+      const outputPath = `src/services/${serviceName}/index.ts`;
+      const outputDir = `src/services/${serviceName}`;
+      yield* fs.makeDirectory(outputDir, { recursive: true });
       yield* fs.writeFileString(outputPath, code);
     } catch (_error) {
       // Continue with other services instead of failing completely
@@ -1231,12 +1284,15 @@ const program = Effect.gen(function* () {
   yield* fs.writeFileString("src/metadata.ts", metadataCode);
 
   // Generate index file
-  const indexCode = generateIndexFile(serviceExports);
+  const indexCode = generateIndexFile(awsServiceExports);
   yield* fs.writeFileString("src/services/index.ts", indexCode);
 
   // Generate AWS services type file
   const awsCode = generateAwsFile(awsServiceExports);
   yield* fs.writeFileString("src/aws.ts", awsCode);
+
+  // Update package.json exports
+  yield* updatePackageJsonExports(serviceExports);
 });
 
 // Run the program
