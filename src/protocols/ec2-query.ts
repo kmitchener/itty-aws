@@ -4,19 +4,14 @@ import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
 let ec2ModelMeta: any = null;
 
 // Try to load the metadata synchronously at module load time
-try {
-  // Use dynamic import but don't await it - this will fail gracefully
-  import("../ec2-metadata.js")
-    .then(({ ec2ModelMeta: meta }) => {
-      ec2ModelMeta = meta;
-    })
-    .catch(() => {
-      // Metadata not available, will use fallback
-      ec2ModelMeta = null;
-    });
-} catch {
-  // Module not found or error during import
-}
+import("../ec2-metadata.js")
+  .then(({ ec2ModelMeta: meta }) => {
+    ec2ModelMeta = meta;
+  })
+  .catch((err) => {
+    console.error("Required dependency ec2-metadata.js failed to load:", err);
+    throw new Error("Cannot continue without ec2-metadata.js");
+  });
 
 const xmlParser = new XMLParser({
   ignoreAttributes: true,
@@ -214,24 +209,20 @@ export class Ec2QueryHandler implements ProtocolHandler {
     params.append("Version", "2016-11-15");
 
     // Try to use enhanced flattening if metadata is available synchronously
-    if (ec2ModelMeta) {
-      const op = ec2ModelMeta.operations[action];
-      if (op) {
-        const enhancedParams: Record<string, string> = {
-          Action: op.name,
-          Version: ec2ModelMeta.version,
-        };
+    const op = ec2ModelMeta.operations[action];
+    if (op) {
+      const enhancedParams: Record<string, string> = {
+        Action: op.name,
+        Version: ec2ModelMeta.version,
+      };
 
-        if (op.input && input) {
-          toParams(ec2ModelMeta.shapes, op.input, input, "", enhancedParams);
-        }
-
-        const usp = new URLSearchParams();
-        for (const [k, v] of Object.entries(enhancedParams)) usp.append(k, v);
-        return usp.toString();
+      if (op.input && input) {
+        toParams(ec2ModelMeta.shapes, op.input, input, "", enhancedParams);
       }
-    } else {
-      //FIXME: should throw error
+
+      const usp = new URLSearchParams();
+      for (const [k, v] of Object.entries(enhancedParams)) usp.append(k, v);
+      return usp.toString();
     }
 
     return params.toString();
