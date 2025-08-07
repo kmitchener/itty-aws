@@ -1,17 +1,8 @@
 import { XMLParser } from "fast-xml-parser";
 import type { ProtocolHandler, ServiceMetadata } from "./interface.ts";
 
-let ec2ModelMeta: any = null;
-
-// Try to load the metadata synchronously at module load time
-import("../ec2-metadata.js")
-  .then(({ ec2ModelMeta: meta }) => {
-    ec2ModelMeta = meta;
-  })
-  .catch((err) => {
-    console.error("Required dependency ec2-metadata.js failed to load:", err);
-    throw new Error("Cannot continue without ec2-metadata.js");
-  });
+// Import EC2 metadata synchronously
+import { ec2ModelMeta } from "../ec2-metadata.js";
 
 const xmlParser = new XMLParser({
   ignoreAttributes: true,
@@ -208,7 +199,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
     params.append("Action", action);
     params.append("Version", "2016-11-15");
 
-    // Try to use enhanced flattening if metadata is available synchronously
+    // Use enhanced flattening with metadata
     const op = ec2ModelMeta.operations[action];
     if (op) {
       const enhancedParams: Record<string, string> = {
@@ -225,6 +216,7 @@ export class Ec2QueryHandler implements ProtocolHandler {
       return usp.toString();
     }
 
+    // Fallback for unknown operations
     return params.toString();
   }
 
@@ -246,11 +238,11 @@ export class Ec2QueryHandler implements ProtocolHandler {
     const doc = safeParseXml(responseText);
     if (!doc) return {};
 
-    // Try to use enhanced parsing if metadata is available synchronously
-    if (ec2ModelMeta) {
-      const wrapperName = findResponseWrapperName(doc);
-      const payloadNode = doc[wrapperName] ?? doc;
+    // Use enhanced parsing with metadata
+    const wrapperName = findResponseWrapperName(doc);
+    const payloadNode = doc[wrapperName] ?? doc;
 
+    if (wrapperName) {
       const opName = wrapperName.replace(/Response$/, "");
       const opMeta = ec2ModelMeta.operations[opName];
       const outShape = opMeta?.output;
@@ -258,9 +250,10 @@ export class Ec2QueryHandler implements ProtocolHandler {
       if (outShape) {
         return fromXml(ec2ModelMeta.shapes, outShape, payloadNode);
       }
-    } else {
-      //FIXME let's simplify so there's no if condition here
     }
+
+    // If no specific shape found, return the payload node
+    return payloadNode;
   }
 
   parseError(
