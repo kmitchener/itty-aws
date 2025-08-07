@@ -23,7 +23,12 @@ export class RestJson1Handler implements ProtocolHandler {
     };
   }
 
-  parseResponse(responseText: string, _statusCode: number): unknown {
+  parseResponse(
+    responseText: string,
+    _statusCode: number,
+    _action: string,
+    _metadata: ServiceMetadata,
+  ): unknown {
     if (!responseText) return {};
     return JSON.parse(responseText);
   }
