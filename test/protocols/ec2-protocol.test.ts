@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@effect/vitest";
-import { Ec2QueryHandler } from "../dist/protocols/ec2-query.js";
+import { Ec2QueryHandler } from "../../dist/protocols/ec2-query.js";
 
 const handler = new Ec2QueryHandler();
 

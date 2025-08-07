@@ -25,7 +25,7 @@
     "test:run": "vitest run",
     "test:watch": "vitest watch",
     "test:ui": "vitest --ui",
-    "test:protocol": "bun run build && vitest run ./test/ec2-protocol.test.ts"
+    "test:protocol": "bun run build && vitest run ./test/protocols/*.test.ts"
   },
   "dependencies": {
     "aws4fetch": "^1.0.20"
