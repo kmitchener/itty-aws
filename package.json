@@ -27,7 +27,8 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
-    "aws4fetch": "^1.0.20"
+    "aws4fetch": "^1.0.20",
+    "fast-xml-parser": "^4.4.0"
   },
   "peerDependencies": {
     "@aws-sdk/credential-providers": "^3",

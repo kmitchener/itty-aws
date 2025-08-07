@@ -77,7 +77,12 @@ export class AwsJson11Handler implements ProtocolHandler {
     return headers;
   }
 
-  parseResponse(responseText: string, _statusCode: number): unknown {
+  parseResponse(
+    responseText: string,
+    _statusCode: number,
+    _action: string,
+    _metadata: ServiceMetadata,
+  ): unknown {
     if (!responseText || responseText.trim() === "") return {};
 
     try {
