@@ -1,22 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class EKSAuth extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("eks-auth", new RestJson1Protocol(), cfg);
+  }
+
   assumeRoleForPodIdentity(
     input: AssumeRoleForPodIdentityRequest,
   ): Effect.Effect<
     AssumeRoleForPodIdentityResponse,
-    | AccessDeniedException
-    | ExpiredTokenException
-    | InternalServerException
-    | InvalidParameterException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ExpiredTokenException | InternalServerException | InvalidParameterException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssumeRoleForPodIdentity", input);
   }
@@ -119,3 +115,4 @@ export declare namespace AssumeRoleForPodIdentity {
     | ThrottlingException
     | CommonAwsError;
 }
+

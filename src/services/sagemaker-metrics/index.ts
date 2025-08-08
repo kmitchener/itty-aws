@@ -1,16 +1,27 @@
 import type { Effect } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SageMakerMetrics extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sagemaker-metrics", new RestJson1Protocol(), cfg);
+  }
+
   batchGetMetrics(
     input: BatchGetMetricsRequest,
-  ): Effect.Effect<BatchGetMetricsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    BatchGetMetricsResponse,
+    CommonAwsError
+  > {
     return this.call("BatchGetMetrics", input);
   }
   batchPutMetrics(
     input: BatchPutMetricsRequest,
-  ): Effect.Effect<BatchPutMetricsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    BatchPutMetricsResponse,
+    CommonAwsError
+  > {
     return this.call("BatchPutMetrics", input);
   }
 }
@@ -66,29 +77,11 @@ export interface MetricQueryResult {
   MetricValues: Array<number>;
 }
 export type MetricQueryResultList = Array<MetricQueryResult>;
-export type MetricQueryResultStatus =
-  | "COMPLETE"
-  | "TRUNCATED"
-  | "INTERNAL_ERROR"
-  | "VALIDATION_ERROR";
-export type MetricStatistic =
-  | "MIN"
-  | "MAX"
-  | "AVG"
-  | "COUNT"
-  | "STD_DEV"
-  | "LAST";
+export type MetricQueryResultStatus = "COMPLETE" | "TRUNCATED" | "INTERNAL_ERROR" | "VALIDATION_ERROR";
+export type MetricStatistic = "MIN" | "MAX" | "AVG" | "COUNT" | "STD_DEV" | "LAST";
 export type MetricValues = Array<number>;
-export type Period =
-  | "ONE_MINUTE"
-  | "FIVE_MINUTE"
-  | "ONE_HOUR"
-  | "ITERATION_NUMBER";
-export type PutMetricsErrorCode =
-  | "METRIC_LIMIT_EXCEEDED"
-  | "INTERNAL_ERROR"
-  | "VALIDATION_ERROR"
-  | "CONFLICT_ERROR";
+export type Period = "ONE_MINUTE" | "FIVE_MINUTE" | "ONE_HOUR" | "ITERATION_NUMBER";
+export type PutMetricsErrorCode = "METRIC_LIMIT_EXCEEDED" | "INTERNAL_ERROR" | "VALIDATION_ERROR" | "CONFLICT_ERROR";
 export interface RawMetricData {
   MetricName: string;
   Timestamp: Date | string;
@@ -107,11 +100,14 @@ export type XAxisValues = Array<number>;
 export declare namespace BatchGetMetrics {
   export type Input = BatchGetMetricsRequest;
   export type Output = BatchGetMetricsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace BatchPutMetrics {
   export type Input = BatchPutMetricsRequest;
   export type Output = BatchPutMetricsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
+

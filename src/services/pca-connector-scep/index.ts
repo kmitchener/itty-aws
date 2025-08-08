@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class PcaConnectorScep extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("pca-connector-scep", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -20,12 +20,7 @@ export class PcaConnectorScep extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -33,12 +28,7 @@ export class PcaConnectorScep extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -109,11 +99,7 @@ export type ConnectorArn = string;
 
 export type ConnectorList = Array<ConnectorSummary>;
 export type ConnectorStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED";
-export type ConnectorStatusReason =
-  | "INTERNAL_FAILURE"
-  | "PRIVATECA_ACCESS_DENIED"
-  | "PRIVATECA_INVALID_STATE"
-  | "PRIVATECA_RESOURCE_NOT_FOUND";
+export type ConnectorStatusReason = "INTERNAL_FAILURE" | "PRIVATECA_ACCESS_DENIED" | "PRIVATECA_INVALID_STATE" | "PRIVATECA_RESOURCE_NOT_FOUND";
 export interface ConnectorSummary {
   Arn?: string;
   CertificateAuthorityArn?: string;
@@ -206,9 +192,7 @@ interface _MobileDeviceManagement {
   Intune?: IntuneConfiguration;
 }
 
-export type MobileDeviceManagement = _MobileDeviceManagement & {
-  Intune: IntuneConfiguration;
-};
+export type MobileDeviceManagement = (_MobileDeviceManagement & { Intune: IntuneConfiguration });
 export type NextToken = string;
 
 export interface OpenIdConfiguration {
@@ -254,14 +238,7 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly Message: string;
   readonly Reason?: ValidationExceptionReason;
 }> {}
-export type ValidationExceptionReason =
-  | "CA_CERT_VALIDITY_TOO_SHORT"
-  | "INVALID_CA_USAGE_MODE"
-  | "INVALID_CONNECTOR_TYPE"
-  | "INVALID_STATE"
-  | "NO_CLIENT_TOKEN"
-  | "UNKNOWN_OPERATION"
-  | "OTHER";
+export type ValidationExceptionReason = "CA_CERT_VALIDITY_TOO_SHORT" | "INVALID_CA_USAGE_MODE" | "INVALID_CONNECTOR_TYPE" | "INVALID_STATE" | "NO_CLIENT_TOKEN" | "UNKNOWN_OPERATION" | "OTHER";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
@@ -297,3 +274,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

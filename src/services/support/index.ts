@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class Support extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("support", new AwsJson11Protocol(), cfg);
+  }
+
   addAttachmentsToSet(
     input: AddAttachmentsToSetRequest,
   ): Effect.Effect<
     AddAttachmentsToSetResponse,
-    | AttachmentLimitExceeded
-    | AttachmentSetExpired
-    | AttachmentSetIdNotFound
-    | AttachmentSetSizeLimitExceeded
-    | InternalServerError
-    | CommonAwsError
+    AttachmentLimitExceeded | AttachmentSetExpired | AttachmentSetIdNotFound | AttachmentSetSizeLimitExceeded | InternalServerError | CommonAwsError
   > {
     return this.call("AddAttachmentsToSet", input);
   }
@@ -20,11 +20,7 @@ export class Support extends AWSServiceClient {
     input: AddCommunicationToCaseRequest,
   ): Effect.Effect<
     AddCommunicationToCaseResponse,
-    | AttachmentSetExpired
-    | AttachmentSetIdNotFound
-    | CaseIdNotFound
-    | InternalServerError
-    | CommonAwsError
+    AttachmentSetExpired | AttachmentSetIdNotFound | CaseIdNotFound | InternalServerError | CommonAwsError
   > {
     return this.call("AddCommunicationToCase", input);
   }
@@ -32,11 +28,7 @@ export class Support extends AWSServiceClient {
     input: CreateCaseRequest,
   ): Effect.Effect<
     CreateCaseResponse,
-    | AttachmentSetExpired
-    | AttachmentSetIdNotFound
-    | CaseCreationLimitExceeded
-    | InternalServerError
-    | CommonAwsError
+    AttachmentSetExpired | AttachmentSetIdNotFound | CaseCreationLimitExceeded | InternalServerError | CommonAwsError
   > {
     return this.call("CreateCase", input);
   }
@@ -44,10 +36,7 @@ export class Support extends AWSServiceClient {
     input: DescribeAttachmentRequest,
   ): Effect.Effect<
     DescribeAttachmentResponse,
-    | AttachmentIdNotFound
-    | DescribeAttachmentLimitExceeded
-    | InternalServerError
-    | CommonAwsError
+    AttachmentIdNotFound | DescribeAttachmentLimitExceeded | InternalServerError | CommonAwsError
   > {
     return this.call("DescribeAttachment", input);
   }
@@ -510,8 +499,7 @@ export interface TrustedAdvisorCheckRefreshStatus {
   status: string;
   millisUntilNextRefreshable: number;
 }
-export type TrustedAdvisorCheckRefreshStatusList =
-  Array<TrustedAdvisorCheckRefreshStatus>;
+export type TrustedAdvisorCheckRefreshStatusList = Array<TrustedAdvisorCheckRefreshStatus>;
 export interface TrustedAdvisorCheckResult {
   checkId: string;
   timestamp: string;
@@ -540,8 +528,7 @@ export interface TrustedAdvisorResourceDetail {
   isSuppressed?: boolean;
   metadata: Array<string>;
 }
-export type TrustedAdvisorResourceDetailList =
-  Array<TrustedAdvisorResourceDetail>;
+export type TrustedAdvisorResourceDetailList = Array<TrustedAdvisorResourceDetail>;
 export interface TrustedAdvisorResourcesSummary {
   resourcesProcessed: number;
   resourcesFlagged: number;
@@ -609,13 +596,19 @@ export declare namespace DescribeAttachment {
 export declare namespace DescribeCases {
   export type Input = DescribeCasesRequest;
   export type Output = DescribeCasesResponse;
-  export type Error = CaseIdNotFound | InternalServerError | CommonAwsError;
+  export type Error =
+    | CaseIdNotFound
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCommunications {
   export type Input = DescribeCommunicationsRequest;
   export type Output = DescribeCommunicationsResponse;
-  export type Error = CaseIdNotFound | InternalServerError | CommonAwsError;
+  export type Error =
+    | CaseIdNotFound
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCreateCaseOptions {
@@ -630,13 +623,17 @@ export declare namespace DescribeCreateCaseOptions {
 export declare namespace DescribeServices {
   export type Input = DescribeServicesRequest;
   export type Output = DescribeServicesResponse;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSeverityLevels {
   export type Input = DescribeSeverityLevelsRequest;
   export type Output = DescribeSeverityLevelsResponse;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSupportedLanguages {
@@ -687,11 +684,17 @@ export declare namespace DescribeTrustedAdvisorCheckSummaries {
 export declare namespace RefreshTrustedAdvisorCheck {
   export type Input = RefreshTrustedAdvisorCheckRequest;
   export type Output = RefreshTrustedAdvisorCheckResponse;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace ResolveCase {
   export type Input = ResolveCaseRequest;
   export type Output = ResolveCaseResponse;
-  export type Error = CaseIdNotFound | InternalServerError | CommonAwsError;
+  export type Error =
+    | CaseIdNotFound
+    | InternalServerError
+    | CommonAwsError;
 }
+

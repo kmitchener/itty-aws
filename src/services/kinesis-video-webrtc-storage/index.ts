@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class KinesisVideoWebRTCStorage extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("kinesis-video-webrtc-storage", new RestJson1Protocol(), cfg);
+  }
+
   joinStorageSession(
     input: JoinStorageSessionInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("JoinStorageSession", input);
   }
@@ -19,11 +20,7 @@ export class KinesisVideoWebRTCStorage extends AWSServiceClient {
     input: JoinStorageSessionAsViewerInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("JoinStorageSessionAsViewer", input);
   }
@@ -85,3 +82,4 @@ export declare namespace JoinStorageSessionAsViewer {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

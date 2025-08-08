@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ConnectCases extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("connectcases", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -20,12 +20,7 @@ export class ConnectCases extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -33,12 +28,7 @@ export class ConnectCases extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -83,12 +73,7 @@ interface _AuditEventFieldValueUnion {
   userArnValue?: string;
 }
 
-export type AuditEventFieldValueUnion =
-  | (_AuditEventFieldValueUnion & { stringValue: string })
-  | (_AuditEventFieldValueUnion & { doubleValue: number })
-  | (_AuditEventFieldValueUnion & { booleanValue: boolean })
-  | (_AuditEventFieldValueUnion & { emptyValue: EmptyFieldValue })
-  | (_AuditEventFieldValueUnion & { userArnValue: string });
+export type AuditEventFieldValueUnion = (_AuditEventFieldValueUnion & { stringValue: string }) | (_AuditEventFieldValueUnion & { doubleValue: number }) | (_AuditEventFieldValueUnion & { booleanValue: boolean }) | (_AuditEventFieldValueUnion & { emptyValue: EmptyFieldValue }) | (_AuditEventFieldValueUnion & { userArnValue: string });
 export type AuditEventId = string;
 
 export interface AuditEventPerformedBy {
@@ -136,9 +121,7 @@ interface _BooleanCondition {
   notEqualTo?: BooleanOperands;
 }
 
-export type BooleanCondition =
-  | (_BooleanCondition & { equalTo: BooleanOperands })
-  | (_BooleanCondition & { notEqualTo: BooleanOperands });
+export type BooleanCondition = (_BooleanCondition & { equalTo: BooleanOperands }) | (_BooleanCondition & { notEqualTo: BooleanOperands });
 export type BooleanConditionList = Array<BooleanCondition>;
 export interface BooleanOperands {
   operandOne: OperandOne;
@@ -157,11 +140,7 @@ interface _CaseFilter {
   orAll?: Array<CaseFilter>;
 }
 
-export type CaseFilter =
-  | (_CaseFilter & { field: FieldFilter })
-  | (_CaseFilter & { not: CaseFilter })
-  | (_CaseFilter & { andAll: Array<CaseFilter> })
-  | (_CaseFilter & { orAll: Array<CaseFilter> });
+export type CaseFilter = (_CaseFilter & { field: FieldFilter }) | (_CaseFilter & { not: CaseFilter }) | (_CaseFilter & { andAll: Array<CaseFilter> }) | (_CaseFilter & { orAll: Array<CaseFilter> });
 export type CaseFilterList = Array<CaseFilter>;
 export type CaseId = string;
 
@@ -173,7 +152,7 @@ interface _CaseRuleDetails {
   required?: RequiredCaseRule;
 }
 
-export type CaseRuleDetails = _CaseRuleDetails & { required: RequiredCaseRule };
+export type CaseRuleDetails = (_CaseRuleDetails & { required: RequiredCaseRule });
 export interface CaseRuleError {
   id: string;
   errorCode: string;
@@ -211,7 +190,8 @@ export interface CommentContent {
   body: string;
   contentType: string;
 }
-export interface CommentFilter {}
+export interface CommentFilter {
+}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -313,39 +293,46 @@ export interface DeleteCaseRequest {
   domainId: string;
   caseId: string;
 }
-export interface DeleteCaseResponse {}
+export interface DeleteCaseResponse {
+}
 export interface DeleteCaseRuleRequest {
   domainId: string;
   caseRuleId: string;
 }
-export interface DeleteCaseRuleResponse {}
+export interface DeleteCaseRuleResponse {
+}
 export type Deleted = boolean;
 
 export interface DeleteDomainRequest {
   domainId: string;
 }
-export interface DeleteDomainResponse {}
+export interface DeleteDomainResponse {
+}
 export interface DeleteFieldRequest {
   domainId: string;
   fieldId: string;
 }
-export interface DeleteFieldResponse {}
+export interface DeleteFieldResponse {
+}
 export interface DeleteLayoutRequest {
   domainId: string;
   layoutId: string;
 }
-export interface DeleteLayoutResponse {}
+export interface DeleteLayoutResponse {
+}
 export interface DeleteRelatedItemRequest {
   domainId: string;
   caseId: string;
   relatedItemId: string;
 }
-export interface DeleteRelatedItemResponse {}
+export interface DeleteRelatedItemResponse {
+}
 export interface DeleteTemplateRequest {
   domainId: string;
   templateId: string;
 }
-export interface DeleteTemplateResponse {}
+export interface DeleteTemplateResponse {
+}
 export type DomainArn = string;
 
 export type DomainId = string;
@@ -360,8 +347,10 @@ export interface DomainSummary {
   name: string;
 }
 export type DomainSummaryList = Array<DomainSummary>;
-export interface EmptyFieldValue {}
-export interface EmptyOperandValue {}
+export interface EmptyFieldValue {
+}
+export interface EmptyOperandValue {
+}
 export interface EventBridgeConfiguration {
   enabled: boolean;
   includedData?: EventIncludedData;
@@ -388,13 +377,7 @@ interface _FieldFilter {
   lessThanOrEqualTo?: FieldValue;
 }
 
-export type FieldFilter =
-  | (_FieldFilter & { equalTo: FieldValue })
-  | (_FieldFilter & { contains: FieldValue })
-  | (_FieldFilter & { greaterThan: FieldValue })
-  | (_FieldFilter & { greaterThanOrEqualTo: FieldValue })
-  | (_FieldFilter & { lessThan: FieldValue })
-  | (_FieldFilter & { lessThanOrEqualTo: FieldValue });
+export type FieldFilter = (_FieldFilter & { equalTo: FieldValue }) | (_FieldFilter & { contains: FieldValue }) | (_FieldFilter & { greaterThan: FieldValue }) | (_FieldFilter & { greaterThanOrEqualTo: FieldValue }) | (_FieldFilter & { lessThan: FieldValue }) | (_FieldFilter & { lessThanOrEqualTo: FieldValue });
 export interface FieldGroup {
   name?: string;
   fields: Array<FieldItem>;
@@ -452,12 +435,7 @@ interface _FieldValueUnion {
   userArnValue?: string;
 }
 
-export type FieldValueUnion =
-  | (_FieldValueUnion & { stringValue: string })
-  | (_FieldValueUnion & { doubleValue: number })
-  | (_FieldValueUnion & { booleanValue: boolean })
-  | (_FieldValueUnion & { emptyValue: EmptyFieldValue })
-  | (_FieldValueUnion & { userArnValue: string });
+export type FieldValueUnion = (_FieldValueUnion & { stringValue: string }) | (_FieldValueUnion & { doubleValue: number }) | (_FieldValueUnion & { booleanValue: boolean }) | (_FieldValueUnion & { emptyValue: EmptyFieldValue }) | (_FieldValueUnion & { userArnValue: string });
 export type FileArn = string;
 
 export interface FileContent {
@@ -579,7 +557,7 @@ interface _LayoutContent {
   basic?: BasicLayout;
 }
 
-export type LayoutContent = _LayoutContent & { basic: BasicLayout };
+export type LayoutContent = (_LayoutContent & { basic: BasicLayout });
 export type LayoutId = string;
 
 export type LayoutName = string;
@@ -673,7 +651,7 @@ interface _OperandOne {
   fieldId?: string;
 }
 
-export type OperandOne = _OperandOne & { fieldId: string };
+export type OperandOne = (_OperandOne & { fieldId: string });
 interface _OperandTwo {
   stringValue?: string;
   booleanValue?: boolean;
@@ -681,18 +659,15 @@ interface _OperandTwo {
   emptyValue?: EmptyOperandValue;
 }
 
-export type OperandTwo =
-  | (_OperandTwo & { stringValue: string })
-  | (_OperandTwo & { booleanValue: boolean })
-  | (_OperandTwo & { doubleValue: number })
-  | (_OperandTwo & { emptyValue: EmptyOperandValue });
+export type OperandTwo = (_OperandTwo & { stringValue: string }) | (_OperandTwo & { booleanValue: boolean }) | (_OperandTwo & { doubleValue: number }) | (_OperandTwo & { emptyValue: EmptyOperandValue });
 export type Order = string;
 
 export interface PutCaseEventConfigurationRequest {
   domainId: string;
   eventBridge: EventBridgeConfiguration;
 }
-export interface PutCaseEventConfigurationResponse {}
+export interface PutCaseEventConfigurationResponse {
+}
 export type RelatedItemArn = string;
 
 interface _RelatedItemContent {
@@ -702,11 +677,7 @@ interface _RelatedItemContent {
   sla?: SlaContent;
 }
 
-export type RelatedItemContent =
-  | (_RelatedItemContent & { contact: ContactContent })
-  | (_RelatedItemContent & { comment: CommentContent })
-  | (_RelatedItemContent & { file: FileContent })
-  | (_RelatedItemContent & { sla: SlaContent });
+export type RelatedItemContent = (_RelatedItemContent & { contact: ContactContent }) | (_RelatedItemContent & { comment: CommentContent }) | (_RelatedItemContent & { file: FileContent }) | (_RelatedItemContent & { sla: SlaContent });
 export interface RelatedItemEventIncludedData {
   includeContent: boolean;
 }
@@ -720,11 +691,7 @@ interface _RelatedItemInputContent {
   sla?: SlaInputContent;
 }
 
-export type RelatedItemInputContent =
-  | (_RelatedItemInputContent & { contact: Contact })
-  | (_RelatedItemInputContent & { comment: CommentContent })
-  | (_RelatedItemInputContent & { file: FileContent })
-  | (_RelatedItemInputContent & { sla: SlaInputContent });
+export type RelatedItemInputContent = (_RelatedItemInputContent & { contact: Contact }) | (_RelatedItemInputContent & { comment: CommentContent }) | (_RelatedItemInputContent & { file: FileContent }) | (_RelatedItemInputContent & { sla: SlaInputContent });
 export type RelatedItemType = string;
 
 interface _RelatedItemTypeFilter {
@@ -734,11 +701,7 @@ interface _RelatedItemTypeFilter {
   sla?: SlaFilter;
 }
 
-export type RelatedItemTypeFilter =
-  | (_RelatedItemTypeFilter & { contact: ContactFilter })
-  | (_RelatedItemTypeFilter & { comment: CommentFilter })
-  | (_RelatedItemTypeFilter & { file: FileFilter })
-  | (_RelatedItemTypeFilter & { sla: SlaFilter });
+export type RelatedItemTypeFilter = (_RelatedItemTypeFilter & { contact: ContactFilter }) | (_RelatedItemTypeFilter & { comment: CommentFilter }) | (_RelatedItemTypeFilter & { file: FileFilter }) | (_RelatedItemTypeFilter & { sla: SlaFilter });
 export interface RequiredCaseRule {
   defaultValue: boolean;
   conditions: Array<BooleanCondition>;
@@ -795,13 +758,12 @@ export interface SearchRelatedItemsResponseItem {
   tags?: Record<string, string>;
   performedBy?: UserUnion;
 }
-export type SearchRelatedItemsResponseItemList =
-  Array<SearchRelatedItemsResponseItem>;
+export type SearchRelatedItemsResponseItemList = Array<SearchRelatedItemsResponseItem>;
 interface _Section {
   fieldGroup?: FieldGroup;
 }
 
-export type Section = _Section & { fieldGroup: FieldGroup };
+export type Section = (_Section & { fieldGroup: FieldGroup });
 export type SectionsList = Array<Section>;
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
@@ -838,9 +800,7 @@ interface _SlaInputContent {
   slaInputConfiguration?: SlaInputConfiguration;
 }
 
-export type SlaInputContent = _SlaInputContent & {
-  slaInputConfiguration: SlaInputConfiguration;
-};
+export type SlaInputContent = (_SlaInputContent & { slaInputConfiguration: SlaInputConfiguration });
 export type SlaName = string;
 
 export type SlaStatus = string;
@@ -902,7 +862,8 @@ export interface UpdateCaseRequest {
   fields: Array<FieldValue>;
   performedBy?: UserUnion;
 }
-export interface UpdateCaseResponse {}
+export interface UpdateCaseResponse {
+}
 export interface UpdateCaseRuleRequest {
   domainId: string;
   caseRuleId: string;
@@ -910,21 +871,24 @@ export interface UpdateCaseRuleRequest {
   description?: string;
   rule?: CaseRuleDetails;
 }
-export interface UpdateCaseRuleResponse {}
+export interface UpdateCaseRuleResponse {
+}
 export interface UpdateFieldRequest {
   domainId: string;
   fieldId: string;
   name?: string;
   description?: string;
 }
-export interface UpdateFieldResponse {}
+export interface UpdateFieldResponse {
+}
 export interface UpdateLayoutRequest {
   domainId: string;
   layoutId: string;
   name?: string;
   content?: LayoutContent;
 }
-export interface UpdateLayoutResponse {}
+export interface UpdateLayoutResponse {
+}
 export interface UpdateTemplateRequest {
   domainId: string;
   templateId: string;
@@ -935,7 +899,8 @@ export interface UpdateTemplateRequest {
   status?: string;
   rules?: Array<TemplateRule>;
 }
-export interface UpdateTemplateResponse {}
+export interface UpdateTemplateResponse {
+}
 export type UserArn = string;
 
 interface _UserUnion {
@@ -943,9 +908,7 @@ interface _UserUnion {
   customEntity?: string;
 }
 
-export type UserUnion =
-  | (_UserUnion & { userArn: string })
-  | (_UserUnion & { customEntity: string });
+export type UserUnion = (_UserUnion & { userArn: string }) | (_UserUnion & { customEntity: string });
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -989,3 +952,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

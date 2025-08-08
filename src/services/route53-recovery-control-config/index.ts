@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Route53RecoveryControlConfig extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("route53-recovery-control-config", new RestJson1Protocol(), cfg);
+  }
+
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCluster", input);
   }
@@ -22,14 +20,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: CreateControlPanelRequest,
   ): Effect.Effect<
     CreateControlPanelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateControlPanel", input);
   }
@@ -37,14 +28,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: CreateRoutingControlRequest,
   ): Effect.Effect<
     CreateRoutingControlResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRoutingControl", input);
   }
@@ -60,13 +44,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCluster", input);
   }
@@ -74,13 +52,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: DeleteControlPanelRequest,
   ): Effect.Effect<
     DeleteControlPanelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteControlPanel", input);
   }
@@ -88,13 +60,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: DeleteRoutingControlRequest,
   ): Effect.Effect<
     DeleteRoutingControlResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRoutingControl", input);
   }
@@ -102,10 +68,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: DeleteSafetyRuleRequest,
   ): Effect.Effect<
     DeleteSafetyRuleResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSafetyRule", input);
   }
@@ -113,13 +76,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: DescribeClusterRequest,
   ): Effect.Effect<
     DescribeClusterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeCluster", input);
   }
@@ -127,13 +84,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: DescribeControlPanelRequest,
   ): Effect.Effect<
     DescribeControlPanelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeControlPanel", input);
   }
@@ -141,13 +92,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: DescribeRoutingControlRequest,
   ): Effect.Effect<
     DescribeRoutingControlResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRoutingControl", input);
   }
@@ -171,10 +116,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: ListAssociatedRoute53HealthChecksRequest,
   ): Effect.Effect<
     ListAssociatedRoute53HealthChecksResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssociatedRoute53HealthChecks", input);
   }
@@ -182,12 +124,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: ListClustersRequest,
   ): Effect.Effect<
     ListClustersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListClusters", input);
   }
@@ -195,12 +132,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: ListControlPanelsRequest,
   ): Effect.Effect<
     ListControlPanelsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListControlPanels", input);
   }
@@ -208,12 +140,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: ListRoutingControlsRequest,
   ): Effect.Effect<
     ListRoutingControlsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRoutingControls", input);
   }
@@ -221,12 +148,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: ListSafetyRulesRequest,
   ): Effect.Effect<
     ListSafetyRulesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSafetyRules", input);
   }
@@ -234,10 +156,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -245,10 +164,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -256,10 +172,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -267,13 +180,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: UpdateClusterRequest,
   ): Effect.Effect<
     UpdateClusterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateCluster", input);
   }
@@ -281,13 +188,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: UpdateControlPanelRequest,
   ): Effect.Effect<
     UpdateControlPanelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateControlPanel", input);
   }
@@ -295,13 +196,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: UpdateRoutingControlRequest,
   ): Effect.Effect<
     UpdateRoutingControlResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRoutingControl", input);
   }
@@ -309,10 +204,7 @@ export class Route53RecoveryControlConfig extends AWSServiceClient {
     input: UpdateSafetyRuleRequest,
   ): Effect.Effect<
     UpdateSafetyRuleResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSafetyRule", input);
   }
@@ -439,19 +331,23 @@ export interface CreateSafetyRuleResponse {
 export interface DeleteClusterRequest {
   ClusterArn: string;
 }
-export interface DeleteClusterResponse {}
+export interface DeleteClusterResponse {
+}
 export interface DeleteControlPanelRequest {
   ControlPanelArn: string;
 }
-export interface DeleteControlPanelResponse {}
+export interface DeleteControlPanelResponse {
+}
 export interface DeleteRoutingControlRequest {
   RoutingControlArn: string;
 }
-export interface DeleteRoutingControlResponse {}
+export interface DeleteRoutingControlResponse {
+}
 export interface DeleteSafetyRuleRequest {
   SafetyRuleArn: string;
 }
-export interface DeleteSafetyRuleResponse {}
+export interface DeleteSafetyRuleResponse {
+}
 export interface DescribeClusterRequest {
   ClusterArn: string;
 }
@@ -604,7 +500,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -614,7 +511,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateClusterRequest {
   ClusterArn: string;
   NetworkType: NetworkType;
@@ -942,3 +840,4 @@ export declare namespace UpdateSafetyRule {
     | ValidationException
     | CommonAwsError;
 }
+

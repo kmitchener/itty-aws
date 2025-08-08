@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class BackupGateway extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("backup-gateway", new AwsJson10Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -318,7 +323,8 @@ export interface TestHypervisorConfigurationInput {
   Username?: string;
   Password?: string;
 }
-export interface TestHypervisorConfigurationOutput {}
+export interface TestHypervisorConfigurationOutput {
+}
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -406,17 +412,24 @@ export type VpcEndpoint = string;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
   export type Output = ListTagsForResourceOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
   export type Input = TagResourceInput;
   export type Output = TagResourceOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = UntagResourceOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
+

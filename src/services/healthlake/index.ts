@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class HealthLake extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("healthlake", new AwsJson10Protocol(), cfg);
+  }
+
   createFHIRDatastore(
     input: CreateFHIRDatastoreRequest,
   ): Effect.Effect<
     CreateFHIRDatastoreResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateFHIRDatastore", input);
   }
@@ -19,13 +20,7 @@ export class HealthLake extends AWSServiceClient {
     input: DeleteFHIRDatastoreRequest,
   ): Effect.Effect<
     DeleteFHIRDatastoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteFHIRDatastore", input);
   }
@@ -33,11 +28,7 @@ export class HealthLake extends AWSServiceClient {
     input: DescribeFHIRDatastoreRequest,
   ): Effect.Effect<
     DescribeFHIRDatastoreResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeFHIRDatastore", input);
   }
@@ -45,11 +36,7 @@ export class HealthLake extends AWSServiceClient {
     input: DescribeFHIRExportJobRequest,
   ): Effect.Effect<
     DescribeFHIRExportJobResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeFHIRExportJob", input);
   }
@@ -57,11 +44,7 @@ export class HealthLake extends AWSServiceClient {
     input: DescribeFHIRImportJobRequest,
   ): Effect.Effect<
     DescribeFHIRImportJobResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeFHIRImportJob", input);
   }
@@ -69,10 +52,7 @@ export class HealthLake extends AWSServiceClient {
     input: ListFHIRDatastoresRequest,
   ): Effect.Effect<
     ListFHIRDatastoresResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFHIRDatastores", input);
   }
@@ -80,12 +60,7 @@ export class HealthLake extends AWSServiceClient {
     input: ListFHIRExportJobsRequest,
   ): Effect.Effect<
     ListFHIRExportJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFHIRExportJobs", input);
   }
@@ -93,12 +68,7 @@ export class HealthLake extends AWSServiceClient {
     input: ListFHIRImportJobsRequest,
   ): Effect.Effect<
     ListFHIRImportJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFHIRImportJobs", input);
   }
@@ -114,12 +84,7 @@ export class HealthLake extends AWSServiceClient {
     input: StartFHIRExportJobRequest,
   ): Effect.Effect<
     StartFHIRExportJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartFHIRExportJob", input);
   }
@@ -127,12 +92,7 @@ export class HealthLake extends AWSServiceClient {
     input: StartFHIRImportJobRequest,
   ): Effect.Effect<
     StartFHIRImportJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartFHIRImportJob", input);
   }
@@ -221,12 +181,7 @@ export interface DatastoreProperties {
   ErrorCause?: ErrorCause;
 }
 export type DatastorePropertiesList = Array<DatastoreProperties>;
-export type DatastoreStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "DELETED"
-  | "CREATE_FAILED";
+export type DatastoreStatus = "CREATING" | "ACTIVE" | "DELETING" | "DELETED" | "CREATE_FAILED";
 export interface DeleteFHIRDatastoreRequest {
   DatastoreId: string;
 }
@@ -308,7 +263,7 @@ interface _InputDataConfig {
   S3Uri?: string;
 }
 
-export type InputDataConfig = _InputDataConfig & { S3Uri: string };
+export type InputDataConfig = (_InputDataConfig & { S3Uri: string });
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -328,17 +283,7 @@ export interface JobProgressReport {
   TotalNumberOfFilesReadWithCustomerError?: number;
   Throughput?: number;
 }
-export type JobStatus =
-  | "SUBMITTED"
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "COMPLETED_WITH_ERRORS"
-  | "COMPLETED"
-  | "FAILED"
-  | "CANCEL_SUBMITTED"
-  | "CANCEL_IN_PROGRESS"
-  | "CANCEL_COMPLETED"
-  | "CANCEL_FAILED";
+export type JobStatus = "SUBMITTED" | "QUEUED" | "IN_PROGRESS" | "COMPLETED_WITH_ERRORS" | "COMPLETED" | "FAILED" | "CANCEL_SUBMITTED" | "CANCEL_IN_PROGRESS" | "CANCEL_COMPLETED" | "CANCEL_FAILED";
 export interface KmsEncryptionConfig {
   CmkType: CmkType;
   KmsKeyId?: string;
@@ -396,9 +341,7 @@ interface _OutputDataConfig {
   S3Configuration?: S3Configuration;
 }
 
-export type OutputDataConfig = _OutputDataConfig & {
-  S3Configuration: S3Configuration;
-};
+export type OutputDataConfig = (_OutputDataConfig & { S3Configuration: S3Configuration });
 export interface PreloadDataConfig {
   PreloadDataType: PreloadDataType;
 }
@@ -456,7 +399,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -470,7 +414,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -617,3 +562,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class AuditManager extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("auditmanager", new RestJson1Protocol(), cfg);
+  }
+
   associateAssessmentReportEvidenceFolder(
     input: AssociateAssessmentReportEvidenceFolderRequest,
   ): Effect.Effect<
     AssociateAssessmentReportEvidenceFolderResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateAssessmentReportEvidenceFolder", input);
   }
@@ -19,11 +20,7 @@ export class AuditManager extends AWSServiceClient {
     input: BatchAssociateAssessmentReportEvidenceRequest,
   ): Effect.Effect<
     BatchAssociateAssessmentReportEvidenceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("BatchAssociateAssessmentReportEvidence", input);
   }
@@ -31,11 +28,7 @@ export class AuditManager extends AWSServiceClient {
     input: BatchCreateDelegationByAssessmentRequest,
   ): Effect.Effect<
     BatchCreateDelegationByAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("BatchCreateDelegationByAssessment", input);
   }
@@ -43,11 +36,7 @@ export class AuditManager extends AWSServiceClient {
     input: BatchDeleteDelegationByAssessmentRequest,
   ): Effect.Effect<
     BatchDeleteDelegationByAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDeleteDelegationByAssessment", input);
   }
@@ -55,11 +44,7 @@ export class AuditManager extends AWSServiceClient {
     input: BatchDisassociateAssessmentReportEvidenceRequest,
   ): Effect.Effect<
     BatchDisassociateAssessmentReportEvidenceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDisassociateAssessmentReportEvidence", input);
   }
@@ -67,12 +52,7 @@ export class AuditManager extends AWSServiceClient {
     input: BatchImportEvidenceToAssessmentControlRequest,
   ): Effect.Effect<
     BatchImportEvidenceToAssessmentControlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchImportEvidenceToAssessmentControl", input);
   }
@@ -80,13 +60,7 @@ export class AuditManager extends AWSServiceClient {
     input: CreateAssessmentRequest,
   ): Effect.Effect<
     CreateAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAssessment", input);
   }
@@ -94,12 +68,7 @@ export class AuditManager extends AWSServiceClient {
     input: CreateAssessmentFrameworkRequest,
   ): Effect.Effect<
     CreateAssessmentFrameworkResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAssessmentFramework", input);
   }
@@ -107,11 +76,7 @@ export class AuditManager extends AWSServiceClient {
     input: CreateAssessmentReportRequest,
   ): Effect.Effect<
     CreateAssessmentReportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAssessmentReport", input);
   }
@@ -119,12 +84,7 @@ export class AuditManager extends AWSServiceClient {
     input: CreateControlRequest,
   ): Effect.Effect<
     CreateControlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateControl", input);
   }
@@ -132,11 +92,7 @@ export class AuditManager extends AWSServiceClient {
     input: DeleteAssessmentRequest,
   ): Effect.Effect<
     DeleteAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAssessment", input);
   }
@@ -144,11 +100,7 @@ export class AuditManager extends AWSServiceClient {
     input: DeleteAssessmentFrameworkRequest,
   ): Effect.Effect<
     DeleteAssessmentFrameworkResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAssessmentFramework", input);
   }
@@ -156,11 +108,7 @@ export class AuditManager extends AWSServiceClient {
     input: DeleteAssessmentFrameworkShareRequest,
   ): Effect.Effect<
     DeleteAssessmentFrameworkShareResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAssessmentFrameworkShare", input);
   }
@@ -168,11 +116,7 @@ export class AuditManager extends AWSServiceClient {
     input: DeleteAssessmentReportRequest,
   ): Effect.Effect<
     DeleteAssessmentReportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAssessmentReport", input);
   }
@@ -180,11 +124,7 @@ export class AuditManager extends AWSServiceClient {
     input: DeleteControlRequest,
   ): Effect.Effect<
     DeleteControlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteControl", input);
   }
@@ -192,11 +132,7 @@ export class AuditManager extends AWSServiceClient {
     input: DeregisterAccountRequest,
   ): Effect.Effect<
     DeregisterAccountResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeregisterAccount", input);
   }
@@ -204,11 +140,7 @@ export class AuditManager extends AWSServiceClient {
     input: DeregisterOrganizationAdminAccountRequest,
   ): Effect.Effect<
     DeregisterOrganizationAdminAccountResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeregisterOrganizationAdminAccount", input);
   }
@@ -216,11 +148,7 @@ export class AuditManager extends AWSServiceClient {
     input: DisassociateAssessmentReportEvidenceFolderRequest,
   ): Effect.Effect<
     DisassociateAssessmentReportEvidenceFolderResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateAssessmentReportEvidenceFolder", input);
   }
@@ -236,11 +164,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetAssessmentRequest,
   ): Effect.Effect<
     GetAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetAssessment", input);
   }
@@ -248,11 +172,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetAssessmentFrameworkRequest,
   ): Effect.Effect<
     GetAssessmentFrameworkResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetAssessmentFramework", input);
   }
@@ -260,11 +180,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetAssessmentReportUrlRequest,
   ): Effect.Effect<
     GetAssessmentReportUrlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetAssessmentReportUrl", input);
   }
@@ -272,11 +188,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetChangeLogsRequest,
   ): Effect.Effect<
     GetChangeLogsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetChangeLogs", input);
   }
@@ -284,11 +196,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetControlRequest,
   ): Effect.Effect<
     GetControlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetControl", input);
   }
@@ -296,10 +204,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetDelegationsRequest,
   ): Effect.Effect<
     GetDelegationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("GetDelegations", input);
   }
@@ -307,11 +212,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetEvidenceRequest,
   ): Effect.Effect<
     GetEvidenceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetEvidence", input);
   }
@@ -319,11 +220,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetEvidenceByEvidenceFolderRequest,
   ): Effect.Effect<
     GetEvidenceByEvidenceFolderResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetEvidenceByEvidenceFolder", input);
   }
@@ -331,11 +228,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetEvidenceFileUploadUrlRequest,
   ): Effect.Effect<
     GetEvidenceFileUploadUrlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetEvidenceFileUploadUrl", input);
   }
@@ -343,11 +236,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetEvidenceFolderRequest,
   ): Effect.Effect<
     GetEvidenceFolderResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetEvidenceFolder", input);
   }
@@ -355,11 +244,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetEvidenceFoldersByAssessmentRequest,
   ): Effect.Effect<
     GetEvidenceFoldersByAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetEvidenceFoldersByAssessment", input);
   }
@@ -367,11 +252,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetEvidenceFoldersByAssessmentControlRequest,
   ): Effect.Effect<
     GetEvidenceFoldersByAssessmentControlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetEvidenceFoldersByAssessmentControl", input);
   }
@@ -387,11 +268,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetInsightsByAssessmentRequest,
   ): Effect.Effect<
     GetInsightsByAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetInsightsByAssessment", input);
   }
@@ -399,11 +276,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetOrganizationAdminAccountRequest,
   ): Effect.Effect<
     GetOrganizationAdminAccountResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetOrganizationAdminAccount", input);
   }
@@ -411,10 +284,7 @@ export class AuditManager extends AWSServiceClient {
     input: GetServicesInScopeRequest,
   ): Effect.Effect<
     GetServicesInScopeResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("GetServicesInScope", input);
   }
@@ -430,11 +300,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListAssessmentControlInsightsByControlDomainRequest,
   ): Effect.Effect<
     ListAssessmentControlInsightsByControlDomainResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssessmentControlInsightsByControlDomain", input);
   }
@@ -442,10 +308,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListAssessmentFrameworksRequest,
   ): Effect.Effect<
     ListAssessmentFrameworksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssessmentFrameworks", input);
   }
@@ -453,10 +316,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListAssessmentFrameworkShareRequestsRequest,
   ): Effect.Effect<
     ListAssessmentFrameworkShareRequestsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssessmentFrameworkShareRequests", input);
   }
@@ -464,10 +324,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListAssessmentReportsRequest,
   ): Effect.Effect<
     ListAssessmentReportsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssessmentReports", input);
   }
@@ -475,10 +332,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListAssessmentsRequest,
   ): Effect.Effect<
     ListAssessmentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssessments", input);
   }
@@ -486,11 +340,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListControlDomainInsightsRequest,
   ): Effect.Effect<
     ListControlDomainInsightsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListControlDomainInsights", input);
   }
@@ -498,11 +348,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListControlDomainInsightsByAssessmentRequest,
   ): Effect.Effect<
     ListControlDomainInsightsByAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListControlDomainInsightsByAssessment", input);
   }
@@ -510,11 +356,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListControlInsightsByControlDomainRequest,
   ): Effect.Effect<
     ListControlInsightsByControlDomainResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListControlInsightsByControlDomain", input);
   }
@@ -522,10 +364,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListControlsRequest,
   ): Effect.Effect<
     ListControlsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListControls", input);
   }
@@ -533,10 +372,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListKeywordsForDataSourceRequest,
   ): Effect.Effect<
     ListKeywordsForDataSourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListKeywordsForDataSource", input);
   }
@@ -544,10 +380,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListNotificationsRequest,
   ): Effect.Effect<
     ListNotificationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListNotifications", input);
   }
@@ -555,10 +388,7 @@ export class AuditManager extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -566,12 +396,7 @@ export class AuditManager extends AWSServiceClient {
     input: RegisterAccountRequest,
   ): Effect.Effect<
     RegisterAccountResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RegisterAccount", input);
   }
@@ -579,12 +404,7 @@ export class AuditManager extends AWSServiceClient {
     input: RegisterOrganizationAdminAccountRequest,
   ): Effect.Effect<
     RegisterOrganizationAdminAccountResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RegisterOrganizationAdminAccount", input);
   }
@@ -592,11 +412,7 @@ export class AuditManager extends AWSServiceClient {
     input: StartAssessmentFrameworkShareRequest,
   ): Effect.Effect<
     StartAssessmentFrameworkShareResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartAssessmentFrameworkShare", input);
   }
@@ -604,10 +420,7 @@ export class AuditManager extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -615,10 +428,7 @@ export class AuditManager extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -626,13 +436,7 @@ export class AuditManager extends AWSServiceClient {
     input: UpdateAssessmentRequest,
   ): Effect.Effect<
     UpdateAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAssessment", input);
   }
@@ -640,11 +444,7 @@ export class AuditManager extends AWSServiceClient {
     input: UpdateAssessmentControlRequest,
   ): Effect.Effect<
     UpdateAssessmentControlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAssessmentControl", input);
   }
@@ -652,11 +452,7 @@ export class AuditManager extends AWSServiceClient {
     input: UpdateAssessmentControlSetStatusRequest,
   ): Effect.Effect<
     UpdateAssessmentControlSetStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAssessmentControlSetStatus", input);
   }
@@ -664,12 +460,7 @@ export class AuditManager extends AWSServiceClient {
     input: UpdateAssessmentFrameworkRequest,
   ): Effect.Effect<
     UpdateAssessmentFrameworkResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAssessmentFramework", input);
   }
@@ -677,12 +468,7 @@ export class AuditManager extends AWSServiceClient {
     input: UpdateAssessmentFrameworkShareRequest,
   ): Effect.Effect<
     UpdateAssessmentFrameworkShareResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAssessmentFrameworkShare", input);
   }
@@ -690,12 +476,7 @@ export class AuditManager extends AWSServiceClient {
     input: UpdateAssessmentStatusRequest,
   ): Effect.Effect<
     UpdateAssessmentStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAssessmentStatus", input);
   }
@@ -703,11 +484,7 @@ export class AuditManager extends AWSServiceClient {
     input: UpdateControlRequest,
   ): Effect.Effect<
     UpdateControlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateControl", input);
   }
@@ -715,10 +492,7 @@ export class AuditManager extends AWSServiceClient {
     input: UpdateSettingsRequest,
   ): Effect.Effect<
     UpdateSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSettings", input);
   }
@@ -726,11 +500,7 @@ export class AuditManager extends AWSServiceClient {
     input: ValidateAssessmentReportIntegrityRequest,
   ): Effect.Effect<
     ValidateAssessmentReportIntegrityResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ValidateAssessmentReportIntegrity", input);
   }
@@ -750,15 +520,7 @@ export type AccountId = string;
 export type AccountName = string;
 
 export type AccountStatus = "ACTIVE" | "INACTIVE" | "PENDING_ACTIVATION";
-export type ActionEnum =
-  | "CREATE"
-  | "UPDATE_METADATA"
-  | "ACTIVE"
-  | "INACTIVE"
-  | "DELETE"
-  | "UNDER_REVIEW"
-  | "REVIEWED"
-  | "IMPORT_EVIDENCE";
+export type ActionEnum = "CREATE" | "UPDATE_METADATA" | "ACTIVE" | "INACTIVE" | "DELETE" | "UNDER_REVIEW" | "REVIEWED" | "IMPORT_EVIDENCE";
 export type ActionPlanInstructions = string;
 
 export type ActionPlanTitle = string;
@@ -856,8 +618,7 @@ export interface AssessmentFrameworkShareRequest {
   customControlsCount?: number;
   complianceType?: string;
 }
-export type AssessmentFrameworkShareRequestList =
-  Array<AssessmentFrameworkShareRequest>;
+export type AssessmentFrameworkShareRequestList = Array<AssessmentFrameworkShareRequest>;
 export interface AssessmentMetadata {
   name?: string;
   id?: string;
@@ -902,8 +663,7 @@ export interface AssessmentReportEvidenceError {
   errorCode?: string;
   errorMessage?: string;
 }
-export type AssessmentReportEvidenceErrors =
-  Array<AssessmentReportEvidenceError>;
+export type AssessmentReportEvidenceErrors = Array<AssessmentReportEvidenceError>;
 export interface AssessmentReportMetadata {
   id?: string;
   name?: string;
@@ -927,7 +687,8 @@ export interface AssociateAssessmentReportEvidenceFolderRequest {
   assessmentId: string;
   evidenceFolderId: string;
 }
-export interface AssociateAssessmentReportEvidenceFolderResponse {}
+export interface AssociateAssessmentReportEvidenceFolderResponse {
+}
 export type AuditManagerArn = string;
 
 export interface AWSAccount {
@@ -956,8 +717,7 @@ export interface BatchCreateDelegationByAssessmentError {
   errorCode?: string;
   errorMessage?: string;
 }
-export type BatchCreateDelegationByAssessmentErrors =
-  Array<BatchCreateDelegationByAssessmentError>;
+export type BatchCreateDelegationByAssessmentErrors = Array<BatchCreateDelegationByAssessmentError>;
 export interface BatchCreateDelegationByAssessmentRequest {
   createDelegationRequests: Array<CreateDelegationRequest>;
   assessmentId: string;
@@ -971,8 +731,7 @@ export interface BatchDeleteDelegationByAssessmentError {
   errorCode?: string;
   errorMessage?: string;
 }
-export type BatchDeleteDelegationByAssessmentErrors =
-  Array<BatchDeleteDelegationByAssessmentError>;
+export type BatchDeleteDelegationByAssessmentErrors = Array<BatchDeleteDelegationByAssessmentError>;
 export interface BatchDeleteDelegationByAssessmentRequest {
   delegationIds: Array<string>;
   assessmentId: string;
@@ -994,8 +753,7 @@ export interface BatchImportEvidenceToAssessmentControlError {
   errorCode?: string;
   errorMessage?: string;
 }
-export type BatchImportEvidenceToAssessmentControlErrors =
-  Array<BatchImportEvidenceToAssessmentControlError>;
+export type BatchImportEvidenceToAssessmentControlErrors = Array<BatchImportEvidenceToAssessmentControlError>;
 export interface BatchImportEvidenceToAssessmentControlRequest {
   assessmentId: string;
   controlSetId: string;
@@ -1061,8 +819,7 @@ export interface ControlDomainInsights {
 }
 export type ControlDomainInsightsList = Array<ControlDomainInsights>;
 export type ControlInsightsMetadata = Array<ControlInsightsMetadataItem>;
-export type ControlInsightsMetadataByAssessment =
-  Array<ControlInsightsMetadataByAssessmentItem>;
+export type ControlInsightsMetadataByAssessment = Array<ControlInsightsMetadataByAssessmentItem>;
 export interface ControlInsightsMetadataByAssessmentItem {
   name?: string;
   id?: string;
@@ -1123,14 +880,12 @@ export type ControlType = "STANDARD" | "CUSTOM" | "CORE";
 export interface CreateAssessmentFrameworkControl {
   id: string;
 }
-export type CreateAssessmentFrameworkControls =
-  Array<CreateAssessmentFrameworkControl>;
+export type CreateAssessmentFrameworkControls = Array<CreateAssessmentFrameworkControl>;
 export interface CreateAssessmentFrameworkControlSet {
   name: string;
   controls?: Array<CreateAssessmentFrameworkControl>;
 }
-export type CreateAssessmentFrameworkControlSets =
-  Array<CreateAssessmentFrameworkControlSet>;
+export type CreateAssessmentFrameworkControlSets = Array<CreateAssessmentFrameworkControlSet>;
 export interface CreateAssessmentFrameworkRequest {
   name: string;
   description?: string;
@@ -1193,12 +948,7 @@ export interface CreateDelegationRequest {
   roleType?: RoleType;
 }
 export type CreateDelegationRequests = Array<CreateDelegationRequest>;
-export type DataSourceType =
-  | "AWS_CLOUDTRAIL"
-  | "AWS_CONFIG"
-  | "AWS_SECURITY_HUB"
-  | "AWS_API_CALL"
-  | "MANUAL";
+export type DataSourceType = "AWS_CLOUDTRAIL" | "AWS_CONFIG" | "AWS_SECURITY_HUB" | "AWS_API_CALL" | "MANUAL";
 export interface DefaultExportDestination {
   destinationType?: ExportDestinationType;
   destination?: string;
@@ -1234,34 +984,41 @@ export type DelegationStatus = "IN_PROGRESS" | "UNDER_REVIEW" | "COMPLETE";
 export interface DeleteAssessmentFrameworkRequest {
   frameworkId: string;
 }
-export interface DeleteAssessmentFrameworkResponse {}
+export interface DeleteAssessmentFrameworkResponse {
+}
 export interface DeleteAssessmentFrameworkShareRequest {
   requestId: string;
   requestType: ShareRequestType;
 }
-export interface DeleteAssessmentFrameworkShareResponse {}
+export interface DeleteAssessmentFrameworkShareResponse {
+}
 export interface DeleteAssessmentReportRequest {
   assessmentId: string;
   assessmentReportId: string;
 }
-export interface DeleteAssessmentReportResponse {}
+export interface DeleteAssessmentReportResponse {
+}
 export interface DeleteAssessmentRequest {
   assessmentId: string;
 }
-export interface DeleteAssessmentResponse {}
+export interface DeleteAssessmentResponse {
+}
 export interface DeleteControlRequest {
   controlId: string;
 }
-export interface DeleteControlResponse {}
+export interface DeleteControlResponse {
+}
 export type DeleteResources = "ALL" | "DEFAULT";
-export interface DeregisterAccountRequest {}
+export interface DeregisterAccountRequest {
+}
 export interface DeregisterAccountResponse {
   status?: AccountStatus;
 }
 export interface DeregisterOrganizationAdminAccountRequest {
   adminAccountId?: string;
 }
-export interface DeregisterOrganizationAdminAccountResponse {}
+export interface DeregisterOrganizationAdminAccountResponse {
+}
 export interface DeregistrationPolicy {
   deleteResources?: DeleteResources;
 }
@@ -1269,7 +1026,8 @@ export interface DisassociateAssessmentReportEvidenceFolderRequest {
   assessmentId: string;
   evidenceFolderId: string;
 }
-export interface DisassociateAssessmentReportEvidenceFolderResponse {}
+export interface DisassociateAssessmentReportEvidenceFolderResponse {
+}
 export type EmailAddress = string;
 
 export type ErrorCode = string;
@@ -1300,21 +1058,14 @@ export type EvidenceAttributeKey = string;
 export type EvidenceAttributes = Record<string, string>;
 export type EvidenceAttributeValue = string;
 
-export type EvidenceFinderBackfillStatus =
-  | "NOT_STARTED"
-  | "IN_PROGRESS"
-  | "COMPLETED";
+export type EvidenceFinderBackfillStatus = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED";
 export interface EvidenceFinderEnablement {
   eventDataStoreArn?: string;
   enablementStatus?: EvidenceFinderEnablementStatus;
   backfillStatus?: EvidenceFinderBackfillStatus;
   error?: string;
 }
-export type EvidenceFinderEnablementStatus =
-  | "ENABLED"
-  | "DISABLED"
-  | "ENABLE_IN_PROGRESS"
-  | "DISABLE_IN_PROGRESS";
+export type EvidenceFinderEnablementStatus = "ENABLED" | "DISABLED" | "ENABLE_IN_PROGRESS" | "DISABLE_IN_PROGRESS";
 export type EvidenceIds = Array<string>;
 export interface EvidenceInsights {
   noncompliantEvidenceCount?: number;
@@ -1356,7 +1107,8 @@ export type FrameworkName = string;
 export type FrameworkType = "STANDARD" | "CUSTOM";
 export type GenericArn = string;
 
-export interface GetAccountStatusRequest {}
+export interface GetAccountStatusRequest {
+}
 export interface GetAccountStatusResponse {
   status?: AccountStatus;
 }
@@ -1466,16 +1218,19 @@ export interface GetInsightsByAssessmentRequest {
 export interface GetInsightsByAssessmentResponse {
   insights?: InsightsByAssessment;
 }
-export interface GetInsightsRequest {}
+export interface GetInsightsRequest {
+}
 export interface GetInsightsResponse {
   insights?: Insights;
 }
-export interface GetOrganizationAdminAccountRequest {}
+export interface GetOrganizationAdminAccountRequest {
+}
 export interface GetOrganizationAdminAccountResponse {
   adminAccountId?: string;
   organizationId?: string;
 }
-export interface GetServicesInScopeRequest {}
+export interface GetServicesInScopeRequest {
+}
 export interface GetServicesInScopeResponse {
   serviceMetadata?: Array<ServiceMetadata>;
 }
@@ -1513,10 +1268,7 @@ export declare class InternalServerException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type KeywordInputType =
-  | "SELECT_FROM_LIST"
-  | "UPLOAD_FILE"
-  | "INPUT_TEXT";
+export type KeywordInputType = "SELECT_FROM_LIST" | "UPLOAD_FILE" | "INPUT_TEXT";
 export type Keywords = Array<string>;
 export type KeywordValue = string;
 
@@ -1656,12 +1408,7 @@ export interface Notification {
 export type Notifications = Array<Notification>;
 export type NullableInteger = number;
 
-export type ObjectTypeEnum =
-  | "ASSESSMENT"
-  | "CONTROL_SET"
-  | "CONTROL"
-  | "DELEGATION"
-  | "ASSESSMENT_REPORT";
+export type ObjectTypeEnum = "ASSESSMENT" | "CONTROL_SET" | "CONTROL" | "DELEGATION" | "ASSESSMENT_REPORT";
 export type organizationId = string;
 
 export type QueryStatement = string;
@@ -1719,15 +1466,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 )<{
   readonly message: string;
 }> {}
-export type SettingAttribute =
-  | "ALL"
-  | "IS_AWS_ORG_ENABLED"
-  | "SNS_TOPIC"
-  | "DEFAULT_ASSESSMENT_REPORTS_DESTINATION"
-  | "DEFAULT_PROCESS_OWNERS"
-  | "EVIDENCE_FINDER_ENABLEMENT"
-  | "DEREGISTRATION_POLICY"
-  | "DEFAULT_EXPORT_DESTINATION";
+export type SettingAttribute = "ALL" | "IS_AWS_ORG_ENABLED" | "SNS_TOPIC" | "DEFAULT_ASSESSMENT_REPORTS_DESTINATION" | "DEFAULT_PROCESS_OWNERS" | "EVIDENCE_FINDER_ENABLEMENT" | "DEREGISTRATION_POLICY" | "DEFAULT_EXPORT_DESTINATION";
 export interface Settings {
   isAwsOrgEnabled?: boolean;
   snsTopic?: string;
@@ -1741,15 +1480,7 @@ export interface Settings {
 export type ShareRequestAction = "ACCEPT" | "DECLINE" | "REVOKE";
 export type ShareRequestComment = string;
 
-export type ShareRequestStatus =
-  | "ACTIVE"
-  | "REPLICATING"
-  | "SHARED"
-  | "EXPIRING"
-  | "FAILED"
-  | "EXPIRED"
-  | "DECLINED"
-  | "REVOKED";
+export type ShareRequestStatus = "ACTIVE" | "REPLICATING" | "SHARED" | "EXPIRING" | "FAILED" | "EXPIRED" | "DECLINED" | "REVOKED";
 export type ShareRequestType = "SENT" | "RECEIVED";
 export type SnsArn = string;
 
@@ -1764,17 +1495,8 @@ export interface SourceKeyword {
 }
 export type SourceName = string;
 
-export type SourceSetUpOption =
-  | "SYSTEM_CONTROLS_MAPPING"
-  | "PROCEDURAL_CONTROLS_MAPPING";
-export type SourceType =
-  | "AWS_CLOUDTRAIL"
-  | "AWS_CONFIG"
-  | "AWS_SECURITY_HUB"
-  | "AWS_API_CALL"
-  | "MANUAL"
-  | "COMMON_CONTROL"
-  | "CORE_CONTROL";
+export type SourceSetUpOption = "SYSTEM_CONTROLS_MAPPING" | "PROCEDURAL_CONTROLS_MAPPING";
+export type SourceType = "AWS_CLOUDTRAIL" | "AWS_CONFIG" | "AWS_SECURITY_HUB" | "AWS_API_CALL" | "MANUAL" | "COMMON_CONTROL" | "CORE_CONTROL";
 export interface StartAssessmentFrameworkShareRequest {
   frameworkId: string;
   destinationAccount: string;
@@ -1794,7 +1516,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TestingInformation = string;
@@ -1816,7 +1539,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAssessmentControlRequest {
   assessmentId: string;
   controlSetId: string;
@@ -1841,8 +1565,7 @@ export interface UpdateAssessmentFrameworkControlSet {
   name: string;
   controls: Array<CreateAssessmentFrameworkControl>;
 }
-export type UpdateAssessmentFrameworkControlSets =
-  Array<UpdateAssessmentFrameworkControlSet>;
+export type UpdateAssessmentFrameworkControlSets = Array<UpdateAssessmentFrameworkControlSet>;
 export interface UpdateAssessmentFrameworkRequest {
   frameworkId: string;
   name: string;
@@ -1936,11 +1659,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export declare namespace AssociateAssessmentReportEvidenceFolder {
   export type Input = AssociateAssessmentReportEvidenceFolderRequest;
   export type Output = AssociateAssessmentReportEvidenceFolderResponse;
@@ -2147,7 +1866,9 @@ export declare namespace DisassociateAssessmentReportEvidenceFolder {
 export declare namespace GetAccountStatus {
   export type Input = GetAccountStatusRequest;
   export type Output = GetAccountStatusResponse;
-  export type Error = InternalServerException | CommonAwsError;
+  export type Error =
+    | InternalServerException
+    | CommonAwsError;
 }
 
 export declare namespace GetAssessment {
@@ -2612,3 +2333,4 @@ export declare namespace ValidateAssessmentReportIntegrity {
     | ValidationException
     | CommonAwsError;
 }
+

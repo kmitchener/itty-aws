@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Location extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("location", new RestJson1Protocol(), cfg);
+  }
+
   associateTrackerConsumer(
     input: AssociateTrackerConsumerRequest,
   ): Effect.Effect<
     AssociateTrackerConsumerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateTrackerConsumer", input);
   }
@@ -22,12 +20,7 @@ export class Location extends AWSServiceClient {
     input: BatchDeleteDevicePositionHistoryRequest,
   ): Effect.Effect<
     BatchDeleteDevicePositionHistoryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDeleteDevicePositionHistory", input);
   }
@@ -35,12 +28,7 @@ export class Location extends AWSServiceClient {
     input: BatchDeleteGeofenceRequest,
   ): Effect.Effect<
     BatchDeleteGeofenceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDeleteGeofence", input);
   }
@@ -48,12 +36,7 @@ export class Location extends AWSServiceClient {
     input: BatchEvaluateGeofencesRequest,
   ): Effect.Effect<
     BatchEvaluateGeofencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchEvaluateGeofences", input);
   }
@@ -61,12 +44,7 @@ export class Location extends AWSServiceClient {
     input: BatchGetDevicePositionRequest,
   ): Effect.Effect<
     BatchGetDevicePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetDevicePosition", input);
   }
@@ -74,12 +52,7 @@ export class Location extends AWSServiceClient {
     input: BatchPutGeofenceRequest,
   ): Effect.Effect<
     BatchPutGeofenceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchPutGeofence", input);
   }
@@ -87,12 +60,7 @@ export class Location extends AWSServiceClient {
     input: BatchUpdateDevicePositionRequest,
   ): Effect.Effect<
     BatchUpdateDevicePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchUpdateDevicePosition", input);
   }
@@ -100,12 +68,7 @@ export class Location extends AWSServiceClient {
     input: CalculateRouteRequest,
   ): Effect.Effect<
     CalculateRouteResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CalculateRoute", input);
   }
@@ -113,12 +76,7 @@ export class Location extends AWSServiceClient {
     input: CalculateRouteMatrixRequest,
   ): Effect.Effect<
     CalculateRouteMatrixResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CalculateRouteMatrix", input);
   }
@@ -126,13 +84,7 @@ export class Location extends AWSServiceClient {
     input: CreateGeofenceCollectionRequest,
   ): Effect.Effect<
     CreateGeofenceCollectionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateGeofenceCollection", input);
   }
@@ -140,13 +92,7 @@ export class Location extends AWSServiceClient {
     input: CreateKeyRequest,
   ): Effect.Effect<
     CreateKeyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateKey", input);
   }
@@ -154,13 +100,7 @@ export class Location extends AWSServiceClient {
     input: CreateMapRequest,
   ): Effect.Effect<
     CreateMapResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateMap", input);
   }
@@ -168,13 +108,7 @@ export class Location extends AWSServiceClient {
     input: CreatePlaceIndexRequest,
   ): Effect.Effect<
     CreatePlaceIndexResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePlaceIndex", input);
   }
@@ -182,13 +116,7 @@ export class Location extends AWSServiceClient {
     input: CreateRouteCalculatorRequest,
   ): Effect.Effect<
     CreateRouteCalculatorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRouteCalculator", input);
   }
@@ -196,13 +124,7 @@ export class Location extends AWSServiceClient {
     input: CreateTrackerRequest,
   ): Effect.Effect<
     CreateTrackerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateTracker", input);
   }
@@ -210,12 +132,7 @@ export class Location extends AWSServiceClient {
     input: DeleteGeofenceCollectionRequest,
   ): Effect.Effect<
     DeleteGeofenceCollectionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteGeofenceCollection", input);
   }
@@ -223,12 +140,7 @@ export class Location extends AWSServiceClient {
     input: DeleteKeyRequest,
   ): Effect.Effect<
     DeleteKeyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteKey", input);
   }
@@ -236,12 +148,7 @@ export class Location extends AWSServiceClient {
     input: DeleteMapRequest,
   ): Effect.Effect<
     DeleteMapResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteMap", input);
   }
@@ -249,12 +156,7 @@ export class Location extends AWSServiceClient {
     input: DeletePlaceIndexRequest,
   ): Effect.Effect<
     DeletePlaceIndexResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePlaceIndex", input);
   }
@@ -262,12 +164,7 @@ export class Location extends AWSServiceClient {
     input: DeleteRouteCalculatorRequest,
   ): Effect.Effect<
     DeleteRouteCalculatorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRouteCalculator", input);
   }
@@ -275,12 +172,7 @@ export class Location extends AWSServiceClient {
     input: DeleteTrackerRequest,
   ): Effect.Effect<
     DeleteTrackerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteTracker", input);
   }
@@ -288,12 +180,7 @@ export class Location extends AWSServiceClient {
     input: DescribeGeofenceCollectionRequest,
   ): Effect.Effect<
     DescribeGeofenceCollectionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeGeofenceCollection", input);
   }
@@ -301,12 +188,7 @@ export class Location extends AWSServiceClient {
     input: DescribeKeyRequest,
   ): Effect.Effect<
     DescribeKeyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeKey", input);
   }
@@ -314,12 +196,7 @@ export class Location extends AWSServiceClient {
     input: DescribeMapRequest,
   ): Effect.Effect<
     DescribeMapResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeMap", input);
   }
@@ -327,12 +204,7 @@ export class Location extends AWSServiceClient {
     input: DescribePlaceIndexRequest,
   ): Effect.Effect<
     DescribePlaceIndexResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePlaceIndex", input);
   }
@@ -340,12 +212,7 @@ export class Location extends AWSServiceClient {
     input: DescribeRouteCalculatorRequest,
   ): Effect.Effect<
     DescribeRouteCalculatorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRouteCalculator", input);
   }
@@ -353,12 +220,7 @@ export class Location extends AWSServiceClient {
     input: DescribeTrackerRequest,
   ): Effect.Effect<
     DescribeTrackerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeTracker", input);
   }
@@ -366,12 +228,7 @@ export class Location extends AWSServiceClient {
     input: DisassociateTrackerConsumerRequest,
   ): Effect.Effect<
     DisassociateTrackerConsumerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateTrackerConsumer", input);
   }
@@ -379,12 +236,7 @@ export class Location extends AWSServiceClient {
     input: ForecastGeofenceEventsRequest,
   ): Effect.Effect<
     ForecastGeofenceEventsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ForecastGeofenceEvents", input);
   }
@@ -392,12 +244,7 @@ export class Location extends AWSServiceClient {
     input: GetDevicePositionRequest,
   ): Effect.Effect<
     GetDevicePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDevicePosition", input);
   }
@@ -405,12 +252,7 @@ export class Location extends AWSServiceClient {
     input: GetDevicePositionHistoryRequest,
   ): Effect.Effect<
     GetDevicePositionHistoryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDevicePositionHistory", input);
   }
@@ -418,12 +260,7 @@ export class Location extends AWSServiceClient {
     input: GetGeofenceRequest,
   ): Effect.Effect<
     GetGeofenceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetGeofence", input);
   }
@@ -431,12 +268,7 @@ export class Location extends AWSServiceClient {
     input: GetMapGlyphsRequest,
   ): Effect.Effect<
     GetMapGlyphsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMapGlyphs", input);
   }
@@ -444,12 +276,7 @@ export class Location extends AWSServiceClient {
     input: GetMapSpritesRequest,
   ): Effect.Effect<
     GetMapSpritesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMapSprites", input);
   }
@@ -457,12 +284,7 @@ export class Location extends AWSServiceClient {
     input: GetMapStyleDescriptorRequest,
   ): Effect.Effect<
     GetMapStyleDescriptorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMapStyleDescriptor", input);
   }
@@ -470,12 +292,7 @@ export class Location extends AWSServiceClient {
     input: GetMapTileRequest,
   ): Effect.Effect<
     GetMapTileResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMapTile", input);
   }
@@ -483,12 +300,7 @@ export class Location extends AWSServiceClient {
     input: GetPlaceRequest,
   ): Effect.Effect<
     GetPlaceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPlace", input);
   }
@@ -496,11 +308,7 @@ export class Location extends AWSServiceClient {
     input: ListDevicePositionsRequest,
   ): Effect.Effect<
     ListDevicePositionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDevicePositions", input);
   }
@@ -508,11 +316,7 @@ export class Location extends AWSServiceClient {
     input: ListGeofenceCollectionsRequest,
   ): Effect.Effect<
     ListGeofenceCollectionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListGeofenceCollections", input);
   }
@@ -520,12 +324,7 @@ export class Location extends AWSServiceClient {
     input: ListGeofencesRequest,
   ): Effect.Effect<
     ListGeofencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListGeofences", input);
   }
@@ -533,11 +332,7 @@ export class Location extends AWSServiceClient {
     input: ListKeysRequest,
   ): Effect.Effect<
     ListKeysResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListKeys", input);
   }
@@ -545,11 +340,7 @@ export class Location extends AWSServiceClient {
     input: ListMapsRequest,
   ): Effect.Effect<
     ListMapsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListMaps", input);
   }
@@ -557,11 +348,7 @@ export class Location extends AWSServiceClient {
     input: ListPlaceIndexesRequest,
   ): Effect.Effect<
     ListPlaceIndexesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPlaceIndexes", input);
   }
@@ -569,11 +356,7 @@ export class Location extends AWSServiceClient {
     input: ListRouteCalculatorsRequest,
   ): Effect.Effect<
     ListRouteCalculatorsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRouteCalculators", input);
   }
@@ -581,12 +364,7 @@ export class Location extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -594,12 +372,7 @@ export class Location extends AWSServiceClient {
     input: ListTrackerConsumersRequest,
   ): Effect.Effect<
     ListTrackerConsumersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTrackerConsumers", input);
   }
@@ -607,11 +380,7 @@ export class Location extends AWSServiceClient {
     input: ListTrackersRequest,
   ): Effect.Effect<
     ListTrackersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTrackers", input);
   }
@@ -619,13 +388,7 @@ export class Location extends AWSServiceClient {
     input: PutGeofenceRequest,
   ): Effect.Effect<
     PutGeofenceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutGeofence", input);
   }
@@ -633,12 +396,7 @@ export class Location extends AWSServiceClient {
     input: SearchPlaceIndexForPositionRequest,
   ): Effect.Effect<
     SearchPlaceIndexForPositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchPlaceIndexForPosition", input);
   }
@@ -646,12 +404,7 @@ export class Location extends AWSServiceClient {
     input: SearchPlaceIndexForSuggestionsRequest,
   ): Effect.Effect<
     SearchPlaceIndexForSuggestionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchPlaceIndexForSuggestions", input);
   }
@@ -659,12 +412,7 @@ export class Location extends AWSServiceClient {
     input: SearchPlaceIndexForTextRequest,
   ): Effect.Effect<
     SearchPlaceIndexForTextResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchPlaceIndexForText", input);
   }
@@ -672,12 +420,7 @@ export class Location extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -685,12 +428,7 @@ export class Location extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -698,12 +436,7 @@ export class Location extends AWSServiceClient {
     input: UpdateGeofenceCollectionRequest,
   ): Effect.Effect<
     UpdateGeofenceCollectionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateGeofenceCollection", input);
   }
@@ -711,12 +444,7 @@ export class Location extends AWSServiceClient {
     input: UpdateKeyRequest,
   ): Effect.Effect<
     UpdateKeyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateKey", input);
   }
@@ -724,12 +452,7 @@ export class Location extends AWSServiceClient {
     input: UpdateMapRequest,
   ): Effect.Effect<
     UpdateMapResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateMap", input);
   }
@@ -737,12 +460,7 @@ export class Location extends AWSServiceClient {
     input: UpdatePlaceIndexRequest,
   ): Effect.Effect<
     UpdatePlaceIndexResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePlaceIndex", input);
   }
@@ -750,12 +468,7 @@ export class Location extends AWSServiceClient {
     input: UpdateRouteCalculatorRequest,
   ): Effect.Effect<
     UpdateRouteCalculatorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRouteCalculator", input);
   }
@@ -763,12 +476,7 @@ export class Location extends AWSServiceClient {
     input: UpdateTrackerRequest,
   ): Effect.Effect<
     UpdateTrackerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateTracker", input);
   }
@@ -776,12 +484,7 @@ export class Location extends AWSServiceClient {
     input: VerifyDevicePositionRequest,
   ): Effect.Effect<
     VerifyDevicePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("VerifyDevicePosition", input);
   }
@@ -814,15 +517,15 @@ export interface AssociateTrackerConsumerRequest {
   TrackerName: string;
   ConsumerArn: string;
 }
-export interface AssociateTrackerConsumerResponse {}
+export interface AssociateTrackerConsumerResponse {
+}
 export type Base64EncodedGeobuf = Uint8Array | string;
 
 export interface BatchDeleteDevicePositionHistoryError {
   DeviceId: string;
   Error: BatchItemError;
 }
-export type BatchDeleteDevicePositionHistoryErrorList =
-  Array<BatchDeleteDevicePositionHistoryError>;
+export type BatchDeleteDevicePositionHistoryErrorList = Array<BatchDeleteDevicePositionHistoryError>;
 export interface BatchDeleteDevicePositionHistoryRequest {
   TrackerName: string;
   DeviceIds: Array<string>;
@@ -847,8 +550,7 @@ export interface BatchEvaluateGeofencesError {
   SampleTime: Date | string;
   Error: BatchItemError;
 }
-export type BatchEvaluateGeofencesErrorList =
-  Array<BatchEvaluateGeofencesError>;
+export type BatchEvaluateGeofencesErrorList = Array<BatchEvaluateGeofencesError>;
 export interface BatchEvaluateGeofencesRequest {
   CollectionName: string;
   DevicePositionUpdates: Array<DevicePositionUpdate>;
@@ -860,8 +562,7 @@ export interface BatchGetDevicePositionError {
   DeviceId: string;
   Error: BatchItemError;
 }
-export type BatchGetDevicePositionErrorList =
-  Array<BatchGetDevicePositionError>;
+export type BatchGetDevicePositionErrorList = Array<BatchGetDevicePositionError>;
 export interface BatchGetDevicePositionRequest {
   TrackerName: string;
   DeviceIds: Array<string>;
@@ -890,8 +591,7 @@ export interface BatchPutGeofenceRequestEntry {
   Geometry: GeofenceGeometry;
   GeofenceProperties?: Record<string, string>;
 }
-export type BatchPutGeofenceRequestEntryList =
-  Array<BatchPutGeofenceRequestEntry>;
+export type BatchPutGeofenceRequestEntryList = Array<BatchPutGeofenceRequestEntry>;
 export interface BatchPutGeofenceResponse {
   Successes: Array<BatchPutGeofenceSuccess>;
   Errors: Array<BatchPutGeofenceError>;
@@ -907,8 +607,7 @@ export interface BatchUpdateDevicePositionError {
   SampleTime: Date | string;
   Error: BatchItemError;
 }
-export type BatchUpdateDevicePositionErrorList =
-  Array<BatchUpdateDevicePositionError>;
+export type BatchUpdateDevicePositionErrorList = Array<BatchUpdateDevicePositionError>;
 export interface BatchUpdateDevicePositionRequest {
   TrackerName: string;
   Updates: Array<DevicePositionUpdate>;
@@ -1084,28 +783,34 @@ export interface DataSourceConfiguration {
 export interface DeleteGeofenceCollectionRequest {
   CollectionName: string;
 }
-export interface DeleteGeofenceCollectionResponse {}
+export interface DeleteGeofenceCollectionResponse {
+}
 export interface DeleteKeyRequest {
   KeyName: string;
   ForceDelete?: boolean;
 }
-export interface DeleteKeyResponse {}
+export interface DeleteKeyResponse {
+}
 export interface DeleteMapRequest {
   MapName: string;
 }
-export interface DeleteMapResponse {}
+export interface DeleteMapResponse {
+}
 export interface DeletePlaceIndexRequest {
   IndexName: string;
 }
-export interface DeletePlaceIndexResponse {}
+export interface DeletePlaceIndexResponse {
+}
 export interface DeleteRouteCalculatorRequest {
   CalculatorName: string;
 }
-export interface DeleteRouteCalculatorResponse {}
+export interface DeleteRouteCalculatorResponse {
+}
 export interface DeleteTrackerRequest {
   TrackerName: string;
 }
-export interface DeleteTrackerResponse {}
+export interface DeleteTrackerResponse {
+}
 export interface DescribeGeofenceCollectionRequest {
   CollectionName: string;
 }
@@ -1226,7 +931,8 @@ export interface DisassociateTrackerConsumerRequest {
   TrackerName: string;
   ConsumerArn: string;
 }
-export interface DisassociateTrackerConsumerResponse {}
+export interface DisassociateTrackerConsumerResponse {
+}
 export type DistanceUnit = string;
 
 export type Earfcn = number;
@@ -1417,8 +1123,7 @@ export interface ListDevicePositionsResponseEntry {
   Accuracy?: PositionalAccuracy;
   PositionProperties?: Record<string, string>;
 }
-export type ListDevicePositionsResponseEntryList =
-  Array<ListDevicePositionsResponseEntry>;
+export type ListDevicePositionsResponseEntryList = Array<ListDevicePositionsResponseEntry>;
 export interface ListGeofenceCollectionsRequest {
   MaxResults?: number;
   NextToken?: string;
@@ -1435,8 +1140,7 @@ export interface ListGeofenceCollectionsResponseEntry {
   CreateTime: Date | string;
   UpdateTime: Date | string;
 }
-export type ListGeofenceCollectionsResponseEntryList =
-  Array<ListGeofenceCollectionsResponseEntry>;
+export type ListGeofenceCollectionsResponseEntryList = Array<ListGeofenceCollectionsResponseEntry>;
 export interface ListGeofenceResponseEntry {
   GeofenceId: string;
   Geometry: GeofenceGeometry;
@@ -1506,8 +1210,7 @@ export interface ListPlaceIndexesResponseEntry {
   CreateTime: Date | string;
   UpdateTime: Date | string;
 }
-export type ListPlaceIndexesResponseEntryList =
-  Array<ListPlaceIndexesResponseEntry>;
+export type ListPlaceIndexesResponseEntryList = Array<ListPlaceIndexesResponseEntry>;
 export interface ListRouteCalculatorsRequest {
   MaxResults?: number;
   NextToken?: string;
@@ -1524,8 +1227,7 @@ export interface ListRouteCalculatorsResponseEntry {
   CreateTime: Date | string;
   UpdateTime: Date | string;
 }
-export type ListRouteCalculatorsResponseEntryList =
-  Array<ListRouteCalculatorsResponseEntry>;
+export type ListRouteCalculatorsResponseEntryList = Array<ListRouteCalculatorsResponseEntry>;
 export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
@@ -1801,7 +1503,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1836,7 +1539,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateGeofenceCollectionRequest {
   CollectionName: string;
   PricingPlan?: string;
@@ -2664,3 +2368,4 @@ export declare namespace VerifyDevicePosition {
     | ValidationException
     | CommonAwsError;
 }
+

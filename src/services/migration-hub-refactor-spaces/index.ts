@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MigrationHubRefactorSpaces extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("migration-hub-refactor-spaces", new RestJson1Protocol(), cfg);
+  }
+
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateApplication", input);
   }
@@ -22,14 +20,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: CreateEnvironmentRequest,
   ): Effect.Effect<
     CreateEnvironmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateEnvironment", input);
   }
@@ -37,14 +28,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: CreateRouteRequest,
   ): Effect.Effect<
     CreateRouteResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRoute", input);
   }
@@ -52,14 +36,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: CreateServiceRequest,
   ): Effect.Effect<
     CreateServiceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateService", input);
   }
@@ -67,13 +44,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteApplication", input);
   }
@@ -81,13 +52,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: DeleteEnvironmentRequest,
   ): Effect.Effect<
     DeleteEnvironmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteEnvironment", input);
   }
@@ -95,12 +60,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -108,13 +68,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: DeleteRouteRequest,
   ): Effect.Effect<
     DeleteRouteResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRoute", input);
   }
@@ -122,13 +76,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: DeleteServiceRequest,
   ): Effect.Effect<
     DeleteServiceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteService", input);
   }
@@ -136,12 +84,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: GetApplicationRequest,
   ): Effect.Effect<
     GetApplicationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetApplication", input);
   }
@@ -149,12 +92,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: GetEnvironmentRequest,
   ): Effect.Effect<
     GetEnvironmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetEnvironment", input);
   }
@@ -162,12 +100,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -175,12 +108,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: GetRouteRequest,
   ): Effect.Effect<
     GetRouteResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRoute", input);
   }
@@ -188,12 +116,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: GetServiceRequest,
   ): Effect.Effect<
     GetServiceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetService", input);
   }
@@ -201,14 +124,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListApplications", input);
   }
@@ -216,12 +132,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: ListEnvironmentsRequest,
   ): Effect.Effect<
     ListEnvironmentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEnvironments", input);
   }
@@ -229,12 +140,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: ListEnvironmentVpcsRequest,
   ): Effect.Effect<
     ListEnvironmentVpcsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEnvironmentVpcs", input);
   }
@@ -242,14 +148,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: ListRoutesRequest,
   ): Effect.Effect<
     ListRoutesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRoutes", input);
   }
@@ -257,14 +156,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: ListServicesRequest,
   ): Effect.Effect<
     ListServicesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListServices", input);
   }
@@ -272,10 +164,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -283,13 +172,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidResourcePolicyException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidResourcePolicyException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -297,10 +180,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -308,10 +188,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -319,12 +196,7 @@ export class MigrationHubRefactorSpaces extends AWSServiceClient {
     input: UpdateRouteRequest,
   ): Effect.Effect<
     UpdateRouteResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRoute", input);
   }
@@ -532,7 +404,8 @@ export interface DeleteEnvironmentResponse {
 export interface DeleteResourcePolicyRequest {
   Identifier: string;
 }
-export interface DeleteResourcePolicyResponse {}
+export interface DeleteResourcePolicyResponse {
+}
 export interface DeleteRouteRequest {
   EnvironmentIdentifier: string;
   ApplicationIdentifier: string;
@@ -800,7 +673,8 @@ export interface PutResourcePolicyRequest {
   ResourceArn: string;
   Policy: string;
 }
-export interface PutResourcePolicyResponse {}
+export interface PutResourcePolicyResponse {
+}
 export type ResourceArn = string;
 
 export type ResourceIdentifier = string;
@@ -892,7 +766,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -909,7 +784,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateRouteRequest {
   EnvironmentIdentifier: string;
   ApplicationIdentifier: string;
@@ -1256,3 +1132,4 @@ export declare namespace UpdateRoute {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class TaxSettings extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("taxsettings", new RestJson1Protocol(), cfg);
+  }
+
   batchDeleteTaxRegistration(
     input: BatchDeleteTaxRegistrationRequest,
   ): Effect.Effect<
     BatchDeleteTaxRegistrationResponse,
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDeleteTaxRegistration", input);
   }
@@ -18,10 +20,7 @@ export class TaxSettings extends AWSServiceClient {
     input: BatchGetTaxExemptionsRequest,
   ): Effect.Effect<
     BatchGetTaxExemptionsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetTaxExemptions", input);
   }
@@ -29,10 +28,7 @@ export class TaxSettings extends AWSServiceClient {
     input: BatchPutTaxRegistrationRequest,
   ): Effect.Effect<
     BatchPutTaxRegistrationResponse,
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("BatchPutTaxRegistration", input);
   }
@@ -40,11 +36,7 @@ export class TaxSettings extends AWSServiceClient {
     input: DeleteSupplementalTaxRegistrationRequest,
   ): Effect.Effect<
     DeleteSupplementalTaxRegistrationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSupplementalTaxRegistration", input);
   }
@@ -52,11 +44,7 @@ export class TaxSettings extends AWSServiceClient {
     input: DeleteTaxRegistrationRequest,
   ): Effect.Effect<
     DeleteTaxRegistrationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteTaxRegistration", input);
   }
@@ -64,10 +52,7 @@ export class TaxSettings extends AWSServiceClient {
     input: GetTaxExemptionTypesRequest,
   ): Effect.Effect<
     GetTaxExemptionTypesResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetTaxExemptionTypes", input);
   }
@@ -75,10 +60,7 @@ export class TaxSettings extends AWSServiceClient {
     input: GetTaxInheritanceRequest,
   ): Effect.Effect<
     GetTaxInheritanceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetTaxInheritance", input);
   }
@@ -86,10 +68,7 @@ export class TaxSettings extends AWSServiceClient {
     input: GetTaxRegistrationRequest,
   ): Effect.Effect<
     GetTaxRegistrationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetTaxRegistration", input);
   }
@@ -105,10 +84,7 @@ export class TaxSettings extends AWSServiceClient {
     input: ListSupplementalTaxRegistrationsRequest,
   ): Effect.Effect<
     ListSupplementalTaxRegistrationsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListSupplementalTaxRegistrations", input);
   }
@@ -116,10 +92,7 @@ export class TaxSettings extends AWSServiceClient {
     input: ListTaxExemptionsRequest,
   ): Effect.Effect<
     ListTaxExemptionsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTaxExemptions", input);
   }
@@ -127,10 +100,7 @@ export class TaxSettings extends AWSServiceClient {
     input: ListTaxRegistrationsRequest,
   ): Effect.Effect<
     ListTaxRegistrationsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTaxRegistrations", input);
   }
@@ -138,10 +108,7 @@ export class TaxSettings extends AWSServiceClient {
     input: PutSupplementalTaxRegistrationRequest,
   ): Effect.Effect<
     PutSupplementalTaxRegistrationResponse,
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("PutSupplementalTaxRegistration", input);
   }
@@ -149,13 +116,7 @@ export class TaxSettings extends AWSServiceClient {
     input: PutTaxExemptionRequest,
   ): Effect.Effect<
     PutTaxExemptionResponse,
-    | AccessDeniedException
-    | AttachmentUploadException
-    | CaseCreationLimitExceededException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | AttachmentUploadException | CaseCreationLimitExceededException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("PutTaxExemption", input);
   }
@@ -163,11 +124,7 @@ export class TaxSettings extends AWSServiceClient {
     input: PutTaxInheritanceRequest,
   ): Effect.Effect<
     PutTaxInheritanceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("PutTaxInheritance", input);
   }
@@ -175,10 +132,7 @@ export class TaxSettings extends AWSServiceClient {
     input: PutTaxRegistrationRequest,
   ): Effect.Effect<
     PutTaxRegistrationResponse,
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("PutTaxRegistration", input);
   }
@@ -273,10 +227,7 @@ export type AddressLine2 = string;
 export type AddressLine3 = string;
 
 export type AddressRoleMap = Record<AddressRoleType, Jurisdiction>;
-export type AddressRoleType =
-  | "TAX_ADDRESS"
-  | "BILLING_ADDRESS"
-  | "CONTACT_ADDRESS";
+export type AddressRoleType = "TAX_ADDRESS" | "BILLING_ADDRESS" | "CONTACT_ADDRESS";
 export declare class AttachmentUploadException extends EffectData.TaggedError(
   "AttachmentUploadException",
 )<{
@@ -292,8 +243,7 @@ export interface BatchDeleteTaxRegistrationError {
   message: string;
   code?: string;
 }
-export type BatchDeleteTaxRegistrationErrors =
-  Array<BatchDeleteTaxRegistrationError>;
+export type BatchDeleteTaxRegistrationErrors = Array<BatchDeleteTaxRegistrationError>;
 export interface BatchDeleteTaxRegistrationRequest {
   accountIds: Array<string>;
 }
@@ -377,11 +327,13 @@ export type DecisionNumber = string;
 export interface DeleteSupplementalTaxRegistrationRequest {
   authorityId: string;
 }
-export interface DeleteSupplementalTaxRegistrationResponse {}
+export interface DeleteSupplementalTaxRegistrationResponse {
+}
 export interface DeleteTaxRegistrationRequest {
   accountId?: string;
 }
-export interface DeleteTaxRegistrationResponse {}
+export interface DeleteTaxRegistrationResponse {
+}
 export type DestinationFilePath = string;
 
 export interface DestinationS3Location {
@@ -400,11 +352,7 @@ export type ElectronicTransactionCodeNumber = string;
 
 export type EnterpriseIdentificationNumber = string;
 
-export type EntityExemptionAccountStatus =
-  | "None"
-  | "Valid"
-  | "Expired"
-  | "Pending";
+export type EntityExemptionAccountStatus = "None" | "Valid" | "Expired" | "Pending";
 export type ErrorCode = string;
 
 export type ErrorMessage = string;
@@ -429,11 +377,13 @@ export type GenericString = string;
 export interface GeorgiaAdditionalInfo {
   personType: PersonType;
 }
-export interface GetTaxExemptionTypesRequest {}
+export interface GetTaxExemptionTypesRequest {
+}
 export interface GetTaxExemptionTypesResponse {
   taxExemptionTypes?: Array<TaxExemptionType>;
 }
-export interface GetTaxInheritanceRequest {}
+export interface GetTaxInheritanceRequest {
+}
 export interface GetTaxInheritanceResponse {
   heritageStatus?: HeritageStatus;
 }
@@ -465,18 +415,8 @@ export interface IndonesiaAdditionalInfo {
   ppnExceptionDesignationCode?: string;
   decisionNumber?: string;
 }
-export type IndonesiaTaxRegistrationNumberType =
-  | "NIK"
-  | "PASSPORT_NUMBER"
-  | "NPWP"
-  | "NITKU";
-export type Industries =
-  | "CIRCULATING_ORG"
-  | "PROFESSIONAL_ORG"
-  | "BANKS"
-  | "INSURANCE"
-  | "PENSION_AND_BENEFIT_FUNDS"
-  | "DEVELOPMENT_AGENCIES";
+export type IndonesiaTaxRegistrationNumberType = "NIK" | "PASSPORT_NUMBER" | "NPWP" | "NITKU";
+export type Industries = "CIRCULATING_ORG" | "PROFESSIONAL_ORG" | "BANKS" | "INSURANCE" | "PENSION_AND_BENEFIT_FUNDS" | "DEVELOPMENT_AGENCIES";
 export type InheritanceObtainedReason = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -543,11 +483,7 @@ export interface MalaysiaAdditionalInfo {
   taxInformationNumber?: string;
   businessRegistrationNumber?: string;
 }
-export type MalaysiaServiceTaxCode =
-  | "CONSULTANCY"
-  | "DIGITAL_SVC_ELECTRONIC_MEDIUM"
-  | "IT_SERVICES"
-  | "TRAINING_OR_COACHING";
+export type MalaysiaServiceTaxCode = "CONSULTANCY" | "DIGITAL_SVC_ELECTRONIC_MEDIUM" | "IT_SERVICES" | "TRAINING_OR_COACHING";
 export type MalaysiaServiceTaxCodesList = Array<MalaysiaServiceTaxCode>;
 export type MaxResults = number;
 
@@ -585,7 +521,8 @@ export interface PutTaxExemptionResponse {
 export interface PutTaxInheritanceRequest {
   heritageStatus?: HeritageStatus;
 }
-export interface PutTaxInheritanceResponse {}
+export interface PutTaxInheritanceResponse {
+}
 export interface PutTaxRegistrationRequest {
   accountId?: string;
   taxRegistrationEntry: TaxRegistrationEntry;
@@ -616,10 +553,7 @@ export type S3Prefix = string;
 export interface SaudiArabiaAdditionalInfo {
   taxRegistrationNumberType?: SaudiArabiaTaxRegistrationNumberType;
 }
-export type SaudiArabiaTaxRegistrationNumberType =
-  | "TAX_REGISTRATION_NUMBER"
-  | "TAX_IDENTIFICATION_NUMBER"
-  | "COMMERCIAL_REGISTRATION_NUMBER";
+export type SaudiArabiaTaxRegistrationNumberType = "TAX_REGISTRATION_NUMBER" | "TAX_IDENTIFICATION_NUMBER" | "COMMERCIAL_REGISTRATION_NUMBER";
 export type SdiAccountId = string;
 
 export type SecondaryTaxId = string;
@@ -655,8 +589,7 @@ export interface SupplementalTaxRegistrationEntry {
   legalName: string;
   address: Address;
 }
-export type SupplementalTaxRegistrationList =
-  Array<SupplementalTaxRegistration>;
+export type SupplementalTaxRegistrationList = Array<SupplementalTaxRegistration>;
 export type SupplementalTaxRegistrationType = "VAT";
 export type TaxCode = string;
 
@@ -729,22 +662,9 @@ export interface TaxRegistrationEntry {
   verificationDetails?: VerificationDetails;
   certifiedEmailId?: string;
 }
-export type TaxRegistrationNumberType =
-  | "TAX_REGISTRATION_NUMBER"
-  | "LOCAL_REGISTRATION_NUMBER";
-export type TaxRegistrationStatus =
-  | "VERIFIED"
-  | "PENDING"
-  | "DELETED"
-  | "REJECTED";
-export type TaxRegistrationType =
-  | "VAT"
-  | "GST"
-  | "CPF"
-  | "CNPJ"
-  | "SST"
-  | "TIN"
-  | "NRIC";
+export type TaxRegistrationNumberType = "TAX_REGISTRATION_NUMBER" | "LOCAL_REGISTRATION_NUMBER";
+export type TaxRegistrationStatus = "VERIFIED" | "PENDING" | "DELETED" | "REJECTED";
+export type TaxRegistrationType = "VAT" | "GST" | "CPF" | "CNPJ" | "SST" | "TIN" | "NRIC";
 export interface TaxRegistrationWithJurisdiction {
   registrationId: string;
   registrationType: TaxRegistrationType;
@@ -782,12 +702,7 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly errorCode: ValidationExceptionErrorCode;
   readonly fieldList?: Array<ValidationExceptionField>;
 }> {}
-export type ValidationExceptionErrorCode =
-  | "MALFORMED_TOKEN"
-  | "EXPIRED_TOKEN"
-  | "INVALID_TOKEN"
-  | "FIELD_VALIDATION_FAILED"
-  | "MISSING_INPUT";
+export type ValidationExceptionErrorCode = "MALFORMED_TOKEN" | "EXPIRED_TOKEN" | "INVALID_TOKEN" | "FIELD_VALIDATION_FAILED" | "MISSING_INPUT";
 export interface ValidationExceptionField {
   name: string;
 }
@@ -968,3 +883,4 @@ export declare namespace PutTaxRegistration {
     | ValidationException
     | CommonAwsError;
 }
+

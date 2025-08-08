@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SupplyChain extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("supplychain", new RestJson1Protocol(), cfg);
+  }
+
   getDataIntegrationEvent(
     input: GetDataIntegrationEventRequest,
   ): Effect.Effect<
     GetDataIntegrationEventResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDataIntegrationEvent", input);
   }
@@ -20,12 +20,7 @@ export class SupplyChain extends AWSServiceClient {
     input: GetDataIntegrationFlowExecutionRequest,
   ): Effect.Effect<
     GetDataIntegrationFlowExecutionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDataIntegrationFlowExecution", input);
   }
@@ -33,11 +28,7 @@ export class SupplyChain extends AWSServiceClient {
     input: ListDataIntegrationEventsRequest,
   ): Effect.Effect<
     ListDataIntegrationEventsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDataIntegrationEvents", input);
   }
@@ -45,12 +36,7 @@ export class SupplyChain extends AWSServiceClient {
     input: ListDataIntegrationFlowExecutionsRequest,
   ): Effect.Effect<
     ListDataIntegrationFlowExecutionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDataIntegrationFlowExecutions", input);
   }
@@ -58,12 +44,7 @@ export class SupplyChain extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -71,14 +52,7 @@ export class SupplyChain extends AWSServiceClient {
     input: SendDataIntegrationEventRequest,
   ): Effect.Effect<
     SendDataIntegrationEventResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendDataIntegrationEvent", input);
   }
@@ -86,12 +60,7 @@ export class SupplyChain extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -99,12 +68,7 @@ export class SupplyChain extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -132,12 +96,7 @@ export interface BillOfMaterialsImportJob {
 }
 export type ClientToken = string;
 
-export type ConfigurationJobStatus =
-  | "NEW"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "QUEUED"
-  | "SUCCESS";
+export type ConfigurationJobStatus = "NEW" | "FAILED" | "IN_PROGRESS" | "QUEUED" | "SUCCESS";
 export type ConfigurationS3Uri = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -213,14 +172,8 @@ export interface DataIntegrationEventDatasetLoadExecutionDetails {
   status: DataIntegrationEventDatasetLoadStatus;
   message?: string;
 }
-export type DataIntegrationEventDatasetLoadStatus =
-  | "SUCCEEDED"
-  | "IN_PROGRESS"
-  | "FAILED";
-export type DataIntegrationEventDatasetOperationType =
-  | "APPEND"
-  | "UPSERT"
-  | "DELETE";
+export type DataIntegrationEventDatasetLoadStatus = "SUCCEEDED" | "IN_PROGRESS" | "FAILED";
+export type DataIntegrationEventDatasetOperationType = "APPEND" | "UPSERT" | "DELETE";
 export interface DataIntegrationEventDatasetTargetConfiguration {
   datasetIdentifier: string;
   operationType: DataIntegrationEventDatasetOperationType;
@@ -237,23 +190,7 @@ export type DataIntegrationEventMaxResults = number;
 
 export type DataIntegrationEventNextToken = string;
 
-export type DataIntegrationEventType =
-  | "FORECAST"
-  | "INVENTORY_LEVEL"
-  | "INBOUND_ORDER"
-  | "INBOUND_ORDER_LINE"
-  | "INBOUND_ORDER_LINE_SCHEDULE"
-  | "OUTBOUND_ORDER_LINE"
-  | "OUTBOUND_SHIPMENT"
-  | "PROCESS_HEADER"
-  | "PROCESS_OPERATION"
-  | "PROCESS_PRODUCT"
-  | "RESERVATION"
-  | "SHIPMENT"
-  | "SHIPMENT_STOP"
-  | "SHIPMENT_STOP_ORDER"
-  | "SUPPLY_PLAN"
-  | "DATASET";
+export type DataIntegrationEventType = "FORECAST" | "INVENTORY_LEVEL" | "INBOUND_ORDER" | "INBOUND_ORDER_LINE" | "INBOUND_ORDER_LINE_SCHEDULE" | "OUTBOUND_ORDER_LINE" | "OUTBOUND_SHIPMENT" | "PROCESS_HEADER" | "PROCESS_OPERATION" | "PROCESS_PRODUCT" | "RESERVATION" | "SHIPMENT" | "SHIPMENT_STOP" | "SHIPMENT_STOP_ORDER" | "SUPPLY_PLAN" | "DATASET";
 export interface DataIntegrationFlow {
   instanceId: string;
   name: string;
@@ -297,8 +234,7 @@ export interface DataIntegrationFlowExecution {
 }
 export type DataIntegrationFlowExecutionDiagnosticReportsRootS3URI = string;
 
-export type DataIntegrationFlowExecutionList =
-  Array<DataIntegrationFlowExecution>;
+export type DataIntegrationFlowExecutionList = Array<DataIntegrationFlowExecution>;
 export type DataIntegrationFlowExecutionMaxResults = number;
 
 export type DataIntegrationFlowExecutionNextToken = string;
@@ -311,16 +247,12 @@ export interface DataIntegrationFlowExecutionSourceInfo {
   s3Source?: DataIntegrationFlowS3Source;
   datasetSource?: DataIntegrationFlowDatasetSource;
 }
-export type DataIntegrationFlowExecutionStatus =
-  | "SUCCEEDED"
-  | "IN_PROGRESS"
-  | "FAILED";
+export type DataIntegrationFlowExecutionStatus = "SUCCEEDED" | "IN_PROGRESS" | "FAILED";
 export interface DataIntegrationFlowFieldPriorityDedupeField {
   name: string;
   sortOrder: DataIntegrationFlowFieldPriorityDedupeSortOrder;
 }
-export type DataIntegrationFlowFieldPriorityDedupeFieldList =
-  Array<DataIntegrationFlowFieldPriorityDedupeField>;
+export type DataIntegrationFlowFieldPriorityDedupeFieldList = Array<DataIntegrationFlowFieldPriorityDedupeField>;
 export type DataIntegrationFlowFieldPriorityDedupeFieldName = string;
 
 export type DataIntegrationFlowFieldPriorityDedupeSortOrder = "ASC" | "DESC";
@@ -407,25 +339,18 @@ export interface DataLakeDatasetPartitionField {
   name: string;
   transform: DataLakeDatasetPartitionFieldTransform;
 }
-export type DataLakeDatasetPartitionFieldList =
-  Array<DataLakeDatasetPartitionField>;
+export type DataLakeDatasetPartitionFieldList = Array<DataLakeDatasetPartitionField>;
 export interface DataLakeDatasetPartitionFieldTransform {
   type: DataLakeDatasetPartitionTransformType;
 }
 export interface DataLakeDatasetPartitionSpec {
   fields: Array<DataLakeDatasetPartitionField>;
 }
-export type DataLakeDatasetPartitionTransformType =
-  | "YEAR"
-  | "MONTH"
-  | "DAY"
-  | "HOUR"
-  | "IDENTITY";
+export type DataLakeDatasetPartitionTransformType = "YEAR" | "MONTH" | "DAY" | "HOUR" | "IDENTITY";
 export interface DataLakeDatasetPrimaryKeyField {
   name: string;
 }
-export type DataLakeDatasetPrimaryKeyFieldList =
-  Array<DataLakeDatasetPrimaryKeyField>;
+export type DataLakeDatasetPrimaryKeyFieldList = Array<DataLakeDatasetPrimaryKeyField>;
 export interface DataLakeDatasetSchema {
   name: string;
   fields: Array<DataLakeDatasetSchemaField>;
@@ -439,12 +364,7 @@ export interface DataLakeDatasetSchemaField {
 export type DataLakeDatasetSchemaFieldList = Array<DataLakeDatasetSchemaField>;
 export type DataLakeDatasetSchemaFieldName = string;
 
-export type DataLakeDatasetSchemaFieldType =
-  | "INT"
-  | "DOUBLE"
-  | "STRING"
-  | "TIMESTAMP"
-  | "LONG";
+export type DataLakeDatasetSchemaFieldType = "INT" | "DOUBLE" | "STRING" | "TIMESTAMP" | "LONG";
 export type DataLakeDatasetSchemaName = string;
 
 export interface DataLakeNamespace {
@@ -571,13 +491,7 @@ export type InstanceName = string;
 export type InstanceNameList = Array<string>;
 export type InstanceNextToken = string;
 
-export type InstanceState =
-  | "INITIALIZING"
-  | "ACTIVE"
-  | "CREATE_FAILED"
-  | "DELETE_FAILED"
-  | "DELETING"
-  | "DELETED";
+export type InstanceState = "INITIALIZING" | "ACTIVE" | "CREATE_FAILED" | "DELETE_FAILED" | "DELETING" | "DELETED";
 export type InstanceStateList = Array<InstanceState>;
 export type InstanceWebAppDnsDomain = string;
 
@@ -684,7 +598,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -696,7 +611,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDataIntegrationFlowRequest {
   instanceId: string;
   name: string;
@@ -835,3 +751,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

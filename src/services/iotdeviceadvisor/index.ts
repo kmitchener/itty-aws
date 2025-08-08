@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IotDeviceAdvisor extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iotdeviceadvisor", new RestJson1Protocol(), cfg);
+  }
+
   createSuiteDefinition(
     input: CreateSuiteDefinitionRequest,
   ): Effect.Effect<
@@ -23,10 +28,7 @@ export class IotDeviceAdvisor extends AWSServiceClient {
     input: GetEndpointRequest,
   ): Effect.Effect<
     GetEndpointResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetEndpoint", input);
   }
@@ -34,10 +36,7 @@ export class IotDeviceAdvisor extends AWSServiceClient {
     input: GetSuiteDefinitionRequest,
   ): Effect.Effect<
     GetSuiteDefinitionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetSuiteDefinition", input);
   }
@@ -45,10 +44,7 @@ export class IotDeviceAdvisor extends AWSServiceClient {
     input: GetSuiteRunRequest,
   ): Effect.Effect<
     GetSuiteRunResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetSuiteRun", input);
   }
@@ -56,10 +52,7 @@ export class IotDeviceAdvisor extends AWSServiceClient {
     input: GetSuiteRunReportRequest,
   ): Effect.Effect<
     GetSuiteRunReportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetSuiteRunReport", input);
   }
@@ -83,10 +76,7 @@ export class IotDeviceAdvisor extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -94,10 +84,7 @@ export class IotDeviceAdvisor extends AWSServiceClient {
     input: StartSuiteRunRequest,
   ): Effect.Effect<
     StartSuiteRunResponse,
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("StartSuiteRun", input);
   }
@@ -105,10 +92,7 @@ export class IotDeviceAdvisor extends AWSServiceClient {
     input: StopSuiteRunRequest,
   ): Effect.Effect<
     StopSuiteRunResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StopSuiteRun", input);
   }
@@ -116,10 +100,7 @@ export class IotDeviceAdvisor extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -127,10 +108,7 @@ export class IotDeviceAdvisor extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -150,9 +128,7 @@ export default IotDeviceAdvisor;
 
 export type AmazonResourceName = string;
 
-export type AuthenticationMethod =
-  | "X509ClientCertificate"
-  | "SignatureVersion4";
+export type AuthenticationMethod = "X509ClientCertificate" | "SignatureVersion4";
 export type ClientToken = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -174,7 +150,8 @@ export interface CreateSuiteDefinitionResponse {
 export interface DeleteSuiteDefinitionRequest {
   suiteDefinitionId: string;
 }
-export interface DeleteSuiteDefinitionResponse {}
+export interface DeleteSuiteDefinitionResponse {
+}
 export interface DeviceUnderTest {
   thingArn?: string;
   certificateArn?: string;
@@ -283,11 +260,7 @@ export type Message = string;
 
 export type ParallelRun = boolean;
 
-export type Protocol =
-  | "MqttV3_1_1"
-  | "MqttV5"
-  | "MqttV3_1_1_OverWebSocket"
-  | "MqttV5_OverWebSocket";
+export type Protocol = "MqttV3_1_1" | "MqttV5" | "MqttV3_1_1_OverWebSocket" | "MqttV5_OverWebSocket";
 export type QualificationReportDownloadUrl = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -310,21 +283,13 @@ export interface StartSuiteRunResponse {
   createdAt?: Date | string;
   endpoint?: string;
 }
-export type Status =
-  | "PASS"
-  | "FAIL"
-  | "CANCELED"
-  | "PENDING"
-  | "RUNNING"
-  | "STOPPING"
-  | "STOPPED"
-  | "PASS_WITH_WARNINGS"
-  | "ERROR";
+export type Status = "PASS" | "FAIL" | "CANCELED" | "PENDING" | "RUNNING" | "STOPPING" | "STOPPED" | "PASS_WITH_WARNINGS" | "ERROR";
 export interface StopSuiteRunRequest {
   suiteDefinitionId: string;
   suiteRunId: string;
 }
-export interface StopSuiteRunResponse {}
+export interface StopSuiteRunResponse {
+}
 export type String128 = string;
 
 export type String256 = string;
@@ -372,16 +337,7 @@ export interface SuiteRunInformation {
 export type SuiteRunResultCount = number;
 
 export type SuiteRunsList = Array<SuiteRunInformation>;
-export type SuiteRunStatus =
-  | "PASS"
-  | "FAIL"
-  | "CANCELED"
-  | "PENDING"
-  | "RUNNING"
-  | "STOPPING"
-  | "STOPPED"
-  | "PASS_WITH_WARNINGS"
-  | "ERROR";
+export type SuiteRunStatus = "PASS" | "FAIL" | "CANCELED" | "PENDING" | "RUNNING" | "STOPPING" | "STOPPED" | "PASS_WITH_WARNINGS" | "ERROR";
 export type SystemMessage = string;
 
 export type TagKeyList = Array<string>;
@@ -390,7 +346,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TestCaseDefinitionName = string;
 
 export interface TestCaseRun {
@@ -416,16 +373,7 @@ export interface TestCaseScenario {
 export type TestCaseScenarioId = string;
 
 export type TestCaseScenariosList = Array<TestCaseScenario>;
-export type TestCaseScenarioStatus =
-  | "PASS"
-  | "FAIL"
-  | "CANCELED"
-  | "PENDING"
-  | "RUNNING"
-  | "STOPPING"
-  | "STOPPED"
-  | "PASS_WITH_WARNINGS"
-  | "ERROR";
+export type TestCaseScenarioStatus = "PASS" | "FAIL" | "CANCELED" | "PENDING" | "RUNNING" | "STOPPING" | "STOPPED" | "PASS_WITH_WARNINGS" | "ERROR";
 export type TestCaseScenarioType = "Advanced" | "Basic";
 export interface TestResult {
   groups?: Array<GroupResult>;
@@ -438,7 +386,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateSuiteDefinitionRequest {
   suiteDefinitionId: string;
   suiteDefinitionConfiguration: SuiteDefinitionConfiguration;
@@ -594,3 +543,4 @@ export declare namespace UpdateSuiteDefinition {
     | ValidationException
     | CommonAwsError;
 }
+

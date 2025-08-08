@@ -1,8 +1,14 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Lambda extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("lambda", new RestJson1Protocol(), cfg);
+  }
+
   getAccountSettings(
     input: GetAccountSettingsRequest,
   ): Effect.Effect<
@@ -15,11 +21,7 @@ export class Lambda extends AWSServiceClient {
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ServiceException
-    | TooManyRequestsException
-    | CommonAwsError
+    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTags", input);
   }
@@ -27,12 +29,7 @@ export class Lambda extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceException
-    | TooManyRequestsException
-    | CommonAwsError
+    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -40,12 +37,7 @@ export class Lambda extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceException
-    | TooManyRequestsException
-    | CommonAwsError
+    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -123,13 +115,7 @@ export interface AmazonManagedKafkaEventSourceConfig {
   ConsumerGroupId?: string;
   SchemaRegistryConfig?: KafkaSchemaRegistryConfig;
 }
-export type ApplicationLogLevel =
-  | "Trace"
-  | "Debug"
-  | "Info"
-  | "Warn"
-  | "Error"
-  | "Fatal";
+export type ApplicationLogLevel = "Trace" | "Debug" | "Info" | "Warn" | "Error" | "Fatal";
 export type Architecture = "x86_64" | "arm64";
 export type ArchitecturesList = Array<Architecture>;
 export type Arn = string;
@@ -294,7 +280,8 @@ export interface DeleteAliasRequest {
 export interface DeleteCodeSigningConfigRequest {
   CodeSigningConfigArn: string;
 }
-export interface DeleteCodeSigningConfigResponse {}
+export interface DeleteCodeSigningConfigResponse {
+}
 export interface DeleteEventSourceMappingRequest {
   UUID: string;
 }
@@ -567,7 +554,8 @@ export type FunctionUrlConfigList = Array<FunctionUrlConfig>;
 export type FunctionUrlQualifier = string;
 
 export type FunctionVersion = "ALL";
-export interface GetAccountSettingsRequest {}
+export interface GetAccountSettingsRequest {
+}
 export interface GetAccountSettingsResponse {
   AccountLimit?: AccountLimit;
   AccountUsage?: AccountUsage;
@@ -806,23 +794,13 @@ interface _InvokeWithResponseStreamResponseEvent {
   InvokeComplete?: InvokeWithResponseStreamCompleteEvent;
 }
 
-export type InvokeWithResponseStreamResponseEvent =
-  | (_InvokeWithResponseStreamResponseEvent & {
-      PayloadChunk: InvokeResponseStreamUpdate;
-    })
-  | (_InvokeWithResponseStreamResponseEvent & {
-      InvokeComplete: InvokeWithResponseStreamCompleteEvent;
-    });
+export type InvokeWithResponseStreamResponseEvent = (_InvokeWithResponseStreamResponseEvent & { PayloadChunk: InvokeResponseStreamUpdate }) | (_InvokeWithResponseStreamResponseEvent & { InvokeComplete: InvokeWithResponseStreamCompleteEvent });
 export interface KafkaSchemaRegistryAccessConfig {
   Type?: KafkaSchemaRegistryAuthType;
   URI?: string;
 }
-export type KafkaSchemaRegistryAccessConfigList =
-  Array<KafkaSchemaRegistryAccessConfig>;
-export type KafkaSchemaRegistryAuthType =
-  | "BASIC_AUTH"
-  | "CLIENT_CERTIFICATE_TLS_AUTH"
-  | "SERVER_ROOT_CA_CERTIFICATE";
+export type KafkaSchemaRegistryAccessConfigList = Array<KafkaSchemaRegistryAccessConfig>;
+export type KafkaSchemaRegistryAuthType = "BASIC_AUTH" | "CLIENT_CERTIFICATE_TLS_AUTH" | "SERVER_ROOT_CA_CERTIFICATE";
 export interface KafkaSchemaRegistryConfig {
   SchemaRegistryURI?: string;
   EventRecordFormat?: SchemaRegistryEventRecordFormat;
@@ -833,8 +811,7 @@ export type KafkaSchemaValidationAttribute = "KEY" | "VALUE";
 export interface KafkaSchemaValidationConfig {
   Attribute?: KafkaSchemaValidationAttribute;
 }
-export type KafkaSchemaValidationConfigList =
-  Array<KafkaSchemaValidationConfig>;
+export type KafkaSchemaValidationConfigList = Array<KafkaSchemaValidationConfig>;
 export declare class KMSAccessDeniedException extends EffectData.TaggedError(
   "KMSAccessDeniedException",
 )<{
@@ -864,28 +841,7 @@ export declare class KMSNotFoundException extends EffectData.TaggedError(
 export type LastUpdateStatus = "Successful" | "Failed" | "InProgress";
 export type LastUpdateStatusReason = string;
 
-export type LastUpdateStatusReasonCode =
-  | "EniLimitExceeded"
-  | "InsufficientRolePermissions"
-  | "InvalidConfiguration"
-  | "InternalError"
-  | "SubnetOutOfIPAddresses"
-  | "InvalidSubnet"
-  | "InvalidSecurityGroup"
-  | "ImageDeleted"
-  | "ImageAccessDenied"
-  | "InvalidImage"
-  | "KMSKeyAccessDenied"
-  | "KMSKeyNotFound"
-  | "InvalidStateKMSKey"
-  | "DisabledKMSKey"
-  | "EFSIOError"
-  | "EFSMountConnectivityError"
-  | "EFSMountFailure"
-  | "EFSMountTimeout"
-  | "InvalidRuntime"
-  | "InvalidZipFileException"
-  | "FunctionError";
+export type LastUpdateStatusReasonCode = "EniLimitExceeded" | "InsufficientRolePermissions" | "InvalidConfiguration" | "InternalError" | "SubnetOutOfIPAddresses" | "InvalidSubnet" | "InvalidSecurityGroup" | "ImageDeleted" | "ImageAccessDenied" | "InvalidImage" | "KMSKeyAccessDenied" | "KMSKeyNotFound" | "InvalidStateKMSKey" | "DisabledKMSKey" | "EFSIOError" | "EFSMountConnectivityError" | "EFSMountFailure" | "EFSMountTimeout" | "InvalidRuntime" | "InvalidZipFileException" | "FunctionError";
 export interface Layer {
   Arn?: string;
   CodeSize?: number;
@@ -1138,8 +1094,7 @@ export type Principal = string;
 
 export type PrincipalOrgID = string;
 
-export type ProvisionedConcurrencyConfigList =
-  Array<ProvisionedConcurrencyConfigListItem>;
+export type ProvisionedConcurrencyConfigList = Array<ProvisionedConcurrencyConfigListItem>;
 export interface ProvisionedConcurrencyConfigListItem {
   FunctionArn?: string;
   RequestedProvisionedConcurrentExecutions?: number;
@@ -1155,10 +1110,7 @@ export declare class ProvisionedConcurrencyConfigNotFoundException extends Effec
   readonly Type?: string;
   readonly message?: string;
 }> {}
-export type ProvisionedConcurrencyStatusEnum =
-  | "IN_PROGRESS"
-  | "READY"
-  | "FAILED";
+export type ProvisionedConcurrencyStatusEnum = "IN_PROGRESS" | "READY" | "FAILED";
 export interface ProvisionedPollerConfig {
   MinimumPollers?: number;
   MaximumPollers?: number;
@@ -1299,48 +1251,7 @@ export declare class ResourceNotReadyException extends EffectData.TaggedError(
 export type ResponseStreamingInvocationType = "RequestResponse" | "DryRun";
 export type RoleArn = string;
 
-export type Runtime =
-  | "nodejs"
-  | "nodejs43"
-  | "nodejs610"
-  | "nodejs810"
-  | "nodejs10x"
-  | "nodejs12x"
-  | "nodejs14x"
-  | "nodejs16x"
-  | "java8"
-  | "java8al2"
-  | "java11"
-  | "python27"
-  | "python36"
-  | "python37"
-  | "python38"
-  | "python39"
-  | "dotnetcore10"
-  | "dotnetcore20"
-  | "dotnetcore21"
-  | "dotnetcore31"
-  | "dotnet6"
-  | "dotnet8"
-  | "nodejs43edge"
-  | "go1x"
-  | "ruby25"
-  | "ruby27"
-  | "provided"
-  | "providedal2"
-  | "nodejs18x"
-  | "python310"
-  | "java17"
-  | "ruby32"
-  | "ruby33"
-  | "ruby34"
-  | "python311"
-  | "nodejs20x"
-  | "providedal2023"
-  | "python312"
-  | "java21"
-  | "python313"
-  | "nodejs22x";
+export type Runtime = "nodejs" | "nodejs43" | "nodejs610" | "nodejs810" | "nodejs10x" | "nodejs12x" | "nodejs14x" | "nodejs16x" | "java8" | "java8al2" | "java11" | "python27" | "python36" | "python37" | "python38" | "python39" | "dotnetcore10" | "dotnetcore20" | "dotnetcore21" | "dotnetcore31" | "dotnet6" | "dotnet8" | "nodejs43edge" | "go1x" | "ruby25" | "ruby27" | "provided" | "providedal2" | "nodejs18x" | "python310" | "java17" | "ruby32" | "ruby33" | "ruby34" | "python311" | "nodejs20x" | "providedal2023" | "python312" | "java21" | "python313" | "nodejs22x";
 export type RuntimeVersionArn = string;
 
 export interface RuntimeVersionConfig {
@@ -1414,15 +1325,7 @@ export interface SourceAccessConfiguration {
   URI?: string;
 }
 export type SourceAccessConfigurations = Array<SourceAccessConfiguration>;
-export type SourceAccessType =
-  | "BASIC_AUTH"
-  | "VPC_SUBNET"
-  | "VPC_SECURITY_GROUP"
-  | "SASL_SCRAM_512_AUTH"
-  | "SASL_SCRAM_256_AUTH"
-  | "VIRTUAL_HOST"
-  | "CLIENT_CERTIFICATE_TLS_AUTH"
-  | "SERVER_ROOT_CA_CERTIFICATE";
+export type SourceAccessType = "BASIC_AUTH" | "VPC_SUBNET" | "VPC_SECURITY_GROUP" | "SASL_SCRAM_512_AUTH" | "SASL_SCRAM_256_AUTH" | "VIRTUAL_HOST" | "CLIENT_CERTIFICATE_TLS_AUTH" | "SERVER_ROOT_CA_CERTIFICATE";
 export type SourceOwner = string;
 
 export type State = "Pending" | "Active" | "Inactive" | "Failed";
@@ -1430,31 +1333,7 @@ export type StatementId = string;
 
 export type StateReason = string;
 
-export type StateReasonCode =
-  | "Idle"
-  | "Creating"
-  | "Restoring"
-  | "EniLimitExceeded"
-  | "InsufficientRolePermissions"
-  | "InvalidConfiguration"
-  | "InternalError"
-  | "SubnetOutOfIPAddresses"
-  | "InvalidSubnet"
-  | "InvalidSecurityGroup"
-  | "ImageDeleted"
-  | "ImageAccessDenied"
-  | "InvalidImage"
-  | "KMSKeyAccessDenied"
-  | "KMSKeyNotFound"
-  | "InvalidStateKMSKey"
-  | "DisabledKMSKey"
-  | "EFSIOError"
-  | "EFSMountConnectivityError"
-  | "EFSMountFailure"
-  | "EFSMountTimeout"
-  | "InvalidRuntime"
-  | "InvalidZipFileException"
-  | "FunctionError";
+export type StateReasonCode = "Idle" | "Creating" | "Restoring" | "EniLimitExceeded" | "InsufficientRolePermissions" | "InvalidConfiguration" | "InternalError" | "SubnetOutOfIPAddresses" | "InvalidSubnet" | "InvalidSecurityGroup" | "ImageDeleted" | "ImageAccessDenied" | "InvalidImage" | "KMSKeyAccessDenied" | "KMSKeyNotFound" | "InvalidStateKMSKey" | "DisabledKMSKey" | "EFSIOError" | "EFSMountConnectivityError" | "EFSMountFailure" | "EFSMountTimeout" | "InvalidRuntime" | "InvalidZipFileException" | "FunctionError";
 export type LambdaString = string;
 
 export type StringList = Array<string>;
@@ -1488,13 +1367,7 @@ export type TagsErrorMessage = string;
 
 export type TagValue = string;
 
-export type ThrottleReason =
-  | "ConcurrentInvocationLimitExceeded"
-  | "FunctionInvocationRateLimitExceeded"
-  | "ReservedFunctionConcurrentInvocationLimitExceeded"
-  | "ReservedFunctionInvocationRateLimitExceeded"
-  | "CallerRateLimitExceeded"
-  | "ConcurrentSnapshotCreateLimitExceeded";
+export type ThrottleReason = "ConcurrentInvocationLimitExceeded" | "FunctionInvocationRateLimitExceeded" | "ReservedFunctionConcurrentInvocationLimitExceeded" | "ReservedFunctionInvocationRateLimitExceeded" | "CallerRateLimitExceeded" | "ConcurrentSnapshotCreateLimitExceeded";
 export type Timeout = number;
 
 export type Timestamp = string;
@@ -1695,3 +1568,4 @@ export declare namespace UntagResource {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

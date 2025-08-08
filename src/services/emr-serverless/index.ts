@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class EMRServerless extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("emr-serverless", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -18,10 +20,7 @@ export class EMRServerless extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -29,10 +28,7 @@ export class EMRServerless extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -171,7 +167,8 @@ export type EmrServerlessDate = Date | string;
 export interface DeleteApplicationRequest {
   applicationId: string;
 }
-export interface DeleteApplicationResponse {}
+export interface DeleteApplicationResponse {
+}
 export type DiskSize = string;
 
 export type DiskType = string;
@@ -264,9 +261,7 @@ interface _JobDriver {
   hive?: Hive;
 }
 
-export type JobDriver =
-  | (_JobDriver & { sparkSubmit: SparkSubmit })
-  | (_JobDriver & { hive: Hive });
+export type JobDriver = (_JobDriver & { sparkSubmit: SparkSubmit }) | (_JobDriver & { hive: Hive });
 export interface JobRun {
   applicationId: string;
   jobRunId: string;
@@ -475,7 +470,8 @@ export type SparkSubmitParameters = string;
 export interface StartApplicationRequest {
   applicationId: string;
 }
-export interface StartApplicationResponse {}
+export interface StartApplicationResponse {
+}
 export interface StartJobRunRequest {
   applicationId: string;
   clientToken: string;
@@ -497,7 +493,8 @@ export interface StartJobRunResponse {
 export interface StopApplicationRequest {
   applicationId: string;
 }
-export interface StopApplicationResponse {}
+export interface StopApplicationResponse {
+}
 export type String1024 = string;
 
 export type String256 = string;
@@ -513,7 +510,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TotalResourceUtilization {
@@ -525,7 +523,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationRequest {
   applicationId: string;
   clientToken: string;
@@ -570,14 +569,8 @@ export interface WorkerTypeSpecification {
 export interface WorkerTypeSpecificationInput {
   imageConfiguration?: ImageConfigurationInput;
 }
-export type WorkerTypeSpecificationInputMap = Record<
-  string,
-  WorkerTypeSpecificationInput
->;
-export type WorkerTypeSpecificationMap = Record<
-  string,
-  WorkerTypeSpecification
->;
+export type WorkerTypeSpecificationInputMap = Record<string, WorkerTypeSpecificationInput>;
+export type WorkerTypeSpecificationMap = Record<string, WorkerTypeSpecification>;
 export type WorkerTypeString = string;
 
 export declare namespace ListTagsForResource {
@@ -609,3 +602,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

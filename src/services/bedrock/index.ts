@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Bedrock extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("bedrock", new RestJson1Protocol(), cfg);
+  }
+
   batchDeleteEvaluationJob(
     input: BatchDeleteEvaluationJobRequest,
   ): Effect.Effect<
     BatchDeleteEvaluationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDeleteEvaluationJob", input);
   }
@@ -21,15 +20,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateCustomModelRequest,
   ): Effect.Effect<
     CreateCustomModelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCustomModel", input);
   }
@@ -37,14 +28,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateCustomModelDeploymentRequest,
   ): Effect.Effect<
     CreateCustomModelDeploymentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCustomModelDeployment", input);
   }
@@ -52,14 +36,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateEvaluationJobRequest,
   ): Effect.Effect<
     CreateEvaluationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateEvaluationJob", input);
   }
@@ -67,13 +44,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateFoundationModelAgreementRequest,
   ): Effect.Effect<
     CreateFoundationModelAgreementResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateFoundationModelAgreement", input);
   }
@@ -81,15 +52,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateGuardrailRequest,
   ): Effect.Effect<
     CreateGuardrailResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateGuardrail", input);
   }
@@ -97,14 +60,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateGuardrailVersionRequest,
   ): Effect.Effect<
     CreateGuardrailVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateGuardrailVersion", input);
   }
@@ -112,15 +68,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateInferenceProfileRequest,
   ): Effect.Effect<
     CreateInferenceProfileResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateInferenceProfile", input);
   }
@@ -128,14 +76,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateMarketplaceModelEndpointRequest,
   ): Effect.Effect<
     CreateMarketplaceModelEndpointResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateMarketplaceModelEndpoint", input);
   }
@@ -143,11 +84,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateModelCopyJobRequest,
   ): Effect.Effect<
     CreateModelCopyJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyTagsException | CommonAwsError
   > {
     return this.call("CreateModelCopyJob", input);
   }
@@ -155,15 +92,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateModelCustomizationJobRequest,
   ): Effect.Effect<
     CreateModelCustomizationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateModelCustomizationJob", input);
   }
@@ -171,15 +100,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateModelImportJobRequest,
   ): Effect.Effect<
     CreateModelImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateModelImportJob", input);
   }
@@ -187,14 +108,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateModelInvocationJobRequest,
   ): Effect.Effect<
     CreateModelInvocationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateModelInvocationJob", input);
   }
@@ -202,15 +116,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreatePromptRouterRequest,
   ): Effect.Effect<
     CreatePromptRouterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePromptRouter", input);
   }
@@ -218,14 +124,7 @@ export class Bedrock extends AWSServiceClient {
     input: CreateProvisionedModelThroughputRequest,
   ): Effect.Effect<
     CreateProvisionedModelThroughputResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateProvisionedModelThroughput", input);
   }
@@ -233,13 +132,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeleteCustomModelRequest,
   ): Effect.Effect<
     DeleteCustomModelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCustomModel", input);
   }
@@ -247,13 +140,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeleteCustomModelDeploymentRequest,
   ): Effect.Effect<
     DeleteCustomModelDeploymentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCustomModelDeployment", input);
   }
@@ -261,13 +148,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeleteFoundationModelAgreementRequest,
   ): Effect.Effect<
     DeleteFoundationModelAgreementResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteFoundationModelAgreement", input);
   }
@@ -275,13 +156,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeleteGuardrailRequest,
   ): Effect.Effect<
     DeleteGuardrailResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteGuardrail", input);
   }
@@ -289,13 +164,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeleteImportedModelRequest,
   ): Effect.Effect<
     DeleteImportedModelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteImportedModel", input);
   }
@@ -303,13 +172,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeleteInferenceProfileRequest,
   ): Effect.Effect<
     DeleteInferenceProfileResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteInferenceProfile", input);
   }
@@ -317,12 +180,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeleteMarketplaceModelEndpointRequest,
   ): Effect.Effect<
     DeleteMarketplaceModelEndpointResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteMarketplaceModelEndpoint", input);
   }
@@ -330,10 +188,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeleteModelInvocationLoggingConfigurationRequest,
   ): Effect.Effect<
     DeleteModelInvocationLoggingConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteModelInvocationLoggingConfiguration", input);
   }
@@ -341,12 +196,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeletePromptRouterRequest,
   ): Effect.Effect<
     DeletePromptRouterResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePromptRouter", input);
   }
@@ -354,13 +204,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeleteProvisionedModelThroughputRequest,
   ): Effect.Effect<
     DeleteProvisionedModelThroughputResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteProvisionedModelThroughput", input);
   }
@@ -368,13 +212,7 @@ export class Bedrock extends AWSServiceClient {
     input: DeregisterMarketplaceModelEndpointRequest,
   ): Effect.Effect<
     DeregisterMarketplaceModelEndpointResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeregisterMarketplaceModelEndpoint", input);
   }
@@ -382,12 +220,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetCustomModelRequest,
   ): Effect.Effect<
     GetCustomModelResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCustomModel", input);
   }
@@ -395,12 +228,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetCustomModelDeploymentRequest,
   ): Effect.Effect<
     GetCustomModelDeploymentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCustomModelDeployment", input);
   }
@@ -408,12 +236,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetEvaluationJobRequest,
   ): Effect.Effect<
     GetEvaluationJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetEvaluationJob", input);
   }
@@ -421,12 +244,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetFoundationModelRequest,
   ): Effect.Effect<
     GetFoundationModelResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetFoundationModel", input);
   }
@@ -434,12 +252,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetFoundationModelAvailabilityRequest,
   ): Effect.Effect<
     GetFoundationModelAvailabilityResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetFoundationModelAvailability", input);
   }
@@ -447,12 +260,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetGuardrailRequest,
   ): Effect.Effect<
     GetGuardrailResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetGuardrail", input);
   }
@@ -460,12 +268,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetImportedModelRequest,
   ): Effect.Effect<
     GetImportedModelResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetImportedModel", input);
   }
@@ -473,12 +276,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetInferenceProfileRequest,
   ): Effect.Effect<
     GetInferenceProfileResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetInferenceProfile", input);
   }
@@ -486,12 +284,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetMarketplaceModelEndpointRequest,
   ): Effect.Effect<
     GetMarketplaceModelEndpointResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMarketplaceModelEndpoint", input);
   }
@@ -499,12 +292,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetModelCopyJobRequest,
   ): Effect.Effect<
     GetModelCopyJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetModelCopyJob", input);
   }
@@ -512,12 +300,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetModelCustomizationJobRequest,
   ): Effect.Effect<
     GetModelCustomizationJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetModelCustomizationJob", input);
   }
@@ -525,12 +308,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetModelImportJobRequest,
   ): Effect.Effect<
     GetModelImportJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetModelImportJob", input);
   }
@@ -538,12 +316,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetModelInvocationJobRequest,
   ): Effect.Effect<
     GetModelInvocationJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetModelInvocationJob", input);
   }
@@ -551,10 +324,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetModelInvocationLoggingConfigurationRequest,
   ): Effect.Effect<
     GetModelInvocationLoggingConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetModelInvocationLoggingConfiguration", input);
   }
@@ -562,12 +332,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetPromptRouterRequest,
   ): Effect.Effect<
     GetPromptRouterResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPromptRouter", input);
   }
@@ -575,12 +340,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetProvisionedModelThroughputRequest,
   ): Effect.Effect<
     GetProvisionedModelThroughputResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetProvisionedModelThroughput", input);
   }
@@ -588,11 +348,7 @@ export class Bedrock extends AWSServiceClient {
     input: GetUseCaseForModelAccessRequest,
   ): Effect.Effect<
     GetUseCaseForModelAccessResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetUseCaseForModelAccess", input);
   }
@@ -600,11 +356,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListCustomModelDeploymentsRequest,
   ): Effect.Effect<
     ListCustomModelDeploymentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCustomModelDeployments", input);
   }
@@ -612,11 +364,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListCustomModelsRequest,
   ): Effect.Effect<
     ListCustomModelsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCustomModels", input);
   }
@@ -624,11 +372,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListEvaluationJobsRequest,
   ): Effect.Effect<
     ListEvaluationJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEvaluationJobs", input);
   }
@@ -636,12 +380,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListFoundationModelAgreementOffersRequest,
   ): Effect.Effect<
     ListFoundationModelAgreementOffersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFoundationModelAgreementOffers", input);
   }
@@ -649,11 +388,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListFoundationModelsRequest,
   ): Effect.Effect<
     ListFoundationModelsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFoundationModels", input);
   }
@@ -661,12 +396,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListGuardrailsRequest,
   ): Effect.Effect<
     ListGuardrailsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListGuardrails", input);
   }
@@ -674,11 +404,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListImportedModelsRequest,
   ): Effect.Effect<
     ListImportedModelsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListImportedModels", input);
   }
@@ -686,11 +412,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListInferenceProfilesRequest,
   ): Effect.Effect<
     ListInferenceProfilesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListInferenceProfiles", input);
   }
@@ -698,12 +420,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListMarketplaceModelEndpointsRequest,
   ): Effect.Effect<
     ListMarketplaceModelEndpointsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListMarketplaceModelEndpoints", input);
   }
@@ -711,12 +428,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListModelCopyJobsRequest,
   ): Effect.Effect<
     ListModelCopyJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListModelCopyJobs", input);
   }
@@ -724,11 +436,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListModelCustomizationJobsRequest,
   ): Effect.Effect<
     ListModelCustomizationJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListModelCustomizationJobs", input);
   }
@@ -736,11 +444,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListModelImportJobsRequest,
   ): Effect.Effect<
     ListModelImportJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListModelImportJobs", input);
   }
@@ -748,11 +452,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListModelInvocationJobsRequest,
   ): Effect.Effect<
     ListModelInvocationJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListModelInvocationJobs", input);
   }
@@ -760,11 +460,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListPromptRoutersRequest,
   ): Effect.Effect<
     ListPromptRoutersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPromptRouters", input);
   }
@@ -772,11 +468,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListProvisionedModelThroughputsRequest,
   ): Effect.Effect<
     ListProvisionedModelThroughputsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProvisionedModelThroughputs", input);
   }
@@ -784,12 +476,7 @@ export class Bedrock extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -797,11 +484,7 @@ export class Bedrock extends AWSServiceClient {
     input: PutModelInvocationLoggingConfigurationRequest,
   ): Effect.Effect<
     PutModelInvocationLoggingConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutModelInvocationLoggingConfiguration", input);
   }
@@ -809,11 +492,7 @@ export class Bedrock extends AWSServiceClient {
     input: PutUseCaseForModelAccessRequest,
   ): Effect.Effect<
     PutUseCaseForModelAccessResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutUseCaseForModelAccess", input);
   }
@@ -821,13 +500,7 @@ export class Bedrock extends AWSServiceClient {
     input: RegisterMarketplaceModelEndpointRequest,
   ): Effect.Effect<
     RegisterMarketplaceModelEndpointResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RegisterMarketplaceModelEndpoint", input);
   }
@@ -835,13 +508,7 @@ export class Bedrock extends AWSServiceClient {
     input: StopEvaluationJobRequest,
   ): Effect.Effect<
     StopEvaluationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopEvaluationJob", input);
   }
@@ -849,13 +516,7 @@ export class Bedrock extends AWSServiceClient {
     input: StopModelCustomizationJobRequest,
   ): Effect.Effect<
     StopModelCustomizationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopModelCustomizationJob", input);
   }
@@ -863,13 +524,7 @@ export class Bedrock extends AWSServiceClient {
     input: StopModelInvocationJobRequest,
   ): Effect.Effect<
     StopModelInvocationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopModelInvocationJob", input);
   }
@@ -877,13 +532,7 @@ export class Bedrock extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -891,12 +540,7 @@ export class Bedrock extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -904,14 +548,7 @@ export class Bedrock extends AWSServiceClient {
     input: UpdateGuardrailRequest,
   ): Effect.Effect<
     UpdateGuardrailResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateGuardrail", input);
   }
@@ -919,14 +556,7 @@ export class Bedrock extends AWSServiceClient {
     input: UpdateMarketplaceModelEndpointRequest,
   ): Effect.Effect<
     UpdateMarketplaceModelEndpointResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateMarketplaceModelEndpoint", input);
   }
@@ -934,12 +564,7 @@ export class Bedrock extends AWSServiceClient {
     input: UpdateProvisionedModelThroughputRequest,
   ): Effect.Effect<
     UpdateProvisionedModelThroughputResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateProvisionedModelThroughput", input);
   }
@@ -967,11 +592,7 @@ export interface AgreementAvailability {
   status: AgreementStatus;
   errorMessage?: string;
 }
-export type AgreementStatus =
-  | "AVAILABLE"
-  | "PENDING"
-  | "NOT_AVAILABLE"
-  | "ERROR";
+export type AgreementStatus = "AVAILABLE" | "PENDING" | "NOT_AVAILABLE" | "ERROR";
 export type ApplicationType = "MODEL_EVALUATION" | "RAG_EVALUATION";
 export type Arn = string;
 
@@ -986,16 +607,12 @@ export interface AutomatedEvaluationCustomMetricConfig {
   customMetrics: Array<AutomatedEvaluationCustomMetricSource>;
   evaluatorModelConfig: CustomMetricEvaluatorModelConfig;
 }
-export type AutomatedEvaluationCustomMetrics =
-  Array<AutomatedEvaluationCustomMetricSource>;
+export type AutomatedEvaluationCustomMetrics = Array<AutomatedEvaluationCustomMetricSource>;
 interface _AutomatedEvaluationCustomMetricSource {
   customMetricDefinition?: CustomMetricDefinition;
 }
 
-export type AutomatedEvaluationCustomMetricSource =
-  _AutomatedEvaluationCustomMetricSource & {
-    customMetricDefinition: CustomMetricDefinition;
-  };
+export type AutomatedEvaluationCustomMetricSource = (_AutomatedEvaluationCustomMetricSource & { customMetricDefinition: CustomMetricDefinition });
 export type BaseModelIdentifier = string;
 
 export interface BatchDeleteEvaluationJobError {
@@ -1003,8 +620,7 @@ export interface BatchDeleteEvaluationJobError {
   code: string;
   message?: string;
 }
-export type BatchDeleteEvaluationJobErrors =
-  Array<BatchDeleteEvaluationJobError>;
+export type BatchDeleteEvaluationJobErrors = Array<BatchDeleteEvaluationJobError>;
 export interface BatchDeleteEvaluationJobItem {
   jobIdentifier: string;
   jobStatus: EvaluationJobStatus;
@@ -1231,19 +847,12 @@ interface _CustomizationConfig {
   distillationConfig?: DistillationConfig;
 }
 
-export type CustomizationConfig = _CustomizationConfig & {
-  distillationConfig: DistillationConfig;
-};
-export type CustomizationType =
-  | "FINE_TUNING"
-  | "CONTINUED_PRE_TRAINING"
-  | "DISTILLATION"
-  | "IMPORTED";
+export type CustomizationConfig = (_CustomizationConfig & { distillationConfig: DistillationConfig });
+export type CustomizationType = "FINE_TUNING" | "CONTINUED_PRE_TRAINING" | "DISTILLATION" | "IMPORTED";
 export interface CustomMetricBedrockEvaluatorModel {
   modelIdentifier: string;
 }
-export type CustomMetricBedrockEvaluatorModels =
-  Array<CustomMetricBedrockEvaluatorModel>;
+export type CustomMetricBedrockEvaluatorModels = Array<CustomMetricBedrockEvaluatorModel>;
 export interface CustomMetricDefinition {
   name: string;
   instructions: string;
@@ -1272,8 +881,7 @@ export interface CustomModelDeploymentSummary {
   lastUpdatedAt?: Date | string;
   failureMessage?: string;
 }
-export type CustomModelDeploymentSummaryList =
-  Array<CustomModelDeploymentSummary>;
+export type CustomModelDeploymentSummaryList = Array<CustomModelDeploymentSummary>;
 export type CustomModelName = string;
 
 export interface CustomModelSummary {
@@ -1301,46 +909,58 @@ export interface DataProcessingDetails {
 export interface DeleteCustomModelDeploymentRequest {
   customModelDeploymentIdentifier: string;
 }
-export interface DeleteCustomModelDeploymentResponse {}
+export interface DeleteCustomModelDeploymentResponse {
+}
 export interface DeleteCustomModelRequest {
   modelIdentifier: string;
 }
-export interface DeleteCustomModelResponse {}
+export interface DeleteCustomModelResponse {
+}
 export interface DeleteFoundationModelAgreementRequest {
   modelId: string;
 }
-export interface DeleteFoundationModelAgreementResponse {}
+export interface DeleteFoundationModelAgreementResponse {
+}
 export interface DeleteGuardrailRequest {
   guardrailIdentifier: string;
   guardrailVersion?: string;
 }
-export interface DeleteGuardrailResponse {}
+export interface DeleteGuardrailResponse {
+}
 export interface DeleteImportedModelRequest {
   modelIdentifier: string;
 }
-export interface DeleteImportedModelResponse {}
+export interface DeleteImportedModelResponse {
+}
 export interface DeleteInferenceProfileRequest {
   inferenceProfileIdentifier: string;
 }
-export interface DeleteInferenceProfileResponse {}
+export interface DeleteInferenceProfileResponse {
+}
 export interface DeleteMarketplaceModelEndpointRequest {
   endpointArn: string;
 }
-export interface DeleteMarketplaceModelEndpointResponse {}
-export interface DeleteModelInvocationLoggingConfigurationRequest {}
-export interface DeleteModelInvocationLoggingConfigurationResponse {}
+export interface DeleteMarketplaceModelEndpointResponse {
+}
+export interface DeleteModelInvocationLoggingConfigurationRequest {
+}
+export interface DeleteModelInvocationLoggingConfigurationResponse {
+}
 export interface DeletePromptRouterRequest {
   promptRouterArn: string;
 }
-export interface DeletePromptRouterResponse {}
+export interface DeletePromptRouterResponse {
+}
 export interface DeleteProvisionedModelThroughputRequest {
   provisionedModelId: string;
 }
-export interface DeleteProvisionedModelThroughputResponse {}
+export interface DeleteProvisionedModelThroughputResponse {
+}
 export interface DeregisterMarketplaceModelEndpointRequest {
   endpointArn: string;
 }
-export interface DeregisterMarketplaceModelEndpointResponse {}
+export interface DeregisterMarketplaceModelEndpointResponse {
+}
 export interface DimensionalPriceRate {
   dimension?: string;
   price?: string;
@@ -1354,7 +974,7 @@ interface _EndpointConfig {
   sageMaker?: SageMakerEndpoint;
 }
 
-export type EndpointConfig = _EndpointConfig & { sageMaker: SageMakerEndpoint };
+export type EndpointConfig = (_EndpointConfig & { sageMaker: SageMakerEndpoint });
 export type EndpointName = string;
 
 export type EntitlementAvailability = "AVAILABLE" | "NOT_AVAILABLE";
@@ -1375,9 +995,7 @@ interface _EvaluationConfig {
   human?: HumanEvaluationConfig;
 }
 
-export type EvaluationConfig =
-  | (_EvaluationConfig & { automated: AutomatedEvaluationConfig })
-  | (_EvaluationConfig & { human: HumanEvaluationConfig });
+export type EvaluationConfig = (_EvaluationConfig & { automated: AutomatedEvaluationConfig }) | (_EvaluationConfig & { human: HumanEvaluationConfig });
 export interface EvaluationDataset {
   name: string;
   datasetLocation?: EvaluationDatasetLocation;
@@ -1386,16 +1004,13 @@ interface _EvaluationDatasetLocation {
   s3Uri?: string;
 }
 
-export type EvaluationDatasetLocation = _EvaluationDatasetLocation & {
-  s3Uri: string;
-};
+export type EvaluationDatasetLocation = (_EvaluationDatasetLocation & { s3Uri: string });
 export interface EvaluationDatasetMetricConfig {
   taskType: EvaluationTaskType;
   dataset: EvaluationDataset;
   metricNames: Array<string>;
 }
-export type EvaluationDatasetMetricConfigs =
-  Array<EvaluationDatasetMetricConfig>;
+export type EvaluationDatasetMetricConfigs = Array<EvaluationDatasetMetricConfig>;
 export type EvaluationDatasetName = string;
 
 interface _EvaluationInferenceConfig {
@@ -1403,9 +1018,7 @@ interface _EvaluationInferenceConfig {
   ragConfigs?: Array<RAGConfig>;
 }
 
-export type EvaluationInferenceConfig =
-  | (_EvaluationInferenceConfig & { models: Array<EvaluationModelConfig> })
-  | (_EvaluationInferenceConfig & { ragConfigs: Array<RAGConfig> });
+export type EvaluationInferenceConfig = (_EvaluationInferenceConfig & { models: Array<EvaluationModelConfig> }) | (_EvaluationInferenceConfig & { ragConfigs: Array<RAGConfig> });
 export interface EvaluationInferenceConfigSummary {
   modelConfigSummary?: EvaluationModelConfigSummary;
   ragConfigSummary?: EvaluationRagConfigSummary;
@@ -1419,13 +1032,7 @@ export type EvaluationJobIdentifier = string;
 export type EvaluationJobIdentifiers = Array<string>;
 export type EvaluationJobName = string;
 
-export type EvaluationJobStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED"
-  | "DELETING";
+export type EvaluationJobStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED" | "STOPPING" | "STOPPED" | "DELETING";
 export type EvaluationJobType = "HUMAN" | "AUTOMATED";
 export type EvaluationMetricDescription = string;
 
@@ -1437,11 +1044,7 @@ interface _EvaluationModelConfig {
   precomputedInferenceSource?: EvaluationPrecomputedInferenceSource;
 }
 
-export type EvaluationModelConfig =
-  | (_EvaluationModelConfig & { bedrockModel: EvaluationBedrockModel })
-  | (_EvaluationModelConfig & {
-      precomputedInferenceSource: EvaluationPrecomputedInferenceSource;
-    });
+export type EvaluationModelConfig = (_EvaluationModelConfig & { bedrockModel: EvaluationBedrockModel }) | (_EvaluationModelConfig & { precomputedInferenceSource: EvaluationPrecomputedInferenceSource });
 export type EvaluationModelConfigs = Array<EvaluationModelConfig>;
 export interface EvaluationModelConfigSummary {
   bedrockModelIdentifiers?: Array<string>;
@@ -1463,13 +1066,7 @@ interface _EvaluationPrecomputedRagSourceConfig {
   retrieveAndGenerateSourceConfig?: EvaluationPrecomputedRetrieveAndGenerateSourceConfig;
 }
 
-export type EvaluationPrecomputedRagSourceConfig =
-  | (_EvaluationPrecomputedRagSourceConfig & {
-      retrieveSourceConfig: EvaluationPrecomputedRetrieveSourceConfig;
-    })
-  | (_EvaluationPrecomputedRagSourceConfig & {
-      retrieveAndGenerateSourceConfig: EvaluationPrecomputedRetrieveAndGenerateSourceConfig;
-    });
+export type EvaluationPrecomputedRagSourceConfig = (_EvaluationPrecomputedRagSourceConfig & { retrieveSourceConfig: EvaluationPrecomputedRetrieveSourceConfig }) | (_EvaluationPrecomputedRagSourceConfig & { retrieveAndGenerateSourceConfig: EvaluationPrecomputedRetrieveAndGenerateSourceConfig });
 export type EvaluationPrecomputedRagSourceIdentifier = string;
 
 export type EvaluationPrecomputedRagSourceIdentifiers = Array<string>;
@@ -1500,20 +1097,13 @@ export interface EvaluationSummary {
   inferenceConfigSummary?: EvaluationInferenceConfigSummary;
   applicationType?: ApplicationType;
 }
-export type EvaluationTaskType =
-  | "SUMMARIZATION"
-  | "CLASSIFICATION"
-  | "QUESTION_AND_ANSWER"
-  | "GENERATION"
-  | "CUSTOM";
+export type EvaluationTaskType = "SUMMARIZATION" | "CLASSIFICATION" | "QUESTION_AND_ANSWER" | "GENERATION" | "CUSTOM";
 export type EvaluationTaskTypes = Array<EvaluationTaskType>;
 interface _EvaluatorModelConfig {
   bedrockEvaluatorModels?: Array<BedrockEvaluatorModel>;
 }
 
-export type EvaluatorModelConfig = _EvaluatorModelConfig & {
-  bedrockEvaluatorModels: Array<BedrockEvaluatorModel>;
-};
+export type EvaluatorModelConfig = (_EvaluatorModelConfig & { bedrockEvaluatorModels: Array<BedrockEvaluatorModel> });
 export type EvaluatorModelIdentifier = string;
 
 export type EvaluatorModelIdentifiers = Array<string>;
@@ -1547,12 +1137,7 @@ export type FilterKey = string;
 
 export type FilterValue = unknown;
 
-export type FineTuningJobStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+export type FineTuningJobStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED" | "STOPPING" | "STOPPED";
 export type FoundationModelArn = string;
 
 export interface FoundationModelDetails {
@@ -1802,7 +1387,8 @@ export interface GetModelInvocationJobResponse {
   timeoutDurationInHours?: number;
   jobExpirationTime?: Date | string;
 }
-export interface GetModelInvocationLoggingConfigurationRequest {}
+export interface GetModelInvocationLoggingConfigurationRequest {
+}
 export interface GetModelInvocationLoggingConfigurationResponse {
   loggingConfig?: LoggingConfig;
 }
@@ -1839,7 +1425,8 @@ export interface GetProvisionedModelThroughputResponse {
   commitmentDuration?: CommitmentDuration;
   commitmentExpirationTime?: Date | string;
 }
-export interface GetUseCaseForModelAccessRequest {}
+export interface GetUseCaseForModelAccessRequest {
+}
 export interface GetUseCaseForModelAccessResponse {
   formData: Uint8Array | string;
 }
@@ -1883,13 +1470,7 @@ export interface GuardrailContentFiltersTierConfig {
   tierName: GuardrailContentFiltersTierName;
 }
 export type GuardrailContentFiltersTierName = "CLASSIC" | "STANDARD";
-export type GuardrailContentFilterType =
-  | "SEXUAL"
-  | "VIOLENCE"
-  | "HATE"
-  | "INSULTS"
-  | "MISCONDUCT"
-  | "PROMPT_ATTACK";
+export type GuardrailContentFilterType = "SEXUAL" | "VIOLENCE" | "HATE" | "INSULTS" | "MISCONDUCT" | "PROMPT_ATTACK";
 export interface GuardrailContentPolicy {
   filters?: Array<GuardrailContentFilter>;
   tier?: GuardrailContentFiltersTier;
@@ -1911,10 +1492,8 @@ export interface GuardrailContextualGroundingFilterConfig {
   action?: GuardrailContextualGroundingAction;
   enabled?: boolean;
 }
-export type GuardrailContextualGroundingFilters =
-  Array<GuardrailContextualGroundingFilter>;
-export type GuardrailContextualGroundingFiltersConfig =
-  Array<GuardrailContextualGroundingFilterConfig>;
+export type GuardrailContextualGroundingFilters = Array<GuardrailContextualGroundingFilter>;
+export type GuardrailContextualGroundingFiltersConfig = Array<GuardrailContextualGroundingFilterConfig>;
 export type GuardrailContextualGroundingFilterType = "GROUNDING" | "RELEVANCE";
 export interface GuardrailContextualGroundingPolicy {
   filters: Array<GuardrailContextualGroundingFilter>;
@@ -1948,8 +1527,7 @@ export type GuardrailId = string;
 export type GuardrailIdentifier = string;
 
 export type GuardrailManagedWordLists = Array<GuardrailManagedWords>;
-export type GuardrailManagedWordListsConfig =
-  Array<GuardrailManagedWordsConfig>;
+export type GuardrailManagedWordListsConfig = Array<GuardrailManagedWordsConfig>;
 export interface GuardrailManagedWords {
   type: GuardrailManagedWordsType;
   inputAction?: GuardrailWordAction;
@@ -1989,38 +1567,7 @@ export interface GuardrailPiiEntityConfig {
   inputEnabled?: boolean;
   outputEnabled?: boolean;
 }
-export type GuardrailPiiEntityType =
-  | "ADDRESS"
-  | "AGE"
-  | "AWS_ACCESS_KEY"
-  | "AWS_SECRET_KEY"
-  | "CA_HEALTH_NUMBER"
-  | "CA_SOCIAL_INSURANCE_NUMBER"
-  | "CREDIT_DEBIT_CARD_CVV"
-  | "CREDIT_DEBIT_CARD_EXPIRY"
-  | "CREDIT_DEBIT_CARD_NUMBER"
-  | "DRIVER_ID"
-  | "EMAIL"
-  | "INTERNATIONAL_BANK_ACCOUNT_NUMBER"
-  | "IP_ADDRESS"
-  | "LICENSE_PLATE"
-  | "MAC_ADDRESS"
-  | "NAME"
-  | "PASSWORD"
-  | "PHONE"
-  | "PIN"
-  | "SWIFT_CODE"
-  | "UK_NATIONAL_HEALTH_SERVICE_NUMBER"
-  | "UK_NATIONAL_INSURANCE_NUMBER"
-  | "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"
-  | "URL"
-  | "USERNAME"
-  | "US_BANK_ACCOUNT_NUMBER"
-  | "US_BANK_ROUTING_NUMBER"
-  | "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"
-  | "US_PASSPORT_NUMBER"
-  | "US_SOCIAL_SECURITY_NUMBER"
-  | "VEHICLE_IDENTIFICATION_NUMBER";
+export type GuardrailPiiEntityType = "ADDRESS" | "AGE" | "AWS_ACCESS_KEY" | "AWS_SECRET_KEY" | "CA_HEALTH_NUMBER" | "CA_SOCIAL_INSURANCE_NUMBER" | "CREDIT_DEBIT_CARD_CVV" | "CREDIT_DEBIT_CARD_EXPIRY" | "CREDIT_DEBIT_CARD_NUMBER" | "DRIVER_ID" | "EMAIL" | "INTERNATIONAL_BANK_ACCOUNT_NUMBER" | "IP_ADDRESS" | "LICENSE_PLATE" | "MAC_ADDRESS" | "NAME" | "PASSWORD" | "PHONE" | "PIN" | "SWIFT_CODE" | "UK_NATIONAL_HEALTH_SERVICE_NUMBER" | "UK_NATIONAL_INSURANCE_NUMBER" | "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" | "URL" | "USERNAME" | "US_BANK_ACCOUNT_NUMBER" | "US_BANK_ROUTING_NUMBER" | "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" | "US_PASSPORT_NUMBER" | "US_SOCIAL_SECURITY_NUMBER" | "VEHICLE_IDENTIFICATION_NUMBER";
 export interface GuardrailRegex {
   name: string;
   description?: string;
@@ -2043,10 +1590,7 @@ export interface GuardrailRegexConfig {
 }
 export type GuardrailRegexes = Array<GuardrailRegex>;
 export type GuardrailRegexesConfig = Array<GuardrailRegexConfig>;
-export type GuardrailSensitiveInformationAction =
-  | "BLOCK"
-  | "ANONYMIZE"
-  | "NONE";
+export type GuardrailSensitiveInformationAction = "BLOCK" | "ANONYMIZE" | "NONE";
 export interface GuardrailSensitiveInformationPolicy {
   piiEntities?: Array<GuardrailPiiEntity>;
   regexes?: Array<GuardrailRegex>;
@@ -2055,13 +1599,7 @@ export interface GuardrailSensitiveInformationPolicyConfig {
   piiEntitiesConfig?: Array<GuardrailPiiEntityConfig>;
   regexesConfig?: Array<GuardrailRegexConfig>;
 }
-export type GuardrailStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "VERSIONING"
-  | "READY"
-  | "FAILED"
-  | "DELETING";
+export type GuardrailStatus = "CREATING" | "UPDATING" | "VERSIONING" | "READY" | "FAILED" | "DELETING";
 export type GuardrailStatusReason = string;
 
 export type GuardrailStatusReasons = Array<string>;
@@ -2205,9 +1743,7 @@ interface _InferenceProfileModelSource {
   copyFrom?: string;
 }
 
-export type InferenceProfileModelSource = _InferenceProfileModelSource & {
-  copyFrom: string;
-};
+export type InferenceProfileModelSource = (_InferenceProfileModelSource & { copyFrom: string });
 export type InferenceProfileModelSourceArn = string;
 
 export type InferenceProfileName = string;
@@ -2248,16 +1784,10 @@ interface _InvocationLogSource {
   s3Uri?: string;
 }
 
-export type InvocationLogSource = _InvocationLogSource & { s3Uri: string };
+export type InvocationLogSource = (_InvocationLogSource & { s3Uri: string });
 export type JobName = string;
 
-export type JobStatusDetails =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "STOPPING"
-  | "STOPPED"
-  | "FAILED"
-  | "NOT_STARTED";
+export type JobStatusDetails = "IN_PROGRESS" | "COMPLETED" | "STOPPING" | "STOPPED" | "FAILED" | "NOT_STARTED";
 export interface KbInferenceConfig {
   textInferenceConfig?: TextInferenceConfig;
 }
@@ -2274,11 +1804,7 @@ interface _KnowledgeBaseConfig {
   retrieveAndGenerateConfig?: RetrieveAndGenerateConfiguration;
 }
 
-export type KnowledgeBaseConfig =
-  | (_KnowledgeBaseConfig & { retrieveConfig: RetrieveConfig })
-  | (_KnowledgeBaseConfig & {
-      retrieveAndGenerateConfig: RetrieveAndGenerateConfiguration;
-    });
+export type KnowledgeBaseConfig = (_KnowledgeBaseConfig & { retrieveConfig: RetrieveConfig }) | (_KnowledgeBaseConfig & { retrieveAndGenerateConfig: RetrieveAndGenerateConfiguration });
 export type KnowledgeBaseId = string;
 
 export interface KnowledgeBaseRetrievalConfiguration {
@@ -2514,8 +2040,7 @@ export interface MarketplaceModelEndpoint {
   endpointStatus: string;
   endpointStatusMessage?: string;
 }
-export type MarketplaceModelEndpointSummaries =
-  Array<MarketplaceModelEndpointSummary>;
+export type MarketplaceModelEndpointSummaries = Array<MarketplaceModelEndpointSummary>;
 export interface MarketplaceModelEndpointSummary {
   endpointArn: string;
   modelSourceIdentifier: string;
@@ -2565,23 +2090,14 @@ export interface ModelCopyJobSummary {
   failureMessage?: string;
   sourceModelName?: string;
 }
-export type ModelCustomization =
-  | "FINE_TUNING"
-  | "CONTINUED_PRE_TRAINING"
-  | "DISTILLATION";
+export type ModelCustomization = "FINE_TUNING" | "CONTINUED_PRE_TRAINING" | "DISTILLATION";
 export type ModelCustomizationHyperParameters = Record<string, string>;
 export type ModelCustomizationJobArn = string;
 
 export type ModelCustomizationJobIdentifier = string;
 
-export type ModelCustomizationJobStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
-export type ModelCustomizationJobSummaries =
-  Array<ModelCustomizationJobSummary>;
+export type ModelCustomizationJobStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED" | "STOPPING" | "STOPPED";
+export type ModelCustomizationJobSummaries = Array<ModelCustomizationJobSummary>;
 export interface ModelCustomizationJobSummary {
   jobArn: string;
   baseModelArn: string;
@@ -2600,7 +2116,7 @@ interface _ModelDataSource {
   s3DataSource?: S3DataSource;
 }
 
-export type ModelDataSource = _ModelDataSource & { s3DataSource: S3DataSource };
+export type ModelDataSource = (_ModelDataSource & { s3DataSource: S3DataSource });
 export type ModelDeploymentName = string;
 
 export type ModelId = string;
@@ -2633,20 +2149,14 @@ interface _ModelInvocationJobInputDataConfig {
   s3InputDataConfig?: ModelInvocationJobS3InputDataConfig;
 }
 
-export type ModelInvocationJobInputDataConfig =
-  _ModelInvocationJobInputDataConfig & {
-    s3InputDataConfig: ModelInvocationJobS3InputDataConfig;
-  };
+export type ModelInvocationJobInputDataConfig = (_ModelInvocationJobInputDataConfig & { s3InputDataConfig: ModelInvocationJobS3InputDataConfig });
 export type ModelInvocationJobName = string;
 
 interface _ModelInvocationJobOutputDataConfig {
   s3OutputDataConfig?: ModelInvocationJobS3OutputDataConfig;
 }
 
-export type ModelInvocationJobOutputDataConfig =
-  _ModelInvocationJobOutputDataConfig & {
-    s3OutputDataConfig: ModelInvocationJobS3OutputDataConfig;
-  };
+export type ModelInvocationJobOutputDataConfig = (_ModelInvocationJobOutputDataConfig & { s3OutputDataConfig: ModelInvocationJobS3OutputDataConfig });
 export interface ModelInvocationJobS3InputDataConfig {
   s3InputFormat?: S3InputFormat;
   s3Uri: string;
@@ -2657,17 +2167,7 @@ export interface ModelInvocationJobS3OutputDataConfig {
   s3EncryptionKeyId?: string;
   s3BucketOwner?: string;
 }
-export type ModelInvocationJobStatus =
-  | "SUBMITTED"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED"
-  | "PARTIALLY_COMPLETED"
-  | "EXPIRED"
-  | "VALIDATING"
-  | "SCHEDULED";
+export type ModelInvocationJobStatus = "SUBMITTED" | "IN_PROGRESS" | "COMPLETED" | "FAILED" | "STOPPING" | "STOPPED" | "PARTIALLY_COMPLETED" | "EXPIRED" | "VALIDATING" | "SCHEDULED";
 export type ModelInvocationJobSummaries = Array<ModelInvocationJobSummary>;
 export interface ModelInvocationJobSummary {
   jobArn: string;
@@ -2763,11 +2263,7 @@ export type ProvisionedModelId = string;
 
 export type ProvisionedModelName = string;
 
-export type ProvisionedModelStatus =
-  | "CREATING"
-  | "IN_SERVICE"
-  | "UPDATING"
-  | "FAILED";
+export type ProvisionedModelStatus = "CREATING" | "IN_SERVICE" | "UPDATING" | "FAILED";
 export type ProvisionedModelSummaries = Array<ProvisionedModelSummary>;
 export interface ProvisionedModelSummary {
   provisionedModelName: string;
@@ -2786,11 +2282,13 @@ export interface ProvisionedModelSummary {
 export interface PutModelInvocationLoggingConfigurationRequest {
   loggingConfig: LoggingConfig;
 }
-export interface PutModelInvocationLoggingConfigurationResponse {}
+export interface PutModelInvocationLoggingConfigurationResponse {
+}
 export interface PutUseCaseForModelAccessRequest {
   formData: Uint8Array | string;
 }
-export interface PutUseCaseForModelAccessResponse {}
+export interface PutUseCaseForModelAccessResponse {
+}
 export interface QueryTransformationConfiguration {
   type: QueryTransformationType;
 }
@@ -2800,11 +2298,7 @@ interface _RAGConfig {
   precomputedRagSourceConfig?: EvaluationPrecomputedRagSourceConfig;
 }
 
-export type RAGConfig =
-  | (_RAGConfig & { knowledgeBaseConfig: KnowledgeBaseConfig })
-  | (_RAGConfig & {
-      precomputedRagSourceConfig: EvaluationPrecomputedRagSourceConfig;
-    });
+export type RAGConfig = (_RAGConfig & { knowledgeBaseConfig: KnowledgeBaseConfig }) | (_RAGConfig & { precomputedRagSourceConfig: EvaluationPrecomputedRagSourceConfig });
 export type RagConfigs = Array<RAGConfig>;
 export type RAGStopSequences = Array<string>;
 export type RateCard = Array<DimensionalPriceRate>;
@@ -2820,9 +2314,7 @@ interface _RatingScaleItemValue {
   floatValue?: number;
 }
 
-export type RatingScaleItemValue =
-  | (_RatingScaleItemValue & { stringValue: string })
-  | (_RatingScaleItemValue & { floatValue: number });
+export type RatingScaleItemValue = (_RatingScaleItemValue & { stringValue: string }) | (_RatingScaleItemValue & { floatValue: number });
 export type RegionAvailability = "AVAILABLE" | "NOT_AVAILABLE";
 export interface RegisterMarketplaceModelEndpointRequest {
   endpointIdentifier: string;
@@ -2842,11 +2334,7 @@ interface _RequestMetadataFilters {
   orAll?: Array<RequestMetadataBaseFilters>;
 }
 
-export type RequestMetadataFilters =
-  | (_RequestMetadataFilters & { equals: Record<string, string> })
-  | (_RequestMetadataFilters & { notEquals: Record<string, string> })
-  | (_RequestMetadataFilters & { andAll: Array<RequestMetadataBaseFilters> })
-  | (_RequestMetadataFilters & { orAll: Array<RequestMetadataBaseFilters> });
+export type RequestMetadataFilters = (_RequestMetadataFilters & { equals: Record<string, string> }) | (_RequestMetadataFilters & { notEquals: Record<string, string> }) | (_RequestMetadataFilters & { andAll: Array<RequestMetadataBaseFilters> }) | (_RequestMetadataFilters & { orAll: Array<RequestMetadataBaseFilters> });
 export type RequestMetadataFiltersList = Array<RequestMetadataBaseFilters>;
 export type RequestMetadataMap = Record<string, string>;
 export type RerankingMetadataSelectionMode = "SELECTIVE" | "ALL";
@@ -2855,13 +2343,7 @@ interface _RerankingMetadataSelectiveModeConfiguration {
   fieldsToExclude?: Array<FieldForReranking>;
 }
 
-export type RerankingMetadataSelectiveModeConfiguration =
-  | (_RerankingMetadataSelectiveModeConfiguration & {
-      fieldsToInclude: Array<FieldForReranking>;
-    })
-  | (_RerankingMetadataSelectiveModeConfiguration & {
-      fieldsToExclude: Array<FieldForReranking>;
-    });
+export type RerankingMetadataSelectiveModeConfiguration = (_RerankingMetadataSelectiveModeConfiguration & { fieldsToInclude: Array<FieldForReranking> }) | (_RerankingMetadataSelectiveModeConfiguration & { fieldsToExclude: Array<FieldForReranking> });
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -2883,20 +2365,7 @@ interface _RetrievalFilter {
   orAll?: Array<RetrievalFilter>;
 }
 
-export type RetrievalFilter =
-  | (_RetrievalFilter & { equals: FilterAttribute })
-  | (_RetrievalFilter & { notEquals: FilterAttribute })
-  | (_RetrievalFilter & { greaterThan: FilterAttribute })
-  | (_RetrievalFilter & { greaterThanOrEquals: FilterAttribute })
-  | (_RetrievalFilter & { lessThan: FilterAttribute })
-  | (_RetrievalFilter & { lessThanOrEquals: FilterAttribute })
-  | (_RetrievalFilter & { in: FilterAttribute })
-  | (_RetrievalFilter & { notIn: FilterAttribute })
-  | (_RetrievalFilter & { startsWith: FilterAttribute })
-  | (_RetrievalFilter & { listContains: FilterAttribute })
-  | (_RetrievalFilter & { stringContains: FilterAttribute })
-  | (_RetrievalFilter & { andAll: Array<RetrievalFilter> })
-  | (_RetrievalFilter & { orAll: Array<RetrievalFilter> });
+export type RetrievalFilter = (_RetrievalFilter & { equals: FilterAttribute }) | (_RetrievalFilter & { notEquals: FilterAttribute }) | (_RetrievalFilter & { greaterThan: FilterAttribute }) | (_RetrievalFilter & { greaterThanOrEquals: FilterAttribute }) | (_RetrievalFilter & { lessThan: FilterAttribute }) | (_RetrievalFilter & { lessThanOrEquals: FilterAttribute }) | (_RetrievalFilter & { in: FilterAttribute }) | (_RetrievalFilter & { notIn: FilterAttribute }) | (_RetrievalFilter & { startsWith: FilterAttribute }) | (_RetrievalFilter & { listContains: FilterAttribute }) | (_RetrievalFilter & { stringContains: FilterAttribute }) | (_RetrievalFilter & { andAll: Array<RetrievalFilter> }) | (_RetrievalFilter & { orAll: Array<RetrievalFilter> });
 export type RetrievalFilterList = Array<RetrievalFilter>;
 export interface RetrieveAndGenerateConfiguration {
   type: RetrieveAndGenerateType;
@@ -2962,15 +2431,18 @@ export interface StatusDetails {
 export interface StopEvaluationJobRequest {
   jobIdentifier: string;
 }
-export interface StopEvaluationJobResponse {}
+export interface StopEvaluationJobResponse {
+}
 export interface StopModelCustomizationJobRequest {
   jobIdentifier: string;
 }
-export interface StopModelCustomizationJobResponse {}
+export interface StopModelCustomizationJobResponse {
+}
 export interface StopModelInvocationJobRequest {
   jobIdentifier: string;
 }
-export interface StopModelInvocationJobResponse {}
+export interface StopModelInvocationJobResponse {
+}
 export type SubnetId = string;
 
 export type SubnetIds = Array<string>;
@@ -2991,7 +2463,8 @@ export interface TagResourceRequest {
   resourceARN: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TeacherModelConfig {
@@ -3047,7 +2520,8 @@ export interface UntagResourceRequest {
   resourceARN: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateGuardrailRequest {
   guardrailIdentifier: string;
   name: string;
@@ -3081,7 +2555,8 @@ export interface UpdateProvisionedModelThroughputRequest {
   desiredProvisionedModelName?: string;
   desiredModelId?: string;
 }
-export interface UpdateProvisionedModelThroughputResponse {}
+export interface UpdateProvisionedModelThroughputResponse {
+}
 export type UsePromptResponse = boolean;
 
 export interface ValidationDataConfig {
@@ -3995,3 +3470,4 @@ export declare namespace UpdateProvisionedModelThroughput {
     | ValidationException
     | CommonAwsError;
 }
+

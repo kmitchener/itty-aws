@@ -1,21 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ChimeSDKVoice extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("chime-sdk-voice", new RestJson1Protocol(), cfg);
+  }
+
   associatePhoneNumbersWithVoiceConnector(
     input: AssociatePhoneNumbersWithVoiceConnectorRequest,
   ): Effect.Effect<
     AssociatePhoneNumbersWithVoiceConnectorResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("AssociatePhoneNumbersWithVoiceConnector", input);
   }
@@ -23,15 +20,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: AssociatePhoneNumbersWithVoiceConnectorGroupRequest,
   ): Effect.Effect<
     AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("AssociatePhoneNumbersWithVoiceConnectorGroup", input);
   }
@@ -39,14 +28,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: BatchDeletePhoneNumberRequest,
   ): Effect.Effect<
     BatchDeletePhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("BatchDeletePhoneNumber", input);
   }
@@ -54,14 +36,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: BatchUpdatePhoneNumberRequest,
   ): Effect.Effect<
     BatchUpdatePhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("BatchUpdatePhoneNumber", input);
   }
@@ -69,15 +44,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: CreatePhoneNumberOrderRequest,
   ): Effect.Effect<
     CreatePhoneNumberOrderResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreatePhoneNumberOrder", input);
   }
@@ -85,14 +52,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: CreateProxySessionRequest,
   ): Effect.Effect<
     CreateProxySessionResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateProxySession", input);
   }
@@ -100,16 +60,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: CreateSipMediaApplicationRequest,
   ): Effect.Effect<
     CreateSipMediaApplicationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateSipMediaApplication", input);
   }
@@ -117,15 +68,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: CreateSipMediaApplicationCallRequest,
   ): Effect.Effect<
     CreateSipMediaApplicationCallResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateSipMediaApplicationCall", input);
   }
@@ -133,16 +76,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: CreateSipRuleRequest,
   ): Effect.Effect<
     CreateSipRuleResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateSipRule", input);
   }
@@ -150,15 +84,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: CreateVoiceConnectorRequest,
   ): Effect.Effect<
     CreateVoiceConnectorResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateVoiceConnector", input);
   }
@@ -166,15 +92,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: CreateVoiceConnectorGroupRequest,
   ): Effect.Effect<
     CreateVoiceConnectorGroupResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateVoiceConnectorGroup", input);
   }
@@ -182,18 +100,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: CreateVoiceProfileRequest,
   ): Effect.Effect<
     CreateVoiceProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GoneException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | GoneException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateVoiceProfile", input);
   }
@@ -201,16 +108,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: CreateVoiceProfileDomainRequest,
   ): Effect.Effect<
     CreateVoiceProfileDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateVoiceProfileDomain", input);
   }
@@ -218,14 +116,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeletePhoneNumberRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeletePhoneNumber", input);
   }
@@ -233,14 +124,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteProxySessionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteProxySession", input);
   }
@@ -248,15 +132,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteSipMediaApplicationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteSipMediaApplication", input);
   }
@@ -264,15 +140,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteSipRuleRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteSipRule", input);
   }
@@ -280,15 +148,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteVoiceConnectorRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteVoiceConnector", input);
   }
@@ -296,32 +156,15 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteVoiceConnectorEmergencyCallingConfigurationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
-    return this.call(
-      "DeleteVoiceConnectorEmergencyCallingConfiguration",
-      input,
-    );
+    return this.call("DeleteVoiceConnectorEmergencyCallingConfiguration", input);
   }
   deleteVoiceConnectorExternalSystemsConfiguration(
     input: DeleteVoiceConnectorExternalSystemsConfigurationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteVoiceConnectorExternalSystemsConfiguration", input);
   }
@@ -329,15 +172,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteVoiceConnectorGroupRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteVoiceConnectorGroup", input);
   }
@@ -345,14 +180,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteVoiceConnectorOriginationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteVoiceConnectorOrigination", input);
   }
@@ -360,14 +188,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteVoiceConnectorProxyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteVoiceConnectorProxy", input);
   }
@@ -375,14 +196,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteVoiceConnectorStreamingConfigurationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteVoiceConnectorStreamingConfiguration", input);
   }
@@ -390,14 +204,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteVoiceConnectorTerminationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteVoiceConnectorTermination", input);
   }
@@ -405,14 +212,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteVoiceConnectorTerminationCredentialsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteVoiceConnectorTerminationCredentials", input);
   }
@@ -420,16 +220,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteVoiceProfileRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteVoiceProfile", input);
   }
@@ -437,16 +228,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DeleteVoiceProfileDomainRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteVoiceProfileDomain", input);
   }
@@ -454,14 +236,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DisassociatePhoneNumbersFromVoiceConnectorRequest,
   ): Effect.Effect<
     DisassociatePhoneNumbersFromVoiceConnectorResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DisassociatePhoneNumbersFromVoiceConnector", input);
   }
@@ -469,26 +244,15 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: DisassociatePhoneNumbersFromVoiceConnectorGroupRequest,
   ): Effect.Effect<
     DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DisassociatePhoneNumbersFromVoiceConnectorGroup", input);
   }
-  getGlobalSettings(input: {}): Effect.Effect<
+  getGlobalSettings(
+    input: {},
+  ): Effect.Effect<
     GetGlobalSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetGlobalSettings", input);
   }
@@ -496,14 +260,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetPhoneNumberRequest,
   ): Effect.Effect<
     GetPhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetPhoneNumber", input);
   }
@@ -511,26 +268,15 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetPhoneNumberOrderRequest,
   ): Effect.Effect<
     GetPhoneNumberOrderResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetPhoneNumberOrder", input);
   }
-  getPhoneNumberSettings(input: {}): Effect.Effect<
+  getPhoneNumberSettings(
+    input: {},
+  ): Effect.Effect<
     GetPhoneNumberSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetPhoneNumberSettings", input);
   }
@@ -538,14 +284,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetProxySessionRequest,
   ): Effect.Effect<
     GetProxySessionResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetProxySession", input);
   }
@@ -553,14 +292,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetSipMediaApplicationRequest,
   ): Effect.Effect<
     GetSipMediaApplicationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetSipMediaApplication", input);
   }
@@ -568,14 +300,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetSipMediaApplicationAlexaSkillConfigurationRequest,
   ): Effect.Effect<
     GetSipMediaApplicationAlexaSkillConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetSipMediaApplicationAlexaSkillConfiguration", input);
   }
@@ -583,14 +308,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetSipMediaApplicationLoggingConfigurationRequest,
   ): Effect.Effect<
     GetSipMediaApplicationLoggingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetSipMediaApplicationLoggingConfiguration", input);
   }
@@ -598,14 +316,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetSipRuleRequest,
   ): Effect.Effect<
     GetSipRuleResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetSipRule", input);
   }
@@ -613,16 +324,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetSpeakerSearchTaskRequest,
   ): Effect.Effect<
     GetSpeakerSearchTaskResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetSpeakerSearchTask", input);
   }
@@ -630,14 +332,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceConnectorRequest,
   ): Effect.Effect<
     GetVoiceConnectorResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceConnector", input);
   }
@@ -645,14 +340,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceConnectorEmergencyCallingConfigurationRequest,
   ): Effect.Effect<
     GetVoiceConnectorEmergencyCallingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceConnectorEmergencyCallingConfiguration", input);
   }
@@ -660,14 +348,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceConnectorExternalSystemsConfigurationRequest,
   ): Effect.Effect<
     GetVoiceConnectorExternalSystemsConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceConnectorExternalSystemsConfiguration", input);
   }
@@ -675,14 +356,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceConnectorGroupRequest,
   ): Effect.Effect<
     GetVoiceConnectorGroupResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceConnectorGroup", input);
   }
@@ -690,14 +364,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceConnectorLoggingConfigurationRequest,
   ): Effect.Effect<
     GetVoiceConnectorLoggingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceConnectorLoggingConfiguration", input);
   }
@@ -705,14 +372,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceConnectorOriginationRequest,
   ): Effect.Effect<
     GetVoiceConnectorOriginationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceConnectorOrigination", input);
   }
@@ -720,14 +380,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceConnectorProxyRequest,
   ): Effect.Effect<
     GetVoiceConnectorProxyResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceConnectorProxy", input);
   }
@@ -735,14 +388,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceConnectorStreamingConfigurationRequest,
   ): Effect.Effect<
     GetVoiceConnectorStreamingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceConnectorStreamingConfiguration", input);
   }
@@ -750,14 +396,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceConnectorTerminationRequest,
   ): Effect.Effect<
     GetVoiceConnectorTerminationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceConnectorTermination", input);
   }
@@ -765,14 +404,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceConnectorTerminationHealthRequest,
   ): Effect.Effect<
     GetVoiceConnectorTerminationHealthResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceConnectorTerminationHealth", input);
   }
@@ -780,15 +412,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceProfileRequest,
   ): Effect.Effect<
     GetVoiceProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceProfile", input);
   }
@@ -796,15 +420,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceProfileDomainRequest,
   ): Effect.Effect<
     GetVoiceProfileDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceProfileDomain", input);
   }
@@ -812,28 +428,15 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: GetVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
     GetVoiceToneAnalysisTaskResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetVoiceToneAnalysisTask", input);
   }
-  listAvailableVoiceConnectorRegions(input: {}): Effect.Effect<
+  listAvailableVoiceConnectorRegions(
+    input: {},
+  ): Effect.Effect<
     ListAvailableVoiceConnectorRegionsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListAvailableVoiceConnectorRegions", input);
   }
@@ -841,13 +444,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListPhoneNumberOrdersRequest,
   ): Effect.Effect<
     ListPhoneNumberOrdersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListPhoneNumberOrders", input);
   }
@@ -855,14 +452,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListPhoneNumbersRequest,
   ): Effect.Effect<
     ListPhoneNumbersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListPhoneNumbers", input);
   }
@@ -870,14 +460,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListProxySessionsRequest,
   ): Effect.Effect<
     ListProxySessionsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListProxySessions", input);
   }
@@ -885,13 +468,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListSipMediaApplicationsRequest,
   ): Effect.Effect<
     ListSipMediaApplicationsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListSipMediaApplications", input);
   }
@@ -899,13 +476,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListSipRulesRequest,
   ): Effect.Effect<
     ListSipRulesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListSipRules", input);
   }
@@ -913,14 +484,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListSupportedPhoneNumberCountriesRequest,
   ): Effect.Effect<
     ListSupportedPhoneNumberCountriesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListSupportedPhoneNumberCountries", input);
   }
@@ -928,13 +492,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -942,13 +500,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListVoiceConnectorGroupsRequest,
   ): Effect.Effect<
     ListVoiceConnectorGroupsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListVoiceConnectorGroups", input);
   }
@@ -956,13 +508,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListVoiceConnectorsRequest,
   ): Effect.Effect<
     ListVoiceConnectorsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListVoiceConnectors", input);
   }
@@ -970,14 +516,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListVoiceConnectorTerminationCredentialsRequest,
   ): Effect.Effect<
     ListVoiceConnectorTerminationCredentialsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListVoiceConnectorTerminationCredentials", input);
   }
@@ -985,14 +524,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListVoiceProfileDomainsRequest,
   ): Effect.Effect<
     ListVoiceProfileDomainsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListVoiceProfileDomains", input);
   }
@@ -1000,14 +532,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ListVoiceProfilesRequest,
   ): Effect.Effect<
     ListVoiceProfilesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListVoiceProfiles", input);
   }
@@ -1015,14 +540,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: PutSipMediaApplicationAlexaSkillConfigurationRequest,
   ): Effect.Effect<
     PutSipMediaApplicationAlexaSkillConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutSipMediaApplicationAlexaSkillConfiguration", input);
   }
@@ -1030,14 +548,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: PutSipMediaApplicationLoggingConfigurationRequest,
   ): Effect.Effect<
     PutSipMediaApplicationLoggingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutSipMediaApplicationLoggingConfiguration", input);
   }
@@ -1045,14 +556,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: PutVoiceConnectorEmergencyCallingConfigurationRequest,
   ): Effect.Effect<
     PutVoiceConnectorEmergencyCallingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutVoiceConnectorEmergencyCallingConfiguration", input);
   }
@@ -1060,15 +564,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: PutVoiceConnectorExternalSystemsConfigurationRequest,
   ): Effect.Effect<
     PutVoiceConnectorExternalSystemsConfigurationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutVoiceConnectorExternalSystemsConfiguration", input);
   }
@@ -1076,14 +572,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: PutVoiceConnectorLoggingConfigurationRequest,
   ): Effect.Effect<
     PutVoiceConnectorLoggingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutVoiceConnectorLoggingConfiguration", input);
   }
@@ -1091,14 +580,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: PutVoiceConnectorOriginationRequest,
   ): Effect.Effect<
     PutVoiceConnectorOriginationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutVoiceConnectorOrigination", input);
   }
@@ -1106,15 +588,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: PutVoiceConnectorProxyRequest,
   ): Effect.Effect<
     PutVoiceConnectorProxyResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutVoiceConnectorProxy", input);
   }
@@ -1122,14 +596,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: PutVoiceConnectorStreamingConfigurationRequest,
   ): Effect.Effect<
     PutVoiceConnectorStreamingConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutVoiceConnectorStreamingConfiguration", input);
   }
@@ -1137,15 +604,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: PutVoiceConnectorTerminationRequest,
   ): Effect.Effect<
     PutVoiceConnectorTerminationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutVoiceConnectorTermination", input);
   }
@@ -1153,14 +612,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: PutVoiceConnectorTerminationCredentialsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutVoiceConnectorTerminationCredentials", input);
   }
@@ -1168,15 +620,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: RestorePhoneNumberRequest,
   ): Effect.Effect<
     RestorePhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("RestorePhoneNumber", input);
   }
@@ -1184,14 +628,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: SearchAvailablePhoneNumbersRequest,
   ): Effect.Effect<
     SearchAvailablePhoneNumbersResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("SearchAvailablePhoneNumbers", input);
   }
@@ -1199,19 +636,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: StartSpeakerSearchTaskRequest,
   ): Effect.Effect<
     StartSpeakerSearchTaskResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GoneException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | UnprocessableEntityException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | GoneException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("StartSpeakerSearchTask", input);
   }
@@ -1219,19 +644,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: StartVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
     StartVoiceToneAnalysisTaskResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GoneException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | UnprocessableEntityException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | GoneException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("StartVoiceToneAnalysisTask", input);
   }
@@ -1239,17 +652,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: StopSpeakerSearchTaskRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | UnprocessableEntityException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("StopSpeakerSearchTask", input);
   }
@@ -1257,17 +660,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: StopVoiceToneAnalysisTaskRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | UnprocessableEntityException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("StopVoiceToneAnalysisTask", input);
   }
@@ -1275,14 +668,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1290,13 +676,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1304,13 +684,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdateGlobalSettingsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateGlobalSettings", input);
   }
@@ -1318,15 +692,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdatePhoneNumberRequest,
   ): Effect.Effect<
     UpdatePhoneNumberResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdatePhoneNumber", input);
   }
@@ -1334,13 +700,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdatePhoneNumberSettingsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdatePhoneNumberSettings", input);
   }
@@ -1348,14 +708,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdateProxySessionRequest,
   ): Effect.Effect<
     UpdateProxySessionResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateProxySession", input);
   }
@@ -1363,15 +716,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdateSipMediaApplicationRequest,
   ): Effect.Effect<
     UpdateSipMediaApplicationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateSipMediaApplication", input);
   }
@@ -1379,15 +724,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdateSipMediaApplicationCallRequest,
   ): Effect.Effect<
     UpdateSipMediaApplicationCallResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateSipMediaApplicationCall", input);
   }
@@ -1395,16 +732,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdateSipRuleRequest,
   ): Effect.Effect<
     UpdateSipRuleResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateSipRule", input);
   }
@@ -1412,14 +740,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdateVoiceConnectorRequest,
   ): Effect.Effect<
     UpdateVoiceConnectorResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateVoiceConnector", input);
   }
@@ -1427,15 +748,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdateVoiceConnectorGroupRequest,
   ): Effect.Effect<
     UpdateVoiceConnectorGroupResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateVoiceConnectorGroup", input);
   }
@@ -1443,17 +756,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdateVoiceProfileRequest,
   ): Effect.Effect<
     UpdateVoiceProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GoneException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | GoneException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateVoiceProfile", input);
   }
@@ -1461,15 +764,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: UpdateVoiceProfileDomainRequest,
   ): Effect.Effect<
     UpdateVoiceProfileDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateVoiceProfileDomain", input);
   }
@@ -1477,15 +772,7 @@ export class ChimeSDKVoice extends AWSServiceClient {
     input: ValidateE911AddressRequest,
   ): Effect.Effect<
     ValidateE911AddressResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ValidateE911Address", input);
   }
@@ -1566,11 +853,7 @@ export interface CallDetails {
 }
 export type CallingName = string;
 
-export type CallingNameStatus =
-  | "Unassigned"
-  | "UpdateInProgress"
-  | "UpdateSucceeded"
-  | "UpdateFailed";
+export type CallingNameStatus = "Unassigned" | "UpdateInProgress" | "UpdateSucceeded" | "UpdateFailed";
 export type CallingRegion = string;
 
 export type CallingRegionList = Array<string>;
@@ -1597,11 +880,7 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly Code?: ErrorCode;
   readonly Message?: string;
 }> {}
-export type ContactCenterSystemType =
-  | "GENESYS_ENGAGE_ON_PREMISES"
-  | "AVAYA_AURA_CALL_CENTER_ELITE"
-  | "AVAYA_AURA_CONTACT_CENTER"
-  | "CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE";
+export type ContactCenterSystemType = "GENESYS_ENGAGE_ON_PREMISES" | "AVAYA_AURA_CALL_CENTER_ELITE" | "AVAYA_AURA_CONTACT_CENTER" | "CISCO_UNIFIED_CONTACT_CENTER_ENTERPRISE";
 export type ContactCenterSystemTypeList = Array<ContactCenterSystemType>;
 export type Country = string;
 
@@ -1764,31 +1043,14 @@ export interface DNISEmergencyCallingConfiguration {
   TestPhoneNumber?: string;
   CallingCountry: string;
 }
-export type DNISEmergencyCallingConfigurationList =
-  Array<DNISEmergencyCallingConfiguration>;
+export type DNISEmergencyCallingConfigurationList = Array<DNISEmergencyCallingConfiguration>;
 export type E164PhoneNumber = string;
 
 export type E164PhoneNumberList = Array<string>;
 export interface EmergencyCallingConfiguration {
   DNIS?: Array<DNISEmergencyCallingConfiguration>;
 }
-export type ErrorCode =
-  | "BadRequest"
-  | "Conflict"
-  | "Forbidden"
-  | "NotFound"
-  | "PreconditionFailed"
-  | "ResourceLimitExceeded"
-  | "ServiceFailure"
-  | "AccessDenied"
-  | "ServiceUnavailable"
-  | "Throttled"
-  | "Throttling"
-  | "Unauthorized"
-  | "Unprocessable"
-  | "VoiceConnectorGroupAssociationsExist"
-  | "PhoneNumberAssociationsExist"
-  | "Gone";
+export type ErrorCode = "BadRequest" | "Conflict" | "Forbidden" | "NotFound" | "PreconditionFailed" | "ResourceLimitExceeded" | "ServiceFailure" | "AccessDenied" | "ServiceUnavailable" | "Throttled" | "Throttling" | "Unauthorized" | "Unprocessable" | "VoiceConnectorGroupAssociationsExist" | "PhoneNumberAssociationsExist" | "Gone";
 export interface ExternalSystemsConfiguration {
   SessionBorderControllerTypes?: Array<SessionBorderControllerType>;
   ContactCenterSystemTypes?: Array<ContactCenterSystemType>;
@@ -2136,10 +1398,7 @@ export interface PhoneNumberAssociation {
   AssociatedTimestamp?: Date | string;
 }
 export type PhoneNumberAssociationList = Array<PhoneNumberAssociation>;
-export type PhoneNumberAssociationName =
-  | "VoiceConnectorId"
-  | "VoiceConnectorGroupId"
-  | "SipRuleId";
+export type PhoneNumberAssociationName = "VoiceConnectorId" | "VoiceConnectorGroupId" | "SipRuleId";
 export interface PhoneNumberCapabilities {
   InboundCall?: boolean;
   OutboundCall?: boolean;
@@ -2175,34 +1434,10 @@ export interface PhoneNumberOrder {
   FocDate?: Date | string;
 }
 export type PhoneNumberOrderList = Array<PhoneNumberOrder>;
-export type PhoneNumberOrderStatus =
-  | "Processing"
-  | "Successful"
-  | "Failed"
-  | "Partial"
-  | "PendingDocuments"
-  | "Submitted"
-  | "FOC"
-  | "ChangeRequested"
-  | "Exception"
-  | "CancelRequested"
-  | "Cancelled";
+export type PhoneNumberOrderStatus = "Processing" | "Successful" | "Failed" | "Partial" | "PendingDocuments" | "Submitted" | "FOC" | "ChangeRequested" | "Exception" | "CancelRequested" | "Cancelled";
 export type PhoneNumberOrderType = "New" | "Porting";
-export type PhoneNumberProductType =
-  | "VoiceConnector"
-  | "SipMediaApplicationDialIn";
-export type PhoneNumberStatus =
-  | "Cancelled"
-  | "PortinCancelRequested"
-  | "PortinInProgress"
-  | "AcquireInProgress"
-  | "AcquireFailed"
-  | "Unassigned"
-  | "Assigned"
-  | "ReleaseInProgress"
-  | "DeleteInProgress"
-  | "ReleaseFailed"
-  | "DeleteFailed";
+export type PhoneNumberProductType = "VoiceConnector" | "SipMediaApplicationDialIn";
+export type PhoneNumberStatus = "Cancelled" | "PortinCancelRequested" | "PortinInProgress" | "AcquireInProgress" | "AcquireFailed" | "Unassigned" | "Assigned" | "ReleaseInProgress" | "DeleteInProgress" | "ReleaseFailed" | "DeleteFailed";
 export type PhoneNumberType = "Local" | "TollFree";
 export type PhoneNumberTypeList = Array<PhoneNumberType>;
 export type Port = number;
@@ -2353,14 +1588,8 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
   readonly Code?: ErrorCode;
   readonly Message?: string;
 }> {}
-export type SessionBorderControllerType =
-  | "RIBBON_SBC"
-  | "ORACLE_ACME_PACKET_SBC"
-  | "AVAYA_SBCE"
-  | "CISCO_UNIFIED_BORDER_ELEMENT"
-  | "AUDIOCODES_MEDIANT_SBC";
-export type SessionBorderControllerTypeList =
-  Array<SessionBorderControllerType>;
+export type SessionBorderControllerType = "RIBBON_SBC" | "ORACLE_ACME_PACKET_SBC" | "AVAYA_SBCE" | "CISCO_UNIFIED_BORDER_ELEMENT" | "AUDIOCODES_MEDIANT_SBC";
+export type SessionBorderControllerTypeList = Array<SessionBorderControllerType>;
 export type SipApplicationPriority = number;
 
 export type SipHeadersMap = Record<string, string>;
@@ -2383,8 +1612,7 @@ export interface SipMediaApplicationCall {
 export interface SipMediaApplicationEndpoint {
   LambdaArn?: string;
 }
-export type SipMediaApplicationEndpointList =
-  Array<SipMediaApplicationEndpoint>;
+export type SipMediaApplicationEndpointList = Array<SipMediaApplicationEndpoint>;
 export type SipMediaApplicationList = Array<SipMediaApplication>;
 export interface SipMediaApplicationLoggingConfiguration {
   EnableSipMediaApplicationMessageLogs?: boolean;
@@ -2468,8 +1696,7 @@ export interface StreamingConfiguration {
 export interface StreamingNotificationTarget {
   NotificationTarget?: NotificationTarget;
 }
-export type StreamingNotificationTargetList =
-  Array<StreamingNotificationTarget>;
+export type StreamingNotificationTargetList = Array<StreamingNotificationTarget>;
 export type ChimeSdkVoiceString = string;
 
 export type String128 = string;
@@ -2539,8 +1766,7 @@ export interface UpdatePhoneNumberRequestItem {
   CallingName?: string;
   Name?: string;
 }
-export type UpdatePhoneNumberRequestItemList =
-  Array<UpdatePhoneNumberRequestItem>;
+export type UpdatePhoneNumberRequestItemList = Array<UpdatePhoneNumberRequestItem>;
 export interface UpdatePhoneNumberResponse {
   PhoneNumber?: PhoneNumber;
 }
@@ -2640,17 +1866,7 @@ export interface VoiceConnector {
   VoiceConnectorArn?: string;
   IntegrationType?: VoiceConnectorIntegrationType;
 }
-export type VoiceConnectorAwsRegion =
-  | "US_EAST_1"
-  | "US_WEST_2"
-  | "CA_CENTRAL_1"
-  | "EU_CENTRAL_1"
-  | "EU_WEST_1"
-  | "EU_WEST_2"
-  | "AP_NORTHEAST_2"
-  | "AP_NORTHEAST_1"
-  | "AP_SOUTHEAST_1"
-  | "AP_SOUTHEAST_2";
+export type VoiceConnectorAwsRegion = "US_EAST_1" | "US_WEST_2" | "CA_CENTRAL_1" | "EU_CENTRAL_1" | "EU_WEST_1" | "EU_WEST_2" | "AP_NORTHEAST_2" | "AP_NORTHEAST_1" | "AP_SOUTHEAST_1" | "AP_SOUTHEAST_2";
 export type VoiceConnectorAwsRegionList = Array<VoiceConnectorAwsRegion>;
 export interface VoiceConnectorGroup {
   VoiceConnectorGroupId?: string;
@@ -2663,9 +1879,7 @@ export interface VoiceConnectorGroup {
 export type VoiceConnectorGroupList = Array<VoiceConnectorGroup>;
 export type VoiceConnectorGroupName = string;
 
-export type VoiceConnectorIntegrationType =
-  | "CONNECT_CALL_TRANSFER_CONNECTOR"
-  | "CONNECT_ANALYTICS_CONNECTOR";
+export type VoiceConnectorIntegrationType = "CONNECT_CALL_TRANSFER_CONNECTOR" | "CONNECT_ANALYTICS_CONNECTOR";
 export interface VoiceConnectorItem {
   VoiceConnectorId: string;
   Priority: number;
@@ -4119,3 +3333,4 @@ export declare namespace ValidateE911Address {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+

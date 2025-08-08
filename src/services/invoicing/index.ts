@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class Invoicing extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("invoicing", new AwsJson10Protocol(), cfg);
+  }
+
   batchGetInvoiceProfile(
     input: BatchGetInvoiceProfileRequest,
   ): Effect.Effect<
     BatchGetInvoiceProfileResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetInvoiceProfile", input);
   }
@@ -20,11 +20,7 @@ export class Invoicing extends AWSServiceClient {
     input: CreateInvoiceUnitRequest,
   ): Effect.Effect<
     CreateInvoiceUnitResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateInvoiceUnit", input);
   }
@@ -32,12 +28,7 @@ export class Invoicing extends AWSServiceClient {
     input: DeleteInvoiceUnitRequest,
   ): Effect.Effect<
     DeleteInvoiceUnitResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteInvoiceUnit", input);
   }
@@ -45,12 +36,7 @@ export class Invoicing extends AWSServiceClient {
     input: GetInvoiceUnitRequest,
   ): Effect.Effect<
     GetInvoiceUnitResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetInvoiceUnit", input);
   }
@@ -58,12 +44,7 @@ export class Invoicing extends AWSServiceClient {
     input: ListInvoiceSummariesRequest,
   ): Effect.Effect<
     ListInvoiceSummariesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListInvoiceSummaries", input);
   }
@@ -71,11 +52,7 @@ export class Invoicing extends AWSServiceClient {
     input: ListInvoiceUnitsRequest,
   ): Effect.Effect<
     ListInvoiceUnitsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListInvoiceUnits", input);
   }
@@ -83,12 +60,7 @@ export class Invoicing extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -96,13 +68,7 @@ export class Invoicing extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -110,12 +76,7 @@ export class Invoicing extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -123,12 +84,7 @@ export class Invoicing extends AWSServiceClient {
     input: UpdateInvoiceUnitRequest,
   ): Effect.Effect<
     UpdateInvoiceUnitResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateInvoiceUnit", input);
   }
@@ -380,7 +336,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   ResourceTags: Array<ResourceTag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagrisArn = string;
 
 export interface TaxesBreakdown {
@@ -404,7 +361,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   ResourceTagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateInvoiceUnitRequest {
   InvoiceUnitArn: string;
   Description?: string;
@@ -427,21 +385,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "NON_MEMBERS_PRESENT"
-  | "MAX_ACCOUNTS_EXCEEDED"
-  | "MAX_INVOICE_UNITS_EXCEEDED"
-  | "DUPLICATE_INVOICE_UNIT"
-  | "MUTUAL_EXCLUSION_ERROR"
-  | "ACCOUNT_MEMBERSHIP_ERROR"
-  | "TAX_SETTINGS_ERROR"
-  | "EXPIRED_NEXT_TOKEN"
-  | "INVALID_NEXT_TOKEN"
-  | "INVALID_INPUT"
-  | "FIELD_VALIDATION_FAILED"
-  | "CANNOT_PARSE"
-  | "UNKNOWN_OPERATION"
-  | "OTHER";
+export type ValidationExceptionReason = "NON_MEMBERS_PRESENT" | "MAX_ACCOUNTS_EXCEEDED" | "MAX_INVOICE_UNITS_EXCEEDED" | "DUPLICATE_INVOICE_UNIT" | "MUTUAL_EXCLUSION_ERROR" | "ACCOUNT_MEMBERSHIP_ERROR" | "TAX_SETTINGS_ERROR" | "EXPIRED_NEXT_TOKEN" | "INVALID_NEXT_TOKEN" | "INVALID_INPUT" | "FIELD_VALIDATION_FAILED" | "CANNOT_PARSE" | "UNKNOWN_OPERATION" | "OTHER";
 export type Year = number;
 
 export declare namespace BatchGetInvoiceProfile {
@@ -562,3 +506,4 @@ export declare namespace UpdateInvoiceUnit {
     | ValidationException
     | CommonAwsError;
 }
+

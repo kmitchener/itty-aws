@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class FSx extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("fsx", new AwsJson11Protocol(), cfg);
+  }
+
   associateFileSystemAliases(
     input: AssociateFileSystemAliasesRequest,
   ): Effect.Effect<
@@ -15,12 +20,7 @@ export class FSx extends AWSServiceClient {
     input: CancelDataRepositoryTaskRequest,
   ): Effect.Effect<
     CancelDataRepositoryTaskResponse,
-    | BadRequest
-    | DataRepositoryTaskEnded
-    | DataRepositoryTaskNotFound
-    | InternalServerError
-    | UnsupportedOperation
-    | CommonAwsError
+    BadRequest | DataRepositoryTaskEnded | DataRepositoryTaskNotFound | InternalServerError | UnsupportedOperation | CommonAwsError
   > {
     return this.call("CancelDataRepositoryTask", input);
   }
@@ -28,18 +28,7 @@ export class FSx extends AWSServiceClient {
     input: CopyBackupRequest,
   ): Effect.Effect<
     CopyBackupResponse,
-    | BackupNotFound
-    | BadRequest
-    | IncompatibleParameterError
-    | IncompatibleRegionForMultiAZ
-    | InternalServerError
-    | InvalidDestinationKmsKey
-    | InvalidRegion
-    | InvalidSourceKmsKey
-    | ServiceLimitExceeded
-    | SourceBackupUnavailable
-    | UnsupportedOperation
-    | CommonAwsError
+    BackupNotFound | BadRequest | IncompatibleParameterError | IncompatibleRegionForMultiAZ | InternalServerError | InvalidDestinationKmsKey | InvalidRegion | InvalidSourceKmsKey | ServiceLimitExceeded | SourceBackupUnavailable | UnsupportedOperation | CommonAwsError
   > {
     return this.call("CopyBackup", input);
   }
@@ -47,11 +36,7 @@ export class FSx extends AWSServiceClient {
     input: CopySnapshotAndUpdateVolumeRequest,
   ): Effect.Effect<
     CopySnapshotAndUpdateVolumeResponse,
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | CommonAwsError
+    BadRequest | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | CommonAwsError
   > {
     return this.call("CopySnapshotAndUpdateVolume", input);
   }
@@ -59,16 +44,7 @@ export class FSx extends AWSServiceClient {
     input: CreateAndAttachS3AccessPointRequest,
   ): Effect.Effect<
     CreateAndAttachS3AccessPointResponse,
-    | AccessPointAlreadyOwnedByYou
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | InvalidAccessPoint
-    | InvalidRequest
-    | TooManyAccessPoints
-    | UnsupportedOperation
-    | VolumeNotFound
-    | CommonAwsError
+    AccessPointAlreadyOwnedByYou | BadRequest | IncompatibleParameterError | InternalServerError | InvalidAccessPoint | InvalidRequest | TooManyAccessPoints | UnsupportedOperation | VolumeNotFound | CommonAwsError
   > {
     return this.call("CreateAndAttachS3AccessPoint", input);
   }
@@ -76,15 +52,7 @@ export class FSx extends AWSServiceClient {
     input: CreateBackupRequest,
   ): Effect.Effect<
     CreateBackupResponse,
-    | BackupInProgress
-    | BadRequest
-    | FileSystemNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | UnsupportedOperation
-    | VolumeNotFound
-    | CommonAwsError
+    BackupInProgress | BadRequest | FileSystemNotFound | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | UnsupportedOperation | VolumeNotFound | CommonAwsError
   > {
     return this.call("CreateBackup", input);
   }
@@ -92,13 +60,7 @@ export class FSx extends AWSServiceClient {
     input: CreateDataRepositoryAssociationRequest,
   ): Effect.Effect<
     CreateDataRepositoryAssociationResponse,
-    | BadRequest
-    | FileSystemNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | UnsupportedOperation
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | UnsupportedOperation | CommonAwsError
   > {
     return this.call("CreateDataRepositoryAssociation", input);
   }
@@ -106,14 +68,7 @@ export class FSx extends AWSServiceClient {
     input: CreateDataRepositoryTaskRequest,
   ): Effect.Effect<
     CreateDataRepositoryTaskResponse,
-    | BadRequest
-    | DataRepositoryTaskExecuting
-    | FileSystemNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | UnsupportedOperation
-    | CommonAwsError
+    BadRequest | DataRepositoryTaskExecuting | FileSystemNotFound | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | UnsupportedOperation | CommonAwsError
   > {
     return this.call("CreateDataRepositoryTask", input);
   }
@@ -121,14 +76,7 @@ export class FSx extends AWSServiceClient {
     input: CreateFileCacheRequest,
   ): Effect.Effect<
     CreateFileCacheResponse,
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | InvalidNetworkSettings
-    | InvalidPerUnitStorageThroughput
-    | MissingFileCacheConfiguration
-    | ServiceLimitExceeded
-    | CommonAwsError
+    BadRequest | IncompatibleParameterError | InternalServerError | InvalidNetworkSettings | InvalidPerUnitStorageThroughput | MissingFileCacheConfiguration | ServiceLimitExceeded | CommonAwsError
   > {
     return this.call("CreateFileCache", input);
   }
@@ -136,17 +84,7 @@ export class FSx extends AWSServiceClient {
     input: CreateFileSystemRequest,
   ): Effect.Effect<
     CreateFileSystemResponse,
-    | ActiveDirectoryError
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | InvalidExportPath
-    | InvalidImportPath
-    | InvalidNetworkSettings
-    | InvalidPerUnitStorageThroughput
-    | MissingFileSystemConfiguration
-    | ServiceLimitExceeded
-    | CommonAwsError
+    ActiveDirectoryError | BadRequest | IncompatibleParameterError | InternalServerError | InvalidExportPath | InvalidImportPath | InvalidNetworkSettings | InvalidPerUnitStorageThroughput | MissingFileSystemConfiguration | ServiceLimitExceeded | CommonAwsError
   > {
     return this.call("CreateFileSystem", input);
   }
@@ -154,16 +92,7 @@ export class FSx extends AWSServiceClient {
     input: CreateFileSystemFromBackupRequest,
   ): Effect.Effect<
     CreateFileSystemFromBackupResponse,
-    | ActiveDirectoryError
-    | BackupNotFound
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | InvalidNetworkSettings
-    | InvalidPerUnitStorageThroughput
-    | MissingFileSystemConfiguration
-    | ServiceLimitExceeded
-    | CommonAwsError
+    ActiveDirectoryError | BackupNotFound | BadRequest | IncompatibleParameterError | InternalServerError | InvalidNetworkSettings | InvalidPerUnitStorageThroughput | MissingFileSystemConfiguration | ServiceLimitExceeded | CommonAwsError
   > {
     return this.call("CreateFileSystemFromBackup", input);
   }
@@ -171,11 +100,7 @@ export class FSx extends AWSServiceClient {
     input: CreateSnapshotRequest,
   ): Effect.Effect<
     CreateSnapshotResponse,
-    | BadRequest
-    | InternalServerError
-    | ServiceLimitExceeded
-    | VolumeNotFound
-    | CommonAwsError
+    BadRequest | InternalServerError | ServiceLimitExceeded | VolumeNotFound | CommonAwsError
   > {
     return this.call("CreateSnapshot", input);
   }
@@ -183,14 +108,7 @@ export class FSx extends AWSServiceClient {
     input: CreateStorageVirtualMachineRequest,
   ): Effect.Effect<
     CreateStorageVirtualMachineResponse,
-    | ActiveDirectoryError
-    | BadRequest
-    | FileSystemNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | UnsupportedOperation
-    | CommonAwsError
+    ActiveDirectoryError | BadRequest | FileSystemNotFound | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | UnsupportedOperation | CommonAwsError
   > {
     return this.call("CreateStorageVirtualMachine", input);
   }
@@ -198,15 +116,7 @@ export class FSx extends AWSServiceClient {
     input: CreateVolumeRequest,
   ): Effect.Effect<
     CreateVolumeResponse,
-    | BadRequest
-    | FileSystemNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | MissingVolumeConfiguration
-    | ServiceLimitExceeded
-    | StorageVirtualMachineNotFound
-    | UnsupportedOperation
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncompatibleParameterError | InternalServerError | MissingVolumeConfiguration | ServiceLimitExceeded | StorageVirtualMachineNotFound | UnsupportedOperation | CommonAwsError
   > {
     return this.call("CreateVolume", input);
   }
@@ -214,15 +124,7 @@ export class FSx extends AWSServiceClient {
     input: CreateVolumeFromBackupRequest,
   ): Effect.Effect<
     CreateVolumeFromBackupResponse,
-    | BackupNotFound
-    | BadRequest
-    | FileSystemNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | MissingVolumeConfiguration
-    | ServiceLimitExceeded
-    | StorageVirtualMachineNotFound
-    | CommonAwsError
+    BackupNotFound | BadRequest | FileSystemNotFound | IncompatibleParameterError | InternalServerError | MissingVolumeConfiguration | ServiceLimitExceeded | StorageVirtualMachineNotFound | CommonAwsError
   > {
     return this.call("CreateVolumeFromBackup", input);
   }
@@ -230,14 +132,7 @@ export class FSx extends AWSServiceClient {
     input: DeleteBackupRequest,
   ): Effect.Effect<
     DeleteBackupResponse,
-    | BackupBeingCopied
-    | BackupInProgress
-    | BackupNotFound
-    | BackupRestoring
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | CommonAwsError
+    BackupBeingCopied | BackupInProgress | BackupNotFound | BackupRestoring | BadRequest | IncompatibleParameterError | InternalServerError | CommonAwsError
   > {
     return this.call("DeleteBackup", input);
   }
@@ -245,12 +140,7 @@ export class FSx extends AWSServiceClient {
     input: DeleteDataRepositoryAssociationRequest,
   ): Effect.Effect<
     DeleteDataRepositoryAssociationResponse,
-    | BadRequest
-    | DataRepositoryAssociationNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | CommonAwsError
+    BadRequest | DataRepositoryAssociationNotFound | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | CommonAwsError
   > {
     return this.call("DeleteDataRepositoryAssociation", input);
   }
@@ -258,12 +148,7 @@ export class FSx extends AWSServiceClient {
     input: DeleteFileCacheRequest,
   ): Effect.Effect<
     DeleteFileCacheResponse,
-    | BadRequest
-    | FileCacheNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | CommonAwsError
+    BadRequest | FileCacheNotFound | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | CommonAwsError
   > {
     return this.call("DeleteFileCache", input);
   }
@@ -271,12 +156,7 @@ export class FSx extends AWSServiceClient {
     input: DeleteFileSystemRequest,
   ): Effect.Effect<
     DeleteFileSystemResponse,
-    | BadRequest
-    | FileSystemNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | CommonAwsError
   > {
     return this.call("DeleteFileSystem", input);
   }
@@ -292,11 +172,7 @@ export class FSx extends AWSServiceClient {
     input: DeleteStorageVirtualMachineRequest,
   ): Effect.Effect<
     DeleteStorageVirtualMachineResponse,
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | StorageVirtualMachineNotFound
-    | CommonAwsError
+    BadRequest | IncompatibleParameterError | InternalServerError | StorageVirtualMachineNotFound | CommonAwsError
   > {
     return this.call("DeleteStorageVirtualMachine", input);
   }
@@ -304,12 +180,7 @@ export class FSx extends AWSServiceClient {
     input: DeleteVolumeRequest,
   ): Effect.Effect<
     DeleteVolumeResponse,
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | VolumeNotFound
-    | CommonAwsError
+    BadRequest | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | VolumeNotFound | CommonAwsError
   > {
     return this.call("DeleteVolume", input);
   }
@@ -317,12 +188,7 @@ export class FSx extends AWSServiceClient {
     input: DescribeBackupsRequest,
   ): Effect.Effect<
     DescribeBackupsResponse,
-    | BackupNotFound
-    | BadRequest
-    | FileSystemNotFound
-    | InternalServerError
-    | VolumeNotFound
-    | CommonAwsError
+    BackupNotFound | BadRequest | FileSystemNotFound | InternalServerError | VolumeNotFound | CommonAwsError
   > {
     return this.call("DescribeBackups", input);
   }
@@ -330,12 +196,7 @@ export class FSx extends AWSServiceClient {
     input: DescribeDataRepositoryAssociationsRequest,
   ): Effect.Effect<
     DescribeDataRepositoryAssociationsResponse,
-    | BadRequest
-    | DataRepositoryAssociationNotFound
-    | FileSystemNotFound
-    | InternalServerError
-    | InvalidDataRepositoryType
-    | CommonAwsError
+    BadRequest | DataRepositoryAssociationNotFound | FileSystemNotFound | InternalServerError | InvalidDataRepositoryType | CommonAwsError
   > {
     return this.call("DescribeDataRepositoryAssociations", input);
   }
@@ -343,11 +204,7 @@ export class FSx extends AWSServiceClient {
     input: DescribeDataRepositoryTasksRequest,
   ): Effect.Effect<
     DescribeDataRepositoryTasksResponse,
-    | BadRequest
-    | DataRepositoryTaskNotFound
-    | FileSystemNotFound
-    | InternalServerError
-    | CommonAwsError
+    BadRequest | DataRepositoryTaskNotFound | FileSystemNotFound | InternalServerError | CommonAwsError
   > {
     return this.call("DescribeDataRepositoryTasks", input);
   }
@@ -379,11 +236,7 @@ export class FSx extends AWSServiceClient {
     input: DescribeS3AccessPointAttachmentsRequest,
   ): Effect.Effect<
     DescribeS3AccessPointAttachmentsResponse,
-    | BadRequest
-    | InternalServerError
-    | S3AccessPointAttachmentNotFound
-    | UnsupportedOperation
-    | CommonAwsError
+    BadRequest | InternalServerError | S3AccessPointAttachmentNotFound | UnsupportedOperation | CommonAwsError
   > {
     return this.call("DescribeS3AccessPointAttachments", input);
   }
@@ -407,10 +260,7 @@ export class FSx extends AWSServiceClient {
     input: DescribeStorageVirtualMachinesRequest,
   ): Effect.Effect<
     DescribeStorageVirtualMachinesResponse,
-    | BadRequest
-    | InternalServerError
-    | StorageVirtualMachineNotFound
-    | CommonAwsError
+    BadRequest | InternalServerError | StorageVirtualMachineNotFound | CommonAwsError
   > {
     return this.call("DescribeStorageVirtualMachines", input);
   }
@@ -426,12 +276,7 @@ export class FSx extends AWSServiceClient {
     input: DetachAndDeleteS3AccessPointRequest,
   ): Effect.Effect<
     DetachAndDeleteS3AccessPointResponse,
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | S3AccessPointAttachmentNotFound
-    | UnsupportedOperation
-    | CommonAwsError
+    BadRequest | IncompatibleParameterError | InternalServerError | S3AccessPointAttachmentNotFound | UnsupportedOperation | CommonAwsError
   > {
     return this.call("DetachAndDeleteS3AccessPoint", input);
   }
@@ -447,12 +292,7 @@ export class FSx extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequest
-    | InternalServerError
-    | NotServiceResourceError
-    | ResourceDoesNotSupportTagging
-    | ResourceNotFound
-    | CommonAwsError
+    BadRequest | InternalServerError | NotServiceResourceError | ResourceDoesNotSupportTagging | ResourceNotFound | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -460,12 +300,7 @@ export class FSx extends AWSServiceClient {
     input: ReleaseFileSystemNfsV3LocksRequest,
   ): Effect.Effect<
     ReleaseFileSystemNfsV3LocksResponse,
-    | BadRequest
-    | FileSystemNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | CommonAwsError
   > {
     return this.call("ReleaseFileSystemNfsV3Locks", input);
   }
@@ -489,12 +324,7 @@ export class FSx extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequest
-    | InternalServerError
-    | NotServiceResourceError
-    | ResourceDoesNotSupportTagging
-    | ResourceNotFound
-    | CommonAwsError
+    BadRequest | InternalServerError | NotServiceResourceError | ResourceDoesNotSupportTagging | ResourceNotFound | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -502,12 +332,7 @@ export class FSx extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequest
-    | InternalServerError
-    | NotServiceResourceError
-    | ResourceDoesNotSupportTagging
-    | ResourceNotFound
-    | CommonAwsError
+    BadRequest | InternalServerError | NotServiceResourceError | ResourceDoesNotSupportTagging | ResourceNotFound | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -515,12 +340,7 @@ export class FSx extends AWSServiceClient {
     input: UpdateDataRepositoryAssociationRequest,
   ): Effect.Effect<
     UpdateDataRepositoryAssociationResponse,
-    | BadRequest
-    | DataRepositoryAssociationNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | ServiceLimitExceeded
-    | CommonAwsError
+    BadRequest | DataRepositoryAssociationNotFound | IncompatibleParameterError | InternalServerError | ServiceLimitExceeded | CommonAwsError
   > {
     return this.call("UpdateDataRepositoryAssociation", input);
   }
@@ -528,14 +348,7 @@ export class FSx extends AWSServiceClient {
     input: UpdateFileCacheRequest,
   ): Effect.Effect<
     UpdateFileCacheResponse,
-    | BadRequest
-    | FileCacheNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | MissingFileCacheConfiguration
-    | ServiceLimitExceeded
-    | UnsupportedOperation
-    | CommonAwsError
+    BadRequest | FileCacheNotFound | IncompatibleParameterError | InternalServerError | MissingFileCacheConfiguration | ServiceLimitExceeded | UnsupportedOperation | CommonAwsError
   > {
     return this.call("UpdateFileCache", input);
   }
@@ -543,15 +356,7 @@ export class FSx extends AWSServiceClient {
     input: UpdateFileSystemRequest,
   ): Effect.Effect<
     UpdateFileSystemResponse,
-    | BadRequest
-    | FileSystemNotFound
-    | IncompatibleParameterError
-    | InternalServerError
-    | InvalidNetworkSettings
-    | MissingFileSystemConfiguration
-    | ServiceLimitExceeded
-    | UnsupportedOperation
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncompatibleParameterError | InternalServerError | InvalidNetworkSettings | MissingFileSystemConfiguration | ServiceLimitExceeded | UnsupportedOperation | CommonAwsError
   > {
     return this.call("UpdateFileSystem", input);
   }
@@ -559,10 +364,7 @@ export class FSx extends AWSServiceClient {
     input: UpdateSharedVpcConfigurationRequest,
   ): Effect.Effect<
     UpdateSharedVpcConfigurationResponse,
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | CommonAwsError
+    BadRequest | IncompatibleParameterError | InternalServerError | CommonAwsError
   > {
     return this.call("UpdateSharedVpcConfiguration", input);
   }
@@ -578,12 +380,7 @@ export class FSx extends AWSServiceClient {
     input: UpdateStorageVirtualMachineRequest,
   ): Effect.Effect<
     UpdateStorageVirtualMachineResponse,
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | StorageVirtualMachineNotFound
-    | UnsupportedOperation
-    | CommonAwsError
+    BadRequest | IncompatibleParameterError | InternalServerError | StorageVirtualMachineNotFound | UnsupportedOperation | CommonAwsError
   > {
     return this.call("UpdateStorageVirtualMachine", input);
   }
@@ -591,12 +388,7 @@ export class FSx extends AWSServiceClient {
     input: UpdateVolumeRequest,
   ): Effect.Effect<
     UpdateVolumeResponse,
-    | BadRequest
-    | IncompatibleParameterError
-    | InternalServerError
-    | MissingVolumeConfiguration
-    | VolumeNotFound
-    | CommonAwsError
+    BadRequest | IncompatibleParameterError | InternalServerError | MissingVolumeConfiguration | VolumeNotFound | CommonAwsError
   > {
     return this.call("UpdateVolume", input);
   }
@@ -626,11 +418,7 @@ export declare class ActiveDirectoryError extends EffectData.TaggedError(
   readonly Type?: ActiveDirectoryErrorType;
   readonly Message?: string;
 }> {}
-export type ActiveDirectoryErrorType =
-  | "DOMAIN_NOT_FOUND"
-  | "INCOMPATIBLE_DOMAIN_MODE"
-  | "WRONG_VPC"
-  | "INVALID_DOMAIN_STAGE";
+export type ActiveDirectoryErrorType = "DOMAIN_NOT_FOUND" | "INCOMPATIBLE_DOMAIN_MODE" | "WRONG_VPC" | "INVALID_DOMAIN_STAGE";
 export type ActiveDirectoryFullyQualifiedName = string;
 
 export interface AdministrativeAction {
@@ -649,22 +437,7 @@ export interface AdministrativeActionFailureDetails {
   Message?: string;
 }
 export type AdministrativeActions = Array<AdministrativeAction>;
-export type AdministrativeActionType =
-  | "FILE_SYSTEM_UPDATE"
-  | "STORAGE_OPTIMIZATION"
-  | "FILE_SYSTEM_ALIAS_ASSOCIATION"
-  | "FILE_SYSTEM_ALIAS_DISASSOCIATION"
-  | "VOLUME_UPDATE"
-  | "SNAPSHOT_UPDATE"
-  | "RELEASE_NFS_V3_LOCKS"
-  | "VOLUME_RESTORE"
-  | "THROUGHPUT_OPTIMIZATION"
-  | "IOPS_OPTIMIZATION"
-  | "STORAGE_TYPE_OPTIMIZATION"
-  | "MISCONFIGURED_STATE_RECOVERY"
-  | "VOLUME_UPDATE_WITH_SNAPSHOT"
-  | "VOLUME_INITIALIZE_WITH_SNAPSHOT"
-  | "DOWNLOAD_DATA_FROM_BACKUP";
+export type AdministrativeActionType = "FILE_SYSTEM_UPDATE" | "STORAGE_OPTIMIZATION" | "FILE_SYSTEM_ALIAS_ASSOCIATION" | "FILE_SYSTEM_ALIAS_DISASSOCIATION" | "VOLUME_UPDATE" | "SNAPSHOT_UPDATE" | "RELEASE_NFS_V3_LOCKS" | "VOLUME_RESTORE" | "THROUGHPUT_OPTIMIZATION" | "IOPS_OPTIMIZATION" | "STORAGE_TYPE_OPTIMIZATION" | "MISCONFIGURED_STATE_RECOVERY" | "VOLUME_UPDATE_WITH_SNAPSHOT" | "VOLUME_INITIALIZE_WITH_SNAPSHOT" | "DOWNLOAD_DATA_FROM_BACKUP";
 export type AdminPassword = string;
 
 export type Aggregate = string;
@@ -681,12 +454,7 @@ export interface Alias {
   Lifecycle?: AliasLifecycle;
 }
 export type Aliases = Array<Alias>;
-export type AliasLifecycle =
-  | "AVAILABLE"
-  | "CREATING"
-  | "DELETING"
-  | "CREATE_FAILED"
-  | "DELETE_FAILED";
+export type AliasLifecycle = "AVAILABLE" | "CREATING" | "DELETING" | "CREATE_FAILED" | "DELETE_FAILED";
 export type AlternateDNSName = string;
 
 export type AlternateDNSNames = Array<string>;
@@ -704,13 +472,7 @@ export interface AutocommitPeriod {
   Type: AutocommitPeriodType;
   Value?: number;
 }
-export type AutocommitPeriodType =
-  | "MINUTES"
-  | "HOURS"
-  | "DAYS"
-  | "MONTHS"
-  | "YEARS"
-  | "NONE";
+export type AutocommitPeriodType = "MINUTES" | "HOURS" | "DAYS" | "MONTHS" | "YEARS" | "NONE";
 export type AutocommitPeriodValue = number;
 
 export interface AutoExportPolicy {
@@ -719,11 +481,7 @@ export interface AutoExportPolicy {
 export interface AutoImportPolicy {
   Events?: Array<EventType>;
 }
-export type AutoImportPolicyType =
-  | "NONE"
-  | "NEW"
-  | "NEW_CHANGED"
-  | "NEW_CHANGED_DELETED";
+export type AutoImportPolicyType = "NONE" | "NEW" | "NEW_CHANGED" | "NEW_CHANGED_DELETED";
 export type AutomaticBackupRetentionDays = number;
 
 export type AWSAccountId = string;
@@ -764,14 +522,7 @@ export declare class BackupInProgress extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type BackupLifecycle =
-  | "AVAILABLE"
-  | "CREATING"
-  | "TRANSFERRING"
-  | "DELETED"
-  | "FAILED"
-  | "PENDING"
-  | "COPYING";
+export type BackupLifecycle = "AVAILABLE" | "CREATING" | "TRANSFERRING" | "DELETED" | "FAILED" | "PENDING" | "COPYING";
 export declare class BackupNotFound extends EffectData.TaggedError(
   "BackupNotFound",
 )<{
@@ -785,7 +536,9 @@ export declare class BackupRestoring extends EffectData.TaggedError(
 }> {}
 export type Backups = Array<Backup>;
 export type BackupType = "AUTOMATIC" | "USER_INITIATED" | "AWS_BACKUP";
-export declare class BadRequest extends EffectData.TaggedError("BadRequest")<{
+export declare class BadRequest extends EffectData.TaggedError(
+  "BadRequest",
+)<{
   readonly Message?: string;
 }> {}
 export type BatchImportMetaDataOnCreate = boolean;
@@ -891,8 +644,7 @@ export interface CreateDataRepositoryTaskRequest {
 export interface CreateDataRepositoryTaskResponse {
   DataRepositoryTask?: DataRepositoryTask;
 }
-export type CreateFileCacheDataRepositoryAssociations =
-  Array<FileCacheDataRepositoryAssociation>;
+export type CreateFileCacheDataRepositoryAssociations = Array<FileCacheDataRepositoryAssociation>;
 export interface CreateFileCacheLustreConfiguration {
   PerUnitStorageThroughput: number;
   DeploymentType: FileCacheLustreDeploymentType;
@@ -1145,13 +897,7 @@ export interface DataRepositoryConfiguration {
 export interface DataRepositoryFailureDetails {
   Message?: string;
 }
-export type DataRepositoryLifecycle =
-  | "CREATING"
-  | "AVAILABLE"
-  | "MISCONFIGURED"
-  | "UPDATING"
-  | "DELETING"
-  | "FAILED";
+export type DataRepositoryLifecycle = "CREATING" | "AVAILABLE" | "MISCONFIGURED" | "UPDATING" | "DELETING" | "FAILED";
 export interface DataRepositoryTask {
   TaskId: string;
   Lifecycle: DataRepositoryTaskLifecycle;
@@ -1187,22 +933,12 @@ export interface DataRepositoryTaskFilter {
   Name?: DataRepositoryTaskFilterName;
   Values?: Array<string>;
 }
-export type DataRepositoryTaskFilterName =
-  | "FILE_SYSTEM_ID"
-  | "TASK_LIFECYCLE"
-  | "DATA_REPO_ASSOCIATION_ID"
-  | "FILE_CACHE_ID";
+export type DataRepositoryTaskFilterName = "FILE_SYSTEM_ID" | "TASK_LIFECYCLE" | "DATA_REPO_ASSOCIATION_ID" | "FILE_CACHE_ID";
 export type DataRepositoryTaskFilters = Array<DataRepositoryTaskFilter>;
 export type DataRepositoryTaskFilterValue = string;
 
 export type DataRepositoryTaskFilterValues = Array<string>;
-export type DataRepositoryTaskLifecycle =
-  | "PENDING"
-  | "EXECUTING"
-  | "FAILED"
-  | "SUCCEEDED"
-  | "CANCELED"
-  | "CANCELING";
+export type DataRepositoryTaskLifecycle = "PENDING" | "EXECUTING" | "FAILED" | "SUCCEEDED" | "CANCELED" | "CANCELING";
 export declare class DataRepositoryTaskNotFound extends EffectData.TaggedError(
   "DataRepositoryTaskNotFound",
 )<{
@@ -1219,11 +955,7 @@ export interface DataRepositoryTaskStatus {
   LastUpdatedTime?: Date | string;
   ReleasedCapacity?: number;
 }
-export type DataRepositoryTaskType =
-  | "EXPORT"
-  | "IMPORT"
-  | "EVICTION"
-  | "AUTO_TRIGGERED_EVICTION";
+export type DataRepositoryTaskType = "EXPORT" | "IMPORT" | "EVICTION" | "AUTO_TRIGGERED_EVICTION";
 export interface DeleteBackupRequest {
   BackupId: string;
   ClientRequestToken?: string;
@@ -1265,10 +997,8 @@ export interface DeleteFileSystemOpenZFSConfiguration {
   FinalBackupTags?: Array<Tag>;
   Options?: Array<DeleteFileSystemOpenZFSOption>;
 }
-export type DeleteFileSystemOpenZFSOption =
-  "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS";
-export type DeleteFileSystemOpenZFSOptions =
-  Array<DeleteFileSystemOpenZFSOption>;
+export type DeleteFileSystemOpenZFSOption = "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS";
+export type DeleteFileSystemOpenZFSOptions = Array<DeleteFileSystemOpenZFSOption>;
 export interface DeleteFileSystemOpenZFSResponse {
   FinalBackupId?: string;
   FinalBackupTags?: Array<Tag>;
@@ -1404,7 +1134,8 @@ export interface DescribeS3AccessPointAttachmentsResponse {
   S3AccessPointAttachments?: Array<S3AccessPointAttachment>;
   NextToken?: string;
 }
-export interface DescribeSharedVpcConfigurationRequest {}
+export interface DescribeSharedVpcConfigurationRequest {
+}
 export interface DescribeSharedVpcConfigurationResponse {
   EnableFsxRouteTableUpdatesFromParticipantAccounts?: string;
 }
@@ -1534,12 +1265,7 @@ export interface FileCacheFailureDetails {
 export type FileCacheId = string;
 
 export type FileCacheIds = Array<string>;
-export type FileCacheLifecycle =
-  | "AVAILABLE"
-  | "CREATING"
-  | "DELETING"
-  | "UPDATING"
-  | "FAILED";
+export type FileCacheLifecycle = "AVAILABLE" | "CREATING" | "DELETING" | "UPDATING" | "FAILED";
 export interface FileCacheLustreConfiguration {
   PerUnitStorageThroughput?: number;
   DeploymentType?: FileCacheLustreDeploymentType;
@@ -1604,21 +1330,13 @@ export type FileSystemGID = number;
 export type FileSystemId = string;
 
 export type FileSystemIds = Array<string>;
-export type FileSystemLifecycle =
-  | "AVAILABLE"
-  | "CREATING"
-  | "FAILED"
-  | "DELETING"
-  | "MISCONFIGURED"
-  | "UPDATING"
-  | "MISCONFIGURED_UNAVAILABLE";
+export type FileSystemLifecycle = "AVAILABLE" | "CREATING" | "FAILED" | "DELETING" | "MISCONFIGURED" | "UPDATING" | "MISCONFIGURED_UNAVAILABLE";
 export interface FileSystemLustreMetadataConfiguration {
   Iops?: number;
   Mode: MetadataConfigurationMode;
 }
 export type FileSystemMaintenanceOperation = "PATCHING" | "BACKING_UP";
-export type FileSystemMaintenanceOperations =
-  Array<FileSystemMaintenanceOperation>;
+export type FileSystemMaintenanceOperations = Array<FileSystemMaintenanceOperation>;
 export declare class FileSystemNotFound extends EffectData.TaggedError(
   "FileSystemNotFound",
 )<{
@@ -1635,14 +1353,7 @@ export interface Filter {
   Name?: FilterName;
   Values?: Array<string>;
 }
-export type FilterName =
-  | "FILE_SYSTEM_ID"
-  | "BACKUP_TYPE"
-  | "FILE_SYSTEM_TYPE"
-  | "VOLUME_ID"
-  | "DATA_REPOSITORY_TYPE"
-  | "FILE_CACHE_ID"
-  | "FILE_CACHE_TYPE";
+export type FilterName = "FILE_SYSTEM_ID" | "BACKUP_TYPE" | "FILE_SYSTEM_TYPE" | "VOLUME_ID" | "DATA_REPOSITORY_TYPE" | "FILE_CACHE_ID" | "FILE_CACHE_TYPE";
 export type Filters = Array<Filter>;
 export type FilterValue = string;
 
@@ -1760,16 +1471,8 @@ export interface ListTagsForResourceResponse {
   Tags?: Array<Tag>;
   NextToken?: string;
 }
-export type LustreAccessAuditLogLevel =
-  | "DISABLED"
-  | "WARN_ONLY"
-  | "ERROR_ONLY"
-  | "WARN_ERROR";
-export type LustreDeploymentType =
-  | "SCRATCH_1"
-  | "SCRATCH_2"
-  | "PERSISTENT_1"
-  | "PERSISTENT_2";
+export type LustreAccessAuditLogLevel = "DISABLED" | "WARN_ONLY" | "ERROR_ONLY" | "WARN_ERROR";
+export type LustreDeploymentType = "SCRATCH_1" | "SCRATCH_2" | "PERSISTENT_1" | "PERSISTENT_2";
 export interface LustreFileSystemConfiguration {
   WeeklyMaintenanceStartTime?: string;
   DataRepositoryConfiguration?: DataRepositoryConfiguration;
@@ -1805,10 +1508,7 @@ export interface LustreReadCacheConfiguration {
   SizingMode?: LustreReadCacheSizingMode;
   SizeGiB?: number;
 }
-export type LustreReadCacheSizingMode =
-  | "NO_CACHE"
-  | "USER_PROVISIONED"
-  | "PROPORTIONAL_TO_THROUGHPUT_CAPACITY";
+export type LustreReadCacheSizingMode = "NO_CACHE" | "USER_PROVISIONED" | "PROPORTIONAL_TO_THROUGHPUT_CAPACITY";
 export type LustreRootSquash = string;
 
 export interface LustreRootSquashConfiguration {
@@ -1862,11 +1562,7 @@ export declare class NotServiceResourceError extends EffectData.TaggedError(
   readonly ResourceARN: string;
   readonly Message?: string;
 }> {}
-export type OntapDeploymentType =
-  | "MULTI_AZ_1"
-  | "SINGLE_AZ_1"
-  | "SINGLE_AZ_2"
-  | "MULTI_AZ_2";
+export type OntapDeploymentType = "MULTI_AZ_1" | "SINGLE_AZ_1" | "SINGLE_AZ_2" | "MULTI_AZ_2";
 export type OntapEndpointIpAddresses = Array<string>;
 export interface OntapFileSystemConfiguration {
   AutomaticBackupRetentionDays?: number;
@@ -1919,12 +1615,7 @@ export interface OpenZFSCreateRootVolumeConfiguration {
   ReadOnly?: boolean;
 }
 export type OpenZFSDataCompressionType = "NONE" | "ZSTD" | "LZ4";
-export type OpenZFSDeploymentType =
-  | "SINGLE_AZ_1"
-  | "SINGLE_AZ_2"
-  | "SINGLE_AZ_HA_1"
-  | "SINGLE_AZ_HA_2"
-  | "MULTI_AZ_1";
+export type OpenZFSDeploymentType = "SINGLE_AZ_1" | "SINGLE_AZ_2" | "SINGLE_AZ_HA_1" | "SINGLE_AZ_HA_2" | "MULTI_AZ_1";
 export interface OpenZFSFileSystemConfiguration {
   AutomaticBackupRetentionDays?: number;
   CopyTagsToBackups?: boolean;
@@ -1967,10 +1658,7 @@ export interface OpenZFSReadCacheConfiguration {
   SizingMode?: OpenZFSReadCacheSizingMode;
   SizeGiB?: number;
 }
-export type OpenZFSReadCacheSizingMode =
-  | "NO_CACHE"
-  | "USER_PROVISIONED"
-  | "PROPORTIONAL_TO_THROUGHPUT_CAPACITY";
+export type OpenZFSReadCacheSizingMode = "NO_CACHE" | "USER_PROVISIONED" | "PROPORTIONAL_TO_THROUGHPUT_CAPACITY";
 export type OpenZFSUserAndGroupQuotas = Array<OpenZFSUserOrGroupQuota>;
 export interface OpenZFSUserOrGroupQuota {
   Type: OpenZFSQuotaType;
@@ -2044,9 +1732,7 @@ export declare class ResourceNotFound extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type ResourceType = "FILE_SYSTEM" | "VOLUME";
-export type RestoreOpenZFSVolumeOption =
-  | "DELETE_INTERMEDIATE_SNAPSHOTS"
-  | "DELETE_CLONED_VOLUMES";
+export type RestoreOpenZFSVolumeOption = "DELETE_INTERMEDIATE_SNAPSHOTS" | "DELETE_CLONED_VOLUMES";
 export type RestoreOpenZFSVolumeOptions = Array<RestoreOpenZFSVolumeOption>;
 export interface RestoreVolumeFromSnapshotRequest {
   ClientRequestToken?: string;
@@ -2063,15 +1749,7 @@ export interface RetentionPeriod {
   Type: RetentionPeriodType;
   Value?: number;
 }
-export type RetentionPeriodType =
-  | "SECONDS"
-  | "MINUTES"
-  | "HOURS"
-  | "DAYS"
-  | "MONTHS"
-  | "YEARS"
-  | "INFINITE"
-  | "UNSPECIFIED";
+export type RetentionPeriodType = "SECONDS" | "MINUTES" | "HOURS" | "DAYS" | "MONTHS" | "YEARS" | "INFINITE" | "UNSPECIFIED";
 export type RetentionPeriodValue = number;
 
 export type RouteTableId = string;
@@ -2093,12 +1771,7 @@ export interface S3AccessPointAttachment {
   OpenZFSConfiguration?: S3AccessPointOpenZFSConfiguration;
   S3AccessPoint?: S3AccessPoint;
 }
-export type S3AccessPointAttachmentLifecycle =
-  | "AVAILABLE"
-  | "CREATING"
-  | "DELETING"
-  | "UPDATING"
-  | "FAILED";
+export type S3AccessPointAttachmentLifecycle = "AVAILABLE" | "CREATING" | "DELETING" | "UPDATING" | "FAILED";
 export type S3AccessPointAttachmentName = string;
 
 export type S3AccessPointAttachmentNames = Array<string>;
@@ -2112,12 +1785,8 @@ export interface S3AccessPointAttachmentsFilter {
   Name?: S3AccessPointAttachmentsFilterName;
   Values?: Array<string>;
 }
-export type S3AccessPointAttachmentsFilterName =
-  | "FILE_SYSTEM_ID"
-  | "VOLUME_ID"
-  | "TYPE";
-export type S3AccessPointAttachmentsFilters =
-  Array<S3AccessPointAttachmentsFilter>;
+export type S3AccessPointAttachmentsFilterName = "FILE_SYSTEM_ID" | "VOLUME_ID" | "TYPE";
+export type S3AccessPointAttachmentsFilters = Array<S3AccessPointAttachmentsFilter>;
 export type S3AccessPointAttachmentsFilterValue = string;
 
 export type S3AccessPointAttachmentsFilterValues = Array<string>;
@@ -2160,17 +1829,7 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
   OrganizationalUnitDistinguishedName?: string;
   FileSystemAdministratorsGroup?: string;
 }
-export type ServiceLimit =
-  | "FILE_SYSTEM_COUNT"
-  | "TOTAL_THROUGHPUT_CAPACITY"
-  | "TOTAL_STORAGE"
-  | "TOTAL_USER_INITIATED_BACKUPS"
-  | "TOTAL_USER_TAGS"
-  | "TOTAL_IN_PROGRESS_COPY_BACKUPS"
-  | "STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM"
-  | "VOLUMES_PER_FILE_SYSTEM"
-  | "TOTAL_SSD_IOPS"
-  | "FILE_CACHE_COUNT";
+export type ServiceLimit = "FILE_SYSTEM_COUNT" | "TOTAL_THROUGHPUT_CAPACITY" | "TOTAL_STORAGE" | "TOTAL_USER_INITIATED_BACKUPS" | "TOTAL_USER_TAGS" | "TOTAL_IN_PROGRESS_COPY_BACKUPS" | "STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM" | "VOLUMES_PER_FILE_SYSTEM" | "TOTAL_SSD_IOPS" | "FILE_CACHE_COUNT";
 export declare class ServiceLimitExceeded extends EffectData.TaggedError(
   "ServiceLimitExceeded",
 )<{
@@ -2216,11 +1875,7 @@ export type SnapshotFilterValues = Array<string>;
 export type SnapshotId = string;
 
 export type SnapshotIds = Array<string>;
-export type SnapshotLifecycle =
-  | "PENDING"
-  | "CREATING"
-  | "DELETING"
-  | "AVAILABLE";
+export type SnapshotLifecycle = "PENDING" | "CREATING" | "DELETING" | "AVAILABLE";
 export type SnapshotName = string;
 
 export declare class SnapshotNotFound extends EffectData.TaggedError(
@@ -2248,13 +1903,7 @@ export interface StartMisconfiguredStateRecoveryResponse {
 }
 export type StartTime = Date | string;
 
-export type Status =
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "PENDING"
-  | "COMPLETED"
-  | "UPDATED_OPTIMIZING"
-  | "OPTIMIZING";
+export type Status = "FAILED" | "IN_PROGRESS" | "PENDING" | "COMPLETED" | "UPDATED_OPTIMIZING" | "OPTIMIZING";
 export type StorageCapacity = number;
 
 export type StorageType = "SSD" | "HDD" | "INTELLIGENT_TIERING";
@@ -2285,13 +1934,7 @@ export type StorageVirtualMachineFilterValues = Array<string>;
 export type StorageVirtualMachineId = string;
 
 export type StorageVirtualMachineIds = Array<string>;
-export type StorageVirtualMachineLifecycle =
-  | "CREATED"
-  | "CREATING"
-  | "DELETING"
-  | "FAILED"
-  | "MISCONFIGURED"
-  | "PENDING";
+export type StorageVirtualMachineLifecycle = "CREATED" | "CREATING" | "DELETING" | "FAILED" | "MISCONFIGURED" | "PENDING";
 export type StorageVirtualMachineName = string;
 
 export declare class StorageVirtualMachineNotFound extends EffectData.TaggedError(
@@ -2299,16 +1942,9 @@ export declare class StorageVirtualMachineNotFound extends EffectData.TaggedErro
 )<{
   readonly Message?: string;
 }> {}
-export type StorageVirtualMachineRootVolumeSecurityStyle =
-  | "UNIX"
-  | "NTFS"
-  | "MIXED";
+export type StorageVirtualMachineRootVolumeSecurityStyle = "UNIX" | "NTFS" | "MIXED";
 export type StorageVirtualMachines = Array<StorageVirtualMachine>;
-export type StorageVirtualMachineSubtype =
-  | "DEFAULT"
-  | "DP_DESTINATION"
-  | "SYNC_DESTINATION"
-  | "SYNC_SOURCE";
+export type StorageVirtualMachineSubtype = "DEFAULT" | "DP_DESTINATION" | "SYNC_DESTINATION" | "SYNC_SOURCE";
 export type SubDirectoriesPaths = Array<string>;
 export type SubnetId = string;
 
@@ -2340,7 +1976,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
@@ -2378,7 +2015,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDataRepositoryAssociationRequest {
   AssociationId: string;
   ClientRequestToken?: string;
@@ -2483,10 +2121,7 @@ export interface UpdateOpenZFSVolumeConfiguration {
   UserAndGroupQuotas?: Array<OpenZFSUserOrGroupQuota>;
   ReadOnly?: boolean;
 }
-export type UpdateOpenZFSVolumeOption =
-  | "DELETE_INTERMEDIATE_SNAPSHOTS"
-  | "DELETE_CLONED_VOLUMES"
-  | "DELETE_INTERMEDIATE_DATA";
+export type UpdateOpenZFSVolumeOption = "DELETE_INTERMEDIATE_SNAPSHOTS" | "DELETE_CLONED_VOLUMES" | "DELETE_INTERMEDIATE_DATA";
 export type UpdateOpenZFSVolumeOptions = Array<UpdateOpenZFSVolumeOption>;
 export interface UpdateSharedVpcConfigurationRequest {
   EnableFsxRouteTableUpdatesFromParticipantAccounts?: string;
@@ -2569,14 +2204,7 @@ export type VolumeFilterValues = Array<string>;
 export type VolumeId = string;
 
 export type VolumeIds = Array<string>;
-export type VolumeLifecycle =
-  | "CREATING"
-  | "CREATED"
-  | "DELETING"
-  | "FAILED"
-  | "MISCONFIGURED"
-  | "PENDING"
-  | "AVAILABLE";
+export type VolumeLifecycle = "CREATING" | "CREATED" | "DELETING" | "FAILED" | "MISCONFIGURED" | "PENDING" | "AVAILABLE";
 export type VolumeName = string;
 
 export declare class VolumeNotFound extends EffectData.TaggedError(
@@ -2593,11 +2221,7 @@ export type VpcId = string;
 
 export type WeeklyTime = string;
 
-export type WindowsAccessAuditLogLevel =
-  | "DISABLED"
-  | "SUCCESS_ONLY"
-  | "FAILURE_ONLY"
-  | "SUCCESS_AND_FAILURE";
+export type WindowsAccessAuditLogLevel = "DISABLED" | "SUCCESS_ONLY" | "FAILURE_ONLY" | "SUCCESS_AND_FAILURE";
 export interface WindowsAuditLogConfiguration {
   FileAccessAuditLogLevel: WindowsAccessAuditLogLevel;
   FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevel;
@@ -2608,10 +2232,7 @@ export interface WindowsAuditLogCreateConfiguration {
   FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevel;
   AuditLogDestination?: string;
 }
-export type WindowsDeploymentType =
-  | "MULTI_AZ_1"
-  | "SINGLE_AZ_1"
-  | "SINGLE_AZ_2";
+export type WindowsDeploymentType = "MULTI_AZ_1" | "SINGLE_AZ_1" | "SINGLE_AZ_2";
 export interface WindowsFileSystemConfiguration {
   ActiveDirectoryId?: string;
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryAttributes;
@@ -3002,7 +2623,10 @@ export declare namespace DescribeS3AccessPointAttachments {
 export declare namespace DescribeSharedVpcConfiguration {
   export type Input = DescribeSharedVpcConfigurationRequest;
   export type Output = DescribeSharedVpcConfigurationResponse;
-  export type Error = BadRequest | InternalServerError | CommonAwsError;
+  export type Error =
+    | BadRequest
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSnapshots {
@@ -3209,3 +2833,4 @@ export declare namespace UpdateVolume {
     | VolumeNotFound
     | CommonAwsError;
 }
+

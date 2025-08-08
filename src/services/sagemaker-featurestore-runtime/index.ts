@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SageMakerFeatureStoreRuntime extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sagemaker-featurestore-runtime", new RestJson1Protocol(), cfg);
+  }
+
   batchGetRecord(
     input: BatchGetRecordRequest,
   ): Effect.Effect<
     BatchGetRecordResponse,
-    | AccessForbidden
-    | InternalFailure
-    | ServiceUnavailable
-    | ValidationError
-    | CommonAwsError
+    AccessForbidden | InternalFailure | ServiceUnavailable | ValidationError | CommonAwsError
   > {
     return this.call("BatchGetRecord", input);
   }
@@ -19,11 +20,7 @@ export class SageMakerFeatureStoreRuntime extends AWSServiceClient {
     input: DeleteRecordRequest,
   ): Effect.Effect<
     {},
-    | AccessForbidden
-    | InternalFailure
-    | ServiceUnavailable
-    | ValidationError
-    | CommonAwsError
+    AccessForbidden | InternalFailure | ServiceUnavailable | ValidationError | CommonAwsError
   > {
     return this.call("DeleteRecord", input);
   }
@@ -31,12 +28,7 @@ export class SageMakerFeatureStoreRuntime extends AWSServiceClient {
     input: GetRecordRequest,
   ): Effect.Effect<
     GetRecordResponse,
-    | AccessForbidden
-    | InternalFailure
-    | ResourceNotFound
-    | ServiceUnavailable
-    | ValidationError
-    | CommonAwsError
+    AccessForbidden | InternalFailure | ResourceNotFound | ServiceUnavailable | ValidationError | CommonAwsError
   > {
     return this.call("GetRecord", input);
   }
@@ -44,11 +36,7 @@ export class SageMakerFeatureStoreRuntime extends AWSServiceClient {
     input: PutRecordRequest,
   ): Effect.Effect<
     {},
-    | AccessForbidden
-    | InternalFailure
-    | ServiceUnavailable
-    | ValidationError
-    | CommonAwsError
+    AccessForbidden | InternalFailure | ServiceUnavailable | ValidationError | CommonAwsError
   > {
     return this.call("PutRecord", input);
   }
@@ -154,12 +142,7 @@ export interface TtlDuration {
   Unit: TtlDurationUnit;
   Value: number;
 }
-export type TtlDurationUnit =
-  | "SECONDS"
-  | "MINUTES"
-  | "HOURS"
-  | "DAYS"
-  | "WEEKS";
+export type TtlDurationUnit = "SECONDS" | "MINUTES" | "HOURS" | "DAYS" | "WEEKS";
 export type TtlDurationValue = number;
 
 export type UnprocessedIdentifiers = Array<BatchGetRecordIdentifier>;
@@ -215,3 +198,4 @@ export declare namespace PutRecord {
     | ValidationError
     | CommonAwsError;
 }
+

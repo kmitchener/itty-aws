@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class KinesisVideoMedia extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("kinesis-video-media", new RestJson1Protocol(), cfg);
+  }
+
   getMedia(
     input: GetMediaInput,
   ): Effect.Effect<
     GetMediaOutput,
-    | ClientLimitExceededException
-    | ConnectionLimitExceededException
-    | InvalidArgumentException
-    | InvalidEndpointException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ClientLimitExceededException | ConnectionLimitExceededException | InvalidArgumentException | InvalidEndpointException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetMedia", input);
   }
@@ -78,13 +77,7 @@ export interface StartSelector {
   StartTimestamp?: Date | string;
   ContinuationToken?: string;
 }
-export type StartSelectorType =
-  | "FRAGMENT_NUMBER"
-  | "SERVER_TIMESTAMP"
-  | "PRODUCER_TIMESTAMP"
-  | "NOW"
-  | "EARLIEST"
-  | "CONTINUATION_TOKEN";
+export type StartSelectorType = "FRAGMENT_NUMBER" | "SERVER_TIMESTAMP" | "PRODUCER_TIMESTAMP" | "NOW" | "EARLIEST" | "CONTINUATION_TOKEN";
 export type StreamName = string;
 
 export type Timestamp = Date | string;
@@ -101,3 +94,4 @@ export declare namespace GetMedia {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

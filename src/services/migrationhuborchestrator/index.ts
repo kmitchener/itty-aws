@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MigrationHubOrchestrator extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("migrationhuborchestrator", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -129,18 +134,21 @@ export interface DeleteMigrationWorkflowResponse {
 export interface DeleteTemplateRequest {
   id: string;
 }
-export interface DeleteTemplateResponse {}
+export interface DeleteTemplateResponse {
+}
 export interface DeleteWorkflowStepGroupRequest {
   workflowId: string;
   id: string;
 }
-export interface DeleteWorkflowStepGroupResponse {}
+export interface DeleteWorkflowStepGroupResponse {
+}
 export interface DeleteWorkflowStepRequest {
   id: string;
   stepGroupId: string;
   workflowId: string;
 }
-export interface DeleteWorkflowStepResponse {}
+export interface DeleteWorkflowStepResponse {
+}
 export interface GetMigrationWorkflowRequest {
   id: string;
 }
@@ -458,11 +466,7 @@ interface _StepInput {
   mapOfStringValue?: Record<string, string>;
 }
 
-export type StepInput =
-  | (_StepInput & { integerValue: number })
-  | (_StepInput & { stringValue: string })
-  | (_StepInput & { listOfStringsValue: Array<string> })
-  | (_StepInput & { mapOfStringValue: Record<string, string> });
+export type StepInput = (_StepInput & { integerValue: number }) | (_StepInput & { stringValue: string }) | (_StepInput & { listOfStringsValue: Array<string> }) | (_StepInput & { mapOfStringValue: Record<string, string> });
 export type StepInputParameters = Record<string, StepInput>;
 export type StepInputParametersKey = string;
 
@@ -504,7 +508,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TargetType = string;
@@ -525,7 +530,7 @@ interface _TemplateSource {
   workflowId?: string;
 }
 
-export type TemplateSource = _TemplateSource & { workflowId: string };
+export type TemplateSource = (_TemplateSource & { workflowId: string });
 export type TemplateStatus = string;
 
 export interface TemplateStepGroupSummary {
@@ -568,7 +573,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateMigrationWorkflowRequest {
   id: string;
   name?: string;
@@ -675,10 +681,7 @@ interface _WorkflowStepOutputUnion {
   listOfStringValue?: Array<string>;
 }
 
-export type WorkflowStepOutputUnion =
-  | (_WorkflowStepOutputUnion & { integerValue: number })
-  | (_WorkflowStepOutputUnion & { stringValue: string })
-  | (_WorkflowStepOutputUnion & { listOfStringValue: Array<string> });
+export type WorkflowStepOutputUnion = (_WorkflowStepOutputUnion & { integerValue: number }) | (_WorkflowStepOutputUnion & { stringValue: string }) | (_WorkflowStepOutputUnion & { listOfStringValue: Array<string> });
 export type WorkflowStepsSummaryList = Array<WorkflowStepSummary>;
 export interface WorkflowStepSummary {
   stepId?: string;
@@ -721,3 +724,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

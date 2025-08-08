@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class RedshiftData extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("redshift-data", new AwsJson11Protocol(), cfg);
+  }
+
   batchExecuteStatement(
     input: BatchExecuteStatementInput,
   ): Effect.Effect<
     BatchExecuteStatementOutput,
-    | ActiveSessionsExceededException
-    | ActiveStatementsExceededException
-    | BatchExecuteStatementException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ActiveSessionsExceededException | ActiveStatementsExceededException | BatchExecuteStatementException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("BatchExecuteStatement", input);
   }
@@ -20,11 +20,7 @@ export class RedshiftData extends AWSServiceClient {
     input: CancelStatementRequest,
   ): Effect.Effect<
     CancelStatementResponse,
-    | DatabaseConnectionException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    DatabaseConnectionException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CancelStatement", input);
   }
@@ -32,10 +28,7 @@ export class RedshiftData extends AWSServiceClient {
     input: DescribeStatementRequest,
   ): Effect.Effect<
     DescribeStatementResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeStatement", input);
   }
@@ -43,11 +36,7 @@ export class RedshiftData extends AWSServiceClient {
     input: DescribeTableRequest,
   ): Effect.Effect<
     DescribeTableResponse,
-    | DatabaseConnectionException
-    | InternalServerException
-    | QueryTimeoutException
-    | ValidationException
-    | CommonAwsError
+    DatabaseConnectionException | InternalServerException | QueryTimeoutException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeTable", input);
   }
@@ -55,12 +44,7 @@ export class RedshiftData extends AWSServiceClient {
     input: ExecuteStatementInput,
   ): Effect.Effect<
     ExecuteStatementOutput,
-    | ActiveSessionsExceededException
-    | ActiveStatementsExceededException
-    | ExecuteStatementException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ActiveSessionsExceededException | ActiveStatementsExceededException | ExecuteStatementException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ExecuteStatement", input);
   }
@@ -68,10 +52,7 @@ export class RedshiftData extends AWSServiceClient {
     input: GetStatementResultRequest,
   ): Effect.Effect<
     GetStatementResultResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetStatementResult", input);
   }
@@ -79,10 +60,7 @@ export class RedshiftData extends AWSServiceClient {
     input: GetStatementResultV2Request,
   ): Effect.Effect<
     GetStatementResultV2Response,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetStatementResultV2", input);
   }
@@ -90,11 +68,7 @@ export class RedshiftData extends AWSServiceClient {
     input: ListDatabasesRequest,
   ): Effect.Effect<
     ListDatabasesResponse,
-    | DatabaseConnectionException
-    | InternalServerException
-    | QueryTimeoutException
-    | ValidationException
-    | CommonAwsError
+    DatabaseConnectionException | InternalServerException | QueryTimeoutException | ValidationException | CommonAwsError
   > {
     return this.call("ListDatabases", input);
   }
@@ -102,11 +76,7 @@ export class RedshiftData extends AWSServiceClient {
     input: ListSchemasRequest,
   ): Effect.Effect<
     ListSchemasResponse,
-    | DatabaseConnectionException
-    | InternalServerException
-    | QueryTimeoutException
-    | ValidationException
-    | CommonAwsError
+    DatabaseConnectionException | InternalServerException | QueryTimeoutException | ValidationException | CommonAwsError
   > {
     return this.call("ListSchemas", input);
   }
@@ -122,11 +92,7 @@ export class RedshiftData extends AWSServiceClient {
     input: ListTablesRequest,
   ): Effect.Effect<
     ListTablesResponse,
-    | DatabaseConnectionException
-    | InternalServerException
-    | QueryTimeoutException
-    | ValidationException
-    | CommonAwsError
+    DatabaseConnectionException | InternalServerException | QueryTimeoutException | ValidationException | CommonAwsError
   > {
     return this.call("ListTables", input);
   }
@@ -303,13 +269,7 @@ interface _Field {
   blobValue?: Uint8Array | string;
 }
 
-export type Field =
-  | (_Field & { isNull: boolean })
-  | (_Field & { booleanValue: boolean })
-  | (_Field & { longValue: number })
-  | (_Field & { doubleValue: number })
-  | (_Field & { stringValue: string })
-  | (_Field & { blobValue: Uint8Array | string });
+export type Field = (_Field & { isNull: boolean }) | (_Field & { booleanValue: boolean }) | (_Field & { longValue: number }) | (_Field & { doubleValue: number }) | (_Field & { stringValue: string }) | (_Field & { blobValue: Uint8Array | string });
 export type FieldList = Array<Field>;
 export type FormattedSqlRecords = Array<QueryRecords>;
 export interface GetStatementResultRequest {
@@ -412,7 +372,7 @@ interface _QueryRecords {
   CSVRecords?: string;
 }
 
-export type QueryRecords = _QueryRecords & { CSVRecords: string };
+export type QueryRecords = (_QueryRecords & { CSVRecords: string });
 export declare class QueryTimeoutException extends EffectData.TaggedError(
   "QueryTimeoutException",
 )<{
@@ -610,3 +570,4 @@ export declare namespace ListTables {
     | ValidationException
     | CommonAwsError;
 }
+

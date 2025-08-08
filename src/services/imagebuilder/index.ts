@@ -1,21 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class imagebuilder extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("imagebuilder", new RestJson1Protocol(), cfg);
+  }
+
   cancelImageCreation(
     input: CancelImageCreationRequest,
   ): Effect.Effect<
     CancelImageCreationResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | ResourceInUseException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CancelImageCreation", input);
   }
@@ -23,15 +20,7 @@ export class imagebuilder extends AWSServiceClient {
     input: CancelLifecycleExecutionRequest,
   ): Effect.Effect<
     CancelLifecycleExecutionResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | ResourceInUseException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CancelLifecycleExecution", input);
   }
@@ -39,18 +28,7 @@ export class imagebuilder extends AWSServiceClient {
     input: CreateComponentRequest,
   ): Effect.Effect<
     CreateComponentResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidParameterCombinationException
-    | InvalidRequestException
-    | InvalidVersionNumberException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidParameterCombinationException | InvalidRequestException | InvalidVersionNumberException | ResourceInUseException | ServiceException | ServiceQuotaExceededException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateComponent", input);
   }
@@ -58,18 +36,7 @@ export class imagebuilder extends AWSServiceClient {
     input: CreateContainerRecipeRequest,
   ): Effect.Effect<
     CreateContainerRecipeResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | InvalidVersionNumberException
-    | ResourceAlreadyExistsException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | InvalidVersionNumberException | ResourceAlreadyExistsException | ResourceInUseException | ServiceException | ServiceQuotaExceededException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateContainerRecipe", input);
   }
@@ -77,18 +44,7 @@ export class imagebuilder extends AWSServiceClient {
     input: CreateDistributionConfigurationRequest,
   ): Effect.Effect<
     CreateDistributionConfigurationResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidParameterCombinationException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidParameterCombinationException | InvalidRequestException | ResourceAlreadyExistsException | ResourceInUseException | ServiceException | ServiceQuotaExceededException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateDistributionConfiguration", input);
   }
@@ -96,16 +52,7 @@ export class imagebuilder extends AWSServiceClient {
     input: CreateImageRequest,
   ): Effect.Effect<
     CreateImageResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | ResourceInUseException | ServiceException | ServiceQuotaExceededException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateImage", input);
   }
@@ -113,17 +60,7 @@ export class imagebuilder extends AWSServiceClient {
     input: CreateImagePipelineRequest,
   ): Effect.Effect<
     CreateImagePipelineResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | ResourceAlreadyExistsException | ResourceInUseException | ServiceException | ServiceQuotaExceededException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateImagePipeline", input);
   }
@@ -131,18 +68,7 @@ export class imagebuilder extends AWSServiceClient {
     input: CreateImageRecipeRequest,
   ): Effect.Effect<
     CreateImageRecipeResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | InvalidVersionNumberException
-    | ResourceAlreadyExistsException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | InvalidVersionNumberException | ResourceAlreadyExistsException | ResourceInUseException | ServiceException | ServiceQuotaExceededException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateImageRecipe", input);
   }
@@ -150,17 +76,7 @@ export class imagebuilder extends AWSServiceClient {
     input: CreateInfrastructureConfigurationRequest,
   ): Effect.Effect<
     CreateInfrastructureConfigurationResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | ResourceAlreadyExistsException | ResourceInUseException | ServiceException | ServiceQuotaExceededException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateInfrastructureConfiguration", input);
   }
@@ -168,17 +84,7 @@ export class imagebuilder extends AWSServiceClient {
     input: CreateLifecyclePolicyRequest,
   ): Effect.Effect<
     CreateLifecyclePolicyResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | ResourceAlreadyExistsException | ResourceInUseException | ServiceException | ServiceQuotaExceededException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateLifecyclePolicy", input);
   }
@@ -186,18 +92,7 @@ export class imagebuilder extends AWSServiceClient {
     input: CreateWorkflowRequest,
   ): Effect.Effect<
     CreateWorkflowResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidParameterCombinationException
-    | InvalidRequestException
-    | InvalidVersionNumberException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidParameterCombinationException | InvalidRequestException | InvalidVersionNumberException | ResourceInUseException | ServiceException | ServiceQuotaExceededException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateWorkflow", input);
   }
@@ -205,14 +100,7 @@ export class imagebuilder extends AWSServiceClient {
     input: DeleteComponentRequest,
   ): Effect.Effect<
     DeleteComponentResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceDependencyException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ResourceDependencyException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteComponent", input);
   }
@@ -220,14 +108,7 @@ export class imagebuilder extends AWSServiceClient {
     input: DeleteContainerRecipeRequest,
   ): Effect.Effect<
     DeleteContainerRecipeResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceDependencyException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ResourceDependencyException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteContainerRecipe", input);
   }
@@ -235,14 +116,7 @@ export class imagebuilder extends AWSServiceClient {
     input: DeleteDistributionConfigurationRequest,
   ): Effect.Effect<
     DeleteDistributionConfigurationResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceDependencyException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ResourceDependencyException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteDistributionConfiguration", input);
   }
@@ -250,14 +124,7 @@ export class imagebuilder extends AWSServiceClient {
     input: DeleteImageRequest,
   ): Effect.Effect<
     DeleteImageResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceDependencyException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ResourceDependencyException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteImage", input);
   }
@@ -265,14 +132,7 @@ export class imagebuilder extends AWSServiceClient {
     input: DeleteImagePipelineRequest,
   ): Effect.Effect<
     DeleteImagePipelineResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceDependencyException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ResourceDependencyException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteImagePipeline", input);
   }
@@ -280,14 +140,7 @@ export class imagebuilder extends AWSServiceClient {
     input: DeleteImageRecipeRequest,
   ): Effect.Effect<
     DeleteImageRecipeResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceDependencyException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ResourceDependencyException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteImageRecipe", input);
   }
@@ -295,14 +148,7 @@ export class imagebuilder extends AWSServiceClient {
     input: DeleteInfrastructureConfigurationRequest,
   ): Effect.Effect<
     DeleteInfrastructureConfigurationResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceDependencyException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ResourceDependencyException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteInfrastructureConfiguration", input);
   }
@@ -310,14 +156,7 @@ export class imagebuilder extends AWSServiceClient {
     input: DeleteLifecyclePolicyRequest,
   ): Effect.Effect<
     DeleteLifecyclePolicyResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceDependencyException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ResourceDependencyException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteLifecyclePolicy", input);
   }
@@ -325,14 +164,7 @@ export class imagebuilder extends AWSServiceClient {
     input: DeleteWorkflowRequest,
   ): Effect.Effect<
     DeleteWorkflowResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceDependencyException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ResourceDependencyException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteWorkflow", input);
   }
@@ -340,13 +172,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetComponentRequest,
   ): Effect.Effect<
     GetComponentResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetComponent", input);
   }
@@ -354,13 +180,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetComponentPolicyRequest,
   ): Effect.Effect<
     GetComponentPolicyResponse,
-    | CallRateLimitExceededException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ForbiddenException | InvalidRequestException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetComponentPolicy", input);
   }
@@ -368,13 +188,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetContainerRecipeRequest,
   ): Effect.Effect<
     GetContainerRecipeResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetContainerRecipe", input);
   }
@@ -382,13 +196,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetContainerRecipePolicyRequest,
   ): Effect.Effect<
     GetContainerRecipePolicyResponse,
-    | CallRateLimitExceededException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ForbiddenException | InvalidRequestException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetContainerRecipePolicy", input);
   }
@@ -396,13 +204,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetDistributionConfigurationRequest,
   ): Effect.Effect<
     GetDistributionConfigurationResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetDistributionConfiguration", input);
   }
@@ -410,13 +212,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetImageRequest,
   ): Effect.Effect<
     GetImageResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetImage", input);
   }
@@ -424,13 +220,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetImagePipelineRequest,
   ): Effect.Effect<
     GetImagePipelineResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetImagePipeline", input);
   }
@@ -438,13 +228,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetImagePolicyRequest,
   ): Effect.Effect<
     GetImagePolicyResponse,
-    | CallRateLimitExceededException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ForbiddenException | InvalidRequestException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetImagePolicy", input);
   }
@@ -452,13 +236,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetImageRecipeRequest,
   ): Effect.Effect<
     GetImageRecipeResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetImageRecipe", input);
   }
@@ -466,13 +244,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetImageRecipePolicyRequest,
   ): Effect.Effect<
     GetImageRecipePolicyResponse,
-    | CallRateLimitExceededException
-    | ForbiddenException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ForbiddenException | InvalidRequestException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetImageRecipePolicy", input);
   }
@@ -480,13 +252,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetInfrastructureConfigurationRequest,
   ): Effect.Effect<
     GetInfrastructureConfigurationResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetInfrastructureConfiguration", input);
   }
@@ -494,13 +260,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetLifecycleExecutionRequest,
   ): Effect.Effect<
     GetLifecycleExecutionResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetLifecycleExecution", input);
   }
@@ -508,13 +268,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetLifecyclePolicyRequest,
   ): Effect.Effect<
     GetLifecyclePolicyResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetLifecyclePolicy", input);
   }
@@ -522,13 +276,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetMarketplaceResourceRequest,
   ): Effect.Effect<
     GetMarketplaceResourceResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetMarketplaceResource", input);
   }
@@ -536,13 +284,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetWorkflowRequest,
   ): Effect.Effect<
     GetWorkflowResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetWorkflow", input);
   }
@@ -550,13 +292,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetWorkflowExecutionRequest,
   ): Effect.Effect<
     GetWorkflowExecutionResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetWorkflowExecution", input);
   }
@@ -564,13 +300,7 @@ export class imagebuilder extends AWSServiceClient {
     input: GetWorkflowStepExecutionRequest,
   ): Effect.Effect<
     GetWorkflowStepExecutionResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetWorkflowStepExecution", input);
   }
@@ -578,17 +308,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ImportComponentRequest,
   ): Effect.Effect<
     ImportComponentResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidParameterCombinationException
-    | InvalidRequestException
-    | InvalidVersionNumberException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidParameterCombinationException | InvalidRequestException | InvalidVersionNumberException | ResourceInUseException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ImportComponent", input);
   }
@@ -596,10 +316,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ImportDiskImageRequest,
   ): Effect.Effect<
     ImportDiskImageResponse,
-    | ClientException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    ClientException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ImportDiskImage", input);
   }
@@ -607,10 +324,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ImportVmImageRequest,
   ): Effect.Effect<
     ImportVmImageResponse,
-    | ClientException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    ClientException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ImportVmImage", input);
   }
@@ -618,14 +332,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListComponentBuildVersionsRequest,
   ): Effect.Effect<
     ListComponentBuildVersionsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListComponentBuildVersions", input);
   }
@@ -633,14 +340,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListComponentsRequest,
   ): Effect.Effect<
     ListComponentsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListComponents", input);
   }
@@ -648,14 +348,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListContainerRecipesRequest,
   ): Effect.Effect<
     ListContainerRecipesResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListContainerRecipes", input);
   }
@@ -663,14 +356,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListDistributionConfigurationsRequest,
   ): Effect.Effect<
     ListDistributionConfigurationsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListDistributionConfigurations", input);
   }
@@ -678,14 +364,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListImageBuildVersionsRequest,
   ): Effect.Effect<
     ListImageBuildVersionsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListImageBuildVersions", input);
   }
@@ -693,15 +372,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListImagePackagesRequest,
   ): Effect.Effect<
     ListImagePackagesResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListImagePackages", input);
   }
@@ -709,15 +380,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListImagePipelineImagesRequest,
   ): Effect.Effect<
     ListImagePipelineImagesResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListImagePipelineImages", input);
   }
@@ -725,14 +388,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListImagePipelinesRequest,
   ): Effect.Effect<
     ListImagePipelinesResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListImagePipelines", input);
   }
@@ -740,14 +396,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListImageRecipesRequest,
   ): Effect.Effect<
     ListImageRecipesResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListImageRecipes", input);
   }
@@ -755,14 +404,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListImagesRequest,
   ): Effect.Effect<
     ListImagesResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListImages", input);
   }
@@ -770,14 +412,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListImageScanFindingAggregationsRequest,
   ): Effect.Effect<
     ListImageScanFindingAggregationsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListImageScanFindingAggregations", input);
   }
@@ -785,14 +420,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListImageScanFindingsRequest,
   ): Effect.Effect<
     ListImageScanFindingsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListImageScanFindings", input);
   }
@@ -800,14 +428,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListInfrastructureConfigurationsRequest,
   ): Effect.Effect<
     ListInfrastructureConfigurationsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListInfrastructureConfigurations", input);
   }
@@ -815,14 +436,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListLifecycleExecutionResourcesRequest,
   ): Effect.Effect<
     ListLifecycleExecutionResourcesResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListLifecycleExecutionResources", input);
   }
@@ -830,14 +444,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListLifecycleExecutionsRequest,
   ): Effect.Effect<
     ListLifecycleExecutionsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListLifecycleExecutions", input);
   }
@@ -845,14 +452,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListLifecyclePoliciesRequest,
   ): Effect.Effect<
     ListLifecyclePoliciesResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListLifecyclePolicies", input);
   }
@@ -860,10 +460,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -871,14 +468,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListWaitingWorkflowStepsRequest,
   ): Effect.Effect<
     ListWaitingWorkflowStepsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListWaitingWorkflowSteps", input);
   }
@@ -886,14 +476,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListWorkflowBuildVersionsRequest,
   ): Effect.Effect<
     ListWorkflowBuildVersionsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListWorkflowBuildVersions", input);
   }
@@ -901,14 +484,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListWorkflowExecutionsRequest,
   ): Effect.Effect<
     ListWorkflowExecutionsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListWorkflowExecutions", input);
   }
@@ -916,14 +492,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListWorkflowsRequest,
   ): Effect.Effect<
     ListWorkflowsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListWorkflows", input);
   }
@@ -931,14 +500,7 @@ export class imagebuilder extends AWSServiceClient {
     input: ListWorkflowStepExecutionsRequest,
   ): Effect.Effect<
     ListWorkflowStepExecutionsResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidPaginationTokenException
-    | InvalidRequestException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidPaginationTokenException | InvalidRequestException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListWorkflowStepExecutions", input);
   }
@@ -946,15 +508,7 @@ export class imagebuilder extends AWSServiceClient {
     input: PutComponentPolicyRequest,
   ): Effect.Effect<
     PutComponentPolicyResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidParameterValueException | InvalidRequestException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutComponentPolicy", input);
   }
@@ -962,15 +516,7 @@ export class imagebuilder extends AWSServiceClient {
     input: PutContainerRecipePolicyRequest,
   ): Effect.Effect<
     PutContainerRecipePolicyResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidParameterValueException | InvalidRequestException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutContainerRecipePolicy", input);
   }
@@ -978,15 +524,7 @@ export class imagebuilder extends AWSServiceClient {
     input: PutImagePolicyRequest,
   ): Effect.Effect<
     PutImagePolicyResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidParameterValueException | InvalidRequestException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutImagePolicy", input);
   }
@@ -994,15 +532,7 @@ export class imagebuilder extends AWSServiceClient {
     input: PutImageRecipePolicyRequest,
   ): Effect.Effect<
     PutImageRecipePolicyResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | InvalidParameterValueException | InvalidRequestException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutImageRecipePolicy", input);
   }
@@ -1010,17 +540,7 @@ export class imagebuilder extends AWSServiceClient {
     input: SendWorkflowStepActionRequest,
   ): Effect.Effect<
     SendWorkflowStepActionResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidParameterValueException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("SendWorkflowStepAction", input);
   }
@@ -1028,16 +548,7 @@ export class imagebuilder extends AWSServiceClient {
     input: StartImagePipelineExecutionRequest,
   ): Effect.Effect<
     StartImagePipelineExecutionResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("StartImagePipelineExecution", input);
   }
@@ -1045,16 +556,7 @@ export class imagebuilder extends AWSServiceClient {
     input: StartResourceStateUpdateRequest,
   ): Effect.Effect<
     StartResourceStateUpdateResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("StartResourceStateUpdate", input);
   }
@@ -1062,10 +564,7 @@ export class imagebuilder extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1073,10 +572,7 @@ export class imagebuilder extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1084,16 +580,7 @@ export class imagebuilder extends AWSServiceClient {
     input: UpdateDistributionConfigurationRequest,
   ): Effect.Effect<
     UpdateDistributionConfigurationResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidParameterCombinationException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidParameterCombinationException | InvalidRequestException | ResourceInUseException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateDistributionConfiguration", input);
   }
@@ -1101,15 +588,7 @@ export class imagebuilder extends AWSServiceClient {
     input: UpdateImagePipelineRequest,
   ): Effect.Effect<
     UpdateImagePipelineResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | ResourceInUseException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateImagePipeline", input);
   }
@@ -1117,15 +596,7 @@ export class imagebuilder extends AWSServiceClient {
     input: UpdateInfrastructureConfigurationRequest,
   ): Effect.Effect<
     UpdateInfrastructureConfigurationResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidRequestException | ResourceInUseException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateInfrastructureConfiguration", input);
   }
@@ -1133,16 +604,7 @@ export class imagebuilder extends AWSServiceClient {
     input: UpdateLifecyclePolicyRequest,
   ): Effect.Effect<
     UpdateLifecyclePolicyResponse,
-    | CallRateLimitExceededException
-    | ClientException
-    | ForbiddenException
-    | IdempotentParameterMismatchException
-    | InvalidParameterCombinationException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ServiceException
-    | ServiceUnavailableException
-    | CommonAwsError
+    CallRateLimitExceededException | ClientException | ForbiddenException | IdempotentParameterMismatchException | InvalidParameterCombinationException | InvalidRequestException | ResourceInUseException | ServiceException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateLifecyclePolicy", input);
   }
@@ -1186,11 +648,7 @@ export type Arn = string;
 
 export type ImagebuilderBoolean = boolean;
 
-export type BuildType =
-  | "USER_INITIATED"
-  | "SCHEDULED"
-  | "IMPORT"
-  | "IMPORT_ISO";
+export type BuildType = "USER_INITIATED" | "SCHEDULED" | "IMPORT" | "IMPORT_ISO";
 export declare class CallRateLimitExceededException extends EffectData.TaggedError(
   "CallRateLimitExceededException",
 )<{
@@ -1636,8 +1094,7 @@ export interface DistributionConfigurationSummary {
   tags?: Record<string, string>;
   regions?: Array<string>;
 }
-export type DistributionConfigurationSummaryList =
-  Array<DistributionConfigurationSummary>;
+export type DistributionConfigurationSummaryList = Array<DistributionConfigurationSummary>;
 export type DistributionList = Array<Distribution>;
 export type DistributionTimeoutMinutes = number;
 
@@ -1659,14 +1116,7 @@ export type EbsVolumeSizeInteger = number;
 
 export type EbsVolumeThroughput = number;
 
-export type EbsVolumeType =
-  | "STANDARD"
-  | "IO1"
-  | "IO2"
-  | "GP2"
-  | "GP3"
-  | "SC1"
-  | "ST1";
+export type EbsVolumeType = "STANDARD" | "IO1" | "IO2" | "GP2" | "GP3" | "SC1" | "ST1";
 export interface EcrConfiguration {
   repositoryName?: string;
   containerTags?: Array<string>;
@@ -1983,8 +1433,7 @@ export interface ImageScanFindingAggregation {
   imagePipelineAggregation?: ImagePipelineAggregation;
   vulnerabilityIdAggregation?: VulnerabilityIdAggregation;
 }
-export type ImageScanFindingAggregationsList =
-  Array<ImageScanFindingAggregation>;
+export type ImageScanFindingAggregationsList = Array<ImageScanFindingAggregation>;
 export interface ImageScanFindingsFilter {
   name?: string;
   values?: Array<string>;
@@ -2000,36 +1449,13 @@ export interface ImageScanState {
   status?: ImageScanStatus;
   reason?: string;
 }
-export type ImageScanStatus =
-  | "PENDING"
-  | "SCANNING"
-  | "COLLECTING"
-  | "COMPLETED"
-  | "ABANDONED"
-  | "FAILED"
-  | "TIMED_OUT";
-export type ImageSource =
-  | "AMAZON_MANAGED"
-  | "AWS_MARKETPLACE"
-  | "IMPORTED"
-  | "CUSTOM";
+export type ImageScanStatus = "PENDING" | "SCANNING" | "COLLECTING" | "COMPLETED" | "ABANDONED" | "FAILED" | "TIMED_OUT";
+export type ImageSource = "AMAZON_MANAGED" | "AWS_MARKETPLACE" | "IMPORTED" | "CUSTOM";
 export interface ImageState {
   status?: ImageStatus;
   reason?: string;
 }
-export type ImageStatus =
-  | "PENDING"
-  | "CREATING"
-  | "BUILDING"
-  | "TESTING"
-  | "DISTRIBUTING"
-  | "INTEGRATING"
-  | "AVAILABLE"
-  | "CANCELLED"
-  | "FAILED"
-  | "DEPRECATED"
-  | "DELETED"
-  | "DISABLED";
+export type ImageStatus = "PENDING" | "CREATING" | "BUILDING" | "TESTING" | "DISTRIBUTING" | "INTEGRATING" | "AVAILABLE" | "CANCELLED" | "FAILED" | "DEPRECATED" | "DELETED" | "DISABLED";
 export interface ImageSummary {
   arn?: string;
   name?: string;
@@ -2155,8 +1581,7 @@ export interface InfrastructureConfigurationSummary {
   instanceProfileName?: string;
   placement?: Placement;
 }
-export type InfrastructureConfigurationSummaryList =
-  Array<InfrastructureConfigurationSummary>;
+export type InfrastructureConfigurationSummaryList = Array<InfrastructureConfigurationSummary>;
 export type InlineComponentData = string;
 
 export type InlineDockerFileTemplate = string;
@@ -2227,8 +1652,7 @@ export interface LaunchTemplateConfiguration {
   accountId?: string;
   setDefaultVersion?: boolean;
 }
-export type LaunchTemplateConfigurationList =
-  Array<LaunchTemplateConfiguration>;
+export type LaunchTemplateConfigurationList = Array<LaunchTemplateConfiguration>;
 export type LaunchTemplateId = string;
 
 export type LicenseConfigurationArn = string;
@@ -2259,11 +1683,7 @@ export interface LifecycleExecutionResourceAction {
   name?: LifecycleExecutionResourceActionName;
   reason?: string;
 }
-export type LifecycleExecutionResourceActionName =
-  | "AVAILABLE"
-  | "DELETE"
-  | "DEPRECATE"
-  | "DISABLE";
+export type LifecycleExecutionResourceActionName = "AVAILABLE" | "DELETE" | "DEPRECATE" | "DISABLE";
 export type LifecycleExecutionResourceList = Array<LifecycleExecutionResource>;
 export interface LifecycleExecutionResourcesImpactedSummary {
   hasImpactedResources?: boolean;
@@ -2272,29 +1692,18 @@ export interface LifecycleExecutionResourceState {
   status?: LifecycleExecutionResourceStatus;
   reason?: string;
 }
-export type LifecycleExecutionResourceStatus =
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "SKIPPED"
-  | "SUCCESS";
+export type LifecycleExecutionResourceStatus = "FAILED" | "IN_PROGRESS" | "SKIPPED" | "SUCCESS";
 export type LifecycleExecutionsList = Array<LifecycleExecution>;
 export interface LifecycleExecutionSnapshotResource {
   snapshotId?: string;
   state?: LifecycleExecutionResourceState;
 }
-export type LifecycleExecutionSnapshotResourceList =
-  Array<LifecycleExecutionSnapshotResource>;
+export type LifecycleExecutionSnapshotResourceList = Array<LifecycleExecutionSnapshotResource>;
 export interface LifecycleExecutionState {
   status?: LifecycleExecutionStatus;
   reason?: string;
 }
-export type LifecycleExecutionStatus =
-  | "IN_PROGRESS"
-  | "CANCELLED"
-  | "CANCELLING"
-  | "FAILED"
-  | "SUCCESS"
-  | "PENDING";
+export type LifecycleExecutionStatus = "IN_PROGRESS" | "CANCELLED" | "CANCELLING" | "FAILED" | "SUCCESS" | "PENDING";
 export interface LifecyclePolicy {
   arn?: string;
   name?: string;
@@ -2325,10 +1734,7 @@ export interface LifecyclePolicyDetailActionIncludeResources {
   snapshots?: boolean;
   containers?: boolean;
 }
-export type LifecyclePolicyDetailActionType =
-  | "DELETE"
-  | "DEPRECATE"
-  | "DISABLE";
+export type LifecyclePolicyDetailActionType = "DELETE" | "DEPRECATE" | "DISABLE";
 export interface LifecyclePolicyDetailExclusionRules {
   tagMap?: Record<string, string>;
   amis?: LifecyclePolicyDetailExclusionRulesAmis;
@@ -2366,8 +1772,7 @@ export interface LifecyclePolicyResourceSelectionRecipe {
   name: string;
   semanticVersion: string;
 }
-export type LifecyclePolicyResourceSelectionRecipes =
-  Array<LifecyclePolicyResourceSelectionRecipe>;
+export type LifecyclePolicyResourceSelectionRecipes = Array<LifecyclePolicyResourceSelectionRecipe>;
 export type LifecyclePolicyResourceType = "AMI_IMAGE" | "CONTAINER_IMAGE";
 export type LifecyclePolicyStatus = "DISABLED" | "ENABLED";
 export interface LifecyclePolicySummary {
@@ -2642,12 +2047,7 @@ export interface OutputResources {
   amis?: Array<Ami>;
   containers?: Array<Container>;
 }
-export type Ownership =
-  | "SELF"
-  | "SHARED"
-  | "AMAZON"
-  | "THIRDPARTY"
-  | "AWS_MARKETPLACE";
+export type Ownership = "SELF" | "SHARED" | "AMAZON" | "THIRDPARTY" | "AWS_MARKETPLACE";
 export type PackageArchitecture = string;
 
 export type PackageEpoch = number;
@@ -2668,9 +2068,7 @@ export type PaginationToken = string;
 
 export type ParallelGroup = string;
 
-export type PipelineExecutionStartCondition =
-  | "EXPRESSION_MATCH_ONLY"
-  | "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE";
+export type PipelineExecutionStartCondition = "EXPRESSION_MATCH_ONLY" | "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE";
 export type PipelineStatus = "DISABLED" | "ENABLED";
 export interface Placement {
   availabilityZone?: string;
@@ -2762,11 +2160,7 @@ export interface ResourceStateUpdateIncludeResources {
   snapshots?: boolean;
   containers?: boolean;
 }
-export type ResourceStatus =
-  | "AVAILABLE"
-  | "DELETED"
-  | "DEPRECATED"
-  | "DISABLED";
+export type ResourceStatus = "AVAILABLE" | "DELETED" | "DEPRECATED" | "DISABLED";
 export type ResourceTagMap = Record<string, string>;
 export type RestrictedInteger = number;
 
@@ -2870,7 +2264,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TargetContainerRepository {
@@ -2886,7 +2281,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDistributionConfigurationRequest {
   distributionConfigurationArn: string;
   description?: string;
@@ -3024,15 +2420,7 @@ export interface WorkflowExecutionMetadata {
   parallelGroup?: string;
 }
 export type WorkflowExecutionsList = Array<WorkflowExecutionMetadata>;
-export type WorkflowExecutionStatus =
-  | "PENDING"
-  | "SKIPPED"
-  | "RUNNING"
-  | "COMPLETED"
-  | "FAILED"
-  | "ROLLBACK_IN_PROGRESS"
-  | "ROLLBACK_COMPLETED"
-  | "CANCELLED";
+export type WorkflowExecutionStatus = "PENDING" | "SKIPPED" | "RUNNING" | "COMPLETED" | "FAILED" | "ROLLBACK_IN_PROGRESS" | "ROLLBACK_COMPLETED" | "CANCELLED";
 export type WorkflowNameArn = string;
 
 export interface WorkflowParameter {
@@ -3080,19 +2468,9 @@ export interface WorkflowStepExecution {
 export type WorkflowStepExecutionId = string;
 
 export type WorkflowStepExecutionList = Array<WorkflowStepExecution>;
-export type WorkflowStepExecutionRollbackStatus =
-  | "RUNNING"
-  | "COMPLETED"
-  | "SKIPPED"
-  | "FAILED";
+export type WorkflowStepExecutionRollbackStatus = "RUNNING" | "COMPLETED" | "SKIPPED" | "FAILED";
 export type WorkflowStepExecutionsList = Array<WorkflowStepMetadata>;
-export type WorkflowStepExecutionStatus =
-  | "PENDING"
-  | "SKIPPED"
-  | "RUNNING"
-  | "COMPLETED"
-  | "FAILED"
-  | "CANCELLED";
+export type WorkflowStepExecutionStatus = "PENDING" | "SKIPPED" | "RUNNING" | "COMPLETED" | "FAILED" | "CANCELLED";
 export type WorkflowStepInputs = string;
 
 export type WorkflowStepMessage = string;
@@ -4213,3 +3591,4 @@ export declare namespace UpdateLifecyclePolicy {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+

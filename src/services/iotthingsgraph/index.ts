@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class IoTThingsGraph extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iotthingsgraph", new AwsJson11Protocol(), cfg);
+  }
+
   associateEntityToThing(
     input: AssociateEntityToThingRequest,
   ): Effect.Effect<
     AssociateEntityToThingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateEntityToThing", input);
   }
@@ -19,12 +20,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: CreateFlowTemplateRequest,
   ): Effect.Effect<
     CreateFlowTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateFlowTemplate", input);
   }
@@ -32,12 +28,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: CreateSystemInstanceRequest,
   ): Effect.Effect<
     CreateSystemInstanceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSystemInstance", input);
   }
@@ -45,11 +36,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: CreateSystemTemplateRequest,
   ): Effect.Effect<
     CreateSystemTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSystemTemplate", input);
   }
@@ -57,11 +44,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: DeleteFlowTemplateRequest,
   ): Effect.Effect<
     DeleteFlowTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteFlowTemplate", input);
   }
@@ -77,11 +60,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: DeleteSystemInstanceRequest,
   ): Effect.Effect<
     DeleteSystemInstanceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteSystemInstance", input);
   }
@@ -89,11 +68,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: DeleteSystemTemplateRequest,
   ): Effect.Effect<
     DeleteSystemTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteSystemTemplate", input);
   }
@@ -101,12 +76,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: DeploySystemInstanceRequest,
   ): Effect.Effect<
     DeploySystemInstanceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeploySystemInstance", input);
   }
@@ -114,11 +84,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: DeprecateFlowTemplateRequest,
   ): Effect.Effect<
     DeprecateFlowTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeprecateFlowTemplate", input);
   }
@@ -126,11 +92,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: DeprecateSystemTemplateRequest,
   ): Effect.Effect<
     DeprecateSystemTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeprecateSystemTemplate", input);
   }
@@ -138,11 +100,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: DescribeNamespaceRequest,
   ): Effect.Effect<
     DescribeNamespaceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeNamespace", input);
   }
@@ -150,11 +108,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: DissociateEntityFromThingRequest,
   ): Effect.Effect<
     DissociateEntityFromThingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DissociateEntityFromThing", input);
   }
@@ -162,11 +116,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: GetEntitiesRequest,
   ): Effect.Effect<
     GetEntitiesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEntities", input);
   }
@@ -174,11 +124,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: GetFlowTemplateRequest,
   ): Effect.Effect<
     GetFlowTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetFlowTemplate", input);
   }
@@ -186,11 +132,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: GetFlowTemplateRevisionsRequest,
   ): Effect.Effect<
     GetFlowTemplateRevisionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetFlowTemplateRevisions", input);
   }
@@ -198,10 +140,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: GetNamespaceDeletionStatusRequest,
   ): Effect.Effect<
     GetNamespaceDeletionStatusResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetNamespaceDeletionStatus", input);
   }
@@ -209,11 +148,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: GetSystemInstanceRequest,
   ): Effect.Effect<
     GetSystemInstanceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSystemInstance", input);
   }
@@ -221,11 +156,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: GetSystemTemplateRequest,
   ): Effect.Effect<
     GetSystemTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSystemTemplate", input);
   }
@@ -233,11 +164,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: GetSystemTemplateRevisionsRequest,
   ): Effect.Effect<
     GetSystemTemplateRevisionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSystemTemplateRevisions", input);
   }
@@ -245,11 +172,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: GetUploadStatusRequest,
   ): Effect.Effect<
     GetUploadStatusResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetUploadStatus", input);
   }
@@ -257,11 +180,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: ListFlowExecutionMessagesRequest,
   ): Effect.Effect<
     ListFlowExecutionMessagesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListFlowExecutionMessages", input);
   }
@@ -269,11 +188,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -281,10 +196,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: SearchEntitiesRequest,
   ): Effect.Effect<
     SearchEntitiesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchEntities", input);
   }
@@ -292,11 +204,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: SearchFlowExecutionsRequest,
   ): Effect.Effect<
     SearchFlowExecutionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchFlowExecutions", input);
   }
@@ -304,10 +212,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: SearchFlowTemplatesRequest,
   ): Effect.Effect<
     SearchFlowTemplatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchFlowTemplates", input);
   }
@@ -315,10 +220,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: SearchSystemInstancesRequest,
   ): Effect.Effect<
     SearchSystemInstancesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchSystemInstances", input);
   }
@@ -326,10 +228,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: SearchSystemTemplatesRequest,
   ): Effect.Effect<
     SearchSystemTemplatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchSystemTemplates", input);
   }
@@ -337,11 +236,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: SearchThingsRequest,
   ): Effect.Effect<
     SearchThingsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchThings", input);
   }
@@ -349,11 +244,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -361,12 +252,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: UndeploySystemInstanceRequest,
   ): Effect.Effect<
     UndeploySystemInstanceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UndeploySystemInstance", input);
   }
@@ -374,11 +260,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -386,11 +268,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: UpdateFlowTemplateRequest,
   ): Effect.Effect<
     UpdateFlowTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateFlowTemplate", input);
   }
@@ -398,11 +276,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: UpdateSystemTemplateRequest,
   ): Effect.Effect<
     UpdateSystemTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateSystemTemplate", input);
   }
@@ -410,10 +284,7 @@ export class IoTThingsGraph extends AWSServiceClient {
     input: UploadEntityDefinitionsRequest,
   ): Effect.Effect<
     UploadEntityDefinitionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("UploadEntityDefinitions", input);
   }
@@ -430,7 +301,8 @@ export interface AssociateEntityToThingRequest {
   entityId: string;
   namespaceVersion?: number;
 }
-export interface AssociateEntityToThingResponse {}
+export interface AssociateEntityToThingResponse {
+}
 export interface CreateFlowTemplateRequest {
   definition: DefinitionDocument;
   compatibleNamespaceVersion?: number;
@@ -467,8 +339,10 @@ export type DefinitionText = string;
 export interface DeleteFlowTemplateRequest {
   id: string;
 }
-export interface DeleteFlowTemplateResponse {}
-export interface DeleteNamespaceRequest {}
+export interface DeleteFlowTemplateResponse {
+}
+export interface DeleteNamespaceRequest {
+}
 export interface DeleteNamespaceResponse {
   namespaceArn?: string;
   namespaceName?: string;
@@ -476,11 +350,13 @@ export interface DeleteNamespaceResponse {
 export interface DeleteSystemInstanceRequest {
   id?: string;
 }
-export interface DeleteSystemInstanceResponse {}
+export interface DeleteSystemInstanceResponse {
+}
 export interface DeleteSystemTemplateRequest {
   id: string;
 }
-export interface DeleteSystemTemplateResponse {}
+export interface DeleteSystemTemplateResponse {
+}
 export interface DependencyRevision {
   id?: string;
   revisionNumber?: number;
@@ -499,11 +375,13 @@ export type DeprecateExistingEntities = boolean;
 export interface DeprecateFlowTemplateRequest {
   id: string;
 }
-export interface DeprecateFlowTemplateResponse {}
+export interface DeprecateFlowTemplateResponse {
+}
 export interface DeprecateSystemTemplateRequest {
   id: string;
 }
-export interface DeprecateSystemTemplateResponse {}
+export interface DeprecateSystemTemplateResponse {
+}
 export interface DescribeNamespaceRequest {
   namespaceName?: string;
 }
@@ -518,7 +396,8 @@ export interface DissociateEntityFromThingRequest {
   thingName: string;
   entityType: EntityType;
 }
-export interface DissociateEntityFromThingResponse {}
+export interface DissociateEntityFromThingResponse {
+}
 export type Enabled = boolean;
 
 export interface EntityDescription {
@@ -533,47 +412,16 @@ export interface EntityFilter {
   name?: EntityFilterName;
   value?: Array<string>;
 }
-export type EntityFilterName =
-  | "NAME"
-  | "NAMESPACE"
-  | "SEMANTIC_TYPE_PATH"
-  | "REFERENCED_ENTITY_ID";
+export type EntityFilterName = "NAME" | "NAMESPACE" | "SEMANTIC_TYPE_PATH" | "REFERENCED_ENTITY_ID";
 export type EntityFilters = Array<EntityFilter>;
 export type EntityFilterValue = string;
 
 export type EntityFilterValues = Array<string>;
-export type EntityType =
-  | "DEVICE"
-  | "SERVICE"
-  | "DEVICE_MODEL"
-  | "CAPABILITY"
-  | "STATE"
-  | "ACTION"
-  | "EVENT"
-  | "PROPERTY"
-  | "MAPPING"
-  | "ENUM";
+export type EntityType = "DEVICE" | "SERVICE" | "DEVICE_MODEL" | "CAPABILITY" | "STATE" | "ACTION" | "EVENT" | "PROPERTY" | "MAPPING" | "ENUM";
 export type EntityTypes = Array<EntityType>;
 export type ErrorMessage = string;
 
-export type FlowExecutionEventType =
-  | "EXECUTION_STARTED"
-  | "EXECUTION_FAILED"
-  | "EXECUTION_ABORTED"
-  | "EXECUTION_SUCCEEDED"
-  | "STEP_STARTED"
-  | "STEP_FAILED"
-  | "STEP_SUCCEEDED"
-  | "ACTIVITY_SCHEDULED"
-  | "ACTIVITY_STARTED"
-  | "ACTIVITY_FAILED"
-  | "ACTIVITY_SUCCEEDED"
-  | "START_FLOW_EXECUTION_TASK"
-  | "SCHEDULE_NEXT_READY_STEPS_TASK"
-  | "THING_ACTION_TASK"
-  | "THING_ACTION_TASK_FAILED"
-  | "THING_ACTION_TASK_SUCCEEDED"
-  | "ACKNOWLEDGE_TASK_MESSAGE";
+export type FlowExecutionEventType = "EXECUTION_STARTED" | "EXECUTION_FAILED" | "EXECUTION_ABORTED" | "EXECUTION_SUCCEEDED" | "STEP_STARTED" | "STEP_FAILED" | "STEP_SUCCEEDED" | "ACTIVITY_SCHEDULED" | "ACTIVITY_STARTED" | "ACTIVITY_FAILED" | "ACTIVITY_SUCCEEDED" | "START_FLOW_EXECUTION_TASK" | "SCHEDULE_NEXT_READY_STEPS_TASK" | "THING_ACTION_TASK" | "THING_ACTION_TASK_FAILED" | "THING_ACTION_TASK_SUCCEEDED" | "ACKNOWLEDGE_TASK_MESSAGE";
 export type FlowExecutionId = string;
 
 export interface FlowExecutionMessage {
@@ -587,11 +435,7 @@ export type FlowExecutionMessageId = string;
 export type FlowExecutionMessagePayload = string;
 
 export type FlowExecutionMessages = Array<FlowExecutionMessage>;
-export type FlowExecutionStatus =
-  | "RUNNING"
-  | "ABORTED"
-  | "SUCCEEDED"
-  | "FAILED";
+export type FlowExecutionStatus = "RUNNING" | "ABORTED" | "SUCCEEDED" | "FAILED";
 export type FlowExecutionSummaries = Array<FlowExecutionSummary>;
 export interface FlowExecutionSummary {
   flowExecutionId?: string;
@@ -645,7 +489,8 @@ export interface GetFlowTemplateRevisionsResponse {
   summaries?: Array<FlowTemplateSummary>;
   nextToken?: string;
 }
-export interface GetNamespaceDeletionStatusRequest {}
+export interface GetNamespaceDeletionStatusRequest {
+}
 export interface GetNamespaceDeletionStatusResponse {
   namespaceArn?: string;
   namespaceName?: string;
@@ -826,15 +671,7 @@ export type IotthingsgraphString = string;
 export type StringList = Array<string>;
 export type SyncWithPublicNamespace = boolean;
 
-export type SystemInstanceDeploymentStatus =
-  | "NOT_DEPLOYED"
-  | "BOOTSTRAP"
-  | "DEPLOY_IN_PROGRESS"
-  | "DEPLOYED_IN_TARGET"
-  | "UNDEPLOY_IN_PROGRESS"
-  | "FAILED"
-  | "PENDING_DELETE"
-  | "DELETED_IN_TARGET";
+export type SystemInstanceDeploymentStatus = "NOT_DEPLOYED" | "BOOTSTRAP" | "DEPLOY_IN_PROGRESS" | "DEPLOYED_IN_TARGET" | "UNDEPLOY_IN_PROGRESS" | "FAILED" | "PENDING_DELETE" | "DELETED_IN_TARGET";
 export interface SystemInstanceDescription {
   summary?: SystemInstanceSummary;
   definition?: DefinitionDocument;
@@ -848,10 +685,7 @@ export interface SystemInstanceFilter {
   name?: SystemInstanceFilterName;
   value?: Array<string>;
 }
-export type SystemInstanceFilterName =
-  | "SYSTEM_TEMPLATE_ID"
-  | "STATUS"
-  | "GREENGRASS_GROUP_NAME";
+export type SystemInstanceFilterName = "SYSTEM_TEMPLATE_ID" | "STATUS" | "GREENGRASS_GROUP_NAME";
 export type SystemInstanceFilters = Array<SystemInstanceFilter>;
 export type SystemInstanceFilterValue = string;
 
@@ -901,7 +735,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface Thing {
@@ -930,7 +765,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateFlowTemplateRequest {
   id: string;
   definition: DefinitionDocument;
@@ -1343,3 +1179,4 @@ export declare namespace UploadEntityDefinitions {
     | ThrottlingException
     | CommonAwsError;
 }
+

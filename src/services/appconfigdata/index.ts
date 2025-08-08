@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class AppConfigData extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("appconfigdata", new RestJson1Protocol(), cfg);
+  }
+
   getLatestConfiguration(
     input: GetLatestConfigurationRequest,
   ): Effect.Effect<
     GetLatestConfigurationResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetLatestConfiguration", input);
   }
@@ -25,9 +26,7 @@ interface _BadRequestDetails {
   InvalidParameters?: Record<string, InvalidParameterDetail>;
 }
 
-export type BadRequestDetails = _BadRequestDetails & {
-  InvalidParameters: Record<string, InvalidParameterDetail>;
-};
+export type BadRequestDetails = (_BadRequestDetails & { InvalidParameters: Record<string, InvalidParameterDetail> });
 export declare class BadRequestException extends EffectData.TaggedError(
   "BadRequestException",
 )<{
@@ -106,3 +105,4 @@ export declare namespace GetLatestConfiguration {
     | ThrottlingException
     | CommonAwsError;
 }
+

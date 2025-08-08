@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IoTEvents extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iot-events", new RestJson1Protocol(), cfg);
+  }
+
   createAlarmModel(
     input: CreateAlarmModelRequest,
   ): Effect.Effect<
     CreateAlarmModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceInUseException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceInUseException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateAlarmModel", input);
   }
@@ -22,14 +20,7 @@ export class IoTEvents extends AWSServiceClient {
     input: CreateDetectorModelRequest,
   ): Effect.Effect<
     CreateDetectorModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceInUseException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceInUseException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDetectorModel", input);
   }
@@ -37,12 +28,7 @@ export class IoTEvents extends AWSServiceClient {
     input: CreateInputRequest,
   ): Effect.Effect<
     CreateInputResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateInput", input);
   }
@@ -50,13 +36,7 @@ export class IoTEvents extends AWSServiceClient {
     input: DeleteAlarmModelRequest,
   ): Effect.Effect<
     DeleteAlarmModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAlarmModel", input);
   }
@@ -64,13 +44,7 @@ export class IoTEvents extends AWSServiceClient {
     input: DeleteDetectorModelRequest,
   ): Effect.Effect<
     DeleteDetectorModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDetectorModel", input);
   }
@@ -78,13 +52,7 @@ export class IoTEvents extends AWSServiceClient {
     input: DeleteInputRequest,
   ): Effect.Effect<
     DeleteInputResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteInput", input);
   }
@@ -92,12 +60,7 @@ export class IoTEvents extends AWSServiceClient {
     input: DescribeAlarmModelRequest,
   ): Effect.Effect<
     DescribeAlarmModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAlarmModel", input);
   }
@@ -105,12 +68,7 @@ export class IoTEvents extends AWSServiceClient {
     input: DescribeDetectorModelRequest,
   ): Effect.Effect<
     DescribeDetectorModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDetectorModel", input);
   }
@@ -118,12 +76,7 @@ export class IoTEvents extends AWSServiceClient {
     input: DescribeDetectorModelAnalysisRequest,
   ): Effect.Effect<
     DescribeDetectorModelAnalysisResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDetectorModelAnalysis", input);
   }
@@ -131,12 +84,7 @@ export class IoTEvents extends AWSServiceClient {
     input: DescribeInputRequest,
   ): Effect.Effect<
     DescribeInputResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeInput", input);
   }
@@ -144,13 +92,7 @@ export class IoTEvents extends AWSServiceClient {
     input: DescribeLoggingOptionsRequest,
   ): Effect.Effect<
     DescribeLoggingOptionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DescribeLoggingOptions", input);
   }
@@ -158,12 +100,7 @@ export class IoTEvents extends AWSServiceClient {
     input: GetDetectorModelAnalysisResultsRequest,
   ): Effect.Effect<
     GetDetectorModelAnalysisResultsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetDetectorModelAnalysisResults", input);
   }
@@ -171,11 +108,7 @@ export class IoTEvents extends AWSServiceClient {
     input: ListAlarmModelsRequest,
   ): Effect.Effect<
     ListAlarmModelsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAlarmModels", input);
   }
@@ -183,12 +116,7 @@ export class IoTEvents extends AWSServiceClient {
     input: ListAlarmModelVersionsRequest,
   ): Effect.Effect<
     ListAlarmModelVersionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAlarmModelVersions", input);
   }
@@ -196,11 +124,7 @@ export class IoTEvents extends AWSServiceClient {
     input: ListDetectorModelsRequest,
   ): Effect.Effect<
     ListDetectorModelsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDetectorModels", input);
   }
@@ -208,12 +132,7 @@ export class IoTEvents extends AWSServiceClient {
     input: ListDetectorModelVersionsRequest,
   ): Effect.Effect<
     ListDetectorModelVersionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDetectorModelVersions", input);
   }
@@ -221,12 +140,7 @@ export class IoTEvents extends AWSServiceClient {
     input: ListInputRoutingsRequest,
   ): Effect.Effect<
     ListInputRoutingsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListInputRoutings", input);
   }
@@ -234,11 +148,7 @@ export class IoTEvents extends AWSServiceClient {
     input: ListInputsRequest,
   ): Effect.Effect<
     ListInputsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListInputs", input);
   }
@@ -246,12 +156,7 @@ export class IoTEvents extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -259,13 +164,7 @@ export class IoTEvents extends AWSServiceClient {
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ServiceUnavailableException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("PutLoggingOptions", input);
   }
@@ -273,12 +172,7 @@ export class IoTEvents extends AWSServiceClient {
     input: StartDetectorModelAnalysisRequest,
   ): Effect.Effect<
     StartDetectorModelAnalysisResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartDetectorModelAnalysis", input);
   }
@@ -286,13 +180,7 @@ export class IoTEvents extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -300,12 +188,7 @@ export class IoTEvents extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -313,13 +196,7 @@ export class IoTEvents extends AWSServiceClient {
     input: UpdateAlarmModelRequest,
   ): Effect.Effect<
     UpdateAlarmModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAlarmModel", input);
   }
@@ -327,13 +204,7 @@ export class IoTEvents extends AWSServiceClient {
     input: UpdateDetectorModelRequest,
   ): Effect.Effect<
     UpdateDetectorModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDetectorModel", input);
   }
@@ -341,13 +212,7 @@ export class IoTEvents extends AWSServiceClient {
     input: UpdateInputRequest,
   ): Effect.Effect<
     UpdateInputResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateInput", input);
   }
@@ -411,11 +276,7 @@ export interface AlarmModelSummary {
 }
 export type AlarmModelVersion = string;
 
-export type AlarmModelVersionStatus =
-  | "ACTIVE"
-  | "ACTIVATING"
-  | "INACTIVE"
-  | "FAILED";
+export type AlarmModelVersionStatus = "ACTIVE" | "ACTIVATING" | "INACTIVE" | "FAILED";
 export type AlarmModelVersionSummaries = Array<AlarmModelVersionSummary>;
 export interface AlarmModelVersionSummary {
   alarmModelName?: string;
@@ -504,13 +365,7 @@ export type Attributes = Array<Attribute>;
 export interface ClearTimerAction {
   timerName: string;
 }
-export type ComparisonOperator =
-  | "GREATER"
-  | "GREATER_OR_EQUAL"
-  | "LESS"
-  | "LESS_OR_EQUAL"
-  | "EQUAL"
-  | "NOT_EQUAL";
+export type ComparisonOperator = "GREATER" | "GREATER_OR_EQUAL" | "LESS" | "LESS_OR_EQUAL" | "EQUAL" | "NOT_EQUAL";
 export type Condition = string;
 
 export type ContentExpression = string;
@@ -558,15 +413,18 @@ export interface CreateInputResponse {
 export interface DeleteAlarmModelRequest {
   alarmModelName: string;
 }
-export interface DeleteAlarmModelResponse {}
+export interface DeleteAlarmModelResponse {
+}
 export interface DeleteDetectorModelRequest {
   detectorModelName: string;
 }
-export interface DeleteDetectorModelResponse {}
+export interface DeleteDetectorModelResponse {
+}
 export interface DeleteInputRequest {
   inputName: string;
 }
-export interface DeleteInputResponse {}
+export interface DeleteInputResponse {
+}
 export type DeliveryStreamName = string;
 
 export interface DescribeAlarmModelRequest {
@@ -609,7 +467,8 @@ export interface DescribeInputRequest {
 export interface DescribeInputResponse {
   input?: Input;
 }
-export interface DescribeLoggingOptionsRequest {}
+export interface DescribeLoggingOptionsRequest {
+}
 export interface DescribeLoggingOptionsResponse {
   loggingOptions?: LoggingOptions;
 }
@@ -652,14 +511,7 @@ export interface DetectorModelSummary {
 }
 export type DetectorModelVersion = string;
 
-export type DetectorModelVersionStatus =
-  | "ACTIVE"
-  | "ACTIVATING"
-  | "INACTIVE"
-  | "DEPRECATED"
-  | "DRAFT"
-  | "PAUSED"
-  | "FAILED";
+export type DetectorModelVersionStatus = "ACTIVE" | "ACTIVATING" | "INACTIVE" | "DEPRECATED" | "DRAFT" | "PAUSED" | "FAILED";
 export type DetectorModelVersionSummaries = Array<DetectorModelVersionSummary>;
 export interface DetectorModelVersionSummary {
   detectorModelName?: string;
@@ -1045,7 +897,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
@@ -1076,7 +929,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAlarmModelRequest {
   alarmModelName: string;
   alarmModelDescription?: string;
@@ -1439,3 +1293,4 @@ export declare namespace UpdateInput {
     | ThrottlingException
     | CommonAwsError;
 }
+

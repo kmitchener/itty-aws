@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class PersonalizeEvents extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("personalize-events", new RestJson1Protocol(), cfg);
+  }
+
   putActionInteractions(
     input: PutActionInteractionsRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidInputException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutActionInteractions", input);
   }
@@ -18,26 +20,23 @@ export class PersonalizeEvents extends AWSServiceClient {
     input: PutActionsRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidInputException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutActions", input);
   }
   putEvents(
     input: PutEventsRequest,
-  ): Effect.Effect<{}, InvalidInputException | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    InvalidInputException | CommonAwsError
+  > {
     return this.call("PutEvents", input);
   }
   putItems(
     input: PutItemsRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidInputException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutItems", input);
   }
@@ -45,10 +44,7 @@ export class PersonalizeEvents extends AWSServiceClient {
     input: PutUsersRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidInputException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutUsers", input);
   }
@@ -190,7 +186,9 @@ export declare namespace PutActions {
 export declare namespace PutEvents {
   export type Input = PutEventsRequest;
   export type Output = {};
-  export type Error = InvalidInputException | CommonAwsError;
+  export type Error =
+    | InvalidInputException
+    | CommonAwsError;
 }
 
 export declare namespace PutItems {
@@ -212,3 +210,4 @@ export declare namespace PutUsers {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

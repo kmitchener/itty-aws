@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class ApplicationDiscoveryService extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("application-discovery-service", new AwsJson11Protocol(), cfg);
+  }
+
   associateConfigurationItemsToApplication(
     input: AssociateConfigurationItemsToApplicationRequest,
   ): Effect.Effect<
     AssociateConfigurationItemsToApplicationResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("AssociateConfigurationItemsToApplication", input);
   }
@@ -20,11 +20,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: BatchDeleteAgentsRequest,
   ): Effect.Effect<
     BatchDeleteAgentsResponse,
-    | AuthorizationErrorException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("BatchDeleteAgents", input);
   }
@@ -32,12 +28,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: BatchDeleteImportDataRequest,
   ): Effect.Effect<
     BatchDeleteImportDataResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("BatchDeleteImportData", input);
   }
@@ -45,12 +36,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("CreateApplication", input);
   }
@@ -58,13 +44,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: CreateTagsRequest,
   ): Effect.Effect<
     CreateTagsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ResourceNotFoundException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("CreateTags", input);
   }
@@ -72,12 +52,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DeleteApplicationsRequest,
   ): Effect.Effect<
     DeleteApplicationsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DeleteApplications", input);
   }
@@ -85,13 +60,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DeleteTagsRequest,
   ): Effect.Effect<
     DeleteTagsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ResourceNotFoundException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DeleteTags", input);
   }
@@ -99,12 +68,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DescribeAgentsRequest,
   ): Effect.Effect<
     DescribeAgentsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DescribeAgents", input);
   }
@@ -112,11 +76,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DescribeBatchDeleteConfigurationTaskRequest,
   ): Effect.Effect<
     DescribeBatchDeleteConfigurationTaskResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DescribeBatchDeleteConfigurationTask", input);
   }
@@ -124,12 +84,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DescribeConfigurationsRequest,
   ): Effect.Effect<
     DescribeConfigurationsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DescribeConfigurations", input);
   }
@@ -137,14 +92,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DescribeContinuousExportsRequest,
   ): Effect.Effect<
     DescribeContinuousExportsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | OperationNotPermittedException
-    | ResourceNotFoundException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | OperationNotPermittedException | ResourceNotFoundException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DescribeContinuousExports", input);
   }
@@ -152,13 +100,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DescribeExportConfigurationsRequest,
   ): Effect.Effect<
     DescribeExportConfigurationsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ResourceNotFoundException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DescribeExportConfigurations", input);
   }
@@ -166,12 +108,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DescribeExportTasksRequest,
   ): Effect.Effect<
     DescribeExportTasksResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DescribeExportTasks", input);
   }
@@ -179,12 +116,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DescribeImportTasksRequest,
   ): Effect.Effect<
     DescribeImportTasksResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DescribeImportTasks", input);
   }
@@ -192,13 +124,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DescribeTagsRequest,
   ): Effect.Effect<
     DescribeTagsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ResourceNotFoundException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DescribeTags", input);
   }
@@ -206,24 +132,15 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: DisassociateConfigurationItemsFromApplicationRequest,
   ): Effect.Effect<
     DisassociateConfigurationItemsFromApplicationResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("DisassociateConfigurationItemsFromApplication", input);
   }
-  exportConfigurations(input: {}): Effect.Effect<
+  exportConfigurations(
+    input: {},
+  ): Effect.Effect<
     ExportConfigurationsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | OperationNotPermittedException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | OperationNotPermittedException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("ExportConfigurations", input);
   }
@@ -231,12 +148,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: GetDiscoverySummaryRequest,
   ): Effect.Effect<
     GetDiscoverySummaryResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("GetDiscoverySummary", input);
   }
@@ -244,13 +156,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: ListConfigurationsRequest,
   ): Effect.Effect<
     ListConfigurationsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ResourceNotFoundException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("ListConfigurations", input);
   }
@@ -258,12 +164,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: ListServerNeighborsRequest,
   ): Effect.Effect<
     ListServerNeighborsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("ListServerNeighbors", input);
   }
@@ -271,14 +172,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: StartBatchDeleteConfigurationTaskRequest,
   ): Effect.Effect<
     StartBatchDeleteConfigurationTaskResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | OperationNotPermittedException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | LimitExceededException | OperationNotPermittedException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("StartBatchDeleteConfigurationTask", input);
   }
@@ -286,15 +180,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: StartContinuousExportRequest,
   ): Effect.Effect<
     StartContinuousExportResponse,
-    | AuthorizationErrorException
-    | ConflictErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | OperationNotPermittedException
-    | ResourceInUseException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | ConflictErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | OperationNotPermittedException | ResourceInUseException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("StartContinuousExport", input);
   }
@@ -302,12 +188,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: StartDataCollectionByAgentIdsRequest,
   ): Effect.Effect<
     StartDataCollectionByAgentIdsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("StartDataCollectionByAgentIds", input);
   }
@@ -315,13 +196,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: StartExportTaskRequest,
   ): Effect.Effect<
     StartExportTaskResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | OperationNotPermittedException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | OperationNotPermittedException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("StartExportTask", input);
   }
@@ -329,13 +204,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: StartImportTaskRequest,
   ): Effect.Effect<
     StartImportTaskResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ResourceInUseException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ResourceInUseException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("StartImportTask", input);
   }
@@ -343,15 +212,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: StopContinuousExportRequest,
   ): Effect.Effect<
     StopContinuousExportResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | OperationNotPermittedException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | OperationNotPermittedException | ResourceInUseException | ResourceNotFoundException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("StopContinuousExport", input);
   }
@@ -359,12 +220,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: StopDataCollectionByAgentIdsRequest,
   ): Effect.Effect<
     StopDataCollectionByAgentIdsResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("StopDataCollectionByAgentIds", input);
   }
@@ -372,12 +228,7 @@ export class ApplicationDiscoveryService extends AWSServiceClient {
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    | AuthorizationErrorException
-    | HomeRegionNotSetException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | ServerInternalErrorException
-    | CommonAwsError
+    AuthorizationErrorException | HomeRegionNotSetException | InvalidParameterException | InvalidParameterValueException | ServerInternalErrorException | CommonAwsError
   > {
     return this.call("UpdateApplication", input);
   }
@@ -412,13 +263,7 @@ export interface AgentNetworkInfo {
 }
 export type AgentNetworkInfoList = Array<AgentNetworkInfo>;
 export type AgentsInfo = Array<AgentInfo>;
-export type AgentStatus =
-  | "HEALTHY"
-  | "UNHEALTHY"
-  | "RUNNING"
-  | "UNKNOWN"
-  | "BLACKLISTED"
-  | "SHUTDOWN";
+export type AgentStatus = "HEALTHY" | "UNHEALTHY" | "RUNNING" | "UNKNOWN" | "BLACKLISTED" | "SHUTDOWN";
 export type ApplicationDescription = string;
 
 export type ApplicationId = string;
@@ -432,7 +277,8 @@ export interface AssociateConfigurationItemsToApplicationRequest {
   applicationConfigurationId: string;
   configurationIds: Array<string>;
 }
-export interface AssociateConfigurationItemsToApplicationResponse {}
+export interface AssociateConfigurationItemsToApplicationResponse {
+}
 export declare class AuthorizationErrorException extends EffectData.TaggedError(
   "AuthorizationErrorException",
 )<{
@@ -461,21 +307,13 @@ export interface BatchDeleteConfigurationTask {
   failedConfigurations?: Array<FailedConfiguration>;
   deletionWarnings?: Array<DeletionWarning>;
 }
-export type BatchDeleteConfigurationTaskStatus =
-  | "INITIALIZING"
-  | "VALIDATING"
-  | "DELETING"
-  | "COMPLETED"
-  | "FAILED";
+export type BatchDeleteConfigurationTaskStatus = "INITIALIZING" | "VALIDATING" | "DELETING" | "COMPLETED" | "FAILED";
 export interface BatchDeleteImportDataError {
   importTaskId?: string;
   errorCode?: BatchDeleteImportDataErrorCode;
   errorDescription?: string;
 }
-export type BatchDeleteImportDataErrorCode =
-  | "NOT_FOUND"
-  | "INTERNAL_SERVER_ERROR"
-  | "OVER_LIMIT";
+export type BatchDeleteImportDataErrorCode = "NOT_FOUND" | "INTERNAL_SERVER_ERROR" | "OVER_LIMIT";
 export type BatchDeleteImportDataErrorDescription = string;
 
 export type BatchDeleteImportDataErrorList = Array<BatchDeleteImportDataError>;
@@ -498,11 +336,7 @@ export type Configuration = Record<string, string>;
 export type ConfigurationId = string;
 
 export type ConfigurationIdList = Array<string>;
-export type ConfigurationItemType =
-  | "SERVER"
-  | "PROCESS"
-  | "CONNECTIONS"
-  | "APPLICATION";
+export type ConfigurationItemType = "SERVER" | "PROCESS" | "CONNECTIONS" | "APPLICATION";
 export type Configurations = Array<Record<string, string>>;
 export type ConfigurationsDownloadUrl = string;
 
@@ -533,14 +367,7 @@ export interface ContinuousExportDescription {
 }
 export type ContinuousExportDescriptions = Array<ContinuousExportDescription>;
 export type ContinuousExportIds = Array<string>;
-export type ContinuousExportStatus =
-  | "START_IN_PROGRESS"
-  | "START_FAILED"
-  | "ACTIVE"
-  | "ERROR"
-  | "STOP_IN_PROGRESS"
-  | "STOP_FAILED"
-  | "INACTIVE";
+export type ContinuousExportStatus = "START_IN_PROGRESS" | "START_FAILED" | "ACTIVE" | "ERROR" | "STOP_IN_PROGRESS" | "STOP_FAILED" | "INACTIVE";
 export interface CreateApplicationRequest {
   name: string;
   description?: string;
@@ -553,7 +380,8 @@ export interface CreateTagsRequest {
   configurationIds: Array<string>;
   tags: Array<Tag>;
 }
-export interface CreateTagsResponse {}
+export interface CreateTagsResponse {
+}
 export interface CustomerAgentInfo {
   activeAgents: number;
   healthyAgents: number;
@@ -597,20 +425,19 @@ export interface DeleteAgent {
   agentId: string;
   force?: boolean;
 }
-export type DeleteAgentErrorCode =
-  | "NOT_FOUND"
-  | "INTERNAL_SERVER_ERROR"
-  | "AGENT_IN_USE";
+export type DeleteAgentErrorCode = "NOT_FOUND" | "INTERNAL_SERVER_ERROR" | "AGENT_IN_USE";
 export type DeleteAgents = Array<DeleteAgent>;
 export interface DeleteApplicationsRequest {
   configurationIds: Array<string>;
 }
-export interface DeleteApplicationsResponse {}
+export interface DeleteApplicationsResponse {
+}
 export interface DeleteTagsRequest {
   configurationIds: Array<string>;
   tags?: Array<Tag>;
 }
-export interface DeleteTagsResponse {}
+export interface DeleteTagsResponse {
+}
 export type DeletionConfigurationItemType = "SERVER";
 export interface DeletionWarning {
   configurationId?: string;
@@ -697,7 +524,8 @@ export interface DisassociateConfigurationItemsFromApplicationRequest {
   applicationConfigurationId: string;
   configurationIds: Array<string>;
 }
-export interface DisassociateConfigurationItemsFromApplicationResponse {}
+export interface DisassociateConfigurationItemsFromApplicationResponse {
+}
 export type EC2InstanceType = string;
 
 export interface Ec2RecommendationsExportPreferences {
@@ -742,9 +570,7 @@ interface _ExportPreferences {
   ec2RecommendationsPreferences?: Ec2RecommendationsExportPreferences;
 }
 
-export type ExportPreferences = _ExportPreferences & {
-  ec2RecommendationsPreferences: Ec2RecommendationsExportPreferences;
-};
+export type ExportPreferences = (_ExportPreferences & { ec2RecommendationsPreferences: Ec2RecommendationsExportPreferences });
 export type ExportRequestTime = Date | string;
 
 export type ExportsInfo = Array<ExportInfo>;
@@ -757,11 +583,7 @@ export interface FailedConfiguration {
   errorMessage?: string;
 }
 export type FailedConfigurationList = Array<FailedConfiguration>;
-export type FileClassification =
-  | "MODELIZEIT_EXPORT"
-  | "RVTOOLS_EXPORT"
-  | "VMWARE_NSX_EXPORT"
-  | "IMPORT_TEMPLATE";
+export type FileClassification = "MODELIZEIT_EXPORT" | "RVTOOLS_EXPORT" | "VMWARE_NSX_EXPORT" | "IMPORT_TEMPLATE";
 export interface Filter {
   name: string;
   values: Array<string>;
@@ -773,7 +595,8 @@ export type Filters = Array<Filter>;
 export type FilterValue = string;
 
 export type FilterValues = Array<string>;
-export interface GetDiscoverySummaryRequest {}
+export interface GetDiscoverySummaryRequest {
+}
 export interface GetDiscoverySummaryResponse {
   servers?: number;
   applications?: number;
@@ -789,19 +612,7 @@ export declare class HomeRegionNotSetException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ImportStatus =
-  | "IMPORT_IN_PROGRESS"
-  | "IMPORT_COMPLETE"
-  | "IMPORT_COMPLETE_WITH_ERRORS"
-  | "IMPORT_FAILED"
-  | "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED"
-  | "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED"
-  | "IMPORT_FAILED_UNSUPPORTED_FILE_TYPE"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_COMPLETE"
-  | "DELETE_FAILED"
-  | "DELETE_FAILED_LIMIT_EXCEEDED"
-  | "INTERNAL_ERROR";
+export type ImportStatus = "IMPORT_IN_PROGRESS" | "IMPORT_COMPLETE" | "IMPORT_COMPLETE_WITH_ERRORS" | "IMPORT_FAILED" | "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED" | "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED" | "IMPORT_FAILED_UNSUPPORTED_FILE_TYPE" | "DELETE_IN_PROGRESS" | "DELETE_COMPLETE" | "DELETE_FAILED" | "DELETE_FAILED_LIMIT_EXCEEDED" | "INTERNAL_ERROR";
 export interface ImportTask {
   importTaskId?: string;
   clientRequestToken?: string;
@@ -822,11 +633,7 @@ export interface ImportTaskFilter {
   name?: ImportTaskFilterName;
   values?: Array<string>;
 }
-export type ImportTaskFilterName =
-  | "IMPORT_TASK_ID"
-  | "STATUS"
-  | "NAME"
-  | "FILE_CLASSIFICATION";
+export type ImportTaskFilterName = "IMPORT_TASK_ID" | "STATUS" | "NAME" | "FILE_CLASSIFICATION";
 export type ImportTaskFilterValue = string;
 
 export type ImportTaskFilterValueList = Array<string>;
@@ -938,7 +745,8 @@ export interface StartBatchDeleteConfigurationTaskRequest {
 export interface StartBatchDeleteConfigurationTaskResponse {
   taskId?: string;
 }
-export interface StartContinuousExportRequest {}
+export interface StartContinuousExportRequest {
+}
 export interface StartContinuousExportResponse {
   exportId?: string;
   s3Bucket?: string;
@@ -1012,7 +820,8 @@ export interface UpdateApplicationRequest {
   description?: string;
   wave?: string;
 }
-export interface UpdateApplicationResponse {}
+export interface UpdateApplicationResponse {
+}
 export interface UsageMetricBasis {
   name?: string;
   percentageAdjust?: number;
@@ -1380,3 +1189,4 @@ export declare namespace UpdateApplication {
     | ServerInternalErrorException
     | CommonAwsError;
 }
+

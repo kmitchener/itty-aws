@@ -1,27 +1,34 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ivs extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("ivs", new RestJson1Protocol(), cfg);
+  }
+
   batchGetChannel(
     input: BatchGetChannelRequest,
-  ): Effect.Effect<BatchGetChannelResponse, CommonAwsError> {
+  ): Effect.Effect<
+    BatchGetChannelResponse,
+    CommonAwsError
+  > {
     return this.call("BatchGetChannel", input);
   }
   batchGetStreamKey(
     input: BatchGetStreamKeyRequest,
-  ): Effect.Effect<BatchGetStreamKeyResponse, CommonAwsError> {
+  ): Effect.Effect<
+    BatchGetStreamKeyResponse,
+    CommonAwsError
+  > {
     return this.call("BatchGetStreamKey", input);
   }
   batchStartViewerSessionRevocation(
     input: BatchStartViewerSessionRevocationRequest,
   ): Effect.Effect<
     BatchStartViewerSessionRevocationResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchStartViewerSessionRevocation", input);
   }
@@ -29,12 +36,7 @@ export class ivs extends AWSServiceClient {
     input: CreateChannelRequest,
   ): Effect.Effect<
     CreateChannelResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateChannel", input);
   }
@@ -42,12 +44,7 @@ export class ivs extends AWSServiceClient {
     input: CreatePlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
     CreatePlaybackRestrictionPolicyResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePlaybackRestrictionPolicy", input);
   }
@@ -55,13 +52,7 @@ export class ivs extends AWSServiceClient {
     input: CreateRecordingConfigurationRequest,
   ): Effect.Effect<
     CreateRecordingConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | PendingVerification
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | PendingVerification | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRecordingConfiguration", input);
   }
@@ -69,12 +60,7 @@ export class ivs extends AWSServiceClient {
     input: CreateStreamKeyRequest,
   ): Effect.Effect<
     CreateStreamKeyResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateStreamKey", input);
   }
@@ -82,12 +68,7 @@ export class ivs extends AWSServiceClient {
     input: DeleteChannelRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteChannel", input);
   }
@@ -95,11 +76,7 @@ export class ivs extends AWSServiceClient {
     input: DeletePlaybackKeyPairRequest,
   ): Effect.Effect<
     DeletePlaybackKeyPairResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePlaybackKeyPair", input);
   }
@@ -107,12 +84,7 @@ export class ivs extends AWSServiceClient {
     input: DeletePlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePlaybackRestrictionPolicy", input);
   }
@@ -120,12 +92,7 @@ export class ivs extends AWSServiceClient {
     input: DeleteRecordingConfigurationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRecordingConfiguration", input);
   }
@@ -133,11 +100,7 @@ export class ivs extends AWSServiceClient {
     input: DeleteStreamKeyRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteStreamKey", input);
   }
@@ -145,10 +108,7 @@ export class ivs extends AWSServiceClient {
     input: GetChannelRequest,
   ): Effect.Effect<
     GetChannelResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetChannel", input);
   }
@@ -156,10 +116,7 @@ export class ivs extends AWSServiceClient {
     input: GetPlaybackKeyPairRequest,
   ): Effect.Effect<
     GetPlaybackKeyPairResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetPlaybackKeyPair", input);
   }
@@ -167,11 +124,7 @@ export class ivs extends AWSServiceClient {
     input: GetPlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
     GetPlaybackRestrictionPolicyResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetPlaybackRestrictionPolicy", input);
   }
@@ -179,11 +132,7 @@ export class ivs extends AWSServiceClient {
     input: GetRecordingConfigurationRequest,
   ): Effect.Effect<
     GetRecordingConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetRecordingConfiguration", input);
   }
@@ -191,11 +140,7 @@ export class ivs extends AWSServiceClient {
     input: GetStreamRequest,
   ): Effect.Effect<
     GetStreamResponse,
-    | AccessDeniedException
-    | ChannelNotBroadcasting
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ChannelNotBroadcasting | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetStream", input);
   }
@@ -203,10 +148,7 @@ export class ivs extends AWSServiceClient {
     input: GetStreamKeyRequest,
   ): Effect.Effect<
     GetStreamKeyResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetStreamKey", input);
   }
@@ -214,10 +156,7 @@ export class ivs extends AWSServiceClient {
     input: GetStreamSessionRequest,
   ): Effect.Effect<
     GetStreamSessionResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetStreamSession", input);
   }
@@ -225,12 +164,7 @@ export class ivs extends AWSServiceClient {
     input: ImportPlaybackKeyPairRequest,
   ): Effect.Effect<
     ImportPlaybackKeyPairResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("ImportPlaybackKeyPair", input);
   }
@@ -238,10 +172,7 @@ export class ivs extends AWSServiceClient {
     input: ListChannelsRequest,
   ): Effect.Effect<
     ListChannelsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListChannels", input);
   }
@@ -257,11 +188,7 @@ export class ivs extends AWSServiceClient {
     input: ListPlaybackRestrictionPoliciesRequest,
   ): Effect.Effect<
     ListPlaybackRestrictionPoliciesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ValidationException | CommonAwsError
   > {
     return this.call("ListPlaybackRestrictionPolicies", input);
   }
@@ -269,10 +196,7 @@ export class ivs extends AWSServiceClient {
     input: ListRecordingConfigurationsRequest,
   ): Effect.Effect<
     ListRecordingConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListRecordingConfigurations", input);
   }
@@ -280,10 +204,7 @@ export class ivs extends AWSServiceClient {
     input: ListStreamKeysRequest,
   ): Effect.Effect<
     ListStreamKeysResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListStreamKeys", input);
   }
@@ -299,10 +220,7 @@ export class ivs extends AWSServiceClient {
     input: ListStreamSessionsRequest,
   ): Effect.Effect<
     ListStreamSessionsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListStreamSessions", input);
   }
@@ -310,10 +228,7 @@ export class ivs extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -321,12 +236,7 @@ export class ivs extends AWSServiceClient {
     input: PutMetadataRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ChannelNotBroadcasting
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ChannelNotBroadcasting | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutMetadata", input);
   }
@@ -334,13 +244,7 @@ export class ivs extends AWSServiceClient {
     input: StartViewerSessionRevocationRequest,
   ): Effect.Effect<
     StartViewerSessionRevocationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | PendingVerification | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartViewerSessionRevocation", input);
   }
@@ -348,12 +252,7 @@ export class ivs extends AWSServiceClient {
     input: StopStreamRequest,
   ): Effect.Effect<
     StopStreamResponse,
-    | AccessDeniedException
-    | ChannelNotBroadcasting
-    | ResourceNotFoundException
-    | StreamUnavailable
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ChannelNotBroadcasting | ResourceNotFoundException | StreamUnavailable | ValidationException | CommonAwsError
   > {
     return this.call("StopStream", input);
   }
@@ -361,10 +260,7 @@ export class ivs extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -372,10 +268,7 @@ export class ivs extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -383,12 +276,7 @@ export class ivs extends AWSServiceClient {
     input: UpdateChannelRequest,
   ): Effect.Effect<
     UpdateChannelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateChannel", input);
   }
@@ -396,12 +284,7 @@ export class ivs extends AWSServiceClient {
     input: UpdatePlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
     UpdatePlaybackRestrictionPolicyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePlaybackRestrictionPolicy", input);
   }
@@ -450,8 +333,7 @@ export interface BatchStartViewerSessionRevocationError {
   code?: string;
   message?: string;
 }
-export type BatchStartViewerSessionRevocationErrors =
-  Array<BatchStartViewerSessionRevocationError>;
+export type BatchStartViewerSessionRevocationErrors = Array<BatchStartViewerSessionRevocationError>;
 export interface BatchStartViewerSessionRevocationRequest {
   viewerSessions: Array<BatchStartViewerSessionRevocationViewerSession>;
 }
@@ -463,8 +345,7 @@ export interface BatchStartViewerSessionRevocationViewerSession {
   viewerId: string;
   viewerSessionVersionsLessThanOrEqualTo?: number;
 }
-export type BatchStartViewerSessionRevocationViewerSessionList =
-  Array<BatchStartViewerSessionRevocationViewerSession>;
+export type BatchStartViewerSessionRevocationViewerSessionList = Array<BatchStartViewerSessionRevocationViewerSession>;
 export type IvsBoolean = boolean;
 
 export interface Channel {
@@ -514,11 +395,7 @@ export interface ChannelSummary {
   preset?: TranscodePreset;
   playbackRestrictionPolicyArn?: string;
 }
-export type ChannelType =
-  | "BasicChannelType"
-  | "StandardChannelType"
-  | "AdvancedSDChannelType"
-  | "AdvancedHDChannelType";
+export type ChannelType = "BasicChannelType" | "StandardChannelType" | "AdvancedSDChannelType" | "AdvancedHDChannelType";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -577,7 +454,8 @@ export interface DeleteChannelRequest {
 export interface DeletePlaybackKeyPairRequest {
   arn: string;
 }
-export interface DeletePlaybackKeyPairResponse {}
+export interface DeletePlaybackKeyPairResponse {
+}
 export interface DeletePlaybackRestrictionPolicyRequest {
   arn: string;
 }
@@ -800,8 +678,7 @@ export type PlaybackRestrictionPolicyArn = string;
 
 export type PlaybackRestrictionPolicyEnableStrictOriginEnforcement = boolean;
 
-export type PlaybackRestrictionPolicyList =
-  Array<PlaybackRestrictionPolicySummary>;
+export type PlaybackRestrictionPolicyList = Array<PlaybackRestrictionPolicySummary>;
 export type PlaybackRestrictionPolicyName = string;
 
 export interface PlaybackRestrictionPolicySummary {
@@ -850,13 +727,8 @@ export interface RenditionConfiguration {
   renditionSelection?: string;
   renditions?: Array<RenditionConfigurationRendition>;
 }
-export type RenditionConfigurationRendition =
-  | "SD"
-  | "HD"
-  | "FULL_HD"
-  | "LOWEST_RESOLUTION";
-export type RenditionConfigurationRenditionList =
-  Array<RenditionConfigurationRendition>;
+export type RenditionConfigurationRendition = "SD" | "HD" | "FULL_HD" | "LOWEST_RESOLUTION";
+export type RenditionConfigurationRenditionList = Array<RenditionConfigurationRendition>;
 export type RenditionConfigurationRenditionSelection = string;
 
 export type ResourceArn = string;
@@ -889,11 +761,13 @@ export interface StartViewerSessionRevocationRequest {
   viewerId: string;
   viewerSessionVersionsLessThanOrEqualTo?: number;
 }
-export interface StartViewerSessionRevocationResponse {}
+export interface StartViewerSessionRevocationResponse {
+}
 export interface StopStreamRequest {
   channelArn: string;
 }
-export interface StopStreamResponse {}
+export interface StopStreamResponse {
+}
 export interface Stream {
   channelArn?: string;
   streamId?: string;
@@ -983,7 +857,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -1000,24 +875,19 @@ export interface ThumbnailConfiguration {
   resolution?: ThumbnailConfigurationResolution;
   storage?: Array<string>;
 }
-export type ThumbnailConfigurationResolution =
-  | "SD"
-  | "HD"
-  | "FULL_HD"
-  | "LOWEST_RESOLUTION";
+export type ThumbnailConfigurationResolution = "SD" | "HD" | "FULL_HD" | "LOWEST_RESOLUTION";
 export type ThumbnailConfigurationStorage = string;
 
 export type ThumbnailConfigurationStorageList = Array<string>;
 export type Time = Date | string;
 
-export type TranscodePreset =
-  | "HigherBandwidthTranscodePreset"
-  | "ConstrainedBandwidthTranscodePreset";
+export type TranscodePreset = "HigherBandwidthTranscodePreset" | "ConstrainedBandwidthTranscodePreset";
 export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateChannelRequest {
   arn: string;
   name?: string;
@@ -1070,13 +940,15 @@ export type ViewerSessionVersion = number;
 export declare namespace BatchGetChannel {
   export type Input = BatchGetChannelRequest;
   export type Output = BatchGetChannelResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace BatchGetStreamKey {
   export type Input = BatchGetStreamKeyRequest;
   export type Output = BatchGetStreamKeyResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace BatchStartViewerSessionRevocation {
@@ -1441,3 +1313,4 @@ export declare namespace UpdatePlaybackRestrictionPolicy {
     | ValidationException
     | CommonAwsError;
 }
+

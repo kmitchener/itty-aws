@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class VPCLattice extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("vpc-lattice", new RestJson1Protocol(), cfg);
+  }
+
   batchUpdateRule(
     input: BatchUpdateRuleRequest,
   ): Effect.Effect<
     BatchUpdateRuleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchUpdateRule", input);
   }
@@ -21,12 +20,7 @@ export class VPCLattice extends AWSServiceClient {
     input: DeleteAuthPolicyRequest,
   ): Effect.Effect<
     DeleteAuthPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAuthPolicy", input);
   }
@@ -34,12 +28,7 @@ export class VPCLattice extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -47,12 +36,7 @@ export class VPCLattice extends AWSServiceClient {
     input: GetAuthPolicyRequest,
   ): Effect.Effect<
     GetAuthPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAuthPolicy", input);
   }
@@ -60,12 +44,7 @@ export class VPCLattice extends AWSServiceClient {
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -73,11 +52,7 @@ export class VPCLattice extends AWSServiceClient {
     input: ListServiceNetworkVpcEndpointAssociationsRequest,
   ): Effect.Effect<
     ListServiceNetworkVpcEndpointAssociationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListServiceNetworkVpcEndpointAssociations", input);
   }
@@ -85,11 +60,7 @@ export class VPCLattice extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -97,12 +68,7 @@ export class VPCLattice extends AWSServiceClient {
     input: PutAuthPolicyRequest,
   ): Effect.Effect<
     PutAuthPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutAuthPolicy", input);
   }
@@ -110,12 +76,7 @@ export class VPCLattice extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -123,12 +84,7 @@ export class VPCLattice extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -136,11 +92,7 @@ export class VPCLattice extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -397,20 +349,24 @@ export interface CreateTargetGroupResponse {
 export interface DeleteAccessLogSubscriptionRequest {
   accessLogSubscriptionIdentifier: string;
 }
-export interface DeleteAccessLogSubscriptionResponse {}
+export interface DeleteAccessLogSubscriptionResponse {
+}
 export interface DeleteAuthPolicyRequest {
   resourceIdentifier: string;
 }
-export interface DeleteAuthPolicyResponse {}
+export interface DeleteAuthPolicyResponse {
+}
 export interface DeleteListenerRequest {
   serviceIdentifier: string;
   listenerIdentifier: string;
 }
-export interface DeleteListenerResponse {}
+export interface DeleteListenerResponse {
+}
 export interface DeleteResourceConfigurationRequest {
   resourceConfigurationIdentifier: string;
 }
-export interface DeleteResourceConfigurationResponse {}
+export interface DeleteResourceConfigurationResponse {
+}
 export interface DeleteResourceEndpointAssociationRequest {
   resourceEndpointAssociationIdentifier: string;
 }
@@ -433,13 +389,15 @@ export interface DeleteResourceGatewayResponse {
 export interface DeleteResourcePolicyRequest {
   resourceArn: string;
 }
-export interface DeleteResourcePolicyResponse {}
+export interface DeleteResourcePolicyResponse {
+}
 export interface DeleteRuleRequest {
   serviceIdentifier: string;
   listenerIdentifier: string;
   ruleIdentifier: string;
 }
-export interface DeleteRuleResponse {}
+export interface DeleteRuleResponse {
+}
 export interface DeleteServiceNetworkRequest {
   serviceNetworkIdentifier: string;
 }
@@ -451,7 +409,8 @@ export interface DeleteServiceNetworkResourceAssociationResponse {
   arn?: string;
   status?: string;
 }
-export interface DeleteServiceNetworkResponse {}
+export interface DeleteServiceNetworkResponse {
+}
 export interface DeleteServiceNetworkServiceAssociationRequest {
   serviceNetworkServiceAssociationIdentifier: string;
 }
@@ -736,10 +695,7 @@ interface _HeaderMatchType {
   contains?: string;
 }
 
-export type HeaderMatchType =
-  | (_HeaderMatchType & { exact: string })
-  | (_HeaderMatchType & { prefix: string })
-  | (_HeaderMatchType & { contains: string });
+export type HeaderMatchType = (_HeaderMatchType & { exact: string }) | (_HeaderMatchType & { prefix: string }) | (_HeaderMatchType & { contains: string });
 export interface HealthCheckConfig {
   enabled?: boolean;
   protocol?: string;
@@ -953,7 +909,7 @@ interface _Matcher {
   httpCode?: string;
 }
 
-export type Matcher = _Matcher & { httpCode: string };
+export type Matcher = (_Matcher & { httpCode: string });
 export type MaxResults = number;
 
 export type NextToken = string;
@@ -971,9 +927,7 @@ interface _PathMatchType {
   prefix?: string;
 }
 
-export type PathMatchType =
-  | (_PathMatchType & { exact: string })
-  | (_PathMatchType & { prefix: string });
+export type PathMatchType = (_PathMatchType & { exact: string }) | (_PathMatchType & { prefix: string });
 export type PolicyString = string;
 
 export type Port = number;
@@ -995,7 +949,8 @@ export interface PutResourcePolicyRequest {
   resourceArn: string;
   policy: string;
 }
-export interface PutResourcePolicyResponse {}
+export interface PutResourcePolicyResponse {
+}
 export interface RegisterTargetsRequest {
   targetGroupIdentifier: string;
   targets: Array<Target>;
@@ -1014,10 +969,7 @@ interface _ResourceConfigurationDefinition {
   arnResource?: ArnResource;
 }
 
-export type ResourceConfigurationDefinition =
-  | (_ResourceConfigurationDefinition & { dnsResource: DnsResource })
-  | (_ResourceConfigurationDefinition & { ipResource: IpResource })
-  | (_ResourceConfigurationDefinition & { arnResource: ArnResource });
+export type ResourceConfigurationDefinition = (_ResourceConfigurationDefinition & { dnsResource: DnsResource }) | (_ResourceConfigurationDefinition & { ipResource: IpResource }) | (_ResourceConfigurationDefinition & { arnResource: ArnResource });
 export type ResourceConfigurationId = string;
 
 export type ResourceConfigurationIdentifier = string;
@@ -1040,8 +992,7 @@ export interface ResourceConfigurationSummary {
   createdAt?: Date | string;
   lastUpdatedAt?: Date | string;
 }
-export type ResourceConfigurationSummaryList =
-  Array<ResourceConfigurationSummary>;
+export type ResourceConfigurationSummaryList = Array<ResourceConfigurationSummary>;
 export type ResourceConfigurationType = string;
 
 export type ResourceEndpointAssociationArn = string;
@@ -1050,8 +1001,7 @@ export type ResourceEndpointAssociationId = string;
 
 export type ResourceEndpointAssociationIdentifier = string;
 
-export type ResourceEndpointAssociationList =
-  Array<ResourceEndpointAssociationSummary>;
+export type ResourceEndpointAssociationList = Array<ResourceEndpointAssociationSummary>;
 export interface ResourceEndpointAssociationSummary {
   id?: string;
   arn?: string;
@@ -1104,9 +1054,7 @@ interface _RuleAction {
   fixedResponse?: FixedResponseAction;
 }
 
-export type RuleAction =
-  | (_RuleAction & { forward: ForwardAction })
-  | (_RuleAction & { fixedResponse: FixedResponseAction });
+export type RuleAction = (_RuleAction & { forward: ForwardAction }) | (_RuleAction & { fixedResponse: FixedResponseAction });
 export type RuleArn = string;
 
 export type RuleId = string;
@@ -1117,7 +1065,7 @@ interface _RuleMatch {
   httpMatch?: HttpMatch;
 }
 
-export type RuleMatch = _RuleMatch & { httpMatch: HttpMatch };
+export type RuleMatch = (_RuleMatch & { httpMatch: HttpMatch });
 export type RuleName = string;
 
 export type RulePriority = number;
@@ -1204,8 +1152,7 @@ export type ServiceNetworkResourceAssociationId = string;
 
 export type ServiceNetworkResourceAssociationIdentifier = string;
 
-export type ServiceNetworkResourceAssociationList =
-  Array<ServiceNetworkResourceAssociationSummary>;
+export type ServiceNetworkResourceAssociationList = Array<ServiceNetworkResourceAssociationSummary>;
 export type ServiceNetworkResourceAssociationStatus = string;
 
 export interface ServiceNetworkResourceAssociationSummary {
@@ -1229,8 +1176,7 @@ export type ServiceNetworkServiceAssociationArn = string;
 
 export type ServiceNetworkServiceAssociationIdentifier = string;
 
-export type ServiceNetworkServiceAssociationList =
-  Array<ServiceNetworkServiceAssociationSummary>;
+export type ServiceNetworkServiceAssociationList = Array<ServiceNetworkServiceAssociationSummary>;
 export type ServiceNetworkServiceAssociationStatus = string;
 
 export interface ServiceNetworkServiceAssociationSummary {
@@ -1264,8 +1210,7 @@ export type ServiceNetworkVpcAssociationId = string;
 
 export type ServiceNetworkVpcAssociationIdentifier = string;
 
-export type ServiceNetworkVpcAssociationList =
-  Array<ServiceNetworkVpcAssociationSummary>;
+export type ServiceNetworkVpcAssociationList = Array<ServiceNetworkVpcAssociationSummary>;
 export type ServiceNetworkVpcAssociationStatus = string;
 
 export interface ServiceNetworkVpcAssociationSummary {
@@ -1280,8 +1225,7 @@ export interface ServiceNetworkVpcAssociationSummary {
   vpcId?: string;
   lastUpdatedAt?: Date | string;
 }
-export type ServiceNetworkVpcEndpointAssociationList =
-  Array<ServiceNetworkEndpointAssociation>;
+export type ServiceNetworkVpcEndpointAssociationList = Array<ServiceNetworkEndpointAssociation>;
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
@@ -1317,7 +1261,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface Target {
@@ -1400,7 +1345,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAccessLogSubscriptionRequest {
   accessLogSubscriptionIdentifier: string;
   destinationArn: string;
@@ -1679,3 +1625,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

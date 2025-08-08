@@ -1,27 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class neptunedata extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("neptunedata", new RestJson1Protocol(), cfg);
+  }
+
   cancelGremlinQuery(
     input: CancelGremlinQueryInput,
   ): Effect.Effect<
     CancelGremlinQueryOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CancelGremlinQuery", input);
   }
@@ -29,20 +20,7 @@ export class neptunedata extends AWSServiceClient {
     input: CancelLoaderJobInput,
   ): Effect.Effect<
     CancelLoaderJobOutput,
-    | BadRequestException
-    | BulkLoadIdNotFoundException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InternalFailureException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | LoadUrlAccessDeniedException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | BulkLoadIdNotFoundException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InternalFailureException | InvalidArgumentException | InvalidParameterException | LoadUrlAccessDeniedException | MissingParameterException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CancelLoaderJob", input);
   }
@@ -50,18 +28,7 @@ export class neptunedata extends AWSServiceClient {
     input: CancelMLDataProcessingJobInput,
   ): Effect.Effect<
     CancelMLDataProcessingJobOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CancelMLDataProcessingJob", input);
   }
@@ -69,18 +36,7 @@ export class neptunedata extends AWSServiceClient {
     input: CancelMLModelTrainingJobInput,
   ): Effect.Effect<
     CancelMLModelTrainingJobOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CancelMLModelTrainingJob", input);
   }
@@ -88,18 +44,7 @@ export class neptunedata extends AWSServiceClient {
     input: CancelMLModelTransformJobInput,
   ): Effect.Effect<
     CancelMLModelTransformJobOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CancelMLModelTransformJob", input);
   }
@@ -107,22 +52,7 @@ export class neptunedata extends AWSServiceClient {
     input: CancelOpenCypherQueryInput,
   ): Effect.Effect<
     CancelOpenCypherQueryOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidNumericDataException
-    | InvalidParameterException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidNumericDataException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CancelOpenCypherQuery", input);
   }
@@ -130,18 +60,7 @@ export class neptunedata extends AWSServiceClient {
     input: CreateMLEndpointInput,
   ): Effect.Effect<
     CreateMLEndpointOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CreateMLEndpoint", input);
   }
@@ -149,56 +68,23 @@ export class neptunedata extends AWSServiceClient {
     input: DeleteMLEndpointInput,
   ): Effect.Effect<
     DeleteMLEndpointOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteMLEndpoint", input);
   }
-  deletePropertygraphStatistics(input: {}): Effect.Effect<
+  deletePropertygraphStatistics(
+    input: {},
+  ): Effect.Effect<
     DeletePropertygraphStatisticsOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | StatisticsNotAvailableException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeletePropertygraphStatistics", input);
   }
-  deleteSparqlStatistics(input: {}): Effect.Effect<
+  deleteSparqlStatistics(
+    input: {},
+  ): Effect.Effect<
     DeleteSparqlStatisticsOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | StatisticsNotAvailableException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteSparqlStatistics", input);
   }
@@ -206,20 +92,7 @@ export class neptunedata extends AWSServiceClient {
     input: ExecuteFastResetInput,
   ): Effect.Effect<
     ExecuteFastResetOutput,
-    | AccessDeniedException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MethodNotAllowedException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | ServerShutdownException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MethodNotAllowedException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | ServerShutdownException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ExecuteFastReset", input);
   }
@@ -227,27 +100,7 @@ export class neptunedata extends AWSServiceClient {
     input: ExecuteGremlinExplainQueryInput,
   ): Effect.Effect<
     ExecuteGremlinExplainQueryOutput,
-    | BadRequestException
-    | CancelledByUserException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MalformedQueryException
-    | MemoryLimitExceededException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | QueryLimitExceededException
-    | QueryLimitException
-    | QueryTooLargeException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | CancelledByUserException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MalformedQueryException | MemoryLimitExceededException | MissingParameterException | ParsingException | PreconditionsFailedException | QueryLimitExceededException | QueryLimitException | QueryTooLargeException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ExecuteGremlinExplainQuery", input);
   }
@@ -255,27 +108,7 @@ export class neptunedata extends AWSServiceClient {
     input: ExecuteGremlinProfileQueryInput,
   ): Effect.Effect<
     ExecuteGremlinProfileQueryOutput,
-    | BadRequestException
-    | CancelledByUserException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MalformedQueryException
-    | MemoryLimitExceededException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | QueryLimitExceededException
-    | QueryLimitException
-    | QueryTooLargeException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | CancelledByUserException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MalformedQueryException | MemoryLimitExceededException | MissingParameterException | ParsingException | PreconditionsFailedException | QueryLimitExceededException | QueryLimitException | QueryTooLargeException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ExecuteGremlinProfileQuery", input);
   }
@@ -283,27 +116,7 @@ export class neptunedata extends AWSServiceClient {
     input: ExecuteGremlinQueryInput,
   ): Effect.Effect<
     ExecuteGremlinQueryOutput,
-    | BadRequestException
-    | CancelledByUserException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MalformedQueryException
-    | MemoryLimitExceededException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | QueryLimitExceededException
-    | QueryLimitException
-    | QueryTooLargeException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | CancelledByUserException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MalformedQueryException | MemoryLimitExceededException | MissingParameterException | ParsingException | PreconditionsFailedException | QueryLimitExceededException | QueryLimitException | QueryTooLargeException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ExecuteGremlinQuery", input);
   }
@@ -311,28 +124,7 @@ export class neptunedata extends AWSServiceClient {
     input: ExecuteOpenCypherExplainQueryInput,
   ): Effect.Effect<
     ExecuteOpenCypherExplainQueryOutput,
-    | BadRequestException
-    | CancelledByUserException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidNumericDataException
-    | InvalidParameterException
-    | MalformedQueryException
-    | MemoryLimitExceededException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | QueryLimitExceededException
-    | QueryLimitException
-    | QueryTooLargeException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | CancelledByUserException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidNumericDataException | InvalidParameterException | MalformedQueryException | MemoryLimitExceededException | MissingParameterException | ParsingException | PreconditionsFailedException | QueryLimitExceededException | QueryLimitException | QueryTooLargeException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ExecuteOpenCypherExplainQuery", input);
   }
@@ -340,42 +132,15 @@ export class neptunedata extends AWSServiceClient {
     input: ExecuteOpenCypherQueryInput,
   ): Effect.Effect<
     ExecuteOpenCypherQueryOutput,
-    | BadRequestException
-    | CancelledByUserException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidNumericDataException
-    | InvalidParameterException
-    | MalformedQueryException
-    | MemoryLimitExceededException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | QueryLimitExceededException
-    | QueryLimitException
-    | QueryTooLargeException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | CancelledByUserException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidNumericDataException | InvalidParameterException | MalformedQueryException | MemoryLimitExceededException | MissingParameterException | ParsingException | PreconditionsFailedException | QueryLimitExceededException | QueryLimitException | QueryTooLargeException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ExecuteOpenCypherQuery", input);
   }
-  getEngineStatus(input: {}): Effect.Effect<
+  getEngineStatus(
+    input: {},
+  ): Effect.Effect<
     GetEngineStatusOutput,
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InternalFailureException
-    | InvalidArgumentException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InternalFailureException | InvalidArgumentException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetEngineStatus", input);
   }
@@ -383,23 +148,7 @@ export class neptunedata extends AWSServiceClient {
     input: GetGremlinQueryStatusInput,
   ): Effect.Effect<
     GetGremlinQueryStatusOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | ReadOnlyViolationException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetGremlinQueryStatus", input);
   }
@@ -407,20 +156,7 @@ export class neptunedata extends AWSServiceClient {
     input: GetLoaderJobStatusInput,
   ): Effect.Effect<
     GetLoaderJobStatusOutput,
-    | BadRequestException
-    | BulkLoadIdNotFoundException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InternalFailureException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | LoadUrlAccessDeniedException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | BulkLoadIdNotFoundException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InternalFailureException | InvalidArgumentException | InvalidParameterException | LoadUrlAccessDeniedException | MissingParameterException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetLoaderJobStatus", input);
   }
@@ -428,18 +164,7 @@ export class neptunedata extends AWSServiceClient {
     input: GetMLDataProcessingJobInput,
   ): Effect.Effect<
     GetMLDataProcessingJobOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetMLDataProcessingJob", input);
   }
@@ -447,18 +172,7 @@ export class neptunedata extends AWSServiceClient {
     input: GetMLEndpointInput,
   ): Effect.Effect<
     GetMLEndpointOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetMLEndpoint", input);
   }
@@ -466,18 +180,7 @@ export class neptunedata extends AWSServiceClient {
     input: GetMLModelTrainingJobInput,
   ): Effect.Effect<
     GetMLModelTrainingJobOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetMLModelTrainingJob", input);
   }
@@ -485,18 +188,7 @@ export class neptunedata extends AWSServiceClient {
     input: GetMLModelTransformJobInput,
   ): Effect.Effect<
     GetMLModelTransformJobOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetMLModelTransformJob", input);
   }
@@ -504,43 +196,15 @@ export class neptunedata extends AWSServiceClient {
     input: GetOpenCypherQueryStatusInput,
   ): Effect.Effect<
     GetOpenCypherQueryStatusOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidNumericDataException
-    | InvalidParameterException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidNumericDataException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | ReadOnlyViolationException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetOpenCypherQueryStatus", input);
   }
-  getPropertygraphStatistics(input: {}): Effect.Effect<
+  getPropertygraphStatistics(
+    input: {},
+  ): Effect.Effect<
     GetPropertygraphStatisticsOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | StatisticsNotAvailableException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetPropertygraphStatistics", input);
   }
@@ -548,19 +212,7 @@ export class neptunedata extends AWSServiceClient {
     input: GetPropertygraphStreamInput,
   ): Effect.Effect<
     GetPropertygraphStreamOutput,
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | ExpiredStreamException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MemoryLimitExceededException
-    | PreconditionsFailedException
-    | StreamRecordsNotFoundException
-    | ThrottlingException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientTimeoutException | ConstraintViolationException | ExpiredStreamException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MemoryLimitExceededException | PreconditionsFailedException | StreamRecordsNotFoundException | ThrottlingException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetPropertygraphStream", input);
   }
@@ -568,20 +220,7 @@ export class neptunedata extends AWSServiceClient {
     input: GetPropertygraphSummaryInput,
   ): Effect.Effect<
     GetPropertygraphSummaryOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | StatisticsNotAvailableException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetPropertygraphSummary", input);
   }
@@ -589,39 +228,15 @@ export class neptunedata extends AWSServiceClient {
     input: GetRDFGraphSummaryInput,
   ): Effect.Effect<
     GetRDFGraphSummaryOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | StatisticsNotAvailableException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetRDFGraphSummary", input);
   }
-  getSparqlStatistics(input: {}): Effect.Effect<
+  getSparqlStatistics(
+    input: {},
+  ): Effect.Effect<
     GetSparqlStatisticsOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | StatisticsNotAvailableException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetSparqlStatistics", input);
   }
@@ -629,19 +244,7 @@ export class neptunedata extends AWSServiceClient {
     input: GetSparqlStreamInput,
   ): Effect.Effect<
     GetSparqlStreamOutput,
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | ExpiredStreamException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MemoryLimitExceededException
-    | PreconditionsFailedException
-    | StreamRecordsNotFoundException
-    | ThrottlingException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ClientTimeoutException | ConstraintViolationException | ExpiredStreamException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MemoryLimitExceededException | PreconditionsFailedException | StreamRecordsNotFoundException | ThrottlingException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetSparqlStream", input);
   }
@@ -649,23 +252,7 @@ export class neptunedata extends AWSServiceClient {
     input: ListGremlinQueriesInput,
   ): Effect.Effect<
     ListGremlinQueriesOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | ReadOnlyViolationException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListGremlinQueries", input);
   }
@@ -673,19 +260,7 @@ export class neptunedata extends AWSServiceClient {
     input: ListLoaderJobsInput,
   ): Effect.Effect<
     ListLoaderJobsOutput,
-    | BadRequestException
-    | BulkLoadIdNotFoundException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InternalFailureException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | LoadUrlAccessDeniedException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | BulkLoadIdNotFoundException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InternalFailureException | InvalidArgumentException | InvalidParameterException | LoadUrlAccessDeniedException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListLoaderJobs", input);
   }
@@ -693,18 +268,7 @@ export class neptunedata extends AWSServiceClient {
     input: ListMLDataProcessingJobsInput,
   ): Effect.Effect<
     ListMLDataProcessingJobsOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListMLDataProcessingJobs", input);
   }
@@ -712,18 +276,7 @@ export class neptunedata extends AWSServiceClient {
     input: ListMLEndpointsInput,
   ): Effect.Effect<
     ListMLEndpointsOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListMLEndpoints", input);
   }
@@ -731,18 +284,7 @@ export class neptunedata extends AWSServiceClient {
     input: ListMLModelTrainingJobsInput,
   ): Effect.Effect<
     ListMLModelTrainingJobsOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListMLModelTrainingJobs", input);
   }
@@ -750,18 +292,7 @@ export class neptunedata extends AWSServiceClient {
     input: ListMLModelTransformJobsInput,
   ): Effect.Effect<
     ListMLModelTransformJobsOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListMLModelTransformJobs", input);
   }
@@ -769,24 +300,7 @@ export class neptunedata extends AWSServiceClient {
     input: ListOpenCypherQueriesInput,
   ): Effect.Effect<
     ListOpenCypherQueriesOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | FailureByQueryException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidNumericDataException
-    | InvalidParameterException
-    | MissingParameterException
-    | ParsingException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | TimeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConcurrentModificationException | ConstraintViolationException | FailureByQueryException | IllegalArgumentException | InvalidArgumentException | InvalidNumericDataException | InvalidParameterException | MissingParameterException | ParsingException | PreconditionsFailedException | ReadOnlyViolationException | TimeLimitExceededException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListOpenCypherQueries", input);
   }
@@ -794,20 +308,7 @@ export class neptunedata extends AWSServiceClient {
     input: ManagePropertygraphStatisticsInput,
   ): Effect.Effect<
     ManagePropertygraphStatisticsOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | StatisticsNotAvailableException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ManagePropertygraphStatistics", input);
   }
@@ -815,20 +316,7 @@ export class neptunedata extends AWSServiceClient {
     input: ManageSparqlStatisticsInput,
   ): Effect.Effect<
     ManageSparqlStatisticsOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | ReadOnlyViolationException
-    | StatisticsNotAvailableException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | PreconditionsFailedException | ReadOnlyViolationException | StatisticsNotAvailableException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ManageSparqlStatistics", input);
   }
@@ -836,21 +324,7 @@ export class neptunedata extends AWSServiceClient {
     input: StartLoaderJobInput,
   ): Effect.Effect<
     StartLoaderJobOutput,
-    | BadRequestException
-    | BulkLoadIdNotFoundException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InternalFailureException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | LoadUrlAccessDeniedException
-    | MissingParameterException
-    | PreconditionsFailedException
-    | S3Exception
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | BulkLoadIdNotFoundException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InternalFailureException | InvalidArgumentException | InvalidParameterException | LoadUrlAccessDeniedException | MissingParameterException | PreconditionsFailedException | S3Exception | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StartLoaderJob", input);
   }
@@ -858,18 +332,7 @@ export class neptunedata extends AWSServiceClient {
     input: StartMLDataProcessingJobInput,
   ): Effect.Effect<
     StartMLDataProcessingJobOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StartMLDataProcessingJob", input);
   }
@@ -877,18 +340,7 @@ export class neptunedata extends AWSServiceClient {
     input: StartMLModelTrainingJobInput,
   ): Effect.Effect<
     StartMLModelTrainingJobOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StartMLModelTrainingJob", input);
   }
@@ -896,18 +348,7 @@ export class neptunedata extends AWSServiceClient {
     input: StartMLModelTransformJobInput,
   ): Effect.Effect<
     StartMLModelTransformJobOutput,
-    | BadRequestException
-    | ClientTimeoutException
-    | ConstraintViolationException
-    | IllegalArgumentException
-    | InvalidArgumentException
-    | InvalidParameterException
-    | MissingParameterException
-    | MLResourceNotFoundException
-    | PreconditionsFailedException
-    | TooManyRequestsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    BadRequestException | ClientTimeoutException | ConstraintViolationException | IllegalArgumentException | InvalidArgumentException | InvalidParameterException | MissingParameterException | MLResourceNotFoundException | PreconditionsFailedException | TooManyRequestsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StartMLModelTransformJob", input);
   }
@@ -1134,13 +575,7 @@ export declare class FailureByQueryException extends EffectData.TaggedError(
 export interface FastResetToken {
   token?: string;
 }
-export type Format =
-  | "CSV"
-  | "OPENCYPHER"
-  | "NTRIPLES"
-  | "NQUADS"
-  | "RDFXML"
-  | "TURTLE";
+export type Format = "CSV" | "OPENCYPHER" | "NTRIPLES" | "NQUADS" | "RDFXML" | "TURTLE";
 export interface GetEngineStatusOutput {
   status?: string;
   startTime?: string;
@@ -1322,11 +757,7 @@ export declare class InvalidParameterException extends EffectData.TaggedError(
   readonly requestId: string;
   readonly code: string;
 }> {}
-export type IteratorType =
-  | "AT_SEQUENCE_NUMBER"
-  | "AFTER_SEQUENCE_NUMBER"
-  | "TRIM_HORIZON"
-  | "LATEST";
+export type IteratorType = "AT_SEQUENCE_NUMBER" | "AFTER_SEQUENCE_NUMBER" | "TRIM_HORIZON" | "LATEST";
 export interface ListGremlinQueriesInput {
   includeWaiting?: boolean;
 }
@@ -1577,44 +1008,10 @@ export interface RefreshStatisticsIdMap {
 }
 export type ReportAsText = Uint8Array | string;
 
-export type S3BucketRegion =
-  | "US_EAST_1"
-  | "US_EAST_2"
-  | "US_WEST_1"
-  | "US_WEST_2"
-  | "CA_CENTRAL_1"
-  | "SA_EAST_1"
-  | "EU_NORTH_1"
-  | "EU_WEST_1"
-  | "EU_WEST_2"
-  | "EU_WEST_3"
-  | "EU_CENTRAL_1"
-  | "ME_SOUTH_1"
-  | "AF_SOUTH_1"
-  | "AP_EAST_1"
-  | "AP_NORTHEAST_1"
-  | "AP_NORTHEAST_2"
-  | "AP_SOUTHEAST_1"
-  | "AP_SOUTHEAST_2"
-  | "AP_SOUTH_1"
-  | "CN_NORTH_1"
-  | "CN_NORTHWEST_1"
-  | "US_GOV_WEST_1"
-  | "US_GOV_EAST_1"
-  | "CA_WEST_1"
-  | "EU_SOUTH_2"
-  | "IL_CENTRAL_1"
-  | "ME_CENTRAL_1"
-  | "AP_NORTHEAST_3"
-  | "AP_SOUTHEAST_3"
-  | "AP_SOUTHEAST_4"
-  | "AP_SOUTHEAST_5"
-  | "AP_SOUTHEAST_7"
-  | "MX_CENTRAL_1"
-  | "AP_EAST_2"
-  | "AP_SOUTH_2"
-  | "EU_CENTRAL_2";
-export declare class S3Exception extends EffectData.TaggedError("S3Exception")<{
+export type S3BucketRegion = "US_EAST_1" | "US_EAST_2" | "US_WEST_1" | "US_WEST_2" | "CA_CENTRAL_1" | "SA_EAST_1" | "EU_NORTH_1" | "EU_WEST_1" | "EU_WEST_2" | "EU_WEST_3" | "EU_CENTRAL_1" | "ME_SOUTH_1" | "AF_SOUTH_1" | "AP_EAST_1" | "AP_NORTHEAST_1" | "AP_NORTHEAST_2" | "AP_SOUTHEAST_1" | "AP_SOUTHEAST_2" | "AP_SOUTH_1" | "CN_NORTH_1" | "CN_NORTHWEST_1" | "US_GOV_WEST_1" | "US_GOV_EAST_1" | "CA_WEST_1" | "EU_SOUTH_2" | "IL_CENTRAL_1" | "ME_CENTRAL_1" | "AP_NORTHEAST_3" | "AP_SOUTHEAST_3" | "AP_SOUTHEAST_4" | "AP_SOUTHEAST_5" | "AP_SOUTHEAST_7" | "MX_CENTRAL_1" | "AP_EAST_2" | "AP_SOUTH_2" | "EU_CENTRAL_2";
+export declare class S3Exception extends EffectData.TaggedError(
+  "S3Exception",
+)<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
@@ -1731,10 +1128,7 @@ export interface Statistics {
   note?: string;
   signatureInfo?: StatisticsSummary;
 }
-export type StatisticsAutoGenerationMode =
-  | "DISABLE_AUTOCOMPUTE"
-  | "ENABLE_AUTOCOMPUTE"
-  | "REFRESH";
+export type StatisticsAutoGenerationMode = "DISABLE_AUTOCOMPUTE" | "ENABLE_AUTOCOMPUTE" | "REFRESH";
 export declare class StatisticsNotAvailableException extends EffectData.TaggedError(
   "StatisticsNotAvailableException",
 )<{
@@ -2663,3 +2057,4 @@ export declare namespace StartMLModelTransformJob {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+

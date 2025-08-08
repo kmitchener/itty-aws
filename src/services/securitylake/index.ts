@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SecurityLake extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("securitylake", new RestJson1Protocol(), cfg);
+  }
+
   createDataLakeExceptionSubscription(
     input: CreateDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
     CreateDataLakeExceptionSubscriptionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDataLakeExceptionSubscription", input);
   }
@@ -21,13 +20,7 @@ export class SecurityLake extends AWSServiceClient {
     input: DeleteDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
     DeleteDataLakeExceptionSubscriptionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDataLakeExceptionSubscription", input);
   }
@@ -35,13 +28,7 @@ export class SecurityLake extends AWSServiceClient {
     input: DeregisterDataLakeDelegatedAdministratorRequest,
   ): Effect.Effect<
     DeregisterDataLakeDelegatedAdministratorResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeregisterDataLakeDelegatedAdministrator", input);
   }
@@ -49,13 +36,7 @@ export class SecurityLake extends AWSServiceClient {
     input: GetDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
     GetDataLakeExceptionSubscriptionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetDataLakeExceptionSubscription", input);
   }
@@ -63,13 +44,7 @@ export class SecurityLake extends AWSServiceClient {
     input: ListDataLakeExceptionsRequest,
   ): Effect.Effect<
     ListDataLakeExceptionsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDataLakeExceptions", input);
   }
@@ -77,13 +52,7 @@ export class SecurityLake extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -91,13 +60,7 @@ export class SecurityLake extends AWSServiceClient {
     input: RegisterDataLakeDelegatedAdministratorRequest,
   ): Effect.Effect<
     RegisterDataLakeDelegatedAdministratorResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("RegisterDataLakeDelegatedAdministrator", input);
   }
@@ -105,13 +68,7 @@ export class SecurityLake extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -119,13 +76,7 @@ export class SecurityLake extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -133,13 +84,7 @@ export class SecurityLake extends AWSServiceClient {
     input: UpdateDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
     UpdateDataLakeExceptionSubscriptionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDataLakeExceptionSubscription", input);
   }
@@ -173,15 +118,7 @@ export interface AwsLogSourceConfiguration {
   sourceVersion?: string;
 }
 export type AwsLogSourceConfigurationList = Array<AwsLogSourceConfiguration>;
-export type AwsLogSourceName =
-  | "ROUTE53"
-  | "VPC_FLOW"
-  | "SH_FINDINGS"
-  | "CLOUD_TRAIL_MGMT"
-  | "LAMBDA_EXECUTION"
-  | "S3_DATA"
-  | "EKS_AUDIT"
-  | "WAF";
+export type AwsLogSourceName = "ROUTE53" | "VPC_FLOW" | "SH_FINDINGS" | "CLOUD_TRAIL_MGMT" | "LAMBDA_EXECUTION" | "S3_DATA" | "EKS_AUDIT" | "WAF";
 export interface AwsLogSourceResource {
   sourceName?: AwsLogSourceName;
   sourceVersion?: string;
@@ -223,11 +160,13 @@ export interface CreateDataLakeExceptionSubscriptionRequest {
   notificationEndpoint: string;
   exceptionTimeToLive?: number;
 }
-export interface CreateDataLakeExceptionSubscriptionResponse {}
+export interface CreateDataLakeExceptionSubscriptionResponse {
+}
 export interface CreateDataLakeOrganizationConfigurationRequest {
   autoEnableNewAccount?: Array<DataLakeAutoEnableNewAccountConfiguration>;
 }
-export interface CreateDataLakeOrganizationConfigurationResponse {}
+export interface CreateDataLakeOrganizationConfigurationResponse {
+}
 export interface CreateDataLakeRequest {
   configurations: Array<DataLakeConfiguration>;
   metaStoreManagerRoleArn: string;
@@ -284,8 +223,7 @@ export interface DataLakeAutoEnableNewAccountConfiguration {
   region: string;
   sources: Array<AwsLogSourceResource>;
 }
-export type DataLakeAutoEnableNewAccountConfigurationList =
-  Array<DataLakeAutoEnableNewAccountConfiguration>;
+export type DataLakeAutoEnableNewAccountConfigurationList = Array<DataLakeAutoEnableNewAccountConfiguration>;
 export interface DataLakeConfiguration {
   region: string;
   encryptionConfiguration?: DataLakeEncryptionConfiguration;
@@ -314,8 +252,7 @@ export interface DataLakeLifecycleTransition {
   storageClass?: string;
   days?: number;
 }
-export type DataLakeLifecycleTransitionList =
-  Array<DataLakeLifecycleTransition>;
+export type DataLakeLifecycleTransitionList = Array<DataLakeLifecycleTransition>;
 export interface DataLakeReplicationConfiguration {
   regions?: Array<string>;
   roleArn?: string;
@@ -365,38 +302,49 @@ export interface DeleteCustomLogSourceRequest {
   sourceName: string;
   sourceVersion?: string;
 }
-export interface DeleteCustomLogSourceResponse {}
-export interface DeleteDataLakeExceptionSubscriptionRequest {}
-export interface DeleteDataLakeExceptionSubscriptionResponse {}
+export interface DeleteCustomLogSourceResponse {
+}
+export interface DeleteDataLakeExceptionSubscriptionRequest {
+}
+export interface DeleteDataLakeExceptionSubscriptionResponse {
+}
 export interface DeleteDataLakeOrganizationConfigurationRequest {
   autoEnableNewAccount?: Array<DataLakeAutoEnableNewAccountConfiguration>;
 }
-export interface DeleteDataLakeOrganizationConfigurationResponse {}
+export interface DeleteDataLakeOrganizationConfigurationResponse {
+}
 export interface DeleteDataLakeRequest {
   regions: Array<string>;
 }
-export interface DeleteDataLakeResponse {}
+export interface DeleteDataLakeResponse {
+}
 export interface DeleteSubscriberNotificationRequest {
   subscriberId: string;
 }
-export interface DeleteSubscriberNotificationResponse {}
+export interface DeleteSubscriberNotificationResponse {
+}
 export interface DeleteSubscriberRequest {
   subscriberId: string;
 }
-export interface DeleteSubscriberResponse {}
-export interface DeregisterDataLakeDelegatedAdministratorRequest {}
-export interface DeregisterDataLakeDelegatedAdministratorResponse {}
+export interface DeleteSubscriberResponse {
+}
+export interface DeregisterDataLakeDelegatedAdministratorRequest {
+}
+export interface DeregisterDataLakeDelegatedAdministratorResponse {
+}
 export type DescriptionString = string;
 
 export type ExternalId = string;
 
-export interface GetDataLakeExceptionSubscriptionRequest {}
+export interface GetDataLakeExceptionSubscriptionRequest {
+}
 export interface GetDataLakeExceptionSubscriptionResponse {
   subscriptionProtocol?: string;
   notificationEndpoint?: string;
   exceptionTimeToLive?: number;
 }
-export interface GetDataLakeOrganizationConfigurationRequest {}
+export interface GetDataLakeOrganizationConfigurationRequest {
+}
 export interface GetDataLakeOrganizationConfigurationResponse {
   autoEnableNewAccount?: Array<DataLakeAutoEnableNewAccountConfiguration>;
 }
@@ -480,9 +428,7 @@ interface _LogSourceResource {
   customLogSource?: CustomLogSourceResource;
 }
 
-export type LogSourceResource =
-  | (_LogSourceResource & { awsLogSource: AwsLogSourceResource })
-  | (_LogSourceResource & { customLogSource: CustomLogSourceResource });
+export type LogSourceResource = (_LogSourceResource & { awsLogSource: AwsLogSourceResource }) | (_LogSourceResource & { customLogSource: CustomLogSourceResource });
 export type LogSourceResourceList = Array<LogSourceResource>;
 export type MaxResults = number;
 
@@ -493,13 +439,7 @@ interface _NotificationConfiguration {
   httpsNotificationConfiguration?: HttpsNotificationConfiguration;
 }
 
-export type NotificationConfiguration =
-  | (_NotificationConfiguration & {
-      sqsNotificationConfiguration: SqsNotificationConfiguration;
-    })
-  | (_NotificationConfiguration & {
-      httpsNotificationConfiguration: HttpsNotificationConfiguration;
-    });
+export type NotificationConfiguration = (_NotificationConfiguration & { sqsNotificationConfiguration: SqsNotificationConfiguration }) | (_NotificationConfiguration & { httpsNotificationConfiguration: HttpsNotificationConfiguration });
 export type OcsfEventClass = string;
 
 export type OcsfEventClassList = Array<string>;
@@ -509,7 +449,8 @@ export type RegionList = Array<string>;
 export interface RegisterDataLakeDelegatedAdministratorRequest {
   accountId: string;
 }
-export interface RegisterDataLakeDelegatedAdministratorResponse {}
+export interface RegisterDataLakeDelegatedAdministratorResponse {
+}
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -529,11 +470,9 @@ export type S3URI = string;
 
 export type SafeString = string;
 
-export type SourceCollectionStatus =
-  | "COLLECTING"
-  | "MISCONFIGURED"
-  | "NOT_COLLECTING";
-export interface SqsNotificationConfiguration {}
+export type SourceCollectionStatus = "COLLECTING" | "MISCONFIGURED" | "NOT_COLLECTING";
+export interface SqsNotificationConfiguration {
+}
 export interface SubscriberResource {
   subscriberId: string;
   subscriberArn: string;
@@ -567,7 +506,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -582,13 +522,15 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDataLakeExceptionSubscriptionRequest {
   subscriptionProtocol: string;
   notificationEndpoint: string;
   exceptionTimeToLive?: number;
 }
-export interface UpdateDataLakeExceptionSubscriptionResponse {}
+export interface UpdateDataLakeExceptionSubscriptionResponse {
+}
 export interface UpdateDataLakeRequest {
   configurations: Array<DataLakeConfiguration>;
   metaStoreManagerRoleArn?: string;
@@ -744,3 +686,4 @@ export declare namespace UpdateDataLakeExceptionSubscription {
     | ThrottlingException
     | CommonAwsError;
 }
+

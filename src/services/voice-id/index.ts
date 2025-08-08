@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class VoiceID extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("voice-id", new AwsJson10Protocol(), cfg);
+  }
+
   associateFraudster(
     input: AssociateFraudsterRequest,
   ): Effect.Effect<
     AssociateFraudsterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateFraudster", input);
   }
@@ -22,14 +20,7 @@ export class VoiceID extends AWSServiceClient {
     input: CreateWatchlistRequest,
   ): Effect.Effect<
     CreateWatchlistResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateWatchlist", input);
   }
@@ -37,13 +28,7 @@ export class VoiceID extends AWSServiceClient {
     input: DeleteFraudsterRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteFraudster", input);
   }
@@ -51,13 +36,7 @@ export class VoiceID extends AWSServiceClient {
     input: DeleteSpeakerRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSpeaker", input);
   }
@@ -65,13 +44,7 @@ export class VoiceID extends AWSServiceClient {
     input: DeleteWatchlistRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteWatchlist", input);
   }
@@ -79,12 +52,7 @@ export class VoiceID extends AWSServiceClient {
     input: DescribeFraudsterRequest,
   ): Effect.Effect<
     DescribeFraudsterResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeFraudster", input);
   }
@@ -92,12 +60,7 @@ export class VoiceID extends AWSServiceClient {
     input: DescribeFraudsterRegistrationJobRequest,
   ): Effect.Effect<
     DescribeFraudsterRegistrationJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeFraudsterRegistrationJob", input);
   }
@@ -105,12 +68,7 @@ export class VoiceID extends AWSServiceClient {
     input: DescribeSpeakerRequest,
   ): Effect.Effect<
     DescribeSpeakerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeSpeaker", input);
   }
@@ -118,12 +76,7 @@ export class VoiceID extends AWSServiceClient {
     input: DescribeSpeakerEnrollmentJobRequest,
   ): Effect.Effect<
     DescribeSpeakerEnrollmentJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeSpeakerEnrollmentJob", input);
   }
@@ -131,12 +84,7 @@ export class VoiceID extends AWSServiceClient {
     input: DescribeWatchlistRequest,
   ): Effect.Effect<
     DescribeWatchlistResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeWatchlist", input);
   }
@@ -144,13 +92,7 @@ export class VoiceID extends AWSServiceClient {
     input: DisassociateFraudsterRequest,
   ): Effect.Effect<
     DisassociateFraudsterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateFraudster", input);
   }
@@ -158,13 +100,7 @@ export class VoiceID extends AWSServiceClient {
     input: EvaluateSessionRequest,
   ): Effect.Effect<
     EvaluateSessionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("EvaluateSession", input);
   }
@@ -172,12 +108,7 @@ export class VoiceID extends AWSServiceClient {
     input: ListFraudsterRegistrationJobsRequest,
   ): Effect.Effect<
     ListFraudsterRegistrationJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFraudsterRegistrationJobs", input);
   }
@@ -185,12 +116,7 @@ export class VoiceID extends AWSServiceClient {
     input: ListFraudstersRequest,
   ): Effect.Effect<
     ListFraudstersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFraudsters", input);
   }
@@ -198,12 +124,7 @@ export class VoiceID extends AWSServiceClient {
     input: ListSpeakerEnrollmentJobsRequest,
   ): Effect.Effect<
     ListSpeakerEnrollmentJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSpeakerEnrollmentJobs", input);
   }
@@ -211,12 +132,7 @@ export class VoiceID extends AWSServiceClient {
     input: ListSpeakersRequest,
   ): Effect.Effect<
     ListSpeakersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSpeakers", input);
   }
@@ -224,12 +140,7 @@ export class VoiceID extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -237,12 +148,7 @@ export class VoiceID extends AWSServiceClient {
     input: ListWatchlistsRequest,
   ): Effect.Effect<
     ListWatchlistsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListWatchlists", input);
   }
@@ -250,14 +156,7 @@ export class VoiceID extends AWSServiceClient {
     input: OptOutSpeakerRequest,
   ): Effect.Effect<
     OptOutSpeakerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("OptOutSpeaker", input);
   }
@@ -265,14 +164,7 @@ export class VoiceID extends AWSServiceClient {
     input: StartFraudsterRegistrationJobRequest,
   ): Effect.Effect<
     StartFraudsterRegistrationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartFraudsterRegistrationJob", input);
   }
@@ -280,14 +172,7 @@ export class VoiceID extends AWSServiceClient {
     input: StartSpeakerEnrollmentJobRequest,
   ): Effect.Effect<
     StartSpeakerEnrollmentJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartSpeakerEnrollmentJob", input);
   }
@@ -295,13 +180,7 @@ export class VoiceID extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -309,13 +188,7 @@ export class VoiceID extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -323,13 +196,7 @@ export class VoiceID extends AWSServiceClient {
     input: UpdateWatchlistRequest,
   ): Effect.Effect<
     UpdateWatchlistResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateWatchlist", input);
   }
@@ -579,8 +446,7 @@ export interface FraudsterRegistrationJob {
 }
 export type FraudsterRegistrationJobStatus = string;
 
-export type FraudsterRegistrationJobSummaries =
-  Array<FraudsterRegistrationJobSummary>;
+export type FraudsterRegistrationJobSummaries = Array<FraudsterRegistrationJobSummary>;
 export interface FraudsterRegistrationJobSummary {
   JobName?: string;
   JobId?: string;
@@ -836,7 +702,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -852,7 +719,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDomainRequest {
   DomainId: string;
   Name: string;
@@ -1212,3 +1080,4 @@ export declare namespace UpdateWatchlist {
     | ValidationException
     | CommonAwsError;
 }
+

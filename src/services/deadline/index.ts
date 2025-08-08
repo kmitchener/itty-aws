@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class deadline extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("deadline", new RestJson1Protocol(), cfg);
+  }
+
   createQueueFleetAssociation(
     input: CreateQueueFleetAssociationRequest,
   ): Effect.Effect<
     CreateQueueFleetAssociationResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateQueueFleetAssociation", input);
   }
@@ -20,12 +20,7 @@ export class deadline extends AWSServiceClient {
     input: CreateQueueLimitAssociationRequest,
   ): Effect.Effect<
     CreateQueueLimitAssociationResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateQueueLimitAssociation", input);
   }
@@ -33,13 +28,7 @@ export class deadline extends AWSServiceClient {
     input: DeleteQueueFleetAssociationRequest,
   ): Effect.Effect<
     DeleteQueueFleetAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteQueueFleetAssociation", input);
   }
@@ -47,13 +36,7 @@ export class deadline extends AWSServiceClient {
     input: DeleteQueueLimitAssociationRequest,
   ): Effect.Effect<
     DeleteQueueLimitAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteQueueLimitAssociation", input);
   }
@@ -61,12 +44,7 @@ export class deadline extends AWSServiceClient {
     input: GetQueueFleetAssociationRequest,
   ): Effect.Effect<
     GetQueueFleetAssociationResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetQueueFleetAssociation", input);
   }
@@ -74,12 +52,7 @@ export class deadline extends AWSServiceClient {
     input: GetQueueLimitAssociationRequest,
   ): Effect.Effect<
     GetQueueLimitAssociationResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetQueueLimitAssociation", input);
   }
@@ -87,12 +60,7 @@ export class deadline extends AWSServiceClient {
     input: GetSessionsStatisticsAggregationRequest,
   ): Effect.Effect<
     GetSessionsStatisticsAggregationResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetSessionsStatisticsAggregation", input);
   }
@@ -108,11 +76,7 @@ export class deadline extends AWSServiceClient {
     input: ListQueueFleetAssociationsRequest,
   ): Effect.Effect<
     ListQueueFleetAssociationsResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListQueueFleetAssociations", input);
   }
@@ -120,11 +84,7 @@ export class deadline extends AWSServiceClient {
     input: ListQueueLimitAssociationsRequest,
   ): Effect.Effect<
     ListQueueLimitAssociationsResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListQueueLimitAssociations", input);
   }
@@ -132,12 +92,7 @@ export class deadline extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -145,12 +100,7 @@ export class deadline extends AWSServiceClient {
     input: SearchJobsRequest,
   ): Effect.Effect<
     SearchJobsResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchJobs", input);
   }
@@ -158,12 +108,7 @@ export class deadline extends AWSServiceClient {
     input: SearchStepsRequest,
   ): Effect.Effect<
     SearchStepsResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchSteps", input);
   }
@@ -171,12 +116,7 @@ export class deadline extends AWSServiceClient {
     input: SearchTasksRequest,
   ): Effect.Effect<
     SearchTasksResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchTasks", input);
   }
@@ -184,12 +124,7 @@ export class deadline extends AWSServiceClient {
     input: SearchWorkersRequest,
   ): Effect.Effect<
     SearchWorkersResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchWorkers", input);
   }
@@ -197,12 +132,7 @@ export class deadline extends AWSServiceClient {
     input: StartSessionsStatisticsAggregationRequest,
   ): Effect.Effect<
     StartSessionsStatisticsAggregationResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartSessionsStatisticsAggregation", input);
   }
@@ -210,13 +140,7 @@ export class deadline extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -224,13 +148,7 @@ export class deadline extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -238,12 +156,7 @@ export class deadline extends AWSServiceClient {
     input: UpdateQueueFleetAssociationRequest,
   ): Effect.Effect<
     UpdateQueueFleetAssociationResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateQueueFleetAssociation", input);
   }
@@ -251,12 +164,7 @@ export class deadline extends AWSServiceClient {
     input: UpdateQueueLimitAssociationRequest,
   ): Effect.Effect<
     UpdateQueueLimitAssociationResponse,
-    | AccessDeniedException
-    | InternalServerErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateQueueLimitAssociation", input);
   }
@@ -329,19 +237,7 @@ interface _AssignedSessionActionDefinition {
   syncInputJobAttachments?: AssignedSyncInputJobAttachmentsSessionActionDefinition;
 }
 
-export type AssignedSessionActionDefinition =
-  | (_AssignedSessionActionDefinition & {
-      envEnter: AssignedEnvironmentEnterSessionActionDefinition;
-    })
-  | (_AssignedSessionActionDefinition & {
-      envExit: AssignedEnvironmentExitSessionActionDefinition;
-    })
-  | (_AssignedSessionActionDefinition & {
-      taskRun: AssignedTaskRunSessionActionDefinition;
-    })
-  | (_AssignedSessionActionDefinition & {
-      syncInputJobAttachments: AssignedSyncInputJobAttachmentsSessionActionDefinition;
-    });
+export type AssignedSessionActionDefinition = (_AssignedSessionActionDefinition & { envEnter: AssignedEnvironmentEnterSessionActionDefinition }) | (_AssignedSessionActionDefinition & { envExit: AssignedEnvironmentExitSessionActionDefinition }) | (_AssignedSessionActionDefinition & { taskRun: AssignedTaskRunSessionActionDefinition }) | (_AssignedSessionActionDefinition & { syncInputJobAttachments: AssignedSyncInputJobAttachmentsSessionActionDefinition });
 export type AssignedSessionActions = Array<AssignedSessionAction>;
 export type AssignedSessions = Record<string, AssignedSession>;
 export interface AssignedSyncInputJobAttachmentsSessionActionDefinition {
@@ -359,7 +255,8 @@ export interface AssociateMemberToFarmRequest {
   identityStoreId: string;
   membershipLevel: MembershipLevel;
 }
-export interface AssociateMemberToFarmResponse {}
+export interface AssociateMemberToFarmResponse {
+}
 export interface AssociateMemberToFleetRequest {
   farmId: string;
   fleetId: string;
@@ -368,7 +265,8 @@ export interface AssociateMemberToFleetRequest {
   identityStoreId: string;
   membershipLevel: MembershipLevel;
 }
-export interface AssociateMemberToFleetResponse {}
+export interface AssociateMemberToFleetResponse {
+}
 export interface AssociateMemberToJobRequest {
   farmId: string;
   queueId: string;
@@ -378,7 +276,8 @@ export interface AssociateMemberToJobRequest {
   identityStoreId: string;
   membershipLevel: MembershipLevel;
 }
-export interface AssociateMemberToJobResponse {}
+export interface AssociateMemberToJobResponse {
+}
 export interface AssociateMemberToQueueRequest {
   farmId: string;
   queueId: string;
@@ -387,7 +286,8 @@ export interface AssociateMemberToQueueRequest {
   identityStoreId: string;
   membershipLevel: MembershipLevel;
 }
-export interface AssociateMemberToQueueResponse {}
+export interface AssociateMemberToQueueResponse {
+}
 export interface AssumeFleetRoleForReadRequest {
   farmId: string;
   fleetId: string;
@@ -468,16 +368,14 @@ export interface BudgetActionToRemove {
   type: BudgetActionType;
   thresholdPercentage: number;
 }
-export type BudgetActionType =
-  | "STOP_SCHEDULING_AND_COMPLETE_TASKS"
-  | "STOP_SCHEDULING_AND_CANCEL_TASKS";
+export type BudgetActionType = "STOP_SCHEDULING_AND_COMPLETE_TASKS" | "STOP_SCHEDULING_AND_CANCEL_TASKS";
 export type BudgetId = string;
 
 interface _BudgetSchedule {
   fixed?: FixedBudgetSchedule;
 }
 
-export type BudgetSchedule = _BudgetSchedule & { fixed: FixedBudgetSchedule };
+export type BudgetSchedule = (_BudgetSchedule & { fixed: FixedBudgetSchedule });
 export type BudgetStatus = "ACTIVE" | "INACTIVE";
 export type BudgetSummaries = Array<BudgetSummary>;
 export interface BudgetSummary {
@@ -498,19 +396,8 @@ export type ClientToken = string;
 
 export type CombinationExpression = string;
 
-export type ComparisonOperator =
-  | "EQUAL"
-  | "NOT_EQUAL"
-  | "GREATER_THAN_EQUAL_TO"
-  | "GREATER_THAN"
-  | "LESS_THAN_EQUAL_TO"
-  | "LESS_THAN";
-export type CompletedStatus =
-  | "SUCCEEDED"
-  | "FAILED"
-  | "INTERRUPTED"
-  | "CANCELED"
-  | "NEVER_ATTEMPTED";
+export type ComparisonOperator = "EQUAL" | "NOT_EQUAL" | "GREATER_THAN_EQUAL_TO" | "GREATER_THAN" | "LESS_THAN_EQUAL_TO" | "LESS_THAN";
+export type CompletedStatus = "SUCCEEDED" | "FAILED" | "INTERRUPTED" | "CANCELED" | "NEVER_ATTEMPTED";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -520,12 +407,7 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly resourceType: string;
   readonly context?: Record<string, string>;
 }> {}
-export type ConflictExceptionReason =
-  | "CONFLICT_EXCEPTION"
-  | "CONCURRENT_MODIFICATION"
-  | "RESOURCE_ALREADY_EXISTS"
-  | "RESOURCE_IN_USE"
-  | "STATUS_CONFLICT";
+export type ConflictExceptionReason = "CONFLICT_EXCEPTION" | "CONCURRENT_MODIFICATION" | "RESOURCE_ALREADY_EXISTS" | "RESOURCE_IN_USE" | "STATUS_CONFLICT";
 export type ConsumedUsageLimit = number;
 
 export interface ConsumedUsages {
@@ -652,13 +534,15 @@ export interface CreateQueueFleetAssociationRequest {
   queueId: string;
   fleetId: string;
 }
-export interface CreateQueueFleetAssociationResponse {}
+export interface CreateQueueFleetAssociationResponse {
+}
 export interface CreateQueueLimitAssociationRequest {
   farmId: string;
   queueId: string;
   limitId: string;
 }
-export interface CreateQueueLimitAssociationResponse {}
+export interface CreateQueueLimitAssociationResponse {
+}
 export interface CreateQueueRequest {
   clientToken?: string;
   farmId: string;
@@ -701,10 +585,7 @@ export interface CustomerManagedFleetConfiguration {
   storageProfileId?: string;
   tagPropagationMode?: TagPropagationMode;
 }
-export type CustomerManagedFleetOperatingSystemFamily =
-  | "WINDOWS"
-  | "LINUX"
-  | "MACOS";
+export type CustomerManagedFleetOperatingSystemFamily = "WINDOWS" | "LINUX" | "MACOS";
 export interface CustomerManagedWorkerCapabilities {
   vCpuCount: VCpuCountRange;
   memoryMiB: MemoryMiBRange;
@@ -724,77 +605,87 @@ export interface DateTimeFilterExpression {
   dateTime: Date | string;
 }
 export type DeadlinePrincipalType = "USER" | "GROUP";
-export type DefaultQueueBudgetAction =
-  | "NONE"
-  | "STOP_SCHEDULING_AND_COMPLETE_TASKS"
-  | "STOP_SCHEDULING_AND_CANCEL_TASKS";
+export type DefaultQueueBudgetAction = "NONE" | "STOP_SCHEDULING_AND_COMPLETE_TASKS" | "STOP_SCHEDULING_AND_CANCEL_TASKS";
 export interface DeleteBudgetRequest {
   farmId: string;
   budgetId: string;
 }
-export interface DeleteBudgetResponse {}
+export interface DeleteBudgetResponse {
+}
 export interface DeleteFarmRequest {
   farmId: string;
 }
-export interface DeleteFarmResponse {}
+export interface DeleteFarmResponse {
+}
 export interface DeleteFleetRequest {
   clientToken?: string;
   farmId: string;
   fleetId: string;
 }
-export interface DeleteFleetResponse {}
+export interface DeleteFleetResponse {
+}
 export interface DeleteLicenseEndpointRequest {
   licenseEndpointId: string;
 }
-export interface DeleteLicenseEndpointResponse {}
+export interface DeleteLicenseEndpointResponse {
+}
 export interface DeleteLimitRequest {
   farmId: string;
   limitId: string;
 }
-export interface DeleteLimitResponse {}
+export interface DeleteLimitResponse {
+}
 export interface DeleteMeteredProductRequest {
   licenseEndpointId: string;
   productId: string;
 }
-export interface DeleteMeteredProductResponse {}
+export interface DeleteMeteredProductResponse {
+}
 export interface DeleteMonitorRequest {
   monitorId: string;
 }
-export interface DeleteMonitorResponse {}
+export interface DeleteMonitorResponse {
+}
 export interface DeleteQueueEnvironmentRequest {
   farmId: string;
   queueId: string;
   queueEnvironmentId: string;
 }
-export interface DeleteQueueEnvironmentResponse {}
+export interface DeleteQueueEnvironmentResponse {
+}
 export interface DeleteQueueFleetAssociationRequest {
   farmId: string;
   queueId: string;
   fleetId: string;
 }
-export interface DeleteQueueFleetAssociationResponse {}
+export interface DeleteQueueFleetAssociationResponse {
+}
 export interface DeleteQueueLimitAssociationRequest {
   farmId: string;
   queueId: string;
   limitId: string;
 }
-export interface DeleteQueueLimitAssociationResponse {}
+export interface DeleteQueueLimitAssociationResponse {
+}
 export interface DeleteQueueRequest {
   farmId: string;
   queueId: string;
 }
-export interface DeleteQueueResponse {}
+export interface DeleteQueueResponse {
+}
 export interface DeleteStorageProfileRequest {
   farmId: string;
   storageProfileId: string;
 }
-export interface DeleteStorageProfileResponse {}
+export interface DeleteStorageProfileResponse {
+}
 export interface DeleteWorkerRequest {
   farmId: string;
   fleetId: string;
   workerId: string;
 }
-export interface DeleteWorkerResponse {}
+export interface DeleteWorkerResponse {
+}
 export type DependenciesList = Array<string>;
 export type DependencyConsumerResolutionStatus = "RESOLVED" | "UNRESOLVED";
 export interface DependencyCounts {
@@ -810,26 +701,30 @@ export interface DisassociateMemberFromFarmRequest {
   farmId: string;
   principalId: string;
 }
-export interface DisassociateMemberFromFarmResponse {}
+export interface DisassociateMemberFromFarmResponse {
+}
 export interface DisassociateMemberFromFleetRequest {
   farmId: string;
   fleetId: string;
   principalId: string;
 }
-export interface DisassociateMemberFromFleetResponse {}
+export interface DisassociateMemberFromFleetResponse {
+}
 export interface DisassociateMemberFromJobRequest {
   farmId: string;
   queueId: string;
   jobId: string;
   principalId: string;
 }
-export interface DisassociateMemberFromJobResponse {}
+export interface DisassociateMemberFromJobResponse {
+}
 export interface DisassociateMemberFromQueueRequest {
   farmId: string;
   queueId: string;
   principalId: string;
 }
-export interface DisassociateMemberFromQueueResponse {}
+export interface DisassociateMemberFromQueueResponse {
+}
 export type DnsName = string;
 
 export type Document = unknown;
@@ -943,13 +838,7 @@ interface _FleetConfiguration {
   serviceManagedEc2?: ServiceManagedEc2FleetConfiguration;
 }
 
-export type FleetConfiguration =
-  | (_FleetConfiguration & {
-      customerManaged: CustomerManagedFleetConfiguration;
-    })
-  | (_FleetConfiguration & {
-      serviceManagedEc2: ServiceManagedEc2FleetConfiguration;
-    });
+export type FleetConfiguration = (_FleetConfiguration & { customerManaged: CustomerManagedFleetConfiguration }) | (_FleetConfiguration & { serviceManagedEc2: ServiceManagedEc2FleetConfiguration });
 export type FleetId = string;
 
 export type FleetIds = Array<string>;
@@ -962,12 +851,7 @@ export interface FleetMember {
   membershipLevel: MembershipLevel;
 }
 export type FleetMembers = Array<FleetMember>;
-export type FleetStatus =
-  | "ACTIVE"
-  | "CREATE_IN_PROGRESS"
-  | "UPDATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "UPDATE_FAILED";
+export type FleetStatus = "ACTIVE" | "CREATE_IN_PROGRESS" | "UPDATE_IN_PROGRESS" | "CREATE_FAILED" | "UPDATE_FAILED";
 export type FleetSummaries = Array<FleetSummary>;
 export interface FleetSummary {
   fleetId: string;
@@ -1051,11 +935,7 @@ interface _GetJobEntityError {
   environmentDetails?: EnvironmentDetailsError;
 }
 
-export type GetJobEntityError =
-  | (_GetJobEntityError & { jobDetails: JobDetailsError })
-  | (_GetJobEntityError & { jobAttachmentDetails: JobAttachmentDetailsError })
-  | (_GetJobEntityError & { stepDetails: StepDetailsError })
-  | (_GetJobEntityError & { environmentDetails: EnvironmentDetailsError });
+export type GetJobEntityError = (_GetJobEntityError & { jobDetails: JobDetailsError }) | (_GetJobEntityError & { jobAttachmentDetails: JobAttachmentDetailsError }) | (_GetJobEntityError & { stepDetails: StepDetailsError }) | (_GetJobEntityError & { environmentDetails: EnvironmentDetailsError });
 export interface GetJobRequest {
   farmId: string;
   queueId: string;
@@ -1435,18 +1315,8 @@ interface _JobEntity {
   environmentDetails?: EnvironmentDetailsEntity;
 }
 
-export type JobEntity =
-  | (_JobEntity & { jobDetails: JobDetailsEntity })
-  | (_JobEntity & { jobAttachmentDetails: JobAttachmentDetailsEntity })
-  | (_JobEntity & { stepDetails: StepDetailsEntity })
-  | (_JobEntity & { environmentDetails: EnvironmentDetailsEntity });
-export type JobEntityErrorCode =
-  | "AccessDeniedException"
-  | "InternalServerException"
-  | "ValidationException"
-  | "ResourceNotFoundException"
-  | "MaxPayloadSizeExceeded"
-  | "ConflictException";
+export type JobEntity = (_JobEntity & { jobDetails: JobDetailsEntity }) | (_JobEntity & { jobAttachmentDetails: JobAttachmentDetailsEntity }) | (_JobEntity & { stepDetails: StepDetailsEntity }) | (_JobEntity & { environmentDetails: EnvironmentDetailsEntity });
+export type JobEntityErrorCode = "AccessDeniedException" | "InternalServerException" | "ValidationException" | "ResourceNotFoundException" | "MaxPayloadSizeExceeded" | "ConflictException";
 export type JobEntityIdentifiers = Array<JobEntityIdentifiersUnion>;
 interface _JobEntityIdentifiersUnion {
   jobDetails?: JobDetailsIdentifiers;
@@ -1455,27 +1325,10 @@ interface _JobEntityIdentifiersUnion {
   environmentDetails?: EnvironmentDetailsIdentifiers;
 }
 
-export type JobEntityIdentifiersUnion =
-  | (_JobEntityIdentifiersUnion & { jobDetails: JobDetailsIdentifiers })
-  | (_JobEntityIdentifiersUnion & {
-      jobAttachmentDetails: JobAttachmentDetailsIdentifiers;
-    })
-  | (_JobEntityIdentifiersUnion & { stepDetails: StepDetailsIdentifiers })
-  | (_JobEntityIdentifiersUnion & {
-      environmentDetails: EnvironmentDetailsIdentifiers;
-    });
+export type JobEntityIdentifiersUnion = (_JobEntityIdentifiersUnion & { jobDetails: JobDetailsIdentifiers }) | (_JobEntityIdentifiersUnion & { jobAttachmentDetails: JobAttachmentDetailsIdentifiers }) | (_JobEntityIdentifiersUnion & { stepDetails: StepDetailsIdentifiers }) | (_JobEntityIdentifiersUnion & { environmentDetails: EnvironmentDetailsIdentifiers });
 export type JobId = string;
 
-export type JobLifecycleStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "CREATE_COMPLETE"
-  | "UPLOAD_IN_PROGRESS"
-  | "UPLOAD_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_FAILED"
-  | "UPDATE_SUCCEEDED"
-  | "ARCHIVED";
+export type JobLifecycleStatus = "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "CREATE_COMPLETE" | "UPLOAD_IN_PROGRESS" | "UPLOAD_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED" | "UPDATE_SUCCEEDED" | "ARCHIVED";
 export interface JobMember {
   farmId: string;
   queueId: string;
@@ -1495,11 +1348,7 @@ interface _JobParameter {
   path?: string;
 }
 
-export type JobParameter =
-  | (_JobParameter & { int: string })
-  | (_JobParameter & { float: string })
-  | (_JobParameter & { string: string })
-  | (_JobParameter & { path: string });
+export type JobParameter = (_JobParameter & { int: string }) | (_JobParameter & { float: string }) | (_JobParameter & { string: string }) | (_JobParameter & { path: string });
 export type JobParameterDefinition = unknown;
 
 export type JobParameterDefinitions = Array<unknown>;
@@ -1557,13 +1406,7 @@ export interface JobSummary {
   maxWorkerCount?: number;
   sourceJobId?: string;
 }
-export type JobTargetTaskRunStatus =
-  | "READY"
-  | "FAILED"
-  | "SUCCEEDED"
-  | "CANCELED"
-  | "SUSPENDED"
-  | "PENDING";
+export type JobTargetTaskRunStatus = "READY" | "FAILED" | "SUCCEEDED" | "CANCELED" | "SUSPENDED" | "PENDING";
 export type JobTemplate = string;
 
 export type JobTemplateType = "JSON" | "YAML";
@@ -1571,11 +1414,7 @@ export type KmsKeyArn = string;
 
 export type LicenseEndpointId = string;
 
-export type LicenseEndpointStatus =
-  | "CREATE_IN_PROGRESS"
-  | "DELETE_IN_PROGRESS"
-  | "READY"
-  | "NOT_READY";
+export type LicenseEndpointStatus = "CREATE_IN_PROGRESS" | "DELETE_IN_PROGRESS" | "READY" | "NOT_READY";
 export type LicenseEndpointSummaries = Array<LicenseEndpointSummary>;
 export interface LicenseEndpointSummary {
   licenseEndpointId?: string;
@@ -2011,10 +1850,9 @@ export interface PutMeteredProductRequest {
   licenseEndpointId: string;
   productId: string;
 }
-export interface PutMeteredProductResponse {}
-export type QueueBlockedReason =
-  | "NO_BUDGET_CONFIGURED"
-  | "BUDGET_THRESHOLD_REACHED";
+export interface PutMeteredProductResponse {
+}
+export type QueueBlockedReason = "NO_BUDGET_CONFIGURED" | "BUDGET_THRESHOLD_REACHED";
 export type QueueEnvironmentId = string;
 
 export type QueueEnvironmentSummaries = Array<QueueEnvironmentSummary>;
@@ -2023,13 +1861,8 @@ export interface QueueEnvironmentSummary {
   name: string;
   priority: number;
 }
-export type QueueFleetAssociationStatus =
-  | "ACTIVE"
-  | "STOP_SCHEDULING_AND_COMPLETE_TASKS"
-  | "STOP_SCHEDULING_AND_CANCEL_TASKS"
-  | "STOPPED";
-export type QueueFleetAssociationSummaries =
-  Array<QueueFleetAssociationSummary>;
+export type QueueFleetAssociationStatus = "ACTIVE" | "STOP_SCHEDULING_AND_COMPLETE_TASKS" | "STOP_SCHEDULING_AND_CANCEL_TASKS" | "STOPPED";
+export type QueueFleetAssociationSummaries = Array<QueueFleetAssociationSummary>;
 export interface QueueFleetAssociationSummary {
   queueId: string;
   fleetId: string;
@@ -2042,13 +1875,8 @@ export interface QueueFleetAssociationSummary {
 export type QueueId = string;
 
 export type QueueIds = Array<string>;
-export type QueueLimitAssociationStatus =
-  | "ACTIVE"
-  | "STOP_LIMIT_USAGE_AND_COMPLETE_TASKS"
-  | "STOP_LIMIT_USAGE_AND_CANCEL_TASKS"
-  | "STOPPED";
-export type QueueLimitAssociationSummaries =
-  Array<QueueLimitAssociationSummary>;
+export type QueueLimitAssociationStatus = "ACTIVE" | "STOP_LIMIT_USAGE_AND_COMPLETE_TASKS" | "STOP_LIMIT_USAGE_AND_CANCEL_TASKS" | "STOPPED";
+export type QueueLimitAssociationSummaries = Array<QueueLimitAssociationSummary>;
 export interface QueueLimitAssociationSummary {
   createdAt: Date | string;
   createdBy: string;
@@ -2117,12 +1945,7 @@ interface _SearchFilterExpression {
   groupFilter?: SearchGroupedFilterExpressions;
 }
 
-export type SearchFilterExpression =
-  | (_SearchFilterExpression & { dateTimeFilter: DateTimeFilterExpression })
-  | (_SearchFilterExpression & { parameterFilter: ParameterFilterExpression })
-  | (_SearchFilterExpression & { searchTermFilter: SearchTermFilterExpression })
-  | (_SearchFilterExpression & { stringFilter: StringFilterExpression })
-  | (_SearchFilterExpression & { groupFilter: SearchGroupedFilterExpressions });
+export type SearchFilterExpression = (_SearchFilterExpression & { dateTimeFilter: DateTimeFilterExpression }) | (_SearchFilterExpression & { parameterFilter: ParameterFilterExpression }) | (_SearchFilterExpression & { searchTermFilter: SearchTermFilterExpression }) | (_SearchFilterExpression & { stringFilter: StringFilterExpression }) | (_SearchFilterExpression & { groupFilter: SearchGroupedFilterExpressions });
 export type SearchFilterExpressions = Array<SearchFilterExpression>;
 export interface SearchGroupedFilterExpressions {
   filters: Array<SearchFilterExpression>;
@@ -2147,10 +1970,7 @@ interface _SearchSortExpression {
   parameterSort?: ParameterSortExpression;
 }
 
-export type SearchSortExpression =
-  | (_SearchSortExpression & { userJobsFirst: UserJobsFirst })
-  | (_SearchSortExpression & { fieldSort: FieldSortExpression })
-  | (_SearchSortExpression & { parameterSort: ParameterSortExpression });
+export type SearchSortExpression = (_SearchSortExpression & { userJobsFirst: UserJobsFirst }) | (_SearchSortExpression & { fieldSort: FieldSortExpression }) | (_SearchSortExpression & { parameterSort: ParameterSortExpression });
 export type SearchSortExpressions = Array<SearchSortExpression>;
 export interface SearchStepsRequest {
   farmId: string;
@@ -2238,10 +2058,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
   readonly resourceId?: string;
   readonly context?: Record<string, string>;
 }> {}
-export type ServiceQuotaExceededExceptionReason =
-  | "SERVICE_QUOTA_EXCEEDED_EXCEPTION"
-  | "KMS_KEY_LIMIT_EXCEEDED"
-  | "DEPENDENCY_LIMIT_EXCEEDED";
+export type ServiceQuotaExceededExceptionReason = "SERVICE_QUOTA_EXCEEDED_EXCEPTION" | "KMS_KEY_LIMIT_EXCEEDED" | "DEPENDENCY_LIMIT_EXCEEDED";
 interface _SessionActionDefinition {
   envEnter?: EnvironmentEnterSessionActionDefinition;
   envExit?: EnvironmentExitSessionActionDefinition;
@@ -2249,17 +2066,7 @@ interface _SessionActionDefinition {
   syncInputJobAttachments?: SyncInputJobAttachmentsSessionActionDefinition;
 }
 
-export type SessionActionDefinition =
-  | (_SessionActionDefinition & {
-      envEnter: EnvironmentEnterSessionActionDefinition;
-    })
-  | (_SessionActionDefinition & {
-      envExit: EnvironmentExitSessionActionDefinition;
-    })
-  | (_SessionActionDefinition & { taskRun: TaskRunSessionActionDefinition })
-  | (_SessionActionDefinition & {
-      syncInputJobAttachments: SyncInputJobAttachmentsSessionActionDefinition;
-    });
+export type SessionActionDefinition = (_SessionActionDefinition & { envEnter: EnvironmentEnterSessionActionDefinition }) | (_SessionActionDefinition & { envExit: EnvironmentExitSessionActionDefinition }) | (_SessionActionDefinition & { taskRun: TaskRunSessionActionDefinition }) | (_SessionActionDefinition & { syncInputJobAttachments: SyncInputJobAttachmentsSessionActionDefinition });
 interface _SessionActionDefinitionSummary {
   envEnter?: EnvironmentEnterSessionActionDefinitionSummary;
   envExit?: EnvironmentExitSessionActionDefinitionSummary;
@@ -2267,19 +2074,7 @@ interface _SessionActionDefinitionSummary {
   syncInputJobAttachments?: SyncInputJobAttachmentsSessionActionDefinitionSummary;
 }
 
-export type SessionActionDefinitionSummary =
-  | (_SessionActionDefinitionSummary & {
-      envEnter: EnvironmentEnterSessionActionDefinitionSummary;
-    })
-  | (_SessionActionDefinitionSummary & {
-      envExit: EnvironmentExitSessionActionDefinitionSummary;
-    })
-  | (_SessionActionDefinitionSummary & {
-      taskRun: TaskRunSessionActionDefinitionSummary;
-    })
-  | (_SessionActionDefinitionSummary & {
-      syncInputJobAttachments: SyncInputJobAttachmentsSessionActionDefinitionSummary;
-    });
+export type SessionActionDefinitionSummary = (_SessionActionDefinitionSummary & { envEnter: EnvironmentEnterSessionActionDefinitionSummary }) | (_SessionActionDefinitionSummary & { envExit: EnvironmentExitSessionActionDefinitionSummary }) | (_SessionActionDefinitionSummary & { taskRun: TaskRunSessionActionDefinitionSummary }) | (_SessionActionDefinitionSummary & { syncInputJobAttachments: SyncInputJobAttachmentsSessionActionDefinitionSummary });
 export type SessionActionId = string;
 
 export type SessionActionIdList = Array<string>;
@@ -2287,18 +2082,7 @@ export type SessionActionProgressMessage = string;
 
 export type SessionActionProgressPercent = number;
 
-export type SessionActionStatus =
-  | "ASSIGNED"
-  | "RUNNING"
-  | "CANCELING"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "INTERRUPTED"
-  | "CANCELED"
-  | "NEVER_ATTEMPTED"
-  | "SCHEDULED"
-  | "RECLAIMING"
-  | "RECLAIMED";
+export type SessionActionStatus = "ASSIGNED" | "RUNNING" | "CANCELING" | "SUCCEEDED" | "FAILED" | "INTERRUPTED" | "CANCELED" | "NEVER_ATTEMPTED" | "SCHEDULED" | "RECLAIMING" | "RECLAIMED";
 export type SessionActionSummaries = Array<SessionActionSummary>;
 export interface SessionActionSummary {
   sessionActionId: string;
@@ -2312,26 +2096,15 @@ export interface SessionActionSummary {
 }
 export type SessionId = string;
 
-export type SessionLifecycleStatus =
-  | "STARTED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_SUCCEEDED"
-  | "UPDATE_FAILED"
-  | "ENDED";
+export type SessionLifecycleStatus = "STARTED" | "UPDATE_IN_PROGRESS" | "UPDATE_SUCCEEDED" | "UPDATE_FAILED" | "ENDED";
 export type SessionLifecycleTargetStatus = "ENDED";
-export type SessionsStatisticsAggregationStatus =
-  | "IN_PROGRESS"
-  | "TIMEOUT"
-  | "FAILED"
-  | "COMPLETED";
+export type SessionsStatisticsAggregationStatus = "IN_PROGRESS" | "TIMEOUT" | "FAILED" | "COMPLETED";
 interface _SessionsStatisticsResources {
   queueIds?: Array<string>;
   fleetIds?: Array<string>;
 }
 
-export type SessionsStatisticsResources =
-  | (_SessionsStatisticsResources & { queueIds: Array<string> })
-  | (_SessionsStatisticsResources & { fleetIds: Array<string> });
+export type SessionsStatisticsResources = (_SessionsStatisticsResources & { queueIds: Array<string> }) | (_SessionsStatisticsResources & { fleetIds: Array<string> });
 export type SessionSummaries = Array<SessionSummary>;
 export interface SessionSummary {
   sessionId: string;
@@ -2432,11 +2205,7 @@ export interface StepDetailsIdentifiers {
 }
 export type StepId = string;
 
-export type StepLifecycleStatus =
-  | "CREATE_COMPLETE"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_FAILED"
-  | "UPDATE_SUCCEEDED";
+export type StepLifecycleStatus = "CREATE_COMPLETE" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED" | "UPDATE_SUCCEEDED";
 export type StepName = string;
 
 export interface StepParameter {
@@ -2446,12 +2215,7 @@ export interface StepParameter {
 export type StepParameterList = Array<StepParameter>;
 export type StepParameterName = string;
 
-export type StepParameterType =
-  | "INT"
-  | "FLOAT"
-  | "STRING"
-  | "PATH"
-  | "CHUNK_INT";
+export type StepParameterType = "INT" | "FLOAT" | "STRING" | "PATH" | "CHUNK_INT";
 export interface StepRequiredCapabilities {
   attributes: Array<StepAttributeCapability>;
   amounts: Array<StepAmountCapability>;
@@ -2494,13 +2258,7 @@ export interface StepSummary {
   endedAt?: Date | string;
   dependencyCounts?: DependencyCounts;
 }
-export type StepTargetTaskRunStatus =
-  | "READY"
-  | "FAILED"
-  | "SUCCEEDED"
-  | "CANCELED"
-  | "SUSPENDED"
-  | "PENDING";
+export type StepTargetTaskRunStatus = "READY" | "FAILED" | "SUCCEEDED" | "CANCELED" | "SUSPENDED" | "PENDING";
 export type StorageProfileId = string;
 
 export type StorageProfileOperatingSystemFamily = "WINDOWS" | "LINUX" | "MACOS";
@@ -2532,14 +2290,13 @@ export interface SyncInputJobAttachmentsSessionActionDefinition {
 export interface SyncInputJobAttachmentsSessionActionDefinitionSummary {
   stepId?: string;
 }
-export type TagPropagationMode =
-  | "NO_PROPAGATION"
-  | "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH";
+export type TagPropagationMode = "NO_PROPAGATION" | "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH";
 export interface TagResourceRequest {
   resourceArn: string;
   tags?: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TaskFailureRetryCount = number;
 
@@ -2554,18 +2311,11 @@ interface _TaskParameterValue {
   chunkInt?: string;
 }
 
-export type TaskParameterValue =
-  | (_TaskParameterValue & { int: string })
-  | (_TaskParameterValue & { float: string })
-  | (_TaskParameterValue & { string: string })
-  | (_TaskParameterValue & { path: string })
-  | (_TaskParameterValue & { chunkInt: string });
+export type TaskParameterValue = (_TaskParameterValue & { int: string }) | (_TaskParameterValue & { float: string }) | (_TaskParameterValue & { string: string }) | (_TaskParameterValue & { path: string }) | (_TaskParameterValue & { chunkInt: string });
 export type TaskRetryCount = number;
 
-export type TaskRunManifestPropertiesListRequest =
-  Array<TaskRunManifestPropertiesRequest>;
-export type TaskRunManifestPropertiesListResponse =
-  Array<TaskRunManifestPropertiesResponse>;
+export type TaskRunManifestPropertiesListRequest = Array<TaskRunManifestPropertiesRequest>;
+export type TaskRunManifestPropertiesListResponse = Array<TaskRunManifestPropertiesResponse>;
 export interface TaskRunManifestPropertiesRequest {
   outputManifestPath?: string;
   outputManifestHash?: string;
@@ -2584,19 +2334,7 @@ export interface TaskRunSessionActionDefinitionSummary {
   stepId: string;
   parameters?: Record<string, TaskParameterValue>;
 }
-export type TaskRunStatus =
-  | "PENDING"
-  | "READY"
-  | "ASSIGNED"
-  | "STARTING"
-  | "SCHEDULED"
-  | "INTERRUPTING"
-  | "RUNNING"
-  | "SUSPENDED"
-  | "CANCELED"
-  | "FAILED"
-  | "SUCCEEDED"
-  | "NOT_COMPATIBLE";
+export type TaskRunStatus = "PENDING" | "READY" | "ASSIGNED" | "STARTING" | "SCHEDULED" | "INTERRUPTING" | "RUNNING" | "SUSPENDED" | "CANCELED" | "FAILED" | "SUCCEEDED" | "NOT_COMPATIBLE";
 export type TaskRunStatusCounts = Record<TaskRunStatus, number>;
 export type TaskSearchSummaries = Array<TaskSearchSummary>;
 export interface TaskSearchSummary {
@@ -2628,13 +2366,7 @@ export interface TaskSummary {
   updatedBy?: string;
   latestSessionActionId?: string;
 }
-export type TaskTargetRunStatus =
-  | "READY"
-  | "FAILED"
-  | "SUCCEEDED"
-  | "CANCELED"
-  | "SUSPENDED"
-  | "PENDING";
+export type TaskTargetRunStatus = "READY" | "FAILED" | "SUCCEEDED" | "CANCELED" | "SUSPENDED" | "PENDING";
 export type ThresholdPercentage = number;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -2656,7 +2388,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateBudgetRequest {
   clientToken?: string;
   farmId: string;
@@ -2669,7 +2402,8 @@ export interface UpdateBudgetRequest {
   actionsToRemove?: Array<BudgetActionToRemove>;
   schedule?: BudgetSchedule;
 }
-export interface UpdateBudgetResponse {}
+export interface UpdateBudgetResponse {
+}
 export type UpdatedAt = Date | string;
 
 export type UpdatedBy = string;
@@ -2691,7 +2425,8 @@ export interface UpdateFarmRequest {
   displayName?: string;
   description?: string;
 }
-export interface UpdateFarmResponse {}
+export interface UpdateFarmResponse {
+}
 export interface UpdateFleetRequest {
   clientToken?: string;
   farmId: string;
@@ -2704,7 +2439,8 @@ export interface UpdateFleetRequest {
   configuration?: FleetConfiguration;
   hostConfiguration?: HostConfiguration;
 }
-export interface UpdateFleetResponse {}
+export interface UpdateFleetResponse {
+}
 export type UpdateJobLifecycleStatus = "ARCHIVED";
 export interface UpdateJobRequest {
   clientToken?: string;
@@ -2718,7 +2454,8 @@ export interface UpdateJobRequest {
   queueId: string;
   jobId: string;
 }
-export interface UpdateJobResponse {}
+export interface UpdateJobResponse {
+}
 export interface UpdateLimitRequest {
   farmId: string;
   limitId: string;
@@ -2726,14 +2463,16 @@ export interface UpdateLimitRequest {
   description?: string;
   maxCount?: number;
 }
-export interface UpdateLimitResponse {}
+export interface UpdateLimitResponse {
+}
 export interface UpdateMonitorRequest {
   monitorId: string;
   subdomain?: string;
   displayName?: string;
   roleArn?: string;
 }
-export interface UpdateMonitorResponse {}
+export interface UpdateMonitorResponse {
+}
 export interface UpdateQueueEnvironmentRequest {
   clientToken?: string;
   farmId: string;
@@ -2743,29 +2482,26 @@ export interface UpdateQueueEnvironmentRequest {
   templateType?: EnvironmentTemplateType;
   template?: string;
 }
-export interface UpdateQueueEnvironmentResponse {}
+export interface UpdateQueueEnvironmentResponse {
+}
 export interface UpdateQueueFleetAssociationRequest {
   farmId: string;
   queueId: string;
   fleetId: string;
   status: UpdateQueueFleetAssociationStatus;
 }
-export interface UpdateQueueFleetAssociationResponse {}
-export type UpdateQueueFleetAssociationStatus =
-  | "ACTIVE"
-  | "STOP_SCHEDULING_AND_COMPLETE_TASKS"
-  | "STOP_SCHEDULING_AND_CANCEL_TASKS";
+export interface UpdateQueueFleetAssociationResponse {
+}
+export type UpdateQueueFleetAssociationStatus = "ACTIVE" | "STOP_SCHEDULING_AND_COMPLETE_TASKS" | "STOP_SCHEDULING_AND_CANCEL_TASKS";
 export interface UpdateQueueLimitAssociationRequest {
   farmId: string;
   queueId: string;
   limitId: string;
   status: UpdateQueueLimitAssociationStatus;
 }
-export interface UpdateQueueLimitAssociationResponse {}
-export type UpdateQueueLimitAssociationStatus =
-  | "ACTIVE"
-  | "STOP_LIMIT_USAGE_AND_COMPLETE_TASKS"
-  | "STOP_LIMIT_USAGE_AND_CANCEL_TASKS";
+export interface UpdateQueueLimitAssociationResponse {
+}
+export type UpdateQueueLimitAssociationStatus = "ACTIVE" | "STOP_LIMIT_USAGE_AND_COMPLETE_TASKS" | "STOP_LIMIT_USAGE_AND_CANCEL_TASKS";
 export interface UpdateQueueRequest {
   clientToken?: string;
   farmId: string;
@@ -2781,7 +2517,8 @@ export interface UpdateQueueRequest {
   allowedStorageProfileIdsToAdd?: Array<string>;
   allowedStorageProfileIdsToRemove?: Array<string>;
 }
-export interface UpdateQueueResponse {}
+export interface UpdateQueueResponse {
+}
 export interface UpdateSessionRequest {
   clientToken?: string;
   targetLifecycleStatus: SessionLifecycleTargetStatus;
@@ -2790,7 +2527,8 @@ export interface UpdateSessionRequest {
   jobId: string;
   sessionId: string;
 }
-export interface UpdateSessionResponse {}
+export interface UpdateSessionResponse {
+}
 export interface UpdateStepRequest {
   targetTaskRunStatus: StepTargetTaskRunStatus;
   clientToken?: string;
@@ -2799,7 +2537,8 @@ export interface UpdateStepRequest {
   jobId: string;
   stepId: string;
 }
-export interface UpdateStepResponse {}
+export interface UpdateStepResponse {
+}
 export interface UpdateStorageProfileRequest {
   clientToken?: string;
   farmId: string;
@@ -2809,7 +2548,8 @@ export interface UpdateStorageProfileRequest {
   fileSystemLocationsToAdd?: Array<FileSystemLocation>;
   fileSystemLocationsToRemove?: Array<FileSystemLocation>;
 }
-export interface UpdateStorageProfileResponse {}
+export interface UpdateStorageProfileResponse {
+}
 export interface UpdateTaskRequest {
   clientToken?: string;
   targetRunStatus: TaskTargetRunStatus;
@@ -2819,7 +2559,8 @@ export interface UpdateTaskRequest {
   stepId: string;
   taskId: string;
 }
-export interface UpdateTaskResponse {}
+export interface UpdateTaskResponse {
+}
 export interface UpdateWorkerRequest {
   farmId: string;
   fleetId: string;
@@ -2849,23 +2590,14 @@ export interface UpdateWorkerScheduleResponse {
 export type Url = string;
 
 export type UsageGroupBy = Array<UsageGroupByField>;
-export type UsageGroupByField =
-  | "QUEUE_ID"
-  | "FLEET_ID"
-  | "JOB_ID"
-  | "USER_ID"
-  | "USAGE_TYPE"
-  | "INSTANCE_TYPE"
-  | "LICENSE_PRODUCT";
+export type UsageGroupByField = "QUEUE_ID" | "FLEET_ID" | "JOB_ID" | "USER_ID" | "USAGE_TYPE" | "INSTANCE_TYPE" | "LICENSE_PRODUCT";
 export type UsageStatistic = "SUM" | "MIN" | "MAX" | "AVG";
 export type UsageStatistics = Array<UsageStatistic>;
 interface _UsageTrackingResource {
   queueId?: string;
 }
 
-export type UsageTrackingResource = _UsageTrackingResource & {
-  queueId: string;
-};
+export type UsageTrackingResource = (_UsageTrackingResource & { queueId: string });
 export type UsageType = "COMPUTE" | "LICENSE";
 export type UserId = string;
 
@@ -2885,11 +2617,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export interface VCpuCountRange {
   min: number;
   max?: number;
@@ -2942,15 +2670,7 @@ export interface WorkerSessionSummary {
   endedAt?: Date | string;
   targetLifecycleStatus?: SessionLifecycleTargetStatus;
 }
-export type WorkerStatus =
-  | "CREATED"
-  | "STARTED"
-  | "STOPPING"
-  | "STOPPED"
-  | "NOT_RESPONDING"
-  | "NOT_COMPATIBLE"
-  | "RUNNING"
-  | "IDLE";
+export type WorkerStatus = "CREATED" | "STARTED" | "STOPPING" | "STOPPED" | "NOT_RESPONDING" | "NOT_COMPATIBLE" | "RUNNING" | "IDLE";
 export type WorkerSummaries = Array<WorkerSummary>;
 export interface WorkerSummary {
   workerId: string;
@@ -3202,3 +2922,4 @@ export declare namespace UpdateQueueLimitAssociation {
     | ValidationException
     | CommonAwsError;
 }
+

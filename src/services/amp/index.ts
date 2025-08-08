@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class amp extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("amp", new RestJson1Protocol(), cfg);
+  }
+
   getDefaultScraperConfiguration(
     input: GetDefaultScraperConfigurationRequest,
   ): Effect.Effect<
     GetDefaultScraperConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetDefaultScraperConfiguration", input);
   }
@@ -18,12 +20,7 @@ export class amp extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -31,12 +28,7 @@ export class amp extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -44,12 +36,7 @@ export class amp extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -234,7 +221,7 @@ interface _Destination {
   ampConfiguration?: AmpConfiguration;
 }
 
-export type Destination = _Destination & { ampConfiguration: AmpConfiguration };
+export type Destination = (_Destination & { ampConfiguration: AmpConfiguration });
 export interface EksConfiguration {
   clusterArn: string;
   securityGroupIds?: Array<string>;
@@ -245,7 +232,8 @@ export type FilterKey = string;
 export type FilterValue = string;
 
 export type FilterValues = Array<string>;
-export interface GetDefaultScraperConfigurationRequest {}
+export interface GetDefaultScraperConfigurationRequest {
+}
 export interface GetDefaultScraperConfigurationResponse {
   configuration: Uint8Array | string;
 }
@@ -411,9 +399,7 @@ interface _ScrapeConfiguration {
   configurationBlob?: Uint8Array | string;
 }
 
-export type ScrapeConfiguration = _ScrapeConfiguration & {
-  configurationBlob: Uint8Array | string;
-};
+export type ScrapeConfiguration = (_ScrapeConfiguration & { configurationBlob: Uint8Array | string });
 export type ScraperAlias = string;
 
 export type ScraperArn = string;
@@ -472,7 +458,7 @@ interface _Source {
   eksConfiguration?: EksConfiguration;
 }
 
-export type Source = _Source & { eksConfiguration: EksConfiguration };
+export type Source = (_Source & { eksConfiguration: EksConfiguration });
 export type StatusReason = string;
 
 export type SubnetId = string;
@@ -486,7 +472,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -501,7 +488,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateLoggingConfigurationRequest {
   workspaceId: string;
   logGroupArn: string;
@@ -649,3 +637,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SupportApp extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("support-app", new RestJson1Protocol(), cfg);
+  }
+
   createSlackChannelConfiguration(
     input: CreateSlackChannelConfigurationRequest,
   ): Effect.Effect<
     CreateSlackChannelConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSlackChannelConfiguration", input);
   }
@@ -20,10 +20,7 @@ export class SupportApp extends AWSServiceClient {
     input: DeleteAccountAliasRequest,
   ): Effect.Effect<
     DeleteAccountAliasResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteAccountAlias", input);
   }
@@ -31,12 +28,7 @@ export class SupportApp extends AWSServiceClient {
     input: DeleteSlackChannelConfigurationRequest,
   ): Effect.Effect<
     DeleteSlackChannelConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSlackChannelConfiguration", input);
   }
@@ -44,12 +36,7 @@ export class SupportApp extends AWSServiceClient {
     input: DeleteSlackWorkspaceConfigurationRequest,
   ): Effect.Effect<
     DeleteSlackWorkspaceConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSlackWorkspaceConfiguration", input);
   }
@@ -81,10 +68,7 @@ export class SupportApp extends AWSServiceClient {
     input: PutAccountAliasRequest,
   ): Effect.Effect<
     PutAccountAliasResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("PutAccountAlias", input);
   }
@@ -92,12 +76,7 @@ export class SupportApp extends AWSServiceClient {
     input: RegisterSlackWorkspaceForOrganizationRequest,
   ): Effect.Effect<
     RegisterSlackWorkspaceForOrganizationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("RegisterSlackWorkspaceForOrganization", input);
   }
@@ -105,12 +84,7 @@ export class SupportApp extends AWSServiceClient {
     input: UpdateSlackChannelConfigurationRequest,
   ): Effect.Effect<
     UpdateSlackChannelConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSlackChannelConfiguration", input);
   }
@@ -148,21 +122,27 @@ export interface CreateSlackChannelConfigurationRequest {
   notifyOnCaseSeverity: string;
   channelRoleArn: string;
 }
-export interface CreateSlackChannelConfigurationResult {}
-export interface DeleteAccountAliasRequest {}
-export interface DeleteAccountAliasResult {}
+export interface CreateSlackChannelConfigurationResult {
+}
+export interface DeleteAccountAliasRequest {
+}
+export interface DeleteAccountAliasResult {
+}
 export interface DeleteSlackChannelConfigurationRequest {
   teamId: string;
   channelId: string;
 }
-export interface DeleteSlackChannelConfigurationResult {}
+export interface DeleteSlackChannelConfigurationResult {
+}
 export interface DeleteSlackWorkspaceConfigurationRequest {
   teamId: string;
 }
-export interface DeleteSlackWorkspaceConfigurationResult {}
+export interface DeleteSlackWorkspaceConfigurationResult {
+}
 export type errorMessage = string;
 
-export interface GetAccountAliasRequest {}
+export interface GetAccountAliasRequest {
+}
 export interface GetAccountAliasResult {
   accountAlias?: string;
 }
@@ -192,7 +172,8 @@ export type paginationToken = string;
 export interface PutAccountAliasRequest {
   accountAlias: string;
 }
-export interface PutAccountAliasResult {}
+export interface PutAccountAliasResult {
+}
 export interface RegisterSlackWorkspaceForOrganizationRequest {
   teamId: string;
 }
@@ -229,8 +210,7 @@ export interface SlackWorkspaceConfiguration {
   teamName?: string;
   allowOrganizationMemberAccount?: boolean;
 }
-export type SlackWorkspaceConfigurationList =
-  Array<SlackWorkspaceConfiguration>;
+export type SlackWorkspaceConfigurationList = Array<SlackWorkspaceConfiguration>;
 export type teamId = string;
 
 export type teamName = string;
@@ -309,7 +289,9 @@ export declare namespace DeleteSlackWorkspaceConfiguration {
 export declare namespace GetAccountAlias {
   export type Input = GetAccountAliasRequest;
   export type Output = GetAccountAliasResult;
-  export type Error = InternalServerException | CommonAwsError;
+  export type Error =
+    | InternalServerException
+    | CommonAwsError;
 }
 
 export declare namespace ListSlackChannelConfigurations {
@@ -363,3 +345,4 @@ export declare namespace UpdateSlackChannelConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+

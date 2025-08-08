@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class KendraRanking extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("kendra-ranking", new AwsJson10Protocol(), cfg);
+  }
+
   createRescoreExecutionPlan(
     input: CreateRescoreExecutionPlanRequest,
   ): Effect.Effect<
     CreateRescoreExecutionPlanResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRescoreExecutionPlan", input);
   }
@@ -21,13 +20,7 @@ export class KendraRanking extends AWSServiceClient {
     input: DeleteRescoreExecutionPlanRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRescoreExecutionPlan", input);
   }
@@ -35,12 +28,7 @@ export class KendraRanking extends AWSServiceClient {
     input: DescribeRescoreExecutionPlanRequest,
   ): Effect.Effect<
     DescribeRescoreExecutionPlanResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRescoreExecutionPlan", input);
   }
@@ -48,11 +36,7 @@ export class KendraRanking extends AWSServiceClient {
     input: ListRescoreExecutionPlansRequest,
   ): Effect.Effect<
     ListRescoreExecutionPlansResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRescoreExecutionPlans", input);
   }
@@ -60,12 +44,7 @@ export class KendraRanking extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -73,13 +52,7 @@ export class KendraRanking extends AWSServiceClient {
     input: RescoreRequest,
   ): Effect.Effect<
     RescoreResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("Rescore", input);
   }
@@ -87,12 +60,7 @@ export class KendraRanking extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -100,12 +68,7 @@ export class KendraRanking extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -113,14 +76,7 @@ export class KendraRanking extends AWSServiceClient {
     input: UpdateRescoreExecutionPlanRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRescoreExecutionPlan", input);
   }
@@ -229,12 +185,7 @@ export type RescoreExecutionPlanId = string;
 
 export type RescoreExecutionPlanName = string;
 
-export type RescoreExecutionPlanStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "FAILED";
+export type RescoreExecutionPlanStatus = "CREATING" | "UPDATING" | "ACTIVE" | "DELETING" | "FAILED";
 export interface RescoreExecutionPlanSummary {
   Name?: string;
   Id?: string;
@@ -242,8 +193,7 @@ export interface RescoreExecutionPlanSummary {
   UpdatedAt?: Date | string;
   Status?: RescoreExecutionPlanStatus;
 }
-export type RescoreExecutionPlanSummaryList =
-  Array<RescoreExecutionPlanSummary>;
+export type RescoreExecutionPlanSummaryList = Array<RescoreExecutionPlanSummary>;
 export type RescoreId = string;
 
 export interface RescoreRequest {
@@ -289,7 +239,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -306,7 +257,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateRescoreExecutionPlanRequest {
   Id: string;
   Name?: string;
@@ -429,3 +381,4 @@ export declare namespace UpdateRescoreExecutionPlan {
     | ValidationException
     | CommonAwsError;
 }
+

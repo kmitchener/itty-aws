@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class QConnect extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("qconnect", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -60,16 +65,7 @@ interface _AIAgentConfiguration {
   selfServiceAIAgentConfiguration?: SelfServiceAIAgentConfiguration;
 }
 
-export type AIAgentConfiguration =
-  | (_AIAgentConfiguration & {
-      manualSearchAIAgentConfiguration: ManualSearchAIAgentConfiguration;
-    })
-  | (_AIAgentConfiguration & {
-      answerRecommendationAIAgentConfiguration: AnswerRecommendationAIAgentConfiguration;
-    })
-  | (_AIAgentConfiguration & {
-      selfServiceAIAgentConfiguration: SelfServiceAIAgentConfiguration;
-    });
+export type AIAgentConfiguration = (_AIAgentConfiguration & { manualSearchAIAgentConfiguration: ManualSearchAIAgentConfiguration }) | (_AIAgentConfiguration & { answerRecommendationAIAgentConfiguration: AnswerRecommendationAIAgentConfiguration }) | (_AIAgentConfiguration & { selfServiceAIAgentConfiguration: SelfServiceAIAgentConfiguration });
 export interface AIAgentConfigurationData {
   aiAgentId: string;
 }
@@ -214,9 +210,7 @@ interface _AIPromptTemplateConfiguration {
   textFullAIPromptEditTemplateConfiguration?: TextFullAIPromptEditTemplateConfiguration;
 }
 
-export type AIPromptTemplateConfiguration = _AIPromptTemplateConfiguration & {
-  textFullAIPromptEditTemplateConfiguration: TextFullAIPromptEditTemplateConfiguration;
-};
+export type AIPromptTemplateConfiguration = (_AIPromptTemplateConfiguration & { textFullAIPromptEditTemplateConfiguration: TextFullAIPromptEditTemplateConfiguration });
 export type AIPromptTemplateType = string;
 
 export type AIPromptType = string;
@@ -259,16 +253,12 @@ interface _AssistantAssociationInputData {
   knowledgeBaseId?: string;
 }
 
-export type AssistantAssociationInputData = _AssistantAssociationInputData & {
-  knowledgeBaseId: string;
-};
+export type AssistantAssociationInputData = (_AssistantAssociationInputData & { knowledgeBaseId: string });
 interface _AssistantAssociationOutputData {
   knowledgeBaseAssociation?: KnowledgeBaseAssociationData;
 }
 
-export type AssistantAssociationOutputData = _AssistantAssociationOutputData & {
-  knowledgeBaseAssociation: KnowledgeBaseAssociationData;
-};
+export type AssistantAssociationOutputData = (_AssistantAssociationOutputData & { knowledgeBaseAssociation: KnowledgeBaseAssociationData });
 export interface AssistantAssociationSummary {
   assistantAssociationId: string;
   assistantAssociationArn: string;
@@ -278,8 +268,7 @@ export interface AssistantAssociationSummary {
   associationData: AssistantAssociationOutputData;
   tags?: Record<string, string>;
 }
-export type AssistantAssociationSummaryList =
-  Array<AssistantAssociationSummary>;
+export type AssistantAssociationSummaryList = Array<AssistantAssociationSummary>;
 export interface AssistantCapabilityConfiguration {
   type?: string;
 }
@@ -328,9 +317,7 @@ interface _AssociationConfigurationData {
   knowledgeBaseAssociationConfigurationData?: KnowledgeBaseAssociationConfigurationData;
 }
 
-export type AssociationConfigurationData = _AssociationConfigurationData & {
-  knowledgeBaseAssociationConfigurationData: KnowledgeBaseAssociationConfigurationData;
-};
+export type AssociationConfigurationData = (_AssociationConfigurationData & { knowledgeBaseAssociationConfigurationData: KnowledgeBaseAssociationConfigurationData });
 export type AssociationConfigurationList = Array<AssociationConfiguration>;
 export type AssociationType = string;
 
@@ -367,9 +354,7 @@ interface _Configuration {
   connectConfiguration?: ConnectConfiguration;
 }
 
-export type Configuration = _Configuration & {
-  connectConfiguration: ConnectConfiguration;
-};
+export type Configuration = (_Configuration & { connectConfiguration: ConnectConfiguration });
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -388,9 +373,7 @@ interface _ContentAssociationContents {
   amazonConnectGuideAssociation?: AmazonConnectGuideAssociationData;
 }
 
-export type ContentAssociationContents = _ContentAssociationContents & {
-  amazonConnectGuideAssociation: AmazonConnectGuideAssociationData;
-};
+export type ContentAssociationContents = (_ContentAssociationContents & { amazonConnectGuideAssociation: AmazonConnectGuideAssociationData });
 export interface ContentAssociationData {
   knowledgeBaseId: string;
   knowledgeBaseArn: string;
@@ -442,9 +425,7 @@ interface _ContentFeedbackData {
   generativeContentFeedbackData?: GenerativeContentFeedbackData;
 }
 
-export type ContentFeedbackData = _ContentFeedbackData & {
-  generativeContentFeedbackData: GenerativeContentFeedbackData;
-};
+export type ContentFeedbackData = (_ContentFeedbackData & { generativeContentFeedbackData: GenerativeContentFeedbackData });
 export type ContentMetadata = Record<string, string>;
 export interface ContentReference {
   knowledgeBaseArn?: string;
@@ -753,20 +734,13 @@ interface _DataDetails {
   generativeChunkData?: GenerativeChunkDataDetails;
 }
 
-export type DataDetails =
-  | (_DataDetails & { contentData: ContentDataDetails })
-  | (_DataDetails & { generativeData: GenerativeDataDetails })
-  | (_DataDetails & { intentDetectedData: IntentDetectedDataDetails })
-  | (_DataDetails & { sourceContentData: SourceContentDataDetails })
-  | (_DataDetails & { generativeChunkData: GenerativeChunkDataDetails });
+export type DataDetails = (_DataDetails & { contentData: ContentDataDetails }) | (_DataDetails & { generativeData: GenerativeDataDetails }) | (_DataDetails & { intentDetectedData: IntentDetectedDataDetails }) | (_DataDetails & { sourceContentData: SourceContentDataDetails }) | (_DataDetails & { generativeChunkData: GenerativeChunkDataDetails });
 interface _DataReference {
   contentReference?: ContentReference;
   generativeReference?: GenerativeReference;
 }
 
-export type DataReference =
-  | (_DataReference & { contentReference: ContentReference })
-  | (_DataReference & { generativeReference: GenerativeReference });
+export type DataReference = (_DataReference & { contentReference: ContentReference }) | (_DataReference & { generativeReference: GenerativeReference });
 export interface DataSummary {
   reference: DataReference;
   details: DataDetails;
@@ -786,80 +760,95 @@ export interface DeleteAIAgentRequest {
   assistantId: string;
   aiAgentId: string;
 }
-export interface DeleteAIAgentResponse {}
+export interface DeleteAIAgentResponse {
+}
 export interface DeleteAIAgentVersionRequest {
   assistantId: string;
   aiAgentId: string;
   versionNumber: number;
 }
-export interface DeleteAIAgentVersionResponse {}
+export interface DeleteAIAgentVersionResponse {
+}
 export interface DeleteAIGuardrailRequest {
   assistantId: string;
   aiGuardrailId: string;
 }
-export interface DeleteAIGuardrailResponse {}
+export interface DeleteAIGuardrailResponse {
+}
 export interface DeleteAIGuardrailVersionRequest {
   assistantId: string;
   aiGuardrailId: string;
   versionNumber: number;
 }
-export interface DeleteAIGuardrailVersionResponse {}
+export interface DeleteAIGuardrailVersionResponse {
+}
 export interface DeleteAIPromptRequest {
   assistantId: string;
   aiPromptId: string;
 }
-export interface DeleteAIPromptResponse {}
+export interface DeleteAIPromptResponse {
+}
 export interface DeleteAIPromptVersionRequest {
   assistantId: string;
   aiPromptId: string;
   versionNumber: number;
 }
-export interface DeleteAIPromptVersionResponse {}
+export interface DeleteAIPromptVersionResponse {
+}
 export interface DeleteAssistantAssociationRequest {
   assistantAssociationId: string;
   assistantId: string;
 }
-export interface DeleteAssistantAssociationResponse {}
+export interface DeleteAssistantAssociationResponse {
+}
 export interface DeleteAssistantRequest {
   assistantId: string;
 }
-export interface DeleteAssistantResponse {}
+export interface DeleteAssistantResponse {
+}
 export interface DeleteContentAssociationRequest {
   knowledgeBaseId: string;
   contentId: string;
   contentAssociationId: string;
 }
-export interface DeleteContentAssociationResponse {}
+export interface DeleteContentAssociationResponse {
+}
 export interface DeleteContentRequest {
   knowledgeBaseId: string;
   contentId: string;
 }
-export interface DeleteContentResponse {}
+export interface DeleteContentResponse {
+}
 export interface DeleteImportJobRequest {
   knowledgeBaseId: string;
   importJobId: string;
 }
-export interface DeleteImportJobResponse {}
+export interface DeleteImportJobResponse {
+}
 export interface DeleteKnowledgeBaseRequest {
   knowledgeBaseId: string;
 }
-export interface DeleteKnowledgeBaseResponse {}
+export interface DeleteKnowledgeBaseResponse {
+}
 export interface DeleteMessageTemplateAttachmentRequest {
   knowledgeBaseId: string;
   messageTemplateId: string;
   attachmentId: string;
 }
-export interface DeleteMessageTemplateAttachmentResponse {}
+export interface DeleteMessageTemplateAttachmentResponse {
+}
 export interface DeleteMessageTemplateRequest {
   knowledgeBaseId: string;
   messageTemplateId: string;
 }
-export interface DeleteMessageTemplateResponse {}
+export interface DeleteMessageTemplateResponse {
+}
 export interface DeleteQuickResponseRequest {
   knowledgeBaseId: string;
   quickResponseId: string;
 }
-export interface DeleteQuickResponseResponse {}
+export interface DeleteQuickResponseResponse {
+}
 export type Description = string;
 
 export interface Document {
@@ -1089,16 +1078,14 @@ export interface GuardrailContextualGroundingFilterConfig {
   type: string;
   threshold: number;
 }
-export type GuardrailContextualGroundingFiltersConfig =
-  Array<GuardrailContextualGroundingFilterConfig>;
+export type GuardrailContextualGroundingFiltersConfig = Array<GuardrailContextualGroundingFilterConfig>;
 export type GuardrailContextualGroundingFilterThreshold = number;
 
 export type GuardrailContextualGroundingFilterType = string;
 
 export type GuardrailFilterStrength = string;
 
-export type GuardrailManagedWordListsConfig =
-  Array<GuardrailManagedWordsConfig>;
+export type GuardrailManagedWordListsConfig = Array<GuardrailManagedWordsConfig>;
 export interface GuardrailManagedWordsConfig {
   type: string;
 }
@@ -1156,8 +1143,7 @@ export interface HierarchicalChunkingConfiguration {
 export interface HierarchicalChunkingLevelConfiguration {
   maxTokens: number;
 }
-export type HierarchicalChunkingLevelConfigurations =
-  Array<HierarchicalChunkingLevelConfiguration>;
+export type HierarchicalChunkingLevelConfigurations = Array<HierarchicalChunkingLevelConfiguration>;
 export interface Highlight {
   beginOffsetInclusive?: number;
   endOffsetExclusive?: number;
@@ -1415,9 +1401,7 @@ interface _ManagedSourceConfiguration {
   webCrawlerConfiguration?: WebCrawlerConfiguration;
 }
 
-export type ManagedSourceConfiguration = _ManagedSourceConfiguration & {
-  webCrawlerConfiguration: WebCrawlerConfiguration;
-};
+export type ManagedSourceConfiguration = (_ManagedSourceConfiguration & { webCrawlerConfiguration: WebCrawlerConfiguration });
 export interface ManualSearchAIAgentConfiguration {
   answerGenerationAIPromptId?: string;
   answerGenerationAIGuardrailId?: string;
@@ -1433,7 +1417,7 @@ interface _MessageData {
   text?: TextMessage;
 }
 
-export type MessageData = _MessageData & { text: TextMessage };
+export type MessageData = (_MessageData & { text: TextMessage });
 export interface MessageInput {
   value: MessageData;
 }
@@ -1471,16 +1455,13 @@ interface _MessageTemplateBodyContentProvider {
   content?: string;
 }
 
-export type MessageTemplateBodyContentProvider =
-  _MessageTemplateBodyContentProvider & { content: string };
+export type MessageTemplateBodyContentProvider = (_MessageTemplateBodyContentProvider & { content: string });
 interface _MessageTemplateContentProvider {
   email?: EmailMessageTemplateContent;
   sms?: SMSMessageTemplateContent;
 }
 
-export type MessageTemplateContentProvider =
-  | (_MessageTemplateContentProvider & { email: EmailMessageTemplateContent })
-  | (_MessageTemplateContentProvider & { sms: SMSMessageTemplateContent });
+export type MessageTemplateContentProvider = (_MessageTemplateContentProvider & { email: EmailMessageTemplateContent }) | (_MessageTemplateContentProvider & { sms: SMSMessageTemplateContent });
 export type MessageTemplateContentSha256 = string;
 
 export interface MessageTemplateData {
@@ -1553,8 +1534,7 @@ export interface MessageTemplateSearchResultData {
   language?: string;
   tags?: Record<string, string>;
 }
-export type MessageTemplateSearchResultsList =
-  Array<MessageTemplateSearchResultData>;
+export type MessageTemplateSearchResultsList = Array<MessageTemplateSearchResultData>;
 export interface MessageTemplateSummary {
   messageTemplateArn: string;
   messageTemplateId: string;
@@ -1580,8 +1560,7 @@ export interface MessageTemplateVersionSummary {
   isActive: boolean;
   versionNumber: number;
 }
-export type MessageTemplateVersionSummaryList =
-  Array<MessageTemplateVersionSummary>;
+export type MessageTemplateVersionSummaryList = Array<MessageTemplateVersionSummary>;
 export type MessageType = string;
 
 export type Name = string;
@@ -1598,8 +1577,7 @@ export interface NotifyRecommendationsReceivedError {
   recommendationId?: string;
   message?: string;
 }
-export type NotifyRecommendationsReceivedErrorList =
-  Array<NotifyRecommendationsReceivedError>;
+export type NotifyRecommendationsReceivedErrorList = Array<NotifyRecommendationsReceivedError>;
 export type NotifyRecommendationsReceivedErrorMessage = string;
 
 export interface NotifyRecommendationsReceivedRequest {
@@ -1617,9 +1595,7 @@ interface _OrCondition {
   tagCondition?: TagCondition;
 }
 
-export type OrCondition =
-  | (_OrCondition & { andConditions: Array<TagCondition> })
-  | (_OrCondition & { tagCondition: TagCondition });
+export type OrCondition = (_OrCondition & { andConditions: Array<TagCondition> }) | (_OrCondition & { tagCondition: TagCondition });
 export type OrConditions = Array<OrCondition>;
 export type Order = string;
 
@@ -1676,7 +1652,7 @@ interface _QueryCondition {
   single?: QueryConditionItem;
 }
 
-export type QueryCondition = _QueryCondition & { single: QueryConditionItem };
+export type QueryCondition = (_QueryCondition & { single: QueryConditionItem });
 export type QueryConditionComparisonOperator = string;
 
 export type QueryConditionExpression = Array<QueryCondition>;
@@ -1692,9 +1668,7 @@ interface _QueryInputData {
   intentInputData?: IntentInputData;
 }
 
-export type QueryInputData =
-  | (_QueryInputData & { queryTextInputData: QueryTextInputData })
-  | (_QueryInputData & { intentInputData: IntentInputData });
+export type QueryInputData = (_QueryInputData & { queryTextInputData: QueryTextInputData }) | (_QueryInputData & { intentInputData: IntentInputData });
 export interface QueryRecommendationTriggerData {
   text?: string;
 }
@@ -1712,9 +1686,7 @@ interface _QuickResponseContentProvider {
   content?: string;
 }
 
-export type QuickResponseContentProvider = _QuickResponseContentProvider & {
-  content: string;
-};
+export type QuickResponseContentProvider = (_QuickResponseContentProvider & { content: string });
 export interface QuickResponseContents {
   plainText?: QuickResponseContentProvider;
   markdown?: QuickResponseContentProvider;
@@ -1743,9 +1715,7 @@ interface _QuickResponseDataProvider {
   content?: string;
 }
 
-export type QuickResponseDataProvider = _QuickResponseDataProvider & {
-  content: string;
-};
+export type QuickResponseDataProvider = (_QuickResponseDataProvider & { content: string });
 export type QuickResponseDescription = string;
 
 export interface QuickResponseFilterField {
@@ -1806,8 +1776,7 @@ export interface QuickResponseSearchResultData {
   attributesInterpolated?: Array<string>;
   tags?: Record<string, string>;
 }
-export type QuickResponseSearchResultsList =
-  Array<QuickResponseSearchResultData>;
+export type QuickResponseSearchResultsList = Array<QuickResponseSearchResultData>;
 export type QuickResponseStatus = string;
 
 export interface QuickResponseSummary {
@@ -1858,9 +1827,7 @@ interface _RecommendationTriggerData {
   query?: QueryRecommendationTriggerData;
 }
 
-export type RecommendationTriggerData = _RecommendationTriggerData & {
-  query: QueryRecommendationTriggerData;
-};
+export type RecommendationTriggerData = (_RecommendationTriggerData & { query: QueryRecommendationTriggerData });
 export type RecommendationTriggerList = Array<RecommendationTrigger>;
 export type RecommendationTriggerType = string;
 
@@ -1878,11 +1845,13 @@ export interface RemoveAssistantAIAgentRequest {
   assistantId: string;
   aiAgentType: string;
 }
-export interface RemoveAssistantAIAgentResponse {}
+export interface RemoveAssistantAIAgentResponse {
+}
 export interface RemoveKnowledgeBaseTemplateUriRequest {
   knowledgeBaseId: string;
 }
-export interface RemoveKnowledgeBaseTemplateUriResponse {}
+export interface RemoveKnowledgeBaseTemplateUriResponse {
+}
 export interface RenderingConfiguration {
   templateUri?: string;
 }
@@ -1923,9 +1892,7 @@ interface _RuntimeSessionDataValue {
   stringValue?: string;
 }
 
-export type RuntimeSessionDataValue = _RuntimeSessionDataValue & {
-  stringValue: string;
-};
+export type RuntimeSessionDataValue = (_RuntimeSessionDataValue & { stringValue: string });
 export interface SearchContentRequest {
   nextToken?: string;
   maxResults?: number;
@@ -1985,8 +1952,7 @@ export interface SelfServiceConversationHistory {
   inputTranscript?: string;
   botResponse?: string;
 }
-export type SelfServiceConversationHistoryList =
-  Array<SelfServiceConversationHistory>;
+export type SelfServiceConversationHistoryList = Array<SelfServiceConversationHistory>;
 export interface SemanticChunkingConfiguration {
   maxTokens: number;
   bufferSize: number;
@@ -2052,11 +2018,7 @@ interface _SourceConfiguration {
   managedSourceConfiguration?: ManagedSourceConfiguration;
 }
 
-export type SourceConfiguration =
-  | (_SourceConfiguration & { appIntegrations: AppIntegrationsConfiguration })
-  | (_SourceConfiguration & {
-      managedSourceConfiguration: ManagedSourceConfiguration;
-    });
+export type SourceConfiguration = (_SourceConfiguration & { appIntegrations: AppIntegrationsConfiguration }) | (_SourceConfiguration & { managedSourceConfiguration: ManagedSourceConfiguration });
 export interface SourceContentDataDetails {
   id: string;
   type: string;
@@ -2110,10 +2072,7 @@ interface _TagFilter {
   orConditions?: Array<OrCondition>;
 }
 
-export type TagFilter =
-  | (_TagFilter & { tagCondition: TagCondition })
-  | (_TagFilter & { andConditions: Array<TagCondition> })
-  | (_TagFilter & { orConditions: Array<OrCondition> });
+export type TagFilter = (_TagFilter & { tagCondition: TagCondition }) | (_TagFilter & { andConditions: Array<TagCondition> }) | (_TagFilter & { orConditions: Array<OrCondition> });
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -2121,7 +2080,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -2161,7 +2121,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAIAgentRequest {
   clientToken?: string;
   assistantId: string;
@@ -2342,7 +2303,9 @@ export type WebUrl = string;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -2357,5 +2320,8 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
+

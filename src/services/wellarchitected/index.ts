@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class WellArchitected extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("wellarchitected", new RestJson1Protocol(), cfg);
+  }
+
   associateLenses(
     input: AssociateLensesInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateLenses", input);
   }
@@ -21,13 +20,7 @@ export class WellArchitected extends AWSServiceClient {
     input: AssociateProfilesInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateProfiles", input);
   }
@@ -35,14 +28,7 @@ export class WellArchitected extends AWSServiceClient {
     input: CreateLensShareInput,
   ): Effect.Effect<
     CreateLensShareOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateLensShare", input);
   }
@@ -50,14 +36,7 @@ export class WellArchitected extends AWSServiceClient {
     input: CreateLensVersionInput,
   ): Effect.Effect<
     CreateLensVersionOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateLensVersion", input);
   }
@@ -65,14 +44,7 @@ export class WellArchitected extends AWSServiceClient {
     input: CreateMilestoneInput,
   ): Effect.Effect<
     CreateMilestoneOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateMilestone", input);
   }
@@ -80,13 +52,7 @@ export class WellArchitected extends AWSServiceClient {
     input: CreateProfileInput,
   ): Effect.Effect<
     CreateProfileOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateProfile", input);
   }
@@ -94,14 +60,7 @@ export class WellArchitected extends AWSServiceClient {
     input: CreateProfileShareInput,
   ): Effect.Effect<
     CreateProfileShareOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateProfileShare", input);
   }
@@ -109,14 +68,7 @@ export class WellArchitected extends AWSServiceClient {
     input: CreateReviewTemplateInput,
   ): Effect.Effect<
     CreateReviewTemplateOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateReviewTemplate", input);
   }
@@ -124,14 +76,7 @@ export class WellArchitected extends AWSServiceClient {
     input: CreateTemplateShareInput,
   ): Effect.Effect<
     CreateTemplateShareOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateTemplateShare", input);
   }
@@ -139,14 +84,7 @@ export class WellArchitected extends AWSServiceClient {
     input: CreateWorkloadInput,
   ): Effect.Effect<
     CreateWorkloadOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateWorkload", input);
   }
@@ -154,14 +92,7 @@ export class WellArchitected extends AWSServiceClient {
     input: CreateWorkloadShareInput,
   ): Effect.Effect<
     CreateWorkloadShareOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateWorkloadShare", input);
   }
@@ -169,13 +100,7 @@ export class WellArchitected extends AWSServiceClient {
     input: DeleteLensInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteLens", input);
   }
@@ -183,13 +108,7 @@ export class WellArchitected extends AWSServiceClient {
     input: DeleteLensShareInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteLensShare", input);
   }
@@ -197,13 +116,7 @@ export class WellArchitected extends AWSServiceClient {
     input: DeleteProfileInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteProfile", input);
   }
@@ -211,13 +124,7 @@ export class WellArchitected extends AWSServiceClient {
     input: DeleteProfileShareInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteProfileShare", input);
   }
@@ -225,13 +132,7 @@ export class WellArchitected extends AWSServiceClient {
     input: DeleteReviewTemplateInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteReviewTemplate", input);
   }
@@ -239,13 +140,7 @@ export class WellArchitected extends AWSServiceClient {
     input: DeleteTemplateShareInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteTemplateShare", input);
   }
@@ -253,13 +148,7 @@ export class WellArchitected extends AWSServiceClient {
     input: DeleteWorkloadInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteWorkload", input);
   }
@@ -267,13 +156,7 @@ export class WellArchitected extends AWSServiceClient {
     input: DeleteWorkloadShareInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteWorkloadShare", input);
   }
@@ -281,13 +164,7 @@ export class WellArchitected extends AWSServiceClient {
     input: DisassociateLensesInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateLenses", input);
   }
@@ -295,13 +172,7 @@ export class WellArchitected extends AWSServiceClient {
     input: DisassociateProfilesInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateProfiles", input);
   }
@@ -309,12 +180,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ExportLensInput,
   ): Effect.Effect<
     ExportLensOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ExportLens", input);
   }
@@ -322,12 +188,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetAnswerInput,
   ): Effect.Effect<
     GetAnswerOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAnswer", input);
   }
@@ -335,22 +196,15 @@ export class WellArchitected extends AWSServiceClient {
     input: GetConsolidatedReportInput,
   ): Effect.Effect<
     GetConsolidatedReportOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetConsolidatedReport", input);
   }
-  getGlobalSettings(input: {}): Effect.Effect<
+  getGlobalSettings(
+    input: {},
+  ): Effect.Effect<
     GetGlobalSettingsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetGlobalSettings", input);
   }
@@ -358,12 +212,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetLensInput,
   ): Effect.Effect<
     GetLensOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetLens", input);
   }
@@ -371,12 +220,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetLensReviewInput,
   ): Effect.Effect<
     GetLensReviewOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetLensReview", input);
   }
@@ -384,12 +228,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetLensReviewReportInput,
   ): Effect.Effect<
     GetLensReviewReportOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetLensReviewReport", input);
   }
@@ -397,12 +236,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetLensVersionDifferenceInput,
   ): Effect.Effect<
     GetLensVersionDifferenceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetLensVersionDifference", input);
   }
@@ -410,12 +244,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetMilestoneInput,
   ): Effect.Effect<
     GetMilestoneOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMilestone", input);
   }
@@ -423,12 +252,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetProfileInput,
   ): Effect.Effect<
     GetProfileOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetProfile", input);
   }
@@ -436,12 +260,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetProfileTemplateInput,
   ): Effect.Effect<
     GetProfileTemplateOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetProfileTemplate", input);
   }
@@ -449,12 +268,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetReviewTemplateInput,
   ): Effect.Effect<
     GetReviewTemplateOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetReviewTemplate", input);
   }
@@ -462,12 +276,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetReviewTemplateAnswerInput,
   ): Effect.Effect<
     GetReviewTemplateAnswerOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetReviewTemplateAnswer", input);
   }
@@ -475,12 +284,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetReviewTemplateLensReviewInput,
   ): Effect.Effect<
     GetReviewTemplateLensReviewOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetReviewTemplateLensReview", input);
   }
@@ -488,12 +292,7 @@ export class WellArchitected extends AWSServiceClient {
     input: GetWorkloadInput,
   ): Effect.Effect<
     GetWorkloadOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWorkload", input);
   }
@@ -501,14 +300,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ImportLensInput,
   ): Effect.Effect<
     ImportLensOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ImportLens", input);
   }
@@ -516,12 +308,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListAnswersInput,
   ): Effect.Effect<
     ListAnswersOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAnswers", input);
   }
@@ -529,12 +316,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListCheckDetailsInput,
   ): Effect.Effect<
     ListCheckDetailsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCheckDetails", input);
   }
@@ -542,12 +324,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListCheckSummariesInput,
   ): Effect.Effect<
     ListCheckSummariesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCheckSummaries", input);
   }
@@ -555,11 +332,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListLensesInput,
   ): Effect.Effect<
     ListLensesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListLenses", input);
   }
@@ -567,12 +340,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListLensReviewImprovementsInput,
   ): Effect.Effect<
     ListLensReviewImprovementsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListLensReviewImprovements", input);
   }
@@ -580,12 +348,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListLensReviewsInput,
   ): Effect.Effect<
     ListLensReviewsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListLensReviews", input);
   }
@@ -593,12 +356,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListLensSharesInput,
   ): Effect.Effect<
     ListLensSharesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListLensShares", input);
   }
@@ -606,12 +364,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListMilestonesInput,
   ): Effect.Effect<
     ListMilestonesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListMilestones", input);
   }
@@ -619,11 +372,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListNotificationsInput,
   ): Effect.Effect<
     ListNotificationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListNotifications", input);
   }
@@ -631,11 +380,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListProfileNotificationsInput,
   ): Effect.Effect<
     ListProfileNotificationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProfileNotifications", input);
   }
@@ -643,11 +388,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListProfilesInput,
   ): Effect.Effect<
     ListProfilesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProfiles", input);
   }
@@ -655,12 +396,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListProfileSharesInput,
   ): Effect.Effect<
     ListProfileSharesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProfileShares", input);
   }
@@ -668,12 +404,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListReviewTemplateAnswersInput,
   ): Effect.Effect<
     ListReviewTemplateAnswersOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListReviewTemplateAnswers", input);
   }
@@ -681,11 +412,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListReviewTemplatesInput,
   ): Effect.Effect<
     ListReviewTemplatesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListReviewTemplates", input);
   }
@@ -693,11 +420,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListShareInvitationsInput,
   ): Effect.Effect<
     ListShareInvitationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListShareInvitations", input);
   }
@@ -713,12 +436,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListTemplateSharesInput,
   ): Effect.Effect<
     ListTemplateSharesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTemplateShares", input);
   }
@@ -726,11 +444,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListWorkloadsInput,
   ): Effect.Effect<
     ListWorkloadsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListWorkloads", input);
   }
@@ -738,12 +452,7 @@ export class WellArchitected extends AWSServiceClient {
     input: ListWorkloadSharesInput,
   ): Effect.Effect<
     ListWorkloadSharesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListWorkloadShares", input);
   }
@@ -767,13 +476,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateAnswerInput,
   ): Effect.Effect<
     UpdateAnswerOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAnswer", input);
   }
@@ -781,12 +484,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateGlobalSettingsInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateGlobalSettings", input);
   }
@@ -794,13 +492,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateIntegrationInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateIntegration", input);
   }
@@ -808,13 +500,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateLensReviewInput,
   ): Effect.Effect<
     UpdateLensReviewOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateLensReview", input);
   }
@@ -822,13 +508,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateProfileInput,
   ): Effect.Effect<
     UpdateProfileOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateProfile", input);
   }
@@ -836,13 +516,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateReviewTemplateInput,
   ): Effect.Effect<
     UpdateReviewTemplateOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateReviewTemplate", input);
   }
@@ -850,13 +524,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateReviewTemplateAnswerInput,
   ): Effect.Effect<
     UpdateReviewTemplateAnswerOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateReviewTemplateAnswer", input);
   }
@@ -864,13 +532,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateReviewTemplateLensReviewInput,
   ): Effect.Effect<
     UpdateReviewTemplateLensReviewOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateReviewTemplateLensReview", input);
   }
@@ -878,13 +540,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateShareInvitationInput,
   ): Effect.Effect<
     UpdateShareInvitationOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateShareInvitation", input);
   }
@@ -892,13 +548,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateWorkloadInput,
   ): Effect.Effect<
     UpdateWorkloadOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateWorkload", input);
   }
@@ -906,13 +556,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpdateWorkloadShareInput,
   ): Effect.Effect<
     UpdateWorkloadShareOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateWorkloadShare", input);
   }
@@ -920,14 +564,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpgradeLensReviewInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpgradeLensReview", input);
   }
@@ -935,14 +572,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpgradeProfileVersionInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpgradeProfileVersion", input);
   }
@@ -950,13 +580,7 @@ export class WellArchitected extends AWSServiceClient {
     input: UpgradeReviewTemplateLensReviewInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpgradeReviewTemplateLensReview", input);
   }
@@ -1010,12 +634,7 @@ export interface Answer {
   Reason?: AnswerReason;
   JiraConfiguration?: JiraConfiguration;
 }
-export type AnswerReason =
-  | "OUT_OF_SCOPE"
-  | "BUSINESS_PRIORITIES"
-  | "ARCHITECTURE_CONSTRAINTS"
-  | "OTHER"
-  | "NONE";
+export type AnswerReason = "OUT_OF_SCOPE" | "BUSINESS_PRIORITIES" | "ARCHITECTURE_CONSTRAINTS" | "OTHER" | "NONE";
 export type AnswerSummaries = Array<AnswerSummary>;
 export interface AnswerSummary {
   QuestionId?: string;
@@ -1069,22 +688,13 @@ export interface CheckDetail {
   UpdatedAt?: Date | string;
 }
 export type CheckDetails = Array<CheckDetail>;
-export type CheckFailureReason =
-  | "ASSUME_ROLE_ERROR"
-  | "ACCESS_DENIED"
-  | "UNKNOWN_ERROR"
-  | "PREMIUM_SUPPORT_REQUIRED";
+export type CheckFailureReason = "ASSUME_ROLE_ERROR" | "ACCESS_DENIED" | "UNKNOWN_ERROR" | "PREMIUM_SUPPORT_REQUIRED";
 export type CheckId = string;
 
 export type CheckName = string;
 
 export type CheckProvider = "TRUSTED_ADVISOR";
-export type CheckStatus =
-  | "OKAY"
-  | "WARNING"
-  | "ERROR"
-  | "NOT_AVAILABLE"
-  | "FETCH_FAILED";
+export type CheckStatus = "OKAY" | "WARNING" | "ERROR" | "NOT_AVAILABLE" | "FETCH_FAILED";
 export type CheckStatusCount = number;
 
 export type CheckSummaries = Array<CheckSummary>;
@@ -1142,12 +752,7 @@ export interface ChoiceImprovementPlan {
 export type ChoiceImprovementPlans = Array<ChoiceImprovementPlan>;
 export type ChoiceNotes = string;
 
-export type ChoiceReason =
-  | "OUT_OF_SCOPE"
-  | "BUSINESS_PRIORITIES"
-  | "ARCHITECTURE_CONSTRAINTS"
-  | "OTHER"
-  | "NONE";
+export type ChoiceReason = "OUT_OF_SCOPE" | "BUSINESS_PRIORITIES" | "ARCHITECTURE_CONSTRAINTS" | "OTHER" | "NONE";
 export type Choices = Array<Choice>;
 export type ChoiceStatus = "SELECTED" | "NOT_APPLICABLE" | "UNSELECTED";
 export type ChoiceTitle = string;
@@ -1434,7 +1039,8 @@ export interface GetProfileInput {
 export interface GetProfileOutput {
   Profile?: Profile;
 }
-export interface GetProfileTemplateInput {}
+export interface GetProfileTemplateInput {
+}
 export interface GetProfileTemplateOutput {
   ProfileTemplate?: ProfileTemplate;
 }
@@ -1592,12 +1198,7 @@ export interface LensShareSummary {
   Status?: ShareStatus;
   StatusMessage?: string;
 }
-export type LensStatus =
-  | "CURRENT"
-  | "NOT_CURRENT"
-  | "DEPRECATED"
-  | "DELETED"
-  | "UNSHARED";
+export type LensStatus = "CURRENT" | "NOT_CURRENT" | "DEPRECATED" | "DELETED" | "UNSHARED";
 export type LensStatusType = "ALL" | "DRAFT" | "PUBLISHED";
 export type LensSummaries = Array<LensSummary>;
 export interface LensSummary {
@@ -1893,9 +1494,7 @@ export interface NotificationSummary {
   Type?: NotificationType;
   LensUpgradeSummary?: LensUpgradeSummary;
 }
-export type NotificationType =
-  | "LENS_VERSION_UPGRADED"
-  | "LENS_VERSION_DEPRECATED";
+export type NotificationType = "LENS_VERSION_UPGRADED" | "LENS_VERSION_DEPRECATED";
 export type OrganizationSharingStatus = "ENABLED" | "DISABLED";
 export type PermissionType = "READONLY" | "CONTRIBUTOR";
 export interface PillarDifference {
@@ -1960,9 +1559,7 @@ export interface ProfileNotificationSummary {
   WorkloadId?: string;
   WorkloadName?: string;
 }
-export type ProfileNotificationType =
-  | "PROFILE_ANSWERS_UPDATED"
-  | "PROFILE_DELETED";
+export type ProfileNotificationType = "PROFILE_ANSWERS_UPDATED" | "PROFILE_DELETED";
 export type ProfileOwnerType = "SELF" | "SHARED";
 export interface ProfileQuestion {
   QuestionId?: string;
@@ -2111,8 +1708,7 @@ export interface ReviewTemplateLensReview {
   QuestionCounts?: Record<Question, number>;
   NextToken?: string;
 }
-export type ReviewTemplatePillarReviewSummaries =
-  Array<ReviewTemplatePillarReviewSummary>;
+export type ReviewTemplatePillarReviewSummaries = Array<ReviewTemplatePillarReviewSummary>;
 export interface ReviewTemplatePillarReviewSummary {
   PillarId?: string;
   PillarName?: string;
@@ -2189,15 +1785,7 @@ export interface ShareInvitationSummary {
   TemplateArn?: string;
 }
 export type ShareResourceType = "WORKLOAD" | "LENS" | "PROFILE" | "TEMPLATE";
-export type ShareStatus =
-  | "ACCEPTED"
-  | "REJECTED"
-  | "PENDING"
-  | "REVOKED"
-  | "EXPIRED"
-  | "ASSOCIATING"
-  | "ASSOCIATED"
-  | "FAILED";
+export type ShareStatus = "ACCEPTED" | "REJECTED" | "PENDING" | "REVOKED" | "EXPIRED" | "ASSOCIATING" | "ASSOCIATED" | "FAILED";
 export type StatusMessage = string;
 
 export type Subdomain = string;
@@ -2210,7 +1798,8 @@ export interface TagResourceInput {
   WorkloadArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export type TemplateArn = string;
@@ -2243,7 +1832,8 @@ export interface UntagResourceInput {
   WorkloadArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateAnswerInput {
   WorkloadId: string;
   LensAlias: string;
@@ -2396,11 +1986,7 @@ export interface ValidationExceptionField {
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
 export type ValidationExceptionFieldName = string;
 
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export interface VersionDifferences {
   PillarDifferences?: Array<PillarDifference>;
 }
@@ -2450,12 +2036,7 @@ export interface WorkloadDiscoveryConfig {
 export type WorkloadEnvironment = "PRODUCTION" | "PREPRODUCTION";
 export type WorkloadId = string;
 
-export type WorkloadImprovementStatus =
-  | "NOT_APPLICABLE"
-  | "NOT_STARTED"
-  | "IN_PROGRESS"
-  | "COMPLETE"
-  | "RISK_ACKNOWLEDGED";
+export type WorkloadImprovementStatus = "NOT_APPLICABLE" | "NOT_STARTED" | "IN_PROGRESS" | "COMPLETE" | "RISK_ACKNOWLEDGED";
 export type WorkloadIndustry = string;
 
 export type WorkloadIndustryType = string;
@@ -3412,3 +2993,4 @@ export declare namespace UpgradeReviewTemplateLensReview {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -3,21 +3,18 @@ import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IoTDataPlane extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iot-data-plane", new RestJson1Protocol(), cfg);
+  }
+
   deleteThingShadow(
     input: DeleteThingShadowRequest,
   ): Effect.Effect<
     DeleteThingShadowResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | MethodNotAllowedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnsupportedDocumentEncodingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | MethodNotAllowedException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnsupportedDocumentEncodingException | CommonAwsError
   > {
     return this.call("DeleteThingShadow", input);
   }
@@ -25,14 +22,7 @@ export class IoTDataPlane extends AWSServiceClient {
     input: GetRetainedMessageRequest,
   ): Effect.Effect<
     GetRetainedMessageResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | MethodNotAllowedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | MethodNotAllowedException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetRetainedMessage", input);
   }
@@ -40,15 +30,7 @@ export class IoTDataPlane extends AWSServiceClient {
     input: GetThingShadowRequest,
   ): Effect.Effect<
     GetThingShadowResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | MethodNotAllowedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnsupportedDocumentEncodingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | MethodNotAllowedException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnsupportedDocumentEncodingException | CommonAwsError
   > {
     return this.call("GetThingShadow", input);
   }
@@ -56,14 +38,7 @@ export class IoTDataPlane extends AWSServiceClient {
     input: ListNamedShadowsForThingRequest,
   ): Effect.Effect<
     ListNamedShadowsForThingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | MethodNotAllowedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | MethodNotAllowedException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListNamedShadowsForThing", input);
   }
@@ -71,13 +46,7 @@ export class IoTDataPlane extends AWSServiceClient {
     input: ListRetainedMessagesRequest,
   ): Effect.Effect<
     ListRetainedMessagesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | MethodNotAllowedException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | MethodNotAllowedException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListRetainedMessages", input);
   }
@@ -85,12 +54,7 @@ export class IoTDataPlane extends AWSServiceClient {
     input: PublishRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | MethodNotAllowedException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | MethodNotAllowedException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("Publish", input);
   }
@@ -98,16 +62,7 @@ export class IoTDataPlane extends AWSServiceClient {
     input: UpdateThingShadowRequest,
   ): Effect.Effect<
     UpdateThingShadowResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | MethodNotAllowedException
-    | RequestEntityTooLargeException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnsupportedDocumentEncodingException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidRequestException | MethodNotAllowedException | RequestEntityTooLargeException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnsupportedDocumentEncodingException | CommonAwsError
   > {
     return this.call("UpdateThingShadow", input);
   }
@@ -374,3 +329,4 @@ export declare namespace UpdateThingShadow {
     | UnsupportedDocumentEncodingException
     | CommonAwsError;
 }
+

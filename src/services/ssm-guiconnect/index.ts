@@ -1,33 +1,26 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SSMGuiConnect extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("ssm-guiconnect", new RestJson1Protocol(), cfg);
+  }
+
   deleteConnectionRecordingPreferences(
     input: DeleteConnectionRecordingPreferencesRequest,
   ): Effect.Effect<
     DeleteConnectionRecordingPreferencesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteConnectionRecordingPreferences", input);
   }
-  getConnectionRecordingPreferences(input: {}): Effect.Effect<
+  getConnectionRecordingPreferences(
+    input: {},
+  ): Effect.Effect<
     GetConnectionRecordingPreferencesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetConnectionRecordingPreferences", input);
   }
@@ -35,14 +28,7 @@ export class SSMGuiConnect extends AWSServiceClient {
     input: UpdateConnectionRecordingPreferencesRequest,
   ): Effect.Effect<
     UpdateConnectionRecordingPreferencesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateConnectionRecordingPreferences", input);
   }
@@ -170,3 +156,4 @@ export declare namespace UpdateConnectionRecordingPreferences {
     | ValidationException
     | CommonAwsError;
 }
+

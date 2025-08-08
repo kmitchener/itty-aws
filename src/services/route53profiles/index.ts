@@ -1,21 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Route53Profiles extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("route53profiles", new RestJson1Protocol(), cfg);
+  }
+
   associateProfile(
     input: AssociateProfileRequest,
   ): Effect.Effect<
     AssociateProfileResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InvalidParameterException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateProfile", input);
   }
@@ -23,15 +20,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: AssociateResourceToProfileRequest,
   ): Effect.Effect<
     AssociateResourceToProfileResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateResourceToProfile", input);
   }
@@ -39,12 +28,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: CreateProfileRequest,
   ): Effect.Effect<
     CreateProfileResponse,
-    | AccessDeniedException
-    | InvalidParameterException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InvalidParameterException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateProfile", input);
   }
@@ -52,12 +36,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: DeleteProfileRequest,
   ): Effect.Effect<
     DeleteProfileResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteProfile", input);
   }
@@ -65,13 +44,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: DisassociateProfileRequest,
   ): Effect.Effect<
     DisassociateProfileResponse,
-    | AccessDeniedException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateProfile", input);
   }
@@ -79,15 +52,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: DisassociateResourceFromProfileRequest,
   ): Effect.Effect<
     DisassociateResourceFromProfileResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateResourceFromProfile", input);
   }
@@ -95,11 +60,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: GetProfileRequest,
   ): Effect.Effect<
     GetProfileResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetProfile", input);
   }
@@ -107,11 +68,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: GetProfileAssociationRequest,
   ): Effect.Effect<
     GetProfileAssociationResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetProfileAssociation", input);
   }
@@ -119,12 +76,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: GetProfileResourceAssociationRequest,
   ): Effect.Effect<
     GetProfileResourceAssociationResponse,
-    | AccessDeniedException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetProfileResourceAssociation", input);
   }
@@ -132,12 +84,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: ListProfileAssociationsRequest,
   ): Effect.Effect<
     ListProfileAssociationsResponse,
-    | AccessDeniedException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InvalidNextTokenException | InvalidParameterException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProfileAssociations", input);
   }
@@ -145,14 +92,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: ListProfileResourceAssociationsRequest,
   ): Effect.Effect<
     ListProfileResourceAssociationsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProfileResourceAssociations", input);
   }
@@ -160,12 +100,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: ListProfilesRequest,
   ): Effect.Effect<
     ListProfilesResponse,
-    | AccessDeniedException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InvalidNextTokenException | InvalidParameterException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProfiles", input);
   }
@@ -173,12 +108,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -186,11 +116,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -198,12 +124,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -211,15 +132,7 @@ export class Route53Profiles extends AWSServiceClient {
     input: UpdateProfileResourceAssociationRequest,
   ): Effect.Effect<
     UpdateProfileResourceAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateProfileResourceAssociation", input);
   }
@@ -411,13 +324,7 @@ export interface ProfileResourceAssociation {
   ModificationTime?: Date | string;
 }
 export type ProfileResourceAssociations = Array<ProfileResourceAssociation>;
-export type ProfileStatus =
-  | "COMPLETE"
-  | "DELETING"
-  | "UPDATING"
-  | "CREATING"
-  | "DELETED"
-  | "FAILED";
+export type ProfileStatus = "COMPLETE" | "DELETING" | "UPDATING" | "CREATING" | "DELETED" | "FAILED";
 export interface ProfileSummary {
   Id?: string;
   Arn?: string;
@@ -459,7 +366,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -471,7 +379,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateProfileResourceAssociationRequest {
   ProfileResourceAssociationId: string;
   Name?: string;
@@ -688,3 +597,4 @@ export declare namespace UpdateProfileResourceAssociation {
     | ValidationException
     | CommonAwsError;
 }
+

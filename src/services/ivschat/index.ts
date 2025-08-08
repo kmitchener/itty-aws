@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ivschat extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("ivschat", new RestJson1Protocol(), cfg);
+  }
+
   createChatToken(
     input: CreateChatTokenRequest,
   ): Effect.Effect<
     CreateChatTokenResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CreateChatToken", input);
   }
@@ -19,13 +20,7 @@ export class ivschat extends AWSServiceClient {
     input: CreateLoggingConfigurationRequest,
   ): Effect.Effect<
     CreateLoggingConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateLoggingConfiguration", input);
   }
@@ -33,13 +28,7 @@ export class ivschat extends AWSServiceClient {
     input: CreateRoomRequest,
   ): Effect.Effect<
     CreateRoomResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRoom", input);
   }
@@ -47,12 +36,7 @@ export class ivschat extends AWSServiceClient {
     input: DeleteLoggingConfigurationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteLoggingConfiguration", input);
   }
@@ -60,12 +44,7 @@ export class ivschat extends AWSServiceClient {
     input: DeleteMessageRequest,
   ): Effect.Effect<
     DeleteMessageResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteMessage", input);
   }
@@ -73,11 +52,7 @@ export class ivschat extends AWSServiceClient {
     input: DeleteRoomRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRoom", input);
   }
@@ -85,12 +60,7 @@ export class ivschat extends AWSServiceClient {
     input: DisconnectUserRequest,
   ): Effect.Effect<
     DisconnectUserResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisconnectUser", input);
   }
@@ -98,10 +68,7 @@ export class ivschat extends AWSServiceClient {
     input: GetLoggingConfigurationRequest,
   ): Effect.Effect<
     GetLoggingConfigurationResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetLoggingConfiguration", input);
   }
@@ -109,10 +76,7 @@ export class ivschat extends AWSServiceClient {
     input: GetRoomRequest,
   ): Effect.Effect<
     GetRoomResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetRoom", input);
   }
@@ -128,10 +92,7 @@ export class ivschat extends AWSServiceClient {
     input: ListRoomsRequest,
   ): Effect.Effect<
     ListRoomsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListRooms", input);
   }
@@ -139,10 +100,7 @@ export class ivschat extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -150,12 +108,7 @@ export class ivschat extends AWSServiceClient {
     input: SendEventRequest,
   ): Effect.Effect<
     SendEventResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendEvent", input);
   }
@@ -163,10 +116,7 @@ export class ivschat extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -174,10 +124,7 @@ export class ivschat extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -185,12 +132,7 @@ export class ivschat extends AWSServiceClient {
     input: UpdateLoggingConfigurationRequest,
   ): Effect.Effect<
     UpdateLoggingConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateLoggingConfiguration", input);
   }
@@ -198,11 +140,7 @@ export class ivschat extends AWSServiceClient {
     input: UpdateRoomRequest,
   ): Effect.Effect<
     UpdateRoomResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRoom", input);
   }
@@ -306,20 +244,14 @@ interface _DestinationConfiguration {
   firehose?: FirehoseDestinationConfiguration;
 }
 
-export type DestinationConfiguration =
-  | (_DestinationConfiguration & { s3: S3DestinationConfiguration })
-  | (_DestinationConfiguration & {
-      cloudWatchLogs: CloudWatchLogsDestinationConfiguration;
-    })
-  | (_DestinationConfiguration & {
-      firehose: FirehoseDestinationConfiguration;
-    });
+export type DestinationConfiguration = (_DestinationConfiguration & { s3: S3DestinationConfiguration }) | (_DestinationConfiguration & { cloudWatchLogs: CloudWatchLogsDestinationConfiguration }) | (_DestinationConfiguration & { firehose: FirehoseDestinationConfiguration });
 export interface DisconnectUserRequest {
   roomIdentifier: string;
   userId: string;
   reason?: string;
 }
-export interface DisconnectUserResponse {}
+export interface DisconnectUserResponse {
+}
 export type ErrorMessage = string;
 
 export type EventAttributes = Record<string, string>;
@@ -505,7 +437,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -523,7 +456,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateLoggingConfigurationRequest {
   identifier: string;
   name?: string;
@@ -764,3 +698,4 @@ export declare namespace UpdateRoom {
     | ValidationException
     | CommonAwsError;
 }
+

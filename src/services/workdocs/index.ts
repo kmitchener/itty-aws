@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class WorkDocs extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("workdocs", new RestJson1Protocol(), cfg);
+  }
+
   abortDocumentVersionUpload(
     input: AbortDocumentVersionUploadRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    ConcurrentModificationException | EntityNotExistsException | FailedDependencyException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("AbortDocumentVersionUpload", input);
   }
@@ -22,12 +20,7 @@ export class WorkDocs extends AWSServiceClient {
     input: ActivateUserRequest,
   ): Effect.Effect<
     ActivateUserResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("ActivateUser", input);
   }
@@ -35,12 +28,7 @@ export class WorkDocs extends AWSServiceClient {
     input: AddResourcePermissionsRequest,
   ): Effect.Effect<
     AddResourcePermissionsResponse,
-    | FailedDependencyException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    FailedDependencyException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("AddResourcePermissions", input);
   }
@@ -48,15 +36,7 @@ export class WorkDocs extends AWSServiceClient {
     input: CreateCommentRequest,
   ): Effect.Effect<
     CreateCommentResponse,
-    | DocumentLockedForCommentsException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidCommentOperationException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    DocumentLockedForCommentsException | EntityNotExistsException | FailedDependencyException | InvalidCommentOperationException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("CreateComment", input);
   }
@@ -64,14 +44,7 @@ export class WorkDocs extends AWSServiceClient {
     input: CreateCustomMetadataRequest,
   ): Effect.Effect<
     CreateCustomMetadataResponse,
-    | CustomMetadataLimitExceededException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    CustomMetadataLimitExceededException | EntityNotExistsException | FailedDependencyException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("CreateCustomMetadata", input);
   }
@@ -79,17 +52,7 @@ export class WorkDocs extends AWSServiceClient {
     input: CreateFolderRequest,
   ): Effect.Effect<
     CreateFolderResponse,
-    | ConcurrentModificationException
-    | ConflictingOperationException
-    | EntityAlreadyExistsException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | LimitExceededException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictingOperationException | EntityAlreadyExistsException | EntityNotExistsException | FailedDependencyException | LimitExceededException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("CreateFolder", input);
   }
@@ -97,13 +60,7 @@ export class WorkDocs extends AWSServiceClient {
     input: CreateLabelsRequest,
   ): Effect.Effect<
     CreateLabelsResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | TooManyLabelsException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | ServiceUnavailableException | TooManyLabelsException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("CreateLabels", input);
   }
@@ -111,11 +68,7 @@ export class WorkDocs extends AWSServiceClient {
     input: CreateNotificationSubscriptionRequest,
   ): Effect.Effect<
     CreateNotificationSubscriptionResponse,
-    | InvalidArgumentException
-    | ServiceUnavailableException
-    | TooManySubscriptionsException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    InvalidArgumentException | ServiceUnavailableException | TooManySubscriptionsException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("CreateNotificationSubscription", input);
   }
@@ -123,12 +76,7 @@ export class WorkDocs extends AWSServiceClient {
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | EntityAlreadyExistsException
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityAlreadyExistsException | FailedDependencyException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("CreateUser", input);
   }
@@ -136,12 +84,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DeactivateUserRequest,
   ): Effect.Effect<
     {},
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DeactivateUser", input);
   }
@@ -149,14 +92,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DeleteCommentRequest,
   ): Effect.Effect<
     {},
-    | DocumentLockedForCommentsException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    DocumentLockedForCommentsException | EntityNotExistsException | FailedDependencyException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DeleteComment", input);
   }
@@ -164,13 +100,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DeleteCustomMetadataRequest,
   ): Effect.Effect<
     DeleteCustomMetadataResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DeleteCustomMetadata", input);
   }
@@ -178,16 +108,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DeleteDocumentRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | ConflictingOperationException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | LimitExceededException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictingOperationException | EntityNotExistsException | FailedDependencyException | LimitExceededException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DeleteDocument", input);
   }
@@ -195,15 +116,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DeleteDocumentVersionRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | ConflictingOperationException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidOperationException
-    | ProhibitedStateException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictingOperationException | EntityNotExistsException | FailedDependencyException | InvalidOperationException | ProhibitedStateException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DeleteDocumentVersion", input);
   }
@@ -211,16 +124,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DeleteFolderRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | ConflictingOperationException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | LimitExceededException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictingOperationException | EntityNotExistsException | FailedDependencyException | LimitExceededException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DeleteFolder", input);
   }
@@ -228,14 +132,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DeleteFolderContentsRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    ConflictingOperationException | EntityNotExistsException | FailedDependencyException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DeleteFolderContents", input);
   }
@@ -243,13 +140,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DeleteLabelsRequest,
   ): Effect.Effect<
     DeleteLabelsResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DeleteLabels", input);
   }
@@ -257,11 +148,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DeleteNotificationSubscriptionRequest,
   ): Effect.Effect<
     {},
-    | EntityNotExistsException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DeleteNotificationSubscription", input);
   }
@@ -269,12 +156,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DeleteUserRequest,
   ): Effect.Effect<
     {},
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DeleteUser", input);
   }
@@ -282,12 +164,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DescribeActivitiesRequest,
   ): Effect.Effect<
     DescribeActivitiesResponse,
-    | FailedDependencyException
-    | InvalidArgumentException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    FailedDependencyException | InvalidArgumentException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DescribeActivities", input);
   }
@@ -295,13 +172,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DescribeCommentsRequest,
   ): Effect.Effect<
     DescribeCommentsResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DescribeComments", input);
   }
@@ -309,15 +180,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DescribeDocumentVersionsRequest,
   ): Effect.Effect<
     DescribeDocumentVersionsResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidArgumentException
-    | InvalidPasswordException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | InvalidArgumentException | InvalidPasswordException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DescribeDocumentVersions", input);
   }
@@ -325,13 +188,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DescribeFolderContentsRequest,
   ): Effect.Effect<
     DescribeFolderContentsResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidArgumentException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | InvalidArgumentException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DescribeFolderContents", input);
   }
@@ -339,11 +196,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DescribeGroupsRequest,
   ): Effect.Effect<
     DescribeGroupsResponse,
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    FailedDependencyException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DescribeGroups", input);
   }
@@ -351,10 +204,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DescribeNotificationSubscriptionsRequest,
   ): Effect.Effect<
     DescribeNotificationSubscriptionsResponse,
-    | EntityNotExistsException
-    | ServiceUnavailableException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | ServiceUnavailableException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DescribeNotificationSubscriptions", input);
   }
@@ -362,12 +212,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DescribeResourcePermissionsRequest,
   ): Effect.Effect<
     DescribeResourcePermissionsResponse,
-    | FailedDependencyException
-    | InvalidArgumentException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    FailedDependencyException | InvalidArgumentException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DescribeResourcePermissions", input);
   }
@@ -375,12 +220,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DescribeRootFoldersRequest,
   ): Effect.Effect<
     DescribeRootFoldersResponse,
-    | FailedDependencyException
-    | InvalidArgumentException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    FailedDependencyException | InvalidArgumentException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DescribeRootFolders", input);
   }
@@ -388,14 +228,7 @@ export class WorkDocs extends AWSServiceClient {
     input: DescribeUsersRequest,
   ): Effect.Effect<
     DescribeUsersResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidArgumentException
-    | RequestedEntityTooLargeException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | InvalidArgumentException | RequestedEntityTooLargeException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("DescribeUsers", input);
   }
@@ -403,12 +236,7 @@ export class WorkDocs extends AWSServiceClient {
     input: GetCurrentUserRequest,
   ): Effect.Effect<
     GetCurrentUserResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("GetCurrentUser", input);
   }
@@ -416,14 +244,7 @@ export class WorkDocs extends AWSServiceClient {
     input: GetDocumentRequest,
   ): Effect.Effect<
     GetDocumentResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidArgumentException
-    | InvalidPasswordException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | InvalidArgumentException | InvalidPasswordException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("GetDocument", input);
   }
@@ -431,12 +252,7 @@ export class WorkDocs extends AWSServiceClient {
     input: GetDocumentPathRequest,
   ): Effect.Effect<
     GetDocumentPathResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("GetDocumentPath", input);
   }
@@ -444,14 +260,7 @@ export class WorkDocs extends AWSServiceClient {
     input: GetDocumentVersionRequest,
   ): Effect.Effect<
     GetDocumentVersionResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidPasswordException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | InvalidPasswordException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("GetDocumentVersion", input);
   }
@@ -459,14 +268,7 @@ export class WorkDocs extends AWSServiceClient {
     input: GetFolderRequest,
   ): Effect.Effect<
     GetFolderResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidArgumentException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | InvalidArgumentException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("GetFolder", input);
   }
@@ -474,12 +276,7 @@ export class WorkDocs extends AWSServiceClient {
     input: GetFolderPathRequest,
   ): Effect.Effect<
     GetFolderPathResponse,
-    | EntityNotExistsException
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    EntityNotExistsException | FailedDependencyException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("GetFolderPath", input);
   }
@@ -487,12 +284,7 @@ export class WorkDocs extends AWSServiceClient {
     input: GetResourcesRequest,
   ): Effect.Effect<
     GetResourcesResponse,
-    | FailedDependencyException
-    | InvalidArgumentException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    FailedDependencyException | InvalidArgumentException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("GetResources", input);
   }
@@ -500,21 +292,7 @@ export class WorkDocs extends AWSServiceClient {
     input: InitiateDocumentVersionUploadRequest,
   ): Effect.Effect<
     InitiateDocumentVersionUploadResponse,
-    | DraftUploadOutOfSyncException
-    | EntityAlreadyExistsException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidArgumentException
-    | InvalidPasswordException
-    | LimitExceededException
-    | ProhibitedStateException
-    | ResourceAlreadyCheckedOutException
-    | ServiceUnavailableException
-    | StorageLimitExceededException
-    | StorageLimitWillExceedException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    DraftUploadOutOfSyncException | EntityAlreadyExistsException | EntityNotExistsException | FailedDependencyException | InvalidArgumentException | InvalidPasswordException | LimitExceededException | ProhibitedStateException | ResourceAlreadyCheckedOutException | ServiceUnavailableException | StorageLimitExceededException | StorageLimitWillExceedException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("InitiateDocumentVersionUpload", input);
   }
@@ -522,11 +300,7 @@ export class WorkDocs extends AWSServiceClient {
     input: RemoveAllResourcePermissionsRequest,
   ): Effect.Effect<
     {},
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    FailedDependencyException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("RemoveAllResourcePermissions", input);
   }
@@ -534,11 +308,7 @@ export class WorkDocs extends AWSServiceClient {
     input: RemoveResourcePermissionRequest,
   ): Effect.Effect<
     {},
-    | FailedDependencyException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    FailedDependencyException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("RemoveResourcePermission", input);
   }
@@ -546,15 +316,7 @@ export class WorkDocs extends AWSServiceClient {
     input: RestoreDocumentVersionsRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | ConflictingOperationException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidOperationException
-    | ProhibitedStateException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictingOperationException | EntityNotExistsException | FailedDependencyException | InvalidOperationException | ProhibitedStateException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("RestoreDocumentVersions", input);
   }
@@ -562,11 +324,7 @@ export class WorkDocs extends AWSServiceClient {
     input: SearchResourcesRequest,
   ): Effect.Effect<
     SearchResourcesResponse,
-    | InvalidArgumentException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    InvalidArgumentException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("SearchResources", input);
   }
@@ -574,17 +332,7 @@ export class WorkDocs extends AWSServiceClient {
     input: UpdateDocumentRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | ConflictingOperationException
-    | EntityAlreadyExistsException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | LimitExceededException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictingOperationException | EntityAlreadyExistsException | EntityNotExistsException | FailedDependencyException | LimitExceededException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("UpdateDocument", input);
   }
@@ -592,15 +340,7 @@ export class WorkDocs extends AWSServiceClient {
     input: UpdateDocumentVersionRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | InvalidOperationException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    ConcurrentModificationException | EntityNotExistsException | FailedDependencyException | InvalidOperationException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("UpdateDocumentVersion", input);
   }
@@ -608,17 +348,7 @@ export class WorkDocs extends AWSServiceClient {
     input: UpdateFolderRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | ConflictingOperationException
-    | EntityAlreadyExistsException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | LimitExceededException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictingOperationException | EntityAlreadyExistsException | EntityNotExistsException | FailedDependencyException | LimitExceededException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("UpdateFolder", input);
   }
@@ -626,16 +356,7 @@ export class WorkDocs extends AWSServiceClient {
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    | DeactivatingLastSystemUserException
-    | EntityNotExistsException
-    | FailedDependencyException
-    | IllegalUserStateException
-    | InvalidArgumentException
-    | ProhibitedStateException
-    | ServiceUnavailableException
-    | UnauthorizedOperationException
-    | UnauthorizedResourceAccessException
-    | CommonAwsError
+    DeactivatingLastSystemUserException | EntityNotExistsException | FailedDependencyException | IllegalUserStateException | InvalidArgumentException | ProhibitedStateException | ServiceUnavailableException | UnauthorizedOperationException | UnauthorizedResourceAccessException | CommonAwsError
   > {
     return this.call("UpdateUser", input);
   }
@@ -670,40 +391,7 @@ export interface Activity {
 }
 export type ActivityNamesFilterType = string;
 
-export type ActivityType =
-  | "DOCUMENT_CHECKED_IN"
-  | "DOCUMENT_CHECKED_OUT"
-  | "DOCUMENT_RENAMED"
-  | "DOCUMENT_VERSION_UPLOADED"
-  | "DOCUMENT_VERSION_DELETED"
-  | "DOCUMENT_VERSION_VIEWED"
-  | "DOCUMENT_VERSION_DOWNLOADED"
-  | "DOCUMENT_RECYCLED"
-  | "DOCUMENT_RESTORED"
-  | "DOCUMENT_REVERTED"
-  | "DOCUMENT_SHARED"
-  | "DOCUMENT_UNSHARED"
-  | "DOCUMENT_SHARE_PERMISSION_CHANGED"
-  | "DOCUMENT_SHAREABLE_LINK_CREATED"
-  | "DOCUMENT_SHAREABLE_LINK_REMOVED"
-  | "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED"
-  | "DOCUMENT_MOVED"
-  | "DOCUMENT_COMMENT_ADDED"
-  | "DOCUMENT_COMMENT_DELETED"
-  | "DOCUMENT_ANNOTATION_ADDED"
-  | "DOCUMENT_ANNOTATION_DELETED"
-  | "FOLDER_CREATED"
-  | "FOLDER_DELETED"
-  | "FOLDER_RENAMED"
-  | "FOLDER_RECYCLED"
-  | "FOLDER_RESTORED"
-  | "FOLDER_SHARED"
-  | "FOLDER_UNSHARED"
-  | "FOLDER_SHARE_PERMISSION_CHANGED"
-  | "FOLDER_SHAREABLE_LINK_CREATED"
-  | "FOLDER_SHAREABLE_LINK_REMOVED"
-  | "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED"
-  | "FOLDER_MOVED";
+export type ActivityType = "DOCUMENT_CHECKED_IN" | "DOCUMENT_CHECKED_OUT" | "DOCUMENT_RENAMED" | "DOCUMENT_VERSION_UPLOADED" | "DOCUMENT_VERSION_DELETED" | "DOCUMENT_VERSION_VIEWED" | "DOCUMENT_VERSION_DOWNLOADED" | "DOCUMENT_RECYCLED" | "DOCUMENT_RESTORED" | "DOCUMENT_REVERTED" | "DOCUMENT_SHARED" | "DOCUMENT_UNSHARED" | "DOCUMENT_SHARE_PERMISSION_CHANGED" | "DOCUMENT_SHAREABLE_LINK_CREATED" | "DOCUMENT_SHAREABLE_LINK_REMOVED" | "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED" | "DOCUMENT_MOVED" | "DOCUMENT_COMMENT_ADDED" | "DOCUMENT_COMMENT_DELETED" | "DOCUMENT_ANNOTATION_ADDED" | "DOCUMENT_ANNOTATION_DELETED" | "FOLDER_CREATED" | "FOLDER_DELETED" | "FOLDER_RENAMED" | "FOLDER_RECYCLED" | "FOLDER_RESTORED" | "FOLDER_SHARED" | "FOLDER_UNSHARED" | "FOLDER_SHARE_PERMISSION_CHANGED" | "FOLDER_SHAREABLE_LINK_CREATED" | "FOLDER_SHAREABLE_LINK_REMOVED" | "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED" | "FOLDER_MOVED";
 export type AdditionalResponseFieldsList = Array<AdditionalResponseFieldType>;
 export type AdditionalResponseFieldType = "WEBURL";
 export interface AddResourcePermissionsRequest {
@@ -756,16 +444,7 @@ export declare class ConflictingOperationException extends EffectData.TaggedErro
 )<{
   readonly Message?: string;
 }> {}
-export type ContentCategoryType =
-  | "IMAGE"
-  | "DOCUMENT"
-  | "PDF"
-  | "SPREADSHEET"
-  | "PRESENTATION"
-  | "AUDIO"
-  | "VIDEO"
-  | "SOURCE_CODE"
-  | "OTHER";
+export type ContentCategoryType = "IMAGE" | "DOCUMENT" | "PDF" | "SPREADSHEET" | "PRESENTATION" | "AUDIO" | "VIDEO" | "SOURCE_CODE" | "OTHER";
 export interface CreateCommentRequest {
   AuthenticationToken?: string;
   DocumentId: string;
@@ -785,7 +464,8 @@ export interface CreateCustomMetadataRequest {
   VersionId?: string;
   CustomMetadata: Record<string, string>;
 }
-export interface CreateCustomMetadataResponse {}
+export interface CreateCustomMetadataResponse {
+}
 export interface CreateFolderRequest {
   AuthenticationToken?: string;
   Name?: string;
@@ -799,7 +479,8 @@ export interface CreateLabelsRequest {
   Labels: Array<string>;
   AuthenticationToken?: string;
 }
-export interface CreateLabelsResponse {}
+export interface CreateLabelsResponse {
+}
 export interface CreateNotificationSubscriptionRequest {
   OrganizationId: string;
   Endpoint: string;
@@ -861,7 +542,8 @@ export interface DeleteCustomMetadataRequest {
   Keys?: Array<string>;
   DeleteAll?: boolean;
 }
-export interface DeleteCustomMetadataResponse {}
+export interface DeleteCustomMetadataResponse {
+}
 export interface DeleteDocumentRequest {
   AuthenticationToken?: string;
   DocumentId: string;
@@ -886,7 +568,8 @@ export interface DeleteLabelsRequest {
   Labels?: Array<string>;
   DeleteAll?: boolean;
 }
-export interface DeleteLabelsResponse {}
+export interface DeleteLabelsResponse {
+}
 export interface DeleteNotificationSubscriptionRequest {
   SubscriptionId: string;
   OrganizationId: string;
@@ -1226,38 +909,7 @@ export declare class InvalidPasswordException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type LanguageCodeType =
-  | "AR"
-  | "BG"
-  | "BN"
-  | "DA"
-  | "DE"
-  | "CS"
-  | "EL"
-  | "EN"
-  | "ES"
-  | "FA"
-  | "FI"
-  | "FR"
-  | "HI"
-  | "HU"
-  | "ID"
-  | "IT"
-  | "JA"
-  | "KO"
-  | "LT"
-  | "LV"
-  | "NL"
-  | "NO"
-  | "PT"
-  | "RO"
-  | "RU"
-  | "SV"
-  | "SW"
-  | "TH"
-  | "TR"
-  | "ZH"
-  | "DEFAULT";
+export type LanguageCodeType = "AR" | "BG" | "BN" | "DA" | "DE" | "CS" | "EL" | "EN" | "ES" | "FA" | "FI" | "FR" | "HI" | "HU" | "ID" | "IT" | "JA" | "KO" | "LT" | "LV" | "NL" | "NO" | "PT" | "RO" | "RU" | "SV" | "SW" | "TH" | "TR" | "ZH" | "DEFAULT";
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
 )<{
@@ -1265,18 +917,7 @@ export declare class LimitExceededException extends EffectData.TaggedError(
 }> {}
 export type LimitType = number;
 
-export type LocaleType =
-  | "EN"
-  | "FR"
-  | "KO"
-  | "DE"
-  | "ES"
-  | "JA"
-  | "RU"
-  | "ZH_CN"
-  | "ZH_TW"
-  | "PT_BR"
-  | "DEFAULT";
+export type LocaleType = "EN" | "FR" | "KO" | "DE" | "ES" | "JA" | "RU" | "ZH_CN" | "ZH_TW" | "PT_BR" | "DEFAULT";
 export interface LongRangeType {
   StartValue?: number;
   EndValue?: number;
@@ -1293,12 +934,7 @@ export interface NotificationOptions {
   SendEmail?: boolean;
   EmailMessage?: string;
 }
-export type OrderByFieldType =
-  | "RELEVANCE"
-  | "NAME"
-  | "SIZE"
-  | "CREATED_TIMESTAMP"
-  | "MODIFIED_TIMESTAMP";
+export type OrderByFieldType = "RELEVANCE" | "NAME" | "SIZE" | "CREATED_TIMESTAMP" | "MODIFIED_TIMESTAMP";
 export type OrderType = "ASCENDING" | "DESCENDING";
 export type OrganizationUserList = Array<User>;
 export type PageMarkerType = string;
@@ -1325,12 +961,7 @@ export interface Principal {
 }
 export type PrincipalList = Array<Principal>;
 export type PrincipalRoleType = "VIEWER" | "CONTRIBUTOR" | "OWNER" | "COOWNER";
-export type PrincipalType =
-  | "USER"
-  | "GROUP"
-  | "INVITE"
-  | "ANONYMOUS"
-  | "ORGANIZATION";
+export type PrincipalType = "USER" | "GROUP" | "INVITE" | "ANONYMOUS" | "ORGANIZATION";
 export declare class ProhibitedStateException extends EffectData.TaggedError(
   "ProhibitedStateException",
 )<{
@@ -1379,11 +1010,7 @@ export interface ResourcePathComponent {
 }
 export type ResourcePathComponentList = Array<ResourcePathComponent>;
 export type ResourceSortType = "DATE" | "NAME";
-export type ResourceStateType =
-  | "ACTIVE"
-  | "RESTORING"
-  | "RECYCLING"
-  | "RECYCLED";
+export type ResourceStateType = "ACTIVE" | "RESTORING" | "RECYCLING" | "RECYCLED";
 export type ResourceType = "FOLDER" | "DOCUMENT";
 export interface ResponseItem {
   ResourceType?: ResponseItemType;
@@ -1394,11 +1021,7 @@ export interface ResponseItem {
   DocumentVersionMetadata?: DocumentVersionMetadata;
 }
 export type ResponseItemsList = Array<ResponseItem>;
-export type ResponseItemType =
-  | "DOCUMENT"
-  | "FOLDER"
-  | "COMMENT"
-  | "DOCUMENT_VERSION";
+export type ResponseItemType = "DOCUMENT" | "FOLDER" | "COMMENT" | "DOCUMENT_VERSION";
 export type ResponseItemWebUrl = string;
 
 export interface RestoreDocumentVersionsRequest {
@@ -1443,11 +1066,7 @@ export interface SearchResourcesResponse {
   Items?: Array<ResponseItem>;
   Marker?: string;
 }
-export type SearchResourceType =
-  | "FOLDER"
-  | "DOCUMENT"
-  | "COMMENT"
-  | "DOCUMENT_VERSION";
+export type SearchResourceType = "FOLDER" | "DOCUMENT" | "COMMENT" | "DOCUMENT_VERSION";
 export type SearchResourceTypeList = Array<SearchResourceType>;
 export type SearchResultsLimitType = number;
 
@@ -1608,23 +1227,13 @@ export interface UserMetadata {
 export type UserMetadataList = Array<UserMetadata>;
 export type UsernameType = string;
 
-export type UserSortType =
-  | "USER_NAME"
-  | "FULL_NAME"
-  | "STORAGE_LIMIT"
-  | "USER_STATUS"
-  | "STORAGE_USED";
+export type UserSortType = "USER_NAME" | "FULL_NAME" | "STORAGE_LIMIT" | "USER_STATUS" | "STORAGE_USED";
 export type UserStatusType = "ACTIVE" | "INACTIVE" | "PENDING";
 export interface UserStorageMetadata {
   StorageUtilizedInBytes?: number;
   StorageRule?: StorageRuleType;
 }
-export type UserType =
-  | "USER"
-  | "ADMIN"
-  | "POWERUSER"
-  | "MINIMALUSER"
-  | "WORKSPACESUSER";
+export type UserType = "USER" | "ADMIN" | "POWERUSER" | "MINIMALUSER" | "WORKSPACESUSER";
 export declare namespace AbortDocumentVersionUpload {
   export type Input = AbortDocumentVersionUploadRequest;
   export type Output = {};
@@ -2216,3 +1825,4 @@ export declare namespace UpdateUser {
     | UnauthorizedResourceAccessException
     | CommonAwsError;
 }
+

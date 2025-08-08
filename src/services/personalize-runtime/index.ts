@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class PersonalizeRuntime extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("personalize-runtime", new RestJson1Protocol(), cfg);
+  }
+
   getActionRecommendations(
     input: GetActionRecommendationsRequest,
   ): Effect.Effect<
@@ -170,3 +175,4 @@ export declare namespace GetRecommendations {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

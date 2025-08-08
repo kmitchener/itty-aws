@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class MigrationHubConfig extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("migrationhub-config", new AwsJson11Protocol(), cfg);
+  }
+
   createHomeRegionControl(
     input: CreateHomeRegionControlRequest,
   ): Effect.Effect<
     CreateHomeRegionControlResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateHomeRegionControl", input);
   }
@@ -21,12 +20,7 @@ export class MigrationHubConfig extends AWSServiceClient {
     input: DeleteHomeRegionControlRequest,
   ): Effect.Effect<
     DeleteHomeRegionControlResult,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteHomeRegionControl", input);
   }
@@ -34,12 +28,7 @@ export class MigrationHubConfig extends AWSServiceClient {
     input: DescribeHomeRegionControlsRequest,
   ): Effect.Effect<
     DescribeHomeRegionControlsResult,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeHomeRegionControls", input);
   }
@@ -47,12 +36,7 @@ export class MigrationHubConfig extends AWSServiceClient {
     input: GetHomeRegionRequest,
   ): Effect.Effect<
     GetHomeRegionResult,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetHomeRegion", input);
   }
@@ -80,7 +64,8 @@ export interface CreateHomeRegionControlResult {
 export interface DeleteHomeRegionControlRequest {
   ControlId: string;
 }
-export interface DeleteHomeRegionControlResult {}
+export interface DeleteHomeRegionControlResult {
+}
 export type DescribeHomeRegionControlsMaxResults = number;
 
 export interface DescribeHomeRegionControlsRequest {
@@ -103,7 +88,8 @@ export declare class DryRunOperation extends EffectData.TaggedError(
 }> {}
 export type ErrorMessage = string;
 
-export interface GetHomeRegionRequest {}
+export interface GetHomeRegionRequest {
+}
 export interface GetHomeRegionResult {
   HomeRegion?: string;
 }
@@ -198,3 +184,4 @@ export declare namespace GetHomeRegion {
     | ThrottlingException
     | CommonAwsError;
 }
+

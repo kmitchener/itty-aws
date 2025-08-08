@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Amplify extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("amplify", new RestJson1Protocol(), cfg);
+  }
+
   createApp(
     input: CreateAppRequest,
   ): Effect.Effect<
     CreateAppResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | LimitExceededException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | LimitExceededException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateApp", input);
   }
@@ -20,12 +20,7 @@ export class Amplify extends AWSServiceClient {
     input: CreateBackendEnvironmentRequest,
   ): Effect.Effect<
     CreateBackendEnvironmentResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateBackendEnvironment", input);
   }
@@ -33,13 +28,7 @@ export class Amplify extends AWSServiceClient {
     input: CreateBranchRequest,
   ): Effect.Effect<
     CreateBranchResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateBranch", input);
   }
@@ -47,11 +36,7 @@ export class Amplify extends AWSServiceClient {
     input: CreateDeploymentRequest,
   ): Effect.Effect<
     CreateDeploymentResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateDeployment", input);
   }
@@ -59,13 +44,7 @@ export class Amplify extends AWSServiceClient {
     input: CreateDomainAssociationRequest,
   ): Effect.Effect<
     CreateDomainAssociationResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateDomainAssociation", input);
   }
@@ -73,13 +52,7 @@ export class Amplify extends AWSServiceClient {
     input: CreateWebhookRequest,
   ): Effect.Effect<
     CreateWebhookResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateWebhook", input);
   }
@@ -87,12 +60,7 @@ export class Amplify extends AWSServiceClient {
     input: DeleteAppRequest,
   ): Effect.Effect<
     DeleteAppResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteApp", input);
   }
@@ -100,12 +68,7 @@ export class Amplify extends AWSServiceClient {
     input: DeleteBackendEnvironmentRequest,
   ): Effect.Effect<
     DeleteBackendEnvironmentResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteBackendEnvironment", input);
   }
@@ -113,12 +76,7 @@ export class Amplify extends AWSServiceClient {
     input: DeleteBranchRequest,
   ): Effect.Effect<
     DeleteBranchResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteBranch", input);
   }
@@ -126,12 +84,7 @@ export class Amplify extends AWSServiceClient {
     input: DeleteDomainAssociationRequest,
   ): Effect.Effect<
     DeleteDomainAssociationResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteDomainAssociation", input);
   }
@@ -139,12 +92,7 @@ export class Amplify extends AWSServiceClient {
     input: DeleteJobRequest,
   ): Effect.Effect<
     DeleteJobResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteJob", input);
   }
@@ -152,12 +100,7 @@ export class Amplify extends AWSServiceClient {
     input: DeleteWebhookRequest,
   ): Effect.Effect<
     DeleteWebhookResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteWebhook", input);
   }
@@ -165,11 +108,7 @@ export class Amplify extends AWSServiceClient {
     input: GenerateAccessLogsRequest,
   ): Effect.Effect<
     GenerateAccessLogsResult,
-    | BadRequestException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GenerateAccessLogs", input);
   }
@@ -177,11 +116,7 @@ export class Amplify extends AWSServiceClient {
     input: GetAppRequest,
   ): Effect.Effect<
     GetAppResult,
-    | BadRequestException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetApp", input);
   }
@@ -189,12 +124,7 @@ export class Amplify extends AWSServiceClient {
     input: GetArtifactUrlRequest,
   ): Effect.Effect<
     GetArtifactUrlResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetArtifactUrl", input);
   }
@@ -202,11 +132,7 @@ export class Amplify extends AWSServiceClient {
     input: GetBackendEnvironmentRequest,
   ): Effect.Effect<
     GetBackendEnvironmentResult,
-    | BadRequestException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetBackendEnvironment", input);
   }
@@ -214,11 +140,7 @@ export class Amplify extends AWSServiceClient {
     input: GetBranchRequest,
   ): Effect.Effect<
     GetBranchResult,
-    | BadRequestException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetBranch", input);
   }
@@ -226,11 +148,7 @@ export class Amplify extends AWSServiceClient {
     input: GetDomainAssociationRequest,
   ): Effect.Effect<
     GetDomainAssociationResult,
-    | BadRequestException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDomainAssociation", input);
   }
@@ -238,12 +156,7 @@ export class Amplify extends AWSServiceClient {
     input: GetJobRequest,
   ): Effect.Effect<
     GetJobResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetJob", input);
   }
@@ -251,12 +164,7 @@ export class Amplify extends AWSServiceClient {
     input: GetWebhookRequest,
   ): Effect.Effect<
     GetWebhookResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetWebhook", input);
   }
@@ -264,10 +172,7 @@ export class Amplify extends AWSServiceClient {
     input: ListAppsRequest,
   ): Effect.Effect<
     ListAppsResult,
-    | BadRequestException
-    | InternalFailureException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListApps", input);
   }
@@ -275,11 +180,7 @@ export class Amplify extends AWSServiceClient {
     input: ListArtifactsRequest,
   ): Effect.Effect<
     ListArtifactsResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListArtifacts", input);
   }
@@ -287,10 +188,7 @@ export class Amplify extends AWSServiceClient {
     input: ListBackendEnvironmentsRequest,
   ): Effect.Effect<
     ListBackendEnvironmentsResult,
-    | BadRequestException
-    | InternalFailureException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListBackendEnvironments", input);
   }
@@ -298,10 +196,7 @@ export class Amplify extends AWSServiceClient {
     input: ListBranchesRequest,
   ): Effect.Effect<
     ListBranchesResult,
-    | BadRequestException
-    | InternalFailureException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListBranches", input);
   }
@@ -309,10 +204,7 @@ export class Amplify extends AWSServiceClient {
     input: ListDomainAssociationsRequest,
   ): Effect.Effect<
     ListDomainAssociationsResult,
-    | BadRequestException
-    | InternalFailureException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListDomainAssociations", input);
   }
@@ -320,11 +212,7 @@ export class Amplify extends AWSServiceClient {
     input: ListJobsRequest,
   ): Effect.Effect<
     ListJobsResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListJobs", input);
   }
@@ -332,10 +220,7 @@ export class Amplify extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -343,11 +228,7 @@ export class Amplify extends AWSServiceClient {
     input: ListWebhooksRequest,
   ): Effect.Effect<
     ListWebhooksResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListWebhooks", input);
   }
@@ -355,12 +236,7 @@ export class Amplify extends AWSServiceClient {
     input: StartDeploymentRequest,
   ): Effect.Effect<
     StartDeploymentResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("StartDeployment", input);
   }
@@ -368,12 +244,7 @@ export class Amplify extends AWSServiceClient {
     input: StartJobRequest,
   ): Effect.Effect<
     StartJobResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("StartJob", input);
   }
@@ -381,12 +252,7 @@ export class Amplify extends AWSServiceClient {
     input: StopJobRequest,
   ): Effect.Effect<
     StopJobResult,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("StopJob", input);
   }
@@ -394,10 +260,7 @@ export class Amplify extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -405,10 +268,7 @@ export class Amplify extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -416,11 +276,7 @@ export class Amplify extends AWSServiceClient {
     input: UpdateAppRequest,
   ): Effect.Effect<
     UpdateAppResult,
-    | BadRequestException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateApp", input);
   }
@@ -428,12 +284,7 @@ export class Amplify extends AWSServiceClient {
     input: UpdateBranchRequest,
   ): Effect.Effect<
     UpdateBranchResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateBranch", input);
   }
@@ -441,12 +292,7 @@ export class Amplify extends AWSServiceClient {
     input: UpdateDomainAssociationRequest,
   ): Effect.Effect<
     UpdateDomainAssociationResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateDomainAssociation", input);
   }
@@ -454,12 +300,7 @@ export class Amplify extends AWSServiceClient {
     input: UpdateWebhookRequest,
   ): Effect.Effect<
     UpdateWebhookResult,
-    | BadRequestException
-    | DependentServiceFailureException
-    | InternalFailureException
-    | NotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | DependentServiceFailureException | InternalFailureException | NotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateWebhook", input);
   }
@@ -818,17 +659,7 @@ export type DomainName = string;
 
 export type DomainPrefix = string;
 
-export type DomainStatus =
-  | "PENDING_VERIFICATION"
-  | "IN_PROGRESS"
-  | "AVAILABLE"
-  | "IMPORTING_CUSTOM_CERTIFICATE"
-  | "PENDING_DEPLOYMENT"
-  | "AWAITING_APP_CNAME"
-  | "FAILED"
-  | "CREATING"
-  | "REQUESTING_CERTIFICATE"
-  | "UPDATING";
+export type DomainStatus = "PENDING_VERIFICATION" | "IN_PROGRESS" | "AVAILABLE" | "IMPORTING_CUSTOM_CERTIFICATE" | "PENDING_DEPLOYMENT" | "AWAITING_APP_CNAME" | "FAILED" | "CREATING" | "REQUESTING_CERTIFICATE" | "UPDATING";
 export type EnableAutoBranchCreation = boolean;
 
 export type EnableAutoBuild = boolean;
@@ -941,15 +772,7 @@ export type JobId = string;
 
 export type JobReason = string;
 
-export type JobStatus =
-  | "CREATED"
-  | "PENDING"
-  | "PROVISIONING"
-  | "RUNNING"
-  | "FAILED"
-  | "SUCCEED"
-  | "CANCELLING"
-  | "CANCELLED";
+export type JobStatus = "CREATED" | "PENDING" | "PROVISIONING" | "RUNNING" | "FAILED" | "SUCCEED" | "CANCELLING" | "CANCELLED";
 export type JobSummaries = Array<JobSummary>;
 export interface JobSummary {
   jobArn: string;
@@ -1095,12 +918,7 @@ export type StackArn = string;
 
 export type StackName = string;
 
-export type Stage =
-  | "PRODUCTION"
-  | "BETA"
-  | "DEVELOPMENT"
-  | "EXPERIMENTAL"
-  | "PULL_REQUEST";
+export type Stage = "PRODUCTION" | "BETA" | "DEVELOPMENT" | "EXPERIMENTAL" | "PULL_REQUEST";
 export interface StartDeploymentRequest {
   appId: string;
   branchName: string;
@@ -1173,7 +991,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type Target = string;
@@ -1199,7 +1018,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAppRequest {
   appId: string;
   name?: string;
@@ -1264,14 +1084,7 @@ export interface UpdateDomainAssociationRequest {
 export interface UpdateDomainAssociationResult {
   domainAssociation: DomainAssociation;
 }
-export type UpdateStatus =
-  | "REQUESTING_CERTIFICATE"
-  | "PENDING_VERIFICATION"
-  | "IMPORTING_CUSTOM_CERTIFICATE"
-  | "PENDING_DEPLOYMENT"
-  | "AWAITING_APP_CNAME"
-  | "UPDATE_COMPLETE"
-  | "UPDATE_FAILED";
+export type UpdateStatus = "REQUESTING_CERTIFICATE" | "PENDING_VERIFICATION" | "IMPORTING_CUSTOM_CERTIFICATE" | "PENDING_DEPLOYMENT" | "AWAITING_APP_CNAME" | "UPDATE_COMPLETE" | "UPDATE_FAILED";
 export type UpdateTime = Date | string;
 
 export interface UpdateWebhookRequest {
@@ -1291,12 +1104,7 @@ export interface WafConfiguration {
   wafStatus?: WafStatus;
   statusReason?: string;
 }
-export type WafStatus =
-  | "ASSOCIATING"
-  | "ASSOCIATION_FAILED"
-  | "ASSOCIATION_SUCCESS"
-  | "DISASSOCIATING"
-  | "DISASSOCIATION_FAILED";
+export type WafStatus = "ASSOCIATING" | "ASSOCIATION_FAILED" | "ASSOCIATION_SUCCESS" | "DISASSOCIATING" | "DISASSOCIATION_FAILED";
 export type WebAclArn = string;
 
 export interface Webhook {
@@ -1740,3 +1548,4 @@ export declare namespace UpdateWebhook {
     | UnauthorizedException
     | CommonAwsError;
 }
+

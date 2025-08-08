@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class RolesAnywhere extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("rolesanywhere", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -18,10 +20,7 @@ export class RolesAnywhere extends AWSServiceClient {
     input: PutNotificationSettingsRequest,
   ): Effect.Effect<
     PutNotificationSettingsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("PutNotificationSettings", input);
   }
@@ -29,10 +28,7 @@ export class RolesAnywhere extends AWSServiceClient {
     input: ResetNotificationSettingsRequest,
   ): Effect.Effect<
     ResetNotificationSettingsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ResetNotificationSettings", input);
   }
@@ -40,11 +36,7 @@ export class RolesAnywhere extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -52,10 +44,7 @@ export class RolesAnywhere extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -272,9 +261,7 @@ interface _SourceData {
   acmPcaArn?: string;
 }
 
-export type SourceData =
-  | (_SourceData & { x509CertificateData: string })
-  | (_SourceData & { acmPcaArn: string });
+export type SourceData = (_SourceData & { x509CertificateData: string }) | (_SourceData & { acmPcaArn: string });
 export type SpecifierList = Array<string>;
 export interface SubjectDetail {
   subjectArn?: string;
@@ -312,7 +299,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class TooManyTagsException extends EffectData.TaggedError(
@@ -342,7 +330,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateCrlRequest {
   crlId: string;
   name?: string;
@@ -419,3 +408,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

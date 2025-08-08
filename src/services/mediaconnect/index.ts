@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MediaConnect extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("mediaconnect", new RestJson1Protocol(), cfg);
+  }
+
   listEntitlements(
     input: ListEntitlementsRequest,
   ): Effect.Effect<
     ListEntitlementsResponse,
-    | BadRequestException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListEntitlements", input);
   }
@@ -19,10 +20,7 @@ export class MediaConnect extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -30,10 +28,7 @@ export class MediaConnect extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -41,10 +36,7 @@ export class MediaConnect extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -62,14 +54,12 @@ export type __listOfAudioMonitoringSetting = Array<AudioMonitoringSetting>;
 export type __listOfBridgeOutput = Array<BridgeOutput>;
 export type __listOfBridgeSource = Array<BridgeSource>;
 export type __listOfDestinationConfiguration = Array<DestinationConfiguration>;
-export type __listOfDestinationConfigurationRequest =
-  Array<DestinationConfigurationRequest>;
+export type __listOfDestinationConfigurationRequest = Array<DestinationConfigurationRequest>;
 export type __listOfEntitlement = Array<Entitlement>;
 export type __listOfGatewayNetwork = Array<GatewayNetwork>;
 export type __listOfGrantEntitlementRequest = Array<GrantEntitlementRequest>;
 export type __listOfInputConfiguration = Array<InputConfiguration>;
-export type __listOfInputConfigurationRequest =
-  Array<InputConfigurationRequest>;
+export type __listOfInputConfigurationRequest = Array<InputConfigurationRequest>;
 export type __listOfInteger = Array<number>;
 export type __listOfListedBridge = Array<ListedBridge>;
 export type __listOfListedEntitlement = Array<ListedEntitlement>;
@@ -77,14 +67,10 @@ export type __listOfListedFlow = Array<ListedFlow>;
 export type __listOfListedGateway = Array<ListedGateway>;
 export type __listOfListedGatewayInstance = Array<ListedGatewayInstance>;
 export type __listOfMediaStream = Array<MediaStream>;
-export type __listOfMediaStreamOutputConfiguration =
-  Array<MediaStreamOutputConfiguration>;
-export type __listOfMediaStreamOutputConfigurationRequest =
-  Array<MediaStreamOutputConfigurationRequest>;
-export type __listOfMediaStreamSourceConfiguration =
-  Array<MediaStreamSourceConfiguration>;
-export type __listOfMediaStreamSourceConfigurationRequest =
-  Array<MediaStreamSourceConfigurationRequest>;
+export type __listOfMediaStreamOutputConfiguration = Array<MediaStreamOutputConfiguration>;
+export type __listOfMediaStreamOutputConfigurationRequest = Array<MediaStreamOutputConfigurationRequest>;
+export type __listOfMediaStreamSourceConfiguration = Array<MediaStreamSourceConfiguration>;
+export type __listOfMediaStreamSourceConfigurationRequest = Array<MediaStreamSourceConfigurationRequest>;
 export type __listOfMessageDetail = Array<MessageDetail>;
 export type __listOfNdiDiscoveryServerConfig = Array<NdiDiscoveryServerConfig>;
 export type __listOfOffering = Array<Offering>;
@@ -283,27 +269,8 @@ export interface BridgeSource {
   FlowSource?: BridgeFlowSource;
   NetworkSource?: BridgeNetworkSource;
 }
-export type BridgeState =
-  | "CREATING"
-  | "STANDBY"
-  | "STARTING"
-  | "DEPLOYING"
-  | "ACTIVE"
-  | "STOPPING"
-  | "DELETING"
-  | "DELETED"
-  | "START_FAILED"
-  | "START_PENDING"
-  | "STOP_FAILED"
-  | "UPDATING";
-export type Colorimetry =
-  | "BT601"
-  | "BT709"
-  | "BT2020"
-  | "BT2100"
-  | "ST2065_1"
-  | "ST2065_3"
-  | "XYZ";
+export type BridgeState = "CREATING" | "STANDBY" | "STARTING" | "DEPLOYING" | "ACTIVE" | "STOPPING" | "DELETING" | "DELETED" | "START_FAILED" | "START_PENDING" | "STOP_FAILED" | "UPDATING";
+export type Colorimetry = "BT601" | "BT709" | "BT2020" | "BT2100" | "ST2065_1" | "ST2065_3" | "XYZ";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -581,13 +548,7 @@ export interface GatewayNetwork {
   CidrBlock: string;
   Name: string;
 }
-export type GatewayState =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "ERROR"
-  | "DELETING"
-  | "DELETED";
+export type GatewayState = "CREATING" | "ACTIVE" | "UPDATING" | "ERROR" | "DELETING" | "DELETED";
 export interface GrantEntitlementRequest {
   DataTransferSubscriberFeePercent?: number;
   Description?: string;
@@ -623,13 +584,7 @@ export interface InputConfigurationRequest {
   InputPort: number;
   Interface: InterfaceRequest;
 }
-export type InstanceState =
-  | "REGISTERING"
-  | "ACTIVE"
-  | "DEREGISTERING"
-  | "DEREGISTERED"
-  | "REGISTRATION_ERROR"
-  | "DEREGISTRATION_ERROR";
+export type InstanceState = "REGISTERING" | "ACTIVE" | "DEREGISTERING" | "DEREGISTERED" | "REGISTRATION_ERROR" | "DEREGISTRATION_ERROR";
 export interface Interface {
   Name: string;
 }
@@ -744,14 +699,7 @@ export interface Maintenance {
   MaintenanceScheduledDate?: string;
   MaintenanceStartHour?: string;
 }
-export type MaintenanceDay =
-  | "Monday"
-  | "Tuesday"
-  | "Wednesday"
-  | "Thursday"
-  | "Friday"
-  | "Saturday"
-  | "Sunday";
+export type MaintenanceDay = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
 export type MaxResults = number;
 
 export interface MediaStream {
@@ -862,19 +810,7 @@ export interface Output {
 }
 export type OutputStatus = "ENABLED" | "DISABLED";
 export type PriceUnits = "HOURLY";
-export type Protocol =
-  | "zixi_push"
-  | "rtp_fec"
-  | "rtp"
-  | "zixi_pull"
-  | "rist"
-  | "st2110_jpegxs"
-  | "cdi"
-  | "srt_listener"
-  | "srt_caller"
-  | "fujitsu_qos"
-  | "udp"
-  | "ndi_speed_hq";
+export type Protocol = "zixi_push" | "rtp_fec" | "rtp" | "zixi_pull" | "rist" | "st2110_jpegxs" | "cdi" | "srt_listener" | "srt_caller" | "fujitsu_qos" | "udp" | "ndi_speed_hq";
 export interface PurchaseOfferingRequest {
   OfferingArn: string;
   ReservationName: string;
@@ -964,10 +900,7 @@ export interface RevokeFlowEntitlementResponse {
   EntitlementArn?: string;
   FlowArn?: string;
 }
-export type ScanMode =
-  | "progressive"
-  | "interlace"
-  | "progressive_segmented_frame";
+export type ScanMode = "progressive" | "interlace" | "progressive_segmented_frame";
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
   "ServiceUnavailableException",
 )<{
@@ -1032,14 +965,7 @@ export interface StartFlowResponse {
   Status?: Status;
 }
 export type State = "ENABLED" | "DISABLED";
-export type Status =
-  | "STANDBY"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "STARTING"
-  | "STOPPING"
-  | "ERROR";
+export type Status = "STANDBY" | "ACTIVE" | "UPDATING" | "DELETING" | "STARTING" | "STOPPING" | "ERROR";
 export interface StopFlowRequest {
   FlowArn: string;
 }
@@ -1051,16 +977,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export type Tcs =
-  | "SDR"
-  | "PQ"
-  | "HLG"
-  | "LINEAR"
-  | "BT2100LINPQ"
-  | "BT2100LINHLG"
-  | "ST2065_1"
-  | "ST428_1"
-  | "DENSITY";
+export type Tcs = "SDR" | "PQ" | "HLG" | "LINEAR" | "BT2100LINPQ" | "BT2100LINHLG" | "ST2065_1" | "ST428_1" | "DENSITY";
 export interface ThumbnailDetails {
   FlowArn: string;
   Thumbnail?: string;
@@ -1359,3 +1276,4 @@ export declare namespace UntagResource {
     | NotFoundException
     | CommonAwsError;
 }
+

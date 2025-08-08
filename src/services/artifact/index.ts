@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Artifact extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("artifact", new RestJson1Protocol(), cfg);
+  }
+
   getAccountSettings(
     input: GetAccountSettingsRequest,
   ): Effect.Effect<
     GetAccountSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAccountSettings", input);
   }
@@ -22,14 +20,7 @@ export class Artifact extends AWSServiceClient {
     input: GetReportRequest,
   ): Effect.Effect<
     GetReportResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetReport", input);
   }
@@ -37,13 +28,7 @@ export class Artifact extends AWSServiceClient {
     input: GetReportMetadataRequest,
   ): Effect.Effect<
     GetReportMetadataResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetReportMetadata", input);
   }
@@ -51,14 +36,7 @@ export class Artifact extends AWSServiceClient {
     input: GetTermForReportRequest,
   ): Effect.Effect<
     GetTermForReportResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetTermForReport", input);
   }
@@ -66,11 +44,7 @@ export class Artifact extends AWSServiceClient {
     input: ListCustomerAgreementsRequest,
   ): Effect.Effect<
     ListCustomerAgreementsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCustomerAgreements", input);
   }
@@ -78,13 +52,7 @@ export class Artifact extends AWSServiceClient {
     input: ListReportsRequest,
   ): Effect.Effect<
     ListReportsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListReports", input);
   }
@@ -92,14 +60,7 @@ export class Artifact extends AWSServiceClient {
     input: PutAccountSettingsRequest,
   ): Effect.Effect<
     PutAccountSettingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutAccountSettings", input);
   }
@@ -128,10 +89,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 export type CustomerAgreementIdAttribute = string;
 
 export type CustomerAgreementList = Array<CustomerAgreementSummary>;
-export type CustomerAgreementState =
-  | "ACTIVE"
-  | "CUSTOMER_TERMINATED"
-  | "AWS_TERMINATED";
+export type CustomerAgreementState = "ACTIVE" | "CUSTOMER_TERMINATED" | "AWS_TERMINATED";
 export interface CustomerAgreementSummary {
   name?: string;
   arn?: string;
@@ -147,7 +105,8 @@ export interface CustomerAgreementSummary {
   terminateTerms?: Array<string>;
   type?: AgreementType;
 }
-export interface GetAccountSettingsRequest {}
+export interface GetAccountSettingsRequest {
+}
 export interface GetAccountSettingsResponse {
   accountSettings?: AccountSettings;
 }
@@ -395,3 +354,4 @@ export declare namespace PutAccountSettings {
     | ValidationException
     | CommonAwsError;
 }
+

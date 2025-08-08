@@ -12,7 +12,7 @@ import {
   type AwsErrorMeta,
 } from "./error.ts";
 import { serviceMetadata } from "./metadata.ts";
-import { ProtocolRegistry } from "./protocols/index.ts";
+import type { ProtocolHandler } from "./protocols/interface.ts";
 
 // Helper function to extract simple error name from AWS namespaced error type
 function extractErrorName(awsErrorType: string): string {
@@ -22,8 +22,6 @@ function extractErrorName(awsErrorType: string): string {
   return parts.length > 1 ? parts[1] : awsErrorType;
 }
 
-// Global protocol registry instance
-const protocolRegistry = ProtocolRegistry.createDefault();
 
 // Helper to create service-specific error dynamically
 function createServiceError(
@@ -56,7 +54,12 @@ export interface AWSClientConfig {
 // Base AWS service class that all services extend
 export class AWSServiceClient {
   protected readonly config: Required<AWSClientConfig>;
-  constructor(config?: AWSClientConfig) {
+  protected readonly serviceName: string;
+  protected readonly protocol: ProtocolHandler;
+
+  constructor(serviceName: string, protocol: ProtocolHandler, config?: AWSClientConfig) {
+    this.serviceName = serviceName;
+    this.protocol = protocol;
     this.config = {
       region: config?.region ?? "us-east-1",
       credentials: config?.credentials ?? (undefined as any), // Will be resolved later
@@ -66,9 +69,7 @@ export class AWSServiceClient {
 
   // Method that service classes will call to make AWS API requests
   protected call(action: string, input: unknown): any {
-    // Get the service name from the constructor name
-    const serviceName = this.constructor.name.toLowerCase();
-    return (createServiceProxy(serviceName, this.config) as any)[action](input);
+    return (createServiceProxy(this.serviceName, this.protocol, this.config) as any)[action](input);
   }
 }
 
@@ -94,6 +95,7 @@ async function createAwsClient(
 // Standalone service proxy creator function
 export function createServiceProxy<T>(
   serviceName: string,
+  protocol: ProtocolHandler,
   config: AWSClientConfig = {},
 ): T {
   const resolvedConfig: Required<AWSClientConfig> = {
@@ -131,8 +133,8 @@ export function createServiceProxy<T>(
             const action =
               methodName.charAt(0).toUpperCase() + methodName.slice(1);
 
-            // Get protocol handler for this service
-            const protocolHandler = protocolRegistry.get(metadata.protocol);
+            // Use the provided protocol handler
+            const protocolHandler = protocol;
 
             // Serialize request body using protocol handler
             const body = protocolHandler.buildRequest(input, action, metadata);

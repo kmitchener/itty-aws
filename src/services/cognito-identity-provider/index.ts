@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class CognitoIdentityProvider extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cognito-identity-provider", new AwsJson11Protocol(), cfg);
+  }
+
   addCustomAttributes(
     input: AddCustomAttributesRequest,
   ): Effect.Effect<
     AddCustomAttributesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserImportInProgressException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserImportInProgressException | CommonAwsError
   > {
     return this.call("AddCustomAttributes", input);
   }
@@ -21,13 +20,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminAddUserToGroupRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminAddUserToGroup", input);
   }
@@ -35,18 +28,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminConfirmSignUpRequest,
   ): Effect.Effect<
     AdminConfirmSignUpResponse,
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyFailedAttemptsException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyFailedAttemptsException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminConfirmSignUp", input);
   }
@@ -54,23 +36,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminCreateUserRequest,
   ): Effect.Effect<
     AdminCreateUserResponse,
-    | CodeDeliveryFailureException
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | NotAuthorizedException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UnsupportedUserStateException
-    | UserLambdaValidationException
-    | UsernameExistsException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeDeliveryFailureException | InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | NotAuthorizedException | PreconditionNotMetException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UnsupportedUserStateException | UserLambdaValidationException | UsernameExistsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminCreateUser", input);
   }
@@ -78,13 +44,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminDeleteUserRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminDeleteUser", input);
   }
@@ -92,13 +52,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminDeleteUserAttributesRequest,
   ): Effect.Effect<
     AdminDeleteUserAttributesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminDeleteUserAttributes", input);
   }
@@ -106,14 +60,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminDisableProviderForUserRequest,
   ): Effect.Effect<
     AdminDisableProviderForUserResponse,
-    | AliasExistsException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminDisableProviderForUser", input);
   }
@@ -121,13 +68,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminDisableUserRequest,
   ): Effect.Effect<
     AdminDisableUserResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminDisableUser", input);
   }
@@ -135,13 +76,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminEnableUserRequest,
   ): Effect.Effect<
     AdminEnableUserResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminEnableUser", input);
   }
@@ -149,14 +84,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminForgetDeviceRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminForgetDevice", input);
   }
@@ -164,13 +92,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminGetDeviceRequest,
   ): Effect.Effect<
     AdminGetDeviceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("AdminGetDevice", input);
   }
@@ -178,13 +100,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminGetUserRequest,
   ): Effect.Effect<
     AdminGetUserResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminGetUser", input);
   }
@@ -192,24 +108,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminInitiateAuthRequest,
   ): Effect.Effect<
     AdminInitiateAuthResponse,
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | InvalidUserPoolConfigurationException
-    | MFAMethodNotFoundException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UnsupportedOperationException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | InvalidUserPoolConfigurationException | MFAMethodNotFoundException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UnsupportedOperationException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminInitiateAuth", input);
   }
@@ -217,15 +116,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminLinkProviderForUserRequest,
   ): Effect.Effect<
     AdminLinkProviderForUserResponse,
-    | AliasExistsException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminLinkProviderForUser", input);
   }
@@ -233,13 +124,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminListDevicesRequest,
   ): Effect.Effect<
     AdminListDevicesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("AdminListDevices", input);
   }
@@ -247,13 +132,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminListGroupsForUserRequest,
   ): Effect.Effect<
     AdminListGroupsForUserResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminListGroupsForUser", input);
   }
@@ -261,14 +140,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminListUserAuthEventsRequest,
   ): Effect.Effect<
     AdminListUserAuthEventsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | UserPoolAddOnNotEnabledException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | UserPoolAddOnNotEnabledException | CommonAwsError
   > {
     return this.call("AdminListUserAuthEvents", input);
   }
@@ -276,13 +148,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminRemoveUserFromGroupRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminRemoveUserFromGroup", input);
   }
@@ -290,20 +156,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminResetUserPasswordRequest,
   ): Effect.Effect<
     AdminResetUserPasswordResponse,
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminResetUserPassword", input);
   }
@@ -311,29 +164,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminRespondToAuthChallengeRequest,
   ): Effect.Effect<
     AdminRespondToAuthChallengeResponse,
-    | AliasExistsException
-    | CodeMismatchException
-    | ExpiredCodeException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | InvalidUserPoolConfigurationException
-    | MFAMethodNotFoundException
-    | NotAuthorizedException
-    | PasswordHistoryPolicyViolationException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | SoftwareTokenMFANotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | CodeMismatchException | ExpiredCodeException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | InvalidUserPoolConfigurationException | MFAMethodNotFoundException | NotAuthorizedException | PasswordHistoryPolicyViolationException | PasswordResetRequiredException | ResourceNotFoundException | SoftwareTokenMFANotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminRespondToAuthChallenge", input);
   }
@@ -341,14 +172,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminSetUserMFAPreferenceRequest,
   ): Effect.Effect<
     AdminSetUserMFAPreferenceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminSetUserMFAPreference", input);
   }
@@ -356,15 +180,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminSetUserPasswordRequest,
   ): Effect.Effect<
     AdminSetUserPasswordResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | NotAuthorizedException
-    | PasswordHistoryPolicyViolationException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | InvalidPasswordException | NotAuthorizedException | PasswordHistoryPolicyViolationException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminSetUserPassword", input);
   }
@@ -372,12 +188,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminSetUserSettingsRequest,
   ): Effect.Effect<
     AdminSetUserSettingsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminSetUserSettings", input);
   }
@@ -385,14 +196,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminUpdateAuthEventFeedbackRequest,
   ): Effect.Effect<
     AdminUpdateAuthEventFeedbackResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | UserPoolAddOnNotEnabledException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | UserPoolAddOnNotEnabledException | CommonAwsError
   > {
     return this.call("AdminUpdateAuthEventFeedback", input);
   }
@@ -400,14 +204,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminUpdateDeviceStatusRequest,
   ): Effect.Effect<
     AdminUpdateDeviceStatusResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminUpdateDeviceStatus", input);
   }
@@ -415,20 +212,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminUpdateUserAttributesRequest,
   ): Effect.Effect<
     AdminUpdateUserAttributesResponse,
-    | AliasExistsException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminUpdateUserAttributes", input);
   }
@@ -436,13 +220,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AdminUserGlobalSignOutRequest,
   ): Effect.Effect<
     AdminUserGlobalSignOutResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | CommonAwsError
   > {
     return this.call("AdminUserGlobalSignOut", input);
   }
@@ -450,14 +228,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: AssociateSoftwareTokenRequest,
   ): Effect.Effect<
     AssociateSoftwareTokenResponse,
-    | ConcurrentModificationException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | SoftwareTokenMFANotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | SoftwareTokenMFANotFoundException | CommonAwsError
   > {
     return this.call("AssociateSoftwareToken", input);
   }
@@ -465,19 +236,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ChangePasswordRequest,
   ): Effect.Effect<
     ChangePasswordResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | LimitExceededException
-    | NotAuthorizedException
-    | PasswordHistoryPolicyViolationException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | InvalidPasswordException | LimitExceededException | NotAuthorizedException | PasswordHistoryPolicyViolationException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("ChangePassword", input);
   }
@@ -485,19 +244,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: CompleteWebAuthnRegistrationRequest,
   ): Effect.Effect<
     CompleteWebAuthnRegistrationResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | WebAuthnChallengeNotFoundException
-    | WebAuthnClientMismatchException
-    | WebAuthnCredentialNotSupportedException
-    | WebAuthnNotEnabledException
-    | WebAuthnOriginNotAllowedException
-    | WebAuthnRelyingPartyMismatchException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | TooManyRequestsException | WebAuthnChallengeNotFoundException | WebAuthnClientMismatchException | WebAuthnCredentialNotSupportedException | WebAuthnNotEnabledException | WebAuthnOriginNotAllowedException | WebAuthnRelyingPartyMismatchException | CommonAwsError
   > {
     return this.call("CompleteWebAuthnRegistration", input);
   }
@@ -505,21 +252,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ConfirmDeviceRequest,
   ): Effect.Effect<
     ConfirmDeviceResponse,
-    | DeviceKeyExistsException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UsernameExistsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    DeviceKeyExistsException | ForbiddenException | InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UsernameExistsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("ConfirmDevice", input);
   }
@@ -527,24 +260,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ConfirmForgotPasswordRequest,
   ): Effect.Effect<
     ConfirmForgotPasswordResponse,
-    | CodeMismatchException
-    | ExpiredCodeException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | LimitExceededException
-    | NotAuthorizedException
-    | PasswordHistoryPolicyViolationException
-    | ResourceNotFoundException
-    | TooManyFailedAttemptsException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeMismatchException | ExpiredCodeException | ForbiddenException | InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | LimitExceededException | NotAuthorizedException | PasswordHistoryPolicyViolationException | ResourceNotFoundException | TooManyFailedAttemptsException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("ConfirmForgotPassword", input);
   }
@@ -552,22 +268,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ConfirmSignUpRequest,
   ): Effect.Effect<
     ConfirmSignUpResponse,
-    | AliasExistsException
-    | CodeMismatchException
-    | ExpiredCodeException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyFailedAttemptsException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | CodeMismatchException | ExpiredCodeException | ForbiddenException | InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyFailedAttemptsException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   > {
     return this.call("ConfirmSignUp", input);
   }
@@ -575,14 +276,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: CreateGroupRequest,
   ): Effect.Effect<
     CreateGroupResponse,
-    | GroupExistsException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    GroupExistsException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateGroup", input);
   }
@@ -590,14 +284,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: CreateIdentityProviderRequest,
   ): Effect.Effect<
     CreateIdentityProviderResponse,
-    | DuplicateProviderException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    DuplicateProviderException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateIdentityProvider", input);
   }
@@ -605,15 +292,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: CreateManagedLoginBrandingRequest,
   ): Effect.Effect<
     CreateManagedLoginBrandingResponse,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | ManagedLoginBrandingExistsException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | LimitExceededException | ManagedLoginBrandingExistsException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateManagedLoginBranding", input);
   }
@@ -621,13 +300,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: CreateResourceServerRequest,
   ): Effect.Effect<
     CreateResourceServerResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateResourceServer", input);
   }
@@ -635,14 +308,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: CreateUserImportJobRequest,
   ): Effect.Effect<
     CreateUserImportJobResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | PreconditionNotMetException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateUserImportJob", input);
   }
@@ -650,18 +316,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: CreateUserPoolRequest,
   ): Effect.Effect<
     CreateUserPoolResponse,
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | TierChangeNotAllowedException
-    | TooManyRequestsException
-    | UserPoolTaggingException
-    | CommonAwsError
+    FeatureUnavailableInTierException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | TierChangeNotAllowedException | TooManyRequestsException | UserPoolTaggingException | CommonAwsError
   > {
     return this.call("CreateUserPool", input);
   }
@@ -669,16 +324,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: CreateUserPoolClientRequest,
   ): Effect.Effect<
     CreateUserPoolClientResponse,
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidOAuthFlowException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | ScopeDoesNotExistException
-    | TooManyRequestsException
-    | CommonAwsError
+    FeatureUnavailableInTierException | InternalErrorException | InvalidOAuthFlowException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | ScopeDoesNotExistException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateUserPoolClient", input);
   }
@@ -686,14 +332,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: CreateUserPoolDomainRequest,
   ): Effect.Effect<
     CreateUserPoolDomainResponse,
-    | ConcurrentModificationException
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | FeatureUnavailableInTierException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("CreateUserPoolDomain", input);
   }
@@ -701,12 +340,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteGroupRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteGroup", input);
   }
@@ -714,14 +348,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteIdentityProviderRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnsupportedIdentityProviderException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnsupportedIdentityProviderException | CommonAwsError
   > {
     return this.call("DeleteIdentityProvider", input);
   }
@@ -729,13 +356,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteManagedLoginBrandingRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteManagedLoginBranding", input);
   }
@@ -743,12 +364,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteResourceServerRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteResourceServer", input);
   }
@@ -756,16 +372,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteUserRequest,
   ): Effect.Effect<
     {},
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("DeleteUser", input);
   }
@@ -773,16 +380,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteUserAttributesRequest,
   ): Effect.Effect<
     DeleteUserAttributesResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("DeleteUserAttributes", input);
   }
@@ -790,13 +388,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteUserPoolRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserImportInProgressException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserImportInProgressException | CommonAwsError
   > {
     return this.call("DeleteUserPool", input);
   }
@@ -804,13 +396,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteUserPoolClientRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteUserPoolClient", input);
   }
@@ -818,12 +404,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteUserPoolDomainRequest,
   ): Effect.Effect<
     DeleteUserPoolDomainResponse,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteUserPoolDomain", input);
   }
@@ -831,14 +412,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DeleteWebAuthnCredentialRequest,
   ): Effect.Effect<
     DeleteWebAuthnCredentialResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteWebAuthnCredential", input);
   }
@@ -846,12 +420,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DescribeIdentityProviderRequest,
   ): Effect.Effect<
     DescribeIdentityProviderResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeIdentityProvider", input);
   }
@@ -859,12 +428,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DescribeManagedLoginBrandingRequest,
   ): Effect.Effect<
     DescribeManagedLoginBrandingResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeManagedLoginBranding", input);
   }
@@ -872,12 +436,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DescribeManagedLoginBrandingByClientRequest,
   ): Effect.Effect<
     DescribeManagedLoginBrandingByClientResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeManagedLoginBrandingByClient", input);
   }
@@ -885,12 +444,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DescribeResourceServerRequest,
   ): Effect.Effect<
     DescribeResourceServerResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeResourceServer", input);
   }
@@ -898,13 +452,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DescribeRiskConfigurationRequest,
   ): Effect.Effect<
     DescribeRiskConfigurationResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserPoolAddOnNotEnabledException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserPoolAddOnNotEnabledException | CommonAwsError
   > {
     return this.call("DescribeRiskConfiguration", input);
   }
@@ -912,12 +460,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DescribeUserImportJobRequest,
   ): Effect.Effect<
     DescribeUserImportJobResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeUserImportJob", input);
   }
@@ -925,13 +468,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DescribeUserPoolRequest,
   ): Effect.Effect<
     DescribeUserPoolResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserPoolTaggingException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserPoolTaggingException | CommonAwsError
   > {
     return this.call("DescribeUserPool", input);
   }
@@ -939,12 +476,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DescribeUserPoolClientRequest,
   ): Effect.Effect<
     DescribeUserPoolClientResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeUserPoolClient", input);
   }
@@ -952,11 +484,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: DescribeUserPoolDomainRequest,
   ): Effect.Effect<
     DescribeUserPoolDomainResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeUserPoolDomain", input);
   }
@@ -964,17 +492,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ForgetDeviceRequest,
   ): Effect.Effect<
     {},
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("ForgetDevice", input);
   }
@@ -982,22 +500,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ForgotPasswordRequest,
   ): Effect.Effect<
     ForgotPasswordResponse,
-    | CodeDeliveryFailureException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeDeliveryFailureException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   > {
     return this.call("ForgotPassword", input);
   }
@@ -1005,12 +508,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetCSVHeaderRequest,
   ): Effect.Effect<
     GetCSVHeaderResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetCSVHeader", input);
   }
@@ -1018,17 +516,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetDeviceRequest,
   ): Effect.Effect<
     GetDeviceResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("GetDevice", input);
   }
@@ -1036,12 +524,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetGroupRequest,
   ): Effect.Effect<
     GetGroupResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetGroup", input);
   }
@@ -1049,12 +532,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetIdentityProviderByIdentifierRequest,
   ): Effect.Effect<
     GetIdentityProviderByIdentifierResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetIdentityProviderByIdentifier", input);
   }
@@ -1062,12 +540,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetLogDeliveryConfigurationRequest,
   ): Effect.Effect<
     GetLogDeliveryConfigurationResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetLogDeliveryConfiguration", input);
   }
@@ -1075,10 +548,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetSigningCertificateRequest,
   ): Effect.Effect<
     GetSigningCertificateResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetSigningCertificate", input);
   }
@@ -1086,18 +556,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetTokensFromRefreshTokenRequest,
   ): Effect.Effect<
     GetTokensFromRefreshTokenResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | RefreshTokenReuseException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidLambdaResponseException | InvalidParameterException | NotAuthorizedException | RefreshTokenReuseException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   > {
     return this.call("GetTokensFromRefreshToken", input);
   }
@@ -1105,12 +564,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetUICustomizationRequest,
   ): Effect.Effect<
     GetUICustomizationResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetUICustomization", input);
   }
@@ -1118,16 +572,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetUserRequest,
   ): Effect.Effect<
     GetUserResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("GetUser", input);
   }
@@ -1135,24 +580,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetUserAttributeVerificationCodeRequest,
   ): Effect.Effect<
     GetUserAttributeVerificationCodeResponse,
-    | CodeDeliveryFailureException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeDeliveryFailureException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("GetUserAttributeVerificationCode", input);
   }
@@ -1160,16 +588,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetUserAuthFactorsRequest,
   ): Effect.Effect<
     GetUserAuthFactorsResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("GetUserAuthFactors", input);
   }
@@ -1177,12 +596,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GetUserPoolMfaConfigRequest,
   ): Effect.Effect<
     GetUserPoolMfaConfigResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetUserPoolMfaConfig", input);
   }
@@ -1190,15 +604,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: GlobalSignOutRequest,
   ): Effect.Effect<
     GlobalSignOutResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | CommonAwsError
   > {
     return this.call("GlobalSignOut", input);
   }
@@ -1206,24 +612,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: InitiateAuthRequest,
   ): Effect.Effect<
     InitiateAuthResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UnsupportedOperationException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UnsupportedOperationException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("InitiateAuth", input);
   }
@@ -1231,17 +620,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListDevicesRequest,
   ): Effect.Effect<
     ListDevicesResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("ListDevices", input);
   }
@@ -1249,12 +628,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListGroupsRequest,
   ): Effect.Effect<
     ListGroupsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListGroups", input);
   }
@@ -1262,12 +636,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListIdentityProvidersRequest,
   ): Effect.Effect<
     ListIdentityProvidersResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListIdentityProviders", input);
   }
@@ -1275,12 +644,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListResourceServersRequest,
   ): Effect.Effect<
     ListResourceServersResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListResourceServers", input);
   }
@@ -1288,12 +652,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -1301,12 +660,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListUserImportJobsRequest,
   ): Effect.Effect<
     ListUserImportJobsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListUserImportJobs", input);
   }
@@ -1314,12 +668,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListUserPoolClientsRequest,
   ): Effect.Effect<
     ListUserPoolClientsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListUserPoolClients", input);
   }
@@ -1327,11 +676,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListUserPoolsRequest,
   ): Effect.Effect<
     ListUserPoolsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListUserPools", input);
   }
@@ -1339,12 +684,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListUsers", input);
   }
@@ -1352,12 +692,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListUsersInGroupRequest,
   ): Effect.Effect<
     ListUsersInGroupResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListUsersInGroup", input);
   }
@@ -1365,13 +700,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ListWebAuthnCredentialsRequest,
   ): Effect.Effect<
     ListWebAuthnCredentialsResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListWebAuthnCredentials", input);
   }
@@ -1379,22 +708,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: ResendConfirmationCodeRequest,
   ): Effect.Effect<
     ResendConfirmationCodeResponse,
-    | CodeDeliveryFailureException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeDeliveryFailureException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotFoundException | CommonAwsError
   > {
     return this.call("ResendConfirmationCode", input);
   }
@@ -1402,30 +716,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: RespondToAuthChallengeRequest,
   ): Effect.Effect<
     RespondToAuthChallengeResponse,
-    | AliasExistsException
-    | CodeMismatchException
-    | ExpiredCodeException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | InvalidUserPoolConfigurationException
-    | MFAMethodNotFoundException
-    | NotAuthorizedException
-    | PasswordHistoryPolicyViolationException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | SoftwareTokenMFANotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | CodeMismatchException | ExpiredCodeException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | InvalidUserPoolConfigurationException | MFAMethodNotFoundException | NotAuthorizedException | PasswordHistoryPolicyViolationException | PasswordResetRequiredException | ResourceNotFoundException | SoftwareTokenMFANotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("RespondToAuthChallenge", input);
   }
@@ -1433,14 +724,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: RevokeTokenRequest,
   ): Effect.Effect<
     RevokeTokenResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | UnsupportedOperationException
-    | UnsupportedTokenTypeException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | TooManyRequestsException | UnauthorizedException | UnsupportedOperationException | UnsupportedTokenTypeException | CommonAwsError
   > {
     return this.call("RevokeToken", input);
   }
@@ -1448,13 +732,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: SetLogDeliveryConfigurationRequest,
   ): Effect.Effect<
     SetLogDeliveryConfigurationResponse,
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    FeatureUnavailableInTierException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("SetLogDeliveryConfiguration", input);
   }
@@ -1462,15 +740,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: SetRiskConfigurationRequest,
   ): Effect.Effect<
     SetRiskConfigurationResponse,
-    | CodeDeliveryFailureException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserPoolAddOnNotEnabledException
-    | CommonAwsError
+    CodeDeliveryFailureException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserPoolAddOnNotEnabledException | CommonAwsError
   > {
     return this.call("SetRiskConfiguration", input);
   }
@@ -1478,12 +748,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: SetUICustomizationRequest,
   ): Effect.Effect<
     SetUICustomizationResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("SetUICustomization", input);
   }
@@ -1491,15 +756,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: SetUserMFAPreferenceRequest,
   ): Effect.Effect<
     SetUserMFAPreferenceResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("SetUserMFAPreference", input);
   }
@@ -1507,16 +764,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: SetUserPoolMfaConfigRequest,
   ): Effect.Effect<
     SetUserPoolMfaConfigResponse,
-    | ConcurrentModificationException
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | FeatureUnavailableInTierException | InternalErrorException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("SetUserPoolMfaConfig", input);
   }
@@ -1524,15 +772,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: SetUserSettingsRequest,
   ): Effect.Effect<
     SetUserSettingsResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("SetUserSettings", input);
   }
@@ -1540,23 +780,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: SignUpRequest,
   ): Effect.Effect<
     SignUpResponse,
-    | CodeDeliveryFailureException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidPasswordException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UsernameExistsException
-    | CommonAwsError
+    CodeDeliveryFailureException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidPasswordException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | LimitExceededException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UsernameExistsException | CommonAwsError
   > {
     return this.call("SignUp", input);
   }
@@ -1564,13 +788,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: StartUserImportJobRequest,
   ): Effect.Effect<
     StartUserImportJobResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | PreconditionNotMetException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("StartUserImportJob", input);
   }
@@ -1578,15 +796,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: StartWebAuthnRegistrationRequest,
   ): Effect.Effect<
     StartWebAuthnRegistrationResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | WebAuthnConfigurationMissingException
-    | WebAuthnNotEnabledException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | TooManyRequestsException | WebAuthnConfigurationMissingException | WebAuthnNotEnabledException | CommonAwsError
   > {
     return this.call("StartWebAuthnRegistration", input);
   }
@@ -1594,13 +804,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: StopUserImportJobRequest,
   ): Effect.Effect<
     StopUserImportJobResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | PreconditionNotMetException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("StopUserImportJob", input);
   }
@@ -1608,12 +812,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1621,12 +820,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1634,14 +828,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UpdateAuthEventFeedbackRequest,
   ): Effect.Effect<
     UpdateAuthEventFeedbackResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotFoundException
-    | UserPoolAddOnNotEnabledException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UserNotFoundException | UserPoolAddOnNotEnabledException | CommonAwsError
   > {
     return this.call("UpdateAuthEventFeedback", input);
   }
@@ -1649,17 +836,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UpdateDeviceStatusRequest,
   ): Effect.Effect<
     UpdateDeviceStatusResponse,
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    ForbiddenException | InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("UpdateDeviceStatus", input);
   }
@@ -1667,12 +844,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UpdateGroupRequest,
   ): Effect.Effect<
     UpdateGroupResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateGroup", input);
   }
@@ -1680,14 +852,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UpdateIdentityProviderRequest,
   ): Effect.Effect<
     UpdateIdentityProviderResponse,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnsupportedIdentityProviderException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | UnsupportedIdentityProviderException | CommonAwsError
   > {
     return this.call("UpdateIdentityProvider", input);
   }
@@ -1695,13 +860,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UpdateManagedLoginBrandingRequest,
   ): Effect.Effect<
     UpdateManagedLoginBrandingResponse,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateManagedLoginBranding", input);
   }
@@ -1709,12 +868,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UpdateResourceServerRequest,
   ): Effect.Effect<
     UpdateResourceServerResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateResourceServer", input);
   }
@@ -1722,26 +876,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UpdateUserAttributesRequest,
   ): Effect.Effect<
     UpdateUserAttributesResponse,
-    | AliasExistsException
-    | CodeDeliveryFailureException
-    | CodeMismatchException
-    | ExpiredCodeException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidLambdaResponseException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnexpectedLambdaException
-    | UserLambdaValidationException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | CodeDeliveryFailureException | CodeMismatchException | ExpiredCodeException | ForbiddenException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidLambdaResponseException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UnexpectedLambdaException | UserLambdaValidationException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("UpdateUserAttributes", input);
   }
@@ -1749,20 +884,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UpdateUserPoolRequest,
   ): Effect.Effect<
     UpdateUserPoolResponse,
-    | ConcurrentModificationException
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidEmailRoleAccessPolicyException
-    | InvalidParameterException
-    | InvalidSmsRoleAccessPolicyException
-    | InvalidSmsRoleTrustRelationshipException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TierChangeNotAllowedException
-    | TooManyRequestsException
-    | UserImportInProgressException
-    | UserPoolTaggingException
-    | CommonAwsError
+    ConcurrentModificationException | FeatureUnavailableInTierException | InternalErrorException | InvalidEmailRoleAccessPolicyException | InvalidParameterException | InvalidSmsRoleAccessPolicyException | InvalidSmsRoleTrustRelationshipException | NotAuthorizedException | ResourceNotFoundException | TierChangeNotAllowedException | TooManyRequestsException | UserImportInProgressException | UserPoolTaggingException | CommonAwsError
   > {
     return this.call("UpdateUserPool", input);
   }
@@ -1770,16 +892,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UpdateUserPoolClientRequest,
   ): Effect.Effect<
     UpdateUserPoolClientResponse,
-    | ConcurrentModificationException
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidOAuthFlowException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | ScopeDoesNotExistException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | FeatureUnavailableInTierException | InternalErrorException | InvalidOAuthFlowException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | ScopeDoesNotExistException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateUserPoolClient", input);
   }
@@ -1787,14 +900,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: UpdateUserPoolDomainRequest,
   ): Effect.Effect<
     UpdateUserPoolDomainResponse,
-    | ConcurrentModificationException
-    | FeatureUnavailableInTierException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | FeatureUnavailableInTierException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateUserPoolDomain", input);
   }
@@ -1802,20 +908,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: VerifySoftwareTokenRequest,
   ): Effect.Effect<
     VerifySoftwareTokenResponse,
-    | CodeMismatchException
-    | EnableSoftwareTokenMFAException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidUserPoolConfigurationException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | SoftwareTokenMFANotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    CodeMismatchException | EnableSoftwareTokenMFAException | ForbiddenException | InternalErrorException | InvalidParameterException | InvalidUserPoolConfigurationException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | SoftwareTokenMFANotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("VerifySoftwareToken", input);
   }
@@ -1823,20 +916,7 @@ export class CognitoIdentityProvider extends AWSServiceClient {
     input: VerifyUserAttributeRequest,
   ): Effect.Effect<
     VerifyUserAttributeResponse,
-    | AliasExistsException
-    | CodeMismatchException
-    | ExpiredCodeException
-    | ForbiddenException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | PasswordResetRequiredException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UserNotConfirmedException
-    | UserNotFoundException
-    | CommonAwsError
+    AliasExistsException | CodeMismatchException | ExpiredCodeException | ForbiddenException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | PasswordResetRequiredException | ResourceNotFoundException | TooManyRequestsException | UserNotConfirmedException | UserNotFoundException | CommonAwsError
   > {
     return this.call("VerifyUserAttribute", input);
   }
@@ -1860,11 +940,7 @@ export interface AccountTakeoverActionType {
   Notify: boolean;
   EventAction: AccountTakeoverEventActionType;
 }
-export type AccountTakeoverEventActionType =
-  | "BLOCK"
-  | "MFA_IF_CONFIGURED"
-  | "MFA_REQUIRED"
-  | "NO_ACTION";
+export type AccountTakeoverEventActionType = "BLOCK" | "MFA_IF_CONFIGURED" | "MFA_REQUIRED" | "NO_ACTION";
 export interface AccountTakeoverRiskConfigurationType {
   NotifyConfiguration?: NotifyConfigurationType;
   Actions: AccountTakeoverActionsType;
@@ -1873,7 +949,8 @@ export interface AddCustomAttributesRequest {
   UserPoolId: string;
   CustomAttributes: Array<SchemaAttributeType>;
 }
-export interface AddCustomAttributesResponse {}
+export interface AddCustomAttributesResponse {
+}
 export interface AdminAddUserToGroupRequest {
   UserPoolId: string;
   Username: string;
@@ -1884,7 +961,8 @@ export interface AdminConfirmSignUpRequest {
   Username: string;
   ClientMetadata?: Record<string, string>;
 }
-export interface AdminConfirmSignUpResponse {}
+export interface AdminConfirmSignUpResponse {
+}
 export interface AdminCreateUserConfigType {
   AllowAdminCreateUserOnly?: boolean;
   UnusedAccountValidityDays?: number;
@@ -1911,7 +989,8 @@ export interface AdminDeleteUserAttributesRequest {
   Username: string;
   UserAttributeNames: Array<string>;
 }
-export interface AdminDeleteUserAttributesResponse {}
+export interface AdminDeleteUserAttributesResponse {
+}
 export interface AdminDeleteUserRequest {
   UserPoolId: string;
   Username: string;
@@ -1920,17 +999,20 @@ export interface AdminDisableProviderForUserRequest {
   UserPoolId: string;
   User: ProviderUserIdentifierType;
 }
-export interface AdminDisableProviderForUserResponse {}
+export interface AdminDisableProviderForUserResponse {
+}
 export interface AdminDisableUserRequest {
   UserPoolId: string;
   Username: string;
 }
-export interface AdminDisableUserResponse {}
+export interface AdminDisableUserResponse {
+}
 export interface AdminEnableUserRequest {
   UserPoolId: string;
   Username: string;
 }
-export interface AdminEnableUserResponse {}
+export interface AdminEnableUserResponse {
+}
 export interface AdminForgetDeviceRequest {
   UserPoolId: string;
   Username: string;
@@ -1981,7 +1063,8 @@ export interface AdminLinkProviderForUserRequest {
   DestinationUser: ProviderUserIdentifierType;
   SourceUser: ProviderUserIdentifierType;
 }
-export interface AdminLinkProviderForUserResponse {}
+export interface AdminLinkProviderForUserResponse {
+}
 export interface AdminListDevicesRequest {
   UserPoolId: string;
   Username: string;
@@ -2022,7 +1105,8 @@ export interface AdminResetUserPasswordRequest {
   Username: string;
   ClientMetadata?: Record<string, string>;
 }
-export interface AdminResetUserPasswordResponse {}
+export interface AdminResetUserPasswordResponse {
+}
 export interface AdminRespondToAuthChallengeRequest {
   UserPoolId: string;
   ClientId: string;
@@ -2046,56 +1130,60 @@ export interface AdminSetUserMFAPreferenceRequest {
   Username: string;
   UserPoolId: string;
 }
-export interface AdminSetUserMFAPreferenceResponse {}
+export interface AdminSetUserMFAPreferenceResponse {
+}
 export interface AdminSetUserPasswordRequest {
   UserPoolId: string;
   Username: string;
   Password: string;
   Permanent?: boolean;
 }
-export interface AdminSetUserPasswordResponse {}
+export interface AdminSetUserPasswordResponse {
+}
 export interface AdminSetUserSettingsRequest {
   UserPoolId: string;
   Username: string;
   MFAOptions: Array<MFAOptionType>;
 }
-export interface AdminSetUserSettingsResponse {}
+export interface AdminSetUserSettingsResponse {
+}
 export interface AdminUpdateAuthEventFeedbackRequest {
   UserPoolId: string;
   Username: string;
   EventId: string;
   FeedbackValue: FeedbackValueType;
 }
-export interface AdminUpdateAuthEventFeedbackResponse {}
+export interface AdminUpdateAuthEventFeedbackResponse {
+}
 export interface AdminUpdateDeviceStatusRequest {
   UserPoolId: string;
   Username: string;
   DeviceKey: string;
   DeviceRememberedStatus?: DeviceRememberedStatusType;
 }
-export interface AdminUpdateDeviceStatusResponse {}
+export interface AdminUpdateDeviceStatusResponse {
+}
 export interface AdminUpdateUserAttributesRequest {
   UserPoolId: string;
   Username: string;
   UserAttributes: Array<AttributeType>;
   ClientMetadata?: Record<string, string>;
 }
-export interface AdminUpdateUserAttributesResponse {}
+export interface AdminUpdateUserAttributesResponse {
+}
 export interface AdminUserGlobalSignOutRequest {
   UserPoolId: string;
   Username: string;
 }
-export interface AdminUserGlobalSignOutResponse {}
+export interface AdminUserGlobalSignOutResponse {
+}
 export interface AdvancedSecurityAdditionalFlowsType {
   CustomAuthMode?: AdvancedSecurityEnabledModeType;
 }
 export type AdvancedSecurityEnabledModeType = "AUDIT" | "ENFORCED";
 export type AdvancedSecurityModeType = "OFF" | "AUDIT" | "ENFORCED";
 export type AliasAttributesListType = Array<AliasAttributeType>;
-export type AliasAttributeType =
-  | "PHONE_NUMBER"
-  | "EMAIL"
-  | "PREFERRED_USERNAME";
+export type AliasAttributeType = "PHONE_NUMBER" | "EMAIL" | "PREFERRED_USERNAME";
 export declare class AliasExistsException extends EffectData.TaggedError(
   "AliasExistsException",
 )<{
@@ -2116,22 +1204,7 @@ export type ArnType = string;
 
 export type AssetBytesType = Uint8Array | string;
 
-export type AssetCategoryType =
-  | "FAVICON_ICO"
-  | "FAVICON_SVG"
-  | "EMAIL_GRAPHIC"
-  | "SMS_GRAPHIC"
-  | "AUTH_APP_GRAPHIC"
-  | "PASSWORD_GRAPHIC"
-  | "PASSKEY_GRAPHIC"
-  | "PAGE_HEADER_LOGO"
-  | "PAGE_HEADER_BACKGROUND"
-  | "PAGE_FOOTER_LOGO"
-  | "PAGE_FOOTER_BACKGROUND"
-  | "PAGE_BACKGROUND"
-  | "FORM_BACKGROUND"
-  | "FORM_LOGO"
-  | "IDP_BUTTON_ICON";
+export type AssetCategoryType = "FAVICON_ICO" | "FAVICON_SVG" | "EMAIL_GRAPHIC" | "SMS_GRAPHIC" | "AUTH_APP_GRAPHIC" | "PASSWORD_GRAPHIC" | "PASSKEY_GRAPHIC" | "PAGE_HEADER_LOGO" | "PAGE_HEADER_BACKGROUND" | "PAGE_FOOTER_LOGO" | "PAGE_FOOTER_BACKGROUND" | "PAGE_BACKGROUND" | "FORM_BACKGROUND" | "FORM_LOGO" | "IDP_BUTTON_ICON";
 export type AssetExtensionType = "ICO" | "JPEG" | "PNG" | "SVG" | "WEBP";
 export type AssetListType = Array<AssetType>;
 export interface AssetType {
@@ -2157,8 +1230,7 @@ export type AttributeMappingType = Record<string, string>;
 export type AttributeNameListType = Array<string>;
 export type AttributeNameType = string;
 
-export type AttributesRequireVerificationBeforeUpdateType =
-  Array<VerifiedAttributeType>;
+export type AttributesRequireVerificationBeforeUpdateType = Array<VerifiedAttributeType>;
 export interface AttributeType {
   Name: string;
   Value?: string;
@@ -2185,15 +1257,7 @@ export interface AuthEventType {
   EventFeedback?: EventFeedbackType;
 }
 export type AuthFactorType = "PASSWORD" | "EMAIL_OTP" | "SMS_OTP" | "WEB_AUTHN";
-export type AuthFlowType =
-  | "USER_SRP_AUTH"
-  | "REFRESH_TOKEN_AUTH"
-  | "REFRESH_TOKEN"
-  | "CUSTOM_AUTH"
-  | "ADMIN_NO_SRP_AUTH"
-  | "USER_PASSWORD_AUTH"
-  | "ADMIN_USER_PASSWORD_AUTH"
-  | "USER_AUTH";
+export type AuthFlowType = "USER_SRP_AUTH" | "REFRESH_TOKEN_AUTH" | "REFRESH_TOKEN" | "CUSTOM_AUTH" | "ADMIN_NO_SRP_AUTH" | "USER_PASSWORD_AUTH" | "ADMIN_USER_PASSWORD_AUTH" | "USER_AUTH";
 export type AuthParametersType = Record<string, string>;
 export type AuthSessionValidityType = number;
 
@@ -2205,23 +1269,7 @@ export type BooleanType = boolean;
 
 export type CallbackURLsListType = Array<string>;
 export type ChallengeName = "Password" | "Mfa";
-export type ChallengeNameType =
-  | "SMS_MFA"
-  | "EMAIL_OTP"
-  | "SOFTWARE_TOKEN_MFA"
-  | "SELECT_MFA_TYPE"
-  | "MFA_SETUP"
-  | "PASSWORD_VERIFIER"
-  | "CUSTOM_CHALLENGE"
-  | "SELECT_CHALLENGE"
-  | "DEVICE_SRP_AUTH"
-  | "DEVICE_PASSWORD_VERIFIER"
-  | "ADMIN_NO_SRP_AUTH"
-  | "NEW_PASSWORD_REQUIRED"
-  | "SMS_OTP"
-  | "PASSWORD"
-  | "WEB_AUTHN"
-  | "PASSWORD_SRP";
+export type ChallengeNameType = "SMS_MFA" | "EMAIL_OTP" | "SOFTWARE_TOKEN_MFA" | "SELECT_MFA_TYPE" | "MFA_SETUP" | "PASSWORD_VERIFIER" | "CUSTOM_CHALLENGE" | "SELECT_CHALLENGE" | "DEVICE_SRP_AUTH" | "DEVICE_PASSWORD_VERIFIER" | "ADMIN_NO_SRP_AUTH" | "NEW_PASSWORD_REQUIRED" | "SMS_OTP" | "PASSWORD" | "WEB_AUTHN" | "PASSWORD_SRP";
 export type ChallengeParametersType = Record<string, string>;
 export type ChallengeResponse = "Success" | "Failure";
 export type ChallengeResponseListType = Array<ChallengeResponseType>;
@@ -2235,7 +1283,8 @@ export interface ChangePasswordRequest {
   ProposedPassword: string;
   AccessToken: string;
 }
-export interface ChangePasswordResponse {}
+export interface ChangePasswordResponse {
+}
 export type ClientIdType = string;
 
 export type ClientMetadataType = Record<string, string>;
@@ -2270,7 +1319,8 @@ export interface CompleteWebAuthnRegistrationRequest {
   AccessToken: string;
   Credential: unknown;
 }
-export interface CompleteWebAuthnRegistrationResponse {}
+export interface CompleteWebAuthnRegistrationResponse {
+}
 export type CompletionMessageType = string;
 
 export interface CompromisedCredentialsActionsType {
@@ -2308,7 +1358,8 @@ export interface ConfirmForgotPasswordRequest {
   UserContextData?: UserContextDataType;
   ClientMetadata?: Record<string, string>;
 }
-export interface ConfirmForgotPasswordResponse {}
+export interface ConfirmForgotPasswordResponse {
+}
 export interface ConfirmSignUpRequest {
   ClientId: string;
   SecretHash?: string;
@@ -2488,7 +1539,8 @@ export interface DeleteUserAttributesRequest {
   UserAttributeNames: Array<string>;
   AccessToken: string;
 }
-export interface DeleteUserAttributesResponse {}
+export interface DeleteUserAttributesResponse {
+}
 export interface DeleteUserPoolClientRequest {
   UserPoolId: string;
   ClientId: string;
@@ -2497,7 +1549,8 @@ export interface DeleteUserPoolDomainRequest {
   Domain: string;
   UserPoolId: string;
 }
-export interface DeleteUserPoolDomainResponse {}
+export interface DeleteUserPoolDomainResponse {
+}
 export interface DeleteUserPoolRequest {
   UserPoolId: string;
 }
@@ -2508,7 +1561,8 @@ export interface DeleteWebAuthnCredentialRequest {
   AccessToken: string;
   CredentialId: string;
 }
-export interface DeleteWebAuthnCredentialResponse {}
+export interface DeleteWebAuthnCredentialResponse {
+}
 export type DeletionProtectionType = "ACTIVE" | "INACTIVE";
 export type DeliveryMediumListType = Array<DeliveryMediumType>;
 export type DeliveryMediumType = "SMS" | "EMAIL";
@@ -2616,12 +1670,7 @@ export interface DomainDescriptionType {
   CustomDomainConfig?: CustomDomainConfigType;
   ManagedLoginVersion?: number;
 }
-export type DomainStatusType =
-  | "CREATING"
-  | "DELETING"
-  | "UPDATING"
-  | "ACTIVE"
-  | "FAILED";
+export type DomainStatusType = "CREATING" | "DELETING" | "UPDATING" | "ACTIVE" | "FAILED";
 export type DomainType = string;
 
 export type DomainVersionType = string;
@@ -2695,28 +1744,14 @@ export interface EventRiskType {
   CompromisedCredentialsDetected?: boolean;
 }
 export type EventSourceName = "USER_NOTIFICATION" | "USER_AUTH_EVENTS";
-export type EventType =
-  | "SignIn"
-  | "SignUp"
-  | "ForgotPassword"
-  | "PasswordChange"
-  | "ResendCode";
+export type EventType = "SignIn" | "SignUp" | "ForgotPassword" | "PasswordChange" | "ResendCode";
 export declare class ExpiredCodeException extends EffectData.TaggedError(
   "ExpiredCodeException",
 )<{
   readonly message?: string;
 }> {}
 export type ExplicitAuthFlowsListType = Array<ExplicitAuthFlowsType>;
-export type ExplicitAuthFlowsType =
-  | "ADMIN_NO_SRP_AUTH"
-  | "CUSTOM_AUTH_FLOW_ONLY"
-  | "USER_PASSWORD_AUTH"
-  | "ALLOW_ADMIN_USER_PASSWORD_AUTH"
-  | "ALLOW_CUSTOM_AUTH"
-  | "ALLOW_USER_PASSWORD_AUTH"
-  | "ALLOW_USER_SRP_AUTH"
-  | "ALLOW_REFRESH_TOKEN_AUTH"
-  | "ALLOW_USER_AUTH";
+export type ExplicitAuthFlowsType = "ADMIN_NO_SRP_AUTH" | "CUSTOM_AUTH_FLOW_ONLY" | "USER_PASSWORD_AUTH" | "ALLOW_ADMIN_USER_PASSWORD_AUTH" | "ALLOW_CUSTOM_AUTH" | "ALLOW_USER_PASSWORD_AUTH" | "ALLOW_USER_SRP_AUTH" | "ALLOW_REFRESH_TOKEN_AUTH" | "ALLOW_USER_AUTH";
 export type FeatureType = "ENABLED" | "DISABLED";
 export declare class FeatureUnavailableInTierException extends EffectData.TaggedError(
   "FeatureUnavailableInTierException",
@@ -2848,7 +1883,8 @@ export interface GetUserResponse {
 export interface GlobalSignOutRequest {
   AccessToken: string;
 }
-export interface GlobalSignOutResponse {}
+export interface GlobalSignOutResponse {
+}
 export declare class GroupExistsException extends EffectData.TaggedError(
   "GroupExistsException",
 )<{
@@ -2883,13 +1919,7 @@ export interface IdentityProviderType {
   LastModifiedDate?: Date | string;
   CreationDate?: Date | string;
 }
-export type IdentityProviderTypeType =
-  | "SAML"
-  | "Facebook"
-  | "Google"
-  | "LoginWithAmazon"
-  | "SignInWithApple"
-  | "OIDC";
+export type IdentityProviderTypeType = "SAML" | "Facebook" | "Google" | "LoginWithAmazon" | "SignInWithApple" | "OIDC";
 export type IdpIdentifiersListType = Array<string>;
 export type IdpIdentifierType = string;
 
@@ -3237,10 +2267,7 @@ export type QueryLimit = number;
 export type QueryLimitType = number;
 
 export type RecoveryMechanismsType = Array<RecoveryOptionType>;
-export type RecoveryOptionNameType =
-  | "VERIFIED_EMAIL"
-  | "VERIFIED_PHONE_NUMBER"
-  | "ADMIN_ONLY";
+export type RecoveryOptionNameType = "VERIFIED_EMAIL" | "VERIFIED_PHONE_NUMBER" | "ADMIN_ONLY";
 export interface RecoveryOptionType {
   Priority: number;
   Name: RecoveryOptionNameType;
@@ -3322,7 +2349,8 @@ export interface RevokeTokenRequest {
   ClientId: string;
   ClientSecret?: string;
 }
-export interface RevokeTokenResponse {}
+export interface RevokeTokenResponse {
+}
 export interface RiskConfigurationType {
   UserPoolId?: string;
   ClientId?: string;
@@ -3405,7 +2433,8 @@ export interface SetUserMFAPreferenceRequest {
   EmailMfaSettings?: EmailMfaSettingsType;
   AccessToken: string;
 }
-export interface SetUserMFAPreferenceResponse {}
+export interface SetUserMFAPreferenceResponse {
+}
 export interface SetUserPoolMfaConfigRequest {
   UserPoolId: string;
   SmsMfaConfiguration?: SmsMfaConfigType;
@@ -3425,7 +2454,8 @@ export interface SetUserSettingsRequest {
   AccessToken: string;
   MFAOptions: Array<MFAOptionType>;
 }
-export interface SetUserSettingsResponse {}
+export interface SetUserSettingsResponse {
+}
 export interface SignInPolicyType {
   AllowedFirstAuthFactors?: Array<AuthFactorType>;
 }
@@ -3512,7 +2542,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValueType = string;
 
 export type TemporaryPasswordValidityDaysType = number;
@@ -3583,7 +2614,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAuthEventFeedbackRequest {
   UserPoolId: string;
   Username: string;
@@ -3591,13 +2623,15 @@ export interface UpdateAuthEventFeedbackRequest {
   FeedbackToken: string;
   FeedbackValue: FeedbackValueType;
 }
-export interface UpdateAuthEventFeedbackResponse {}
+export interface UpdateAuthEventFeedbackResponse {
+}
 export interface UpdateDeviceStatusRequest {
   AccessToken: string;
   DeviceKey: string;
   DeviceRememberedStatus?: DeviceRememberedStatusType;
 }
-export interface UpdateDeviceStatusResponse {}
+export interface UpdateDeviceStatusResponse {
+}
 export interface UpdateGroupRequest {
   GroupName: string;
   UserPoolId: string;
@@ -3706,7 +2740,8 @@ export interface UpdateUserPoolRequest {
   PoolName?: string;
   UserPoolTier?: UserPoolTierType;
 }
-export interface UpdateUserPoolResponse {}
+export interface UpdateUserPoolResponse {
+}
 export interface UserAttributeUpdateSettingsType {
   AttributesRequireVerificationBeforeUpdate?: Array<VerifiedAttributeType>;
 }
@@ -3726,15 +2761,7 @@ export type UserImportJobIdType = string;
 export type UserImportJobNameType = string;
 
 export type UserImportJobsListType = Array<UserImportJobType>;
-export type UserImportJobStatusType =
-  | "Created"
-  | "Pending"
-  | "InProgress"
-  | "Stopping"
-  | "Expired"
-  | "Stopped"
-  | "Failed"
-  | "Succeeded";
+export type UserImportJobStatusType = "Created" | "Pending" | "InProgress" | "Stopping" | "Expired" | "Stopped" | "Failed" | "Succeeded";
 export interface UserImportJobType {
   JobName?: string;
   JobId?: string;
@@ -3884,15 +2911,7 @@ export interface UserPoolType {
   UserPoolTier?: UserPoolTierType;
 }
 export type UsersListType = Array<UserType>;
-export type UserStatusType =
-  | "UNCONFIRMED"
-  | "CONFIRMED"
-  | "ARCHIVED"
-  | "COMPROMISED"
-  | "UNKNOWN"
-  | "RESET_REQUIRED"
-  | "FORCE_CHANGE_PASSWORD"
-  | "EXTERNAL_PROVIDER";
+export type UserStatusType = "UNCONFIRMED" | "CONFIRMED" | "ARCHIVED" | "COMPROMISED" | "UNKNOWN" | "RESET_REQUIRED" | "FORCE_CHANGE_PASSWORD" | "EXTERNAL_PROVIDER";
 export interface UserType {
   Username?: string;
   Attributes?: Array<AttributeType>;
@@ -3929,7 +2948,8 @@ export interface VerifyUserAttributeRequest {
   AttributeName: string;
   Code: string;
 }
-export interface VerifyUserAttributeResponse {}
+export interface VerifyUserAttributeResponse {
+}
 export type WebAuthnAuthenticatorAttachmentType = string;
 
 export type WebAuthnAuthenticatorTransportsList = Array<string>;
@@ -3962,8 +2982,7 @@ export interface WebAuthnCredentialDescription {
   AuthenticatorTransports: Array<string>;
   CreatedAt: Date | string;
 }
-export type WebAuthnCredentialDescriptionListType =
-  Array<WebAuthnCredentialDescription>;
+export type WebAuthnCredentialDescriptionListType = Array<WebAuthnCredentialDescription>;
 export declare class WebAuthnCredentialNotSupportedException extends EffectData.TaggedError(
   "WebAuthnCredentialNotSupportedException",
 )<{
@@ -5712,3 +4731,4 @@ export declare namespace VerifyUserAttribute {
     | UserNotFoundException
     | CommonAwsError;
 }
+

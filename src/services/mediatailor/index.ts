@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MediaTailor extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("mediatailor", new RestJson1Protocol(), cfg);
+  }
+
   configureLogsForPlaybackConfiguration(
     input: ConfigureLogsForPlaybackConfigurationRequest,
   ): Effect.Effect<
@@ -13,7 +18,10 @@ export class MediaTailor extends AWSServiceClient {
   }
   listAlerts(
     input: ListAlertsRequest,
-  ): Effect.Effect<ListAlertsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    ListAlertsResponse,
+    CommonAwsError
+  > {
     return this.call("ListAlerts", input);
   }
   listTagsForResource(
@@ -26,12 +34,18 @@ export class MediaTailor extends AWSServiceClient {
   }
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<{}, BadRequestException | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    BadRequestException | CommonAwsError
+  > {
     return this.call("TagResource", input);
   }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<{}, BadRequestException | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    BadRequestException | CommonAwsError
+  > {
     return this.call("UntagResource", input);
   }
 }
@@ -40,10 +54,8 @@ export class Mediatailor extends MediaTailor {}
 
 export default MediaTailor;
 
-export type __adsInteractionExcludeEventTypesList =
-  Array<AdsInteractionExcludeEventType>;
-export type __adsInteractionPublishOptInEventTypesList =
-  Array<AdsInteractionPublishOptInEventType>;
+export type __adsInteractionExcludeEventTypesList = Array<AdsInteractionExcludeEventType>;
+export type __adsInteractionPublishOptInEventTypesList = Array<AdsInteractionPublishOptInEventType>;
 export type __boolean = boolean;
 
 export type __integer = number;
@@ -65,14 +77,12 @@ export type __listOfPlaybackConfiguration = Array<PlaybackConfiguration>;
 export type __listOfPrefetchSchedule = Array<PrefetchSchedule>;
 export type __listOfScheduleAdBreak = Array<ScheduleAdBreak>;
 export type __listOfScheduleEntry = Array<ScheduleEntry>;
-export type __listOfSegmentDeliveryConfiguration =
-  Array<SegmentDeliveryConfiguration>;
+export type __listOfSegmentDeliveryConfiguration = Array<SegmentDeliveryConfiguration>;
 export type __listOfSourceLocation = Array<SourceLocation>;
 export type __listOfVodSource = Array<VodSource>;
 export type __long = number;
 
-export type __manifestServiceExcludeEventTypesList =
-  Array<ManifestServiceExcludeEventType>;
+export type __manifestServiceExcludeEventTypesList = Array<ManifestServiceExcludeEventType>;
 export type __mapOf__string = Record<string, string>;
 export type __string = string;
 
@@ -82,10 +92,7 @@ export interface AccessConfiguration {
   AccessType?: AccessType;
   SecretsManagerAccessTokenConfiguration?: SecretsManagerAccessTokenConfiguration;
 }
-export type AccessType =
-  | "S3_SIGV4"
-  | "SECRETS_MANAGER_ACCESS_TOKEN"
-  | "AUTODETECT_SIGV4";
+export type AccessType = "S3_SIGV4" | "SECRETS_MANAGER_ACCESS_TOKEN" | "AUTODETECT_SIGV4";
 export interface AdBreak {
   MessageType?: MessageType;
   OffsetMillis: number;
@@ -107,48 +114,7 @@ export interface AdMarkerPassthrough {
 }
 export type AdMarkupType = "DATERANGE" | "SCTE35_ENHANCED";
 export type adMarkupTypes = Array<AdMarkupType>;
-export type AdsInteractionExcludeEventType =
-  | "AD_MARKER_FOUND"
-  | "NON_AD_MARKER_FOUND"
-  | "MAKING_ADS_REQUEST"
-  | "MODIFIED_TARGET_URL"
-  | "VAST_REDIRECT"
-  | "EMPTY_VAST_RESPONSE"
-  | "EMPTY_VMAP_RESPONSE"
-  | "VAST_RESPONSE"
-  | "REDIRECTED_VAST_RESPONSE"
-  | "FILLED_AVAIL"
-  | "FILLED_OVERLAY_AVAIL"
-  | "BEACON_FIRED"
-  | "WARNING_NO_ADVERTISEMENTS"
-  | "WARNING_VPAID_AD_DROPPED"
-  | "WARNING_URL_VARIABLE_SUBSTITUTION_FAILED"
-  | "ERROR_UNKNOWN"
-  | "ERROR_UNKNOWN_HOST"
-  | "ERROR_DISALLOWED_HOST"
-  | "ERROR_ADS_IO"
-  | "ERROR_ADS_TIMEOUT"
-  | "ERROR_ADS_RESPONSE_PARSE"
-  | "ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT"
-  | "ERROR_ADS_INVALID_RESPONSE"
-  | "ERROR_VAST_REDIRECT_EMPTY_RESPONSE"
-  | "ERROR_VAST_REDIRECT_MULTIPLE_VAST"
-  | "ERROR_VAST_REDIRECT_FAILED"
-  | "ERROR_VAST_MISSING_MEDIAFILES"
-  | "ERROR_VAST_MISSING_CREATIVES"
-  | "ERROR_VAST_MISSING_OVERLAYS"
-  | "ERROR_VAST_MISSING_IMPRESSION"
-  | "ERROR_VAST_INVALID_VAST_AD_TAG_URI"
-  | "ERROR_VAST_MULTIPLE_TRACKING_EVENTS"
-  | "ERROR_VAST_MULTIPLE_LINEAR"
-  | "ERROR_VAST_INVALID_MEDIA_FILE"
-  | "ERROR_FIRING_BEACON_FAILED"
-  | "ERROR_PERSONALIZATION_DISABLED"
-  | "VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET"
-  | "VOD_TIME_BASED_AVAIL_PLAN_SUCCESS"
-  | "VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS"
-  | "INTERSTITIAL_VOD_SUCCESS"
-  | "INTERSTITIAL_VOD_FAILURE";
+export type AdsInteractionExcludeEventType = "AD_MARKER_FOUND" | "NON_AD_MARKER_FOUND" | "MAKING_ADS_REQUEST" | "MODIFIED_TARGET_URL" | "VAST_REDIRECT" | "EMPTY_VAST_RESPONSE" | "EMPTY_VMAP_RESPONSE" | "VAST_RESPONSE" | "REDIRECTED_VAST_RESPONSE" | "FILLED_AVAIL" | "FILLED_OVERLAY_AVAIL" | "BEACON_FIRED" | "WARNING_NO_ADVERTISEMENTS" | "WARNING_VPAID_AD_DROPPED" | "WARNING_URL_VARIABLE_SUBSTITUTION_FAILED" | "ERROR_UNKNOWN" | "ERROR_UNKNOWN_HOST" | "ERROR_DISALLOWED_HOST" | "ERROR_ADS_IO" | "ERROR_ADS_TIMEOUT" | "ERROR_ADS_RESPONSE_PARSE" | "ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT" | "ERROR_ADS_INVALID_RESPONSE" | "ERROR_VAST_REDIRECT_EMPTY_RESPONSE" | "ERROR_VAST_REDIRECT_MULTIPLE_VAST" | "ERROR_VAST_REDIRECT_FAILED" | "ERROR_VAST_MISSING_MEDIAFILES" | "ERROR_VAST_MISSING_CREATIVES" | "ERROR_VAST_MISSING_OVERLAYS" | "ERROR_VAST_MISSING_IMPRESSION" | "ERROR_VAST_INVALID_VAST_AD_TAG_URI" | "ERROR_VAST_MULTIPLE_TRACKING_EVENTS" | "ERROR_VAST_MULTIPLE_LINEAR" | "ERROR_VAST_INVALID_MEDIA_FILE" | "ERROR_FIRING_BEACON_FAILED" | "ERROR_PERSONALIZATION_DISABLED" | "VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET" | "VOD_TIME_BASED_AVAIL_PLAN_SUCCESS" | "VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS" | "INTERSTITIAL_VOD_SUCCESS" | "INTERSTITIAL_VOD_FAILURE";
 export interface AdsInteractionLog {
   PublishOptInEventTypes?: Array<AdsInteractionPublishOptInEventType>;
   ExcludeEventTypes?: Array<AdsInteractionExcludeEventType>;
@@ -218,14 +184,8 @@ export interface ClipRange {
   EndOffsetMillis?: number;
   StartOffsetMillis?: number;
 }
-export type ConfigurationAliasesRequest = Record<
-  string,
-  Record<string, string>
->;
-export type ConfigurationAliasesResponse = Record<
-  string,
-  Record<string, string>
->;
+export type ConfigurationAliasesRequest = Record<string, Record<string, string>>;
+export type ConfigurationAliasesResponse = Record<string, Record<string, string>>;
 export interface ConfigureLogsForChannelRequest {
   ChannelName: string;
   LogTypes: Array<LogType>;
@@ -385,39 +345,47 @@ export interface DefaultSegmentDeliveryConfiguration {
 export interface DeleteChannelPolicyRequest {
   ChannelName: string;
 }
-export interface DeleteChannelPolicyResponse {}
+export interface DeleteChannelPolicyResponse {
+}
 export interface DeleteChannelRequest {
   ChannelName: string;
 }
-export interface DeleteChannelResponse {}
+export interface DeleteChannelResponse {
+}
 export interface DeleteLiveSourceRequest {
   LiveSourceName: string;
   SourceLocationName: string;
 }
-export interface DeleteLiveSourceResponse {}
+export interface DeleteLiveSourceResponse {
+}
 export interface DeletePlaybackConfigurationRequest {
   Name: string;
 }
-export interface DeletePlaybackConfigurationResponse {}
+export interface DeletePlaybackConfigurationResponse {
+}
 export interface DeletePrefetchScheduleRequest {
   Name: string;
   PlaybackConfigurationName: string;
 }
-export interface DeletePrefetchScheduleResponse {}
+export interface DeletePrefetchScheduleResponse {
+}
 export interface DeleteProgramRequest {
   ChannelName: string;
   ProgramName: string;
 }
-export interface DeleteProgramResponse {}
+export interface DeleteProgramResponse {
+}
 export interface DeleteSourceLocationRequest {
   SourceLocationName: string;
 }
-export interface DeleteSourceLocationResponse {}
+export interface DeleteSourceLocationResponse {
+}
 export interface DeleteVodSourceRequest {
   SourceLocationName: string;
   VodSourceName: string;
 }
-export interface DeleteVodSourceResponse {}
+export interface DeleteVodSourceResponse {
+}
 export interface DescribeChannelRequest {
   ChannelName: string;
 }
@@ -671,39 +639,7 @@ export type LogTypes = Array<LogType>;
 export interface ManifestProcessingRules {
   AdMarkerPassthrough?: AdMarkerPassthrough;
 }
-export type ManifestServiceExcludeEventType =
-  | "GENERATED_MANIFEST"
-  | "ORIGIN_MANIFEST"
-  | "SESSION_INITIALIZED"
-  | "TRACKING_RESPONSE"
-  | "CONFIG_SYNTAX_ERROR"
-  | "CONFIG_SECURITY_ERROR"
-  | "UNKNOWN_HOST"
-  | "TIMEOUT_ERROR"
-  | "CONNECTION_ERROR"
-  | "IO_ERROR"
-  | "UNKNOWN_ERROR"
-  | "HOST_DISALLOWED"
-  | "PARSING_ERROR"
-  | "MANIFEST_ERROR"
-  | "NO_MASTER_OR_MEDIA_PLAYLIST"
-  | "NO_MASTER_PLAYLIST"
-  | "NO_MEDIA_PLAYLIST"
-  | "INCOMPATIBLE_HLS_VERSION"
-  | "SCTE35_PARSING_ERROR"
-  | "INVALID_SINGLE_PERIOD_DASH_MANIFEST"
-  | "UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST"
-  | "LAST_PERIOD_MISSING_AUDIO"
-  | "LAST_PERIOD_MISSING_AUDIO_WARNING"
-  | "ERROR_ORIGIN_PREFIX_INTERPOLATION"
-  | "ERROR_ADS_INTERPOLATION"
-  | "ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION"
-  | "ERROR_CDN_AD_SEGMENT_INTERPOLATION"
-  | "ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION"
-  | "ERROR_SLATE_AD_URL_INTERPOLATION"
-  | "ERROR_PROFILE_NAME_INTERPOLATION"
-  | "ERROR_BUMPER_START_INTERPOLATION"
-  | "ERROR_BUMPER_END_INTERPOLATION";
+export type ManifestServiceExcludeEventType = "GENERATED_MANIFEST" | "ORIGIN_MANIFEST" | "SESSION_INITIALIZED" | "TRACKING_RESPONSE" | "CONFIG_SYNTAX_ERROR" | "CONFIG_SECURITY_ERROR" | "UNKNOWN_HOST" | "TIMEOUT_ERROR" | "CONNECTION_ERROR" | "IO_ERROR" | "UNKNOWN_ERROR" | "HOST_DISALLOWED" | "PARSING_ERROR" | "MANIFEST_ERROR" | "NO_MASTER_OR_MEDIA_PLAYLIST" | "NO_MASTER_PLAYLIST" | "NO_MEDIA_PLAYLIST" | "INCOMPATIBLE_HLS_VERSION" | "SCTE35_PARSING_ERROR" | "INVALID_SINGLE_PERIOD_DASH_MANIFEST" | "UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST" | "LAST_PERIOD_MISSING_AUDIO" | "LAST_PERIOD_MISSING_AUDIO_WARNING" | "ERROR_ORIGIN_PREFIX_INTERPOLATION" | "ERROR_ADS_INTERPOLATION" | "ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION" | "ERROR_CDN_AD_SEGMENT_INTERPOLATION" | "ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION" | "ERROR_SLATE_AD_URL_INTERPOLATION" | "ERROR_PROFILE_NAME_INTERPOLATION" | "ERROR_BUMPER_START_INTERPOLATION" | "ERROR_BUMPER_END_INTERPOLATION";
 export interface ManifestServiceInteractionLog {
   ExcludeEventTypes?: Array<ManifestServiceExcludeEventType>;
 }
@@ -764,7 +700,8 @@ export interface PutChannelPolicyRequest {
   ChannelName: string;
   Policy: string;
 }
-export interface PutChannelPolicyResponse {}
+export interface PutChannelPolicyResponse {
+}
 export interface PutPlaybackConfigurationRequest {
   AdDecisionServerUrl?: string;
   AvailSuppression?: AvailSuppression;
@@ -906,11 +843,13 @@ export interface SpliceInsertMessage {
 export interface StartChannelRequest {
   ChannelName: string;
 }
-export interface StartChannelResponse {}
+export interface StartChannelResponse {
+}
 export interface StopChannelRequest {
   ChannelName: string;
 }
-export interface StopChannelResponse {}
+export interface StopChannelResponse {
+}
 export type StreamingMediaFileConditioning = "TRANSCODE" | "NONE";
 export interface TagResourceRequest {
   ResourceArn: string;
@@ -1047,29 +986,38 @@ export interface VodSource {
 export declare namespace ConfigureLogsForPlaybackConfiguration {
   export type Input = ConfigureLogsForPlaybackConfigurationRequest;
   export type Output = ConfigureLogsForPlaybackConfigurationResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListAlerts {
   export type Input = ListAlertsRequest;
   export type Output = ListAlertsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = BadRequestException | CommonAwsError;
+  export type Error =
+    | BadRequestException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = {};
-  export type Error = BadRequestException | CommonAwsError;
+  export type Error =
+    | BadRequestException
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
-  export type Error = BadRequestException | CommonAwsError;
+  export type Error =
+    | BadRequestException
+    | CommonAwsError;
 }
+

@@ -1,16 +1,27 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class CloudSearchDomain extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cloudsearch-domain", new RestJson1Protocol(), cfg);
+  }
+
   search(
     input: SearchRequest,
-  ): Effect.Effect<SearchResponse, SearchException | CommonAwsError> {
+  ): Effect.Effect<
+    SearchResponse,
+    SearchException | CommonAwsError
+  > {
     return this.call("Search", input);
   }
   suggest(
     input: SuggestRequest,
-  ): Effect.Effect<SuggestResponse, SearchException | CommonAwsError> {
+  ): Effect.Effect<
+    SuggestResponse,
+    SearchException | CommonAwsError
+  > {
     return this.call("Suggest", input);
   }
   uploadDocuments(
@@ -186,17 +197,24 @@ export interface UploadDocumentsResponse {
 export declare namespace Search {
   export type Input = SearchRequest;
   export type Output = SearchResponse;
-  export type Error = SearchException | CommonAwsError;
+  export type Error =
+    | SearchException
+    | CommonAwsError;
 }
 
 export declare namespace Suggest {
   export type Input = SuggestRequest;
   export type Output = SuggestResponse;
-  export type Error = SearchException | CommonAwsError;
+  export type Error =
+    | SearchException
+    | CommonAwsError;
 }
 
 export declare namespace UploadDocuments {
   export type Input = UploadDocumentsRequest;
   export type Output = UploadDocumentsResponse;
-  export type Error = DocumentServiceException | CommonAwsError;
+  export type Error =
+    | DocumentServiceException
+    | CommonAwsError;
 }
+

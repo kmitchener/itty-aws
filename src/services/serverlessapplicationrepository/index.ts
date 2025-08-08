@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ServerlessApplicationRepository extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("serverlessapplicationrepository", new RestJson1Protocol(), cfg);
+  }
+
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateApplication", input);
   }
@@ -20,12 +20,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: CreateApplicationVersionRequest,
   ): Effect.Effect<
     CreateApplicationVersionResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateApplicationVersion", input);
   }
@@ -33,11 +28,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: CreateCloudFormationChangeSetRequest,
   ): Effect.Effect<
     CreateCloudFormationChangeSetResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateCloudFormationChangeSet", input);
   }
@@ -45,12 +36,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: CreateCloudFormationTemplateRequest,
   ): Effect.Effect<
     CreateCloudFormationTemplateResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateCloudFormationTemplate", input);
   }
@@ -58,13 +44,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteApplication", input);
   }
@@ -72,12 +52,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: GetApplicationRequest,
   ): Effect.Effect<
     GetApplicationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetApplication", input);
   }
@@ -85,12 +60,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: GetApplicationPolicyRequest,
   ): Effect.Effect<
     GetApplicationPolicyResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetApplicationPolicy", input);
   }
@@ -98,12 +68,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: GetCloudFormationTemplateRequest,
   ): Effect.Effect<
     GetCloudFormationTemplateResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetCloudFormationTemplate", input);
   }
@@ -111,12 +76,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: ListApplicationDependenciesRequest,
   ): Effect.Effect<
     ListApplicationDependenciesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListApplicationDependencies", input);
   }
@@ -124,11 +84,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("ListApplications", input);
   }
@@ -136,12 +92,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: ListApplicationVersionsRequest,
   ): Effect.Effect<
     ListApplicationVersionsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListApplicationVersions", input);
   }
@@ -149,12 +100,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: PutApplicationPolicyRequest,
   ): Effect.Effect<
     PutApplicationPolicyResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutApplicationPolicy", input);
   }
@@ -162,12 +108,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: UnshareApplicationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UnshareApplication", input);
   }
@@ -175,13 +116,7 @@ export class ServerlessApplicationRepository extends AWSServiceClient {
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateApplication", input);
   }
@@ -196,10 +131,8 @@ export type __boolean = boolean;
 export type __integer = number;
 
 export type __listOf__string = Array<string>;
-export type __listOfApplicationDependencySummary =
-  Array<ApplicationDependencySummary>;
-export type __listOfApplicationPolicyStatement =
-  Array<ApplicationPolicyStatement>;
+export type __listOfApplicationDependencySummary = Array<ApplicationDependencySummary>;
+export type __listOfApplicationPolicyStatement = Array<ApplicationPolicyStatement>;
 export type __listOfApplicationSummary = Array<ApplicationSummary>;
 export type __listOfCapability = Array<Capability>;
 export type __listOfParameterDefinition = Array<ParameterDefinition>;
@@ -235,11 +168,7 @@ export declare class BadRequestException extends EffectData.TaggedError(
   readonly ErrorCode?: string;
   readonly Message?: string;
 }> {}
-export type Capability =
-  | "CAPABILITY_IAM"
-  | "CAPABILITY_NAMED_IAM"
-  | "CAPABILITY_AUTO_EXPAND"
-  | "CAPABILITY_RESOURCE_POLICY";
+export type Capability = "CAPABILITY_IAM" | "CAPABILITY_NAMED_IAM" | "CAPABILITY_AUTO_EXPAND" | "CAPABILITY_RESOURCE_POLICY";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -676,3 +605,4 @@ export declare namespace UpdateApplication {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

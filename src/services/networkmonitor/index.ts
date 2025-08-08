@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class NetworkMonitor extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("networkmonitor", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -21,13 +20,7 @@ export class NetworkMonitor extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -35,13 +28,7 @@ export class NetworkMonitor extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -113,12 +100,14 @@ export interface CreateProbeOutput {
 export interface DeleteMonitorInput {
   monitorName: string;
 }
-export interface DeleteMonitorOutput {}
+export interface DeleteMonitorOutput {
+}
 export interface DeleteProbeInput {
   monitorName: string;
   probeId: string;
 }
-export interface DeleteProbeOutput {}
+export interface DeleteProbeOutput {
+}
 export type Destination = string;
 
 export interface GetMonitorInput {
@@ -180,12 +169,7 @@ export type MaxResults = number;
 export type MonitorArn = string;
 
 export type MonitorList = Array<MonitorSummary>;
-export type MonitorState =
-  | "PENDING"
-  | "ACTIVE"
-  | "INACTIVE"
-  | "ERROR"
-  | "DELETING";
+export type MonitorState = "PENDING" | "ACTIVE" | "INACTIVE" | "ERROR" | "DELETING";
 export interface MonitorSummary {
   monitorArn: string;
   monitorName: string;
@@ -225,13 +209,7 @@ export interface ProbeInput {
   tags?: Record<string, string>;
 }
 export type ProbeList = Array<Probe>;
-export type ProbeState =
-  | "PENDING"
-  | "ACTIVE"
-  | "INACTIVE"
-  | "ERROR"
-  | "DELETING"
-  | "DELETED";
+export type ProbeState = "PENDING" | "ACTIVE" | "INACTIVE" | "ERROR" | "DELETING" | "DELETED";
 export type Protocol = "TCP" | "ICMP";
 export type ResourceName = string;
 
@@ -253,7 +231,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -265,7 +244,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateMonitorInput {
   monitorName: string;
   aggregationPeriod: number;
@@ -346,3 +326,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

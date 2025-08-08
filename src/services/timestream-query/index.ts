@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class TimestreamQuery extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("timestream-query", new AwsJson10Protocol(), cfg);
+  }
+
   cancelQuery(
     input: CancelQueryRequest,
   ): Effect.Effect<
     CancelQueryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelQuery", input);
   }
@@ -20,14 +20,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: CreateScheduledQueryRequest,
   ): Effect.Effect<
     CreateScheduledQueryResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidEndpointException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidEndpointException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateScheduledQuery", input);
   }
@@ -35,13 +28,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: DeleteScheduledQueryRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteScheduledQuery", input);
   }
@@ -49,11 +36,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: DescribeAccountSettingsRequest,
   ): Effect.Effect<
     DescribeAccountSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAccountSettings", input);
   }
@@ -61,10 +44,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: DescribeEndpointsRequest,
   ): Effect.Effect<
     DescribeEndpointsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeEndpoints", input);
   }
@@ -72,13 +52,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: DescribeScheduledQueryRequest,
   ): Effect.Effect<
     DescribeScheduledQueryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeScheduledQuery", input);
   }
@@ -86,13 +60,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: ExecuteScheduledQueryRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ExecuteScheduledQuery", input);
   }
@@ -100,12 +68,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: ListScheduledQueriesRequest,
   ): Effect.Effect<
     ListScheduledQueriesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListScheduledQueries", input);
   }
@@ -113,11 +76,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -125,12 +84,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: PrepareQueryRequest,
   ): Effect.Effect<
     PrepareQueryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PrepareQuery", input);
   }
@@ -138,14 +92,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: QueryRequest,
   ): Effect.Effect<
     QueryResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidEndpointException
-    | QueryExecutionException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidEndpointException | QueryExecutionException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("Query", input);
   }
@@ -153,12 +100,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InvalidEndpointException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -166,11 +108,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -178,12 +116,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: UpdateAccountSettingsRequest,
   ): Effect.Effect<
     UpdateAccountSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAccountSettings", input);
   }
@@ -191,13 +124,7 @@ export class TimestreamQuery extends AWSServiceClient {
     input: UpdateScheduledQueryRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidEndpointException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateScheduledQuery", input);
   }
@@ -263,13 +190,15 @@ export type DatumList = Array<Datum>;
 export interface DeleteScheduledQueryRequest {
   ScheduledQueryArn: string;
 }
-export interface DescribeAccountSettingsRequest {}
+export interface DescribeAccountSettingsRequest {
+}
 export interface DescribeAccountSettingsResponse {
   MaxQueryTCU?: number;
   QueryPricingModel?: QueryPricingModel;
   QueryCompute?: QueryComputeResponse;
 }
-export interface DescribeEndpointsRequest {}
+export interface DescribeEndpointsRequest {
+}
 export interface DescribeEndpointsResponse {
   Endpoints: Array<Endpoint>;
 }
@@ -357,12 +286,7 @@ export type MaxScheduledQueriesResults = number;
 
 export type MaxTagsForResourceResult = number;
 
-export type MeasureValueType =
-  | "BIGINT"
-  | "BOOLEAN"
-  | "DOUBLE"
-  | "VARCHAR"
-  | "MULTI";
+export type MeasureValueType = "BIGINT" | "BOOLEAN" | "DOUBLE" | "VARCHAR" | "MULTI";
 export interface MixedMeasureMapping {
   MeasureName?: string;
   SourceColumn?: string;
@@ -376,8 +300,7 @@ export interface MultiMeasureAttributeMapping {
   TargetMultiMeasureAttributeName?: string;
   MeasureValueType: ScalarMeasureValueType;
 }
-export type MultiMeasureAttributeMappingList =
-  Array<MultiMeasureAttributeMapping>;
+export type MultiMeasureAttributeMappingList = Array<MultiMeasureAttributeMapping>;
 export interface MultiMeasureMappings {
   TargetMultiMeasureName?: string;
   MultiMeasureAttributeMappings: Array<MultiMeasureAttributeMapping>;
@@ -516,24 +439,8 @@ export interface S3ReportLocation {
   BucketName?: string;
   ObjectKey?: string;
 }
-export type ScalarMeasureValueType =
-  | "BIGINT"
-  | "BOOLEAN"
-  | "DOUBLE"
-  | "VARCHAR"
-  | "TIMESTAMP";
-export type ScalarType =
-  | "VARCHAR"
-  | "BOOLEAN"
-  | "BIGINT"
-  | "DOUBLE"
-  | "TIMESTAMP"
-  | "DATE"
-  | "TIME"
-  | "INTERVAL_DAY_TO_SECOND"
-  | "INTERVAL_YEAR_TO_MONTH"
-  | "UNKNOWN"
-  | "INTEGER";
+export type ScalarMeasureValueType = "BIGINT" | "BOOLEAN" | "DOUBLE" | "VARCHAR" | "TIMESTAMP";
+export type ScalarType = "VARCHAR" | "BOOLEAN" | "BIGINT" | "DOUBLE" | "TIMESTAMP" | "DATE" | "TIME" | "INTERVAL_DAY_TO_SECOND" | "INTERVAL_YEAR_TO_MONTH" | "UNKNOWN" | "INTEGER";
 export type ScalarValue = string;
 
 export interface ScheduleConfiguration {
@@ -570,9 +477,7 @@ export interface ScheduledQueryDescription {
 export interface ScheduledQueryInsights {
   Mode: ScheduledQueryInsightsMode;
 }
-export type ScheduledQueryInsightsMode =
-  | "ENABLED_WITH_RATE_CONTROL"
-  | "DISABLED";
+export type ScheduledQueryInsightsMode = "ENABLED_WITH_RATE_CONTROL" | "DISABLED";
 export interface ScheduledQueryInsightsResponse {
   QuerySpatialCoverage?: QuerySpatialCoverage;
   QueryTemporalRange?: QueryTemporalRange;
@@ -583,11 +488,7 @@ export interface ScheduledQueryInsightsResponse {
 export type ScheduledQueryList = Array<ScheduledQuery>;
 export type ScheduledQueryName = string;
 
-export type ScheduledQueryRunStatus =
-  | "AUTO_TRIGGER_SUCCESS"
-  | "AUTO_TRIGGER_FAILURE"
-  | "MANUAL_TRIGGER_SUCCESS"
-  | "MANUAL_TRIGGER_FAILURE";
+export type ScheduledQueryRunStatus = "AUTO_TRIGGER_SUCCESS" | "AUTO_TRIGGER_FAILURE" | "MANUAL_TRIGGER_SUCCESS" | "MANUAL_TRIGGER_FAILURE";
 export interface ScheduledQueryRunSummary {
   InvocationTime?: Date | string;
   TriggerTime?: Date | string;
@@ -637,7 +538,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TargetConfiguration {
@@ -683,7 +585,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAccountSettingsRequest {
   MaxQueryTCU?: number;
   QueryPricingModel?: QueryPricingModel;
@@ -885,3 +788,4 @@ export declare namespace UpdateScheduledQuery {
     | ValidationException
     | CommonAwsError;
 }
+

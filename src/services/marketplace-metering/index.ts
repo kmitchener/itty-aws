@@ -1,22 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class MarketplaceMetering extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("marketplace-metering", new AwsJson11Protocol(), cfg);
+  }
+
   batchMeterUsage(
     input: BatchMeterUsageRequest,
   ): Effect.Effect<
     BatchMeterUsageResult,
-    | DisabledApiException
-    | InternalServiceErrorException
-    | InvalidCustomerIdentifierException
-    | InvalidProductCodeException
-    | InvalidTagException
-    | InvalidUsageAllocationsException
-    | InvalidUsageDimensionException
-    | ThrottlingException
-    | TimestampOutOfBoundsException
-    | CommonAwsError
+    DisabledApiException | InternalServiceErrorException | InvalidCustomerIdentifierException | InvalidProductCodeException | InvalidTagException | InvalidUsageAllocationsException | InvalidUsageDimensionException | ThrottlingException | TimestampOutOfBoundsException | CommonAwsError
   > {
     return this.call("BatchMeterUsage", input);
   }
@@ -24,17 +20,7 @@ export class MarketplaceMetering extends AWSServiceClient {
     input: MeterUsageRequest,
   ): Effect.Effect<
     MeterUsageResult,
-    | CustomerNotEntitledException
-    | DuplicateRequestException
-    | InternalServiceErrorException
-    | InvalidEndpointRegionException
-    | InvalidProductCodeException
-    | InvalidTagException
-    | InvalidUsageAllocationsException
-    | InvalidUsageDimensionException
-    | ThrottlingException
-    | TimestampOutOfBoundsException
-    | CommonAwsError
+    CustomerNotEntitledException | DuplicateRequestException | InternalServiceErrorException | InvalidEndpointRegionException | InvalidProductCodeException | InvalidTagException | InvalidUsageAllocationsException | InvalidUsageDimensionException | ThrottlingException | TimestampOutOfBoundsException | CommonAwsError
   > {
     return this.call("MeterUsage", input);
   }
@@ -42,15 +28,7 @@ export class MarketplaceMetering extends AWSServiceClient {
     input: RegisterUsageRequest,
   ): Effect.Effect<
     RegisterUsageResult,
-    | CustomerNotEntitledException
-    | DisabledApiException
-    | InternalServiceErrorException
-    | InvalidProductCodeException
-    | InvalidPublicKeyVersionException
-    | InvalidRegionException
-    | PlatformNotSupportedException
-    | ThrottlingException
-    | CommonAwsError
+    CustomerNotEntitledException | DisabledApiException | InternalServiceErrorException | InvalidProductCodeException | InvalidPublicKeyVersionException | InvalidRegionException | PlatformNotSupportedException | ThrottlingException | CommonAwsError
   > {
     return this.call("RegisterUsage", input);
   }
@@ -58,12 +36,7 @@ export class MarketplaceMetering extends AWSServiceClient {
     input: ResolveCustomerRequest,
   ): Effect.Effect<
     ResolveCustomerResult,
-    | DisabledApiException
-    | ExpiredTokenException
-    | InternalServiceErrorException
-    | InvalidTokenException
-    | ThrottlingException
-    | CommonAwsError
+    DisabledApiException | ExpiredTokenException | InternalServiceErrorException | InvalidTokenException | ThrottlingException | CommonAwsError
   > {
     return this.call("ResolveCustomer", input);
   }
@@ -245,10 +218,7 @@ export interface UsageRecordResult {
   Status?: UsageRecordResultStatus;
 }
 export type UsageRecordResultList = Array<UsageRecordResult>;
-export type UsageRecordResultStatus =
-  | "SUCCESS"
-  | "CUSTOMER_NOT_SUBSCRIBED"
-  | "DUPLICATE_RECORD";
+export type UsageRecordResultStatus = "SUCCESS" | "CUSTOMER_NOT_SUBSCRIBED" | "DUPLICATE_RECORD";
 export type VersionInteger = number;
 
 export declare namespace BatchMeterUsage {
@@ -310,3 +280,4 @@ export declare namespace ResolveCustomer {
     | ThrottlingException
     | CommonAwsError;
 }
+

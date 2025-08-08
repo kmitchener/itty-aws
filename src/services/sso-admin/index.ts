@@ -1,38 +1,26 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class SSOAdmin extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sso-admin", new AwsJson11Protocol(), cfg);
+  }
+
   attachCustomerManagedPolicyReferenceToPermissionSet(
     input: AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
   ): Effect.Effect<
     AttachCustomerManagedPolicyReferenceToPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
-    return this.call(
-      "AttachCustomerManagedPolicyReferenceToPermissionSet",
-      input,
-    );
+    return this.call("AttachCustomerManagedPolicyReferenceToPermissionSet", input);
   }
   attachManagedPolicyToPermissionSet(
     input: AttachManagedPolicyToPermissionSetRequest,
   ): Effect.Effect<
     AttachManagedPolicyToPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AttachManagedPolicyToPermissionSet", input);
   }
@@ -40,14 +28,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: CreateAccountAssignmentRequest,
   ): Effect.Effect<
     CreateAccountAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAccountAssignment", input);
   }
@@ -55,14 +36,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateApplication", input);
   }
@@ -70,14 +44,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: CreateApplicationAssignmentRequest,
   ): Effect.Effect<
     CreateApplicationAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateApplicationAssignment", input);
   }
@@ -85,13 +52,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: CreateInstanceRequest,
   ): Effect.Effect<
     CreateInstanceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateInstance", input);
   }
@@ -99,31 +60,15 @@ export class SSOAdmin extends AWSServiceClient {
     input: CreateInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
     CreateInstanceAccessControlAttributeConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
-    return this.call(
-      "CreateInstanceAccessControlAttributeConfiguration",
-      input,
-    );
+    return this.call("CreateInstanceAccessControlAttributeConfiguration", input);
   }
   createPermissionSet(
     input: CreatePermissionSetRequest,
   ): Effect.Effect<
     CreatePermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePermissionSet", input);
   }
@@ -131,13 +76,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: CreateTrustedTokenIssuerRequest,
   ): Effect.Effect<
     CreateTrustedTokenIssuerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateTrustedTokenIssuer", input);
   }
@@ -145,13 +84,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DeleteAccountAssignmentRequest,
   ): Effect.Effect<
     DeleteAccountAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAccountAssignment", input);
   }
@@ -159,13 +92,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteApplication", input);
   }
@@ -173,13 +100,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DeleteApplicationAssignmentRequest,
   ): Effect.Effect<
     DeleteApplicationAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteApplicationAssignment", input);
   }
@@ -187,13 +108,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DeleteInlinePolicyFromPermissionSetRequest,
   ): Effect.Effect<
     DeleteInlinePolicyFromPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteInlinePolicyFromPermissionSet", input);
   }
@@ -201,12 +116,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DeleteInstanceRequest,
   ): Effect.Effect<
     DeleteInstanceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteInstance", input);
   }
@@ -214,30 +124,15 @@ export class SSOAdmin extends AWSServiceClient {
     input: DeleteInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
     DeleteInstanceAccessControlAttributeConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
-    return this.call(
-      "DeleteInstanceAccessControlAttributeConfiguration",
-      input,
-    );
+    return this.call("DeleteInstanceAccessControlAttributeConfiguration", input);
   }
   deletePermissionsBoundaryFromPermissionSet(
     input: DeletePermissionsBoundaryFromPermissionSetRequest,
   ): Effect.Effect<
     DeletePermissionsBoundaryFromPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePermissionsBoundaryFromPermissionSet", input);
   }
@@ -245,13 +140,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DeletePermissionSetRequest,
   ): Effect.Effect<
     DeletePermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePermissionSet", input);
   }
@@ -259,13 +148,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DeleteTrustedTokenIssuerRequest,
   ): Effect.Effect<
     DeleteTrustedTokenIssuerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteTrustedTokenIssuer", input);
   }
@@ -273,12 +156,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DescribeAccountAssignmentCreationStatusRequest,
   ): Effect.Effect<
     DescribeAccountAssignmentCreationStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAccountAssignmentCreationStatus", input);
   }
@@ -286,12 +164,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DescribeAccountAssignmentDeletionStatusRequest,
   ): Effect.Effect<
     DescribeAccountAssignmentDeletionStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAccountAssignmentDeletionStatus", input);
   }
@@ -299,12 +172,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DescribeApplicationRequest,
   ): Effect.Effect<
     DescribeApplicationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeApplication", input);
   }
@@ -312,12 +180,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DescribeApplicationAssignmentRequest,
   ): Effect.Effect<
     DescribeApplicationAssignmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeApplicationAssignment", input);
   }
@@ -325,12 +188,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DescribeApplicationProviderRequest,
   ): Effect.Effect<
     DescribeApplicationProviderResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeApplicationProvider", input);
   }
@@ -338,11 +196,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DescribeInstanceRequest,
   ): Effect.Effect<
     DescribeInstanceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeInstance", input);
   }
@@ -350,28 +204,15 @@ export class SSOAdmin extends AWSServiceClient {
     input: DescribeInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
     DescribeInstanceAccessControlAttributeConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
-    return this.call(
-      "DescribeInstanceAccessControlAttributeConfiguration",
-      input,
-    );
+    return this.call("DescribeInstanceAccessControlAttributeConfiguration", input);
   }
   describePermissionSet(
     input: DescribePermissionSetRequest,
   ): Effect.Effect<
     DescribePermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePermissionSet", input);
   }
@@ -379,12 +220,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DescribePermissionSetProvisioningStatusRequest,
   ): Effect.Effect<
     DescribePermissionSetProvisioningStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePermissionSetProvisioningStatus", input);
   }
@@ -392,12 +228,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: DescribeTrustedTokenIssuerRequest,
   ): Effect.Effect<
     DescribeTrustedTokenIssuerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeTrustedTokenIssuer", input);
   }
@@ -405,30 +236,15 @@ export class SSOAdmin extends AWSServiceClient {
     input: DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
   ): Effect.Effect<
     DetachCustomerManagedPolicyReferenceFromPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
-    return this.call(
-      "DetachCustomerManagedPolicyReferenceFromPermissionSet",
-      input,
-    );
+    return this.call("DetachCustomerManagedPolicyReferenceFromPermissionSet", input);
   }
   detachManagedPolicyFromPermissionSet(
     input: DetachManagedPolicyFromPermissionSetRequest,
   ): Effect.Effect<
     DetachManagedPolicyFromPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DetachManagedPolicyFromPermissionSet", input);
   }
@@ -436,12 +252,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: GetApplicationAssignmentConfigurationRequest,
   ): Effect.Effect<
     GetApplicationAssignmentConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetApplicationAssignmentConfiguration", input);
   }
@@ -449,12 +260,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: GetInlinePolicyForPermissionSetRequest,
   ): Effect.Effect<
     GetInlinePolicyForPermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetInlinePolicyForPermissionSet", input);
   }
@@ -462,12 +268,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: GetPermissionsBoundaryForPermissionSetRequest,
   ): Effect.Effect<
     GetPermissionsBoundaryForPermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPermissionsBoundaryForPermissionSet", input);
   }
@@ -475,12 +276,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListAccountAssignmentCreationStatusRequest,
   ): Effect.Effect<
     ListAccountAssignmentCreationStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAccountAssignmentCreationStatus", input);
   }
@@ -488,12 +284,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListAccountAssignmentDeletionStatusRequest,
   ): Effect.Effect<
     ListAccountAssignmentDeletionStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAccountAssignmentDeletionStatus", input);
   }
@@ -501,12 +292,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListAccountAssignmentsRequest,
   ): Effect.Effect<
     ListAccountAssignmentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAccountAssignments", input);
   }
@@ -514,12 +300,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListAccountAssignmentsForPrincipalRequest,
   ): Effect.Effect<
     ListAccountAssignmentsForPrincipalResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAccountAssignmentsForPrincipal", input);
   }
@@ -527,12 +308,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListAccountsForProvisionedPermissionSetRequest,
   ): Effect.Effect<
     ListAccountsForProvisionedPermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAccountsForProvisionedPermissionSet", input);
   }
@@ -540,12 +316,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListApplicationAssignmentsRequest,
   ): Effect.Effect<
     ListApplicationAssignmentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListApplicationAssignments", input);
   }
@@ -553,12 +324,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListApplicationAssignmentsForPrincipalRequest,
   ): Effect.Effect<
     ListApplicationAssignmentsForPrincipalResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListApplicationAssignmentsForPrincipal", input);
   }
@@ -566,11 +332,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListApplicationProvidersRequest,
   ): Effect.Effect<
     ListApplicationProvidersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListApplicationProviders", input);
   }
@@ -578,11 +340,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListApplications", input);
   }
@@ -590,27 +348,15 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListCustomerManagedPolicyReferencesInPermissionSetRequest,
   ): Effect.Effect<
     ListCustomerManagedPolicyReferencesInPermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
-    return this.call(
-      "ListCustomerManagedPolicyReferencesInPermissionSet",
-      input,
-    );
+    return this.call("ListCustomerManagedPolicyReferencesInPermissionSet", input);
   }
   listInstances(
     input: ListInstancesRequest,
   ): Effect.Effect<
     ListInstancesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListInstances", input);
   }
@@ -618,12 +364,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListManagedPoliciesInPermissionSetRequest,
   ): Effect.Effect<
     ListManagedPoliciesInPermissionSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListManagedPoliciesInPermissionSet", input);
   }
@@ -631,12 +372,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListPermissionSetProvisioningStatusRequest,
   ): Effect.Effect<
     ListPermissionSetProvisioningStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPermissionSetProvisioningStatus", input);
   }
@@ -644,12 +380,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListPermissionSetsRequest,
   ): Effect.Effect<
     ListPermissionSetsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPermissionSets", input);
   }
@@ -657,12 +388,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListPermissionSetsProvisionedToAccountRequest,
   ): Effect.Effect<
     ListPermissionSetsProvisionedToAccountResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPermissionSetsProvisionedToAccount", input);
   }
@@ -670,12 +396,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -683,11 +404,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ListTrustedTokenIssuersRequest,
   ): Effect.Effect<
     ListTrustedTokenIssuersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTrustedTokenIssuers", input);
   }
@@ -695,13 +412,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: ProvisionPermissionSetRequest,
   ): Effect.Effect<
     ProvisionPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ProvisionPermissionSet", input);
   }
@@ -709,13 +420,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: PutApplicationAssignmentConfigurationRequest,
   ): Effect.Effect<
     PutApplicationAssignmentConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutApplicationAssignmentConfiguration", input);
   }
@@ -723,14 +428,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: PutInlinePolicyToPermissionSetRequest,
   ): Effect.Effect<
     PutInlinePolicyToPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutInlinePolicyToPermissionSet", input);
   }
@@ -738,13 +436,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: PutPermissionsBoundaryToPermissionSetRequest,
   ): Effect.Effect<
     PutPermissionsBoundaryToPermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutPermissionsBoundaryToPermissionSet", input);
   }
@@ -752,14 +444,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -767,13 +452,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -781,13 +460,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateApplication", input);
   }
@@ -795,12 +468,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: UpdateInstanceRequest,
   ): Effect.Effect<
     UpdateInstanceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateInstance", input);
   }
@@ -808,30 +476,15 @@ export class SSOAdmin extends AWSServiceClient {
     input: UpdateInstanceAccessControlAttributeConfigurationRequest,
   ): Effect.Effect<
     UpdateInstanceAccessControlAttributeConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
-    return this.call(
-      "UpdateInstanceAccessControlAttributeConfiguration",
-      input,
-    );
+    return this.call("UpdateInstanceAccessControlAttributeConfiguration", input);
   }
   updatePermissionSet(
     input: UpdatePermissionSetRequest,
   ): Effect.Effect<
     UpdatePermissionSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePermissionSet", input);
   }
@@ -839,13 +492,7 @@ export class SSOAdmin extends AWSServiceClient {
     input: UpdateTrustedTokenIssuerRequest,
   ): Effect.Effect<
     UpdateTrustedTokenIssuerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateTrustedTokenIssuer", input);
   }
@@ -888,8 +535,7 @@ export interface AccountAssignmentForPrincipal {
   PrincipalType?: PrincipalType;
 }
 export type AccountAssignmentList = Array<AccountAssignment>;
-export type AccountAssignmentListForPrincipal =
-  Array<AccountAssignmentForPrincipal>;
+export type AccountAssignmentListForPrincipal = Array<AccountAssignmentForPrincipal>;
 export interface AccountAssignmentOperationStatus {
   Status?: StatusValues;
   RequestId?: string;
@@ -901,8 +547,7 @@ export interface AccountAssignmentOperationStatus {
   PrincipalId?: string;
   CreatedDate?: Date | string;
 }
-export type AccountAssignmentOperationStatusList =
-  Array<AccountAssignmentOperationStatusMetadata>;
+export type AccountAssignmentOperationStatusList = Array<AccountAssignmentOperationStatusMetadata>;
 export interface AccountAssignmentOperationStatusMetadata {
   Status?: StatusValues;
   RequestId?: string;
@@ -936,8 +581,7 @@ export interface ApplicationAssignmentForPrincipal {
   PrincipalId?: string;
   PrincipalType?: PrincipalType;
 }
-export type ApplicationAssignmentListForPrincipal =
-  Array<ApplicationAssignmentForPrincipal>;
+export type ApplicationAssignmentListForPrincipal = Array<ApplicationAssignmentForPrincipal>;
 export type ApplicationAssignmentsList = Array<ApplicationAssignment>;
 export type ApplicationList = Array<Application>;
 export type ApplicationNameType = string;
@@ -962,7 +606,8 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetRequest {
   PermissionSetArn: string;
   CustomerManagedPolicyReference: CustomerManagedPolicyReference;
 }
-export interface AttachCustomerManagedPolicyReferenceToPermissionSetResponse {}
+export interface AttachCustomerManagedPolicyReferenceToPermissionSetResponse {
+}
 export interface AttachedManagedPolicy {
   Name?: string;
   Arn?: string;
@@ -973,14 +618,13 @@ export interface AttachManagedPolicyToPermissionSetRequest {
   PermissionSetArn: string;
   ManagedPolicyArn: string;
 }
-export interface AttachManagedPolicyToPermissionSetResponse {}
+export interface AttachManagedPolicyToPermissionSetResponse {
+}
 interface _AuthenticationMethod {
   Iam?: IamAuthenticationMethod;
 }
 
-export type AuthenticationMethod = _AuthenticationMethod & {
-  Iam: IamAuthenticationMethod;
-};
+export type AuthenticationMethod = (_AuthenticationMethod & { Iam: IamAuthenticationMethod });
 export interface AuthenticationMethodItem {
   AuthenticationMethodType?: AuthenticationMethodType;
   AuthenticationMethod?: AuthenticationMethod;
@@ -1022,7 +666,8 @@ export interface CreateApplicationAssignmentRequest {
   PrincipalId: string;
   PrincipalType: PrincipalType;
 }
-export interface CreateApplicationAssignmentResponse {}
+export interface CreateApplicationAssignmentResponse {
+}
 export interface CreateApplicationRequest {
   InstanceArn: string;
   ApplicationProviderArn: string;
@@ -1040,7 +685,8 @@ export interface CreateInstanceAccessControlAttributeConfigurationRequest {
   InstanceArn: string;
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration;
 }
-export interface CreateInstanceAccessControlAttributeConfigurationResponse {}
+export interface CreateInstanceAccessControlAttributeConfigurationResponse {
+}
 export interface CreateInstanceRequest {
   Name?: string;
   ClientToken?: string;
@@ -1075,8 +721,7 @@ export interface CustomerManagedPolicyReference {
   Name: string;
   Path?: string;
 }
-export type CustomerManagedPolicyReferenceList =
-  Array<CustomerManagedPolicyReference>;
+export type CustomerManagedPolicyReferenceList = Array<CustomerManagedPolicyReference>;
 export type SsoAdminDate = Date | string;
 
 export interface DeleteAccountAssignmentRequest {
@@ -1099,7 +744,8 @@ export interface DeleteApplicationAssignmentRequest {
   PrincipalId: string;
   PrincipalType: PrincipalType;
 }
-export interface DeleteApplicationAssignmentResponse {}
+export interface DeleteApplicationAssignmentResponse {
+}
 export interface DeleteApplicationAuthenticationMethodRequest {
   ApplicationArn: string;
   AuthenticationMethodType: AuthenticationMethodType;
@@ -1111,34 +757,41 @@ export interface DeleteApplicationGrantRequest {
 export interface DeleteApplicationRequest {
   ApplicationArn: string;
 }
-export interface DeleteApplicationResponse {}
+export interface DeleteApplicationResponse {
+}
 export interface DeleteInlinePolicyFromPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
 }
-export interface DeleteInlinePolicyFromPermissionSetResponse {}
+export interface DeleteInlinePolicyFromPermissionSetResponse {
+}
 export interface DeleteInstanceAccessControlAttributeConfigurationRequest {
   InstanceArn: string;
 }
-export interface DeleteInstanceAccessControlAttributeConfigurationResponse {}
+export interface DeleteInstanceAccessControlAttributeConfigurationResponse {
+}
 export interface DeleteInstanceRequest {
   InstanceArn: string;
 }
-export interface DeleteInstanceResponse {}
+export interface DeleteInstanceResponse {
+}
 export interface DeletePermissionsBoundaryFromPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
 }
-export interface DeletePermissionsBoundaryFromPermissionSetResponse {}
+export interface DeletePermissionsBoundaryFromPermissionSetResponse {
+}
 export interface DeletePermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
 }
-export interface DeletePermissionSetResponse {}
+export interface DeletePermissionSetResponse {
+}
 export interface DeleteTrustedTokenIssuerRequest {
   TrustedTokenIssuerArn: string;
 }
-export interface DeleteTrustedTokenIssuerResponse {}
+export interface DeleteTrustedTokenIssuerResponse {
+}
 export interface DescribeAccountAssignmentCreationStatusRequest {
   InstanceArn: string;
   AccountAssignmentCreationRequestId: string;
@@ -1235,13 +888,15 @@ export interface DetachCustomerManagedPolicyReferenceFromPermissionSetRequest {
   PermissionSetArn: string;
   CustomerManagedPolicyReference: CustomerManagedPolicyReference;
 }
-export interface DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {}
+export interface DetachCustomerManagedPolicyReferenceFromPermissionSetResponse {
+}
 export interface DetachManagedPolicyFromPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
   ManagedPolicyArn: string;
 }
-export interface DetachManagedPolicyFromPermissionSetResponse {}
+export interface DetachManagedPolicyFromPermissionSetResponse {
+}
 export interface DisplayData {
   DisplayName?: string;
   IconUrl?: string;
@@ -1299,21 +954,13 @@ interface _Grant {
   TokenExchange?: TokenExchangeGrant;
 }
 
-export type Grant =
-  | (_Grant & { AuthorizationCode: AuthorizationCodeGrant })
-  | (_Grant & { JwtBearer: JwtBearerGrant })
-  | (_Grant & { RefreshToken: RefreshTokenGrant })
-  | (_Grant & { TokenExchange: TokenExchangeGrant });
+export type Grant = (_Grant & { AuthorizationCode: AuthorizationCodeGrant }) | (_Grant & { JwtBearer: JwtBearerGrant }) | (_Grant & { RefreshToken: RefreshTokenGrant }) | (_Grant & { TokenExchange: TokenExchangeGrant });
 export interface GrantItem {
   GrantType: GrantType;
   Grant: Grant;
 }
 export type Grants = Array<GrantItem>;
-export type GrantType =
-  | "AUTHORIZATION_CODE"
-  | "REFRESH_TOKEN"
-  | "JWT_BEARER"
-  | "TOKEN_EXCHANGE";
+export type GrantType = "AUTHORIZATION_CODE" | "REFRESH_TOKEN" | "JWT_BEARER" | "TOKEN_EXCHANGE";
 export interface IamAuthenticationMethod {
   ActorPolicy: unknown;
 }
@@ -1324,10 +971,7 @@ export type Id = string;
 export interface InstanceAccessControlAttributeConfiguration {
   AccessControlAttributes: Array<AccessControlAttribute>;
 }
-export type InstanceAccessControlAttributeConfigurationStatus =
-  | "ENABLED"
-  | "CREATION_IN_PROGRESS"
-  | "CREATION_FAILED";
+export type InstanceAccessControlAttributeConfigurationStatus = "ENABLED" | "CREATION_IN_PROGRESS" | "CREATION_FAILED";
 export type InstanceAccessControlAttributeConfigurationStatusReason = string;
 
 export type InstanceArn = string;
@@ -1341,10 +985,7 @@ export interface InstanceMetadata {
   CreatedDate?: Date | string;
   Status?: InstanceStatus;
 }
-export type InstanceStatus =
-  | "CREATE_IN_PROGRESS"
-  | "DELETE_IN_PROGRESS"
-  | "ACTIVE";
+export type InstanceStatus = "CREATE_IN_PROGRESS" | "DELETE_IN_PROGRESS" | "ACTIVE";
 export type InternalFailureMessage = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -1617,8 +1258,7 @@ export interface PermissionSetProvisioningStatus {
   FailureReason?: string;
   CreatedDate?: Date | string;
 }
-export type PermissionSetProvisioningStatusList =
-  Array<PermissionSetProvisioningStatusMetadata>;
+export type PermissionSetProvisioningStatusList = Array<PermissionSetProvisioningStatusMetadata>;
 export interface PermissionSetProvisioningStatusMetadata {
   Status?: StatusValues;
   RequestId?: string;
@@ -1631,9 +1271,7 @@ export interface PortalOptions {
 export type PrincipalId = string;
 
 export type PrincipalType = "USER" | "GROUP";
-export type ProvisioningStatus =
-  | "LATEST_PERMISSION_SET_PROVISIONED"
-  | "LATEST_PERMISSION_SET_NOT_PROVISIONED";
+export type ProvisioningStatus = "LATEST_PERMISSION_SET_PROVISIONED" | "LATEST_PERMISSION_SET_NOT_PROVISIONED";
 export interface ProvisionPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
@@ -1653,7 +1291,8 @@ export interface PutApplicationAssignmentConfigurationRequest {
   ApplicationArn: string;
   AssignmentRequired: boolean;
 }
-export interface PutApplicationAssignmentConfigurationResponse {}
+export interface PutApplicationAssignmentConfigurationResponse {
+}
 export interface PutApplicationAuthenticationMethodRequest {
   ApplicationArn: string;
   AuthenticationMethodType: AuthenticationMethodType;
@@ -1669,17 +1308,20 @@ export interface PutInlinePolicyToPermissionSetRequest {
   PermissionSetArn: string;
   InlinePolicy: string;
 }
-export interface PutInlinePolicyToPermissionSetResponse {}
+export interface PutInlinePolicyToPermissionSetResponse {
+}
 export interface PutPermissionsBoundaryToPermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
   PermissionsBoundary: PermissionsBoundary;
 }
-export interface PutPermissionsBoundaryToPermissionSetResponse {}
+export interface PutPermissionsBoundaryToPermissionSetResponse {
+}
 export type Reason = string;
 
 export type RedirectUris = Array<string>;
-export interface RefreshTokenGrant {}
+export interface RefreshTokenGrant {
+}
 export type RelayState = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -1737,7 +1379,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TargetId = string;
@@ -1752,7 +1395,8 @@ export type ThrottlingExceptionMessage = string;
 
 export type Token = string;
 
-export interface TokenExchangeGrant {}
+export interface TokenExchangeGrant {
+}
 export type TokenIssuerAudience = string;
 
 export type TokenIssuerAudiences = Array<string>;
@@ -1762,10 +1406,7 @@ interface _TrustedTokenIssuerConfiguration {
   OidcJwtConfiguration?: OidcJwtConfiguration;
 }
 
-export type TrustedTokenIssuerConfiguration =
-  _TrustedTokenIssuerConfiguration & {
-    OidcJwtConfiguration: OidcJwtConfiguration;
-  };
+export type TrustedTokenIssuerConfiguration = (_TrustedTokenIssuerConfiguration & { OidcJwtConfiguration: OidcJwtConfiguration });
 export type TrustedTokenIssuerList = Array<TrustedTokenIssuerMetadata>;
 export interface TrustedTokenIssuerMetadata {
   TrustedTokenIssuerArn?: string;
@@ -1779,10 +1420,7 @@ interface _TrustedTokenIssuerUpdateConfiguration {
   OidcJwtConfiguration?: OidcJwtUpdateConfiguration;
 }
 
-export type TrustedTokenIssuerUpdateConfiguration =
-  _TrustedTokenIssuerUpdateConfiguration & {
-    OidcJwtConfiguration: OidcJwtUpdateConfiguration;
-  };
+export type TrustedTokenIssuerUpdateConfiguration = (_TrustedTokenIssuerUpdateConfiguration & { OidcJwtConfiguration: OidcJwtUpdateConfiguration });
 export type TrustedTokenIssuerUrl = string;
 
 export interface UntagResourceRequest {
@@ -1790,7 +1428,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationPortalOptions {
   SignInOptions?: SignInOptions;
 }
@@ -1801,17 +1440,20 @@ export interface UpdateApplicationRequest {
   Status?: ApplicationStatus;
   PortalOptions?: UpdateApplicationPortalOptions;
 }
-export interface UpdateApplicationResponse {}
+export interface UpdateApplicationResponse {
+}
 export interface UpdateInstanceAccessControlAttributeConfigurationRequest {
   InstanceArn: string;
   InstanceAccessControlAttributeConfiguration: InstanceAccessControlAttributeConfiguration;
 }
-export interface UpdateInstanceAccessControlAttributeConfigurationResponse {}
+export interface UpdateInstanceAccessControlAttributeConfigurationResponse {
+}
 export interface UpdateInstanceRequest {
   Name: string;
   InstanceArn: string;
 }
-export interface UpdateInstanceResponse {}
+export interface UpdateInstanceResponse {
+}
 export interface UpdatePermissionSetRequest {
   InstanceArn: string;
   PermissionSetArn: string;
@@ -1819,13 +1461,15 @@ export interface UpdatePermissionSetRequest {
   SessionDuration?: string;
   RelayState?: string;
 }
-export interface UpdatePermissionSetResponse {}
+export interface UpdatePermissionSetResponse {
+}
 export interface UpdateTrustedTokenIssuerRequest {
   TrustedTokenIssuerArn: string;
   Name?: string;
   TrustedTokenIssuerConfiguration?: TrustedTokenIssuerUpdateConfiguration;
 }
-export interface UpdateTrustedTokenIssuerResponse {}
+export interface UpdateTrustedTokenIssuerResponse {
+}
 export type URI = string;
 
 export type UUId = string;
@@ -1838,10 +1482,8 @@ export declare class ValidationException extends EffectData.TaggedError(
 export type ValidationExceptionMessage = string;
 
 export declare namespace AttachCustomerManagedPolicyReferenceToPermissionSet {
-  export type Input =
-    AttachCustomerManagedPolicyReferenceToPermissionSetRequest;
-  export type Output =
-    AttachCustomerManagedPolicyReferenceToPermissionSetResponse;
+  export type Input = AttachCustomerManagedPolicyReferenceToPermissionSetRequest;
+  export type Output = AttachCustomerManagedPolicyReferenceToPermissionSetResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -1924,8 +1566,7 @@ export declare namespace CreateInstance {
 
 export declare namespace CreateInstanceAccessControlAttributeConfiguration {
   export type Input = CreateInstanceAccessControlAttributeConfigurationRequest;
-  export type Output =
-    CreateInstanceAccessControlAttributeConfigurationResponse;
+  export type Output = CreateInstanceAccessControlAttributeConfigurationResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -2029,8 +1670,7 @@ export declare namespace DeleteInstance {
 
 export declare namespace DeleteInstanceAccessControlAttributeConfiguration {
   export type Input = DeleteInstanceAccessControlAttributeConfigurationRequest;
-  export type Output =
-    DeleteInstanceAccessControlAttributeConfigurationResponse;
+  export type Output = DeleteInstanceAccessControlAttributeConfigurationResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -2152,10 +1792,8 @@ export declare namespace DescribeInstance {
 }
 
 export declare namespace DescribeInstanceAccessControlAttributeConfiguration {
-  export type Input =
-    DescribeInstanceAccessControlAttributeConfigurationRequest;
-  export type Output =
-    DescribeInstanceAccessControlAttributeConfigurationResponse;
+  export type Input = DescribeInstanceAccessControlAttributeConfigurationRequest;
+  export type Output = DescribeInstanceAccessControlAttributeConfigurationResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -2202,10 +1840,8 @@ export declare namespace DescribeTrustedTokenIssuer {
 }
 
 export declare namespace DetachCustomerManagedPolicyReferenceFromPermissionSet {
-  export type Input =
-    DetachCustomerManagedPolicyReferenceFromPermissionSetRequest;
-  export type Output =
-    DetachCustomerManagedPolicyReferenceFromPermissionSetResponse;
+  export type Input = DetachCustomerManagedPolicyReferenceFromPermissionSetRequest;
+  export type Output = DetachCustomerManagedPolicyReferenceFromPermissionSetResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -2373,8 +2009,7 @@ export declare namespace ListApplications {
 
 export declare namespace ListCustomerManagedPolicyReferencesInPermissionSet {
   export type Input = ListCustomerManagedPolicyReferencesInPermissionSetRequest;
-  export type Output =
-    ListCustomerManagedPolicyReferencesInPermissionSetResponse;
+  export type Output = ListCustomerManagedPolicyReferencesInPermissionSetResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -2573,8 +2208,7 @@ export declare namespace UpdateInstance {
 
 export declare namespace UpdateInstanceAccessControlAttributeConfiguration {
   export type Input = UpdateInstanceAccessControlAttributeConfigurationRequest;
-  export type Output =
-    UpdateInstanceAccessControlAttributeConfigurationResponse;
+  export type Output = UpdateInstanceAccessControlAttributeConfigurationResponse;
   export type Error =
     | AccessDeniedException
     | ConflictException
@@ -2610,3 +2244,4 @@ export declare namespace UpdateTrustedTokenIssuer {
     | ValidationException
     | CommonAwsError;
 }
+

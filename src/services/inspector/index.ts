@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class Inspector extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("inspector", new AwsJson11Protocol(), cfg);
+  }
+
   addAttributesToFindings(
     input: AddAttributesToFindingsRequest,
   ): Effect.Effect<
     AddAttributesToFindingsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("AddAttributesToFindings", input);
   }
@@ -20,14 +20,7 @@ export class Inspector extends AWSServiceClient {
     input: CreateAssessmentTargetRequest,
   ): Effect.Effect<
     CreateAssessmentTargetResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidCrossAccountRoleException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidCrossAccountRoleException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("CreateAssessmentTarget", input);
   }
@@ -35,13 +28,7 @@ export class Inspector extends AWSServiceClient {
     input: CreateAssessmentTemplateRequest,
   ): Effect.Effect<
     CreateAssessmentTemplateResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("CreateAssessmentTemplate", input);
   }
@@ -49,13 +36,7 @@ export class Inspector extends AWSServiceClient {
     input: CreateExclusionsPreviewRequest,
   ): Effect.Effect<
     CreateExclusionsPreviewResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | PreviewGenerationInProgressException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | PreviewGenerationInProgressException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("CreateExclusionsPreview", input);
   }
@@ -63,12 +44,7 @@ export class Inspector extends AWSServiceClient {
     input: CreateResourceGroupRequest,
   ): Effect.Effect<
     CreateResourceGroupResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | LimitExceededException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | LimitExceededException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("CreateResourceGroup", input);
   }
@@ -76,13 +52,7 @@ export class Inspector extends AWSServiceClient {
     input: DeleteAssessmentRunRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | AssessmentRunInProgressException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | AssessmentRunInProgressException | InternalException | InvalidInputException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("DeleteAssessmentRun", input);
   }
@@ -90,13 +60,7 @@ export class Inspector extends AWSServiceClient {
     input: DeleteAssessmentTargetRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | AssessmentRunInProgressException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | AssessmentRunInProgressException | InternalException | InvalidInputException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("DeleteAssessmentTarget", input);
   }
@@ -104,13 +68,7 @@ export class Inspector extends AWSServiceClient {
     input: DeleteAssessmentTemplateRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | AssessmentRunInProgressException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | AssessmentRunInProgressException | InternalException | InvalidInputException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("DeleteAssessmentTemplate", input);
   }
@@ -138,7 +96,9 @@ export class Inspector extends AWSServiceClient {
   > {
     return this.call("DescribeAssessmentTemplates", input);
   }
-  describeCrossAccountAccessRole(input: {}): Effect.Effect<
+  describeCrossAccountAccessRole(
+    input: {},
+  ): Effect.Effect<
     DescribeCrossAccountAccessRoleResponse,
     InternalException | CommonAwsError
   > {
@@ -180,14 +140,7 @@ export class Inspector extends AWSServiceClient {
     input: GetAssessmentReportRequest,
   ): Effect.Effect<
     GetAssessmentReportResponse,
-    | AccessDeniedException
-    | AssessmentRunInProgressException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | AssessmentRunInProgressException | InternalException | InvalidInputException | NoSuchEntityException | ServiceTemporarilyUnavailableException | UnsupportedFeatureException | CommonAwsError
   > {
     return this.call("GetAssessmentReport", input);
   }
@@ -195,11 +148,7 @@ export class Inspector extends AWSServiceClient {
     input: GetExclusionsPreviewRequest,
   ): Effect.Effect<
     GetExclusionsPreviewResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | CommonAwsError
   > {
     return this.call("GetExclusionsPreview", input);
   }
@@ -207,11 +156,7 @@ export class Inspector extends AWSServiceClient {
     input: GetTelemetryMetadataRequest,
   ): Effect.Effect<
     GetTelemetryMetadataResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | CommonAwsError
   > {
     return this.call("GetTelemetryMetadata", input);
   }
@@ -219,11 +164,7 @@ export class Inspector extends AWSServiceClient {
     input: ListAssessmentRunAgentsRequest,
   ): Effect.Effect<
     ListAssessmentRunAgentsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | CommonAwsError
   > {
     return this.call("ListAssessmentRunAgents", input);
   }
@@ -231,11 +172,7 @@ export class Inspector extends AWSServiceClient {
     input: ListAssessmentRunsRequest,
   ): Effect.Effect<
     ListAssessmentRunsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | CommonAwsError
   > {
     return this.call("ListAssessmentRuns", input);
   }
@@ -243,10 +180,7 @@ export class Inspector extends AWSServiceClient {
     input: ListAssessmentTargetsRequest,
   ): Effect.Effect<
     ListAssessmentTargetsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | CommonAwsError
   > {
     return this.call("ListAssessmentTargets", input);
   }
@@ -254,11 +188,7 @@ export class Inspector extends AWSServiceClient {
     input: ListAssessmentTemplatesRequest,
   ): Effect.Effect<
     ListAssessmentTemplatesResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | CommonAwsError
   > {
     return this.call("ListAssessmentTemplates", input);
   }
@@ -266,11 +196,7 @@ export class Inspector extends AWSServiceClient {
     input: ListEventSubscriptionsRequest,
   ): Effect.Effect<
     ListEventSubscriptionsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | CommonAwsError
   > {
     return this.call("ListEventSubscriptions", input);
   }
@@ -278,11 +204,7 @@ export class Inspector extends AWSServiceClient {
     input: ListExclusionsRequest,
   ): Effect.Effect<
     ListExclusionsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | CommonAwsError
   > {
     return this.call("ListExclusions", input);
   }
@@ -290,11 +212,7 @@ export class Inspector extends AWSServiceClient {
     input: ListFindingsRequest,
   ): Effect.Effect<
     ListFindingsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | CommonAwsError
   > {
     return this.call("ListFindings", input);
   }
@@ -302,10 +220,7 @@ export class Inspector extends AWSServiceClient {
     input: ListRulesPackagesRequest,
   ): Effect.Effect<
     ListRulesPackagesResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | CommonAwsError
   > {
     return this.call("ListRulesPackages", input);
   }
@@ -313,11 +228,7 @@ export class Inspector extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -325,12 +236,7 @@ export class Inspector extends AWSServiceClient {
     input: PreviewAgentsRequest,
   ): Effect.Effect<
     PreviewAgentsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidCrossAccountRoleException
-    | InvalidInputException
-    | NoSuchEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidCrossAccountRoleException | InvalidInputException | NoSuchEntityException | CommonAwsError
   > {
     return this.call("PreviewAgents", input);
   }
@@ -338,12 +244,7 @@ export class Inspector extends AWSServiceClient {
     input: RegisterCrossAccountAccessRoleRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalException
-    | InvalidCrossAccountRoleException
-    | InvalidInputException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidCrossAccountRoleException | InvalidInputException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("RegisterCrossAccountAccessRole", input);
   }
@@ -351,12 +252,7 @@ export class Inspector extends AWSServiceClient {
     input: RemoveAttributesFromFindingsRequest,
   ): Effect.Effect<
     RemoveAttributesFromFindingsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("RemoveAttributesFromFindings", input);
   }
@@ -364,12 +260,7 @@ export class Inspector extends AWSServiceClient {
     input: SetTagsForResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("SetTagsForResource", input);
   }
@@ -377,15 +268,7 @@ export class Inspector extends AWSServiceClient {
     input: StartAssessmentRunRequest,
   ): Effect.Effect<
     StartAssessmentRunResponse,
-    | AccessDeniedException
-    | AgentsAlreadyRunningAssessmentException
-    | InternalException
-    | InvalidCrossAccountRoleException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | AgentsAlreadyRunningAssessmentException | InternalException | InvalidCrossAccountRoleException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("StartAssessmentRun", input);
   }
@@ -393,12 +276,7 @@ export class Inspector extends AWSServiceClient {
     input: StopAssessmentRunRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("StopAssessmentRun", input);
   }
@@ -406,13 +284,7 @@ export class Inspector extends AWSServiceClient {
     input: SubscribeToEventRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("SubscribeToEvent", input);
   }
@@ -420,12 +292,7 @@ export class Inspector extends AWSServiceClient {
     input: UnsubscribeFromEventRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("UnsubscribeFromEvent", input);
   }
@@ -433,12 +300,7 @@ export class Inspector extends AWSServiceClient {
     input: UpdateAssessmentTargetRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceTemporarilyUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidInputException | NoSuchEntityException | ServiceTemporarilyUnavailableException | CommonAwsError
   > {
     return this.call("UpdateAssessmentTarget", input);
   }
@@ -446,15 +308,7 @@ export class Inspector extends AWSServiceClient {
 
 export default Inspector;
 
-export type AccessDeniedErrorCode =
-  | "ACCESS_DENIED_TO_ASSESSMENT_TARGET"
-  | "ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE"
-  | "ACCESS_DENIED_TO_ASSESSMENT_RUN"
-  | "ACCESS_DENIED_TO_FINDING"
-  | "ACCESS_DENIED_TO_RESOURCE_GROUP"
-  | "ACCESS_DENIED_TO_RULES_PACKAGE"
-  | "ACCESS_DENIED_TO_SNS_TOPIC"
-  | "ACCESS_DENIED_TO_IAM_ROLE";
+export type AccessDeniedErrorCode = "ACCESS_DENIED_TO_ASSESSMENT_TARGET" | "ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE" | "ACCESS_DENIED_TO_ASSESSMENT_RUN" | "ACCESS_DENIED_TO_FINDING" | "ACCESS_DENIED_TO_RESOURCE_GROUP" | "ACCESS_DENIED_TO_RULES_PACKAGE" | "ACCESS_DENIED_TO_SNS_TOPIC" | "ACCESS_DENIED_TO_IAM_ROLE";
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
@@ -474,20 +328,13 @@ export interface AgentAlreadyRunningAssessment {
   agentId: string;
   assessmentRunArn: string;
 }
-export type AgentAlreadyRunningAssessmentList =
-  Array<AgentAlreadyRunningAssessment>;
+export type AgentAlreadyRunningAssessmentList = Array<AgentAlreadyRunningAssessment>;
 export interface AgentFilter {
   agentHealths: Array<AgentHealth>;
   agentHealthCodes: Array<AgentHealthCode>;
 }
 export type AgentHealth = "HEALTHY" | "UNHEALTHY" | "UNKNOWN";
-export type AgentHealthCode =
-  | "IDLE"
-  | "RUNNING"
-  | "SHUTDOWN"
-  | "UNHEALTHY"
-  | "THROTTLED"
-  | "UNKNOWN";
+export type AgentHealthCode = "IDLE" | "RUNNING" | "SHUTDOWN" | "UNHEALTHY" | "THROTTLED" | "UNKNOWN";
 export type AgentHealthCodeList = Array<AgentHealthCode>;
 export type AgentHealthList = Array<AgentHealth>;
 export type AgentId = string;
@@ -581,25 +428,8 @@ export interface AssessmentRunNotification {
   snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode;
 }
 export type AssessmentRunNotificationList = Array<AssessmentRunNotification>;
-export type AssessmentRunNotificationSnsStatusCode =
-  | "SUCCESS"
-  | "TOPIC_DOES_NOT_EXIST"
-  | "ACCESS_DENIED"
-  | "INTERNAL_ERROR";
-export type AssessmentRunState =
-  | "CREATED"
-  | "START_DATA_COLLECTION_PENDING"
-  | "START_DATA_COLLECTION_IN_PROGRESS"
-  | "COLLECTING_DATA"
-  | "STOP_DATA_COLLECTION_PENDING"
-  | "DATA_COLLECTED"
-  | "START_EVALUATING_RULES_PENDING"
-  | "EVALUATING_RULES"
-  | "FAILED"
-  | "ERROR"
-  | "COMPLETED"
-  | "COMPLETED_WITH_ERRORS"
-  | "CANCELED";
+export type AssessmentRunNotificationSnsStatusCode = "SUCCESS" | "TOPIC_DOES_NOT_EXIST" | "ACCESS_DENIED" | "INTERNAL_ERROR";
+export type AssessmentRunState = "CREATED" | "START_DATA_COLLECTION_PENDING" | "START_DATA_COLLECTION_IN_PROGRESS" | "COLLECTING_DATA" | "STOP_DATA_COLLECTION_PENDING" | "DATA_COLLECTED" | "START_EVALUATING_RULES_PENDING" | "EVALUATING_RULES" | "FAILED" | "ERROR" | "COMPLETED" | "COMPLETED_WITH_ERRORS" | "CANCELED";
 export interface AssessmentRunStateChange {
   stateChangedAt: Date | string;
   state: AssessmentRunState;
@@ -793,13 +623,7 @@ export interface FailedItemDetails {
   failureCode: FailedItemErrorCode;
   retryable: boolean;
 }
-export type FailedItemErrorCode =
-  | "INVALID_ARN"
-  | "DUPLICATE_ARN"
-  | "ITEM_DOES_NOT_EXIST"
-  | "ACCESS_DENIED"
-  | "LIMIT_EXCEEDED"
-  | "INTERNAL_ERROR";
+export type FailedItemErrorCode = "INVALID_ARN" | "DUPLICATE_ARN" | "ITEM_DOES_NOT_EXIST" | "ACCESS_DENIED" | "LIMIT_EXCEEDED" | "INTERNAL_ERROR";
 export type FailedItems = Record<string, FailedItemDetails>;
 export type FilterRulesPackageArnList = Array<string>;
 export interface Finding {
@@ -866,12 +690,7 @@ export interface GetTelemetryMetadataResponse {
 }
 export type Hostname = string;
 
-export type InspectorEvent =
-  | "ASSESSMENT_RUN_STARTED"
-  | "ASSESSMENT_RUN_COMPLETED"
-  | "ASSESSMENT_RUN_STATE_CHANGED"
-  | "FINDING_REPORTED"
-  | "OTHER";
+export type InspectorEvent = "ASSESSMENT_RUN_STARTED" | "ASSESSMENT_RUN_COMPLETED" | "ASSESSMENT_RUN_STATE_CHANGED" | "FINDING_REPORTED" | "OTHER";
 export interface InspectorServiceAttributes {
   schemaVersion: number;
   assessmentRunArn?: string;
@@ -883,9 +702,7 @@ export declare class InternalException extends EffectData.TaggedError(
   readonly message: string;
   readonly canRetry: boolean;
 }> {}
-export type InvalidCrossAccountRoleErrorCode =
-  | "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP"
-  | "ROLE_DOES_NOT_HAVE_CORRECT_POLICY";
+export type InvalidCrossAccountRoleErrorCode = "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP" | "ROLE_DOES_NOT_HAVE_CORRECT_POLICY";
 export declare class InvalidCrossAccountRoleException extends EffectData.TaggedError(
   "InvalidCrossAccountRoleException",
 )<{
@@ -893,61 +710,7 @@ export declare class InvalidCrossAccountRoleException extends EffectData.TaggedE
   readonly errorCode: InvalidCrossAccountRoleErrorCode;
   readonly canRetry: boolean;
 }> {}
-export type InvalidInputErrorCode =
-  | "INVALID_ASSESSMENT_TARGET_ARN"
-  | "INVALID_ASSESSMENT_TEMPLATE_ARN"
-  | "INVALID_ASSESSMENT_RUN_ARN"
-  | "INVALID_FINDING_ARN"
-  | "INVALID_RESOURCE_GROUP_ARN"
-  | "INVALID_RULES_PACKAGE_ARN"
-  | "INVALID_RESOURCE_ARN"
-  | "INVALID_SNS_TOPIC_ARN"
-  | "INVALID_IAM_ROLE_ARN"
-  | "INVALID_ASSESSMENT_TARGET_NAME"
-  | "INVALID_ASSESSMENT_TARGET_NAME_PATTERN"
-  | "INVALID_ASSESSMENT_TEMPLATE_NAME"
-  | "INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN"
-  | "INVALID_ASSESSMENT_TEMPLATE_DURATION"
-  | "INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE"
-  | "INVALID_ASSESSMENT_RUN_DURATION_RANGE"
-  | "INVALID_ASSESSMENT_RUN_START_TIME_RANGE"
-  | "INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE"
-  | "INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE"
-  | "INVALID_ASSESSMENT_RUN_STATE"
-  | "INVALID_TAG"
-  | "INVALID_TAG_KEY"
-  | "INVALID_TAG_VALUE"
-  | "INVALID_RESOURCE_GROUP_TAG_KEY"
-  | "INVALID_RESOURCE_GROUP_TAG_VALUE"
-  | "INVALID_ATTRIBUTE"
-  | "INVALID_USER_ATTRIBUTE"
-  | "INVALID_USER_ATTRIBUTE_KEY"
-  | "INVALID_USER_ATTRIBUTE_VALUE"
-  | "INVALID_PAGINATION_TOKEN"
-  | "INVALID_MAX_RESULTS"
-  | "INVALID_AGENT_ID"
-  | "INVALID_AUTO_SCALING_GROUP"
-  | "INVALID_RULE_NAME"
-  | "INVALID_SEVERITY"
-  | "INVALID_LOCALE"
-  | "INVALID_EVENT"
-  | "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN"
-  | "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN"
-  | "INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS"
-  | "INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS"
-  | "INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS"
-  | "INVALID_NUMBER_OF_FINDING_ARNS"
-  | "INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS"
-  | "INVALID_NUMBER_OF_RULES_PACKAGE_ARNS"
-  | "INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES"
-  | "INVALID_NUMBER_OF_TAGS"
-  | "INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS"
-  | "INVALID_NUMBER_OF_ATTRIBUTES"
-  | "INVALID_NUMBER_OF_USER_ATTRIBUTES"
-  | "INVALID_NUMBER_OF_AGENT_IDS"
-  | "INVALID_NUMBER_OF_AUTO_SCALING_GROUPS"
-  | "INVALID_NUMBER_OF_RULE_NAMES"
-  | "INVALID_NUMBER_OF_SEVERITIES";
+export type InvalidInputErrorCode = "INVALID_ASSESSMENT_TARGET_ARN" | "INVALID_ASSESSMENT_TEMPLATE_ARN" | "INVALID_ASSESSMENT_RUN_ARN" | "INVALID_FINDING_ARN" | "INVALID_RESOURCE_GROUP_ARN" | "INVALID_RULES_PACKAGE_ARN" | "INVALID_RESOURCE_ARN" | "INVALID_SNS_TOPIC_ARN" | "INVALID_IAM_ROLE_ARN" | "INVALID_ASSESSMENT_TARGET_NAME" | "INVALID_ASSESSMENT_TARGET_NAME_PATTERN" | "INVALID_ASSESSMENT_TEMPLATE_NAME" | "INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN" | "INVALID_ASSESSMENT_TEMPLATE_DURATION" | "INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE" | "INVALID_ASSESSMENT_RUN_DURATION_RANGE" | "INVALID_ASSESSMENT_RUN_START_TIME_RANGE" | "INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE" | "INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE" | "INVALID_ASSESSMENT_RUN_STATE" | "INVALID_TAG" | "INVALID_TAG_KEY" | "INVALID_TAG_VALUE" | "INVALID_RESOURCE_GROUP_TAG_KEY" | "INVALID_RESOURCE_GROUP_TAG_VALUE" | "INVALID_ATTRIBUTE" | "INVALID_USER_ATTRIBUTE" | "INVALID_USER_ATTRIBUTE_KEY" | "INVALID_USER_ATTRIBUTE_VALUE" | "INVALID_PAGINATION_TOKEN" | "INVALID_MAX_RESULTS" | "INVALID_AGENT_ID" | "INVALID_AUTO_SCALING_GROUP" | "INVALID_RULE_NAME" | "INVALID_SEVERITY" | "INVALID_LOCALE" | "INVALID_EVENT" | "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN" | "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN" | "INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS" | "INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS" | "INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS" | "INVALID_NUMBER_OF_FINDING_ARNS" | "INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS" | "INVALID_NUMBER_OF_RULES_PACKAGE_ARNS" | "INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES" | "INVALID_NUMBER_OF_TAGS" | "INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS" | "INVALID_NUMBER_OF_ATTRIBUTES" | "INVALID_NUMBER_OF_USER_ATTRIBUTES" | "INVALID_NUMBER_OF_AGENT_IDS" | "INVALID_NUMBER_OF_AUTO_SCALING_GROUPS" | "INVALID_NUMBER_OF_RULE_NAMES" | "INVALID_NUMBER_OF_SEVERITIES";
 export declare class InvalidInputException extends EffectData.TaggedError(
   "InvalidInputException",
 )<{
@@ -963,12 +726,7 @@ export type Ipv4AddressList = Array<string>;
 export type Ipv6Addresses = Array<string>;
 export type KernelVersion = string;
 
-export type LimitExceededErrorCode =
-  | "ASSESSMENT_TARGET_LIMIT_EXCEEDED"
-  | "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED"
-  | "ASSESSMENT_RUN_LIMIT_EXCEEDED"
-  | "RESOURCE_GROUP_LIMIT_EXCEEDED"
-  | "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED";
+export type LimitExceededErrorCode = "ASSESSMENT_TARGET_LIMIT_EXCEEDED" | "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED" | "ASSESSMENT_RUN_LIMIT_EXCEEDED" | "RESOURCE_GROUP_LIMIT_EXCEEDED" | "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED";
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
 )<{
@@ -1085,15 +843,7 @@ export interface NetworkInterface {
   securityGroups?: Array<SecurityGroup>;
 }
 export type NetworkInterfaces = Array<NetworkInterface>;
-export type NoSuchEntityErrorCode =
-  | "ASSESSMENT_TARGET_DOES_NOT_EXIST"
-  | "ASSESSMENT_TEMPLATE_DOES_NOT_EXIST"
-  | "ASSESSMENT_RUN_DOES_NOT_EXIST"
-  | "FINDING_DOES_NOT_EXIST"
-  | "RESOURCE_GROUP_DOES_NOT_EXIST"
-  | "RULES_PACKAGE_DOES_NOT_EXIST"
-  | "SNS_TOPIC_DOES_NOT_EXIST"
-  | "IAM_ROLE_DOES_NOT_EXIST";
+export type NoSuchEntityErrorCode = "ASSESSMENT_TARGET_DOES_NOT_EXIST" | "ASSESSMENT_TEMPLATE_DOES_NOT_EXIST" | "ASSESSMENT_RUN_DOES_NOT_EXIST" | "FINDING_DOES_NOT_EXIST" | "RESOURCE_GROUP_DOES_NOT_EXIST" | "RULES_PACKAGE_DOES_NOT_EXIST" | "SNS_TOPIC_DOES_NOT_EXIST" | "IAM_ROLE_DOES_NOT_EXIST";
 export declare class NoSuchEntityException extends EffectData.TaggedError(
   "NoSuchEntityException",
 )<{
@@ -1195,12 +945,7 @@ export interface SetTagsForResourceRequest {
   resourceArn: string;
   tags?: Array<Tag>;
 }
-export type Severity =
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH"
-  | "INFORMATIONAL"
-  | "UNDEFINED";
+export type Severity = "LOW" | "MEDIUM" | "HIGH" | "INFORMATIONAL" | "UNDEFINED";
 export type SeverityList = Array<Severity>;
 export interface StartAssessmentRunRequest {
   assessmentTemplateArn: string;
@@ -1406,7 +1151,9 @@ export declare namespace DescribeAssessmentTemplates {
 export declare namespace DescribeCrossAccountAccessRole {
   export type Input = {};
   export type Output = DescribeCrossAccountAccessRoleResponse;
-  export type Error = InternalException | CommonAwsError;
+  export type Error =
+    | InternalException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeExclusions {
@@ -1689,3 +1436,4 @@ export declare namespace UpdateAssessmentTarget {
     | ServiceTemporarilyUnavailableException
     | CommonAwsError;
 }
+

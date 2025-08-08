@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MediaPackageV2 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("mediapackagev2", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -13,12 +18,18 @@ export class MediaPackageV2 extends AWSServiceClient {
   }
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<{}, ValidationException | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    ValidationException | CommonAwsError
+  > {
     return this.call("TagResource", input);
   }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<{}, ValidationException | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    ValidationException | CommonAwsError
+  > {
     return this.call("UntagResource", input);
   }
 }
@@ -41,7 +52,8 @@ export interface CancelHarvestJobRequest {
   HarvestJobName: string;
   ETag?: string;
 }
-export interface CancelHarvestJobResponse {}
+export interface CancelHarvestJobResponse {
+}
 export interface CdnAuthConfiguration {
   CdnIdentifierSecretArns: Array<string>;
   SecretsRoleArn: string;
@@ -74,11 +86,7 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly ConflictExceptionType?: ConflictExceptionType;
 }> {}
-export type ConflictExceptionType =
-  | "RESOURCE_IN_USE"
-  | "RESOURCE_ALREADY_EXISTS"
-  | "IDEMPOTENT_PARAMETER_MISMATCH"
-  | "CONFLICTING_OPERATION";
+export type ConflictExceptionType = "RESOURCE_IN_USE" | "RESOURCE_ALREADY_EXISTS" | "IDEMPOTENT_PARAMETER_MISMATCH" | "CONFLICTING_OPERATION";
 export type ContainerType = "TS" | "CMAF" | "ISM";
 export interface CreateChannelGroupRequest {
   ChannelGroupName: string;
@@ -190,8 +198,7 @@ export interface CreateLowLatencyHlsManifestConfiguration {
   FilterConfiguration?: FilterConfiguration;
   UrlEncodeChildManifest?: boolean;
 }
-export type CreateLowLatencyHlsManifests =
-  Array<CreateLowLatencyHlsManifestConfiguration>;
+export type CreateLowLatencyHlsManifests = Array<CreateLowLatencyHlsManifestConfiguration>;
 export interface CreateMssManifestConfiguration {
   ManifestName: string;
   ManifestWindowSeconds?: number;
@@ -257,12 +264,7 @@ export interface DashDvbSettings {
   FontDownload?: DashDvbFontDownload;
   ErrorMetrics?: Array<DashDvbMetricsReporting>;
 }
-export type DashPeriodTrigger =
-  | "AVAILS"
-  | "DRM_KEY_ROTATION"
-  | "SOURCE_CHANGES"
-  | "SOURCE_DISRUPTIONS"
-  | "NONE";
+export type DashPeriodTrigger = "AVAILS" | "DRM_KEY_ROTATION" | "SOURCE_CHANGES" | "SOURCE_DISRUPTIONS" | "NONE";
 export type DashPeriodTriggers = Array<DashPeriodTrigger>;
 export type DashProfile = "DVB_DASH";
 export type DashProfiles = Array<DashProfile>;
@@ -285,46 +287,42 @@ export interface DashUtcTiming {
   TimingMode?: DashUtcTimingMode;
   TimingSource?: string;
 }
-export type DashUtcTimingMode =
-  | "HTTP_HEAD"
-  | "HTTP_ISO"
-  | "HTTP_XSDATE"
-  | "UTC_DIRECT";
+export type DashUtcTimingMode = "HTTP_HEAD" | "HTTP_ISO" | "HTTP_XSDATE" | "UTC_DIRECT";
 export interface DeleteChannelGroupRequest {
   ChannelGroupName: string;
 }
-export interface DeleteChannelGroupResponse {}
+export interface DeleteChannelGroupResponse {
+}
 export interface DeleteChannelPolicyRequest {
   ChannelGroupName: string;
   ChannelName: string;
 }
-export interface DeleteChannelPolicyResponse {}
+export interface DeleteChannelPolicyResponse {
+}
 export interface DeleteChannelRequest {
   ChannelGroupName: string;
   ChannelName: string;
 }
-export interface DeleteChannelResponse {}
+export interface DeleteChannelResponse {
+}
 export interface DeleteOriginEndpointPolicyRequest {
   ChannelGroupName: string;
   ChannelName: string;
   OriginEndpointName: string;
 }
-export interface DeleteOriginEndpointPolicyResponse {}
+export interface DeleteOriginEndpointPolicyResponse {
+}
 export interface DeleteOriginEndpointRequest {
   ChannelGroupName: string;
   ChannelName: string;
   OriginEndpointName: string;
 }
-export interface DeleteOriginEndpointResponse {}
+export interface DeleteOriginEndpointResponse {
+}
 export interface Destination {
   S3Destination: S3DestinationConfig;
 }
-export type DrmSystem =
-  | "CLEAR_KEY_AES_128"
-  | "FAIRPLAY"
-  | "PLAYREADY"
-  | "WIDEVINE"
-  | "IRDETO";
+export type DrmSystem = "CLEAR_KEY_AES_128" | "FAIRPLAY" | "PLAYREADY" | "WIDEVINE" | "IRDETO";
 export type DrmSystems = Array<DrmSystem>;
 export interface Encryption {
   ConstantInitializationVector?: string;
@@ -342,11 +340,7 @@ export interface EncryptionMethod {
   CmafEncryptionMethod?: CmafEncryptionMethod;
   IsmEncryptionMethod?: IsmEncryptionMethod;
 }
-export type EndpointErrorCondition =
-  | "STALE_MANIFEST"
-  | "INCOMPLETE_MANIFEST"
-  | "MISSING_DRM_KEY"
-  | "SLATE_INPUT";
+export type EndpointErrorCondition = "STALE_MANIFEST" | "INCOMPLETE_MANIFEST" | "MISSING_DRM_KEY" | "SLATE_INPUT";
 export type EndpointErrorConditions = Array<EndpointErrorCondition>;
 export type EntityTag = string;
 
@@ -468,8 +462,7 @@ export interface GetLowLatencyHlsManifestConfiguration {
   StartTag?: StartTag;
   UrlEncodeChildManifest?: boolean;
 }
-export type GetLowLatencyHlsManifests =
-  Array<GetLowLatencyHlsManifestConfiguration>;
+export type GetLowLatencyHlsManifests = Array<GetLowLatencyHlsManifestConfiguration>;
 export interface GetMssManifestConfiguration {
   ManifestName: string;
   Url: string;
@@ -526,8 +519,7 @@ export type HarvestedHlsManifestsList = Array<HarvestedHlsManifest>;
 export interface HarvestedLowLatencyHlsManifest {
   ManifestName: string;
 }
-export type HarvestedLowLatencyHlsManifestsList =
-  Array<HarvestedLowLatencyHlsManifest>;
+export type HarvestedLowLatencyHlsManifestsList = Array<HarvestedLowLatencyHlsManifest>;
 export interface HarvestedManifests {
   HlsManifests?: Array<HarvestedHlsManifest>;
   DashManifests?: Array<HarvestedDashManifest>;
@@ -554,12 +546,7 @@ export interface HarvestJob {
   ETag?: string;
 }
 export type HarvestJobsList = Array<HarvestJob>;
-export type HarvestJobStatus =
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "CANCELLED"
-  | "COMPLETED"
-  | "FAILED";
+export type HarvestJobStatus = "QUEUED" | "IN_PROGRESS" | "CANCELLED" | "COMPLETED" | "FAILED";
 export type IdempotencyToken = string;
 
 export interface IngestEndpoint {
@@ -623,8 +610,7 @@ export interface ListLowLatencyHlsManifestConfiguration {
   ChildManifestName?: string;
   Url?: string;
 }
-export type ListLowLatencyHlsManifests =
-  Array<ListLowLatencyHlsManifestConfiguration>;
+export type ListLowLatencyHlsManifests = Array<ListLowLatencyHlsManifestConfiguration>;
 export interface ListMssManifestConfiguration {
   ManifestName: string;
   Url?: string;
@@ -672,29 +658,15 @@ export interface OutputHeaderConfiguration {
 }
 export type PolicyText = string;
 
-export type PresetSpeke20Audio =
-  | "PRESET_AUDIO_1"
-  | "PRESET_AUDIO_2"
-  | "PRESET_AUDIO_3"
-  | "SHARED"
-  | "UNENCRYPTED";
-export type PresetSpeke20Video =
-  | "PRESET_VIDEO_1"
-  | "PRESET_VIDEO_2"
-  | "PRESET_VIDEO_3"
-  | "PRESET_VIDEO_4"
-  | "PRESET_VIDEO_5"
-  | "PRESET_VIDEO_6"
-  | "PRESET_VIDEO_7"
-  | "PRESET_VIDEO_8"
-  | "SHARED"
-  | "UNENCRYPTED";
+export type PresetSpeke20Audio = "PRESET_AUDIO_1" | "PRESET_AUDIO_2" | "PRESET_AUDIO_3" | "SHARED" | "UNENCRYPTED";
+export type PresetSpeke20Video = "PRESET_VIDEO_1" | "PRESET_VIDEO_2" | "PRESET_VIDEO_3" | "PRESET_VIDEO_4" | "PRESET_VIDEO_5" | "PRESET_VIDEO_6" | "PRESET_VIDEO_7" | "PRESET_VIDEO_8" | "SHARED" | "UNENCRYPTED";
 export interface PutChannelPolicyRequest {
   ChannelGroupName: string;
   ChannelName: string;
   Policy: string;
 }
-export interface PutChannelPolicyResponse {}
+export interface PutChannelPolicyResponse {
+}
 export interface PutOriginEndpointPolicyRequest {
   ChannelGroupName: string;
   ChannelName: string;
@@ -702,7 +674,8 @@ export interface PutOriginEndpointPolicyRequest {
   Policy: string;
   CdnAuthConfiguration?: CdnAuthConfiguration;
 }
-export interface PutOriginEndpointPolicyResponse {}
+export interface PutOriginEndpointPolicyResponse {
+}
 export interface ResetChannelStateRequest {
   ChannelGroupName: string;
   ChannelName: string;
@@ -735,11 +708,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly ResourceTypeNotFound?: ResourceTypeNotFound;
 }> {}
-export type ResourceTypeNotFound =
-  | "CHANNEL_GROUP"
-  | "CHANNEL"
-  | "ORIGIN_ENDPOINT"
-  | "HARVEST_JOB";
+export type ResourceTypeNotFound = "CHANNEL_GROUP" | "CHANNEL" | "ORIGIN_ENDPOINT" | "HARVEST_JOB";
 export type S3BucketName = string;
 
 export interface S3DestinationConfig {
@@ -754,16 +723,7 @@ export interface Scte {
 export interface ScteDash {
   AdMarkerDash?: AdMarkerDash;
 }
-export type ScteFilter =
-  | "SPLICE_INSERT"
-  | "BREAK"
-  | "PROVIDER_ADVERTISEMENT"
-  | "DISTRIBUTOR_ADVERTISEMENT"
-  | "PROVIDER_PLACEMENT_OPPORTUNITY"
-  | "DISTRIBUTOR_PLACEMENT_OPPORTUNITY"
-  | "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
-  | "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
-  | "PROGRAM";
+export type ScteFilter = "SPLICE_INSERT" | "BREAK" | "PROVIDER_ADVERTISEMENT" | "DISTRIBUTOR_ADVERTISEMENT" | "PROVIDER_PLACEMENT_OPPORTUNITY" | "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" | "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" | "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY" | "PROGRAM";
 export type ScteFilterList = Array<ScteFilter>;
 export interface ScteHls {
   AdMarkerHls?: AdMarkerHls;
@@ -892,109 +852,28 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly ValidationExceptionType?: ValidationExceptionType;
 }> {}
-export type ValidationExceptionType =
-  | "CONTAINER_TYPE_IMMUTABLE"
-  | "INVALID_PAGINATION_TOKEN"
-  | "INVALID_PAGINATION_MAX_RESULTS"
-  | "INVALID_POLICY"
-  | "INVALID_ROLE_ARN"
-  | "MANIFEST_NAME_COLLISION"
-  | "ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH"
-  | "CENC_IV_INCOMPATIBLE"
-  | "ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE"
-  | "ENCRYPTION_CONTRACT_WITH_ISM_CONTAINER_INCOMPATIBLE"
-  | "ENCRYPTION_CONTRACT_UNENCRYPTED"
-  | "ENCRYPTION_CONTRACT_SHARED"
-  | "NUM_MANIFESTS_LOW"
-  | "NUM_MANIFESTS_HIGH"
-  | "MANIFEST_DRM_SYSTEMS_INCOMPATIBLE"
-  | "DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE"
-  | "ROLE_ARN_NOT_ASSUMABLE"
-  | "ROLE_ARN_LENGTH_OUT_OF_RANGE"
-  | "ROLE_ARN_INVALID_FORMAT"
-  | "URL_INVALID"
-  | "URL_SCHEME"
-  | "URL_USER_INFO"
-  | "URL_PORT"
-  | "URL_UNKNOWN_HOST"
-  | "URL_LOCAL_ADDRESS"
-  | "URL_LOOPBACK_ADDRESS"
-  | "URL_LINK_LOCAL_ADDRESS"
-  | "URL_MULTICAST_ADDRESS"
-  | "MEMBER_INVALID"
-  | "MEMBER_MISSING"
-  | "MEMBER_MIN_VALUE"
-  | "MEMBER_MAX_VALUE"
-  | "MEMBER_MIN_LENGTH"
-  | "MEMBER_MAX_LENGTH"
-  | "MEMBER_INVALID_ENUM_VALUE"
-  | "MEMBER_DOES_NOT_MATCH_PATTERN"
-  | "INVALID_MANIFEST_FILTER"
-  | "INVALID_TIME_DELAY_SECONDS"
-  | "END_TIME_EARLIER_THAN_START_TIME"
-  | "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST"
-  | "DIRECT_MODE_WITH_TIMING_SOURCE"
-  | "NONE_MODE_WITH_TIMING_SOURCE"
-  | "TIMING_SOURCE_MISSING"
-  | "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION"
-  | "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES"
-  | "DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS"
-  | "ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION"
-  | "SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY"
-  | "HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION"
-  | "HARVESTED_MANIFEST_NOT_FOUND_ON_ENDPOINT"
-  | "TOO_MANY_IN_PROGRESS_HARVEST_JOBS"
-  | "HARVEST_JOB_INELIGIBLE_FOR_CANCELLATION"
-  | "INVALID_HARVEST_JOB_DURATION"
-  | "HARVEST_JOB_S3_DESTINATION_MISSING_OR_INCOMPLETE"
-  | "HARVEST_JOB_UNABLE_TO_WRITE_TO_S3_DESTINATION"
-  | "HARVEST_JOB_CUSTOMER_ENDPOINT_READ_ACCESS_DENIED"
-  | "CLIP_START_TIME_WITH_START_OR_END"
-  | "START_TAG_TIME_OFFSET_INVALID"
-  | "INCOMPATIBLE_DASH_PROFILE_DVB_DASH_CONFIGURATION"
-  | "DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE"
-  | "INCOMPATIBLE_DASH_COMPACTNESS_CONFIGURATION"
-  | "INCOMPATIBLE_XML_ENCODING"
-  | "CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE"
-  | "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING"
-  | "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION"
-  | "ONLY_CMAF_INPUT_TYPE_ALLOW_PREFERRED_INPUT_CONFIGURATION"
-  | "TS_CONTAINER_TYPE_WITH_MSS_MANIFEST"
-  | "CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST"
-  | "ISM_CONTAINER_TYPE_WITH_HLS_MANIFEST"
-  | "ISM_CONTAINER_TYPE_WITH_LL_HLS_MANIFEST"
-  | "ISM_CONTAINER_TYPE_WITH_DASH_MANIFEST"
-  | "ISM_CONTAINER_TYPE_WITH_SCTE"
-  | "ISM_CONTAINER_WITH_KEY_ROTATION"
-  | "BATCH_GET_SECRET_VALUE_DENIED"
-  | "GET_SECRET_VALUE_DENIED"
-  | "DESCRIBE_SECRET_DENIED"
-  | "INVALID_SECRET_FORMAT"
-  | "SECRET_IS_NOT_ONE_KEY_VALUE_PAIR"
-  | "INVALID_SECRET_KEY"
-  | "INVALID_SECRET_VALUE"
-  | "SECRET_ARN_RESOURCE_NOT_FOUND"
-  | "DECRYPT_SECRET_FAILED"
-  | "TOO_MANY_SECRETS"
-  | "DUPLICATED_SECRET"
-  | "MALFORMED_SECRET_ARN"
-  | "SECRET_FROM_DIFFERENT_ACCOUNT"
-  | "SECRET_FROM_DIFFERENT_REGION"
-  | "INVALID_SECRET";
+export type ValidationExceptionType = "CONTAINER_TYPE_IMMUTABLE" | "INVALID_PAGINATION_TOKEN" | "INVALID_PAGINATION_MAX_RESULTS" | "INVALID_POLICY" | "INVALID_ROLE_ARN" | "MANIFEST_NAME_COLLISION" | "ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH" | "CENC_IV_INCOMPATIBLE" | "ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE" | "ENCRYPTION_CONTRACT_WITH_ISM_CONTAINER_INCOMPATIBLE" | "ENCRYPTION_CONTRACT_UNENCRYPTED" | "ENCRYPTION_CONTRACT_SHARED" | "NUM_MANIFESTS_LOW" | "NUM_MANIFESTS_HIGH" | "MANIFEST_DRM_SYSTEMS_INCOMPATIBLE" | "DRM_SYSTEMS_ENCRYPTION_METHOD_INCOMPATIBLE" | "ROLE_ARN_NOT_ASSUMABLE" | "ROLE_ARN_LENGTH_OUT_OF_RANGE" | "ROLE_ARN_INVALID_FORMAT" | "URL_INVALID" | "URL_SCHEME" | "URL_USER_INFO" | "URL_PORT" | "URL_UNKNOWN_HOST" | "URL_LOCAL_ADDRESS" | "URL_LOOPBACK_ADDRESS" | "URL_LINK_LOCAL_ADDRESS" | "URL_MULTICAST_ADDRESS" | "MEMBER_INVALID" | "MEMBER_MISSING" | "MEMBER_MIN_VALUE" | "MEMBER_MAX_VALUE" | "MEMBER_MIN_LENGTH" | "MEMBER_MAX_LENGTH" | "MEMBER_INVALID_ENUM_VALUE" | "MEMBER_DOES_NOT_MATCH_PATTERN" | "INVALID_MANIFEST_FILTER" | "INVALID_TIME_DELAY_SECONDS" | "END_TIME_EARLIER_THAN_START_TIME" | "TS_CONTAINER_TYPE_WITH_DASH_MANIFEST" | "DIRECT_MODE_WITH_TIMING_SOURCE" | "NONE_MODE_WITH_TIMING_SOURCE" | "TIMING_SOURCE_MISSING" | "UPDATE_PERIOD_SMALLER_THAN_SEGMENT_DURATION" | "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES" | "DRM_SIGNALING_MISMATCH_SEGMENT_ENCRYPTION_STATUS" | "ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION" | "SOURCE_DISRUPTIONS_ENABLED_INCORRECTLY" | "HARVESTED_MANIFEST_HAS_START_END_FILTER_CONFIGURATION" | "HARVESTED_MANIFEST_NOT_FOUND_ON_ENDPOINT" | "TOO_MANY_IN_PROGRESS_HARVEST_JOBS" | "HARVEST_JOB_INELIGIBLE_FOR_CANCELLATION" | "INVALID_HARVEST_JOB_DURATION" | "HARVEST_JOB_S3_DESTINATION_MISSING_OR_INCOMPLETE" | "HARVEST_JOB_UNABLE_TO_WRITE_TO_S3_DESTINATION" | "HARVEST_JOB_CUSTOMER_ENDPOINT_READ_ACCESS_DENIED" | "CLIP_START_TIME_WITH_START_OR_END" | "START_TAG_TIME_OFFSET_INVALID" | "INCOMPATIBLE_DASH_PROFILE_DVB_DASH_CONFIGURATION" | "DASH_DVB_ATTRIBUTES_WITHOUT_DVB_DASH_PROFILE" | "INCOMPATIBLE_DASH_COMPACTNESS_CONFIGURATION" | "INCOMPATIBLE_XML_ENCODING" | "CMAF_EXCLUDE_SEGMENT_DRM_METADATA_INCOMPATIBLE_CONTAINER_TYPE" | "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING" | "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION" | "ONLY_CMAF_INPUT_TYPE_ALLOW_PREFERRED_INPUT_CONFIGURATION" | "TS_CONTAINER_TYPE_WITH_MSS_MANIFEST" | "CMAF_CONTAINER_TYPE_WITH_MSS_MANIFEST" | "ISM_CONTAINER_TYPE_WITH_HLS_MANIFEST" | "ISM_CONTAINER_TYPE_WITH_LL_HLS_MANIFEST" | "ISM_CONTAINER_TYPE_WITH_DASH_MANIFEST" | "ISM_CONTAINER_TYPE_WITH_SCTE" | "ISM_CONTAINER_WITH_KEY_ROTATION" | "BATCH_GET_SECRET_VALUE_DENIED" | "GET_SECRET_VALUE_DENIED" | "DESCRIBE_SECRET_DENIED" | "INVALID_SECRET_FORMAT" | "SECRET_IS_NOT_ONE_KEY_VALUE_PAIR" | "INVALID_SECRET_KEY" | "INVALID_SECRET_VALUE" | "SECRET_ARN_RESOURCE_NOT_FOUND" | "DECRYPT_SECRET_FAILED" | "TOO_MANY_SECRETS" | "DUPLICATED_SECRET" | "MALFORMED_SECRET_ARN" | "SECRET_FROM_DIFFERENT_ACCOUNT" | "SECRET_FROM_DIFFERENT_REGION" | "INVALID_SECRET";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = {};
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
+

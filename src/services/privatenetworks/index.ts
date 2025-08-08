@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class PrivateNetworks extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("privatenetworks", new RestJson1Protocol(), cfg);
+  }
+
   acknowledgeOrderReceipt(
     input: AcknowledgeOrderReceiptRequest,
   ): Effect.Effect<
     AcknowledgeOrderReceiptResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("AcknowledgeOrderReceipt", input);
   }
@@ -18,10 +20,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: ActivateDeviceIdentifierRequest,
   ): Effect.Effect<
     ActivateDeviceIdentifierResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ActivateDeviceIdentifier", input);
   }
@@ -29,10 +28,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: ActivateNetworkSiteRequest,
   ): Effect.Effect<
     ActivateNetworkSiteResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ActivateNetworkSite", input);
   }
@@ -40,10 +36,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: ConfigureAccessPointRequest,
   ): Effect.Effect<
     ConfigureAccessPointResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ConfigureAccessPoint", input);
   }
@@ -51,10 +44,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: CreateNetworkRequest,
   ): Effect.Effect<
     CreateNetworkResponse,
-    | InternalServerException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | LimitExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateNetwork", input);
   }
@@ -62,10 +52,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: CreateNetworkSiteRequest,
   ): Effect.Effect<
     CreateNetworkSiteResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CreateNetworkSite", input);
   }
@@ -73,10 +60,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: DeactivateDeviceIdentifierRequest,
   ): Effect.Effect<
     DeactivateDeviceIdentifierResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeactivateDeviceIdentifier", input);
   }
@@ -84,11 +68,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: DeleteNetworkRequest,
   ): Effect.Effect<
     DeleteNetworkResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteNetwork", input);
   }
@@ -96,11 +76,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: DeleteNetworkSiteRequest,
   ): Effect.Effect<
     DeleteNetworkSiteResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteNetworkSite", input);
   }
@@ -108,10 +84,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: GetDeviceIdentifierRequest,
   ): Effect.Effect<
     GetDeviceIdentifierResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetDeviceIdentifier", input);
   }
@@ -119,10 +92,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: GetNetworkRequest,
   ): Effect.Effect<
     GetNetworkResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetNetwork", input);
   }
@@ -130,10 +100,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: GetNetworkResourceRequest,
   ): Effect.Effect<
     GetNetworkResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetNetworkResource", input);
   }
@@ -141,10 +108,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: GetNetworkSiteRequest,
   ): Effect.Effect<
     GetNetworkSiteResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetNetworkSite", input);
   }
@@ -152,10 +116,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: GetOrderRequest,
   ): Effect.Effect<
     GetOrderResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetOrder", input);
   }
@@ -163,10 +124,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: ListDeviceIdentifiersRequest,
   ): Effect.Effect<
     ListDeviceIdentifiersResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListDeviceIdentifiers", input);
   }
@@ -174,10 +132,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: ListNetworkResourcesRequest,
   ): Effect.Effect<
     ListNetworkResourcesResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListNetworkResources", input);
   }
@@ -185,10 +140,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: ListNetworksRequest,
   ): Effect.Effect<
     ListNetworksResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListNetworks", input);
   }
@@ -196,10 +148,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: ListNetworkSitesRequest,
   ): Effect.Effect<
     ListNetworkSitesResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListNetworkSites", input);
   }
@@ -207,10 +156,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: ListOrdersRequest,
   ): Effect.Effect<
     ListOrdersResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListOrders", input);
   }
@@ -218,16 +164,13 @@ export class PrivateNetworks extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
-  ping(input: {}): Effect.Effect<
+  ping(
+    input: {},
+  ): Effect.Effect<
     PingResponse,
     InternalServerException | CommonAwsError
   > {
@@ -237,10 +180,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: StartNetworkResourceUpdateRequest,
   ): Effect.Effect<
     StartNetworkResourceUpdateResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartNetworkResourceUpdate", input);
   }
@@ -248,12 +188,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -261,12 +196,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -274,10 +204,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: UpdateNetworkSiteRequest,
   ): Effect.Effect<
     UpdateNetworkSiteResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateNetworkSite", input);
   }
@@ -285,10 +212,7 @@ export class PrivateNetworks extends AWSServiceClient {
     input: UpdateNetworkSitePlanRequest,
   ): Effect.Effect<
     UpdateNetworkSiteResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateNetworkSitePlan", input);
   }
@@ -690,7 +614,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -708,7 +633,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateNetworkSitePlanRequest {
   networkSiteArn: string;
   pendingPlan: SitePlan;
@@ -946,7 +872,9 @@ export declare namespace ListTagsForResource {
 export declare namespace Ping {
   export type Input = {};
   export type Output = PingResponse;
-  export type Error = InternalServerException | CommonAwsError;
+  export type Error =
+    | InternalServerException
+    | CommonAwsError;
 }
 
 export declare namespace StartNetworkResourceUpdate {
@@ -1002,3 +930,4 @@ export declare namespace UpdateNetworkSitePlan {
     | ValidationException
     | CommonAwsError;
 }
+

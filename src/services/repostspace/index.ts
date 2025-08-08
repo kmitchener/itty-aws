@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class repostspace extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("repostspace", new RestJson1Protocol(), cfg);
+  }
+
   batchAddChannelRoleToAccessors(
     input: BatchAddChannelRoleToAccessorsInput,
   ): Effect.Effect<
     BatchAddChannelRoleToAccessorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchAddChannelRoleToAccessors", input);
   }
@@ -20,12 +20,7 @@ export class repostspace extends AWSServiceClient {
     input: BatchAddRoleInput,
   ): Effect.Effect<
     BatchAddRoleOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchAddRole", input);
   }
@@ -33,12 +28,7 @@ export class repostspace extends AWSServiceClient {
     input: BatchRemoveChannelRoleFromAccessorsInput,
   ): Effect.Effect<
     BatchRemoveChannelRoleFromAccessorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchRemoveChannelRoleFromAccessors", input);
   }
@@ -46,12 +36,7 @@ export class repostspace extends AWSServiceClient {
     input: BatchRemoveRoleInput,
   ): Effect.Effect<
     BatchRemoveRoleOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchRemoveRole", input);
   }
@@ -59,14 +44,7 @@ export class repostspace extends AWSServiceClient {
     input: CreateChannelInput,
   ): Effect.Effect<
     CreateChannelOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateChannel", input);
   }
@@ -74,14 +52,7 @@ export class repostspace extends AWSServiceClient {
     input: CreateSpaceInput,
   ): Effect.Effect<
     CreateSpaceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSpace", input);
   }
@@ -89,12 +60,7 @@ export class repostspace extends AWSServiceClient {
     input: DeleteSpaceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSpace", input);
   }
@@ -102,12 +68,7 @@ export class repostspace extends AWSServiceClient {
     input: DeregisterAdminInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeregisterAdmin", input);
   }
@@ -115,12 +76,7 @@ export class repostspace extends AWSServiceClient {
     input: GetChannelInput,
   ): Effect.Effect<
     GetChannelOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetChannel", input);
   }
@@ -128,12 +84,7 @@ export class repostspace extends AWSServiceClient {
     input: GetSpaceInput,
   ): Effect.Effect<
     GetSpaceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetSpace", input);
   }
@@ -141,11 +92,7 @@ export class repostspace extends AWSServiceClient {
     input: ListChannelsInput,
   ): Effect.Effect<
     ListChannelsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListChannels", input);
   }
@@ -153,11 +100,7 @@ export class repostspace extends AWSServiceClient {
     input: ListSpacesInput,
   ): Effect.Effect<
     ListSpacesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSpaces", input);
   }
@@ -165,12 +108,7 @@ export class repostspace extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -178,12 +116,7 @@ export class repostspace extends AWSServiceClient {
     input: RegisterAdminInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RegisterAdmin", input);
   }
@@ -191,12 +124,7 @@ export class repostspace extends AWSServiceClient {
     input: SendInvitesInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendInvites", input);
   }
@@ -204,12 +132,7 @@ export class repostspace extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -217,12 +140,7 @@ export class repostspace extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -230,13 +148,7 @@ export class repostspace extends AWSServiceClient {
     input: UpdateChannelInput,
   ): Effect.Effect<
     UpdateChannelOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateChannel", input);
   }
@@ -244,13 +156,7 @@ export class repostspace extends AWSServiceClient {
     input: UpdateSpaceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSpace", input);
   }
@@ -338,13 +244,7 @@ export type ChannelRole = "ASKER" | "EXPERT" | "MODERATOR" | "SUPPORTREQUESTOR";
 export type ChannelRoleList = Array<ChannelRole>;
 export type ChannelRoles = Record<string, Array<ChannelRole>>;
 export type ChannelsList = Array<ChannelData>;
-export type ChannelStatus =
-  | "CREATED"
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "DELETED"
-  | "DELETING"
-  | "DELETE_FAILED";
+export type ChannelStatus = "CREATED" | "CREATING" | "CREATE_FAILED" | "DELETED" | "DELETING" | "DELETE_FAILED";
 export type ClientId = string;
 
 export type ConfigurationStatus = "CONFIGURED" | "UNCONFIGURED";
@@ -493,11 +393,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly resourceId: string;
   readonly resourceType: string;
 }> {}
-export type Role =
-  | "EXPERT"
-  | "MODERATOR"
-  | "ADMINISTRATOR"
-  | "SUPPORTREQUESTOR";
+export type Role = "EXPERT" | "MODERATOR" | "ADMINISTRATOR" | "SUPPORTREQUESTOR";
 export type RoleList = Array<Role>;
 export type Roles = Record<string, Array<Role>>;
 export interface SendInvitesInput {
@@ -560,7 +456,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -577,14 +474,16 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateChannelInput {
   spaceId: string;
   channelId: string;
   channelName: string;
   channelDescription?: string;
 }
-export interface UpdateChannelOutput {}
+export interface UpdateChannelOutput {
+}
 export interface UpdateSpaceInput {
   spaceId: string;
   description?: string;
@@ -609,11 +508,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export type VanityDomainStatus = "PENDING" | "APPROVED" | "UNAPPROVED";
 export declare namespace BatchAddChannelRoleToAccessors {
   export type Input = BatchAddChannelRoleToAccessorsInput;
@@ -846,3 +741,4 @@ export declare namespace UpdateSpace {
     | ValidationException
     | CommonAwsError;
 }
+

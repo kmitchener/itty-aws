@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ApplicationSignals extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("application-signals", new RestJson1Protocol(), cfg);
+  }
+
   batchGetServiceLevelObjectiveBudgetReport(
     input: BatchGetServiceLevelObjectiveBudgetReportInput,
   ): Effect.Effect<
@@ -15,10 +20,7 @@ export class ApplicationSignals extends AWSServiceClient {
     input: BatchUpdateExclusionWindowsInput,
   ): Effect.Effect<
     BatchUpdateExclusionWindowsOutput,
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchUpdateExclusionWindows", input);
   }
@@ -50,10 +52,7 @@ export class ApplicationSignals extends AWSServiceClient {
     input: ListServiceLevelObjectiveExclusionWindowsInput,
   ): Effect.Effect<
     ListServiceLevelObjectiveExclusionWindowsOutput,
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListServiceLevelObjectiveExclusionWindows", input);
   }
@@ -85,10 +84,7 @@ export class ApplicationSignals extends AWSServiceClient {
     input: StartDiscoveryInput,
   ): Effect.Effect<
     StartDiscoveryOutput,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartDiscovery", input);
   }
@@ -96,10 +92,7 @@ export class ApplicationSignals extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -147,8 +140,7 @@ export interface BatchUpdateExclusionWindowsError {
   ErrorCode: string;
   ErrorMessage: string;
 }
-export type BatchUpdateExclusionWindowsErrors =
-  Array<BatchUpdateExclusionWindowsError>;
+export type BatchUpdateExclusionWindowsErrors = Array<BatchUpdateExclusionWindowsError>;
 export interface BatchUpdateExclusionWindowsInput {
   SloIds: Array<string>;
   AddExclusionWindows?: Array<ExclusionWindow>;
@@ -195,7 +187,8 @@ export interface CreateServiceLevelObjectiveOutput {
 export interface DeleteServiceLevelObjectiveInput {
   Id: string;
 }
-export interface DeleteServiceLevelObjectiveOutput {}
+export interface DeleteServiceLevelObjectiveOutput {
+}
 export interface DependencyConfig {
   DependencyKeyAttributes: Record<string, string>;
   DependencyOperationName: string;
@@ -257,9 +250,7 @@ interface _Interval {
   CalendarInterval?: CalendarInterval;
 }
 
-export type Interval =
-  | (_Interval & { RollingInterval: RollingInterval })
-  | (_Interval & { CalendarInterval: CalendarInterval });
+export type Interval = (_Interval & { RollingInterval: RollingInterval }) | (_Interval & { CalendarInterval: CalendarInterval });
 export type KeyAttributeName = string;
 
 export type KeyAttributeValue = string;
@@ -390,10 +381,7 @@ export interface MetricReference {
   AccountId?: string;
 }
 export type MetricReferences = Array<MetricReference>;
-export type MetricSourceType =
-  | "SERVICE_OPERATION"
-  | "CLOUDWATCH_METRIC"
-  | "SERVICE_DEPENDENCY";
+export type MetricSourceType = "SERVICE_OPERATION" | "CLOUDWATCH_METRIC" | "SERVICE_DEPENDENCY";
 export type MetricSourceTypes = Array<MetricSourceType>;
 export interface MetricStat {
   Metric: Metric;
@@ -408,13 +396,7 @@ interface _MonitoredRequestCountMetricDataQueries {
   BadCountMetric?: Array<MetricDataQuery>;
 }
 
-export type MonitoredRequestCountMetricDataQueries =
-  | (_MonitoredRequestCountMetricDataQueries & {
-      GoodCountMetric: Array<MetricDataQuery>;
-    })
-  | (_MonitoredRequestCountMetricDataQueries & {
-      BadCountMetric: Array<MetricDataQuery>;
-    });
+export type MonitoredRequestCountMetricDataQueries = (_MonitoredRequestCountMetricDataQueries & { GoodCountMetric: Array<MetricDataQuery> }) | (_MonitoredRequestCountMetricDataQueries & { BadCountMetric: Array<MetricDataQuery> });
 export type Namespace = string;
 
 export type NextToken = string;
@@ -498,11 +480,7 @@ export interface ServiceLevelIndicator {
   MetricThreshold: number;
   ComparisonOperator: ServiceLevelIndicatorComparisonOperator;
 }
-export type ServiceLevelIndicatorComparisonOperator =
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "LESS_THAN_OR_EQUAL_TO";
+export type ServiceLevelIndicatorComparisonOperator = "GREATER_THAN_OR_EQUAL_TO" | "GREATER_THAN" | "LESS_THAN" | "LESS_THAN_OR_EQUAL_TO";
 export interface ServiceLevelIndicatorConfig {
   SliMetricConfig: ServiceLevelIndicatorMetricConfig;
   MetricThreshold: number;
@@ -568,15 +546,9 @@ export type ServiceLevelObjectiveBudgetReportErrorCode = string;
 
 export type ServiceLevelObjectiveBudgetReportErrorMessage = string;
 
-export type ServiceLevelObjectiveBudgetReportErrors =
-  Array<ServiceLevelObjectiveBudgetReportError>;
-export type ServiceLevelObjectiveBudgetReports =
-  Array<ServiceLevelObjectiveBudgetReport>;
-export type ServiceLevelObjectiveBudgetStatus =
-  | "OK"
-  | "WARNING"
-  | "BREACHED"
-  | "INSUFFICIENT_DATA";
+export type ServiceLevelObjectiveBudgetReportErrors = Array<ServiceLevelObjectiveBudgetReportError>;
+export type ServiceLevelObjectiveBudgetReports = Array<ServiceLevelObjectiveBudgetReport>;
+export type ServiceLevelObjectiveBudgetStatus = "OK" | "WARNING" | "BREACHED" | "INSUFFICIENT_DATA";
 export type ServiceLevelObjectiveDescription = string;
 
 export type ServiceLevelObjectiveId = string;
@@ -584,8 +556,7 @@ export type ServiceLevelObjectiveId = string;
 export type ServiceLevelObjectiveIds = Array<string>;
 export type ServiceLevelObjectiveName = string;
 
-export type ServiceLevelObjectiveSummaries =
-  Array<ServiceLevelObjectiveSummary>;
+export type ServiceLevelObjectiveSummaries = Array<ServiceLevelObjectiveSummary>;
 export interface ServiceLevelObjectiveSummary {
   Arn: string;
   Name: string;
@@ -614,36 +585,11 @@ export interface ServiceSummary {
 }
 export type SLIPeriodSeconds = number;
 
-export type StandardUnit =
-  | "MICROSECONDS"
-  | "MILLISECONDS"
-  | "SECONDS"
-  | "BYTES"
-  | "KILOBYTES"
-  | "MEGABYTES"
-  | "GIGABYTES"
-  | "TERABYTES"
-  | "BITS"
-  | "KILOBITS"
-  | "MEGABITS"
-  | "GIGABITS"
-  | "TERABITS"
-  | "PERCENT"
-  | "COUNT"
-  | "BYTES_SECOND"
-  | "KILOBYTES_SECOND"
-  | "MEGABYTES_SECOND"
-  | "GIGABYTES_SECOND"
-  | "TERABYTES_SECOND"
-  | "BITS_SECOND"
-  | "KILOBITS_SECOND"
-  | "MEGABITS_SECOND"
-  | "GIGABITS_SECOND"
-  | "TERABITS_SECOND"
-  | "COUNT_SECOND"
-  | "NONE";
-export interface StartDiscoveryInput {}
-export interface StartDiscoveryOutput {}
+export type StandardUnit = "MICROSECONDS" | "MILLISECONDS" | "SECONDS" | "BYTES" | "KILOBYTES" | "MEGABYTES" | "GIGABYTES" | "TERABYTES" | "BITS" | "KILOBITS" | "MEGABITS" | "GIGABITS" | "TERABITS" | "PERCENT" | "COUNT" | "BYTES_SECOND" | "KILOBYTES_SECOND" | "MEGABYTES_SECOND" | "GIGABYTES_SECOND" | "TERABYTES_SECOND" | "BITS_SECOND" | "KILOBITS_SECOND" | "MEGABITS_SECOND" | "GIGABITS_SECOND" | "TERABITS_SECOND" | "COUNT_SECOND" | "NONE";
+export interface StartDiscoveryInput {
+}
+export interface StartDiscoveryOutput {
+}
 export type Stat = string;
 
 export interface Tag {
@@ -658,7 +604,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -674,7 +621,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateServiceLevelObjectiveInput {
   Id: string;
   Description?: string;
@@ -810,3 +758,4 @@ export declare namespace UntagResource {
     | ThrottlingException
     | CommonAwsError;
 }
+

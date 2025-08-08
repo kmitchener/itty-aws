@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Braket extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("braket", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -18,10 +20,7 @@ export class Braket extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -29,10 +28,7 @@ export class Braket extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -399,7 +395,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsMap = Record<string, string>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
@@ -410,7 +407,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type Uri = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -447,3 +445,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

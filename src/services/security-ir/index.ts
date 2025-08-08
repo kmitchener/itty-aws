@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SecurityIR extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("security-ir", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -18,10 +20,7 @@ export class SecurityIR extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -29,10 +28,7 @@ export class SecurityIR extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -54,41 +50,7 @@ export type AttachmentId = string;
 export type AWSAccountId = string;
 
 export type AWSAccountIds = Array<string>;
-export type AwsRegion =
-  | "AF_SOUTH_1"
-  | "AP_EAST_1"
-  | "AP_NORTHEAST_1"
-  | "AP_NORTHEAST_2"
-  | "AP_NORTHEAST_3"
-  | "AP_SOUTH_1"
-  | "AP_SOUTH_2"
-  | "AP_SOUTHEAST_1"
-  | "AP_SOUTHEAST_2"
-  | "AP_SOUTHEAST_3"
-  | "AP_SOUTHEAST_4"
-  | "AP_SOUTHEAST_5"
-  | "AP_SOUTHEAST_7"
-  | "CA_CENTRAL_1"
-  | "CA_WEST_1"
-  | "CN_NORTH_1"
-  | "CN_NORTHWEST_1"
-  | "EU_CENTRAL_1"
-  | "EU_CENTRAL_2"
-  | "EU_NORTH_1"
-  | "EU_SOUTH_1"
-  | "EU_SOUTH_2"
-  | "EU_WEST_1"
-  | "EU_WEST_2"
-  | "EU_WEST_3"
-  | "IL_CENTRAL_1"
-  | "ME_CENTRAL_1"
-  | "ME_SOUTH_1"
-  | "MX_CENTRAL_1"
-  | "SA_EAST_1"
-  | "US_EAST_1"
-  | "US_EAST_2"
-  | "US_WEST_1"
-  | "US_WEST_2";
+export type AwsRegion = "AF_SOUTH_1" | "AP_EAST_1" | "AP_NORTHEAST_1" | "AP_NORTHEAST_2" | "AP_NORTHEAST_3" | "AP_SOUTH_1" | "AP_SOUTH_2" | "AP_SOUTHEAST_1" | "AP_SOUTHEAST_2" | "AP_SOUTHEAST_3" | "AP_SOUTHEAST_4" | "AP_SOUTHEAST_5" | "AP_SOUTHEAST_7" | "CA_CENTRAL_1" | "CA_WEST_1" | "CN_NORTH_1" | "CN_NORTHWEST_1" | "EU_CENTRAL_1" | "EU_CENTRAL_2" | "EU_NORTH_1" | "EU_SOUTH_1" | "EU_SOUTH_2" | "EU_WEST_1" | "EU_WEST_2" | "EU_WEST_3" | "IL_CENTRAL_1" | "ME_CENTRAL_1" | "ME_SOUTH_1" | "MX_CENTRAL_1" | "SA_EAST_1" | "US_EAST_1" | "US_EAST_2" | "US_WEST_1" | "US_WEST_2";
 export type AwsService = string;
 
 export interface BatchGetMemberAccountDetailsRequest {
@@ -131,14 +93,7 @@ export type CaseEditMessage = string;
 
 export type CaseId = string;
 
-export type CaseStatus =
-  | "SUBMITTED"
-  | "ACKNOWLEDGED"
-  | "DETECTION_AND_ANALYSIS"
-  | "CONTAINMENT_ERADICATION_AND_RECOVERY"
-  | "POST_INCIDENT_ACTIVITIES"
-  | "READY_TO_CLOSE"
-  | "CLOSED";
+export type CaseStatus = "SUBMITTED" | "ACKNOWLEDGED" | "DETECTION_AND_ANALYSIS" | "CONTAINMENT_ERADICATION_AND_RECOVERY" | "POST_INCIDENT_ACTIVITIES" | "READY_TO_CLOSE" | "CLOSED";
 export type CaseTitle = string;
 
 export interface CloseCaseRequest {
@@ -148,11 +103,7 @@ export interface CloseCaseResponse {
   caseStatus?: CaseStatus;
   closedDate?: Date | string;
 }
-export type ClosureCode =
-  | "INVESTIGATION_COMPLETED"
-  | "NOT_RESOLVED"
-  | "FALSE_POSITIVE"
-  | "DUPLICATE";
+export type ClosureCode = "INVESTIGATION_COMPLETED" | "NOT_RESOLVED" | "FALSE_POSITIVE" | "DUPLICATE";
 export type CommentBody = string;
 
 export type CommentId = string;
@@ -252,15 +203,13 @@ export interface GetMembershipAccountDetailError {
   error: string;
   message: string;
 }
-export type GetMembershipAccountDetailErrors =
-  Array<GetMembershipAccountDetailError>;
+export type GetMembershipAccountDetailErrors = Array<GetMembershipAccountDetailError>;
 export interface GetMembershipAccountDetailItem {
   accountId?: string;
   relationshipStatus?: MembershipAccountRelationshipStatus;
   relationshipType?: MembershipAccountRelationshipType;
 }
-export type GetMembershipAccountDetailItems =
-  Array<GetMembershipAccountDetailItem>;
+export type GetMembershipAccountDetailItems = Array<GetMembershipAccountDetailItem>;
 export interface GetMembershipRequest {
   membershipId: string;
 }
@@ -380,9 +329,7 @@ export interface ListTagsForResourceInput {
 export interface ListTagsForResourceOutput {
   tags: Record<string, string>;
 }
-export type MembershipAccountRelationshipStatus =
-  | "ASSOCIATED"
-  | "DISASSOCIATED";
+export type MembershipAccountRelationshipStatus = "ASSOCIATED" | "DISASSOCIATED";
 export type MembershipAccountRelationshipType = "ORGANIZATION";
 export type MembershipArn = string;
 
@@ -413,11 +360,7 @@ export declare class SecurityIncidentResponseNotActiveException extends EffectDa
 )<{
   readonly message: string;
 }> {}
-export type SelfManagedCaseStatus =
-  | "SUBMITTED"
-  | "DETECTION_AND_ANALYSIS"
-  | "CONTAINMENT_ERADICATION_AND_RECOVERY"
-  | "POST_INCIDENT_ACTIVITIES";
+export type SelfManagedCaseStatus = "SUBMITTED" | "DETECTION_AND_ANALYSIS" | "CONTAINMENT_ERADICATION_AND_RECOVERY" | "POST_INCIDENT_ACTIVITIES";
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
@@ -435,7 +378,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export interface ThreatActorIp {
@@ -455,7 +399,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateCaseCommentRequest {
   caseId: string;
   commentId: string;
@@ -483,7 +428,8 @@ export interface UpdateCaseRequest {
   impactedAccountsToAdd?: Array<string>;
   impactedAccountsToDelete?: Array<string>;
 }
-export interface UpdateCaseResponse {}
+export interface UpdateCaseResponse {
+}
 export interface UpdateCaseStatusRequest {
   caseId: string;
   caseStatus: SelfManagedCaseStatus;
@@ -497,7 +443,8 @@ export interface UpdateMembershipRequest {
   incidentResponseTeam?: Array<IncidentResponder>;
   optInFeatures?: Array<OptInFeature>;
 }
-export interface UpdateMembershipResponse {}
+export interface UpdateMembershipResponse {
+}
 export interface UpdateResolverTypeRequest {
   caseId: string;
   resolverType: ResolverType;
@@ -523,11 +470,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export interface Watcher {
   email: string;
   name?: string;
@@ -563,3 +506,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

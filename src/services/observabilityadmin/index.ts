@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ObservabilityAdmin extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("observabilityadmin", new RestJson1Protocol(), cfg);
+  }
+
   createTelemetryRule(
     input: CreateTelemetryRuleInput,
   ): Effect.Effect<
     CreateTelemetryRuleOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateTelemetryRule", input);
   }
@@ -21,13 +20,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: CreateTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
     CreateTelemetryRuleForOrganizationOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateTelemetryRuleForOrganization", input);
   }
@@ -35,12 +28,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: DeleteTelemetryRuleInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteTelemetryRule", input);
   }
@@ -48,31 +36,23 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: DeleteTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteTelemetryRuleForOrganization", input);
   }
-  getTelemetryEvaluationStatus(input: {}): Effect.Effect<
+  getTelemetryEvaluationStatus(
+    input: {},
+  ): Effect.Effect<
     GetTelemetryEvaluationStatusOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTelemetryEvaluationStatus", input);
   }
-  getTelemetryEvaluationStatusForOrganization(input: {}): Effect.Effect<
+  getTelemetryEvaluationStatusForOrganization(
+    input: {},
+  ): Effect.Effect<
     GetTelemetryEvaluationStatusForOrganizationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetTelemetryEvaluationStatusForOrganization", input);
   }
@@ -80,12 +60,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: GetTelemetryRuleInput,
   ): Effect.Effect<
     GetTelemetryRuleOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetTelemetryRule", input);
   }
@@ -93,12 +68,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: GetTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
     GetTelemetryRuleForOrganizationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetTelemetryRuleForOrganization", input);
   }
@@ -106,11 +76,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: ListResourceTelemetryInput,
   ): Effect.Effect<
     ListResourceTelemetryOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListResourceTelemetry", input);
   }
@@ -118,11 +84,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: ListResourceTelemetryForOrganizationInput,
   ): Effect.Effect<
     ListResourceTelemetryForOrganizationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListResourceTelemetryForOrganization", input);
   }
@@ -130,12 +92,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -143,11 +100,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: ListTelemetryRulesInput,
   ): Effect.Effect<
     ListTelemetryRulesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListTelemetryRules", input);
   }
@@ -155,51 +108,39 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: ListTelemetryRulesForOrganizationInput,
   ): Effect.Effect<
     ListTelemetryRulesForOrganizationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListTelemetryRulesForOrganization", input);
   }
-  startTelemetryEvaluation(input: {}): Effect.Effect<
+  startTelemetryEvaluation(
+    input: {},
+  ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("StartTelemetryEvaluation", input);
   }
-  startTelemetryEvaluationForOrganization(input: {}): Effect.Effect<
+  startTelemetryEvaluationForOrganization(
+    input: {},
+  ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("StartTelemetryEvaluationForOrganization", input);
   }
-  stopTelemetryEvaluation(input: {}): Effect.Effect<
+  stopTelemetryEvaluation(
+    input: {},
+  ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("StopTelemetryEvaluation", input);
   }
-  stopTelemetryEvaluationForOrganization(input: {}): Effect.Effect<
+  stopTelemetryEvaluationForOrganization(
+    input: {},
+  ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("StopTelemetryEvaluationForOrganization", input);
   }
@@ -207,13 +148,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -221,12 +156,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -234,13 +164,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: UpdateTelemetryRuleInput,
   ): Effect.Effect<
     UpdateTelemetryRuleOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateTelemetryRule", input);
   }
@@ -248,13 +172,7 @@ export class ObservabilityAdmin extends AWSServiceClient {
     input: UpdateTelemetryRuleForOrganizationInput,
   ): Effect.Effect<
     UpdateTelemetryRuleForOrganizationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateTelemetryRuleForOrganization", input);
   }
@@ -412,10 +330,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ResourceType =
-  | "AWS_EC2_INSTANCE"
-  | "AWS_EC2_VPC"
-  | "AWS_LAMDBA_FUNCTION";
+export type ResourceType = "AWS_EC2_INSTANCE" | "AWS_EC2_VPC" | "AWS_LAMDBA_FUNCTION";
 export type ResourceTypes = Array<ResourceType>;
 export type RetentionPeriodInDays = number;
 
@@ -429,14 +344,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
   readonly Message?: string;
   readonly amznErrorType?: string;
 }> {}
-export type Status =
-  | "NOT_STARTED"
-  | "STARTING"
-  | "FAILED_START"
-  | "RUNNING"
-  | "STOPPING"
-  | "FAILED_STOP"
-  | "STOPPED";
+export type Status = "NOT_STARTED" | "STARTING" | "FAILED_START" | "RUNNING" | "STOPPING" | "FAILED_STOP" | "STOPPED";
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -760,3 +668,4 @@ export declare namespace UpdateTelemetryRuleForOrganization {
     | ValidationException
     | CommonAwsError;
 }
+

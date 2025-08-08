@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class OpsWorksCM extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("opsworkscm", new AwsJson11Protocol(), cfg);
+  }
+
   associateNode(
     input: AssociateNodeRequest,
   ): Effect.Effect<
     AssociateNodeResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateNode", input);
   }
@@ -18,11 +20,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: CreateBackupRequest,
   ): Effect.Effect<
     CreateBackupResponse,
-    | InvalidStateException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CreateBackup", input);
   }
@@ -30,11 +28,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: CreateServerRequest,
   ): Effect.Effect<
     CreateServerResponse,
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CreateServer", input);
   }
@@ -42,10 +36,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: DeleteBackupRequest,
   ): Effect.Effect<
     DeleteBackupResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteBackup", input);
   }
@@ -53,26 +44,23 @@ export class OpsWorksCM extends AWSServiceClient {
     input: DeleteServerRequest,
   ): Effect.Effect<
     DeleteServerResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteServer", input);
   }
   describeAccountAttributes(
     input: DescribeAccountAttributesRequest,
-  ): Effect.Effect<DescribeAccountAttributesResponse, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeAccountAttributesResponse,
+    CommonAwsError
+  > {
     return this.call("DescribeAccountAttributes", input);
   }
   describeBackups(
     input: DescribeBackupsRequest,
   ): Effect.Effect<
     DescribeBackupsResponse,
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidNextTokenException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeBackups", input);
   }
@@ -80,10 +68,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: DescribeEventsRequest,
   ): Effect.Effect<
     DescribeEventsResponse,
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidNextTokenException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeEvents", input);
   }
@@ -99,10 +84,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: DescribeServersRequest,
   ): Effect.Effect<
     DescribeServersResponse,
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidNextTokenException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeServers", input);
   }
@@ -110,10 +92,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: DisassociateNodeRequest,
   ): Effect.Effect<
     DisassociateNodeResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateNode", input);
   }
@@ -121,10 +100,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: ExportServerEngineAttributeRequest,
   ): Effect.Effect<
     ExportServerEngineAttributeResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ExportServerEngineAttribute", input);
   }
@@ -140,10 +116,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: RestoreServerRequest,
   ): Effect.Effect<
     RestoreServerResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("RestoreServer", input);
   }
@@ -151,10 +124,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: StartMaintenanceRequest,
   ): Effect.Effect<
     StartMaintenanceResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartMaintenance", input);
   }
@@ -162,10 +132,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -173,10 +140,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -184,10 +148,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: UpdateServerRequest,
   ): Effect.Effect<
     UpdateServerResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateServer", input);
   }
@@ -195,10 +156,7 @@ export class OpsWorksCM extends AWSServiceClient {
     input: UpdateServerEngineAttributesRequest,
   ): Effect.Effect<
     UpdateServerEngineAttributesResponse,
-    | InvalidStateException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateServerEngineAttributes", input);
   }
@@ -306,12 +264,15 @@ export type CustomPrivateKey = string;
 export interface DeleteBackupRequest {
   BackupId: string;
 }
-export interface DeleteBackupResponse {}
+export interface DeleteBackupResponse {
+}
 export interface DeleteServerRequest {
   ServerName: string;
 }
-export interface DeleteServerResponse {}
-export interface DescribeAccountAttributesRequest {}
+export interface DeleteServerResponse {
+}
+export interface DescribeAccountAttributesRequest {
+}
 export interface DescribeAccountAttributesResponse {
   Attributes?: Array<AccountAttribute>;
 }
@@ -472,20 +433,7 @@ export type ServerEvents = Array<ServerEvent>;
 export type ServerName = string;
 
 export type Servers = Array<Server>;
-export type ServerStatus =
-  | "BACKING_UP"
-  | "CONNECTION_LOST"
-  | "CREATING"
-  | "DELETING"
-  | "MODIFYING"
-  | "FAILED"
-  | "HEALTHY"
-  | "RUNNING"
-  | "RESTORING"
-  | "SETUP"
-  | "UNDER_MAINTENANCE"
-  | "UNHEALTHY"
-  | "TERMINATED";
+export type ServerStatus = "BACKING_UP" | "CONNECTION_LOST" | "CREATING" | "DELETING" | "MODIFYING" | "FAILED" | "HEALTHY" | "RUNNING" | "RESTORING" | "SETUP" | "UNDER_MAINTENANCE" | "UNHEALTHY" | "TERMINATED";
 export type ServiceRoleArn = string;
 
 export interface StartMaintenanceRequest {
@@ -510,7 +458,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -521,7 +470,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateServerEngineAttributesRequest {
   ServerName: string;
   AttributeName: string;
@@ -600,7 +550,8 @@ export declare namespace DeleteServer {
 export declare namespace DescribeAccountAttributes {
   export type Input = DescribeAccountAttributesRequest;
   export type Output = DescribeAccountAttributesResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeBackups {
@@ -730,3 +681,4 @@ export declare namespace UpdateServerEngineAttributes {
     | ValidationException
     | CommonAwsError;
 }
+

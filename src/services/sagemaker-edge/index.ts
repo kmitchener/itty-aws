@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SagemakerEdge extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sagemaker-edge", new RestJson1Protocol(), cfg);
+  }
+
   getDeployments(
     input: GetDeploymentsRequest,
   ): Effect.Effect<
@@ -21,7 +26,10 @@ export class SagemakerEdge extends AWSServiceClient {
   }
   sendHeartbeat(
     input: SendHeartbeatRequest,
-  ): Effect.Effect<{}, InternalServiceException | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    InternalServiceException | CommonAwsError
+  > {
     return this.call("SendHeartbeat", input);
   }
 }
@@ -146,17 +154,24 @@ export type Version = string;
 export declare namespace GetDeployments {
   export type Input = GetDeploymentsRequest;
   export type Output = GetDeploymentsResult;
-  export type Error = InternalServiceException | CommonAwsError;
+  export type Error =
+    | InternalServiceException
+    | CommonAwsError;
 }
 
 export declare namespace GetDeviceRegistration {
   export type Input = GetDeviceRegistrationRequest;
   export type Output = GetDeviceRegistrationResult;
-  export type Error = InternalServiceException | CommonAwsError;
+  export type Error =
+    | InternalServiceException
+    | CommonAwsError;
 }
 
 export declare namespace SendHeartbeat {
   export type Input = SendHeartbeatRequest;
   export type Output = {};
-  export type Error = InternalServiceException | CommonAwsError;
+  export type Error =
+    | InternalServiceException
+    | CommonAwsError;
 }
+

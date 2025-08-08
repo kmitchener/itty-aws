@@ -1,18 +1,19 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class QuickSight extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("quicksight", new RestJson1Protocol(), cfg);
+  }
+
   batchCreateTopicReviewedAnswer(
     input: BatchCreateTopicReviewedAnswerRequest,
   ): Effect.Effect<
     BatchCreateTopicReviewedAnswerResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchCreateTopicReviewedAnswer", input);
   }
@@ -20,13 +21,7 @@ export class QuickSight extends AWSServiceClient {
     input: BatchDeleteTopicReviewedAnswerRequest,
   ): Effect.Effect<
     BatchDeleteTopicReviewedAnswerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchDeleteTopicReviewedAnswer", input);
   }
@@ -34,13 +29,7 @@ export class QuickSight extends AWSServiceClient {
     input: CancelIngestionRequest,
   ): Effect.Effect<
     CancelIngestionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelIngestion", input);
   }
@@ -48,15 +37,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateAccountCustomizationRequest,
   ): Effect.Effect<
     CreateAccountCustomizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateAccountCustomization", input);
   }
@@ -64,16 +45,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateAccountSubscriptionRequest,
   ): Effect.Effect<
     CreateAccountSubscriptionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateAccountSubscription", input);
   }
@@ -81,15 +53,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateAnalysisRequest,
   ): Effect.Effect<
     CreateAnalysisResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("CreateAnalysis", input);
   }
@@ -97,13 +61,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateBrandRequest,
   ): Effect.Effect<
     CreateBrandResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateBrand", input);
   }
@@ -111,17 +69,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateCustomPermissionsRequest,
   ): Effect.Effect<
     CreateCustomPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateCustomPermissions", input);
   }
@@ -129,15 +77,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateDashboardRequest,
   ): Effect.Effect<
     CreateDashboardResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("CreateDashboard", input);
   }
@@ -145,16 +85,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateDataSetRequest,
   ): Effect.Effect<
     CreateDataSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("CreateDataSet", input);
   }
@@ -162,16 +93,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateDataSourceRequest,
   ): Effect.Effect<
     CreateDataSourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | CustomerManagedKeyUnavailableException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | CustomerManagedKeyUnavailableException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDataSource", input);
   }
@@ -179,16 +101,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateFolderRequest,
   ): Effect.Effect<
     CreateFolderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("CreateFolder", input);
   }
@@ -196,15 +109,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateFolderMembershipRequest,
   ): Effect.Effect<
     CreateFolderMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("CreateFolderMembership", input);
   }
@@ -212,16 +117,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateGroupRequest,
   ): Effect.Effect<
     CreateGroupResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateGroup", input);
   }
@@ -229,14 +125,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateGroupMembershipRequest,
   ): Effect.Effect<
     CreateGroupMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateGroupMembership", input);
   }
@@ -244,14 +133,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateIAMPolicyAssignmentRequest,
   ): Effect.Effect<
     CreateIAMPolicyAssignmentResponse,
-    | AccessDeniedException
-    | ConcurrentUpdatingException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentUpdatingException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateIAMPolicyAssignment", input);
   }
@@ -259,14 +141,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateIngestionRequest,
   ): Effect.Effect<
     CreateIngestionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateIngestion", input);
   }
@@ -274,17 +149,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateNamespaceRequest,
   ): Effect.Effect<
     CreateNamespaceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateNamespace", input);
   }
@@ -292,15 +157,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateRefreshScheduleRequest,
   ): Effect.Effect<
     CreateRefreshScheduleResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateRefreshSchedule", input);
   }
@@ -308,14 +165,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateRoleMembershipRequest,
   ): Effect.Effect<
     CreateRoleMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateRoleMembership", input);
   }
@@ -323,16 +173,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateTemplateRequest,
   ): Effect.Effect<
     CreateTemplateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("CreateTemplate", input);
   }
@@ -340,14 +181,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateTemplateAliasRequest,
   ): Effect.Effect<
     CreateTemplateAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("CreateTemplateAlias", input);
   }
@@ -355,15 +189,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateThemeRequest,
   ): Effect.Effect<
     CreateThemeResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("CreateTheme", input);
   }
@@ -371,15 +197,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateThemeAliasRequest,
   ): Effect.Effect<
     CreateThemeAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("CreateThemeAlias", input);
   }
@@ -387,15 +205,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateTopicRequest,
   ): Effect.Effect<
     CreateTopicResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateTopic", input);
   }
@@ -403,15 +213,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateTopicRefreshScheduleRequest,
   ): Effect.Effect<
     CreateTopicRefreshScheduleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateTopicRefreshSchedule", input);
   }
@@ -419,15 +221,7 @@ export class QuickSight extends AWSServiceClient {
     input: CreateVPCConnectionRequest,
   ): Effect.Effect<
     CreateVPCConnectionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("CreateVPCConnection", input);
   }
@@ -435,16 +229,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteAccountCustomizationRequest,
   ): Effect.Effect<
     DeleteAccountCustomizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAccountCustomization", input);
   }
@@ -452,14 +237,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteAccountSubscriptionRequest,
   ): Effect.Effect<
     DeleteAccountSubscriptionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAccountSubscription", input);
   }
@@ -467,13 +245,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteAnalysisRequest,
   ): Effect.Effect<
     DeleteAnalysisResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DeleteAnalysis", input);
   }
@@ -481,13 +253,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteBrandRequest,
   ): Effect.Effect<
     DeleteBrandResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteBrand", input);
   }
@@ -495,13 +261,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteBrandAssignmentRequest,
   ): Effect.Effect<
     DeleteBrandAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteBrandAssignment", input);
   }
@@ -509,16 +269,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteCustomPermissionsRequest,
   ): Effect.Effect<
     DeleteCustomPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteCustomPermissions", input);
   }
@@ -526,13 +277,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteDashboardRequest,
   ): Effect.Effect<
     DeleteDashboardResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DeleteDashboard", input);
   }
@@ -540,12 +285,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteDataSetRequest,
   ): Effect.Effect<
     DeleteDataSetResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDataSet", input);
   }
@@ -553,14 +293,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteDataSetRefreshPropertiesRequest,
   ): Effect.Effect<
     DeleteDataSetRefreshPropertiesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDataSetRefreshProperties", input);
   }
@@ -568,12 +301,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteDataSourceRequest,
   ): Effect.Effect<
     DeleteDataSourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDataSource", input);
   }
@@ -581,12 +309,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteDefaultQBusinessApplicationRequest,
   ): Effect.Effect<
     DeleteDefaultQBusinessApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDefaultQBusinessApplication", input);
   }
@@ -594,15 +317,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteFolderRequest,
   ): Effect.Effect<
     DeleteFolderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DeleteFolder", input);
   }
@@ -610,13 +325,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteFolderMembershipRequest,
   ): Effect.Effect<
     DeleteFolderMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DeleteFolderMembership", input);
   }
@@ -624,14 +333,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteGroupRequest,
   ): Effect.Effect<
     DeleteGroupResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteGroup", input);
   }
@@ -639,14 +341,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteGroupMembershipRequest,
   ): Effect.Effect<
     DeleteGroupMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteGroupMembership", input);
   }
@@ -654,14 +349,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteIAMPolicyAssignmentRequest,
   ): Effect.Effect<
     DeleteIAMPolicyAssignmentResponse,
-    | AccessDeniedException
-    | ConcurrentUpdatingException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentUpdatingException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteIAMPolicyAssignment", input);
   }
@@ -669,12 +357,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteIdentityPropagationConfigRequest,
   ): Effect.Effect<
     DeleteIdentityPropagationConfigResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteIdentityPropagationConfig", input);
   }
@@ -682,14 +365,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteNamespaceRequest,
   ): Effect.Effect<
     DeleteNamespaceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteNamespace", input);
   }
@@ -697,13 +373,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteRefreshScheduleRequest,
   ): Effect.Effect<
     DeleteRefreshScheduleResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteRefreshSchedule", input);
   }
@@ -711,14 +381,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteRoleCustomPermissionRequest,
   ): Effect.Effect<
     DeleteRoleCustomPermissionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteRoleCustomPermission", input);
   }
@@ -726,14 +389,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteRoleMembershipRequest,
   ): Effect.Effect<
     DeleteRoleMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteRoleMembership", input);
   }
@@ -741,14 +397,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteTemplateRequest,
   ): Effect.Effect<
     DeleteTemplateResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DeleteTemplate", input);
   }
@@ -756,12 +405,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteTemplateAliasRequest,
   ): Effect.Effect<
     DeleteTemplateAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DeleteTemplateAlias", input);
   }
@@ -769,14 +413,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteThemeRequest,
   ): Effect.Effect<
     DeleteThemeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DeleteTheme", input);
   }
@@ -784,13 +421,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteThemeAliasRequest,
   ): Effect.Effect<
     DeleteThemeAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DeleteThemeAlias", input);
   }
@@ -798,13 +429,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteTopicRequest,
   ): Effect.Effect<
     DeleteTopicResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteTopic", input);
   }
@@ -812,15 +437,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteTopicRefreshScheduleRequest,
   ): Effect.Effect<
     DeleteTopicRefreshScheduleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteTopicRefreshSchedule", input);
   }
@@ -828,14 +445,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteUser", input);
   }
@@ -843,14 +453,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteUserByPrincipalIdRequest,
   ): Effect.Effect<
     DeleteUserByPrincipalIdResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteUserByPrincipalId", input);
   }
@@ -858,15 +461,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteUserCustomPermissionRequest,
   ): Effect.Effect<
     DeleteUserCustomPermissionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteUserCustomPermission", input);
   }
@@ -874,14 +469,7 @@ export class QuickSight extends AWSServiceClient {
     input: DeleteVPCConnectionRequest,
   ): Effect.Effect<
     DeleteVPCConnectionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DeleteVPCConnection", input);
   }
@@ -889,13 +477,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeAccountCustomizationRequest,
   ): Effect.Effect<
     DescribeAccountCustomizationResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAccountCustomization", input);
   }
@@ -903,13 +485,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeAccountSettingsRequest,
   ): Effect.Effect<
     DescribeAccountSettingsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAccountSettings", input);
   }
@@ -917,13 +493,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeAccountSubscriptionRequest,
   ): Effect.Effect<
     DescribeAccountSubscriptionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAccountSubscription", input);
   }
@@ -931,13 +501,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeAnalysisRequest,
   ): Effect.Effect<
     DescribeAnalysisResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeAnalysis", input);
   }
@@ -945,15 +509,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeAnalysisDefinitionRequest,
   ): Effect.Effect<
     DescribeAnalysisDefinitionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeAnalysisDefinition", input);
   }
@@ -961,12 +517,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeAnalysisPermissionsRequest,
   ): Effect.Effect<
     DescribeAnalysisPermissionsResponse,
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeAnalysisPermissions", input);
   }
@@ -974,10 +525,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeAssetBundleExportJobRequest,
   ): Effect.Effect<
     DescribeAssetBundleExportJobResponse,
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeAssetBundleExportJob", input);
   }
@@ -985,10 +533,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeAssetBundleImportJobRequest,
   ): Effect.Effect<
     DescribeAssetBundleImportJobResponse,
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeAssetBundleImportJob", input);
   }
@@ -996,13 +541,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeBrandRequest,
   ): Effect.Effect<
     DescribeBrandResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeBrand", input);
   }
@@ -1010,13 +549,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeBrandAssignmentRequest,
   ): Effect.Effect<
     DescribeBrandAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeBrandAssignment", input);
   }
@@ -1024,13 +557,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeBrandPublishedVersionRequest,
   ): Effect.Effect<
     DescribeBrandPublishedVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeBrandPublishedVersion", input);
   }
@@ -1038,14 +565,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeCustomPermissionsRequest,
   ): Effect.Effect<
     DescribeCustomPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeCustomPermissions", input);
   }
@@ -1053,13 +573,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDashboardRequest,
   ): Effect.Effect<
     DescribeDashboardResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeDashboard", input);
   }
@@ -1067,15 +581,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDashboardDefinitionRequest,
   ): Effect.Effect<
     DescribeDashboardDefinitionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeDashboardDefinition", input);
   }
@@ -1083,12 +589,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDashboardPermissionsRequest,
   ): Effect.Effect<
     DescribeDashboardPermissionsResponse,
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeDashboardPermissions", input);
   }
@@ -1096,12 +597,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDashboardSnapshotJobRequest,
   ): Effect.Effect<
     DescribeDashboardSnapshotJobResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeDashboardSnapshotJob", input);
   }
@@ -1109,14 +605,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDashboardSnapshotJobResultRequest,
   ): Effect.Effect<
     DescribeDashboardSnapshotJobResultResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeDashboardSnapshotJobResult", input);
   }
@@ -1124,13 +613,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDashboardsQAConfigurationRequest,
   ): Effect.Effect<
     DescribeDashboardsQAConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDashboardsQAConfiguration", input);
   }
@@ -1138,12 +621,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDataSetRequest,
   ): Effect.Effect<
     DescribeDataSetResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDataSet", input);
   }
@@ -1151,12 +629,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDataSetPermissionsRequest,
   ): Effect.Effect<
     DescribeDataSetPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDataSetPermissions", input);
   }
@@ -1164,14 +637,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDataSetRefreshPropertiesRequest,
   ): Effect.Effect<
     DescribeDataSetRefreshPropertiesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDataSetRefreshProperties", input);
   }
@@ -1179,12 +645,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDataSourceRequest,
   ): Effect.Effect<
     DescribeDataSourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDataSource", input);
   }
@@ -1192,12 +653,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDataSourcePermissionsRequest,
   ): Effect.Effect<
     DescribeDataSourcePermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDataSourcePermissions", input);
   }
@@ -1205,12 +661,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeDefaultQBusinessApplicationRequest,
   ): Effect.Effect<
     DescribeDefaultQBusinessApplicationResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDefaultQBusinessApplication", input);
   }
@@ -1218,13 +669,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeFolderRequest,
   ): Effect.Effect<
     DescribeFolderResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeFolder", input);
   }
@@ -1232,14 +677,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeFolderPermissionsRequest,
   ): Effect.Effect<
     DescribeFolderPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeFolderPermissions", input);
   }
@@ -1247,14 +685,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeFolderResolvedPermissionsRequest,
   ): Effect.Effect<
     DescribeFolderResolvedPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeFolderResolvedPermissions", input);
   }
@@ -1262,14 +693,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeGroupRequest,
   ): Effect.Effect<
     DescribeGroupResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeGroup", input);
   }
@@ -1277,14 +701,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeGroupMembershipRequest,
   ): Effect.Effect<
     DescribeGroupMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeGroupMembership", input);
   }
@@ -1292,13 +709,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeIAMPolicyAssignmentRequest,
   ): Effect.Effect<
     DescribeIAMPolicyAssignmentResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeIAMPolicyAssignment", input);
   }
@@ -1306,13 +717,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeIngestionRequest,
   ): Effect.Effect<
     DescribeIngestionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeIngestion", input);
   }
@@ -1320,12 +725,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeIpRestrictionRequest,
   ): Effect.Effect<
     DescribeIpRestrictionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeIpRestriction", input);
   }
@@ -1333,11 +733,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeKeyRegistrationRequest,
   ): Effect.Effect<
     DescribeKeyRegistrationResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeKeyRegistration", input);
   }
@@ -1345,13 +741,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeNamespaceRequest,
   ): Effect.Effect<
     DescribeNamespaceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeNamespace", input);
   }
@@ -1359,13 +749,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeQPersonalizationConfigurationRequest,
   ): Effect.Effect<
     DescribeQPersonalizationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeQPersonalizationConfiguration", input);
   }
@@ -1373,13 +757,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeQuickSightQSearchConfigurationRequest,
   ): Effect.Effect<
     DescribeQuickSightQSearchConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeQuickSightQSearchConfiguration", input);
   }
@@ -1387,13 +765,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeRefreshScheduleRequest,
   ): Effect.Effect<
     DescribeRefreshScheduleResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeRefreshSchedule", input);
   }
@@ -1401,14 +773,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeRoleCustomPermissionRequest,
   ): Effect.Effect<
     DescribeRoleCustomPermissionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeRoleCustomPermission", input);
   }
@@ -1416,15 +781,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeTemplateRequest,
   ): Effect.Effect<
     DescribeTemplateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeTemplate", input);
   }
@@ -1432,11 +789,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeTemplateAliasRequest,
   ): Effect.Effect<
     DescribeTemplateAliasResponse,
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeTemplateAlias", input);
   }
@@ -1444,15 +797,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeTemplateDefinitionRequest,
   ): Effect.Effect<
     DescribeTemplateDefinitionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeTemplateDefinition", input);
   }
@@ -1460,13 +805,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeTemplatePermissionsRequest,
   ): Effect.Effect<
     DescribeTemplatePermissionsResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeTemplatePermissions", input);
   }
@@ -1474,14 +813,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeThemeRequest,
   ): Effect.Effect<
     DescribeThemeResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeTheme", input);
   }
@@ -1489,13 +821,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeThemeAliasRequest,
   ): Effect.Effect<
     DescribeThemeAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeThemeAlias", input);
   }
@@ -1503,13 +829,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeThemePermissionsRequest,
   ): Effect.Effect<
     DescribeThemePermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeThemePermissions", input);
   }
@@ -1517,12 +837,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeTopicRequest,
   ): Effect.Effect<
     DescribeTopicResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeTopic", input);
   }
@@ -1530,12 +845,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeTopicPermissionsRequest,
   ): Effect.Effect<
     DescribeTopicPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeTopicPermissions", input);
   }
@@ -1543,12 +853,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeTopicRefreshRequest,
   ): Effect.Effect<
     DescribeTopicRefreshResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeTopicRefresh", input);
   }
@@ -1556,15 +861,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeTopicRefreshScheduleRequest,
   ): Effect.Effect<
     DescribeTopicRefreshScheduleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeTopicRefreshSchedule", input);
   }
@@ -1572,14 +869,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeUserRequest,
   ): Effect.Effect<
     DescribeUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeUser", input);
   }
@@ -1587,13 +877,7 @@ export class QuickSight extends AWSServiceClient {
     input: DescribeVPCConnectionRequest,
   ): Effect.Effect<
     DescribeVPCConnectionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("DescribeVPCConnection", input);
   }
@@ -1601,15 +885,7 @@ export class QuickSight extends AWSServiceClient {
     input: GenerateEmbedUrlForAnonymousUserRequest,
   ): Effect.Effect<
     GenerateEmbedUrlForAnonymousUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | SessionLifetimeInMinutesInvalidException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("GenerateEmbedUrlForAnonymousUser", input);
   }
@@ -1617,16 +893,7 @@ export class QuickSight extends AWSServiceClient {
     input: GenerateEmbedUrlForRegisteredUserRequest,
   ): Effect.Effect<
     GenerateEmbedUrlForRegisteredUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | QuickSightUserNotFoundException
-    | ResourceNotFoundException
-    | SessionLifetimeInMinutesInvalidException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | QuickSightUserNotFoundException | ResourceNotFoundException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("GenerateEmbedUrlForRegisteredUser", input);
   }
@@ -1634,16 +901,7 @@ export class QuickSight extends AWSServiceClient {
     input: GenerateEmbedUrlForRegisteredUserWithIdentityRequest,
   ): Effect.Effect<
     GenerateEmbedUrlForRegisteredUserWithIdentityResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | QuickSightUserNotFoundException
-    | ResourceNotFoundException
-    | SessionLifetimeInMinutesInvalidException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | QuickSightUserNotFoundException | ResourceNotFoundException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("GenerateEmbedUrlForRegisteredUserWithIdentity", input);
   }
@@ -1651,19 +909,7 @@ export class QuickSight extends AWSServiceClient {
     input: GetDashboardEmbedUrlRequest,
   ): Effect.Effect<
     GetDashboardEmbedUrlResponse,
-    | AccessDeniedException
-    | DomainNotWhitelistedException
-    | IdentityTypeNotSupportedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | QuickSightUserNotFoundException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | SessionLifetimeInMinutesInvalidException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | DomainNotWhitelistedException | IdentityTypeNotSupportedException | InternalFailureException | InvalidParameterValueException | QuickSightUserNotFoundException | ResourceExistsException | ResourceNotFoundException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("GetDashboardEmbedUrl", input);
   }
@@ -1671,16 +917,7 @@ export class QuickSight extends AWSServiceClient {
     input: GetSessionEmbedUrlRequest,
   ): Effect.Effect<
     GetSessionEmbedUrlResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | QuickSightUserNotFoundException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | SessionLifetimeInMinutesInvalidException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | QuickSightUserNotFoundException | ResourceExistsException | ResourceNotFoundException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("GetSessionEmbedUrl", input);
   }
@@ -1688,11 +925,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListAnalysesRequest,
   ): Effect.Effect<
     ListAnalysesResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListAnalyses", input);
   }
@@ -1700,12 +933,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListAssetBundleExportJobsRequest,
   ): Effect.Effect<
     ListAssetBundleExportJobsResponse,
-    | AccessDeniedException
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InvalidNextTokenException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListAssetBundleExportJobs", input);
   }
@@ -1713,12 +941,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListAssetBundleImportJobsRequest,
   ): Effect.Effect<
     ListAssetBundleImportJobsResponse,
-    | AccessDeniedException
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InvalidNextTokenException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListAssetBundleImportJobs", input);
   }
@@ -1726,11 +949,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListBrandsRequest,
   ): Effect.Effect<
     ListBrandsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListBrands", input);
   }
@@ -1738,14 +957,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListCustomPermissionsRequest,
   ): Effect.Effect<
     ListCustomPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListCustomPermissions", input);
   }
@@ -1753,11 +965,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListDashboardsRequest,
   ): Effect.Effect<
     ListDashboardsResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListDashboards", input);
   }
@@ -1765,13 +973,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListDashboardVersionsRequest,
   ): Effect.Effect<
     ListDashboardVersionsResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListDashboardVersions", input);
   }
@@ -1779,12 +981,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListDataSetsRequest,
   ): Effect.Effect<
     ListDataSetsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDataSets", input);
   }
@@ -1792,12 +989,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListDataSourcesRequest,
   ): Effect.Effect<
     ListDataSourcesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDataSources", input);
   }
@@ -1805,14 +997,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListFolderMembersRequest,
   ): Effect.Effect<
     ListFolderMembersResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListFolderMembers", input);
   }
@@ -1820,14 +1005,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListFoldersRequest,
   ): Effect.Effect<
     ListFoldersResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListFolders", input);
   }
@@ -1835,14 +1013,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListFoldersForResourceRequest,
   ): Effect.Effect<
     ListFoldersForResourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListFoldersForResource", input);
   }
@@ -1850,15 +1021,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListGroupMembershipsRequest,
   ): Effect.Effect<
     ListGroupMembershipsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListGroupMemberships", input);
   }
@@ -1866,15 +1029,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListGroupsRequest,
   ): Effect.Effect<
     ListGroupsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListGroups", input);
   }
@@ -1882,13 +1037,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListIAMPolicyAssignmentsRequest,
   ): Effect.Effect<
     ListIAMPolicyAssignmentsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListIAMPolicyAssignments", input);
   }
@@ -1896,14 +1045,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListIAMPolicyAssignmentsForUserRequest,
   ): Effect.Effect<
     ListIAMPolicyAssignmentsForUserResponse,
-    | AccessDeniedException
-    | ConcurrentUpdatingException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentUpdatingException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListIAMPolicyAssignmentsForUser", input);
   }
@@ -1911,12 +1053,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListIdentityPropagationConfigsRequest,
   ): Effect.Effect<
     ListIdentityPropagationConfigsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListIdentityPropagationConfigs", input);
   }
@@ -1924,14 +1061,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListIngestionsRequest,
   ): Effect.Effect<
     ListIngestionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListIngestions", input);
   }
@@ -1939,15 +1069,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListNamespacesRequest,
   ): Effect.Effect<
     ListNamespacesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListNamespaces", input);
   }
@@ -1955,13 +1077,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListRefreshSchedulesRequest,
   ): Effect.Effect<
     ListRefreshSchedulesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRefreshSchedules", input);
   }
@@ -1969,16 +1085,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListRoleMembershipsRequest,
   ): Effect.Effect<
     ListRoleMembershipsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRoleMemberships", input);
   }
@@ -1986,12 +1093,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -1999,12 +1101,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListTemplateAliasesRequest,
   ): Effect.Effect<
     ListTemplateAliasesResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListTemplateAliases", input);
   }
@@ -2012,13 +1109,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListTemplatesRequest,
   ): Effect.Effect<
     ListTemplatesResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListTemplates", input);
   }
@@ -2026,13 +1117,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListTemplateVersionsRequest,
   ): Effect.Effect<
     ListTemplateVersionsResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListTemplateVersions", input);
   }
@@ -2040,14 +1125,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListThemeAliasesRequest,
   ): Effect.Effect<
     ListThemeAliasesResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListThemeAliases", input);
   }
@@ -2055,14 +1133,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListThemesRequest,
   ): Effect.Effect<
     ListThemesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListThemes", input);
   }
@@ -2070,14 +1141,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListThemeVersionsRequest,
   ): Effect.Effect<
     ListThemeVersionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListThemeVersions", input);
   }
@@ -2085,15 +1149,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListTopicRefreshSchedulesRequest,
   ): Effect.Effect<
     ListTopicRefreshSchedulesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTopicRefreshSchedules", input);
   }
@@ -2101,12 +1157,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListTopicReviewedAnswersRequest,
   ): Effect.Effect<
     ListTopicReviewedAnswersResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTopicReviewedAnswers", input);
   }
@@ -2114,12 +1165,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListTopicsRequest,
   ): Effect.Effect<
     ListTopicsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTopics", input);
   }
@@ -2127,14 +1173,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListUserGroupsRequest,
   ): Effect.Effect<
     ListUserGroupsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListUserGroups", input);
   }
@@ -2142,15 +1181,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListUsers", input);
   }
@@ -2158,13 +1189,7 @@ export class QuickSight extends AWSServiceClient {
     input: ListVPCConnectionsRequest,
   ): Effect.Effect<
     ListVPCConnectionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("ListVPCConnections", input);
   }
@@ -2172,11 +1197,7 @@ export class QuickSight extends AWSServiceClient {
     input: PredictQAResultsRequest,
   ): Effect.Effect<
     PredictQAResultsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   > {
     return this.call("PredictQAResults", input);
   }
@@ -2184,15 +1205,7 @@ export class QuickSight extends AWSServiceClient {
     input: PutDataSetRefreshPropertiesRequest,
   ): Effect.Effect<
     PutDataSetRefreshPropertiesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutDataSetRefreshProperties", input);
   }
@@ -2200,16 +1213,7 @@ export class QuickSight extends AWSServiceClient {
     input: RegisterUserRequest,
   ): Effect.Effect<
     RegisterUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("RegisterUser", input);
   }
@@ -2217,15 +1221,7 @@ export class QuickSight extends AWSServiceClient {
     input: RestoreAnalysisRequest,
   ): Effect.Effect<
     RestoreAnalysisResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("RestoreAnalysis", input);
   }
@@ -2233,13 +1229,7 @@ export class QuickSight extends AWSServiceClient {
     input: SearchAnalysesRequest,
   ): Effect.Effect<
     SearchAnalysesResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("SearchAnalyses", input);
   }
@@ -2247,13 +1237,7 @@ export class QuickSight extends AWSServiceClient {
     input: SearchDashboardsRequest,
   ): Effect.Effect<
     SearchDashboardsResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("SearchDashboards", input);
   }
@@ -2261,13 +1245,7 @@ export class QuickSight extends AWSServiceClient {
     input: SearchDataSetsRequest,
   ): Effect.Effect<
     SearchDataSetsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchDataSets", input);
   }
@@ -2275,13 +1253,7 @@ export class QuickSight extends AWSServiceClient {
     input: SearchDataSourcesRequest,
   ): Effect.Effect<
     SearchDataSourcesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchDataSources", input);
   }
@@ -2289,15 +1261,7 @@ export class QuickSight extends AWSServiceClient {
     input: SearchFoldersRequest,
   ): Effect.Effect<
     SearchFoldersResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("SearchFolders", input);
   }
@@ -2305,15 +1269,7 @@ export class QuickSight extends AWSServiceClient {
     input: SearchGroupsRequest,
   ): Effect.Effect<
     SearchGroupsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchGroups", input);
   }
@@ -2321,13 +1277,7 @@ export class QuickSight extends AWSServiceClient {
     input: SearchTopicsRequest,
   ): Effect.Effect<
     SearchTopicsResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("SearchTopics", input);
   }
@@ -2335,14 +1285,7 @@ export class QuickSight extends AWSServiceClient {
     input: StartAssetBundleExportJobRequest,
   ): Effect.Effect<
     StartAssetBundleExportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("StartAssetBundleExportJob", input);
   }
@@ -2350,14 +1293,7 @@ export class QuickSight extends AWSServiceClient {
     input: StartAssetBundleImportJobRequest,
   ): Effect.Effect<
     StartAssetBundleImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("StartAssetBundleImportJob", input);
   }
@@ -2365,16 +1301,7 @@ export class QuickSight extends AWSServiceClient {
     input: StartDashboardSnapshotJobRequest,
   ): Effect.Effect<
     StartDashboardSnapshotJobResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("StartDashboardSnapshotJob", input);
   }
@@ -2382,14 +1309,7 @@ export class QuickSight extends AWSServiceClient {
     input: StartDashboardSnapshotJobScheduleRequest,
   ): Effect.Effect<
     StartDashboardSnapshotJobScheduleResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("StartDashboardSnapshotJobSchedule", input);
   }
@@ -2397,13 +1317,7 @@ export class QuickSight extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -2411,12 +1325,7 @@ export class QuickSight extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -2424,14 +1333,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateAccountCustomizationRequest,
   ): Effect.Effect<
     UpdateAccountCustomizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAccountCustomization", input);
   }
@@ -2439,13 +1341,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateAccountSettingsRequest,
   ): Effect.Effect<
     UpdateAccountSettingsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAccountSettings", input);
   }
@@ -2453,14 +1349,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateAnalysisRequest,
   ): Effect.Effect<
     UpdateAnalysisResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateAnalysis", input);
   }
@@ -2468,14 +1357,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateAnalysisPermissionsRequest,
   ): Effect.Effect<
     UpdateAnalysisPermissionsResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateAnalysisPermissions", input);
   }
@@ -2483,14 +1365,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateApplicationWithTokenExchangeGrantRequest,
   ): Effect.Effect<
     UpdateApplicationWithTokenExchangeGrantResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateApplicationWithTokenExchangeGrant", input);
   }
@@ -2498,13 +1373,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateBrandRequest,
   ): Effect.Effect<
     UpdateBrandResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateBrand", input);
   }
@@ -2512,13 +1381,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateBrandAssignmentRequest,
   ): Effect.Effect<
     UpdateBrandAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateBrandAssignment", input);
   }
@@ -2526,13 +1389,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateBrandPublishedVersionRequest,
   ): Effect.Effect<
     UpdateBrandPublishedVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateBrandPublishedVersion", input);
   }
@@ -2540,15 +1397,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateCustomPermissionsRequest,
   ): Effect.Effect<
     UpdateCustomPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateCustomPermissions", input);
   }
@@ -2556,14 +1405,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateDashboardRequest,
   ): Effect.Effect<
     UpdateDashboardResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateDashboard", input);
   }
@@ -2571,14 +1413,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateDashboardLinksRequest,
   ): Effect.Effect<
     UpdateDashboardLinksResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateDashboardLinks", input);
   }
@@ -2586,14 +1421,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateDashboardPermissionsRequest,
   ): Effect.Effect<
     UpdateDashboardPermissionsResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateDashboardPermissions", input);
   }
@@ -2601,13 +1429,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateDashboardPublishedVersionRequest,
   ): Effect.Effect<
     UpdateDashboardPublishedVersionResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateDashboardPublishedVersion", input);
   }
@@ -2615,13 +1437,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateDashboardsQAConfigurationRequest,
   ): Effect.Effect<
     UpdateDashboardsQAConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDashboardsQAConfiguration", input);
   }
@@ -2629,15 +1445,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateDataSetRequest,
   ): Effect.Effect<
     UpdateDataSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateDataSet", input);
   }
@@ -2645,13 +1453,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateDataSetPermissionsRequest,
   ): Effect.Effect<
     UpdateDataSetPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDataSetPermissions", input);
   }
@@ -2659,14 +1461,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateDataSourceRequest,
   ): Effect.Effect<
     UpdateDataSourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | CustomerManagedKeyUnavailableException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | CustomerManagedKeyUnavailableException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDataSource", input);
   }
@@ -2674,13 +1469,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateDataSourcePermissionsRequest,
   ): Effect.Effect<
     UpdateDataSourcePermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDataSourcePermissions", input);
   }
@@ -2688,13 +1477,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateDefaultQBusinessApplicationRequest,
   ): Effect.Effect<
     UpdateDefaultQBusinessApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDefaultQBusinessApplication", input);
   }
@@ -2702,15 +1485,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateFolderRequest,
   ): Effect.Effect<
     UpdateFolderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateFolder", input);
   }
@@ -2718,14 +1493,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateFolderPermissionsRequest,
   ): Effect.Effect<
     UpdateFolderPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateFolderPermissions", input);
   }
@@ -2733,14 +1501,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateGroupRequest,
   ): Effect.Effect<
     UpdateGroupResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateGroup", input);
   }
@@ -2748,14 +1509,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateIAMPolicyAssignmentRequest,
   ): Effect.Effect<
     UpdateIAMPolicyAssignmentResponse,
-    | AccessDeniedException
-    | ConcurrentUpdatingException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentUpdatingException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateIAMPolicyAssignment", input);
   }
@@ -2763,12 +1517,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateIdentityPropagationConfigRequest,
   ): Effect.Effect<
     UpdateIdentityPropagationConfigResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateIdentityPropagationConfig", input);
   }
@@ -2776,13 +1525,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateIpRestrictionRequest,
   ): Effect.Effect<
     UpdateIpRestrictionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateIpRestriction", input);
   }
@@ -2790,11 +1533,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateKeyRegistrationRequest,
   ): Effect.Effect<
     UpdateKeyRegistrationResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateKeyRegistration", input);
   }
@@ -2802,13 +1541,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdatePublicSharingSettingsRequest,
   ): Effect.Effect<
     UpdatePublicSharingSettingsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedPricingPlanException | CommonAwsError
   > {
     return this.call("UpdatePublicSharingSettings", input);
   }
@@ -2816,14 +1549,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateQPersonalizationConfigurationRequest,
   ): Effect.Effect<
     UpdateQPersonalizationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateQPersonalizationConfiguration", input);
   }
@@ -2831,13 +1557,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateQuickSightQSearchConfigurationRequest,
   ): Effect.Effect<
     UpdateQuickSightQSearchConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateQuickSightQSearchConfiguration", input);
   }
@@ -2845,14 +1565,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateRefreshScheduleRequest,
   ): Effect.Effect<
     UpdateRefreshScheduleResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateRefreshSchedule", input);
   }
@@ -2860,14 +1573,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateRoleCustomPermissionRequest,
   ): Effect.Effect<
     UpdateRoleCustomPermissionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateRoleCustomPermission", input);
   }
@@ -2875,12 +1581,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateSPICECapacityConfigurationRequest,
   ): Effect.Effect<
     UpdateSPICECapacityConfigurationResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateSPICECapacityConfiguration", input);
   }
@@ -2888,15 +1589,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateTemplateRequest,
   ): Effect.Effect<
     UpdateTemplateResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateTemplate", input);
   }
@@ -2904,12 +1597,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateTemplateAliasRequest,
   ): Effect.Effect<
     UpdateTemplateAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateTemplateAlias", input);
   }
@@ -2917,14 +1605,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateTemplatePermissionsRequest,
   ): Effect.Effect<
     UpdateTemplatePermissionsResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateTemplatePermissions", input);
   }
@@ -2932,15 +1613,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateThemeRequest,
   ): Effect.Effect<
     UpdateThemeResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateTheme", input);
   }
@@ -2948,14 +1621,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateThemeAliasRequest,
   ): Effect.Effect<
     UpdateThemeAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateThemeAlias", input);
   }
@@ -2963,14 +1629,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateThemePermissionsRequest,
   ): Effect.Effect<
     UpdateThemePermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateThemePermissions", input);
   }
@@ -2978,15 +1637,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateTopicRequest,
   ): Effect.Effect<
     UpdateTopicResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateTopic", input);
   }
@@ -2994,15 +1645,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateTopicPermissionsRequest,
   ): Effect.Effect<
     UpdateTopicPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateTopicPermissions", input);
   }
@@ -3010,15 +1653,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateTopicRefreshScheduleRequest,
   ): Effect.Effect<
     UpdateTopicRefreshScheduleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateTopicRefreshSchedule", input);
   }
@@ -3026,14 +1661,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateUser", input);
   }
@@ -3041,15 +1669,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateUserCustomPermissionRequest,
   ): Effect.Effect<
     UpdateUserCustomPermissionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateUserCustomPermission", input);
   }
@@ -3057,15 +1677,7 @@ export class QuickSight extends AWSServiceClient {
     input: UpdateVPCConnectionRequest,
   ): Effect.Effect<
     UpdateVPCConnectionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   > {
     return this.call("UpdateVPCConnection", input);
   }
@@ -3141,32 +1753,12 @@ export interface AggregationSortConfiguration {
   SortDirection: SortDirection;
   AggregationFunction?: AggregationFunction;
 }
-export type AggregationSortConfigurationList =
-  Array<AggregationSortConfiguration>;
-export type AggType =
-  | "SUM"
-  | "MIN"
-  | "MAX"
-  | "COUNT"
-  | "AVERAGE"
-  | "DISTINCT_COUNT"
-  | "STDEV"
-  | "STDEVP"
-  | "VAR"
-  | "VARP"
-  | "PERCENTILE"
-  | "MEDIAN"
-  | "PTD_SUM"
-  | "PTD_MIN"
-  | "PTD_MAX"
-  | "PTD_COUNT"
-  | "PTD_DISTINCT_COUNT"
-  | "PTD_AVERAGE"
-  | "COLUMN"
-  | "CUSTOM";
+export type AggregationSortConfigurationList = Array<AggregationSortConfiguration>;
+export type AggType = "SUM" | "MIN" | "MAX" | "COUNT" | "AVERAGE" | "DISTINCT_COUNT" | "STDEV" | "STDEVP" | "VAR" | "VARP" | "PERCENTILE" | "MEDIAN" | "PTD_SUM" | "PTD_MIN" | "PTD_MAX" | "PTD_COUNT" | "PTD_DISTINCT_COUNT" | "PTD_AVERAGE" | "COLUMN" | "CUSTOM";
 export type AliasName = string;
 
-export interface AllSheetsFilterScopeConfiguration {}
+export interface AllSheetsFilterScopeConfiguration {
+}
 export type AltText = string;
 
 export interface AmazonElasticsearchParameters {
@@ -3217,25 +1809,8 @@ export interface AnalysisError {
   ViolatedEntities?: Array<Entity>;
 }
 export type AnalysisErrorList = Array<AnalysisError>;
-export type AnalysisErrorType =
-  | "ACCESS_DENIED"
-  | "SOURCE_NOT_FOUND"
-  | "DATA_SET_NOT_FOUND"
-  | "INTERNAL_FAILURE"
-  | "PARAMETER_VALUE_INCOMPATIBLE"
-  | "PARAMETER_TYPE_INVALID"
-  | "PARAMETER_NOT_FOUND"
-  | "COLUMN_TYPE_MISMATCH"
-  | "COLUMN_GEOGRAPHIC_ROLE_MISMATCH"
-  | "COLUMN_REPLACEMENT_MISSING";
-export type AnalysisFilterAttribute =
-  | "QUICKSIGHT_USER"
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "ANALYSIS_NAME";
+export type AnalysisErrorType = "ACCESS_DENIED" | "SOURCE_NOT_FOUND" | "DATA_SET_NOT_FOUND" | "INTERNAL_FAILURE" | "PARAMETER_VALUE_INCOMPATIBLE" | "PARAMETER_TYPE_INVALID" | "PARAMETER_NOT_FOUND" | "COLUMN_TYPE_MISMATCH" | "COLUMN_GEOGRAPHIC_ROLE_MISMATCH" | "COLUMN_REPLACEMENT_MISSING";
+export type AnalysisFilterAttribute = "QUICKSIGHT_USER" | "QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "ANALYSIS_NAME";
 export type AnalysisName = string;
 
 export interface AnalysisSearchFilter {
@@ -3277,14 +1852,10 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
   DisabledFeatures?: Array<AnonymousUserDashboardEmbeddingConfigurationDisabledFeature>;
   FeatureConfigurations?: AnonymousUserDashboardFeatureConfigurations;
 }
-export type AnonymousUserDashboardEmbeddingConfigurationDisabledFeature =
-  "SHARED_VIEW";
-export type AnonymousUserDashboardEmbeddingConfigurationDisabledFeatures =
-  Array<AnonymousUserDashboardEmbeddingConfigurationDisabledFeature>;
-export type AnonymousUserDashboardEmbeddingConfigurationEnabledFeature =
-  "SHARED_VIEW";
-export type AnonymousUserDashboardEmbeddingConfigurationEnabledFeatures =
-  Array<AnonymousUserDashboardEmbeddingConfigurationEnabledFeature>;
+export type AnonymousUserDashboardEmbeddingConfigurationDisabledFeature = "SHARED_VIEW";
+export type AnonymousUserDashboardEmbeddingConfigurationDisabledFeatures = Array<AnonymousUserDashboardEmbeddingConfigurationDisabledFeature>;
+export type AnonymousUserDashboardEmbeddingConfigurationEnabledFeature = "SHARED_VIEW";
+export type AnonymousUserDashboardEmbeddingConfigurationEnabledFeatures = Array<AnonymousUserDashboardEmbeddingConfigurationEnabledFeature>;
 export interface AnonymousUserDashboardFeatureConfigurations {
   SharedView?: SharedViewConfigurations;
 }
@@ -3306,8 +1877,7 @@ export interface AnonymousUserQSearchBarEmbeddingConfiguration {
 export interface AnonymousUserSnapshotJobResult {
   FileGroups?: Array<SnapshotJobResultFileGroup>;
 }
-export type AnonymousUserSnapshotJobResultList =
-  Array<AnonymousUserSnapshotJobResult>;
+export type AnonymousUserSnapshotJobResultList = Array<AnonymousUserSnapshotJobResult>;
 export type AnswerId = string;
 
 export type AnswerIds = Array<string>;
@@ -3351,58 +1921,30 @@ export interface AssetBundleExportJobAnalysisOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobAnalysisPropertyToOverride>;
 }
-export type AssetBundleExportJobAnalysisOverridePropertiesList =
-  Array<AssetBundleExportJobAnalysisOverrideProperties>;
+export type AssetBundleExportJobAnalysisOverridePropertiesList = Array<AssetBundleExportJobAnalysisOverrideProperties>;
 export type AssetBundleExportJobAnalysisPropertyToOverride = "NAME";
-export type AssetBundleExportJobAnalysisPropertyToOverrideList =
-  Array<AssetBundleExportJobAnalysisPropertyToOverride>;
+export type AssetBundleExportJobAnalysisPropertyToOverrideList = Array<AssetBundleExportJobAnalysisPropertyToOverride>;
 export interface AssetBundleExportJobDashboardOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobDashboardPropertyToOverride>;
 }
-export type AssetBundleExportJobDashboardOverridePropertiesList =
-  Array<AssetBundleExportJobDashboardOverrideProperties>;
+export type AssetBundleExportJobDashboardOverridePropertiesList = Array<AssetBundleExportJobDashboardOverrideProperties>;
 export type AssetBundleExportJobDashboardPropertyToOverride = "NAME";
-export type AssetBundleExportJobDashboardPropertyToOverrideList =
-  Array<AssetBundleExportJobDashboardPropertyToOverride>;
+export type AssetBundleExportJobDashboardPropertyToOverrideList = Array<AssetBundleExportJobDashboardPropertyToOverride>;
 export interface AssetBundleExportJobDataSetOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobDataSetPropertyToOverride>;
 }
-export type AssetBundleExportJobDataSetOverridePropertiesList =
-  Array<AssetBundleExportJobDataSetOverrideProperties>;
-export type AssetBundleExportJobDataSetPropertyToOverride =
-  | "NAME"
-  | "REFRESH_FAILURE_EMAIL_ALERT_STATUS";
-export type AssetBundleExportJobDataSetPropertyToOverrideList =
-  Array<AssetBundleExportJobDataSetPropertyToOverride>;
+export type AssetBundleExportJobDataSetOverridePropertiesList = Array<AssetBundleExportJobDataSetOverrideProperties>;
+export type AssetBundleExportJobDataSetPropertyToOverride = "NAME" | "REFRESH_FAILURE_EMAIL_ALERT_STATUS";
+export type AssetBundleExportJobDataSetPropertyToOverrideList = Array<AssetBundleExportJobDataSetPropertyToOverride>;
 export interface AssetBundleExportJobDataSourceOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobDataSourcePropertyToOverride>;
 }
-export type AssetBundleExportJobDataSourceOverridePropertiesList =
-  Array<AssetBundleExportJobDataSourceOverrideProperties>;
-export type AssetBundleExportJobDataSourcePropertyToOverride =
-  | "NAME"
-  | "DISABLE_SSL"
-  | "SECRET_ARN"
-  | "USERNAME"
-  | "PASSWORD"
-  | "DOMAIN"
-  | "WORK_GROUP"
-  | "HOST"
-  | "PORT"
-  | "DATABASE"
-  | "DATA_SET_NAME"
-  | "CATALOG"
-  | "INSTANCE_ID"
-  | "CLUSTER_ID"
-  | "MANIFEST_FILE_LOCATION"
-  | "WAREHOUSE"
-  | "ROLE_ARN"
-  | "PRODUCT_TYPE";
-export type AssetBundleExportJobDataSourcePropertyToOverrideList =
-  Array<AssetBundleExportJobDataSourcePropertyToOverride>;
+export type AssetBundleExportJobDataSourceOverridePropertiesList = Array<AssetBundleExportJobDataSourceOverrideProperties>;
+export type AssetBundleExportJobDataSourcePropertyToOverride = "NAME" | "DISABLE_SSL" | "SECRET_ARN" | "USERNAME" | "PASSWORD" | "DOMAIN" | "WORK_GROUP" | "HOST" | "PORT" | "DATABASE" | "DATA_SET_NAME" | "CATALOG" | "INSTANCE_ID" | "CLUSTER_ID" | "MANIFEST_FILE_LOCATION" | "WAREHOUSE" | "ROLE_ARN" | "PRODUCT_TYPE";
+export type AssetBundleExportJobDataSourcePropertyToOverrideList = Array<AssetBundleExportJobDataSourcePropertyToOverride>;
 export interface AssetBundleExportJobError {
   Arn?: string;
   Type?: string;
@@ -3413,31 +1955,20 @@ export interface AssetBundleExportJobFolderOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobFolderPropertyToOverride>;
 }
-export type AssetBundleExportJobFolderOverridePropertiesList =
-  Array<AssetBundleExportJobFolderOverrideProperties>;
-export type AssetBundleExportJobFolderPropertyToOverride =
-  | "NAME"
-  | "PARENT_FOLDER_ARN";
-export type AssetBundleExportJobFolderPropertyToOverrideList =
-  Array<AssetBundleExportJobFolderPropertyToOverride>;
+export type AssetBundleExportJobFolderOverridePropertiesList = Array<AssetBundleExportJobFolderOverrideProperties>;
+export type AssetBundleExportJobFolderPropertyToOverride = "NAME" | "PARENT_FOLDER_ARN";
+export type AssetBundleExportJobFolderPropertyToOverrideList = Array<AssetBundleExportJobFolderPropertyToOverride>;
 export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobRefreshSchedulePropertyToOverride>;
 }
-export type AssetBundleExportJobRefreshScheduleOverridePropertiesList =
-  Array<AssetBundleExportJobRefreshScheduleOverrideProperties>;
-export type AssetBundleExportJobRefreshSchedulePropertyToOverride =
-  "START_AFTER_DATE_TIME";
-export type AssetBundleExportJobRefreshSchedulePropertyToOverrideList =
-  Array<AssetBundleExportJobRefreshSchedulePropertyToOverride>;
+export type AssetBundleExportJobRefreshScheduleOverridePropertiesList = Array<AssetBundleExportJobRefreshScheduleOverrideProperties>;
+export type AssetBundleExportJobRefreshSchedulePropertyToOverride = "START_AFTER_DATE_TIME";
+export type AssetBundleExportJobRefreshSchedulePropertyToOverrideList = Array<AssetBundleExportJobRefreshSchedulePropertyToOverride>;
 export interface AssetBundleExportJobResourceIdOverrideConfiguration {
   PrefixForAllResources?: boolean;
 }
-export type AssetBundleExportJobStatus =
-  | "QUEUED_FOR_IMMEDIATE_EXECUTION"
-  | "IN_PROGRESS"
-  | "SUCCESSFUL"
-  | "FAILED";
+export type AssetBundleExportJobStatus = "QUEUED_FOR_IMMEDIATE_EXECUTION" | "IN_PROGRESS" | "SUCCESSFUL" | "FAILED";
 export interface AssetBundleExportJobSummary {
   JobStatus?: AssetBundleExportJobStatus;
   Arn?: string;
@@ -3448,17 +1979,14 @@ export interface AssetBundleExportJobSummary {
   IncludePermissions?: boolean;
   IncludeTags?: boolean;
 }
-export type AssetBundleExportJobSummaryList =
-  Array<AssetBundleExportJobSummary>;
+export type AssetBundleExportJobSummaryList = Array<AssetBundleExportJobSummary>;
 export interface AssetBundleExportJobThemeOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobThemePropertyToOverride>;
 }
-export type AssetBundleExportJobThemeOverridePropertiesList =
-  Array<AssetBundleExportJobThemeOverrideProperties>;
+export type AssetBundleExportJobThemeOverridePropertiesList = Array<AssetBundleExportJobThemeOverrideProperties>;
 export type AssetBundleExportJobThemePropertyToOverride = "NAME";
-export type AssetBundleExportJobThemePropertyToOverrideList =
-  Array<AssetBundleExportJobThemePropertyToOverride>;
+export type AssetBundleExportJobThemePropertyToOverrideList = Array<AssetBundleExportJobThemePropertyToOverride>;
 export interface AssetBundleExportJobValidationStrategy {
   StrictModeForAllResources?: boolean;
 }
@@ -3466,20 +1994,14 @@ export interface AssetBundleExportJobVPCConnectionOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobVPCConnectionPropertyToOverride>;
 }
-export type AssetBundleExportJobVPCConnectionOverridePropertiesList =
-  Array<AssetBundleExportJobVPCConnectionOverrideProperties>;
-export type AssetBundleExportJobVPCConnectionPropertyToOverride =
-  | "NAME"
-  | "DNS_RESOLVERS"
-  | "ROLE_ARN";
-export type AssetBundleExportJobVPCConnectionPropertyToOverrideList =
-  Array<AssetBundleExportJobVPCConnectionPropertyToOverride>;
+export type AssetBundleExportJobVPCConnectionOverridePropertiesList = Array<AssetBundleExportJobVPCConnectionOverrideProperties>;
+export type AssetBundleExportJobVPCConnectionPropertyToOverride = "NAME" | "DNS_RESOLVERS" | "ROLE_ARN";
+export type AssetBundleExportJobVPCConnectionPropertyToOverrideList = Array<AssetBundleExportJobVPCConnectionPropertyToOverride>;
 export interface AssetBundleExportJobWarning {
   Arn?: string;
   Message?: string;
 }
-export type AssetBundleExportJobWarningList =
-  Array<AssetBundleExportJobWarning>;
+export type AssetBundleExportJobWarningList = Array<AssetBundleExportJobWarning>;
 export type AssetBundleImportBodyBlob = Uint8Array | string;
 
 export type AssetBundleImportFailureAction = "DO_NOTHING" | "ROLLBACK";
@@ -3487,58 +2009,49 @@ export interface AssetBundleImportJobAnalysisOverrideParameters {
   AnalysisId: string;
   Name?: string;
 }
-export type AssetBundleImportJobAnalysisOverrideParametersList =
-  Array<AssetBundleImportJobAnalysisOverrideParameters>;
+export type AssetBundleImportJobAnalysisOverrideParametersList = Array<AssetBundleImportJobAnalysisOverrideParameters>;
 export interface AssetBundleImportJobAnalysisOverridePermissions {
   AnalysisIds: Array<string>;
   Permissions: AssetBundleResourcePermissions;
 }
-export type AssetBundleImportJobAnalysisOverridePermissionsList =
-  Array<AssetBundleImportJobAnalysisOverridePermissions>;
+export type AssetBundleImportJobAnalysisOverridePermissionsList = Array<AssetBundleImportJobAnalysisOverridePermissions>;
 export interface AssetBundleImportJobAnalysisOverrideTags {
   AnalysisIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobAnalysisOverrideTagsList =
-  Array<AssetBundleImportJobAnalysisOverrideTags>;
+export type AssetBundleImportJobAnalysisOverrideTagsList = Array<AssetBundleImportJobAnalysisOverrideTags>;
 export interface AssetBundleImportJobDashboardOverrideParameters {
   DashboardId: string;
   Name?: string;
 }
-export type AssetBundleImportJobDashboardOverrideParametersList =
-  Array<AssetBundleImportJobDashboardOverrideParameters>;
+export type AssetBundleImportJobDashboardOverrideParametersList = Array<AssetBundleImportJobDashboardOverrideParameters>;
 export interface AssetBundleImportJobDashboardOverridePermissions {
   DashboardIds: Array<string>;
   Permissions?: AssetBundleResourcePermissions;
   LinkSharingConfiguration?: AssetBundleResourceLinkSharingConfiguration;
 }
-export type AssetBundleImportJobDashboardOverridePermissionsList =
-  Array<AssetBundleImportJobDashboardOverridePermissions>;
+export type AssetBundleImportJobDashboardOverridePermissionsList = Array<AssetBundleImportJobDashboardOverridePermissions>;
 export interface AssetBundleImportJobDashboardOverrideTags {
   DashboardIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobDashboardOverrideTagsList =
-  Array<AssetBundleImportJobDashboardOverrideTags>;
+export type AssetBundleImportJobDashboardOverrideTagsList = Array<AssetBundleImportJobDashboardOverrideTags>;
 export interface AssetBundleImportJobDataSetOverrideParameters {
   DataSetId: string;
   Name?: string;
   DataSetRefreshProperties?: DataSetRefreshProperties;
 }
-export type AssetBundleImportJobDataSetOverrideParametersList =
-  Array<AssetBundleImportJobDataSetOverrideParameters>;
+export type AssetBundleImportJobDataSetOverrideParametersList = Array<AssetBundleImportJobDataSetOverrideParameters>;
 export interface AssetBundleImportJobDataSetOverridePermissions {
   DataSetIds: Array<string>;
   Permissions: AssetBundleResourcePermissions;
 }
-export type AssetBundleImportJobDataSetOverridePermissionsList =
-  Array<AssetBundleImportJobDataSetOverridePermissions>;
+export type AssetBundleImportJobDataSetOverridePermissionsList = Array<AssetBundleImportJobDataSetOverridePermissions>;
 export interface AssetBundleImportJobDataSetOverrideTags {
   DataSetIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobDataSetOverrideTagsList =
-  Array<AssetBundleImportJobDataSetOverrideTags>;
+export type AssetBundleImportJobDataSetOverrideTagsList = Array<AssetBundleImportJobDataSetOverrideTags>;
 export interface AssetBundleImportJobDataSourceCredentialPair {
   Username: string;
   Password: string;
@@ -3555,20 +2068,17 @@ export interface AssetBundleImportJobDataSourceOverrideParameters {
   SslProperties?: SslProperties;
   Credentials?: AssetBundleImportJobDataSourceCredentials;
 }
-export type AssetBundleImportJobDataSourceOverrideParametersList =
-  Array<AssetBundleImportJobDataSourceOverrideParameters>;
+export type AssetBundleImportJobDataSourceOverrideParametersList = Array<AssetBundleImportJobDataSourceOverrideParameters>;
 export interface AssetBundleImportJobDataSourceOverridePermissions {
   DataSourceIds: Array<string>;
   Permissions: AssetBundleResourcePermissions;
 }
-export type AssetBundleImportJobDataSourceOverridePermissionsList =
-  Array<AssetBundleImportJobDataSourceOverridePermissions>;
+export type AssetBundleImportJobDataSourceOverridePermissionsList = Array<AssetBundleImportJobDataSourceOverridePermissions>;
 export interface AssetBundleImportJobDataSourceOverrideTags {
   DataSourceIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobDataSourceOverrideTagsList =
-  Array<AssetBundleImportJobDataSourceOverrideTags>;
+export type AssetBundleImportJobDataSourceOverrideTagsList = Array<AssetBundleImportJobDataSourceOverrideTags>;
 export interface AssetBundleImportJobError {
   Arn?: string;
   Type?: string;
@@ -3580,20 +2090,17 @@ export interface AssetBundleImportJobFolderOverrideParameters {
   Name?: string;
   ParentFolderArn?: string;
 }
-export type AssetBundleImportJobFolderOverrideParametersList =
-  Array<AssetBundleImportJobFolderOverrideParameters>;
+export type AssetBundleImportJobFolderOverrideParametersList = Array<AssetBundleImportJobFolderOverrideParameters>;
 export interface AssetBundleImportJobFolderOverridePermissions {
   FolderIds: Array<string>;
   Permissions?: AssetBundleResourcePermissions;
 }
-export type AssetBundleImportJobFolderOverridePermissionsList =
-  Array<AssetBundleImportJobFolderOverridePermissions>;
+export type AssetBundleImportJobFolderOverridePermissionsList = Array<AssetBundleImportJobFolderOverridePermissions>;
 export interface AssetBundleImportJobFolderOverrideTags {
   FolderIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobFolderOverrideTagsList =
-  Array<AssetBundleImportJobFolderOverrideTags>;
+export type AssetBundleImportJobFolderOverrideTagsList = Array<AssetBundleImportJobFolderOverrideTags>;
 export interface AssetBundleImportJobOverrideParameters {
   ResourceIdOverrideConfiguration?: AssetBundleImportJobResourceIdOverrideConfiguration;
   VPCConnections?: Array<AssetBundleImportJobVPCConnectionOverrideParameters>;
@@ -3630,19 +2137,11 @@ export interface AssetBundleImportJobRefreshScheduleOverrideParameters {
   ScheduleId: string;
   StartAfterDateTime?: Date | string;
 }
-export type AssetBundleImportJobRefreshScheduleOverrideParametersList =
-  Array<AssetBundleImportJobRefreshScheduleOverrideParameters>;
+export type AssetBundleImportJobRefreshScheduleOverrideParametersList = Array<AssetBundleImportJobRefreshScheduleOverrideParameters>;
 export interface AssetBundleImportJobResourceIdOverrideConfiguration {
   PrefixForAllResources?: string;
 }
-export type AssetBundleImportJobStatus =
-  | "QUEUED_FOR_IMMEDIATE_EXECUTION"
-  | "IN_PROGRESS"
-  | "SUCCESSFUL"
-  | "FAILED"
-  | "FAILED_ROLLBACK_IN_PROGRESS"
-  | "FAILED_ROLLBACK_COMPLETED"
-  | "FAILED_ROLLBACK_ERROR";
+export type AssetBundleImportJobStatus = "QUEUED_FOR_IMMEDIATE_EXECUTION" | "IN_PROGRESS" | "SUCCESSFUL" | "FAILED" | "FAILED_ROLLBACK_IN_PROGRESS" | "FAILED_ROLLBACK_COMPLETED" | "FAILED_ROLLBACK_ERROR";
 export interface AssetBundleImportJobSummary {
   JobStatus?: AssetBundleImportJobStatus;
   Arn?: string;
@@ -3650,26 +2149,22 @@ export interface AssetBundleImportJobSummary {
   AssetBundleImportJobId?: string;
   FailureAction?: AssetBundleImportFailureAction;
 }
-export type AssetBundleImportJobSummaryList =
-  Array<AssetBundleImportJobSummary>;
+export type AssetBundleImportJobSummaryList = Array<AssetBundleImportJobSummary>;
 export interface AssetBundleImportJobThemeOverrideParameters {
   ThemeId: string;
   Name?: string;
 }
-export type AssetBundleImportJobThemeOverrideParametersList =
-  Array<AssetBundleImportJobThemeOverrideParameters>;
+export type AssetBundleImportJobThemeOverrideParametersList = Array<AssetBundleImportJobThemeOverrideParameters>;
 export interface AssetBundleImportJobThemeOverridePermissions {
   ThemeIds: Array<string>;
   Permissions: AssetBundleResourcePermissions;
 }
-export type AssetBundleImportJobThemeOverridePermissionsList =
-  Array<AssetBundleImportJobThemeOverridePermissions>;
+export type AssetBundleImportJobThemeOverridePermissionsList = Array<AssetBundleImportJobThemeOverridePermissions>;
 export interface AssetBundleImportJobThemeOverrideTags {
   ThemeIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobThemeOverrideTagsList =
-  Array<AssetBundleImportJobThemeOverrideTags>;
+export type AssetBundleImportJobThemeOverrideTagsList = Array<AssetBundleImportJobThemeOverrideTags>;
 export interface AssetBundleImportJobVPCConnectionOverrideParameters {
   VPCConnectionId: string;
   Name?: string;
@@ -3678,20 +2173,17 @@ export interface AssetBundleImportJobVPCConnectionOverrideParameters {
   DnsResolvers?: Array<string>;
   RoleArn?: string;
 }
-export type AssetBundleImportJobVPCConnectionOverrideParametersList =
-  Array<AssetBundleImportJobVPCConnectionOverrideParameters>;
+export type AssetBundleImportJobVPCConnectionOverrideParametersList = Array<AssetBundleImportJobVPCConnectionOverrideParameters>;
 export interface AssetBundleImportJobVPCConnectionOverrideTags {
   VPCConnectionIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobVPCConnectionOverrideTagsList =
-  Array<AssetBundleImportJobVPCConnectionOverrideTags>;
+export type AssetBundleImportJobVPCConnectionOverrideTagsList = Array<AssetBundleImportJobVPCConnectionOverrideTags>;
 export interface AssetBundleImportJobWarning {
   Arn?: string;
   Message?: string;
 }
-export type AssetBundleImportJobWarningList =
-  Array<AssetBundleImportJobWarning>;
+export type AssetBundleImportJobWarningList = Array<AssetBundleImportJobWarning>;
 export interface AssetBundleImportSource {
   Body?: Uint8Array | string | Stream.Stream<Uint8Array>;
   S3Uri?: string;
@@ -3739,11 +2231,7 @@ export interface AuroraPostgreSqlParameters {
   Port: number;
   Database: string;
 }
-export type AuthenticationMethodOption =
-  | "IAM_AND_QUICKSIGHT"
-  | "IAM_ONLY"
-  | "ACTIVE_DIRECTORY"
-  | "IAM_IDENTITY_CENTER";
+export type AuthenticationMethodOption = "IAM_AND_QUICKSIGHT" | "IAM_ONLY" | "ACTIVE_DIRECTORY" | "IAM_IDENTITY_CENTER";
 export type AuthenticationType = "PASSWORD" | "TOKEN" | "X509";
 export interface AuthorizedTargetsByService {
   Service?: ServiceType;
@@ -3751,19 +2239,7 @@ export interface AuthorizedTargetsByService {
 }
 export type AuthorizedTargetsByServices = Array<AuthorizedTargetsByService>;
 export type AuthorizedTargetsList = Array<string>;
-export type AuthorSpecifiedAggregation =
-  | "COUNT"
-  | "DISTINCT_COUNT"
-  | "MIN"
-  | "MAX"
-  | "MEDIAN"
-  | "SUM"
-  | "AVERAGE"
-  | "STDEV"
-  | "STDEVP"
-  | "VAR"
-  | "VARP"
-  | "PERCENTILE";
+export type AuthorSpecifiedAggregation = "COUNT" | "DISTINCT_COUNT" | "MIN" | "MAX" | "MEDIAN" | "SUM" | "AVERAGE" | "STDEV" | "STDEVP" | "VAR" | "VARP" | "PERCENTILE";
 export type AuthorSpecifiedAggregations = Array<AuthorSpecifiedAggregation>;
 export type AwsAccountId = string;
 
@@ -3777,7 +2253,8 @@ export interface AxisDataOptions {
   NumericAxisOptions?: NumericAxisOptions;
   DateAxisOptions?: DateAxisOptions;
 }
-export interface AxisDisplayDataDrivenRange {}
+export interface AxisDisplayDataDrivenRange {
+}
 export interface AxisDisplayMinMaxRange {
   Minimum?: number;
   Maximum?: number;
@@ -3866,11 +2343,7 @@ export interface BarChartVisual {
   VisualContentAltText?: string;
 }
 export type BarsArrangement = "CLUSTERED" | "STACKED" | "STACKED_PERCENT";
-export type BaseMapStyleType =
-  | "LIGHT_GRAY"
-  | "DARK_GRAY"
-  | "STREET"
-  | "IMAGERY";
+export type BaseMapStyleType = "LIGHT_GRAY" | "DARK_GRAY" | "STREET" | "IMAGERY";
 export interface BatchCreateTopicReviewedAnswerRequest {
   AwsAccountId: string;
   TopicId: string;
@@ -3932,8 +2405,7 @@ export interface BodySectionDynamicCategoryDimensionConfiguration {
 }
 export type BodySectionDynamicDimensionLimit = number;
 
-export type BodySectionDynamicDimensionSortConfigurationList =
-  Array<ColumnSort>;
+export type BodySectionDynamicDimensionSortConfigurationList = Array<ColumnSort>;
 export interface BodySectionDynamicNumericDimensionConfiguration {
   Column: ColumnIdentifier;
   Limit?: number;
@@ -3948,8 +2420,7 @@ export interface BodySectionRepeatDimensionConfiguration {
   DynamicCategoryDimensionConfiguration?: BodySectionDynamicCategoryDimensionConfiguration;
   DynamicNumericDimensionConfiguration?: BodySectionDynamicNumericDimensionConfiguration;
 }
-export type BodySectionRepeatDimensionConfigurationList =
-  Array<BodySectionRepeatDimensionConfiguration>;
+export type BodySectionRepeatDimensionConfigurationList = Array<BodySectionRepeatDimensionConfiguration>;
 export interface BodySectionRepeatPageBreakConfiguration {
   After?: SectionAfterPageBreak;
 }
@@ -4039,12 +2510,7 @@ export interface BrandDetail {
 export interface BrandElementStyle {
   NavbarStyle?: NavbarStyle;
 }
-export type BrandStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_SUCCEEDED"
-  | "CREATE_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_FAILED";
+export type BrandStatus = "CREATE_IN_PROGRESS" | "CREATE_SUCCEEDED" | "CREATE_FAILED" | "DELETE_IN_PROGRESS" | "DELETE_FAILED";
 export interface BrandSummary {
   Arn?: string;
   BrandId?: string;
@@ -4055,10 +2521,7 @@ export interface BrandSummary {
   LastUpdatedTime?: Date | string;
 }
 export type BrandSummaryList = Array<BrandSummary>;
-export type BrandVersionStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_SUCCEEDED"
-  | "CREATE_FAILED";
+export type BrandVersionStatus = "CREATE_IN_PROGRESS" | "CREATE_SUCCEEDED" | "CREATE_FAILED";
 export interface CalculatedColumn {
   ColumnName: string;
   ColumnId: string;
@@ -4160,18 +2623,9 @@ export interface CategoryFilterConfiguration {
   CustomFilterConfiguration?: CustomFilterConfiguration;
 }
 export type CategoryFilterFunction = "EXACT" | "CONTAINS";
-export type CategoryFilterMatchOperator =
-  | "EQUALS"
-  | "DOES_NOT_EQUAL"
-  | "CONTAINS"
-  | "DOES_NOT_CONTAIN"
-  | "STARTS_WITH"
-  | "ENDS_WITH";
+export type CategoryFilterMatchOperator = "EQUALS" | "DOES_NOT_EQUAL" | "CONTAINS" | "DOES_NOT_CONTAIN" | "STARTS_WITH" | "ENDS_WITH";
 export type CategoryFilterSelectAllOptions = "FILTER_ALL_VALUES";
-export type CategoryFilterType =
-  | "CUSTOM_FILTER"
-  | "CUSTOM_FILTER_LIST"
-  | "FILTER_LIST";
+export type CategoryFilterType = "CUSTOM_FILTER" | "CUSTOM_FILTER_LIST" | "FILTER_LIST";
 export interface CategoryInnerFilter {
   Column: ColumnIdentifier;
   Configuration: CategoryFilterConfiguration;
@@ -4270,10 +2724,7 @@ export type ColumnList = Array<string>;
 export type ColumnName = string;
 
 export type ColumnNameList = Array<string>;
-export type ColumnOrderingType =
-  | "GREATER_IS_BETTER"
-  | "LESSER_IS_BETTER"
-  | "SPECIFIED";
+export type ColumnOrderingType = "GREATER_IS_BETTER" | "LESSER_IS_BETTER" | "SPECIFIED";
 export type ColumnRole = "DIMENSION" | "MEASURE";
 export interface ColumnSchema {
   Name?: string;
@@ -4359,17 +2810,7 @@ export interface ComparisonFormatConfiguration {
   PercentageDisplayFormatConfiguration?: PercentageDisplayFormatConfiguration;
 }
 export type ComparisonMethod = "DIFFERENCE" | "PERCENT_DIFFERENCE" | "PERCENT";
-export type ComparisonMethodType =
-  | "DIFF"
-  | "PERC_DIFF"
-  | "DIFF_AS_PERC"
-  | "POP_CURRENT_DIFF_AS_PERC"
-  | "POP_CURRENT_DIFF"
-  | "POP_OVERTIME_DIFF_AS_PERC"
-  | "POP_OVERTIME_DIFF"
-  | "PERCENT_OF_TOTAL"
-  | "RUNNING_SUM"
-  | "MOVING_AVERAGE";
+export type ComparisonMethodType = "DIFF" | "PERC_DIFF" | "DIFF_AS_PERC" | "POP_CURRENT_DIFF_AS_PERC" | "POP_CURRENT_DIFF" | "POP_OVERTIME_DIFF_AS_PERC" | "POP_OVERTIME_DIFF" | "PERCENT_OF_TOTAL" | "RUNNING_SUM" | "MOVING_AVERAGE";
 export interface Computation {
   TopBottomRanked?: TopBottomRankedComputation;
   TopBottomMovers?: TopBottomMoversComputation;
@@ -4419,18 +2860,7 @@ export interface ConditionalFormattingIconSet {
   Expression: string;
   IconSetType?: ConditionalFormattingIconSetType;
 }
-export type ConditionalFormattingIconSetType =
-  | "PLUS_MINUS"
-  | "CHECK_X"
-  | "THREE_COLOR_ARROW"
-  | "THREE_GRAY_ARROW"
-  | "CARET_UP_MINUS_DOWN"
-  | "THREE_SHAPE"
-  | "THREE_CIRCLE"
-  | "FLAGS"
-  | "BARS"
-  | "FOUR_COLOR_ARROW"
-  | "FOUR_GRAY_ARROW";
+export type ConditionalFormattingIconSetType = "PLUS_MINUS" | "CHECK_X" | "THREE_COLOR_ARROW" | "THREE_GRAY_ARROW" | "CARET_UP_MINUS_DOWN" | "THREE_SHAPE" | "THREE_CIRCLE" | "FLAGS" | "BARS" | "FOUR_COLOR_ARROW" | "FOUR_GRAY_ARROW";
 export interface ConditionalFormattingSolidColor {
   Expression: string;
   Color?: string;
@@ -4451,18 +2881,13 @@ export interface ContributionAnalysisDefault {
   MeasureFieldId: string;
   ContributorDimensions: Array<ColumnIdentifier>;
 }
-export type ContributionAnalysisDefaultList =
-  Array<ContributionAnalysisDefault>;
+export type ContributionAnalysisDefaultList = Array<ContributionAnalysisDefault>;
 export type ContributionAnalysisDirection = "INCREASE" | "DECREASE" | "NEUTRAL";
 export interface ContributionAnalysisFactor {
   FieldName?: string;
 }
 export type ContributionAnalysisFactorsList = Array<ContributionAnalysisFactor>;
-export type ContributionAnalysisSortType =
-  | "ABSOLUTE_DIFFERENCE"
-  | "CONTRIBUTION_PERCENTAGE"
-  | "DEVIATION_FROM_EXPECTED"
-  | "PERCENTAGE_DIFFERENCE";
+export type ContributionAnalysisSortType = "ABSOLUTE_DIFFERENCE" | "CONTRIBUTION_PERCENTAGE" | "DEVIATION_FROM_EXPECTED" | "PERCENTAGE_DIFFERENCE";
 export interface ContributionAnalysisTimeRanges {
   StartRange?: TopicIRFilterOption;
   EndRange?: TopicIRFilterOption;
@@ -4903,11 +3328,7 @@ export interface CustomContentConfiguration {
   ImageScaling?: CustomContentImageScalingConfiguration;
   Interactions?: VisualInteractionOptions;
 }
-export type CustomContentImageScalingConfiguration =
-  | "FIT_TO_HEIGHT"
-  | "FIT_TO_WIDTH"
-  | "DO_NOT_SCALE"
-  | "SCALE_TO_VISUAL";
+export type CustomContentImageScalingConfiguration = "FIT_TO_HEIGHT" | "FIT_TO_WIDTH" | "DO_NOT_SCALE" | "SCALE_TO_VISUAL";
 export type CustomContentType = "IMAGE" | "OTHER_EMBEDDED_CONTENT";
 export interface CustomContentVisual {
   VisualId: string;
@@ -4990,25 +3411,8 @@ export interface DashboardError {
   ViolatedEntities?: Array<Entity>;
 }
 export type DashboardErrorList = Array<DashboardError>;
-export type DashboardErrorType =
-  | "ACCESS_DENIED"
-  | "SOURCE_NOT_FOUND"
-  | "DATA_SET_NOT_FOUND"
-  | "INTERNAL_FAILURE"
-  | "PARAMETER_VALUE_INCOMPATIBLE"
-  | "PARAMETER_TYPE_INVALID"
-  | "PARAMETER_NOT_FOUND"
-  | "COLUMN_TYPE_MISMATCH"
-  | "COLUMN_GEOGRAPHIC_ROLE_MISMATCH"
-  | "COLUMN_REPLACEMENT_MISSING";
-export type DashboardFilterAttribute =
-  | "QUICKSIGHT_USER"
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "DASHBOARD_NAME";
+export type DashboardErrorType = "ACCESS_DENIED" | "SOURCE_NOT_FOUND" | "DATA_SET_NOT_FOUND" | "INTERNAL_FAILURE" | "PARAMETER_VALUE_INCOMPATIBLE" | "PARAMETER_TYPE_INVALID" | "PARAMETER_NOT_FOUND" | "COLUMN_TYPE_MISMATCH" | "COLUMN_GEOGRAPHIC_ROLE_MISMATCH" | "COLUMN_REPLACEMENT_MISSING";
+export type DashboardFilterAttribute = "QUICKSIGHT_USER" | "QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "DASHBOARD_NAME";
 export type DashboardName = string;
 
 export interface DashboardPublishOptions {
@@ -5152,13 +3556,7 @@ export interface DataLabelOptions {
   TotalsVisibility?: Visibility;
 }
 export type DataLabelOverlap = "DISABLE_OVERLAP" | "ENABLE_OVERLAP";
-export type DataLabelPosition =
-  | "INSIDE"
-  | "OUTSIDE"
-  | "LEFT"
-  | "TOP"
-  | "BOTTOM"
-  | "RIGHT";
+export type DataLabelPosition = "INSIDE" | "OUTSIDE" | "LEFT" | "TOP" | "BOTTOM" | "RIGHT";
 export interface DataLabelType {
   FieldLabelType?: FieldLabelType;
   DataPathLabelType?: DataPathLabelType;
@@ -5236,21 +3634,14 @@ export interface DataSetConfiguration {
   ColumnGroupSchemaList?: Array<ColumnGroupSchema>;
 }
 export type DataSetConfigurationList = Array<DataSetConfiguration>;
-export type DataSetFilterAttribute =
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "DATASET_NAME";
+export type DataSetFilterAttribute = "QUICKSIGHT_VIEWER_OR_OWNER" | "QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "DATASET_NAME";
 export type DataSetIdentifier = string;
 
 export interface DataSetIdentifierDeclaration {
   Identifier: string;
   DataSetArn: string;
 }
-export type DataSetIdentifierDeclarationList =
-  Array<DataSetIdentifierDeclaration>;
+export type DataSetIdentifierDeclarationList = Array<DataSetIdentifierDeclaration>;
 export type DataSetImportMode = "SPICE" | "DIRECT_QUERY";
 export interface DatasetMetadata {
   DatasetArn: string;
@@ -5339,20 +3730,8 @@ export interface DataSourceErrorInfo {
   Type?: DataSourceErrorInfoType;
   Message?: string;
 }
-export type DataSourceErrorInfoType =
-  | "ACCESS_DENIED"
-  | "COPY_SOURCE_NOT_FOUND"
-  | "TIMEOUT"
-  | "ENGINE_VERSION_NOT_SUPPORTED"
-  | "UNKNOWN_HOST"
-  | "GENERIC_SQL_FAILURE"
-  | "CONFLICT"
-  | "UNKNOWN";
-export type DataSourceFilterAttribute =
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "DATASOURCE_NAME";
+export type DataSourceErrorInfoType = "ACCESS_DENIED" | "COPY_SOURCE_NOT_FOUND" | "TIMEOUT" | "ENGINE_VERSION_NOT_SUPPORTED" | "UNKNOWN_HOST" | "GENERIC_SQL_FAILURE" | "CONFLICT" | "UNKNOWN";
+export type DataSourceFilterAttribute = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "DATASOURCE_NAME";
 export type DataSourceList = Array<DataSource>;
 interface _DataSourceParameters {
   AmazonElasticsearchParameters?: AmazonElasticsearchParameters;
@@ -5384,42 +3763,7 @@ interface _DataSourceParameters {
   ImpalaParameters?: ImpalaParameters;
 }
 
-export type DataSourceParameters =
-  | (_DataSourceParameters & {
-      AmazonElasticsearchParameters: AmazonElasticsearchParameters;
-    })
-  | (_DataSourceParameters & { AthenaParameters: AthenaParameters })
-  | (_DataSourceParameters & { AuroraParameters: AuroraParameters })
-  | (_DataSourceParameters & {
-      AuroraPostgreSqlParameters: AuroraPostgreSqlParameters;
-    })
-  | (_DataSourceParameters & {
-      AwsIotAnalyticsParameters: AwsIotAnalyticsParameters;
-    })
-  | (_DataSourceParameters & { JiraParameters: JiraParameters })
-  | (_DataSourceParameters & { MariaDbParameters: MariaDbParameters })
-  | (_DataSourceParameters & { MySqlParameters: MySqlParameters })
-  | (_DataSourceParameters & { OracleParameters: OracleParameters })
-  | (_DataSourceParameters & { PostgreSqlParameters: PostgreSqlParameters })
-  | (_DataSourceParameters & { PrestoParameters: PrestoParameters })
-  | (_DataSourceParameters & { RdsParameters: RdsParameters })
-  | (_DataSourceParameters & { RedshiftParameters: RedshiftParameters })
-  | (_DataSourceParameters & { S3Parameters: S3Parameters })
-  | (_DataSourceParameters & { ServiceNowParameters: ServiceNowParameters })
-  | (_DataSourceParameters & { SnowflakeParameters: SnowflakeParameters })
-  | (_DataSourceParameters & { SparkParameters: SparkParameters })
-  | (_DataSourceParameters & { SqlServerParameters: SqlServerParameters })
-  | (_DataSourceParameters & { TeradataParameters: TeradataParameters })
-  | (_DataSourceParameters & { TwitterParameters: TwitterParameters })
-  | (_DataSourceParameters & {
-      AmazonOpenSearchParameters: AmazonOpenSearchParameters;
-    })
-  | (_DataSourceParameters & { ExasolParameters: ExasolParameters })
-  | (_DataSourceParameters & { DatabricksParameters: DatabricksParameters })
-  | (_DataSourceParameters & { StarburstParameters: StarburstParameters })
-  | (_DataSourceParameters & { TrinoParameters: TrinoParameters })
-  | (_DataSourceParameters & { BigQueryParameters: BigQueryParameters })
-  | (_DataSourceParameters & { ImpalaParameters: ImpalaParameters });
+export type DataSourceParameters = (_DataSourceParameters & { AmazonElasticsearchParameters: AmazonElasticsearchParameters }) | (_DataSourceParameters & { AthenaParameters: AthenaParameters }) | (_DataSourceParameters & { AuroraParameters: AuroraParameters }) | (_DataSourceParameters & { AuroraPostgreSqlParameters: AuroraPostgreSqlParameters }) | (_DataSourceParameters & { AwsIotAnalyticsParameters: AwsIotAnalyticsParameters }) | (_DataSourceParameters & { JiraParameters: JiraParameters }) | (_DataSourceParameters & { MariaDbParameters: MariaDbParameters }) | (_DataSourceParameters & { MySqlParameters: MySqlParameters }) | (_DataSourceParameters & { OracleParameters: OracleParameters }) | (_DataSourceParameters & { PostgreSqlParameters: PostgreSqlParameters }) | (_DataSourceParameters & { PrestoParameters: PrestoParameters }) | (_DataSourceParameters & { RdsParameters: RdsParameters }) | (_DataSourceParameters & { RedshiftParameters: RedshiftParameters }) | (_DataSourceParameters & { S3Parameters: S3Parameters }) | (_DataSourceParameters & { ServiceNowParameters: ServiceNowParameters }) | (_DataSourceParameters & { SnowflakeParameters: SnowflakeParameters }) | (_DataSourceParameters & { SparkParameters: SparkParameters }) | (_DataSourceParameters & { SqlServerParameters: SqlServerParameters }) | (_DataSourceParameters & { TeradataParameters: TeradataParameters }) | (_DataSourceParameters & { TwitterParameters: TwitterParameters }) | (_DataSourceParameters & { AmazonOpenSearchParameters: AmazonOpenSearchParameters }) | (_DataSourceParameters & { ExasolParameters: ExasolParameters }) | (_DataSourceParameters & { DatabricksParameters: DatabricksParameters }) | (_DataSourceParameters & { StarburstParameters: StarburstParameters }) | (_DataSourceParameters & { TrinoParameters: TrinoParameters }) | (_DataSourceParameters & { BigQueryParameters: BigQueryParameters }) | (_DataSourceParameters & { ImpalaParameters: ImpalaParameters });
 export type DataSourceParametersList = Array<DataSourceParameters>;
 export interface DataSourceSearchFilter {
   Operator: FilterOperator;
@@ -5436,44 +3780,11 @@ export interface DataSourceSummary {
   LastUpdatedTime?: Date | string;
 }
 export type DataSourceSummaryList = Array<DataSourceSummary>;
-export type DataSourceType =
-  | "ADOBE_ANALYTICS"
-  | "AMAZON_ELASTICSEARCH"
-  | "ATHENA"
-  | "AURORA"
-  | "AURORA_POSTGRESQL"
-  | "AWS_IOT_ANALYTICS"
-  | "GITHUB"
-  | "JIRA"
-  | "MARIADB"
-  | "MYSQL"
-  | "ORACLE"
-  | "POSTGRESQL"
-  | "PRESTO"
-  | "REDSHIFT"
-  | "S3"
-  | "SALESFORCE"
-  | "SERVICENOW"
-  | "SNOWFLAKE"
-  | "SPARK"
-  | "SQLSERVER"
-  | "TERADATA"
-  | "TWITTER"
-  | "TIMESTREAM"
-  | "AMAZON_OPENSEARCH"
-  | "EXASOL"
-  | "DATABRICKS"
-  | "STARBURST"
-  | "TRINO"
-  | "BIGQUERY";
+export type DataSourceType = "ADOBE_ANALYTICS" | "AMAZON_ELASTICSEARCH" | "ATHENA" | "AURORA" | "AURORA_POSTGRESQL" | "AWS_IOT_ANALYTICS" | "GITHUB" | "JIRA" | "MARIADB" | "MYSQL" | "ORACLE" | "POSTGRESQL" | "PRESTO" | "REDSHIFT" | "S3" | "SALESFORCE" | "SERVICENOW" | "SNOWFLAKE" | "SPARK" | "SQLSERVER" | "TERADATA" | "TWITTER" | "TIMESTREAM" | "AMAZON_OPENSEARCH" | "EXASOL" | "DATABRICKS" | "STARBURST" | "TRINO" | "BIGQUERY";
 export interface DataStoriesConfigurations {
   Enabled: boolean;
 }
-export type DateAggregationFunction =
-  | "COUNT"
-  | "DISTINCT_COUNT"
-  | "MIN"
-  | "MAX";
+export type DateAggregationFunction = "COUNT" | "DISTINCT_COUNT" | "MIN" | "MAX";
 export interface DateAxisOptions {
   MissingDateVisibility?: Visibility;
 }
@@ -5545,22 +3856,8 @@ export interface DateTimeValueWhenUnsetConfiguration {
 }
 export type DayOfMonth = string;
 
-export type DayOfTheWeek =
-  | "SUNDAY"
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY";
-export type DayOfWeek =
-  | "SUNDAY"
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY";
+export type DayOfTheWeek = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";
+export type DayOfWeek = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";
 export type DbUsername = string;
 
 export interface DecimalDatasetParameter {
@@ -5601,18 +3898,7 @@ export interface DecimalValueWhenUnsetConfiguration {
   ValueWhenUnsetOption?: ValueWhenUnsetOption;
   CustomValue?: number;
 }
-export type DefaultAggregation =
-  | "SUM"
-  | "MAX"
-  | "MIN"
-  | "COUNT"
-  | "DISTINCT_COUNT"
-  | "AVERAGE"
-  | "MEDIAN"
-  | "STDEV"
-  | "STDEVP"
-  | "VAR"
-  | "VARP";
+export type DefaultAggregation = "SUM" | "MAX" | "MIN" | "COUNT" | "DISTINCT_COUNT" | "AVERAGE" | "MEDIAN" | "STDEV" | "STDEVP" | "VAR" | "VARP";
 export interface DefaultDateTimePickerControlOptions {
   Type?: SheetControlDateTimePickerType;
   DisplayOptions?: DateTimePickerControlDisplayOptions;
@@ -6579,13 +4865,7 @@ export interface DimensionField {
   DateDimensionField?: DateDimensionField;
 }
 export type DimensionFieldList = Array<DimensionField>;
-export type DisplayFormat =
-  | "AUTO"
-  | "PERCENT"
-  | "CURRENCY"
-  | "NUMBER"
-  | "DATE"
-  | "STRING";
+export type DisplayFormat = "AUTO" | "PERCENT" | "CURRENCY" | "NUMBER" | "DATE" | "STRING";
 export interface DisplayFormatOptions {
   UseBlankCellFormat?: boolean;
   BlankCellFormat?: string;
@@ -6662,16 +4942,7 @@ export interface ExasolParameters {
   Host: string;
   Port: number;
 }
-export type ExceptionResourceType =
-  | "USER"
-  | "GROUP"
-  | "NAMESPACE"
-  | "ACCOUNT_SETTINGS"
-  | "IAMPOLICY_ASSIGNMENT"
-  | "DATA_SOURCE"
-  | "DATA_SET"
-  | "VPC_CONNECTION"
-  | "INGESTION";
+export type ExceptionResourceType = "USER" | "GROUP" | "NAMESPACE" | "ACCOUNT_SETTINGS" | "IAMPOLICY_ASSIGNMENT" | "DATA_SOURCE" | "DATA_SET" | "VPC_CONNECTION" | "INGESTION";
 export interface ExcludePeriodConfiguration {
   Amount: number;
   Granularity: TimeGranularity;
@@ -6758,8 +5029,7 @@ export interface FilledMapConditionalFormatting {
 export interface FilledMapConditionalFormattingOption {
   Shape: FilledMapShapeConditionalFormatting;
 }
-export type FilledMapConditionalFormattingOptionList =
-  Array<FilledMapConditionalFormattingOption>;
+export type FilledMapConditionalFormattingOptionList = Array<FilledMapConditionalFormattingOption>;
 export interface FilledMapConfiguration {
   FieldWells?: FilledMapFieldWells;
   SortConfiguration?: FilledMapSortConfiguration;
@@ -6807,10 +5077,7 @@ export interface FilterAggMetrics {
   SortDirection?: TopicSortDirection;
 }
 export type FilterAggMetricsList = Array<FilterAggMetrics>;
-export type FilterClass =
-  | "ENFORCED_VALUE_FILTER"
-  | "CONDITIONAL_VALUE_FILTER"
-  | "NAMED_VALUE_FILTER";
+export type FilterClass = "ENFORCED_VALUE_FILTER" | "CONDITIONAL_VALUE_FILTER" | "NAMED_VALUE_FILTER";
 export interface FilterControl {
   DateTimePicker?: FilterDateTimePickerControl;
   List?: FilterListControl;
@@ -6933,14 +5200,7 @@ export interface Folder {
 }
 export type FolderArnList = Array<string>;
 export type FolderColumnList = Array<string>;
-export type FolderFilterAttribute =
-  | "PARENT_FOLDER_ARN"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "QUICKSIGHT_OWNER"
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "FOLDER_NAME";
+export type FolderFilterAttribute = "PARENT_FOLDER_ARN" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "QUICKSIGHT_OWNER" | "QUICKSIGHT_VIEWER_OR_OWNER" | "FOLDER_NAME";
 export interface FolderMember {
   MemberId?: string;
   MemberType?: MemberType;
@@ -7081,12 +5341,7 @@ export type FunnelChartDimensionFieldList = Array<DimensionField>;
 export interface FunnelChartFieldWells {
   FunnelChartAggregatedFieldWells?: FunnelChartAggregatedFieldWells;
 }
-export type FunnelChartMeasureDataLabelStyle =
-  | "VALUE_ONLY"
-  | "PERCENTAGE_BY_FIRST_STAGE"
-  | "PERCENTAGE_BY_PREVIOUS_STAGE"
-  | "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE"
-  | "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE";
+export type FunnelChartMeasureDataLabelStyle = "VALUE_ONLY" | "PERCENTAGE_BY_FIRST_STAGE" | "PERCENTAGE_BY_PREVIOUS_STAGE" | "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE" | "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE";
 export type FunnelChartMeasureFieldList = Array<MeasureField>;
 export interface FunnelChartSortConfiguration {
   CategorySort?: Array<FieldSortOptions>;
@@ -7115,8 +5370,7 @@ export interface GaugeChartConditionalFormattingOption {
   PrimaryValue?: GaugeChartPrimaryValueConditionalFormatting;
   Arc?: GaugeChartArcConditionalFormatting;
 }
-export type GaugeChartConditionalFormattingOptionList =
-  Array<GaugeChartConditionalFormattingOption>;
+export type GaugeChartConditionalFormattingOptionList = Array<GaugeChartConditionalFormattingOption>;
 export interface GaugeChartConfiguration {
   FieldWells?: GaugeChartFieldWells;
   GaugeChartOptions?: GaugeChartOptions;
@@ -7160,10 +5414,7 @@ export interface GeneratedAnswerResult {
   AnswerId?: string;
   QuestionUrl?: string;
 }
-export type GeneratedAnswerStatus =
-  | "ANSWER_GENERATED"
-  | "ANSWER_RETRIEVED"
-  | "ANSWER_DOWNGRADE";
+export type GeneratedAnswerStatus = "ANSWER_GENERATED" | "ANSWER_RETRIEVED" | "ANSWER_DOWNGRADE";
 export interface GenerateEmbedUrlForAnonymousUserRequest {
   AwsAccountId: string;
   SessionLifetimeInMinutes?: number;
@@ -7215,8 +5466,7 @@ export interface GeospatialCategoricalDataColor {
   Color: string;
   DataValue: string;
 }
-export type GeospatialCategoricalDataColorList =
-  Array<GeospatialCategoricalDataColor>;
+export type GeospatialCategoricalDataColorList = Array<GeospatialCategoricalDataColor>;
 export interface GeospatialCircleRadius {
   Radius?: number;
 }
@@ -7244,14 +5494,7 @@ export interface GeospatialCoordinateBounds {
   East: number;
 }
 export type GeoSpatialCountryCode = "US";
-export type GeoSpatialDataRole =
-  | "COUNTRY"
-  | "STATE"
-  | "COUNTY"
-  | "CITY"
-  | "POSTCODE"
-  | "LONGITUDE"
-  | "LATITUDE";
+export type GeoSpatialDataRole = "COUNTRY" | "STATE" | "COUNTY" | "CITY" | "POSTCODE" | "LONGITUDE" | "LATITUDE";
 export interface GeospatialDataSourceItem {
   StaticFileDataSource?: GeospatialStaticFileSource;
 }
@@ -7265,8 +5508,7 @@ export interface GeospatialGradientStepColor {
   Color: string;
   DataValue: number;
 }
-export type GeospatialGradientStepColorList =
-  Array<GeospatialGradientStepColor>;
+export type GeospatialGradientStepColorList = Array<GeospatialGradientStepColor>;
 export interface GeospatialHeatmapColorScale {
   Colors?: Array<GeospatialHeatmapDataColor>;
 }
@@ -7525,8 +5767,7 @@ export interface HeaderFooterSectionConfiguration {
   Layout: SectionLayoutConfiguration;
   Style?: SectionStyle;
 }
-export type HeaderFooterSectionConfigurationList =
-  Array<HeaderFooterSectionConfiguration>;
+export type HeaderFooterSectionConfigurationList = Array<HeaderFooterSectionConfiguration>;
 export interface HeatMapAggregatedFieldWells {
   Rows?: Array<DimensionField>;
   Columns?: Array<DimensionField>;
@@ -7620,33 +5861,7 @@ export interface IAMPolicyAssignmentSummary {
   AssignmentStatus?: AssignmentStatus;
 }
 export type IAMPolicyAssignmentSummaryList = Array<IAMPolicyAssignmentSummary>;
-export type Icon =
-  | "CARET_UP"
-  | "CARET_DOWN"
-  | "PLUS"
-  | "MINUS"
-  | "ARROW_UP"
-  | "ARROW_DOWN"
-  | "ARROW_LEFT"
-  | "ARROW_UP_LEFT"
-  | "ARROW_DOWN_LEFT"
-  | "ARROW_RIGHT"
-  | "ARROW_UP_RIGHT"
-  | "ARROW_DOWN_RIGHT"
-  | "FACE_UP"
-  | "FACE_DOWN"
-  | "FACE_FLAT"
-  | "ONE_BAR"
-  | "TWO_BAR"
-  | "THREE_BAR"
-  | "CIRCLE"
-  | "TRIANGLE"
-  | "SQUARE"
-  | "FLAG"
-  | "THUMBS_UP"
-  | "THUMBS_DOWN"
-  | "CHECKMARK"
-  | "X";
+export type Icon = "CARET_UP" | "CARET_DOWN" | "PLUS" | "MINUS" | "ARROW_UP" | "ARROW_DOWN" | "ARROW_LEFT" | "ARROW_UP_LEFT" | "ARROW_DOWN_LEFT" | "ARROW_RIGHT" | "ARROW_UP_RIGHT" | "ARROW_DOWN_RIGHT" | "FACE_UP" | "FACE_DOWN" | "FACE_FLAT" | "ONE_BAR" | "TWO_BAR" | "THREE_BAR" | "CIRCLE" | "TRIANGLE" | "SQUARE" | "FLAG" | "THUMBS_UP" | "THUMBS_DOWN" | "CHECKMARK" | "X";
 export interface Identifier {
   Identity: string;
 }
@@ -7710,9 +5925,7 @@ interface _ImageSource {
   S3Uri?: string;
 }
 
-export type ImageSource =
-  | (_ImageSource & { PublicUrl: string })
-  | (_ImageSource & { S3Uri: string });
+export type ImageSource = (_ImageSource & { PublicUrl: string }) | (_ImageSource & { S3Uri: string });
 export interface ImageStaticFile {
   StaticFileId: string;
   Source?: StaticFileSource;
@@ -7742,70 +5955,15 @@ export interface Ingestion {
   RequestSource?: IngestionRequestSource;
   RequestType?: IngestionRequestType;
 }
-export type IngestionErrorType =
-  | "FAILURE_TO_ASSUME_ROLE"
-  | "INGESTION_SUPERSEDED"
-  | "INGESTION_CANCELED"
-  | "DATA_SET_DELETED"
-  | "DATA_SET_NOT_SPICE"
-  | "S3_UPLOADED_FILE_DELETED"
-  | "S3_MANIFEST_ERROR"
-  | "DATA_TOLERANCE_EXCEPTION"
-  | "SPICE_TABLE_NOT_FOUND"
-  | "DATA_SET_SIZE_LIMIT_EXCEEDED"
-  | "ROW_SIZE_LIMIT_EXCEEDED"
-  | "ACCOUNT_CAPACITY_LIMIT_EXCEEDED"
-  | "CUSTOMER_ERROR"
-  | "DATA_SOURCE_NOT_FOUND"
-  | "IAM_ROLE_NOT_AVAILABLE"
-  | "CONNECTION_FAILURE"
-  | "SQL_TABLE_NOT_FOUND"
-  | "PERMISSION_DENIED"
-  | "SSL_CERTIFICATE_VALIDATION_FAILURE"
-  | "OAUTH_TOKEN_FAILURE"
-  | "SOURCE_API_LIMIT_EXCEEDED_FAILURE"
-  | "PASSWORD_AUTHENTICATION_FAILURE"
-  | "SQL_SCHEMA_MISMATCH_ERROR"
-  | "INVALID_DATE_FORMAT"
-  | "INVALID_DATAPREP_SYNTAX"
-  | "SOURCE_RESOURCE_LIMIT_EXCEEDED"
-  | "SQL_INVALID_PARAMETER_VALUE"
-  | "QUERY_TIMEOUT"
-  | "SQL_NUMERIC_OVERFLOW"
-  | "UNRESOLVABLE_HOST"
-  | "UNROUTABLE_HOST"
-  | "SQL_EXCEPTION"
-  | "S3_FILE_INACCESSIBLE"
-  | "IOT_FILE_NOT_FOUND"
-  | "IOT_DATA_SET_FILE_EMPTY"
-  | "INVALID_DATA_SOURCE_CONFIG"
-  | "DATA_SOURCE_AUTH_FAILED"
-  | "DATA_SOURCE_CONNECTION_FAILED"
-  | "FAILURE_TO_PROCESS_JSON_FILE"
-  | "INTERNAL_SERVICE_ERROR"
-  | "REFRESH_SUPPRESSED_BY_EDIT"
-  | "PERMISSION_NOT_FOUND"
-  | "ELASTICSEARCH_CURSOR_NOT_ENABLED"
-  | "CURSOR_NOT_ENABLED"
-  | "DUPLICATE_COLUMN_NAMES_FOUND";
+export type IngestionErrorType = "FAILURE_TO_ASSUME_ROLE" | "INGESTION_SUPERSEDED" | "INGESTION_CANCELED" | "DATA_SET_DELETED" | "DATA_SET_NOT_SPICE" | "S3_UPLOADED_FILE_DELETED" | "S3_MANIFEST_ERROR" | "DATA_TOLERANCE_EXCEPTION" | "SPICE_TABLE_NOT_FOUND" | "DATA_SET_SIZE_LIMIT_EXCEEDED" | "ROW_SIZE_LIMIT_EXCEEDED" | "ACCOUNT_CAPACITY_LIMIT_EXCEEDED" | "CUSTOMER_ERROR" | "DATA_SOURCE_NOT_FOUND" | "IAM_ROLE_NOT_AVAILABLE" | "CONNECTION_FAILURE" | "SQL_TABLE_NOT_FOUND" | "PERMISSION_DENIED" | "SSL_CERTIFICATE_VALIDATION_FAILURE" | "OAUTH_TOKEN_FAILURE" | "SOURCE_API_LIMIT_EXCEEDED_FAILURE" | "PASSWORD_AUTHENTICATION_FAILURE" | "SQL_SCHEMA_MISMATCH_ERROR" | "INVALID_DATE_FORMAT" | "INVALID_DATAPREP_SYNTAX" | "SOURCE_RESOURCE_LIMIT_EXCEEDED" | "SQL_INVALID_PARAMETER_VALUE" | "QUERY_TIMEOUT" | "SQL_NUMERIC_OVERFLOW" | "UNRESOLVABLE_HOST" | "UNROUTABLE_HOST" | "SQL_EXCEPTION" | "S3_FILE_INACCESSIBLE" | "IOT_FILE_NOT_FOUND" | "IOT_DATA_SET_FILE_EMPTY" | "INVALID_DATA_SOURCE_CONFIG" | "DATA_SOURCE_AUTH_FAILED" | "DATA_SOURCE_CONNECTION_FAILED" | "FAILURE_TO_PROCESS_JSON_FILE" | "INTERNAL_SERVICE_ERROR" | "REFRESH_SUPPRESSED_BY_EDIT" | "PERMISSION_NOT_FOUND" | "ELASTICSEARCH_CURSOR_NOT_ENABLED" | "CURSOR_NOT_ENABLED" | "DUPLICATE_COLUMN_NAMES_FOUND";
 export type IngestionId = string;
 
 export type IngestionMaxResults = number;
 
 export type IngestionRequestSource = "MANUAL" | "SCHEDULED";
-export type IngestionRequestType =
-  | "INITIAL_INGESTION"
-  | "EDIT"
-  | "INCREMENTAL_REFRESH"
-  | "FULL_REFRESH";
+export type IngestionRequestType = "INITIAL_INGESTION" | "EDIT" | "INCREMENTAL_REFRESH" | "FULL_REFRESH";
 export type Ingestions = Array<Ingestion>;
-export type IngestionStatus =
-  | "INITIALIZED"
-  | "QUEUED"
-  | "RUNNING"
-  | "FAILED"
-  | "COMPLETED"
-  | "CANCELLED";
+export type IngestionStatus = "INITIALIZED" | "QUEUED" | "RUNNING" | "FAILED" | "COMPLETED" | "CANCELLED";
 export type IngestionType = "INCREMENTAL_REFRESH" | "FULL_REFRESH";
 export interface InnerFilter {
   CategoryInnerFilter?: CategoryInnerFilter;
@@ -7815,14 +5973,7 @@ export interface InputColumn {
   Type: InputColumnDataType;
   SubType?: ColumnDataSubType;
 }
-export type InputColumnDataType =
-  | "STRING"
-  | "INTEGER"
-  | "DECIMAL"
-  | "DATETIME"
-  | "BIT"
-  | "BOOLEAN"
-  | "JSON";
+export type InputColumnDataType = "STRING" | "INTEGER" | "DECIMAL" | "DATETIME" | "BIT" | "BOOLEAN" | "JSON";
 export type InputColumnList = Array<InputColumn>;
 export interface InsightConfiguration {
   Computations?: Array<Computation>;
@@ -7951,8 +6102,7 @@ export interface KPIConditionalFormattingOption {
   ActualValue?: KPIActualValueConditionalFormatting;
   ComparisonValue?: KPIComparisonValueConditionalFormatting;
 }
-export type KPIConditionalFormattingOptionList =
-  Array<KPIConditionalFormattingOption>;
+export type KPIConditionalFormattingOptionList = Array<KPIConditionalFormattingOption>;
 export interface KPIConfiguration {
   FieldWells?: KPIFieldWells;
   SortConfiguration?: KPISortConfiguration;
@@ -8050,12 +6200,7 @@ export interface LayoutConfiguration {
   FreeFormLayout?: FreeFormLayoutConfiguration;
   SectionBasedLayout?: SectionBasedLayoutConfiguration;
 }
-export type LayoutElementType =
-  | "VISUAL"
-  | "FILTER_CONTROL"
-  | "PARAMETER_CONTROL"
-  | "TEXT_BOX"
-  | "IMAGE";
+export type LayoutElementType = "VISUAL" | "FILTER_CONTROL" | "PARAMETER_CONTROL" | "TEXT_BOX" | "IMAGE";
 export type LayoutList = Array<Layout>;
 export interface LegendOptions {
   Visibility?: Visibility;
@@ -8121,12 +6266,7 @@ export interface LineChartLineStyleSettings {
   LineStyle?: LineChartLineStyle;
   LineWidth?: string;
 }
-export type LineChartMarkerShape =
-  | "CIRCLE"
-  | "TRIANGLE"
-  | "SQUARE"
-  | "DIAMOND"
-  | "ROUNDED_SQUARE";
+export type LineChartMarkerShape = "CIRCLE" | "TRIANGLE" | "SQUARE" | "DIAMOND" | "ROUNDED_SQUARE";
 export interface LineChartMarkerStyleSettings {
   MarkerVisibility?: Visibility;
   MarkerShape?: LineChartMarkerShape;
@@ -8666,12 +6806,7 @@ export interface MemberIdArnPair {
   MemberId?: string;
   MemberArn?: string;
 }
-export type MemberType =
-  | "DASHBOARD"
-  | "ANALYSIS"
-  | "DATASET"
-  | "DATASOURCE"
-  | "TOPIC";
+export type MemberType = "DASHBOARD" | "ANALYSIS" | "DATASET" | "DATASOURCE" | "TOPIC";
 export interface MetricComparisonComputation {
   ComputationId: string;
   Name?: string;
@@ -8686,10 +6821,7 @@ export interface MissingDataConfiguration {
   TreatmentOption?: MissingDataTreatmentOption;
 }
 export type MissingDataConfigurationList = Array<MissingDataConfiguration>;
-export type MissingDataTreatmentOption =
-  | "INTERPOLATE"
-  | "SHOW_AS_ZERO"
-  | "SHOW_AS_BLANK";
+export type MissingDataTreatmentOption = "INTERPOLATE" | "SHOW_AS_ZERO" | "SHOW_AS_BLANK";
 export interface MySqlParameters {
   Host: string;
   Port: number;
@@ -8697,20 +6829,7 @@ export interface MySqlParameters {
 }
 export type Name = string;
 
-export type NamedEntityAggType =
-  | "SUM"
-  | "MIN"
-  | "MAX"
-  | "COUNT"
-  | "AVERAGE"
-  | "DISTINCT_COUNT"
-  | "STDEV"
-  | "STDEVP"
-  | "VAR"
-  | "VARP"
-  | "PERCENTILE"
-  | "MEDIAN"
-  | "CUSTOM";
+export type NamedEntityAggType = "SUM" | "MIN" | "MAX" | "COUNT" | "AVERAGE" | "DISTINCT_COUNT" | "STDEV" | "STDEVP" | "VAR" | "VARP" | "PERCENTILE" | "MEDIAN" | "CUSTOM";
 export interface NamedEntityDefinition {
   FieldName?: string;
   PropertyName?: string;
@@ -8726,25 +6845,8 @@ export type NamedEntityDefinitions = Array<NamedEntityDefinition>;
 export interface NamedEntityRef {
   NamedEntityName?: string;
 }
-export type NamedFilterAggType =
-  | "NO_AGGREGATION"
-  | "SUM"
-  | "AVERAGE"
-  | "COUNT"
-  | "DISTINCT_COUNT"
-  | "MAX"
-  | "MEDIAN"
-  | "MIN"
-  | "STDEV"
-  | "STDEVP"
-  | "VAR"
-  | "VARP";
-export type NamedFilterType =
-  | "CATEGORY_FILTER"
-  | "NUMERIC_EQUALITY_FILTER"
-  | "NUMERIC_RANGE_FILTER"
-  | "DATE_RANGE_FILTER"
-  | "RELATIVE_DATE_FILTER";
+export type NamedFilterAggType = "NO_AGGREGATION" | "SUM" | "AVERAGE" | "COUNT" | "DISTINCT_COUNT" | "MAX" | "MEDIAN" | "MIN" | "STDEV" | "STDEVP" | "VAR" | "VARP";
+export type NamedFilterType = "CATEGORY_FILTER" | "NUMERIC_EQUALITY_FILTER" | "NUMERIC_RANGE_FILTER" | "DATE_RANGE_FILTER" | "RELATIVE_DATE_FILTER";
 export type Namespace = string;
 
 export interface NamespaceError {
@@ -8763,12 +6865,7 @@ export interface NamespaceInfoV2 {
   IamIdentityCenterInstanceArn?: string;
 }
 export type Namespaces = Array<NamespaceInfoV2>;
-export type NamespaceStatus =
-  | "CREATED"
-  | "CREATING"
-  | "DELETING"
-  | "RETRYABLE_FAILURE"
-  | "NON_RETRYABLE_FAILURE";
+export type NamespaceStatus = "CREATED" | "CREATING" | "DELETING" | "RETRYABLE_FAILURE" | "NON_RETRYABLE_FAILURE";
 export type NarrativeString = string;
 
 export interface NavbarStyle {
@@ -8799,17 +6896,7 @@ export interface NetworkInterface {
 export type NetworkInterfaceId = string;
 
 export type NetworkInterfaceList = Array<NetworkInterface>;
-export type NetworkInterfaceStatus =
-  | "CREATING"
-  | "AVAILABLE"
-  | "CREATION_FAILED"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "DELETING"
-  | "DELETED"
-  | "DELETION_FAILED"
-  | "DELETION_SCHEDULED"
-  | "ATTACHMENT_FAILED_ROLLBACK_FAILED";
+export type NetworkInterfaceStatus = "CREATING" | "AVAILABLE" | "CREATION_FAILED" | "UPDATING" | "UPDATE_FAILED" | "DELETING" | "DELETED" | "DELETION_FAILED" | "DELETION_SCHEDULED" | "ATTACHMENT_FAILED_ROLLBACK_FAILED";
 export interface NewDefaultValues {
   StringStaticValues?: Array<string>;
   DecimalStaticValues?: Array<number>;
@@ -8839,15 +6926,7 @@ export interface NumberDisplayFormatConfiguration {
 export interface NumberFormatConfiguration {
   FormatConfiguration?: NumericFormatConfiguration;
 }
-export type NumberScale =
-  | "NONE"
-  | "AUTO"
-  | "THOUSANDS"
-  | "MILLIONS"
-  | "BILLIONS"
-  | "TRILLIONS"
-  | "LAKHS"
-  | "CRORES";
+export type NumberScale = "NONE" | "AUTO" | "THOUSANDS" | "MILLIONS" | "BILLIONS" | "TRILLIONS" | "LAKHS" | "CRORES";
 export interface NumericalAggregationFunction {
   SimpleNumericalAggregation?: SimpleNumericalAggregationFunction;
   PercentileAggregation?: PercentileAggregation;
@@ -8973,18 +7052,7 @@ export interface PanelTitleOptions {
   HorizontalTextAlignment?: HorizontalTextAlignment;
 }
 export type PaperOrientation = "PORTRAIT" | "LANDSCAPE";
-export type PaperSize =
-  | "US_LETTER"
-  | "US_LEGAL"
-  | "US_TABLOID_LEDGER"
-  | "A0"
-  | "A1"
-  | "A2"
-  | "A3"
-  | "A4"
-  | "A5"
-  | "JIS_B4"
-  | "JIS_B5";
+export type PaperSize = "US_LETTER" | "US_LEGAL" | "US_TABLOID_LEDGER" | "A0" | "A1" | "A2" | "A3" | "A4" | "A5" | "JIS_B4" | "JIS_B5";
 export interface ParameterControl {
   DateTimePicker?: ParameterDateTimePickerControl;
   List?: ParameterListControl;
@@ -9111,10 +7179,7 @@ interface _PhysicalTable {
   S3Source?: S3Source;
 }
 
-export type PhysicalTable =
-  | (_PhysicalTable & { RelationalTable: RelationalTable })
-  | (_PhysicalTable & { CustomSql: CustomSql })
-  | (_PhysicalTable & { S3Source: S3Source });
+export type PhysicalTable = (_PhysicalTable & { RelationalTable: RelationalTable }) | (_PhysicalTable & { CustomSql: CustomSql }) | (_PhysicalTable & { S3Source: S3Source });
 export type PhysicalTableId = string;
 
 export type PhysicalTableMap = Record<string, PhysicalTable>;
@@ -9178,17 +7243,12 @@ export interface PivotTableConditionalFormatting {
 export interface PivotTableConditionalFormattingOption {
   Cell?: PivotTableCellConditionalFormatting;
 }
-export type PivotTableConditionalFormattingOptionList =
-  Array<PivotTableConditionalFormattingOption>;
+export type PivotTableConditionalFormattingOptionList = Array<PivotTableConditionalFormattingOption>;
 export interface PivotTableConditionalFormattingScope {
   Role?: PivotTableConditionalFormattingScopeRole;
 }
-export type PivotTableConditionalFormattingScopeList =
-  Array<PivotTableConditionalFormattingScope>;
-export type PivotTableConditionalFormattingScopeRole =
-  | "FIELD"
-  | "FIELD_TOTAL"
-  | "GRAND_TOTAL";
+export type PivotTableConditionalFormattingScopeList = Array<PivotTableConditionalFormattingScope>;
+export type PivotTableConditionalFormattingScopeRole = "FIELD" | "FIELD_TOTAL" | "GRAND_TOTAL";
 export interface PivotTableConfiguration {
   FieldWells?: PivotTableFieldWells;
   SortConfiguration?: PivotTableSortConfiguration;
@@ -9203,19 +7263,14 @@ export interface PivotTableDataPathOption {
   Width?: string;
 }
 export type PivotTableDataPathOptionList = Array<PivotTableDataPathOption>;
-export type PivotTableDataPathType =
-  | "HIERARCHY_ROWS_LAYOUT_COLUMN"
-  | "MULTIPLE_ROW_METRICS_COLUMN"
-  | "EMPTY_COLUMN_HEADER"
-  | "COUNT_METRIC_COLUMN";
+export type PivotTableDataPathType = "HIERARCHY_ROWS_LAYOUT_COLUMN" | "MULTIPLE_ROW_METRICS_COLUMN" | "EMPTY_COLUMN_HEADER" | "COUNT_METRIC_COLUMN";
 export type PivotTableDimensionList = Array<DimensionField>;
 export type PivotTableFieldCollapseState = "COLLAPSED" | "EXPANDED";
 export interface PivotTableFieldCollapseStateOption {
   Target: PivotTableFieldCollapseStateTarget;
   State?: PivotTableFieldCollapseState;
 }
-export type PivotTableFieldCollapseStateOptionList =
-  Array<PivotTableFieldCollapseStateOption>;
+export type PivotTableFieldCollapseStateOptionList = Array<PivotTableFieldCollapseStateOption>;
 export interface PivotTableFieldCollapseStateTarget {
   FieldId?: string;
   FieldDataPathValues?: Array<DataPathValue>;
@@ -9234,8 +7289,7 @@ export interface PivotTableFieldOptions {
 export interface PivotTableFieldSubtotalOptions {
   FieldId?: string;
 }
-export type PivotTableFieldSubtotalOptionsList =
-  Array<PivotTableFieldSubtotalOptions>;
+export type PivotTableFieldSubtotalOptionsList = Array<PivotTableFieldSubtotalOptions>;
 export interface PivotTableFieldWells {
   PivotTableAggregatedFieldWells?: PivotTableAggregatedFieldWells;
 }
@@ -9419,10 +7473,7 @@ export interface QAResult {
   GeneratedAnswer?: GeneratedAnswerResult;
 }
 export type QAResults = Array<QAResult>;
-export type QAResultType =
-  | "DASHBOARD_VISUAL"
-  | "GENERATED_ANSWER"
-  | "NO_ANSWER";
+export type QAResultType = "DASHBOARD_VISUAL" | "GENERATED_ANSWER" | "NO_ANSWER";
 export type QAUrl = string;
 
 export type QBusinessInsightsStatus = "ENABLED" | "DISABLED";
@@ -9573,9 +7624,7 @@ export interface ReferenceLineValueLabelConfiguration {
   RelativePosition?: ReferenceLineValueLabelRelativePosition;
   FormatConfiguration?: NumericFormatConfiguration;
 }
-export type ReferenceLineValueLabelRelativePosition =
-  | "BEFORE_CUSTOM_LABEL"
-  | "AFTER_CUSTOM_LABEL";
+export type ReferenceLineValueLabelRelativePosition = "BEFORE_CUSTOM_LABEL" | "AFTER_CUSTOM_LABEL";
 export interface RefreshConfiguration {
   IncrementalRefresh: IncrementalRefresh;
 }
@@ -9592,13 +7641,7 @@ export interface RefreshFrequency {
   Timezone?: string;
   TimeOfTheDay?: string;
 }
-export type RefreshInterval =
-  | "MINUTE15"
-  | "MINUTE30"
-  | "HOURLY"
-  | "DAILY"
-  | "WEEKLY"
-  | "MONTHLY";
+export type RefreshInterval = "MINUTE15" | "MINUTE30" | "HOURLY" | "DAILY" | "WEEKLY" | "MONTHLY";
 export interface RefreshSchedule {
   ScheduleId: string;
   ScheduleFrequency: RefreshFrequency;
@@ -9705,12 +7748,7 @@ export interface RelativeDateTimeControlDisplayOptions {
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 export type RelativeDateType = "PREVIOUS" | "THIS" | "LAST" | "NOW" | "NEXT";
-export type RelativeFontSize =
-  | "EXTRA_SMALL"
-  | "SMALL"
-  | "MEDIUM"
-  | "LARGE"
-  | "EXTRA_LARGE";
+export type RelativeFontSize = "EXTRA_SMALL" | "SMALL" | "MEDIUM" | "LARGE" | "EXTRA_LARGE";
 export interface RenameColumnOperation {
   ColumnName: string;
   NewColumnName: string;
@@ -9739,14 +7777,7 @@ export interface ResourcePermission {
   Actions: Array<string>;
 }
 export type ResourcePermissionList = Array<ResourcePermission>;
-export type ResourceStatus =
-  | "CREATION_IN_PROGRESS"
-  | "CREATION_SUCCESSFUL"
-  | "CREATION_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_SUCCESSFUL"
-  | "UPDATE_FAILED"
-  | "DELETED";
+export type ResourceStatus = "CREATION_IN_PROGRESS" | "CREATION_SUCCESSFUL" | "CREATION_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_SUCCESSFUL" | "UPDATE_FAILED" | "DELETED";
 export declare class ResourceUnavailableException extends EffectData.TaggedError(
   "ResourceUnavailableException",
 )<{
@@ -9768,21 +7799,8 @@ export interface RestoreAnalysisResponse {
 }
 export type RestrictiveResourceId = string;
 
-export type ReviewedAnswerErrorCode =
-  | "INTERNAL_ERROR"
-  | "MISSING_ANSWER"
-  | "DATASET_DOES_NOT_EXIST"
-  | "INVALID_DATASET_ARN"
-  | "DUPLICATED_ANSWER"
-  | "INVALID_DATA"
-  | "MISSING_REQUIRED_FIELDS";
-export type Role =
-  | "ADMIN"
-  | "AUTHOR"
-  | "READER"
-  | "ADMIN_PRO"
-  | "AUTHOR_PRO"
-  | "READER_PRO";
+export type ReviewedAnswerErrorCode = "INTERNAL_ERROR" | "MISSING_ANSWER" | "DATASET_DOES_NOT_EXIST" | "INVALID_DATASET_ARN" | "DUPLICATED_ANSWER" | "INVALID_DATA" | "MISSING_REQUIRED_FIELDS";
+export type Role = "ADMIN" | "AUTHOR" | "READER" | "ADMIN_PRO" | "AUTHOR_PRO" | "READER_PRO";
 export type RoleArn = string;
 
 export type RoleName = string;
@@ -10130,8 +8148,7 @@ export interface SetParameterValueConfiguration {
   DestinationParameterName: string;
   Value: DestinationParameterValueConfiguration;
 }
-export type SetParameterValueConfigurationList =
-  Array<SetParameterValueConfiguration>;
+export type SetParameterValueConfigurationList = Array<SetParameterValueConfiguration>;
 export interface ShapeConditionalFormat {
   BackgroundColor: ConditionalFormattingColor;
 }
@@ -10205,11 +8222,7 @@ export type SheetImageList = Array<SheetImage>;
 export interface SheetImageScalingConfiguration {
   ScalingType?: SheetImageScalingType;
 }
-export type SheetImageScalingType =
-  | "SCALE_TO_WIDTH"
-  | "SCALE_TO_HEIGHT"
-  | "SCALE_TO_CONTAINER"
-  | "SCALE_NONE";
+export type SheetImageScalingType = "SCALE_TO_WIDTH" | "SCALE_TO_HEIGHT" | "SCALE_TO_CONTAINER" | "SCALE_NONE";
 export interface SheetImageSource {
   SheetImageStaticFileSource?: SheetImageStaticFileSource;
 }
@@ -10248,8 +8261,7 @@ export interface SheetVisualScopingConfiguration {
   Scope: FilterVisualScope;
   VisualIds?: Array<string>;
 }
-export type SheetVisualScopingConfigurations =
-  Array<SheetVisualScopingConfiguration>;
+export type SheetVisualScopingConfigurations = Array<SheetVisualScopingConfiguration>;
 export interface ShortFormatText {
   PlainText?: string;
   RichText?: string;
@@ -10270,25 +8282,8 @@ export type SimpleAttributeAggregationFunction = "UNIQUE_VALUE";
 export interface SimpleClusterMarker {
   Color?: string;
 }
-export type SimpleNumericalAggregationFunction =
-  | "SUM"
-  | "AVERAGE"
-  | "MIN"
-  | "MAX"
-  | "COUNT"
-  | "DISTINCT_COUNT"
-  | "VAR"
-  | "VARP"
-  | "STDEV"
-  | "STDEVP"
-  | "MEDIAN";
-export type SimpleTotalAggregationFunction =
-  | "DEFAULT"
-  | "SUM"
-  | "AVERAGE"
-  | "MIN"
-  | "MAX"
-  | "NONE";
+export type SimpleNumericalAggregationFunction = "SUM" | "AVERAGE" | "MIN" | "MAX" | "COUNT" | "DISTINCT_COUNT" | "VAR" | "VARP" | "STDEV" | "STDEVP" | "MEDIAN";
+export type SimpleTotalAggregationFunction = "DEFAULT" | "SUM" | "AVERAGE" | "MIN" | "MAX" | "NONE";
 export interface SingleAxisOptions {
   YAxisOptions?: YAxisOptions;
 }
@@ -10325,8 +8320,7 @@ export type SnapshotAnonymousUserList = Array<SnapshotAnonymousUser>;
 export interface SnapshotAnonymousUserRedacted {
   RowLevelPermissionTagKeys?: Array<string>;
 }
-export type SnapshotAnonymousUserRedactedList =
-  Array<SnapshotAnonymousUserRedacted>;
+export type SnapshotAnonymousUserRedactedList = Array<SnapshotAnonymousUserRedacted>;
 export interface SnapshotConfiguration {
   FileGroups: Array<SnapshotFileGroup>;
   DestinationConfiguration?: SnapshotDestinationConfiguration;
@@ -10351,9 +8345,7 @@ export interface SnapshotFileSheetSelection {
   VisualIds?: Array<string>;
 }
 export type SnapshotFileSheetSelectionList = Array<SnapshotFileSheetSelection>;
-export type SnapshotFileSheetSelectionScope =
-  | "ALL_VISUALS"
-  | "SELECTED_VISUALS";
+export type SnapshotFileSheetSelectionScope = "ALL_VISUALS" | "SELECTED_VISUALS";
 export type SnapshotFileSheetSelectionVisualIdList = Array<string>;
 export interface SnapshotJobErrorInfo {
   ErrorMessage?: string;
@@ -10382,8 +8374,7 @@ export type SnapshotJobStatus = "QUEUED" | "RUNNING" | "COMPLETED" | "FAILED";
 export interface SnapshotS3DestinationConfiguration {
   BucketConfiguration: S3BucketConfiguration;
 }
-export type SnapshotS3DestinationConfigurationList =
-  Array<SnapshotS3DestinationConfiguration>;
+export type SnapshotS3DestinationConfigurationList = Array<SnapshotS3DestinationConfiguration>;
 export interface SnapshotUserConfiguration {
   AnonymousUsers?: Array<SnapshotAnonymousUser>;
 }
@@ -10574,8 +8565,7 @@ export interface SucceededTopicReviewedAnswer {
   AnswerId?: string;
 }
 export type SucceededTopicReviewedAnswers = Array<SucceededTopicReviewedAnswer>;
-export type SuccessfulKeyRegistrationEntries =
-  Array<SuccessfulKeyRegistrationEntry>;
+export type SuccessfulKeyRegistrationEntries = Array<SuccessfulKeyRegistrationEntry>;
 export interface SuccessfulKeyRegistrationEntry {
   KeyArn: string;
   StatusCode: number;
@@ -10599,10 +8589,7 @@ export interface TableCellConditionalFormatting {
   FieldId: string;
   TextFormat?: TextConditionalFormat;
 }
-export type TableCellImageScalingConfiguration =
-  | "FIT_TO_CELL_HEIGHT"
-  | "FIT_TO_CELL_WIDTH"
-  | "DO_NOT_SCALE";
+export type TableCellImageScalingConfiguration = "FIT_TO_CELL_HEIGHT" | "FIT_TO_CELL_WIDTH" | "DO_NOT_SCALE";
 export interface TableCellImageSizingConfiguration {
   TableCellImageScalingConfiguration?: TableCellImageScalingConfiguration;
 }
@@ -10623,8 +8610,7 @@ export interface TableConditionalFormattingOption {
   Cell?: TableCellConditionalFormatting;
   Row?: TableRowConditionalFormatting;
 }
-export type TableConditionalFormattingOptionList =
-  Array<TableConditionalFormattingOption>;
+export type TableConditionalFormattingOptionList = Array<TableConditionalFormattingOption>;
 export interface TableConfiguration {
   FieldWells?: TableFieldWells;
   SortConfiguration?: TableSortConfiguration;
@@ -10776,11 +8762,7 @@ export interface TemplateError {
   ViolatedEntities?: Array<Entity>;
 }
 export type TemplateErrorList = Array<TemplateError>;
-export type TemplateErrorType =
-  | "SOURCE_NOT_FOUND"
-  | "DATA_SET_NOT_FOUND"
-  | "INTERNAL_FAILURE"
-  | "ACCESS_DENIED";
+export type TemplateErrorType = "SOURCE_NOT_FOUND" | "DATA_SET_NOT_FOUND" | "INTERNAL_FAILURE" | "ACCESS_DENIED";
 export type TemplateName = string;
 
 export interface TemplateSourceAnalysis {
@@ -10962,16 +8944,7 @@ export interface TimeEqualityFilter {
   RollingDate?: RollingDateConfiguration;
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
 }
-export type TimeGranularity =
-  | "YEAR"
-  | "QUARTER"
-  | "MONTH"
-  | "WEEK"
-  | "DAY"
-  | "HOUR"
-  | "MINUTE"
-  | "SECOND"
-  | "MILLISECOND";
+export type TimeGranularity = "YEAR" | "QUARTER" | "MONTH" | "WEEK" | "DAY" | "HOUR" | "MINUTE" | "SECOND" | "MILLISECOND";
 export interface TimeRangeDrillDownFilter {
   Column: ColumnIdentifier;
   RangeMinimum: Date | string;
@@ -11129,14 +9102,7 @@ export interface TopicFilter {
   DateRangeFilter?: TopicDateRangeFilter;
   RelativeDateFilter?: TopicRelativeDateFilter;
 }
-export type TopicFilterAttribute =
-  | "QUICKSIGHT_USER"
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "TOPIC_NAME";
+export type TopicFilterAttribute = "QUICKSIGHT_USER" | "QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "TOPIC_NAME";
 export type TopicFilterOperator = "StringEquals" | "StringLike";
 export type TopicFilters = Array<TopicFilter>;
 export type TopicId = string;
@@ -11161,17 +9127,7 @@ export interface TopicIRContributionAnalysis {
   SortType?: ContributionAnalysisSortType;
 }
 export type TopicIRFilterEntry = Array<TopicIRFilterOption>;
-export type TopicIRFilterFunction =
-  | "CONTAINS"
-  | "EXACT"
-  | "STARTS_WITH"
-  | "ENDS_WITH"
-  | "CONTAINS_STRING"
-  | "PREVIOUS"
-  | "THIS"
-  | "LAST"
-  | "NEXT"
-  | "NOW";
+export type TopicIRFilterFunction = "CONTAINS" | "EXACT" | "STARTS_WITH" | "ENDS_WITH" | "CONTAINS_STRING" | "PREVIOUS" | "THIS" | "LAST" | "NEXT" | "NOW";
 export type TopicIRFilterList = Array<Array<TopicIRFilterOption>>;
 export interface TopicIRFilterOption {
   FilterType?: TopicIRFilterType;
@@ -11193,16 +9149,7 @@ export interface TopicIRFilterOption {
   SortDirection?: TopicSortDirection;
   Anchor?: Anchor;
 }
-export type TopicIRFilterType =
-  | "CATEGORY_FILTER"
-  | "NUMERIC_EQUALITY_FILTER"
-  | "NUMERIC_RANGE_FILTER"
-  | "DATE_RANGE_FILTER"
-  | "RELATIVE_DATE_FILTER"
-  | "TOP_BOTTOM_FILTER"
-  | "EQUALS"
-  | "RANK_LIMIT_FILTER"
-  | "ACCEPT_ALL_FILTER";
+export type TopicIRFilterType = "CATEGORY_FILTER" | "NUMERIC_EQUALITY_FILTER" | "NUMERIC_RANGE_FILTER" | "DATE_RANGE_FILTER" | "RELATIVE_DATE_FILTER" | "TOP_BOTTOM_FILTER" | "EQUALS" | "RANK_LIMIT_FILTER" | "ACCEPT_ALL_FILTER";
 export interface TopicIRGroupBy {
   FieldName?: Identifier;
   TimeGranularity?: TopicTimeGranularity;
@@ -11266,23 +9213,13 @@ export interface TopicRefreshScheduleSummary {
   DatasetName?: string;
   RefreshSchedule?: TopicRefreshSchedule;
 }
-export type TopicRefreshStatus =
-  | "INITIALIZED"
-  | "RUNNING"
-  | "FAILED"
-  | "COMPLETED"
-  | "CANCELLED";
+export type TopicRefreshStatus = "INITIALIZED" | "RUNNING" | "FAILED" | "COMPLETED" | "CANCELLED";
 export interface TopicRelativeDateFilter {
   TimeGranularity?: TopicTimeGranularity;
   RelativeDateFilterFunction?: TopicRelativeDateFilterFunction;
   Constant?: TopicSingularFilterConstant;
 }
-export type TopicRelativeDateFilterFunction =
-  | "PREVIOUS"
-  | "THIS"
-  | "LAST"
-  | "NEXT"
-  | "NOW";
+export type TopicRelativeDateFilterFunction = "PREVIOUS" | "THIS" | "LAST" | "NEXT" | "NOW";
 export interface TopicReviewedAnswer {
   Arn?: string;
   AnswerId: string;
@@ -11320,15 +9257,7 @@ export interface TopicTemplate {
   TemplateType?: string;
   Slots?: Array<Slot>;
 }
-export type TopicTimeGranularity =
-  | "SECOND"
-  | "MINUTE"
-  | "HOUR"
-  | "DAY"
-  | "WEEK"
-  | "MONTH"
-  | "QUARTER"
-  | "YEAR";
+export type TopicTimeGranularity = "SECOND" | "MINUTE" | "HOUR" | "DAY" | "WEEK" | "MONTH" | "QUARTER" | "YEAR";
 export type TopicUserExperienceVersion = "LEGACY" | "NEW_READER_EXPERIENCE";
 export interface TopicVisual {
   VisualId?: string;
@@ -11369,17 +9298,7 @@ interface _TransformOperation {
   OverrideDatasetParameterOperation?: OverrideDatasetParameterOperation;
 }
 
-export type TransformOperation =
-  | (_TransformOperation & { ProjectOperation: ProjectOperation })
-  | (_TransformOperation & { FilterOperation: FilterOperation })
-  | (_TransformOperation & { CreateColumnsOperation: CreateColumnsOperation })
-  | (_TransformOperation & { RenameColumnOperation: RenameColumnOperation })
-  | (_TransformOperation & { CastColumnTypeOperation: CastColumnTypeOperation })
-  | (_TransformOperation & { TagColumnOperation: TagColumnOperation })
-  | (_TransformOperation & { UntagColumnOperation: UntagColumnOperation })
-  | (_TransformOperation & {
-      OverrideDatasetParameterOperation: OverrideDatasetParameterOperation;
-    });
+export type TransformOperation = (_TransformOperation & { ProjectOperation: ProjectOperation }) | (_TransformOperation & { FilterOperation: FilterOperation }) | (_TransformOperation & { CreateColumnsOperation: CreateColumnsOperation }) | (_TransformOperation & { RenameColumnOperation: RenameColumnOperation }) | (_TransformOperation & { CastColumnTypeOperation: CastColumnTypeOperation }) | (_TransformOperation & { TagColumnOperation: TagColumnOperation }) | (_TransformOperation & { UntagColumnOperation: UntagColumnOperation }) | (_TransformOperation & { OverrideDatasetParameterOperation: OverrideDatasetParameterOperation });
 export type TransformOperationList = Array<TransformOperation>;
 export type TransposedColumnIndex = number;
 
@@ -12073,15 +9992,7 @@ export interface User {
 export type UserList = Array<User>;
 export type UserName = string;
 
-export type UserRole =
-  | "ADMIN"
-  | "AUTHOR"
-  | "READER"
-  | "RESTRICTED_AUTHOR"
-  | "RESTRICTED_READER"
-  | "ADMIN_PRO"
-  | "AUTHOR_PRO"
-  | "READER_PRO";
+export type UserRole = "ADMIN" | "AUTHOR" | "READER" | "RESTRICTED_AUTHOR" | "RESTRICTED_READER" | "ADMIN_PRO" | "AUTHOR_PRO" | "READER_PRO";
 export interface ValidationStrategy {
   Mode: ValidationStrategyMode;
 }
@@ -12149,16 +10060,12 @@ export interface VisualCustomActionOperation {
   URLOperation?: CustomActionURLOperation;
   SetParametersOperation?: CustomActionSetParametersOperation;
 }
-export type VisualCustomActionOperationList =
-  Array<VisualCustomActionOperation>;
+export type VisualCustomActionOperationList = Array<VisualCustomActionOperation>;
 export type VisualCustomActionTrigger = "DATA_POINT_CLICK" | "DATA_POINT_MENU";
 export interface VisualHighlightOperation {
   Trigger: VisualHighlightTrigger;
 }
-export type VisualHighlightTrigger =
-  | "DATA_POINT_CLICK"
-  | "DATA_POINT_HOVER"
-  | "NONE";
+export type VisualHighlightTrigger = "DATA_POINT_CLICK" | "DATA_POINT_HOVER" | "NONE";
 export interface VisualInteractionOptions {
   VisualMenuOption?: VisualMenuOption;
   ContextMenuOption?: ContextMenuOption;
@@ -12174,12 +10081,7 @@ export interface VisualPalette {
   ChartColor?: string;
   ColorMap?: Array<DataPathColor>;
 }
-export type VisualRole =
-  | "PRIMARY"
-  | "COMPLIMENTARY"
-  | "MULTI_INTENT"
-  | "FALLBACK"
-  | "FRAGMENT";
+export type VisualRole = "PRIMARY" | "COMPLIMENTARY" | "MULTI_INTENT" | "FALLBACK" | "FRAGMENT";
 export type VisualSubtitle = string;
 
 export interface VisualSubtitleLabelOptions {
@@ -12206,10 +10108,7 @@ export interface VPCConnection {
   CreatedTime?: Date | string;
   LastUpdatedTime?: Date | string;
 }
-export type VPCConnectionAvailabilityStatus =
-  | "AVAILABLE"
-  | "UNAVAILABLE"
-  | "PARTIALLY_AVAILABLE";
+export type VPCConnectionAvailabilityStatus = "AVAILABLE" | "UNAVAILABLE" | "PARTIALLY_AVAILABLE";
 export interface VpcConnectionProperties {
   VpcConnectionArn: string;
 }
@@ -12217,16 +10116,7 @@ export type VPCConnectionResourceIdRestricted = string;
 
 export type VPCConnectionResourceIdUnrestricted = string;
 
-export type VPCConnectionResourceStatus =
-  | "CREATION_IN_PROGRESS"
-  | "CREATION_SUCCESSFUL"
-  | "CREATION_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_SUCCESSFUL"
-  | "UPDATE_FAILED"
-  | "DELETION_IN_PROGRESS"
-  | "DELETION_FAILED"
-  | "DELETED";
+export type VPCConnectionResourceStatus = "CREATION_IN_PROGRESS" | "CREATION_SUCCESSFUL" | "CREATION_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_SUCCESSFUL" | "UPDATE_FAILED" | "DELETION_IN_PROGRESS" | "DELETION_FAILED" | "DELETED";
 export interface VPCConnectionSummary {
   VPCConnectionId?: string;
   Arn?: string;
@@ -15215,3 +13105,4 @@ export declare namespace UpdateVPCConnection {
     | UnsupportedUserEditionException
     | CommonAwsError;
 }
+

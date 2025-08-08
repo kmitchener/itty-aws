@@ -1,23 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class RAM extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("ram", new RestJson1Protocol(), cfg);
+  }
+
   acceptResourceShareInvitation(
     input: AcceptResourceShareInvitationRequest,
   ): Effect.Effect<
     AcceptResourceShareInvitationResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ResourceShareInvitationAlreadyAcceptedException
-    | ResourceShareInvitationAlreadyRejectedException
-    | ResourceShareInvitationArnNotFoundException
-    | ResourceShareInvitationExpiredException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | MalformedArnException | OperationNotPermittedException | ResourceShareInvitationAlreadyAcceptedException | ResourceShareInvitationAlreadyRejectedException | ResourceShareInvitationArnNotFoundException | ResourceShareInvitationExpiredException | ServerInternalException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("AcceptResourceShareInvitation", input);
   }
@@ -25,18 +20,7 @@ export class RAM extends AWSServiceClient {
     input: AssociateResourceShareRequest,
   ): Effect.Effect<
     AssociateResourceShareResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | InvalidStateTransitionException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ResourceShareLimitExceededException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnknownResourceException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | InvalidParameterException | InvalidStateTransitionException | MalformedArnException | OperationNotPermittedException | ResourceShareLimitExceededException | ServerInternalException | ServiceUnavailableException | ThrottlingException | UnknownResourceException | CommonAwsError
   > {
     return this.call("AssociateResourceShare", input);
   }
@@ -44,14 +28,7 @@ export class RAM extends AWSServiceClient {
     input: AssociateResourceSharePermissionRequest,
   ): Effect.Effect<
     AssociateResourceSharePermissionResponse,
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidClientTokenException | InvalidParameterException | MalformedArnException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("AssociateResourceSharePermission", input);
   }
@@ -59,17 +36,7 @@ export class RAM extends AWSServiceClient {
     input: CreatePermissionRequest,
   ): Effect.Effect<
     CreatePermissionResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | InvalidPolicyException
-    | MalformedPolicyTemplateException
-    | OperationNotPermittedException
-    | PermissionAlreadyExistsException
-    | PermissionLimitExceededException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | InvalidParameterException | InvalidPolicyException | MalformedPolicyTemplateException | OperationNotPermittedException | PermissionAlreadyExistsException | PermissionLimitExceededException | ServerInternalException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreatePermission", input);
   }
@@ -77,17 +44,7 @@ export class RAM extends AWSServiceClient {
     input: CreatePermissionVersionRequest,
   ): Effect.Effect<
     CreatePermissionVersionResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | InvalidPolicyException
-    | MalformedArnException
-    | MalformedPolicyTemplateException
-    | PermissionVersionsLimitExceededException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | InvalidParameterException | InvalidPolicyException | MalformedArnException | MalformedPolicyTemplateException | PermissionVersionsLimitExceededException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("CreatePermissionVersion", input);
   }
@@ -95,19 +52,7 @@ export class RAM extends AWSServiceClient {
     input: CreateResourceShareRequest,
   ): Effect.Effect<
     CreateResourceShareResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | InvalidStateTransitionException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ResourceShareLimitExceededException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | TagLimitExceededException
-    | TagPolicyViolationException
-    | UnknownResourceException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | InvalidParameterException | InvalidStateTransitionException | MalformedArnException | OperationNotPermittedException | ResourceShareLimitExceededException | ServerInternalException | ServiceUnavailableException | TagLimitExceededException | TagPolicyViolationException | UnknownResourceException | CommonAwsError
   > {
     return this.call("CreateResourceShare", input);
   }
@@ -115,14 +60,7 @@ export class RAM extends AWSServiceClient {
     input: DeletePermissionRequest,
   ): Effect.Effect<
     DeletePermissionResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | MalformedArnException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("DeletePermission", input);
   }
@@ -130,15 +68,7 @@ export class RAM extends AWSServiceClient {
     input: DeletePermissionVersionRequest,
   ): Effect.Effect<
     DeletePermissionVersionResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | InvalidParameterException | MalformedArnException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("DeletePermissionVersion", input);
   }
@@ -146,16 +76,7 @@ export class RAM extends AWSServiceClient {
     input: DeleteResourceShareRequest,
   ): Effect.Effect<
     DeleteResourceShareResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | InvalidStateTransitionException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | InvalidParameterException | InvalidStateTransitionException | MalformedArnException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("DeleteResourceShare", input);
   }
@@ -163,17 +84,7 @@ export class RAM extends AWSServiceClient {
     input: DisassociateResourceShareRequest,
   ): Effect.Effect<
     DisassociateResourceShareResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | InvalidStateTransitionException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ResourceShareLimitExceededException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | InvalidParameterException | InvalidStateTransitionException | MalformedArnException | OperationNotPermittedException | ResourceShareLimitExceededException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("DisassociateResourceShare", input);
   }
@@ -181,15 +92,7 @@ export class RAM extends AWSServiceClient {
     input: DisassociateResourceSharePermissionRequest,
   ): Effect.Effect<
     DisassociateResourceSharePermissionResponse,
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | InvalidStateTransitionException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidClientTokenException | InvalidParameterException | InvalidStateTransitionException | MalformedArnException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("DisassociateResourceSharePermission", input);
   }
@@ -197,10 +100,7 @@ export class RAM extends AWSServiceClient {
     input: EnableSharingWithAwsOrganizationRequest,
   ): Effect.Effect<
     EnableSharingWithAwsOrganizationResponse,
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | CommonAwsError
+    OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("EnableSharingWithAwsOrganization", input);
   }
@@ -208,13 +108,7 @@ export class RAM extends AWSServiceClient {
     input: GetPermissionRequest,
   ): Effect.Effect<
     GetPermissionResponse,
-    | InvalidParameterException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidParameterException | MalformedArnException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("GetPermission", input);
   }
@@ -222,13 +116,7 @@ export class RAM extends AWSServiceClient {
     input: GetResourcePoliciesRequest,
   ): Effect.Effect<
     GetResourcePoliciesResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | ResourceArnNotFoundException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | MalformedArnException | ResourceArnNotFoundException | ServerInternalException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetResourcePolicies", input);
   }
@@ -236,14 +124,7 @@ export class RAM extends AWSServiceClient {
     input: GetResourceShareAssociationsRequest,
   ): Effect.Effect<
     GetResourceShareAssociationsResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | MalformedArnException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("GetResourceShareAssociations", input);
   }
@@ -251,15 +132,7 @@ export class RAM extends AWSServiceClient {
     input: GetResourceShareInvitationsRequest,
   ): Effect.Effect<
     GetResourceShareInvitationsResponse,
-    | InvalidMaxResultsException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | ResourceShareInvitationArnNotFoundException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidMaxResultsException | InvalidNextTokenException | InvalidParameterException | MalformedArnException | ResourceShareInvitationArnNotFoundException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("GetResourceShareInvitations", input);
   }
@@ -267,13 +140,7 @@ export class RAM extends AWSServiceClient {
     input: GetResourceSharesRequest,
   ): Effect.Effect<
     GetResourceSharesResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | MalformedArnException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("GetResourceShares", input);
   }
@@ -281,16 +148,7 @@ export class RAM extends AWSServiceClient {
     input: ListPendingInvitationResourcesRequest,
   ): Effect.Effect<
     ListPendingInvitationResourcesResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | MissingRequiredParameterException
-    | ResourceShareInvitationAlreadyRejectedException
-    | ResourceShareInvitationArnNotFoundException
-    | ResourceShareInvitationExpiredException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | MalformedArnException | MissingRequiredParameterException | ResourceShareInvitationAlreadyRejectedException | ResourceShareInvitationArnNotFoundException | ResourceShareInvitationExpiredException | ServerInternalException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListPendingInvitationResources", input);
   }
@@ -298,12 +156,7 @@ export class RAM extends AWSServiceClient {
     input: ListPermissionAssociationsRequest,
   ): Effect.Effect<
     ListPermissionAssociationsResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | MalformedArnException | ServerInternalException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListPermissionAssociations", input);
   }
@@ -311,12 +164,7 @@ export class RAM extends AWSServiceClient {
     input: ListPermissionsRequest,
   ): Effect.Effect<
     ListPermissionsResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListPermissions", input);
   }
@@ -324,14 +172,7 @@ export class RAM extends AWSServiceClient {
     input: ListPermissionVersionsRequest,
   ): Effect.Effect<
     ListPermissionVersionsResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | MalformedArnException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("ListPermissionVersions", input);
   }
@@ -339,13 +180,7 @@ export class RAM extends AWSServiceClient {
     input: ListPrincipalsRequest,
   ): Effect.Effect<
     ListPrincipalsResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | MalformedArnException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("ListPrincipals", input);
   }
@@ -353,11 +188,7 @@ export class RAM extends AWSServiceClient {
     input: ListReplacePermissionAssociationsWorkRequest,
   ): Effect.Effect<
     ListReplacePermissionAssociationsWorkResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | ServerInternalException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListReplacePermissionAssociationsWork", input);
   }
@@ -365,14 +196,7 @@ export class RAM extends AWSServiceClient {
     input: ListResourcesRequest,
   ): Effect.Effect<
     ListResourcesResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidResourceTypeException
-    | MalformedArnException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | InvalidResourceTypeException | MalformedArnException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("ListResources", input);
   }
@@ -380,14 +204,7 @@ export class RAM extends AWSServiceClient {
     input: ListResourceSharePermissionsRequest,
   ): Effect.Effect<
     ListResourceSharePermissionsResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | MalformedArnException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("ListResourceSharePermissions", input);
   }
@@ -395,11 +212,7 @@ export class RAM extends AWSServiceClient {
     input: ListResourceTypesRequest,
   ): Effect.Effect<
     ListResourceTypesResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | ServerInternalException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListResourceTypes", input);
   }
@@ -407,14 +220,7 @@ export class RAM extends AWSServiceClient {
     input: PromotePermissionCreatedFromPolicyRequest,
   ): Effect.Effect<
     PromotePermissionCreatedFromPolicyResponse,
-    | InvalidParameterException
-    | MalformedArnException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidParameterException | MalformedArnException | MissingRequiredParameterException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("PromotePermissionCreatedFromPolicy", input);
   }
@@ -422,17 +228,7 @@ export class RAM extends AWSServiceClient {
     input: PromoteResourceShareCreatedFromPolicyRequest,
   ): Effect.Effect<
     PromoteResourceShareCreatedFromPolicyResponse,
-    | InvalidParameterException
-    | InvalidStateTransitionException
-    | MalformedArnException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | ResourceShareLimitExceededException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | UnmatchedPolicyPermissionException
-    | CommonAwsError
+    InvalidParameterException | InvalidStateTransitionException | MalformedArnException | MissingRequiredParameterException | OperationNotPermittedException | ResourceShareLimitExceededException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | UnmatchedPolicyPermissionException | CommonAwsError
   > {
     return this.call("PromoteResourceShareCreatedFromPolicy", input);
   }
@@ -440,17 +236,7 @@ export class RAM extends AWSServiceClient {
     input: RejectResourceShareInvitationRequest,
   ): Effect.Effect<
     RejectResourceShareInvitationResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ResourceShareInvitationAlreadyAcceptedException
-    | ResourceShareInvitationAlreadyRejectedException
-    | ResourceShareInvitationArnNotFoundException
-    | ResourceShareInvitationExpiredException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | MalformedArnException | OperationNotPermittedException | ResourceShareInvitationAlreadyAcceptedException | ResourceShareInvitationAlreadyRejectedException | ResourceShareInvitationArnNotFoundException | ResourceShareInvitationExpiredException | ServerInternalException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("RejectResourceShareInvitation", input);
   }
@@ -458,15 +244,7 @@ export class RAM extends AWSServiceClient {
     input: ReplacePermissionAssociationsRequest,
   ): Effect.Effect<
     ReplacePermissionAssociationsResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | InvalidParameterException | MalformedArnException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("ReplacePermissionAssociations", input);
   }
@@ -474,14 +252,7 @@ export class RAM extends AWSServiceClient {
     input: SetDefaultPermissionVersionRequest,
   ): Effect.Effect<
     SetDefaultPermissionVersionResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | InvalidParameterException | MalformedArnException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("SetDefaultPermissionVersion", input);
   }
@@ -489,15 +260,7 @@ export class RAM extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InvalidParameterException
-    | MalformedArnException
-    | ResourceArnNotFoundException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | TagLimitExceededException
-    | TagPolicyViolationException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidParameterException | MalformedArnException | ResourceArnNotFoundException | ServerInternalException | ServiceUnavailableException | TagLimitExceededException | TagPolicyViolationException | UnknownResourceException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -505,12 +268,7 @@ export class RAM extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InvalidParameterException
-    | MalformedArnException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    InvalidParameterException | MalformedArnException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -518,16 +276,7 @@ export class RAM extends AWSServiceClient {
     input: UpdateResourceShareRequest,
   ): Effect.Effect<
     UpdateResourceShareResponse,
-    | IdempotentParameterMismatchException
-    | InvalidClientTokenException
-    | InvalidParameterException
-    | MalformedArnException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | ServerInternalException
-    | ServiceUnavailableException
-    | UnknownResourceException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InvalidClientTokenException | InvalidParameterException | MalformedArnException | MissingRequiredParameterException | OperationNotPermittedException | ServerInternalException | ServiceUnavailableException | UnknownResourceException | CommonAwsError
   > {
     return this.call("UpdateResourceShare", input);
   }
@@ -663,7 +412,8 @@ export interface DisassociateResourceShareResponse {
   resourceShareAssociations?: Array<ResourceShareAssociation>;
   clientToken?: string;
 }
-export interface EnableSharingWithAwsOrganizationRequest {}
+export interface EnableSharingWithAwsOrganizationRequest {
+}
 export interface EnableSharingWithAwsOrganizationResponse {
   returnValue?: boolean;
 }
@@ -890,10 +640,7 @@ export declare class PermissionAlreadyExistsException extends EffectData.TaggedE
   readonly message: string;
 }> {}
 export type PermissionArnList = Array<string>;
-export type PermissionFeatureSet =
-  | "CREATED_FROM_POLICY"
-  | "PROMOTING_TO_STANDARD"
-  | "STANDARD";
+export type PermissionFeatureSet = "CREATED_FROM_POLICY" | "PROMOTING_TO_STANDARD" | "STANDARD";
 export declare class PermissionLimitExceededException extends EffectData.TaggedError(
   "PermissionLimitExceededException",
 )<{
@@ -901,11 +648,7 @@ export declare class PermissionLimitExceededException extends EffectData.TaggedE
 }> {}
 export type PermissionName = string;
 
-export type PermissionStatus =
-  | "ATTACHABLE"
-  | "UNATTACHABLE"
-  | "DELETING"
-  | "DELETED";
+export type PermissionStatus = "ATTACHABLE" | "UNATTACHABLE" | "DELETING" | "DELETED";
 export type PermissionType = "CUSTOMER_MANAGED" | "AWS_MANAGED";
 export type PermissionTypeFilter = "ALL" | "AWS_MANAGED" | "CUSTOMER_MANAGED";
 export declare class PermissionVersionsLimitExceededException extends EffectData.TaggedError(
@@ -970,12 +713,8 @@ export interface ReplacePermissionAssociationsWork {
   lastUpdatedTime?: Date | string;
 }
 export type ReplacePermissionAssociationsWorkIdList = Array<string>;
-export type ReplacePermissionAssociationsWorkList =
-  Array<ReplacePermissionAssociationsWork>;
-export type ReplacePermissionAssociationsWorkStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED";
+export type ReplacePermissionAssociationsWorkList = Array<ReplacePermissionAssociationsWork>;
+export type ReplacePermissionAssociationsWorkStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED";
 export interface Resource {
   arn?: string;
   type?: string;
@@ -1022,17 +761,9 @@ export interface ResourceShareAssociation {
   external?: boolean;
 }
 export type ResourceShareAssociationList = Array<ResourceShareAssociation>;
-export type ResourceShareAssociationStatus =
-  | "ASSOCIATING"
-  | "ASSOCIATED"
-  | "FAILED"
-  | "DISASSOCIATING"
-  | "DISASSOCIATED";
+export type ResourceShareAssociationStatus = "ASSOCIATING" | "ASSOCIATED" | "FAILED" | "DISASSOCIATING" | "DISASSOCIATED";
 export type ResourceShareAssociationType = "PRINCIPAL" | "RESOURCE";
-export type ResourceShareFeatureSet =
-  | "CREATED_FROM_POLICY"
-  | "PROMOTING_TO_STANDARD"
-  | "STANDARD";
+export type ResourceShareFeatureSet = "CREATED_FROM_POLICY" | "PROMOTING_TO_STANDARD" | "STANDARD";
 export interface ResourceShareInvitation {
   resourceShareInvitationArn?: string;
   resourceShareName?: string;
@@ -1066,11 +797,7 @@ export declare class ResourceShareInvitationExpiredException extends EffectData.
   readonly message: string;
 }> {}
 export type ResourceShareInvitationList = Array<ResourceShareInvitation>;
-export type ResourceShareInvitationStatus =
-  | "PENDING"
-  | "ACCEPTED"
-  | "REJECTED"
-  | "EXPIRED";
+export type ResourceShareInvitationStatus = "PENDING" | "ACCEPTED" | "REJECTED" | "EXPIRED";
 export declare class ResourceShareLimitExceededException extends EffectData.TaggedError(
   "ResourceShareLimitExceededException",
 )<{
@@ -1107,18 +834,8 @@ export interface ResourceSharePermissionSummary {
   featureSet?: PermissionFeatureSet;
   tags?: Array<Tag>;
 }
-export type ResourceShareStatus =
-  | "PENDING"
-  | "ACTIVE"
-  | "FAILED"
-  | "DELETING"
-  | "DELETED";
-export type ResourceStatus =
-  | "AVAILABLE"
-  | "ZONAL_RESOURCE_INACCESSIBLE"
-  | "LIMIT_EXCEEDED"
-  | "UNAVAILABLE"
-  | "PENDING";
+export type ResourceShareStatus = "PENDING" | "ACTIVE" | "FAILED" | "DELETING" | "DELETED";
+export type ResourceStatus = "AVAILABLE" | "ZONAL_RESOURCE_INACCESSIBLE" | "LIMIT_EXCEEDED" | "UNAVAILABLE" | "PENDING";
 export declare class ServerInternalException extends EffectData.TaggedError(
   "ServerInternalException",
 )<{
@@ -1175,7 +892,8 @@ export interface TagResourceRequest {
   tags: Array<Tag>;
   resourceArn?: string;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TagValueList = Array<string>;
@@ -1199,7 +917,8 @@ export interface UntagResourceRequest {
   tagKeys: Array<string>;
   resourceArn?: string;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateResourceShareRequest {
   resourceShareArn: string;
   name?: string;
@@ -1703,3 +1422,4 @@ export declare namespace UpdateResourceShare {
     | UnknownResourceException
     | CommonAwsError;
 }
+

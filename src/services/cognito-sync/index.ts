@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class CognitoSync extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cognito-sync", new RestJson1Protocol(), cfg);
+  }
+
   bulkPublish(
     input: BulkPublishRequest,
   ): Effect.Effect<
     BulkPublishResponse,
-    | AlreadyStreamedException
-    | DuplicateRequestException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AlreadyStreamedException | DuplicateRequestException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("BulkPublish", input);
   }
@@ -21,13 +20,7 @@ export class CognitoSync extends AWSServiceClient {
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     DeleteDatasetResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteDataset", input);
   }
@@ -35,12 +28,7 @@ export class CognitoSync extends AWSServiceClient {
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeDataset", input);
   }
@@ -48,12 +36,7 @@ export class CognitoSync extends AWSServiceClient {
     input: DescribeIdentityPoolUsageRequest,
   ): Effect.Effect<
     DescribeIdentityPoolUsageResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeIdentityPoolUsage", input);
   }
@@ -61,12 +44,7 @@ export class CognitoSync extends AWSServiceClient {
     input: DescribeIdentityUsageRequest,
   ): Effect.Effect<
     DescribeIdentityUsageResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeIdentityUsage", input);
   }
@@ -74,11 +52,7 @@ export class CognitoSync extends AWSServiceClient {
     input: GetBulkPublishDetailsRequest,
   ): Effect.Effect<
     GetBulkPublishDetailsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetBulkPublishDetails", input);
   }
@@ -86,12 +60,7 @@ export class CognitoSync extends AWSServiceClient {
     input: GetCognitoEventsRequest,
   ): Effect.Effect<
     GetCognitoEventsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetCognitoEvents", input);
   }
@@ -99,12 +68,7 @@ export class CognitoSync extends AWSServiceClient {
     input: GetIdentityPoolConfigurationRequest,
   ): Effect.Effect<
     GetIdentityPoolConfigurationResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetIdentityPoolConfiguration", input);
   }
@@ -112,11 +76,7 @@ export class CognitoSync extends AWSServiceClient {
     input: ListDatasetsRequest,
   ): Effect.Effect<
     ListDatasetsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListDatasets", input);
   }
@@ -124,11 +84,7 @@ export class CognitoSync extends AWSServiceClient {
     input: ListIdentityPoolUsageRequest,
   ): Effect.Effect<
     ListIdentityPoolUsageResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListIdentityPoolUsage", input);
   }
@@ -136,11 +92,7 @@ export class CognitoSync extends AWSServiceClient {
     input: ListRecordsRequest,
   ): Effect.Effect<
     ListRecordsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListRecords", input);
   }
@@ -148,13 +100,7 @@ export class CognitoSync extends AWSServiceClient {
     input: RegisterDeviceRequest,
   ): Effect.Effect<
     RegisterDeviceResponse,
-    | InternalErrorException
-    | InvalidConfigurationException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidConfigurationException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("RegisterDevice", input);
   }
@@ -162,12 +108,7 @@ export class CognitoSync extends AWSServiceClient {
     input: SetCognitoEventsRequest,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("SetCognitoEvents", input);
   }
@@ -175,13 +116,7 @@ export class CognitoSync extends AWSServiceClient {
     input: SetIdentityPoolConfigurationRequest,
   ): Effect.Effect<
     SetIdentityPoolConfigurationResponse,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("SetIdentityPoolConfiguration", input);
   }
@@ -189,13 +124,7 @@ export class CognitoSync extends AWSServiceClient {
     input: SubscribeToDatasetRequest,
   ): Effect.Effect<
     SubscribeToDatasetResponse,
-    | InternalErrorException
-    | InvalidConfigurationException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidConfigurationException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("SubscribeToDataset", input);
   }
@@ -203,13 +132,7 @@ export class CognitoSync extends AWSServiceClient {
     input: UnsubscribeFromDatasetRequest,
   ): Effect.Effect<
     UnsubscribeFromDatasetResponse,
-    | InternalErrorException
-    | InvalidConfigurationException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidConfigurationException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UnsubscribeFromDataset", input);
   }
@@ -217,16 +140,7 @@ export class CognitoSync extends AWSServiceClient {
     input: UpdateRecordsRequest,
   ): Effect.Effect<
     UpdateRecordsResponse,
-    | InternalErrorException
-    | InvalidLambdaFunctionOutputException
-    | InvalidParameterException
-    | LambdaThrottledException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidLambdaFunctionOutputException | InvalidParameterException | LambdaThrottledException | LimitExceededException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateRecords", input);
   }
@@ -252,11 +166,7 @@ export interface BulkPublishRequest {
 export interface BulkPublishResponse {
   IdentityPoolId?: string;
 }
-export type BulkPublishStatus =
-  | "NOT_STARTED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCEEDED";
+export type BulkPublishStatus = "NOT_STARTED" | "IN_PROGRESS" | "FAILED" | "SUCCEEDED";
 export type ClientContext = string;
 
 export type CognitoEventType = string;
@@ -524,7 +434,8 @@ export interface SubscribeToDatasetRequest {
   DatasetName: string;
   DeviceId: string;
 }
-export interface SubscribeToDatasetResponse {}
+export interface SubscribeToDatasetResponse {
+}
 export type SyncSessionToken = string;
 
 export declare class TooManyRequestsException extends EffectData.TaggedError(
@@ -538,7 +449,8 @@ export interface UnsubscribeFromDatasetRequest {
   DatasetName: string;
   DeviceId: string;
 }
-export interface UnsubscribeFromDatasetResponse {}
+export interface UnsubscribeFromDatasetResponse {
+}
 export interface UpdateRecordsRequest {
   IdentityPoolId: string;
   IdentityId: string;
@@ -760,3 +672,4 @@ export declare namespace UpdateRecords {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

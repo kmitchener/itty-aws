@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class GeoPlaces extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("geo-places", new RestJson1Protocol(), cfg);
+  }
+
   autocomplete(
     input: AutocompleteRequest,
   ): Effect.Effect<
     AutocompleteResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("Autocomplete", input);
   }
@@ -19,11 +20,7 @@ export class GeoPlaces extends AWSServiceClient {
     input: GeocodeRequest,
   ): Effect.Effect<
     GeocodeResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("Geocode", input);
   }
@@ -31,11 +28,7 @@ export class GeoPlaces extends AWSServiceClient {
     input: GetPlaceRequest,
   ): Effect.Effect<
     GetPlaceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPlace", input);
   }
@@ -43,11 +36,7 @@ export class GeoPlaces extends AWSServiceClient {
     input: ReverseGeocodeRequest,
   ): Effect.Effect<
     ReverseGeocodeResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ReverseGeocode", input);
   }
@@ -55,11 +44,7 @@ export class GeoPlaces extends AWSServiceClient {
     input: SearchNearbyRequest,
   ): Effect.Effect<
     SearchNearbyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchNearby", input);
   }
@@ -67,11 +52,7 @@ export class GeoPlaces extends AWSServiceClient {
     input: SearchTextRequest,
   ): Effect.Effect<
     SearchTextResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchText", input);
   }
@@ -79,11 +60,7 @@ export class GeoPlaces extends AWSServiceClient {
     input: SuggestRequest,
   ): Effect.Effect<
     SuggestResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("Suggest", input);
   }
@@ -454,8 +431,7 @@ export interface ParsedQuerySecondaryAddressComponent {
   Number: string;
   Designator: string;
 }
-export type ParsedQuerySecondaryAddressComponentList =
-  Array<ParsedQuerySecondaryAddressComponent>;
+export type ParsedQuerySecondaryAddressComponentList = Array<ParsedQuerySecondaryAddressComponent>;
 export interface PhonemeDetails {
   Title?: Array<PhonemeTranscription>;
   Address?: AddressComponentPhonemes;
@@ -664,8 +640,7 @@ export type SecondaryAddressComponentList = Array<SecondaryAddressComponent>;
 export interface SecondaryAddressComponentMatchScore {
   Number?: number;
 }
-export type SecondaryAddressComponentMatchScoreList =
-  Array<SecondaryAddressComponentMatchScore>;
+export type SecondaryAddressComponentMatchScoreList = Array<SecondaryAddressComponentMatchScore>;
 export type SensitiveBoolean = boolean;
 
 export type SensitiveString = string;
@@ -867,3 +842,4 @@ export declare namespace Suggest {
     | ValidationException
     | CommonAwsError;
 }
+

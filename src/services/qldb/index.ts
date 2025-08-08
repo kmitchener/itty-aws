@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class QLDB extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("qldb", new RestJson1Protocol(), cfg);
+  }
+
   cancelJournalKinesisStream(
     input: CancelJournalKinesisStreamRequest,
   ): Effect.Effect<
     CancelJournalKinesisStreamResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ResourcePreconditionNotMetException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ResourcePreconditionNotMetException | CommonAwsError
   > {
     return this.call("CancelJournalKinesisStream", input);
   }
@@ -18,11 +20,7 @@ export class QLDB extends AWSServiceClient {
     input: CreateLedgerRequest,
   ): Effect.Effect<
     CreateLedgerResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceInUseException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | ResourceAlreadyExistsException | ResourceInUseException | CommonAwsError
   > {
     return this.call("CreateLedger", input);
   }
@@ -30,11 +28,7 @@ export class QLDB extends AWSServiceClient {
     input: DeleteLedgerRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ResourcePreconditionNotMetException
-    | CommonAwsError
+    InvalidParameterException | ResourceInUseException | ResourceNotFoundException | ResourcePreconditionNotMetException | CommonAwsError
   > {
     return this.call("DeleteLedger", input);
   }
@@ -42,10 +36,7 @@ export class QLDB extends AWSServiceClient {
     input: DescribeJournalKinesisStreamRequest,
   ): Effect.Effect<
     DescribeJournalKinesisStreamResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ResourcePreconditionNotMetException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ResourcePreconditionNotMetException | CommonAwsError
   > {
     return this.call("DescribeJournalKinesisStream", input);
   }
@@ -69,9 +60,7 @@ export class QLDB extends AWSServiceClient {
     input: ExportJournalToS3Request,
   ): Effect.Effect<
     ExportJournalToS3Response,
-    | ResourceNotFoundException
-    | ResourcePreconditionNotMetException
-    | CommonAwsError
+    ResourceNotFoundException | ResourcePreconditionNotMetException | CommonAwsError
   > {
     return this.call("ExportJournalToS3", input);
   }
@@ -79,10 +68,7 @@ export class QLDB extends AWSServiceClient {
     input: GetBlockRequest,
   ): Effect.Effect<
     GetBlockResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ResourcePreconditionNotMetException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ResourcePreconditionNotMetException | CommonAwsError
   > {
     return this.call("GetBlock", input);
   }
@@ -90,10 +76,7 @@ export class QLDB extends AWSServiceClient {
     input: GetDigestRequest,
   ): Effect.Effect<
     GetDigestResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ResourcePreconditionNotMetException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ResourcePreconditionNotMetException | CommonAwsError
   > {
     return this.call("GetDigest", input);
   }
@@ -101,10 +84,7 @@ export class QLDB extends AWSServiceClient {
     input: GetRevisionRequest,
   ): Effect.Effect<
     GetRevisionResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ResourcePreconditionNotMetException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ResourcePreconditionNotMetException | CommonAwsError
   > {
     return this.call("GetRevision", input);
   }
@@ -112,26 +92,32 @@ export class QLDB extends AWSServiceClient {
     input: ListJournalKinesisStreamsForLedgerRequest,
   ): Effect.Effect<
     ListJournalKinesisStreamsForLedgerResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ResourcePreconditionNotMetException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ResourcePreconditionNotMetException | CommonAwsError
   > {
     return this.call("ListJournalKinesisStreamsForLedger", input);
   }
   listJournalS3Exports(
     input: ListJournalS3ExportsRequest,
-  ): Effect.Effect<ListJournalS3ExportsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    ListJournalS3ExportsResponse,
+    CommonAwsError
+  > {
     return this.call("ListJournalS3Exports", input);
   }
   listJournalS3ExportsForLedger(
     input: ListJournalS3ExportsForLedgerRequest,
-  ): Effect.Effect<ListJournalS3ExportsForLedgerResponse, CommonAwsError> {
+  ): Effect.Effect<
+    ListJournalS3ExportsForLedgerResponse,
+    CommonAwsError
+  > {
     return this.call("ListJournalS3ExportsForLedger", input);
   }
   listLedgers(
     input: ListLedgersRequest,
-  ): Effect.Effect<ListLedgersResponse, CommonAwsError> {
+  ): Effect.Effect<
+    ListLedgersResponse,
+    CommonAwsError
+  > {
     return this.call("ListLedgers", input);
   }
   listTagsForResource(
@@ -146,10 +132,7 @@ export class QLDB extends AWSServiceClient {
     input: StreamJournalToKinesisRequest,
   ): Effect.Effect<
     StreamJournalToKinesisResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ResourcePreconditionNotMetException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ResourcePreconditionNotMetException | CommonAwsError
   > {
     return this.call("StreamJournalToKinesis", input);
   }
@@ -314,8 +297,7 @@ export interface JournalKinesisStreamDescription {
   ErrorCause?: ErrorCause;
   StreamName: string;
 }
-export type JournalKinesisStreamDescriptionList =
-  Array<JournalKinesisStreamDescription>;
+export type JournalKinesisStreamDescriptionList = Array<JournalKinesisStreamDescription>;
 export interface JournalS3ExportDescription {
   LedgerName: string;
   ExportId: string;
@@ -462,12 +444,7 @@ export interface StreamJournalToKinesisResponse {
 }
 export type StreamName = string;
 
-export type StreamStatus =
-  | "ACTIVE"
-  | "COMPLETED"
-  | "CANCELED"
-  | "FAILED"
-  | "IMPAIRED";
+export type StreamStatus = "ACTIVE" | "COMPLETED" | "CANCELED" | "FAILED" | "IMPAIRED";
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -475,7 +452,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -487,7 +465,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateLedgerPermissionsModeRequest {
   Name: string;
   PermissionsMode: PermissionsMode;
@@ -558,7 +537,9 @@ export declare namespace DescribeJournalKinesisStream {
 export declare namespace DescribeJournalS3Export {
   export type Input = DescribeJournalS3ExportRequest;
   export type Output = DescribeJournalS3ExportResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLedger {
@@ -622,19 +603,22 @@ export declare namespace ListJournalKinesisStreamsForLedger {
 export declare namespace ListJournalS3Exports {
   export type Input = ListJournalS3ExportsRequest;
   export type Output = ListJournalS3ExportsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListJournalS3ExportsForLedger {
   export type Input = ListJournalS3ExportsForLedgerRequest;
   export type Output = ListJournalS3ExportsForLedgerResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListLedgers {
   export type Input = ListLedgersRequest;
   export type Output = ListLedgersResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
@@ -691,3 +675,4 @@ export declare namespace UpdateLedgerPermissionsMode {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

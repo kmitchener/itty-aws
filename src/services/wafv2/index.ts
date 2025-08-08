@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class WAFV2 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("wafv2", new AwsJson11Protocol(), cfg);
+  }
+
   associateWebACL(
     input: AssociateWebACLRequest,
   ): Effect.Effect<
     AssociateWebACLResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFUnavailableEntityException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFUnavailableEntityException | CommonAwsError
   > {
     return this.call("AssociateWebACL", input);
   }
@@ -20,16 +20,7 @@ export class WAFV2 extends AWSServiceClient {
     input: CheckCapacityRequest,
   ): Effect.Effect<
     CheckCapacityResponse,
-    | WAFExpiredManagedRuleGroupVersionException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFInvalidResourceException
-    | WAFLimitsExceededException
-    | WAFNonexistentItemException
-    | WAFSubscriptionNotFoundException
-    | WAFUnavailableEntityException
-    | CommonAwsError
+    WAFExpiredManagedRuleGroupVersionException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFInvalidResourceException | WAFLimitsExceededException | WAFNonexistentItemException | WAFSubscriptionNotFoundException | WAFUnavailableEntityException | CommonAwsError
   > {
     return this.call("CheckCapacity", input);
   }
@@ -37,11 +28,7 @@ export class WAFV2 extends AWSServiceClient {
     input: CreateAPIKeyRequest,
   ): Effect.Effect<
     CreateAPIKeyResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | CommonAwsError
   > {
     return this.call("CreateAPIKey", input);
   }
@@ -49,15 +36,7 @@ export class WAFV2 extends AWSServiceClient {
     input: CreateIPSetRequest,
   ): Effect.Effect<
     CreateIPSetResponse,
-    | WAFDuplicateItemException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFOptimisticLockException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFDuplicateItemException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFOptimisticLockException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("CreateIPSet", input);
   }
@@ -65,15 +44,7 @@ export class WAFV2 extends AWSServiceClient {
     input: CreateRegexPatternSetRequest,
   ): Effect.Effect<
     CreateRegexPatternSetResponse,
-    | WAFDuplicateItemException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFOptimisticLockException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFDuplicateItemException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFOptimisticLockException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("CreateRegexPatternSet", input);
   }
@@ -81,18 +52,7 @@ export class WAFV2 extends AWSServiceClient {
     input: CreateRuleGroupRequest,
   ): Effect.Effect<
     CreateRuleGroupResponse,
-    | WAFDuplicateItemException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | WAFSubscriptionNotFoundException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | WAFUnavailableEntityException
-    | CommonAwsError
+    WAFDuplicateItemException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentItemException | WAFOptimisticLockException | WAFSubscriptionNotFoundException | WAFTagOperationException | WAFTagOperationInternalErrorException | WAFUnavailableEntityException | CommonAwsError
   > {
     return this.call("CreateRuleGroup", input);
   }
@@ -100,21 +60,7 @@ export class WAFV2 extends AWSServiceClient {
     input: CreateWebACLRequest,
   ): Effect.Effect<
     CreateWebACLResponse,
-    | WAFConfigurationWarningException
-    | WAFDuplicateItemException
-    | WAFExpiredManagedRuleGroupVersionException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFInvalidResourceException
-    | WAFLimitsExceededException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | WAFSubscriptionNotFoundException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | WAFUnavailableEntityException
-    | CommonAwsError
+    WAFConfigurationWarningException | WAFDuplicateItemException | WAFExpiredManagedRuleGroupVersionException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFInvalidResourceException | WAFLimitsExceededException | WAFNonexistentItemException | WAFOptimisticLockException | WAFSubscriptionNotFoundException | WAFTagOperationException | WAFTagOperationInternalErrorException | WAFUnavailableEntityException | CommonAwsError
   > {
     return this.call("CreateWebACL", input);
   }
@@ -122,12 +68,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DeleteAPIKeyRequest,
   ): Effect.Effect<
     DeleteAPIKeyResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFOptimisticLockException | CommonAwsError
   > {
     return this.call("DeleteAPIKey", input);
   }
@@ -135,12 +76,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DeleteFirewallManagerRuleGroupsRequest,
   ): Effect.Effect<
     DeleteFirewallManagerRuleGroupsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFOptimisticLockException | CommonAwsError
   > {
     return this.call("DeleteFirewallManagerRuleGroups", input);
   }
@@ -148,15 +84,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DeleteIPSetRequest,
   ): Effect.Effect<
     DeleteIPSetResponse,
-    | WAFAssociatedItemException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFAssociatedItemException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFOptimisticLockException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("DeleteIPSet", input);
   }
@@ -164,12 +92,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DeleteLoggingConfigurationRequest,
   ): Effect.Effect<
     DeleteLoggingConfigurationResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFOptimisticLockException | CommonAwsError
   > {
     return this.call("DeleteLoggingConfiguration", input);
   }
@@ -177,10 +100,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DeletePermissionPolicyRequest,
   ): Effect.Effect<
     DeletePermissionPolicyResponse,
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("DeletePermissionPolicy", input);
   }
@@ -188,15 +108,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DeleteRegexPatternSetRequest,
   ): Effect.Effect<
     DeleteRegexPatternSetResponse,
-    | WAFAssociatedItemException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFAssociatedItemException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFOptimisticLockException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("DeleteRegexPatternSet", input);
   }
@@ -204,15 +116,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DeleteRuleGroupRequest,
   ): Effect.Effect<
     DeleteRuleGroupResponse,
-    | WAFAssociatedItemException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFAssociatedItemException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFOptimisticLockException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("DeleteRuleGroup", input);
   }
@@ -220,15 +124,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DeleteWebACLRequest,
   ): Effect.Effect<
     DeleteWebACLResponse,
-    | WAFAssociatedItemException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFAssociatedItemException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFOptimisticLockException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("DeleteWebACL", input);
   }
@@ -236,10 +132,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DescribeAllManagedProductsRequest,
   ): Effect.Effect<
     DescribeAllManagedProductsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | CommonAwsError
   > {
     return this.call("DescribeAllManagedProducts", input);
   }
@@ -247,10 +140,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DescribeManagedProductsByVendorRequest,
   ): Effect.Effect<
     DescribeManagedProductsByVendorResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | CommonAwsError
   > {
     return this.call("DescribeManagedProductsByVendor", input);
   }
@@ -258,13 +148,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DescribeManagedRuleGroupRequest,
   ): Effect.Effect<
     DescribeManagedRuleGroupResponse,
-    | WAFExpiredManagedRuleGroupVersionException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFInvalidResourceException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFExpiredManagedRuleGroupVersionException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFInvalidResourceException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("DescribeManagedRuleGroup", input);
   }
@@ -272,11 +156,7 @@ export class WAFV2 extends AWSServiceClient {
     input: DisassociateWebACLRequest,
   ): Effect.Effect<
     DisassociateWebACLResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("DisassociateWebACL", input);
   }
@@ -284,11 +164,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GenerateMobileSdkReleaseUrlRequest,
   ): Effect.Effect<
     GenerateMobileSdkReleaseUrlResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GenerateMobileSdkReleaseUrl", input);
   }
@@ -296,12 +172,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetDecryptedAPIKeyRequest,
   ): Effect.Effect<
     GetDecryptedAPIKeyResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFInvalidResourceException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFInvalidResourceException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetDecryptedAPIKey", input);
   }
@@ -309,11 +180,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetIPSetRequest,
   ): Effect.Effect<
     GetIPSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetIPSet", input);
   }
@@ -321,11 +188,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetLoggingConfigurationRequest,
   ): Effect.Effect<
     GetLoggingConfigurationResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetLoggingConfiguration", input);
   }
@@ -333,11 +196,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetManagedRuleSetRequest,
   ): Effect.Effect<
     GetManagedRuleSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetManagedRuleSet", input);
   }
@@ -345,11 +204,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetMobileSdkReleaseRequest,
   ): Effect.Effect<
     GetMobileSdkReleaseResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetMobileSdkRelease", input);
   }
@@ -357,10 +212,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetPermissionPolicyRequest,
   ): Effect.Effect<
     GetPermissionPolicyResponse,
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetPermissionPolicy", input);
   }
@@ -368,12 +220,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetRateBasedStatementManagedKeysRequest,
   ): Effect.Effect<
     GetRateBasedStatementManagedKeysResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFUnsupportedAggregateKeyTypeException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFUnsupportedAggregateKeyTypeException | CommonAwsError
   > {
     return this.call("GetRateBasedStatementManagedKeys", input);
   }
@@ -381,11 +228,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetRegexPatternSetRequest,
   ): Effect.Effect<
     GetRegexPatternSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetRegexPatternSet", input);
   }
@@ -393,11 +236,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetRuleGroupRequest,
   ): Effect.Effect<
     GetRuleGroupResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetRuleGroup", input);
   }
@@ -405,10 +244,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetSampledRequestsRequest,
   ): Effect.Effect<
     GetSampledRequestsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetSampledRequests", input);
   }
@@ -416,11 +252,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetWebACLRequest,
   ): Effect.Effect<
     GetWebACLResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetWebACL", input);
   }
@@ -428,12 +260,7 @@ export class WAFV2 extends AWSServiceClient {
     input: GetWebACLForResourceRequest,
   ): Effect.Effect<
     GetWebACLForResourceResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFUnavailableEntityException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFUnavailableEntityException | CommonAwsError
   > {
     return this.call("GetWebACLForResource", input);
   }
@@ -441,11 +268,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListAPIKeysRequest,
   ): Effect.Effect<
     ListAPIKeysResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFInvalidResourceException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFInvalidResourceException | CommonAwsError
   > {
     return this.call("ListAPIKeys", input);
   }
@@ -453,10 +276,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListAvailableManagedRuleGroupsRequest,
   ): Effect.Effect<
     ListAvailableManagedRuleGroupsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | CommonAwsError
   > {
     return this.call("ListAvailableManagedRuleGroups", input);
   }
@@ -464,11 +284,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListAvailableManagedRuleGroupVersionsRequest,
   ): Effect.Effect<
     ListAvailableManagedRuleGroupVersionsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("ListAvailableManagedRuleGroupVersions", input);
   }
@@ -476,10 +292,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListIPSetsRequest,
   ): Effect.Effect<
     ListIPSetsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | CommonAwsError
   > {
     return this.call("ListIPSets", input);
   }
@@ -487,10 +300,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListLoggingConfigurationsRequest,
   ): Effect.Effect<
     ListLoggingConfigurationsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | CommonAwsError
   > {
     return this.call("ListLoggingConfigurations", input);
   }
@@ -498,10 +308,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListManagedRuleSetsRequest,
   ): Effect.Effect<
     ListManagedRuleSetsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | CommonAwsError
   > {
     return this.call("ListManagedRuleSets", input);
   }
@@ -509,10 +316,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListMobileSdkReleasesRequest,
   ): Effect.Effect<
     ListMobileSdkReleasesResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | CommonAwsError
   > {
     return this.call("ListMobileSdkReleases", input);
   }
@@ -520,10 +324,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListRegexPatternSetsRequest,
   ): Effect.Effect<
     ListRegexPatternSetsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | CommonAwsError
   > {
     return this.call("ListRegexPatternSets", input);
   }
@@ -531,11 +332,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListResourcesForWebACLRequest,
   ): Effect.Effect<
     ListResourcesForWebACLResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("ListResourcesForWebACL", input);
   }
@@ -543,10 +340,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListRuleGroupsRequest,
   ): Effect.Effect<
     ListRuleGroupsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | CommonAwsError
   > {
     return this.call("ListRuleGroups", input);
   }
@@ -554,13 +348,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -568,10 +356,7 @@ export class WAFV2 extends AWSServiceClient {
     input: ListWebACLsRequest,
   ): Effect.Effect<
     ListWebACLsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | CommonAwsError
   > {
     return this.call("ListWebACLs", input);
   }
@@ -579,15 +364,7 @@ export class WAFV2 extends AWSServiceClient {
     input: PutLoggingConfigurationRequest,
   ): Effect.Effect<
     PutLoggingConfigurationResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFLogDestinationPermissionIssueException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | WAFServiceLinkedRoleErrorException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFLogDestinationPermissionIssueException | WAFNonexistentItemException | WAFOptimisticLockException | WAFServiceLinkedRoleErrorException | CommonAwsError
   > {
     return this.call("PutLoggingConfiguration", input);
   }
@@ -595,12 +372,7 @@ export class WAFV2 extends AWSServiceClient {
     input: PutManagedRuleSetVersionsRequest,
   ): Effect.Effect<
     PutManagedRuleSetVersionsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFOptimisticLockException | CommonAwsError
   > {
     return this.call("PutManagedRuleSetVersions", input);
   }
@@ -608,11 +380,7 @@ export class WAFV2 extends AWSServiceClient {
     input: PutPermissionPolicyRequest,
   ): Effect.Effect<
     PutPermissionPolicyResponse,
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFInvalidPermissionPolicyException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidParameterException | WAFInvalidPermissionPolicyException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("PutPermissionPolicy", input);
   }
@@ -620,14 +388,7 @@ export class WAFV2 extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentItemException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentItemException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -635,13 +396,7 @@ export class WAFV2 extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -649,14 +404,7 @@ export class WAFV2 extends AWSServiceClient {
     input: UpdateIPSetRequest,
   ): Effect.Effect<
     UpdateIPSetResponse,
-    | WAFDuplicateItemException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | CommonAwsError
+    WAFDuplicateItemException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentItemException | WAFOptimisticLockException | CommonAwsError
   > {
     return this.call("UpdateIPSet", input);
   }
@@ -664,12 +412,7 @@ export class WAFV2 extends AWSServiceClient {
     input: UpdateManagedRuleSetVersionExpiryDateRequest,
   ): Effect.Effect<
     UpdateManagedRuleSetVersionExpiryDateResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | WAFOptimisticLockException | CommonAwsError
   > {
     return this.call("UpdateManagedRuleSetVersionExpiryDate", input);
   }
@@ -677,14 +420,7 @@ export class WAFV2 extends AWSServiceClient {
     input: UpdateRegexPatternSetRequest,
   ): Effect.Effect<
     UpdateRegexPatternSetResponse,
-    | WAFDuplicateItemException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | CommonAwsError
+    WAFDuplicateItemException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentItemException | WAFOptimisticLockException | CommonAwsError
   > {
     return this.call("UpdateRegexPatternSet", input);
   }
@@ -692,17 +428,7 @@ export class WAFV2 extends AWSServiceClient {
     input: UpdateRuleGroupRequest,
   ): Effect.Effect<
     UpdateRuleGroupResponse,
-    | WAFConfigurationWarningException
-    | WAFDuplicateItemException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | WAFSubscriptionNotFoundException
-    | WAFUnavailableEntityException
-    | CommonAwsError
+    WAFConfigurationWarningException | WAFDuplicateItemException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentItemException | WAFOptimisticLockException | WAFSubscriptionNotFoundException | WAFUnavailableEntityException | CommonAwsError
   > {
     return this.call("UpdateRuleGroup", input);
   }
@@ -710,19 +436,7 @@ export class WAFV2 extends AWSServiceClient {
     input: UpdateWebACLRequest,
   ): Effect.Effect<
     UpdateWebACLResponse,
-    | WAFConfigurationWarningException
-    | WAFDuplicateItemException
-    | WAFExpiredManagedRuleGroupVersionException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFInvalidResourceException
-    | WAFLimitsExceededException
-    | WAFNonexistentItemException
-    | WAFOptimisticLockException
-    | WAFSubscriptionNotFoundException
-    | WAFUnavailableEntityException
-    | CommonAwsError
+    WAFConfigurationWarningException | WAFDuplicateItemException | WAFExpiredManagedRuleGroupVersionException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFInvalidResourceException | WAFLimitsExceededException | WAFNonexistentItemException | WAFOptimisticLockException | WAFSubscriptionNotFoundException | WAFUnavailableEntityException | CommonAwsError
   > {
     return this.call("UpdateWebACL", input);
   }
@@ -737,22 +451,18 @@ export type Action = string;
 export interface ActionCondition {
   Action: ActionValue;
 }
-export type ActionValue =
-  | "ALLOW"
-  | "BLOCK"
-  | "COUNT"
-  | "CAPTCHA"
-  | "CHALLENGE"
-  | "EXCLUDED_AS_COUNT";
+export type ActionValue = "ALLOW" | "BLOCK" | "COUNT" | "CAPTCHA" | "CHALLENGE" | "EXCLUDED_AS_COUNT";
 export interface AddressField {
   Identifier: string;
 }
 export type AddressFields = Array<AddressField>;
-export interface All {}
+export interface All {
+}
 export interface AllowAction {
   CustomRequestHandling?: CustomRequestHandling;
 }
-export interface AllQueryArguments {}
+export interface AllQueryArguments {
+}
 export interface AndStatement {
   Statements: Array<Statement>;
 }
@@ -783,22 +493,15 @@ export interface AsnMatchStatement {
   AsnList: Array<number>;
   ForwardedIPConfig?: ForwardedIPConfig;
 }
-export type AssociatedResourceType =
-  | "CLOUDFRONT"
-  | "API_GATEWAY"
-  | "COGNITO_USER_POOL"
-  | "APP_RUNNER_SERVICE"
-  | "VERIFIED_ACCESS_INSTANCE";
+export type AssociatedResourceType = "CLOUDFRONT" | "API_GATEWAY" | "COGNITO_USER_POOL" | "APP_RUNNER_SERVICE" | "VERIFIED_ACCESS_INSTANCE";
 export interface AssociateWebACLRequest {
   WebACLArn: string;
   ResourceArn: string;
 }
-export interface AssociateWebACLResponse {}
+export interface AssociateWebACLResponse {
+}
 export interface AssociationConfig {
-  RequestBody?: Record<
-    AssociatedResourceType,
-    RequestBodyAssociatedResourceTypeConfig
-  >;
+  RequestBody?: Record<AssociatedResourceType, RequestBodyAssociatedResourceTypeConfig>;
 }
 export type AttributeName = string;
 
@@ -832,10 +535,7 @@ export interface BlockAction {
 export interface Body {
   OversizeHandling?: OversizeHandling;
 }
-export type BodyParsingFallbackBehavior =
-  | "MATCH"
-  | "NO_MATCH"
-  | "EVALUATE_AS_STRING";
+export type BodyParsingFallbackBehavior = "MATCH" | "NO_MATCH" | "EVALUATE_AS_STRING";
 export type Wafv2Boolean = boolean;
 
 export interface ByteMatchStatement {
@@ -907,257 +607,7 @@ export interface CountAction {
 }
 export type Country = string;
 
-export type CountryCode =
-  | "AF"
-  | "AX"
-  | "AL"
-  | "DZ"
-  | "AS"
-  | "AD"
-  | "AO"
-  | "AI"
-  | "AQ"
-  | "AG"
-  | "AR"
-  | "AM"
-  | "AW"
-  | "AU"
-  | "AT"
-  | "AZ"
-  | "BS"
-  | "BH"
-  | "BD"
-  | "BB"
-  | "BY"
-  | "BE"
-  | "BZ"
-  | "BJ"
-  | "BM"
-  | "BT"
-  | "BO"
-  | "BQ"
-  | "BA"
-  | "BW"
-  | "BV"
-  | "BR"
-  | "IO"
-  | "BN"
-  | "BG"
-  | "BF"
-  | "BI"
-  | "KH"
-  | "CM"
-  | "CA"
-  | "CV"
-  | "KY"
-  | "CF"
-  | "TD"
-  | "CL"
-  | "CN"
-  | "CX"
-  | "CC"
-  | "CO"
-  | "KM"
-  | "CG"
-  | "CD"
-  | "CK"
-  | "CR"
-  | "CI"
-  | "HR"
-  | "CU"
-  | "CW"
-  | "CY"
-  | "CZ"
-  | "DK"
-  | "DJ"
-  | "DM"
-  | "DO"
-  | "EC"
-  | "EG"
-  | "SV"
-  | "GQ"
-  | "ER"
-  | "EE"
-  | "ET"
-  | "FK"
-  | "FO"
-  | "FJ"
-  | "FI"
-  | "FR"
-  | "GF"
-  | "PF"
-  | "TF"
-  | "GA"
-  | "GM"
-  | "GE"
-  | "DE"
-  | "GH"
-  | "GI"
-  | "GR"
-  | "GL"
-  | "GD"
-  | "GP"
-  | "GU"
-  | "GT"
-  | "GG"
-  | "GN"
-  | "GW"
-  | "GY"
-  | "HT"
-  | "HM"
-  | "VA"
-  | "HN"
-  | "HK"
-  | "HU"
-  | "IS"
-  | "IN"
-  | "ID"
-  | "IR"
-  | "IQ"
-  | "IE"
-  | "IM"
-  | "IL"
-  | "IT"
-  | "JM"
-  | "JP"
-  | "JE"
-  | "JO"
-  | "KZ"
-  | "KE"
-  | "KI"
-  | "KP"
-  | "KR"
-  | "KW"
-  | "KG"
-  | "LA"
-  | "LV"
-  | "LB"
-  | "LS"
-  | "LR"
-  | "LY"
-  | "LI"
-  | "LT"
-  | "LU"
-  | "MO"
-  | "MK"
-  | "MG"
-  | "MW"
-  | "MY"
-  | "MV"
-  | "ML"
-  | "MT"
-  | "MH"
-  | "MQ"
-  | "MR"
-  | "MU"
-  | "YT"
-  | "MX"
-  | "FM"
-  | "MD"
-  | "MC"
-  | "MN"
-  | "ME"
-  | "MS"
-  | "MA"
-  | "MZ"
-  | "MM"
-  | "NA"
-  | "NR"
-  | "NP"
-  | "NL"
-  | "NC"
-  | "NZ"
-  | "NI"
-  | "NE"
-  | "NG"
-  | "NU"
-  | "NF"
-  | "MP"
-  | "NO"
-  | "OM"
-  | "PK"
-  | "PW"
-  | "PS"
-  | "PA"
-  | "PG"
-  | "PY"
-  | "PE"
-  | "PH"
-  | "PN"
-  | "PL"
-  | "PT"
-  | "PR"
-  | "QA"
-  | "RE"
-  | "RO"
-  | "RU"
-  | "RW"
-  | "BL"
-  | "SH"
-  | "KN"
-  | "LC"
-  | "MF"
-  | "PM"
-  | "VC"
-  | "WS"
-  | "SM"
-  | "ST"
-  | "SA"
-  | "SN"
-  | "RS"
-  | "SC"
-  | "SL"
-  | "SG"
-  | "SX"
-  | "SK"
-  | "SI"
-  | "SB"
-  | "SO"
-  | "ZA"
-  | "GS"
-  | "SS"
-  | "ES"
-  | "LK"
-  | "SD"
-  | "SR"
-  | "SJ"
-  | "SZ"
-  | "SE"
-  | "CH"
-  | "SY"
-  | "TW"
-  | "TJ"
-  | "TZ"
-  | "TH"
-  | "TL"
-  | "TG"
-  | "TK"
-  | "TO"
-  | "TT"
-  | "TN"
-  | "TR"
-  | "TM"
-  | "TC"
-  | "TV"
-  | "UG"
-  | "UA"
-  | "AE"
-  | "GB"
-  | "US"
-  | "UM"
-  | "UY"
-  | "UZ"
-  | "VU"
-  | "VE"
-  | "VN"
-  | "VG"
-  | "VI"
-  | "WF"
-  | "EH"
-  | "YE"
-  | "ZM"
-  | "ZW"
-  | "XK";
+export type CountryCode = "AF" | "AX" | "AL" | "DZ" | "AS" | "AD" | "AO" | "AI" | "AQ" | "AG" | "AR" | "AM" | "AW" | "AU" | "AT" | "AZ" | "BS" | "BH" | "BD" | "BB" | "BY" | "BE" | "BZ" | "BJ" | "BM" | "BT" | "BO" | "BQ" | "BA" | "BW" | "BV" | "BR" | "IO" | "BN" | "BG" | "BF" | "BI" | "KH" | "CM" | "CA" | "CV" | "KY" | "CF" | "TD" | "CL" | "CN" | "CX" | "CC" | "CO" | "KM" | "CG" | "CD" | "CK" | "CR" | "CI" | "HR" | "CU" | "CW" | "CY" | "CZ" | "DK" | "DJ" | "DM" | "DO" | "EC" | "EG" | "SV" | "GQ" | "ER" | "EE" | "ET" | "FK" | "FO" | "FJ" | "FI" | "FR" | "GF" | "PF" | "TF" | "GA" | "GM" | "GE" | "DE" | "GH" | "GI" | "GR" | "GL" | "GD" | "GP" | "GU" | "GT" | "GG" | "GN" | "GW" | "GY" | "HT" | "HM" | "VA" | "HN" | "HK" | "HU" | "IS" | "IN" | "ID" | "IR" | "IQ" | "IE" | "IM" | "IL" | "IT" | "JM" | "JP" | "JE" | "JO" | "KZ" | "KE" | "KI" | "KP" | "KR" | "KW" | "KG" | "LA" | "LV" | "LB" | "LS" | "LR" | "LY" | "LI" | "LT" | "LU" | "MO" | "MK" | "MG" | "MW" | "MY" | "MV" | "ML" | "MT" | "MH" | "MQ" | "MR" | "MU" | "YT" | "MX" | "FM" | "MD" | "MC" | "MN" | "ME" | "MS" | "MA" | "MZ" | "MM" | "NA" | "NR" | "NP" | "NL" | "NC" | "NZ" | "NI" | "NE" | "NG" | "NU" | "NF" | "MP" | "NO" | "OM" | "PK" | "PW" | "PS" | "PA" | "PG" | "PY" | "PE" | "PH" | "PN" | "PL" | "PT" | "PR" | "QA" | "RE" | "RO" | "RU" | "RW" | "BL" | "SH" | "KN" | "LC" | "MF" | "PM" | "VC" | "WS" | "SM" | "ST" | "SA" | "SN" | "RS" | "SC" | "SL" | "SG" | "SX" | "SK" | "SI" | "SB" | "SO" | "ZA" | "GS" | "SS" | "ES" | "LK" | "SD" | "SR" | "SJ" | "SZ" | "SE" | "CH" | "SY" | "TW" | "TJ" | "TZ" | "TH" | "TL" | "TG" | "TK" | "TO" | "TT" | "TN" | "TR" | "TM" | "TC" | "TV" | "UG" | "UA" | "AE" | "GB" | "US" | "UM" | "UY" | "UZ" | "VU" | "VE" | "VN" | "VG" | "VI" | "WF" | "EH" | "YE" | "ZM" | "ZW" | "XK";
 export type CountryCodes = Array<CountryCode>;
 export interface CreateAPIKeyRequest {
   Scope: Scope;
@@ -1263,7 +713,8 @@ export interface DeleteAPIKeyRequest {
   Scope: Scope;
   APIKey: string;
 }
-export interface DeleteAPIKeyResponse {}
+export interface DeleteAPIKeyResponse {
+}
 export interface DeleteFirewallManagerRuleGroupsRequest {
   WebACLArn: string;
   WebACLLockToken: string;
@@ -1277,38 +728,44 @@ export interface DeleteIPSetRequest {
   Id: string;
   LockToken: string;
 }
-export interface DeleteIPSetResponse {}
+export interface DeleteIPSetResponse {
+}
 export interface DeleteLoggingConfigurationRequest {
   ResourceArn: string;
   LogType?: LogType;
   LogScope?: LogScope;
 }
-export interface DeleteLoggingConfigurationResponse {}
+export interface DeleteLoggingConfigurationResponse {
+}
 export interface DeletePermissionPolicyRequest {
   ResourceArn: string;
 }
-export interface DeletePermissionPolicyResponse {}
+export interface DeletePermissionPolicyResponse {
+}
 export interface DeleteRegexPatternSetRequest {
   Name: string;
   Scope: Scope;
   Id: string;
   LockToken: string;
 }
-export interface DeleteRegexPatternSetResponse {}
+export interface DeleteRegexPatternSetResponse {
+}
 export interface DeleteRuleGroupRequest {
   Name: string;
   Scope: Scope;
   Id: string;
   LockToken: string;
 }
-export interface DeleteRuleGroupResponse {}
+export interface DeleteRuleGroupResponse {
+}
 export interface DeleteWebACLRequest {
   Name: string;
   Scope: Scope;
   Id: string;
   LockToken: string;
 }
-export interface DeleteWebACLResponse {}
+export interface DeleteWebACLResponse {
+}
 export interface DescribeAllManagedProductsRequest {
   Scope: Scope;
 }
@@ -1340,7 +797,8 @@ export interface DescribeManagedRuleGroupResponse {
 export interface DisassociateWebACLRequest {
   ResourceArn: string;
 }
-export interface DisassociateWebACLResponse {}
+export interface DisassociateWebACLResponse {
+}
 export type DownloadUrl = string;
 
 export interface EmailField {
@@ -1366,11 +824,7 @@ export interface ExcludedRule {
 export type ExcludedRules = Array<ExcludedRule>;
 export type FailureCode = number;
 
-export type FailureReason =
-  | "TOKEN_MISSING"
-  | "TOKEN_EXPIRED"
-  | "TOKEN_INVALID"
-  | "TOKEN_DOMAIN_MISMATCH";
+export type FailureReason = "TOKEN_MISSING" | "TOKEN_EXPIRED" | "TOKEN_INVALID" | "TOKEN_DOMAIN_MISMATCH";
 export type FailureValue = string;
 
 export type FallbackBehavior = "MATCH" | "NO_MATCH";
@@ -1401,12 +855,7 @@ export interface FieldToProtect {
 export type FieldToProtectKeyName = string;
 
 export type FieldToProtectKeys = Array<string>;
-export type FieldToProtectType =
-  | "SINGLE_HEADER"
-  | "SINGLE_COOKIE"
-  | "SINGLE_QUERY_ARGUMENT"
-  | "QUERY_STRING"
-  | "BODY";
+export type FieldToProtectType = "SINGLE_HEADER" | "SINGLE_COOKIE" | "SINGLE_QUERY_ARGUMENT" | "QUERY_STRING" | "BODY";
 export interface Filter {
   Behavior: FilterBehavior;
   Requirement: FilterRequirement;
@@ -1869,7 +1318,8 @@ export interface ManagedRuleSetVersion {
   ExpiryTimestamp?: Date | string;
 }
 export type MapMatchScope = "ALL" | "KEY" | "VALUE";
-export interface Method {}
+export interface Method {
+}
 export type MetricName = string;
 
 export interface MobileSdkRelease {
@@ -1880,7 +1330,8 @@ export interface MobileSdkRelease {
 }
 export type NextMarker = string;
 
-export interface NoneAction {}
+export interface NoneAction {
+}
 export interface NotStatement {
   Statement: Statement;
 }
@@ -1899,79 +1350,7 @@ export interface OverrideAction {
 export type OversizeHandling = "CONTINUE" | "MATCH" | "NO_MATCH";
 export type PaginationLimit = number;
 
-export type ParameterExceptionField =
-  | "WEB_ACL"
-  | "RULE_GROUP"
-  | "REGEX_PATTERN_SET"
-  | "IP_SET"
-  | "MANAGED_RULE_SET"
-  | "RULE"
-  | "EXCLUDED_RULE"
-  | "STATEMENT"
-  | "BYTE_MATCH_STATEMENT"
-  | "SQLI_MATCH_STATEMENT"
-  | "XSS_MATCH_STATEMENT"
-  | "SIZE_CONSTRAINT_STATEMENT"
-  | "GEO_MATCH_STATEMENT"
-  | "RATE_BASED_STATEMENT"
-  | "RULE_GROUP_REFERENCE_STATEMENT"
-  | "REGEX_PATTERN_REFERENCE_STATEMENT"
-  | "IP_SET_REFERENCE_STATEMENT"
-  | "MANAGED_RULE_SET_STATEMENT"
-  | "LABEL_MATCH_STATEMENT"
-  | "AND_STATEMENT"
-  | "OR_STATEMENT"
-  | "NOT_STATEMENT"
-  | "IP_ADDRESS"
-  | "IP_ADDRESS_VERSION"
-  | "FIELD_TO_MATCH"
-  | "TEXT_TRANSFORMATION"
-  | "SINGLE_QUERY_ARGUMENT"
-  | "SINGLE_HEADER"
-  | "DEFAULT_ACTION"
-  | "RULE_ACTION"
-  | "ENTITY_LIMIT"
-  | "OVERRIDE_ACTION"
-  | "SCOPE_VALUE"
-  | "RESOURCE_ARN"
-  | "RESOURCE_TYPE"
-  | "TAGS"
-  | "TAG_KEYS"
-  | "METRIC_NAME"
-  | "FIREWALL_MANAGER_STATEMENT"
-  | "FALLBACK_BEHAVIOR"
-  | "POSITION"
-  | "FORWARDED_IP_CONFIG"
-  | "IP_SET_FORWARDED_IP_CONFIG"
-  | "HEADER_NAME"
-  | "CUSTOM_REQUEST_HANDLING"
-  | "RESPONSE_CONTENT_TYPE"
-  | "CUSTOM_RESPONSE"
-  | "CUSTOM_RESPONSE_BODY"
-  | "JSON_MATCH_PATTERN"
-  | "JSON_MATCH_SCOPE"
-  | "BODY_PARSING_FALLBACK_BEHAVIOR"
-  | "LOGGING_FILTER"
-  | "FILTER_CONDITION"
-  | "EXPIRE_TIMESTAMP"
-  | "CHANGE_PROPAGATION_STATUS"
-  | "ASSOCIABLE_RESOURCE"
-  | "LOG_DESTINATION"
-  | "MANAGED_RULE_GROUP_CONFIG"
-  | "PAYLOAD_TYPE"
-  | "HEADER_MATCH_PATTERN"
-  | "COOKIE_MATCH_PATTERN"
-  | "MAP_MATCH_SCOPE"
-  | "OVERSIZE_HANDLING"
-  | "CHALLENGE_CONFIG"
-  | "TOKEN_DOMAIN"
-  | "ATP_RULE_SET_RESPONSE_INSPECTION"
-  | "ASSOCIATED_RESOURCE_TYPE"
-  | "SCOPE_DOWN"
-  | "CUSTOM_KEYS"
-  | "ACP_RULE_SET_RESPONSE_INSPECTION"
-  | "DATA_PROTECTION_CONFIG"
-  | "LOW_REPUTATION_MODE";
+export type ParameterExceptionField = "WEB_ACL" | "RULE_GROUP" | "REGEX_PATTERN_SET" | "IP_SET" | "MANAGED_RULE_SET" | "RULE" | "EXCLUDED_RULE" | "STATEMENT" | "BYTE_MATCH_STATEMENT" | "SQLI_MATCH_STATEMENT" | "XSS_MATCH_STATEMENT" | "SIZE_CONSTRAINT_STATEMENT" | "GEO_MATCH_STATEMENT" | "RATE_BASED_STATEMENT" | "RULE_GROUP_REFERENCE_STATEMENT" | "REGEX_PATTERN_REFERENCE_STATEMENT" | "IP_SET_REFERENCE_STATEMENT" | "MANAGED_RULE_SET_STATEMENT" | "LABEL_MATCH_STATEMENT" | "AND_STATEMENT" | "OR_STATEMENT" | "NOT_STATEMENT" | "IP_ADDRESS" | "IP_ADDRESS_VERSION" | "FIELD_TO_MATCH" | "TEXT_TRANSFORMATION" | "SINGLE_QUERY_ARGUMENT" | "SINGLE_HEADER" | "DEFAULT_ACTION" | "RULE_ACTION" | "ENTITY_LIMIT" | "OVERRIDE_ACTION" | "SCOPE_VALUE" | "RESOURCE_ARN" | "RESOURCE_TYPE" | "TAGS" | "TAG_KEYS" | "METRIC_NAME" | "FIREWALL_MANAGER_STATEMENT" | "FALLBACK_BEHAVIOR" | "POSITION" | "FORWARDED_IP_CONFIG" | "IP_SET_FORWARDED_IP_CONFIG" | "HEADER_NAME" | "CUSTOM_REQUEST_HANDLING" | "RESPONSE_CONTENT_TYPE" | "CUSTOM_RESPONSE" | "CUSTOM_RESPONSE_BODY" | "JSON_MATCH_PATTERN" | "JSON_MATCH_SCOPE" | "BODY_PARSING_FALLBACK_BEHAVIOR" | "LOGGING_FILTER" | "FILTER_CONDITION" | "EXPIRE_TIMESTAMP" | "CHANGE_PROPAGATION_STATUS" | "ASSOCIABLE_RESOURCE" | "LOG_DESTINATION" | "MANAGED_RULE_GROUP_CONFIG" | "PAYLOAD_TYPE" | "HEADER_MATCH_PATTERN" | "COOKIE_MATCH_PATTERN" | "MAP_MATCH_SCOPE" | "OVERSIZE_HANDLING" | "CHALLENGE_CONFIG" | "TOKEN_DOMAIN" | "ATP_RULE_SET_RESPONSE_INSPECTION" | "ASSOCIATED_RESOURCE_TYPE" | "SCOPE_DOWN" | "CUSTOM_KEYS" | "ACP_RULE_SET_RESPONSE_INSPECTION" | "DATA_PROTECTION_CONFIG" | "LOW_REPUTATION_MODE";
 export type ParameterExceptionParameter = string;
 
 export interface PasswordField {
@@ -1987,12 +1366,7 @@ export type PolicyString = string;
 
 export type PopulationSize = number;
 
-export type PositionalConstraint =
-  | "EXACTLY"
-  | "STARTS_WITH"
-  | "ENDS_WITH"
-  | "CONTAINS"
-  | "CONTAINS_WORD";
+export type PositionalConstraint = "EXACTLY" | "STARTS_WITH" | "ENDS_WITH" | "CONTAINS" | "CONTAINS_WORD";
 export type ProductDescription = string;
 
 export type ProductId = string;
@@ -2023,8 +1397,10 @@ export interface PutPermissionPolicyRequest {
   ResourceArn: string;
   Policy: string;
 }
-export interface PutPermissionPolicyResponse {}
-export interface QueryString {}
+export interface PutPermissionPolicyResponse {
+}
+export interface QueryString {
+}
 export interface RateBasedStatement {
   Limit: number;
   EvaluationWindowSec?: number;
@@ -2033,11 +1409,7 @@ export interface RateBasedStatement {
   ForwardedIPConfig?: ForwardedIPConfig;
   CustomKeys?: Array<RateBasedStatementCustomKey>;
 }
-export type RateBasedStatementAggregateKeyType =
-  | "IP"
-  | "FORWARDED_IP"
-  | "CUSTOM_KEYS"
-  | "CONSTANT";
+export type RateBasedStatementAggregateKeyType = "IP" | "FORWARDED_IP" | "CUSTOM_KEYS" | "CONSTANT";
 export interface RateBasedStatementCustomKey {
   Header?: RateLimitHeader;
   Cookie?: RateLimitCookie;
@@ -2059,18 +1431,22 @@ export interface RateBasedStatementManagedKeysIPSet {
 }
 export type RateLimit = number;
 
-export interface RateLimitAsn {}
+export interface RateLimitAsn {
+}
 export interface RateLimitCookie {
   Name: string;
   TextTransformations: Array<TextTransformation>;
 }
-export interface RateLimitForwardedIP {}
+export interface RateLimitForwardedIP {
+}
 export interface RateLimitHeader {
   Name: string;
   TextTransformations: Array<TextTransformation>;
 }
-export interface RateLimitHTTPMethod {}
-export interface RateLimitIP {}
+export interface RateLimitHTTPMethod {
+}
+export interface RateLimitIP {
+}
 export interface RateLimitJA3Fingerprint {
   FallbackBehavior: FallbackBehavior;
 }
@@ -2131,10 +1507,7 @@ export interface ReleaseSummary {
   ReleaseVersion?: string;
   Timestamp?: Date | string;
 }
-export type RequestBody = Record<
-  AssociatedResourceType,
-  RequestBodyAssociatedResourceTypeConfig
->;
+export type RequestBody = Record<AssociatedResourceType, RequestBodyAssociatedResourceTypeConfig>;
 export interface RequestBodyAssociatedResourceTypeConfig {
   DefaultSizeInspectionLimit: SizeInspectionLimit;
 }
@@ -2154,22 +1527,12 @@ export interface RequestInspectionACFP {
 export type ResourceArn = string;
 
 export type ResourceArns = Array<string>;
-export type ResourceType =
-  | "APPLICATION_LOAD_BALANCER"
-  | "API_GATEWAY"
-  | "APPSYNC"
-  | "COGNITIO_USER_POOL"
-  | "APP_RUNNER_SERVICE"
-  | "VERIFIED_ACCESS_INSTANCE"
-  | "AMPLIFY";
+export type ResourceType = "APPLICATION_LOAD_BALANCER" | "API_GATEWAY" | "APPSYNC" | "COGNITIO_USER_POOL" | "APP_RUNNER_SERVICE" | "VERIFIED_ACCESS_INSTANCE" | "AMPLIFY";
 export type ResponseCode = number;
 
 export type ResponseContent = string;
 
-export type ResponseContentType =
-  | "TEXT_PLAIN"
-  | "TEXT_HTML"
-  | "APPLICATION_JSON";
+export type ResponseContentType = "TEXT_PLAIN" | "TEXT_HTML" | "APPLICATION_JSON";
 export interface ResponseInspection {
   StatusCode?: ResponseInspectionStatusCode;
   Header?: ResponseInspectionHeader;
@@ -2351,7 +1714,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TextTransformation {
@@ -2361,28 +1725,7 @@ export interface TextTransformation {
 export type TextTransformationPriority = number;
 
 export type TextTransformations = Array<TextTransformation>;
-export type TextTransformationType =
-  | "NONE"
-  | "COMPRESS_WHITE_SPACE"
-  | "HTML_ENTITY_DECODE"
-  | "LOWERCASE"
-  | "CMD_LINE"
-  | "URL_DECODE"
-  | "BASE64_DECODE"
-  | "HEX_DECODE"
-  | "MD5"
-  | "REPLACE_COMMENTS"
-  | "ESCAPE_SEQ_DECODE"
-  | "SQL_HEX_DECODE"
-  | "CSS_DECODE"
-  | "JS_DECODE"
-  | "NORMALIZE_PATH"
-  | "NORMALIZE_PATH_WIN"
-  | "REMOVE_NULLS"
-  | "REPLACE_NULLS"
-  | "BASE64_DECODE_EXT"
-  | "URL_DECODE_UNI"
-  | "UTF8_TO_UNICODE";
+export type TextTransformationType = "NONE" | "COMPRESS_WHITE_SPACE" | "HTML_ENTITY_DECODE" | "LOWERCASE" | "CMD_LINE" | "URL_DECODE" | "BASE64_DECODE" | "HEX_DECODE" | "MD5" | "REPLACE_COMMENTS" | "ESCAPE_SEQ_DECODE" | "SQL_HEX_DECODE" | "CSS_DECODE" | "JS_DECODE" | "NORMALIZE_PATH" | "NORMALIZE_PATH_WIN" | "REMOVE_NULLS" | "REPLACE_NULLS" | "BASE64_DECODE_EXT" | "URL_DECODE_UNI" | "UTF8_TO_UNICODE";
 export type Timestamp = Date | string;
 
 export interface TimeWindow {
@@ -2400,7 +1743,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateIPSetRequest {
   Name: string;
   Scope: Scope;
@@ -2472,7 +1816,8 @@ export interface UpdateWebACLResponse {
 export interface UriFragment {
   FallbackBehavior?: FallbackBehavior;
 }
-export interface UriPath {}
+export interface UriPath {
+}
 export type URIString = string;
 
 export type UsageOfAction = "ENABLED" | "DISABLED";
@@ -3295,3 +2640,4 @@ export declare namespace UpdateWebACL {
     | WAFUnavailableEntityException
     | CommonAwsError;
 }
+

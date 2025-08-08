@@ -3,16 +3,18 @@ import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MediaStoreData extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("mediastore-data", new RestJson1Protocol(), cfg);
+  }
+
   deleteObject(
     input: DeleteObjectRequest,
   ): Effect.Effect<
     DeleteObjectResponse,
-    | ContainerNotFoundException
-    | InternalServerError
-    | ObjectNotFoundException
-    | CommonAwsError
+    ContainerNotFoundException | InternalServerError | ObjectNotFoundException | CommonAwsError
   > {
     return this.call("DeleteObject", input);
   }
@@ -20,10 +22,7 @@ export class MediaStoreData extends AWSServiceClient {
     input: DescribeObjectRequest,
   ): Effect.Effect<
     DescribeObjectResponse,
-    | ContainerNotFoundException
-    | InternalServerError
-    | ObjectNotFoundException
-    | CommonAwsError
+    ContainerNotFoundException | InternalServerError | ObjectNotFoundException | CommonAwsError
   > {
     return this.call("DescribeObject", input);
   }
@@ -31,11 +30,7 @@ export class MediaStoreData extends AWSServiceClient {
     input: GetObjectRequest,
   ): Effect.Effect<
     GetObjectResponse,
-    | ContainerNotFoundException
-    | InternalServerError
-    | ObjectNotFoundException
-    | RequestedRangeNotSatisfiableException
-    | CommonAwsError
+    ContainerNotFoundException | InternalServerError | ObjectNotFoundException | RequestedRangeNotSatisfiableException | CommonAwsError
   > {
     return this.call("GetObject", input);
   }
@@ -73,7 +68,8 @@ export type ContentType = string;
 export interface DeleteObjectRequest {
   Path: string;
 }
-export interface DeleteObjectResponse {}
+export interface DeleteObjectResponse {
+}
 export interface DescribeObjectRequest {
   Path: string;
 }
@@ -223,3 +219,4 @@ export declare namespace PutObject {
     | InternalServerError
     | CommonAwsError;
 }
+

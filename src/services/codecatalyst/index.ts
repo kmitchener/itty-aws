@@ -1,14 +1,24 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class CodeCatalyst extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("codecatalyst", new RestJson1Protocol(), cfg);
+  }
+
   getUserDetails(
     input: GetUserDetailsRequest,
-  ): Effect.Effect<GetUserDetailsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    GetUserDetailsResponse,
+    CommonAwsError
+  > {
     return this.call("GetUserDetails", input);
   }
-  verifySession(input: {}): Effect.Effect<
+  verifySession(
+    input: {},
+  ): Effect.Effect<
     VerifySessionResponse,
     CommonAwsError
   > {
@@ -113,7 +123,8 @@ export interface CreateSourceRepositoryResponse {
 export interface DeleteAccessTokenRequest {
   id: string;
 }
-export interface DeleteAccessTokenResponse {}
+export interface DeleteAccessTokenResponse {
+}
 export interface DeleteDevEnvironmentRequest {
   spaceName: string;
   projectName: string;
@@ -154,8 +165,7 @@ export interface DevEnvironmentAccessDetails {
   streamUrl: string;
   tokenValue: string;
 }
-export type DevEnvironmentRepositorySummaries =
-  Array<DevEnvironmentRepositorySummary>;
+export type DevEnvironmentRepositorySummaries = Array<DevEnvironmentRepositorySummary>;
 export interface DevEnvironmentRepositorySummary {
   repositoryName: string;
   branchName?: string;
@@ -164,8 +174,7 @@ export interface DevEnvironmentSessionConfiguration {
   sessionType: string;
   executeCommandSessionConfiguration?: ExecuteCommandSessionConfiguration;
 }
-export type DevEnvironmentSessionsSummaryList =
-  Array<DevEnvironmentSessionSummary>;
+export type DevEnvironmentSessionsSummaryList = Array<DevEnvironmentSessionSummary>;
 export interface DevEnvironmentSessionSummary {
   spaceName: string;
   projectName: string;
@@ -438,8 +447,7 @@ export interface ListSourceRepositoryBranchesItem {
   lastUpdatedTime?: Date | string;
   headCommitId?: string;
 }
-export type ListSourceRepositoryBranchesItems =
-  Array<ListSourceRepositoryBranchesItem>;
+export type ListSourceRepositoryBranchesItems = Array<ListSourceRepositoryBranchesItem>;
 export interface ListSourceRepositoryBranchesRequest {
   spaceName: string;
   projectName: string;
@@ -687,11 +695,13 @@ export interface WorkflowDefinitionSummary {
 }
 export type WorkflowRunMode = string;
 
-export interface WorkflowRunSortCriteria {}
+export interface WorkflowRunSortCriteria {
+}
 export type WorkflowRunSortCriteriaList = Array<WorkflowRunSortCriteria>;
 export type WorkflowRunStatus = string;
 
-export interface WorkflowRunStatusReason {}
+export interface WorkflowRunStatusReason {
+}
 export type WorkflowRunStatusReasons = Array<WorkflowRunStatusReason>;
 export type WorkflowRunSummaries = Array<WorkflowRunSummary>;
 export interface WorkflowRunSummary {
@@ -704,7 +714,8 @@ export interface WorkflowRunSummary {
   endTime?: Date | string;
   lastUpdatedTime: Date | string;
 }
-export interface WorkflowSortCriteria {}
+export interface WorkflowSortCriteria {
+}
 export type WorkflowSortCriteriaList = Array<WorkflowSortCriteria>;
 export type WorkflowStatus = string;
 
@@ -723,11 +734,14 @@ export interface WorkflowSummary {
 export declare namespace GetUserDetails {
   export type Input = GetUserDetailsRequest;
   export type Output = GetUserDetailsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace VerifySession {
   export type Input = {};
   export type Output = VerifySessionResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
+

@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class LexModelsV2 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("lex-models-v2", new RestJson1Protocol(), cfg);
+  }
+
   batchCreateCustomVocabularyItem(
     input: BatchCreateCustomVocabularyItemRequest,
   ): Effect.Effect<
     BatchCreateCustomVocabularyItemResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchCreateCustomVocabularyItem", input);
   }
@@ -20,12 +20,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: BatchDeleteCustomVocabularyItemRequest,
   ): Effect.Effect<
     BatchDeleteCustomVocabularyItemResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDeleteCustomVocabularyItem", input);
   }
@@ -33,12 +28,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: BatchUpdateCustomVocabularyItemRequest,
   ): Effect.Effect<
     BatchUpdateCustomVocabularyItemResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchUpdateCustomVocabularyItem", input);
   }
@@ -46,13 +36,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: BuildBotLocaleRequest,
   ): Effect.Effect<
     BuildBotLocaleResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BuildBotLocale", input);
   }
@@ -60,13 +44,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateBotRequest,
   ): Effect.Effect<
     CreateBotResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateBot", input);
   }
@@ -74,13 +52,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateBotAliasRequest,
   ): Effect.Effect<
     CreateBotAliasResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateBotAlias", input);
   }
@@ -88,13 +60,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateBotLocaleRequest,
   ): Effect.Effect<
     CreateBotLocaleResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateBotLocale", input);
   }
@@ -102,13 +68,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateBotReplicaRequest,
   ): Effect.Effect<
     CreateBotReplicaResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateBotReplica", input);
   }
@@ -116,13 +76,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateBotVersionRequest,
   ): Effect.Effect<
     CreateBotVersionResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateBotVersion", input);
   }
@@ -130,13 +84,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateExportRequest,
   ): Effect.Effect<
     CreateExportResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateExport", input);
   }
@@ -144,13 +92,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateIntentRequest,
   ): Effect.Effect<
     CreateIntentResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateIntent", input);
   }
@@ -158,13 +100,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateResourcePolicyRequest,
   ): Effect.Effect<
     CreateResourcePolicyResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateResourcePolicy", input);
   }
@@ -172,14 +108,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateResourcePolicyStatementRequest,
   ): Effect.Effect<
     CreateResourcePolicyStatementResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateResourcePolicyStatement", input);
   }
@@ -187,13 +116,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateSlotRequest,
   ): Effect.Effect<
     CreateSlotResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSlot", input);
   }
@@ -201,13 +124,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateSlotTypeRequest,
   ): Effect.Effect<
     CreateSlotTypeResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSlotType", input);
   }
@@ -215,13 +132,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateTestSetDiscrepancyReportRequest,
   ): Effect.Effect<
     CreateTestSetDiscrepancyReportResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateTestSetDiscrepancyReport", input);
   }
@@ -229,12 +140,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: CreateUploadUrlRequest,
   ): Effect.Effect<
     CreateUploadUrlResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateUploadUrl", input);
   }
@@ -242,13 +148,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteBotRequest,
   ): Effect.Effect<
     DeleteBotResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteBot", input);
   }
@@ -256,13 +156,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteBotAliasRequest,
   ): Effect.Effect<
     DeleteBotAliasResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteBotAlias", input);
   }
@@ -270,13 +164,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteBotLocaleRequest,
   ): Effect.Effect<
     DeleteBotLocaleResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteBotLocale", input);
   }
@@ -284,13 +172,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteBotReplicaRequest,
   ): Effect.Effect<
     DeleteBotReplicaResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteBotReplica", input);
   }
@@ -298,13 +180,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteBotVersionRequest,
   ): Effect.Effect<
     DeleteBotVersionResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteBotVersion", input);
   }
@@ -312,13 +188,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteCustomVocabularyRequest,
   ): Effect.Effect<
     DeleteCustomVocabularyResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCustomVocabulary", input);
   }
@@ -326,12 +196,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteExportRequest,
   ): Effect.Effect<
     DeleteExportResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteExport", input);
   }
@@ -339,12 +204,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteImportRequest,
   ): Effect.Effect<
     DeleteImportResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteImport", input);
   }
@@ -352,13 +212,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteIntentRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteIntent", input);
   }
@@ -366,11 +220,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -378,11 +228,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteResourcePolicyStatementRequest,
   ): Effect.Effect<
     DeleteResourcePolicyStatementResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicyStatement", input);
   }
@@ -390,13 +236,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteSlotRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSlot", input);
   }
@@ -404,13 +244,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteSlotTypeRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSlotType", input);
   }
@@ -418,13 +252,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteTestSetRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteTestSet", input);
   }
@@ -432,10 +260,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DeleteUtterancesRequest,
   ): Effect.Effect<
     DeleteUtterancesResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteUtterances", input);
   }
@@ -443,12 +268,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeBotRequest,
   ): Effect.Effect<
     DescribeBotResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeBot", input);
   }
@@ -456,12 +276,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeBotAliasRequest,
   ): Effect.Effect<
     DescribeBotAliasResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeBotAlias", input);
   }
@@ -469,12 +284,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeBotLocaleRequest,
   ): Effect.Effect<
     DescribeBotLocaleResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeBotLocale", input);
   }
@@ -482,11 +292,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeBotRecommendationRequest,
   ): Effect.Effect<
     DescribeBotRecommendationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeBotRecommendation", input);
   }
@@ -494,12 +300,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeBotReplicaRequest,
   ): Effect.Effect<
     DescribeBotReplicaResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeBotReplica", input);
   }
@@ -507,11 +308,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeBotResourceGenerationRequest,
   ): Effect.Effect<
     DescribeBotResourceGenerationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeBotResourceGeneration", input);
   }
@@ -519,12 +316,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeBotVersionRequest,
   ): Effect.Effect<
     DescribeBotVersionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeBotVersion", input);
   }
@@ -532,12 +324,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeCustomVocabularyMetadataRequest,
   ): Effect.Effect<
     DescribeCustomVocabularyMetadataResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeCustomVocabularyMetadata", input);
   }
@@ -545,11 +332,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeExportRequest,
   ): Effect.Effect<
     DescribeExportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeExport", input);
   }
@@ -557,11 +340,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeImportRequest,
   ): Effect.Effect<
     DescribeImportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeImport", input);
   }
@@ -569,12 +348,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeIntentRequest,
   ): Effect.Effect<
     DescribeIntentResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeIntent", input);
   }
@@ -582,10 +356,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeResourcePolicyRequest,
   ): Effect.Effect<
     DescribeResourcePolicyResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeResourcePolicy", input);
   }
@@ -593,12 +364,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeSlotRequest,
   ): Effect.Effect<
     DescribeSlotResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeSlot", input);
   }
@@ -606,12 +372,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeSlotTypeRequest,
   ): Effect.Effect<
     DescribeSlotTypeResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeSlotType", input);
   }
@@ -619,12 +380,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeTestExecutionRequest,
   ): Effect.Effect<
     DescribeTestExecutionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeTestExecution", input);
   }
@@ -632,12 +388,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeTestSetRequest,
   ): Effect.Effect<
     DescribeTestSetResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeTestSet", input);
   }
@@ -645,12 +396,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeTestSetDiscrepancyReportRequest,
   ): Effect.Effect<
     DescribeTestSetDiscrepancyReportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeTestSetDiscrepancyReport", input);
   }
@@ -658,12 +404,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: DescribeTestSetGenerationRequest,
   ): Effect.Effect<
     DescribeTestSetGenerationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeTestSetGeneration", input);
   }
@@ -671,14 +412,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: GenerateBotElementRequest,
   ): Effect.Effect<
     GenerateBotElementResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GenerateBotElement", input);
   }
@@ -686,12 +420,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: GetTestExecutionArtifactsUrlRequest,
   ): Effect.Effect<
     GetTestExecutionArtifactsUrlResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetTestExecutionArtifactsUrl", input);
   }
@@ -699,11 +428,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListAggregatedUtterancesRequest,
   ): Effect.Effect<
     ListAggregatedUtterancesResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAggregatedUtterances", input);
   }
@@ -711,11 +436,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBotAliasesRequest,
   ): Effect.Effect<
     ListBotAliasesResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBotAliases", input);
   }
@@ -723,11 +444,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBotAliasReplicasRequest,
   ): Effect.Effect<
     ListBotAliasReplicasResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBotAliasReplicas", input);
   }
@@ -735,11 +452,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBotLocalesRequest,
   ): Effect.Effect<
     ListBotLocalesResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBotLocales", input);
   }
@@ -747,11 +460,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBotRecommendationsRequest,
   ): Effect.Effect<
     ListBotRecommendationsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBotRecommendations", input);
   }
@@ -759,11 +468,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBotReplicasRequest,
   ): Effect.Effect<
     ListBotReplicasResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBotReplicas", input);
   }
@@ -771,11 +476,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBotResourceGenerationsRequest,
   ): Effect.Effect<
     ListBotResourceGenerationsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBotResourceGenerations", input);
   }
@@ -783,11 +484,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBotsRequest,
   ): Effect.Effect<
     ListBotsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBots", input);
   }
@@ -795,11 +492,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBotVersionReplicasRequest,
   ): Effect.Effect<
     ListBotVersionReplicasResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBotVersionReplicas", input);
   }
@@ -807,11 +500,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBotVersionsRequest,
   ): Effect.Effect<
     ListBotVersionsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBotVersions", input);
   }
@@ -819,11 +508,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBuiltInIntentsRequest,
   ): Effect.Effect<
     ListBuiltInIntentsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBuiltInIntents", input);
   }
@@ -831,11 +516,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListBuiltInSlotTypesRequest,
   ): Effect.Effect<
     ListBuiltInSlotTypesResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBuiltInSlotTypes", input);
   }
@@ -843,12 +524,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListCustomVocabularyItemsRequest,
   ): Effect.Effect<
     ListCustomVocabularyItemsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCustomVocabularyItems", input);
   }
@@ -856,10 +532,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListExportsRequest,
   ): Effect.Effect<
     ListExportsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListExports", input);
   }
@@ -867,10 +540,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListImportsRequest,
   ): Effect.Effect<
     ListImportsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListImports", input);
   }
@@ -878,12 +548,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListIntentMetricsRequest,
   ): Effect.Effect<
     ListIntentMetricsResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListIntentMetrics", input);
   }
@@ -891,12 +556,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListIntentPathsRequest,
   ): Effect.Effect<
     ListIntentPathsResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListIntentPaths", input);
   }
@@ -904,11 +564,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListIntentsRequest,
   ): Effect.Effect<
     ListIntentsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListIntents", input);
   }
@@ -916,12 +572,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListIntentStageMetricsRequest,
   ): Effect.Effect<
     ListIntentStageMetricsResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListIntentStageMetrics", input);
   }
@@ -929,12 +580,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListRecommendedIntentsRequest,
   ): Effect.Effect<
     ListRecommendedIntentsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRecommendedIntents", input);
   }
@@ -942,12 +588,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListSessionAnalyticsDataRequest,
   ): Effect.Effect<
     ListSessionAnalyticsDataResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSessionAnalyticsData", input);
   }
@@ -955,12 +596,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListSessionMetricsRequest,
   ): Effect.Effect<
     ListSessionMetricsResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSessionMetrics", input);
   }
@@ -968,11 +604,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListSlotsRequest,
   ): Effect.Effect<
     ListSlotsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSlots", input);
   }
@@ -980,11 +612,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListSlotTypesRequest,
   ): Effect.Effect<
     ListSlotTypesResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSlotTypes", input);
   }
@@ -992,11 +620,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -1004,12 +628,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListTestExecutionResultItemsRequest,
   ): Effect.Effect<
     ListTestExecutionResultItemsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTestExecutionResultItems", input);
   }
@@ -1017,11 +636,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListTestExecutionsRequest,
   ): Effect.Effect<
     ListTestExecutionsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTestExecutions", input);
   }
@@ -1029,12 +644,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListTestSetRecordsRequest,
   ): Effect.Effect<
     ListTestSetRecordsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTestSetRecords", input);
   }
@@ -1042,11 +652,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListTestSetsRequest,
   ): Effect.Effect<
     ListTestSetsResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTestSets", input);
   }
@@ -1054,12 +660,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListUtteranceAnalyticsDataRequest,
   ): Effect.Effect<
     ListUtteranceAnalyticsDataResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListUtteranceAnalyticsData", input);
   }
@@ -1067,12 +668,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: ListUtteranceMetricsRequest,
   ): Effect.Effect<
     ListUtteranceMetricsResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListUtteranceMetrics", input);
   }
@@ -1080,12 +676,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: SearchAssociatedTranscriptsRequest,
   ): Effect.Effect<
     SearchAssociatedTranscriptsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchAssociatedTranscripts", input);
   }
@@ -1093,14 +684,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: StartBotRecommendationRequest,
   ): Effect.Effect<
     StartBotRecommendationResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartBotRecommendation", input);
   }
@@ -1108,13 +692,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: StartBotResourceGenerationRequest,
   ): Effect.Effect<
     StartBotResourceGenerationResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartBotResourceGeneration", input);
   }
@@ -1122,13 +700,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: StartImportRequest,
   ): Effect.Effect<
     StartImportResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartImport", input);
   }
@@ -1136,13 +708,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: StartTestExecutionRequest,
   ): Effect.Effect<
     StartTestExecutionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartTestExecution", input);
   }
@@ -1150,13 +716,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: StartTestSetGenerationRequest,
   ): Effect.Effect<
     StartTestSetGenerationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartTestSetGeneration", input);
   }
@@ -1164,14 +724,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: StopBotRecommendationRequest,
   ): Effect.Effect<
     StopBotRecommendationResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopBotRecommendation", input);
   }
@@ -1179,11 +732,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1191,11 +740,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1203,13 +748,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UpdateBotRequest,
   ): Effect.Effect<
     UpdateBotResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateBot", input);
   }
@@ -1217,13 +756,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UpdateBotAliasRequest,
   ): Effect.Effect<
     UpdateBotAliasResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateBotAlias", input);
   }
@@ -1231,13 +764,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UpdateBotLocaleRequest,
   ): Effect.Effect<
     UpdateBotLocaleResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateBotLocale", input);
   }
@@ -1245,14 +772,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UpdateBotRecommendationRequest,
   ): Effect.Effect<
     UpdateBotRecommendationResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateBotRecommendation", input);
   }
@@ -1260,13 +780,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UpdateExportRequest,
   ): Effect.Effect<
     UpdateExportResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateExport", input);
   }
@@ -1274,13 +788,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UpdateIntentRequest,
   ): Effect.Effect<
     UpdateIntentResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateIntent", input);
   }
@@ -1288,13 +796,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UpdateResourcePolicyRequest,
   ): Effect.Effect<
     UpdateResourcePolicyResponse,
-    | InternalServerException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | PreconditionFailedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateResourcePolicy", input);
   }
@@ -1302,13 +804,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UpdateSlotRequest,
   ): Effect.Effect<
     UpdateSlotResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSlot", input);
   }
@@ -1316,13 +812,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UpdateSlotTypeRequest,
   ): Effect.Effect<
     UpdateSlotTypeResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSlotType", input);
   }
@@ -1330,13 +820,7 @@ export class LexModelsV2 extends AWSServiceClient {
     input: UpdateTestSetRequest,
   ): Effect.Effect<
     UpdateTestSetResponse,
-    | ConflictException
-    | InternalServerException
-    | PreconditionFailedException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | PreconditionFailedException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateTestSet", input);
   }
@@ -1384,8 +868,7 @@ export interface AggregatedUtterancesSummary {
   utteranceLastRecordedInAggregationDuration?: Date | string;
   containsDataFromDeletedResources?: boolean;
 }
-export type AggregatedUtterancesSummaryList =
-  Array<AggregatedUtterancesSummary>;
+export type AggregatedUtterancesSummaryList = Array<AggregatedUtterancesSummary>;
 export interface AllowedInputTypes {
   allowAudioInput: boolean;
   allowDTMFInput: boolean;
@@ -1408,45 +891,27 @@ export type AnalyticsBinValue = number;
 
 export type AnalyticsChannel = string;
 
-export type AnalyticsCommonFilterName =
-  | "BotAliasId"
-  | "BotVersion"
-  | "LocaleId"
-  | "Modality"
-  | "Channel";
+export type AnalyticsCommonFilterName = "BotAliasId" | "BotVersion" | "LocaleId" | "Modality" | "Channel";
 export type AnalyticsFilterOperator = "Equals" | "GreaterThan" | "LessThan";
 export type AnalyticsFilterValue = string;
 
 export type AnalyticsFilterValues = Array<string>;
 export type AnalyticsGroupByValue = string;
 
-export type AnalyticsIntentField =
-  | "IntentName"
-  | "IntentEndState"
-  | "IntentLevel";
+export type AnalyticsIntentField = "IntentName" | "IntentEndState" | "IntentLevel";
 export interface AnalyticsIntentFilter {
   name: AnalyticsIntentFilterName;
   operator: AnalyticsFilterOperator;
   values: Array<string>;
 }
-export type AnalyticsIntentFilterName =
-  | "BotAliasId"
-  | "BotVersion"
-  | "LocaleId"
-  | "Modality"
-  | "Channel"
-  | "SessionId"
-  | "OriginatingRequestId"
-  | "IntentName"
-  | "IntentEndState";
+export type AnalyticsIntentFilterName = "BotAliasId" | "BotVersion" | "LocaleId" | "Modality" | "Channel" | "SessionId" | "OriginatingRequestId" | "IntentName" | "IntentEndState";
 export type AnalyticsIntentFilters = Array<AnalyticsIntentFilter>;
 export interface AnalyticsIntentGroupByKey {
   name?: AnalyticsIntentField;
   value?: string;
 }
 export type AnalyticsIntentGroupByKeys = Array<AnalyticsIntentGroupByKey>;
-export type AnalyticsIntentGroupByList =
-  Array<AnalyticsIntentGroupBySpecification>;
+export type AnalyticsIntentGroupByList = Array<AnalyticsIntentGroupBySpecification>;
 export interface AnalyticsIntentGroupBySpecification {
   name: AnalyticsIntentField;
 }
@@ -1455,12 +920,7 @@ export interface AnalyticsIntentMetric {
   statistic: AnalyticsMetricStatistic;
   order?: AnalyticsSortOrder;
 }
-export type AnalyticsIntentMetricName =
-  | "Count"
-  | "Success"
-  | "Failure"
-  | "Switched"
-  | "Dropped";
+export type AnalyticsIntentMetricName = "Count" | "Success" | "Failure" | "Switched" | "Dropped";
 export interface AnalyticsIntentMetricResult {
   name?: AnalyticsIntentMetricName;
   statistic?: AnalyticsMetricStatistic;
@@ -1488,25 +948,14 @@ export interface AnalyticsIntentStageFilter {
   operator: AnalyticsFilterOperator;
   values: Array<string>;
 }
-export type AnalyticsIntentStageFilterName =
-  | "BotAliasId"
-  | "BotVersion"
-  | "LocaleId"
-  | "Modality"
-  | "Channel"
-  | "SessionId"
-  | "OriginatingRequestId"
-  | "IntentName"
-  | "IntentStageName";
+export type AnalyticsIntentStageFilterName = "BotAliasId" | "BotVersion" | "LocaleId" | "Modality" | "Channel" | "SessionId" | "OriginatingRequestId" | "IntentName" | "IntentStageName";
 export type AnalyticsIntentStageFilters = Array<AnalyticsIntentStageFilter>;
 export interface AnalyticsIntentStageGroupByKey {
   name?: AnalyticsIntentStageField;
   value?: string;
 }
-export type AnalyticsIntentStageGroupByKeys =
-  Array<AnalyticsIntentStageGroupByKey>;
-export type AnalyticsIntentStageGroupByList =
-  Array<AnalyticsIntentStageGroupBySpecification>;
+export type AnalyticsIntentStageGroupByKeys = Array<AnalyticsIntentStageGroupByKey>;
+export type AnalyticsIntentStageGroupByList = Array<AnalyticsIntentStageGroupBySpecification>;
 export interface AnalyticsIntentStageGroupBySpecification {
   name: AnalyticsIntentStageField;
 }
@@ -1515,19 +964,13 @@ export interface AnalyticsIntentStageMetric {
   statistic: AnalyticsMetricStatistic;
   order?: AnalyticsSortOrder;
 }
-export type AnalyticsIntentStageMetricName =
-  | "Count"
-  | "Success"
-  | "Failed"
-  | "Dropped"
-  | "Retry";
+export type AnalyticsIntentStageMetricName = "Count" | "Success" | "Failed" | "Dropped" | "Retry";
 export interface AnalyticsIntentStageMetricResult {
   name?: AnalyticsIntentStageMetricName;
   statistic?: AnalyticsMetricStatistic;
   value?: number;
 }
-export type AnalyticsIntentStageMetricResults =
-  Array<AnalyticsIntentStageMetricResult>;
+export type AnalyticsIntentStageMetricResults = Array<AnalyticsIntentStageMetricResult>;
 export type AnalyticsIntentStageMetrics = Array<AnalyticsIntentStageMetric>;
 export interface AnalyticsIntentStageResult {
   binKeys?: Array<AnalyticsBinKey>;
@@ -1563,25 +1006,14 @@ export interface AnalyticsSessionFilter {
   operator: AnalyticsFilterOperator;
   values: Array<string>;
 }
-export type AnalyticsSessionFilterName =
-  | "BotAliasId"
-  | "BotVersion"
-  | "LocaleId"
-  | "Modality"
-  | "Channel"
-  | "Duration"
-  | "ConversationEndState"
-  | "SessionId"
-  | "OriginatingRequestId"
-  | "IntentPath";
+export type AnalyticsSessionFilterName = "BotAliasId" | "BotVersion" | "LocaleId" | "Modality" | "Channel" | "Duration" | "ConversationEndState" | "SessionId" | "OriginatingRequestId" | "IntentPath";
 export type AnalyticsSessionFilters = Array<AnalyticsSessionFilter>;
 export interface AnalyticsSessionGroupByKey {
   name?: AnalyticsSessionField;
   value?: string;
 }
 export type AnalyticsSessionGroupByKeys = Array<AnalyticsSessionGroupByKey>;
-export type AnalyticsSessionGroupByList =
-  Array<AnalyticsSessionGroupBySpecification>;
+export type AnalyticsSessionGroupByList = Array<AnalyticsSessionGroupBySpecification>;
 export interface AnalyticsSessionGroupBySpecification {
   name: AnalyticsSessionField;
 }
@@ -1592,14 +1024,7 @@ export interface AnalyticsSessionMetric {
   statistic: AnalyticsMetricStatistic;
   order?: AnalyticsSortOrder;
 }
-export type AnalyticsSessionMetricName =
-  | "Count"
-  | "Success"
-  | "Failure"
-  | "Dropped"
-  | "Duration"
-  | "TurnsPerConversation"
-  | "Concurrency";
+export type AnalyticsSessionMetricName = "Count" | "Success" | "Failure" | "Dropped" | "Duration" | "TurnsPerConversation" | "Concurrency";
 export interface AnalyticsSessionMetricResult {
   name?: AnalyticsSessionMetricName;
   statistic?: AnalyticsMetricStatistic;
@@ -1613,10 +1038,7 @@ export interface AnalyticsSessionResult {
   metricsResults?: Array<AnalyticsSessionMetricResult>;
 }
 export type AnalyticsSessionResults = Array<AnalyticsSessionResult>;
-export type AnalyticsSessionSortByName =
-  | "ConversationStartTime"
-  | "NumberOfTurns"
-  | "Duration";
+export type AnalyticsSessionSortByName = "ConversationStartTime" | "NumberOfTurns" | "Duration";
 export type AnalyticsSortOrder = "Ascending" | "Descending";
 export interface AnalyticsUtteranceAttribute {
   name: AnalyticsUtteranceAttributeName;
@@ -1625,8 +1047,7 @@ export type AnalyticsUtteranceAttributeName = "LastUsedIntent";
 export interface AnalyticsUtteranceAttributeResult {
   lastUsedIntent?: string;
 }
-export type AnalyticsUtteranceAttributeResults =
-  Array<AnalyticsUtteranceAttributeResult>;
+export type AnalyticsUtteranceAttributeResults = Array<AnalyticsUtteranceAttributeResult>;
 export type AnalyticsUtteranceAttributes = Array<AnalyticsUtteranceAttribute>;
 export type AnalyticsUtteranceField = "UtteranceText" | "UtteranceState";
 export interface AnalyticsUtteranceFilter {
@@ -1634,24 +1055,14 @@ export interface AnalyticsUtteranceFilter {
   operator: AnalyticsFilterOperator;
   values: Array<string>;
 }
-export type AnalyticsUtteranceFilterName =
-  | "BotAliasId"
-  | "BotVersion"
-  | "LocaleId"
-  | "Modality"
-  | "Channel"
-  | "SessionId"
-  | "OriginatingRequestId"
-  | "UtteranceState"
-  | "UtteranceText";
+export type AnalyticsUtteranceFilterName = "BotAliasId" | "BotVersion" | "LocaleId" | "Modality" | "Channel" | "SessionId" | "OriginatingRequestId" | "UtteranceState" | "UtteranceText";
 export type AnalyticsUtteranceFilters = Array<AnalyticsUtteranceFilter>;
 export interface AnalyticsUtteranceGroupByKey {
   name?: AnalyticsUtteranceField;
   value?: string;
 }
 export type AnalyticsUtteranceGroupByKeys = Array<AnalyticsUtteranceGroupByKey>;
-export type AnalyticsUtteranceGroupByList =
-  Array<AnalyticsUtteranceGroupBySpecification>;
+export type AnalyticsUtteranceGroupByList = Array<AnalyticsUtteranceGroupBySpecification>;
 export interface AnalyticsUtteranceGroupBySpecification {
   name: AnalyticsUtteranceField;
 }
@@ -1660,18 +1071,13 @@ export interface AnalyticsUtteranceMetric {
   statistic: AnalyticsMetricStatistic;
   order?: AnalyticsSortOrder;
 }
-export type AnalyticsUtteranceMetricName =
-  | "Count"
-  | "Missed"
-  | "Detected"
-  | "UtteranceTimestamp";
+export type AnalyticsUtteranceMetricName = "Count" | "Missed" | "Detected" | "UtteranceTimestamp";
 export interface AnalyticsUtteranceMetricResult {
   name?: AnalyticsUtteranceMetricName;
   statistic?: AnalyticsMetricStatistic;
   value?: number;
 }
-export type AnalyticsUtteranceMetricResults =
-  Array<AnalyticsUtteranceMetricResult>;
+export type AnalyticsUtteranceMetricResults = Array<AnalyticsUtteranceMetricResult>;
 export type AnalyticsUtteranceMetrics = Array<AnalyticsUtteranceMetric>;
 export interface AnalyticsUtteranceResult {
   binKeys?: Array<AnalyticsBinKey>;
@@ -1812,12 +1218,7 @@ export interface BotAliasReplicaSummary {
   failureReasons?: Array<string>;
 }
 export type BotAliasReplicaSummaryList = Array<BotAliasReplicaSummary>;
-export type BotAliasReplicationStatus =
-  | "Creating"
-  | "Updating"
-  | "Available"
-  | "Deleting"
-  | "Failed";
+export type BotAliasReplicationStatus = "Creating" | "Updating" | "Available" | "Deleting" | "Failed";
 export type BotAliasStatus = "Creating" | "Available" | "Deleting" | "Failed";
 export interface BotAliasSummary {
   botAliasId?: string;
@@ -1887,16 +1288,7 @@ export interface BotLocaleSortBy {
   attribute: BotLocaleSortAttribute;
   order: SortOrder;
 }
-export type BotLocaleStatus =
-  | "Creating"
-  | "Building"
-  | "Built"
-  | "ReadyExpressTesting"
-  | "Failed"
-  | "Deleting"
-  | "NotBuilt"
-  | "Importing"
-  | "Processing";
+export type BotLocaleStatus = "Creating" | "Building" | "Built" | "ReadyExpressTesting" | "Failed" | "Deleting" | "NotBuilt" | "Importing" | "Processing";
 export interface BotLocaleSummary {
   localeId?: string;
   localeName?: string;
@@ -1923,16 +1315,7 @@ export interface BotRecommendationResultStatistics {
   intents?: IntentStatistics;
   slotTypes?: SlotTypeStatistics;
 }
-export type BotRecommendationStatus =
-  | "Processing"
-  | "Deleting"
-  | "Deleted"
-  | "Downloading"
-  | "Updating"
-  | "Available"
-  | "Failed"
-  | "Stopping"
-  | "Stopped";
+export type BotRecommendationStatus = "Processing" | "Deleting" | "Deleted" | "Downloading" | "Updating" | "Available" | "Failed" | "Stopping" | "Stopped";
 export interface BotRecommendationSummary {
   botRecommendationStatus: BotRecommendationStatus;
   botRecommendationId: string;
@@ -1953,15 +1336,7 @@ export interface BotSortBy {
   attribute: BotSortAttribute;
   order: SortOrder;
 }
-export type BotStatus =
-  | "Creating"
-  | "Available"
-  | "Inactive"
-  | "Deleting"
-  | "Failed"
-  | "Versioning"
-  | "Importing"
-  | "Updating";
+export type BotStatus = "Creating" | "Available" | "Inactive" | "Deleting" | "Failed" | "Versioning" | "Importing" | "Updating";
 export interface BotSummary {
   botId?: string;
   botName?: string;
@@ -1978,10 +1353,7 @@ export type BotVersion = string;
 export interface BotVersionLocaleDetails {
   sourceBotVersion: string;
 }
-export type BotVersionLocaleSpecification = Record<
-  string,
-  BotVersionLocaleDetails
->;
+export type BotVersionLocaleSpecification = Record<string, BotVersionLocaleDetails>;
 export type BotVersionReplicaSortAttribute = "BotVersion";
 export interface BotVersionReplicaSortBy {
   attribute: BotVersionReplicaSortAttribute;
@@ -1994,11 +1366,7 @@ export interface BotVersionReplicaSummary {
   failureReasons?: Array<string>;
 }
 export type BotVersionReplicaSummaryList = Array<BotVersionReplicaSummary>;
-export type BotVersionReplicationStatus =
-  | "Creating"
-  | "Available"
-  | "Deleting"
-  | "Failed";
+export type BotVersionReplicationStatus = "Creating" | "Available" | "Deleting" | "Failed";
 export type BotVersionSortAttribute = "BotVersion";
 export interface BotVersionSortBy {
   attribute: BotVersionSortAttribute;
@@ -2120,8 +1488,7 @@ export interface ConversationLevelIntentClassificationResultItem {
   intentName: string;
   matchResult: TestResultMatchStatus;
 }
-export type ConversationLevelIntentClassificationResults =
-  Array<ConversationLevelIntentClassificationResultItem>;
+export type ConversationLevelIntentClassificationResults = Array<ConversationLevelIntentClassificationResultItem>;
 export interface ConversationLevelResultDetail {
   endToEndResult: TestResultMatchStatus;
   speechTranscriptionResult?: TestResultMatchStatus;
@@ -2131,8 +1498,7 @@ export interface ConversationLevelSlotResolutionResultItem {
   slotName: string;
   matchResult: TestResultMatchStatus;
 }
-export type ConversationLevelSlotResolutionResults =
-  Array<ConversationLevelSlotResolutionResultItem>;
+export type ConversationLevelSlotResolutionResults = Array<ConversationLevelSlotResolutionResultItem>;
 export interface ConversationLevelTestResultItem {
   conversationId: string;
   endToEndResult: TestResultMatchStatus;
@@ -2140,8 +1506,7 @@ export interface ConversationLevelTestResultItem {
   intentClassificationResults: Array<ConversationLevelIntentClassificationResultItem>;
   slotResolutionResults: Array<ConversationLevelSlotResolutionResultItem>;
 }
-export type ConversationLevelTestResultItemList =
-  Array<ConversationLevelTestResultItem>;
+export type ConversationLevelTestResultItemList = Array<ConversationLevelTestResultItem>;
 export interface ConversationLevelTestResults {
   items: Array<ConversationLevelTestResultItem>;
 }
@@ -2399,7 +1764,8 @@ export interface CreateTestSetDiscrepancyReportResponse {
   testSetId?: string;
   target?: TestSetDiscrepancyReportResourceTarget;
 }
-export interface CreateUploadUrlRequest {}
+export interface CreateUploadUrlRequest {
+}
 export interface CreateUploadUrlResponse {
   importId?: string;
   uploadUrl?: string;
@@ -2429,12 +1795,7 @@ export interface CustomVocabularyItem {
   displayAs?: string;
 }
 export type CustomVocabularyItems = Array<CustomVocabularyItem>;
-export type CustomVocabularyStatus =
-  | "Ready"
-  | "Deleting"
-  | "Exporting"
-  | "Importing"
-  | "Creating";
+export type CustomVocabularyStatus = "Ready" | "Deleting" | "Exporting" | "Importing" | "Creating";
 export interface DataPrivacy {
   childDirected: boolean;
 }
@@ -2570,7 +1931,8 @@ export interface DeleteUtterancesRequest {
   localeId?: string;
   sessionId?: string;
 }
-export interface DeleteUtterancesResponse {}
+export interface DeleteUtterancesResponse {
+}
 export interface DescribeBotAliasRequest {
   botAliasId: string;
   botId: string;
@@ -2893,16 +2255,7 @@ export interface DialogAction {
   slotToElicit?: string;
   suppressNextMessage?: boolean;
 }
-export type DialogActionType =
-  | "ElicitIntent"
-  | "StartIntent"
-  | "ElicitSlot"
-  | "EvaluateConditional"
-  | "InvokeDialogCodeHook"
-  | "ConfirmIntent"
-  | "FulfillIntent"
-  | "CloseIntent"
-  | "EndConversation";
+export type DialogActionType = "ElicitIntent" | "StartIntent" | "ElicitSlot" | "EvaluateConditional" | "InvokeDialogCodeHook" | "ConfirmIntent" | "FulfillIntent" | "CloseIntent" | "EndConversation";
 export interface DialogCodeHookInvocationSetting {
   enableCodeHookInvocation: boolean;
   active: boolean;
@@ -2941,11 +2294,7 @@ export interface EncryptionSetting {
   botLocaleExportPassword?: string;
   associatedTranscriptsPassword?: string;
 }
-export type ErrorCode =
-  | "DUPLICATE_INPUT"
-  | "RESOURCE_DOES_NOT_EXIST"
-  | "RESOURCE_ALREADY_EXISTS"
-  | "INTERNAL_SERVER_FAILURE";
+export type ErrorCode = "DUPLICATE_INPUT" | "RESOURCE_DOES_NOT_EXIST" | "RESOURCE_ALREADY_EXISTS" | "INTERNAL_SERVER_FAILURE";
 export interface ErrorLogSettings {
   enabled: boolean;
 }
@@ -3111,11 +2460,7 @@ export interface ImportResourceSpecification {
   customVocabularyImportSpecification?: CustomVocabularyImportSpecification;
   testSetImportResourceSpecification?: TestSetImportResourceSpecification;
 }
-export type ImportResourceType =
-  | "Bot"
-  | "BotLocale"
-  | "CustomVocabulary"
-  | "TestSet";
+export type ImportResourceType = "Bot" | "BotLocale" | "CustomVocabulary" | "TestSet";
 export type ImportSortAttribute = "LastUpdatedDateTime";
 export interface ImportSortBy {
   attribute: ImportSortAttribute;
@@ -3160,8 +2505,7 @@ export interface IntentClassificationTestResultItemCounts {
   speechTranscriptionResultCounts?: Record<TestResultMatchStatus, number>;
   intentMatchResultCounts: Record<TestResultMatchStatus, number>;
 }
-export type IntentClassificationTestResultItemList =
-  Array<IntentClassificationTestResultItem>;
+export type IntentClassificationTestResultItemList = Array<IntentClassificationTestResultItem>;
 export interface IntentClassificationTestResults {
   items: Array<IntentClassificationTestResultItem>;
 }
@@ -3199,8 +2543,7 @@ export interface IntentLevelSlotResolutionTestResultItem {
   multiTurnConversation: boolean;
   slotResolutionResults: Array<SlotResolutionTestResultItem>;
 }
-export type IntentLevelSlotResolutionTestResultItemList =
-  Array<IntentLevelSlotResolutionTestResultItem>;
+export type IntentLevelSlotResolutionTestResultItemList = Array<IntentLevelSlotResolutionTestResultItem>;
 export interface IntentLevelSlotResolutionTestResults {
   items: Array<IntentLevelSlotResolutionTestResultItem>;
 }
@@ -3215,13 +2558,7 @@ export interface IntentSortBy {
   attribute: IntentSortAttribute;
   order: SortOrder;
 }
-export type IntentState =
-  | "Failed"
-  | "Fulfilled"
-  | "InProgress"
-  | "ReadyForFulfillment"
-  | "Waiting"
-  | "FulfillmentInProgress";
+export type IntentState = "Failed" | "Fulfilled" | "InProgress" | "ReadyForFulfillment" | "Waiting" | "FulfillmentInProgress";
 export interface IntentStatistics {
   discoveredIntentCount?: number;
 }
@@ -3814,23 +3151,14 @@ export type PrincipalArn = string;
 export type PrincipalList = Array<Principal>;
 export type PriorityValue = number;
 
-export type PromptAttempt =
-  | "Initial"
-  | "Retry1"
-  | "Retry2"
-  | "Retry3"
-  | "Retry4"
-  | "Retry5";
+export type PromptAttempt = "Initial" | "Retry1" | "Retry2" | "Retry3" | "Retry4" | "Retry5";
 export interface PromptAttemptSpecification {
   allowInterrupt?: boolean;
   allowedInputTypes: AllowedInputTypes;
   audioAndDTMFInputSpecification?: AudioAndDTMFInputSpecification;
   textInputSpecification?: TextInputSpecification;
 }
-export type PromptAttemptsSpecificationMap = Record<
-  PromptAttempt,
-  PromptAttemptSpecification
->;
+export type PromptAttemptsSpecificationMap = Record<PromptAttempt, PromptAttemptSpecification>;
 export type PromptMaxRetries = number;
 
 export interface PromptSpecification {
@@ -3838,10 +3166,7 @@ export interface PromptSpecification {
   maxRetries: number;
   allowInterrupt?: boolean;
   messageSelectionStrategy?: MessageSelectionStrategy;
-  promptAttemptsSpecification?: Record<
-    PromptAttempt,
-    PromptAttemptSpecification
-  >;
+  promptAttemptsSpecification?: Record<PromptAttempt, PromptAttemptSpecification>;
 }
 export type QInConnectAssistantARN = string;
 
@@ -4033,10 +3358,7 @@ export interface SlotFilter {
 export type SlotFilterName = "SlotName";
 export type SlotFilterOperator = "Contains" | "Equals";
 export type SlotFilters = Array<SlotFilter>;
-export type SlotHintsIntentMap = Record<
-  string,
-  Record<string, RuntimeHintDetails>
->;
+export type SlotHintsIntentMap = Record<string, Record<string, RuntimeHintDetails>>;
 export type SlotHintsSlotMap = Record<string, RuntimeHintDetails>;
 export type SlotPrioritiesList = Array<SlotPriority>;
 export interface SlotPriority {
@@ -4077,11 +3399,7 @@ export interface SlotSummary {
   lastUpdatedDateTime?: Date | string;
 }
 export type SlotSummaryList = Array<SlotSummary>;
-export type SlotTypeCategory =
-  | "Custom"
-  | "Extended"
-  | "ExternalGrammar"
-  | "Composite";
+export type SlotTypeCategory = "Custom" | "Extended" | "ExternalGrammar" | "Composite";
 export interface SlotTypeFilter {
   name: SlotTypeFilterName;
   values: Array<string>;
@@ -4135,10 +3453,7 @@ export type SlotValueOverrideMap = Record<string, SlotValueOverride>;
 export interface SlotValueRegexFilter {
   pattern: string;
 }
-export type SlotValueResolutionStrategy =
-  | "OriginalValue"
-  | "TopResolution"
-  | "Concatenation";
+export type SlotValueResolutionStrategy = "OriginalValue" | "TopResolution" | "Concatenation";
 export type SlotValues = Array<SlotValueOverride>;
 export interface SlotValueSelectionSetting {
   resolutionStrategy: SlotValueResolutionStrategy;
@@ -4286,7 +3601,8 @@ export interface TagResourceRequest {
   resourceARN: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TestExecutionApiMode = "Streaming" | "NonStreaming";
@@ -4307,14 +3623,7 @@ export interface TestExecutionSortBy {
   attribute: TestExecutionSortAttribute;
   order: SortOrder;
 }
-export type TestExecutionStatus =
-  | "Pending"
-  | "Waiting"
-  | "InProgress"
-  | "Completed"
-  | "Failed"
-  | "Stopping"
-  | "Stopped";
+export type TestExecutionStatus = "Pending" | "Waiting" | "InProgress" | "Completed" | "Failed" | "Stopping" | "Stopped";
 export interface TestExecutionSummary {
   testExecutionId?: string;
   creationDateTime?: Date | string;
@@ -4331,18 +3640,10 @@ export interface TestExecutionTarget {
   botAliasTarget?: BotAliasTestExecutionTarget;
 }
 export type TestResultMatchStatus = "Matched" | "Mismatched" | "ExecutionError";
-export type TestResultMatchStatusCountMap = Record<
-  TestResultMatchStatus,
-  number
->;
+export type TestResultMatchStatusCountMap = Record<TestResultMatchStatus, number>;
 export type TestResultSlotName = string;
 
-export type TestResultTypeFilter =
-  | "OverallTestResults"
-  | "ConversationLevelTestResults"
-  | "IntentClassificationTestResults"
-  | "SlotResolutionTestResults"
-  | "UtteranceLevelResults";
+export type TestResultTypeFilter = "OverallTestResults" | "ConversationLevelTestResults" | "IntentClassificationTestResults" | "SlotResolutionTestResults" | "UtteranceLevelResults";
 export type TestSetAgentPrompt = string;
 
 export type TestSetConversationId = string;
@@ -4359,21 +3660,14 @@ export interface TestSetDiscrepancyReportBotAliasTarget {
 export interface TestSetDiscrepancyReportResourceTarget {
   botAliasTarget?: TestSetDiscrepancyReportBotAliasTarget;
 }
-export type TestSetDiscrepancyReportStatus =
-  | "InProgress"
-  | "Completed"
-  | "Failed";
+export type TestSetDiscrepancyReportStatus = "InProgress" | "Completed" | "Failed";
 export interface TestSetExportSpecification {
   testSetId: string;
 }
 export interface TestSetGenerationDataSource {
   conversationLogsDataSource?: ConversationLogsDataSource;
 }
-export type TestSetGenerationStatus =
-  | "Generating"
-  | "Ready"
-  | "Failed"
-  | "Pending";
+export type TestSetGenerationStatus = "Generating" | "Ready" | "Failed" | "Pending";
 export interface TestSetImportInputLocation {
   s3BucketName: string;
   s3Path: string;
@@ -4404,12 +3698,7 @@ export interface TestSetSortBy {
   attribute: TestSetSortAttribute;
   order: SortOrder;
 }
-export type TestSetStatus =
-  | "Importing"
-  | "PendingAnnotation"
-  | "Deleting"
-  | "ValidationError"
-  | "Ready";
+export type TestSetStatus = "Importing" | "PendingAnnotation" | "Deleting" | "ValidationError" | "Ready";
 export interface TestSetStorageLocation {
   s3BucketName: string;
   s3Path: string;
@@ -4485,7 +3774,8 @@ export interface UntagResourceRequest {
   resourceARN: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateBotAliasRequest {
   botAliasId: string;
   botAliasName: string;
@@ -4767,11 +4057,7 @@ export interface UtteranceBotResponse {
   imageResponseCard?: ImageResponseCard;
 }
 export type UtteranceBotResponses = Array<UtteranceBotResponse>;
-export type UtteranceContentType =
-  | "PlainText"
-  | "CustomPayload"
-  | "SSML"
-  | "ImageResponseCard";
+export type UtteranceContentType = "PlainText" | "CustomPayload" | "SSML" | "ImageResponseCard";
 export interface UtteranceDataSortBy {
   name: AnalyticsUtteranceSortByName;
   order: AnalyticsSortOrder;
@@ -4785,8 +4071,7 @@ export interface UtteranceLevelTestResultItem {
   conversationId?: string;
   turnResult: TestSetTurnResult;
 }
-export type UtteranceLevelTestResultItemList =
-  Array<UtteranceLevelTestResultItem>;
+export type UtteranceLevelTestResultItemList = Array<UtteranceLevelTestResultItem>;
 export interface UtteranceLevelTestResults {
   items: Array<UtteranceLevelTestResultItem>;
 }
@@ -6073,3 +5358,4 @@ export declare namespace UpdateTestSet {
     | ValidationException
     | CommonAwsError;
 }
+

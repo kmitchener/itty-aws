@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ManagedBlockchainQuery extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("managedblockchain-query", new RestJson1Protocol(), cfg);
+  }
+
   batchGetTokenBalance(
     input: BatchGetTokenBalanceInput,
   ): Effect.Effect<
     BatchGetTokenBalanceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetTokenBalance", input);
   }
@@ -21,13 +20,7 @@ export class ManagedBlockchainQuery extends AWSServiceClient {
     input: GetAssetContractInput,
   ): Effect.Effect<
     GetAssetContractOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAssetContract", input);
   }
@@ -35,13 +28,7 @@ export class ManagedBlockchainQuery extends AWSServiceClient {
     input: GetTokenBalanceInput,
   ): Effect.Effect<
     GetTokenBalanceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetTokenBalance", input);
   }
@@ -49,13 +36,7 @@ export class ManagedBlockchainQuery extends AWSServiceClient {
     input: GetTransactionInput,
   ): Effect.Effect<
     GetTransactionOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetTransaction", input);
   }
@@ -63,12 +44,7 @@ export class ManagedBlockchainQuery extends AWSServiceClient {
     input: ListAssetContractsInput,
   ): Effect.Effect<
     ListAssetContractsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssetContracts", input);
   }
@@ -76,12 +52,7 @@ export class ManagedBlockchainQuery extends AWSServiceClient {
     input: ListFilteredTransactionEventsInput,
   ): Effect.Effect<
     ListFilteredTransactionEventsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFilteredTransactionEvents", input);
   }
@@ -89,12 +60,7 @@ export class ManagedBlockchainQuery extends AWSServiceClient {
     input: ListTokenBalancesInput,
   ): Effect.Effect<
     ListTokenBalancesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTokenBalances", input);
   }
@@ -102,12 +68,7 @@ export class ManagedBlockchainQuery extends AWSServiceClient {
     input: ListTransactionEventsInput,
   ): Effect.Effect<
     ListTransactionEventsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTransactionEvents", input);
   }
@@ -115,12 +76,7 @@ export class ManagedBlockchainQuery extends AWSServiceClient {
     input: ListTransactionsInput,
   ): Effect.Effect<
     ListTransactionsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTransactions", input);
   }
@@ -172,8 +128,7 @@ export interface BatchGetTokenBalanceOutputItem {
   atBlockchainInstant: BlockchainInstant;
   lastUpdatedTime?: BlockchainInstant;
 }
-export type BatchGetTokenBalanceOutputList =
-  Array<BatchGetTokenBalanceOutputItem>;
+export type BatchGetTokenBalanceOutputList = Array<BatchGetTokenBalanceOutputItem>;
 export interface BlockchainInstant {
   time?: Date | string;
 }
@@ -567,3 +522,4 @@ export declare namespace ListTransactions {
     | ValidationException
     | CommonAwsError;
 }
+

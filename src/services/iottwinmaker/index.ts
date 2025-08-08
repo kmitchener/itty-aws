@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IoTTwinMaker extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iottwinmaker", new RestJson1Protocol(), cfg);
+  }
+
   batchPutPropertyValues(
     input: BatchPutPropertyValuesRequest,
   ): Effect.Effect<
     BatchPutPropertyValuesResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchPutPropertyValues", input);
   }
@@ -19,13 +20,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: CancelMetadataTransferJobRequest,
   ): Effect.Effect<
     CancelMetadataTransferJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelMetadataTransferJob", input);
   }
@@ -33,13 +28,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: CreateComponentTypeRequest,
   ): Effect.Effect<
     CreateComponentTypeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateComponentType", input);
   }
@@ -47,13 +36,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: CreateEntityRequest,
   ): Effect.Effect<
     CreateEntityResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateEntity", input);
   }
@@ -61,14 +44,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: CreateMetadataTransferJobRequest,
   ): Effect.Effect<
     CreateMetadataTransferJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateMetadataTransferJob", input);
   }
@@ -76,13 +52,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: CreateSceneRequest,
   ): Effect.Effect<
     CreateSceneResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateScene", input);
   }
@@ -90,13 +60,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: CreateSyncJobRequest,
   ): Effect.Effect<
     CreateSyncJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSyncJob", input);
   }
@@ -104,13 +68,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: CreateWorkspaceRequest,
   ): Effect.Effect<
     CreateWorkspaceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateWorkspace", input);
   }
@@ -118,12 +76,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: DeleteComponentTypeRequest,
   ): Effect.Effect<
     DeleteComponentTypeResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteComponentType", input);
   }
@@ -131,12 +84,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: DeleteEntityRequest,
   ): Effect.Effect<
     DeleteEntityResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteEntity", input);
   }
@@ -144,12 +92,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: DeleteSceneRequest,
   ): Effect.Effect<
     DeleteSceneResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteScene", input);
   }
@@ -157,13 +100,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: DeleteSyncJobRequest,
   ): Effect.Effect<
     DeleteSyncJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSyncJob", input);
   }
@@ -171,12 +108,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: DeleteWorkspaceRequest,
   ): Effect.Effect<
     DeleteWorkspaceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteWorkspace", input);
   }
@@ -184,13 +116,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: ExecuteQueryRequest,
   ): Effect.Effect<
     ExecuteQueryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | QueryTimeoutException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | QueryTimeoutException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ExecuteQuery", input);
   }
@@ -198,12 +124,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: GetComponentTypeRequest,
   ): Effect.Effect<
     GetComponentTypeResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetComponentType", input);
   }
@@ -211,12 +132,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: GetEntityRequest,
   ): Effect.Effect<
     GetEntityResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetEntity", input);
   }
@@ -224,12 +140,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: GetMetadataTransferJobRequest,
   ): Effect.Effect<
     GetMetadataTransferJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMetadataTransferJob", input);
   }
@@ -237,11 +148,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: GetPricingPlanRequest,
   ): Effect.Effect<
     GetPricingPlanResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPricingPlan", input);
   }
@@ -249,14 +156,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: GetPropertyValueRequest,
   ): Effect.Effect<
     GetPropertyValueResponse,
-    | AccessDeniedException
-    | ConnectorFailureException
-    | ConnectorTimeoutException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConnectorFailureException | ConnectorTimeoutException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPropertyValue", input);
   }
@@ -264,14 +164,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: GetPropertyValueHistoryRequest,
   ): Effect.Effect<
     GetPropertyValueHistoryResponse,
-    | AccessDeniedException
-    | ConnectorFailureException
-    | ConnectorTimeoutException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConnectorFailureException | ConnectorTimeoutException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPropertyValueHistory", input);
   }
@@ -279,12 +172,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: GetSceneRequest,
   ): Effect.Effect<
     GetSceneResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetScene", input);
   }
@@ -292,13 +180,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: GetSyncJobRequest,
   ): Effect.Effect<
     GetSyncJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetSyncJob", input);
   }
@@ -306,12 +188,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: GetWorkspaceRequest,
   ): Effect.Effect<
     GetWorkspaceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWorkspace", input);
   }
@@ -319,12 +196,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: ListComponentsRequest,
   ): Effect.Effect<
     ListComponentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListComponents", input);
   }
@@ -332,11 +204,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: ListComponentTypesRequest,
   ): Effect.Effect<
     ListComponentTypesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListComponentTypes", input);
   }
@@ -344,11 +212,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: ListEntitiesRequest,
   ): Effect.Effect<
     ListEntitiesResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEntities", input);
   }
@@ -356,11 +220,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: ListMetadataTransferJobsRequest,
   ): Effect.Effect<
     ListMetadataTransferJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListMetadataTransferJobs", input);
   }
@@ -368,12 +228,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: ListPropertiesRequest,
   ): Effect.Effect<
     ListPropertiesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProperties", input);
   }
@@ -381,11 +236,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: ListScenesRequest,
   ): Effect.Effect<
     ListScenesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListScenes", input);
   }
@@ -393,12 +244,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: ListSyncJobsRequest,
   ): Effect.Effect<
     ListSyncJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSyncJobs", input);
   }
@@ -406,12 +252,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: ListSyncResourcesRequest,
   ): Effect.Effect<
     ListSyncResourcesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSyncResources", input);
   }
@@ -427,11 +268,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: ListWorkspacesRequest,
   ): Effect.Effect<
     ListWorkspacesResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListWorkspaces", input);
   }
@@ -439,10 +276,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -458,13 +292,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: UpdateComponentTypeRequest,
   ): Effect.Effect<
     UpdateComponentTypeResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateComponentType", input);
   }
@@ -472,14 +300,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: UpdateEntityRequest,
   ): Effect.Effect<
     UpdateEntityResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateEntity", input);
   }
@@ -487,11 +308,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: UpdatePricingPlanRequest,
   ): Effect.Effect<
     UpdatePricingPlanResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePricingPlan", input);
   }
@@ -499,12 +316,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: UpdateSceneRequest,
   ): Effect.Effect<
     UpdateSceneResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateScene", input);
   }
@@ -512,13 +324,7 @@ export class IoTTwinMaker extends AWSServiceClient {
     input: UpdateWorkspaceRequest,
   ): Effect.Effect<
     UpdateWorkspaceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateWorkspace", input);
   }
@@ -582,19 +388,13 @@ export interface ComponentPropertyGroupRequest {
   propertyNames?: Array<string>;
   updateType?: string;
 }
-export type ComponentPropertyGroupRequests = Record<
-  string,
-  ComponentPropertyGroupRequest
->;
+export type ComponentPropertyGroupRequests = Record<string, ComponentPropertyGroupRequest>;
 export interface ComponentPropertyGroupResponse {
   groupType: string;
   propertyNames: Array<string>;
   isInherited: boolean;
 }
-export type ComponentPropertyGroupResponses = Record<
-  string,
-  ComponentPropertyGroupResponse
->;
+export type ComponentPropertyGroupResponses = Record<string, ComponentPropertyGroupResponse>;
 export interface ComponentRequest {
   description?: string;
   componentTypeId?: string;
@@ -657,10 +457,7 @@ export interface CompositeComponentRequest {
   propertyGroups?: Record<string, ComponentPropertyGroupRequest>;
 }
 export type CompositeComponentResponse = Record<string, ComponentSummary>;
-export type CompositeComponentsMapRequest = Record<
-  string,
-  CompositeComponentRequest
->;
+export type CompositeComponentsMapRequest = Record<string, CompositeComponentRequest>;
 export interface CompositeComponentTypeRequest {
   componentTypeId?: string;
 }
@@ -668,24 +465,15 @@ export interface CompositeComponentTypeResponse {
   componentTypeId?: string;
   isInherited?: boolean;
 }
-export type CompositeComponentTypesRequest = Record<
-  string,
-  CompositeComponentTypeRequest
->;
-export type CompositeComponentTypesResponse = Record<
-  string,
-  CompositeComponentTypeResponse
->;
+export type CompositeComponentTypesRequest = Record<string, CompositeComponentTypeRequest>;
+export type CompositeComponentTypesResponse = Record<string, CompositeComponentTypeResponse>;
 export interface CompositeComponentUpdateRequest {
   updateType?: string;
   description?: string;
   propertyUpdates?: Record<string, PropertyRequest>;
   propertyGroupUpdates?: Record<string, ComponentPropertyGroupRequest>;
 }
-export type CompositeComponentUpdatesMapRequest = Record<
-  string,
-  CompositeComponentUpdateRequest
->;
+export type CompositeComponentUpdatesMapRequest = Record<string, CompositeComponentUpdateRequest>;
 export type Configuration = Record<string, string>;
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
@@ -826,7 +614,8 @@ export interface DeleteSceneRequest {
   workspaceId: string;
   sceneId: string;
 }
-export interface DeleteSceneResponse {}
+export interface DeleteSceneResponse {
+}
 export interface DeleteSyncJobRequest {
   workspaceId: string;
   syncSource: string;
@@ -992,7 +781,8 @@ export interface GetMetadataTransferJobResponse {
   status: MetadataTransferJobStatus;
   progress?: MetadataTransferJobProgress;
 }
-export interface GetPricingPlanRequest {}
+export interface GetPricingPlanRequest {
+}
 export interface GetPricingPlanResponse {
   currentPricingPlan: PricingPlan;
   pendingPricingPlan?: PricingPlan;
@@ -1107,13 +897,8 @@ interface _IotSiteWiseSourceConfigurationFilter {
   filterByAsset?: FilterByAsset;
 }
 
-export type IotSiteWiseSourceConfigurationFilter =
-  | (_IotSiteWiseSourceConfigurationFilter & {
-      filterByAssetModel: FilterByAssetModel;
-    })
-  | (_IotSiteWiseSourceConfigurationFilter & { filterByAsset: FilterByAsset });
-export type IotSiteWiseSourceConfigurationFilters =
-  Array<IotSiteWiseSourceConfigurationFilter>;
+export type IotSiteWiseSourceConfigurationFilter = (_IotSiteWiseSourceConfigurationFilter & { filterByAssetModel: FilterByAssetModel }) | (_IotSiteWiseSourceConfigurationFilter & { filterByAsset: FilterByAsset });
+export type IotSiteWiseSourceConfigurationFilters = Array<IotSiteWiseSourceConfigurationFilter>;
 export interface IotTwinMakerDestinationConfiguration {
   workspace: string;
 }
@@ -1126,15 +911,8 @@ interface _IotTwinMakerSourceConfigurationFilter {
   filterByEntity?: FilterByEntity;
 }
 
-export type IotTwinMakerSourceConfigurationFilter =
-  | (_IotTwinMakerSourceConfigurationFilter & {
-      filterByComponentType: FilterByComponentType;
-    })
-  | (_IotTwinMakerSourceConfigurationFilter & {
-      filterByEntity: FilterByEntity;
-    });
-export type IotTwinMakerSourceConfigurationFilters =
-  Array<IotTwinMakerSourceConfigurationFilter>;
+export type IotTwinMakerSourceConfigurationFilter = (_IotTwinMakerSourceConfigurationFilter & { filterByComponentType: FilterByComponentType }) | (_IotTwinMakerSourceConfigurationFilter & { filterByEntity: FilterByEntity });
+export type IotTwinMakerSourceConfigurationFilters = Array<IotTwinMakerSourceConfigurationFilter>;
 export type LambdaArn = string;
 
 export interface LambdaFunction {
@@ -1160,10 +938,7 @@ interface _ListComponentTypesFilter {
   isAbstract?: boolean;
 }
 
-export type ListComponentTypesFilter =
-  | (_ListComponentTypesFilter & { extendsFrom: string })
-  | (_ListComponentTypesFilter & { namespace: string })
-  | (_ListComponentTypesFilter & { isAbstract: boolean });
+export type ListComponentTypesFilter = (_ListComponentTypesFilter & { extendsFrom: string }) | (_ListComponentTypesFilter & { namespace: string }) | (_ListComponentTypesFilter & { isAbstract: boolean });
 export type ListComponentTypesFilters = Array<ListComponentTypesFilter>;
 export interface ListComponentTypesRequest {
   workspaceId: string;
@@ -1183,10 +958,7 @@ interface _ListEntitiesFilter {
   externalId?: string;
 }
 
-export type ListEntitiesFilter =
-  | (_ListEntitiesFilter & { parentEntityId: string })
-  | (_ListEntitiesFilter & { componentTypeId: string })
-  | (_ListEntitiesFilter & { externalId: string });
+export type ListEntitiesFilter = (_ListEntitiesFilter & { parentEntityId: string }) | (_ListEntitiesFilter & { componentTypeId: string }) | (_ListEntitiesFilter & { externalId: string });
 export type ListEntitiesFilters = Array<ListEntitiesFilter>;
 export interface ListEntitiesRequest {
   workspaceId: string;
@@ -1203,11 +975,8 @@ interface _ListMetadataTransferJobsFilter {
   state?: string;
 }
 
-export type ListMetadataTransferJobsFilter =
-  | (_ListMetadataTransferJobsFilter & { workspaceId: string })
-  | (_ListMetadataTransferJobsFilter & { state: string });
-export type ListMetadataTransferJobsFilters =
-  Array<ListMetadataTransferJobsFilter>;
+export type ListMetadataTransferJobsFilter = (_ListMetadataTransferJobsFilter & { workspaceId: string }) | (_ListMetadataTransferJobsFilter & { state: string });
+export type ListMetadataTransferJobsFilters = Array<ListMetadataTransferJobsFilter>;
 export interface ListMetadataTransferJobsRequest {
   sourceType: string;
   destinationType: string;
@@ -1360,14 +1129,8 @@ export interface PropertyDefinitionResponse {
   configuration?: Record<string, string>;
   displayName?: string;
 }
-export type PropertyDefinitionsRequest = Record<
-  string,
-  PropertyDefinitionRequest
->;
-export type PropertyDefinitionsResponse = Record<
-  string,
-  PropertyDefinitionResponse
->;
+export type PropertyDefinitionsRequest = Record<string, PropertyDefinitionRequest>;
+export type PropertyDefinitionsResponse = Record<string, PropertyDefinitionResponse>;
 export type PropertyDisplayName = string;
 
 export interface PropertyFilter {
@@ -1548,11 +1311,7 @@ interface _SyncResourceFilter {
   externalId?: string;
 }
 
-export type SyncResourceFilter =
-  | (_SyncResourceFilter & { state: string })
-  | (_SyncResourceFilter & { resourceType: string })
-  | (_SyncResourceFilter & { resourceId: string })
-  | (_SyncResourceFilter & { externalId: string });
+export type SyncResourceFilter = (_SyncResourceFilter & { state: string }) | (_SyncResourceFilter & { resourceType: string }) | (_SyncResourceFilter & { resourceId: string }) | (_SyncResourceFilter & { externalId: string });
 export type SyncResourceFilters = Array<SyncResourceFilter>;
 export type SyncResourceState = string;
 
@@ -1586,7 +1345,8 @@ export interface TagResourceRequest {
   resourceARN: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1611,7 +1371,8 @@ export interface UntagResourceRequest {
   resourceARN: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateComponentTypeRequest {
   workspaceId: string;
   isSingleton?: boolean;
@@ -2176,3 +1937,4 @@ export declare namespace UpdateWorkspace {
     | ValidationException
     | CommonAwsError;
 }
+

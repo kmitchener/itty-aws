@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class InspectorScan extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("inspector-scan", new RestJson1Protocol(), cfg);
+  }
+
   scanSbom(
     input: ScanSbomRequest,
   ): Effect.Effect<
     ScanSbomResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ScanSbom", input);
   }
@@ -60,12 +61,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFields = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "UNSUPPORTED_SBOM_TYPE"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "UNSUPPORTED_SBOM_TYPE" | "OTHER";
 export declare namespace ScanSbom {
   export type Input = ScanSbomRequest;
   export type Output = ScanSbomResponse;
@@ -76,3 +72,4 @@ export declare namespace ScanSbom {
     | ValidationException
     | CommonAwsError;
 }
+

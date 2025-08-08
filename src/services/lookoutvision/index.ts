@@ -1,21 +1,20 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class LookoutVision extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("lookoutvision", new RestJson1Protocol(), cfg);
+  }
+
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDataset", input);
   }
@@ -23,14 +22,7 @@ export class LookoutVision extends AWSServiceClient {
     input: CreateModelRequest,
   ): Effect.Effect<
     CreateModelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateModel", input);
   }
@@ -38,14 +30,7 @@ export class LookoutVision extends AWSServiceClient {
     input: CreateProjectRequest,
   ): Effect.Effect<
     CreateProjectResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateProject", input);
   }
@@ -53,13 +38,7 @@ export class LookoutVision extends AWSServiceClient {
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     DeleteDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDataset", input);
   }
@@ -67,13 +46,7 @@ export class LookoutVision extends AWSServiceClient {
     input: DeleteModelRequest,
   ): Effect.Effect<
     DeleteModelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteModel", input);
   }
@@ -81,13 +54,7 @@ export class LookoutVision extends AWSServiceClient {
     input: DeleteProjectRequest,
   ): Effect.Effect<
     DeleteProjectResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteProject", input);
   }
@@ -95,13 +62,7 @@ export class LookoutVision extends AWSServiceClient {
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDataset", input);
   }
@@ -109,13 +70,7 @@ export class LookoutVision extends AWSServiceClient {
     input: DescribeModelRequest,
   ): Effect.Effect<
     DescribeModelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeModel", input);
   }
@@ -123,12 +78,7 @@ export class LookoutVision extends AWSServiceClient {
     input: DescribeModelPackagingJobRequest,
   ): Effect.Effect<
     DescribeModelPackagingJobResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeModelPackagingJob", input);
   }
@@ -136,13 +86,7 @@ export class LookoutVision extends AWSServiceClient {
     input: DescribeProjectRequest,
   ): Effect.Effect<
     DescribeProjectResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeProject", input);
   }
@@ -150,13 +94,7 @@ export class LookoutVision extends AWSServiceClient {
     input: DetectAnomaliesRequest,
   ): Effect.Effect<
     DetectAnomaliesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DetectAnomalies", input);
   }
@@ -164,13 +102,7 @@ export class LookoutVision extends AWSServiceClient {
     input: ListDatasetEntriesRequest,
   ): Effect.Effect<
     ListDatasetEntriesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDatasetEntries", input);
   }
@@ -178,12 +110,7 @@ export class LookoutVision extends AWSServiceClient {
     input: ListModelPackagingJobsRequest,
   ): Effect.Effect<
     ListModelPackagingJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListModelPackagingJobs", input);
   }
@@ -191,13 +118,7 @@ export class LookoutVision extends AWSServiceClient {
     input: ListModelsRequest,
   ): Effect.Effect<
     ListModelsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListModels", input);
   }
@@ -205,13 +126,7 @@ export class LookoutVision extends AWSServiceClient {
     input: ListProjectsRequest,
   ): Effect.Effect<
     ListProjectsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProjects", input);
   }
@@ -219,13 +134,7 @@ export class LookoutVision extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -233,14 +142,7 @@ export class LookoutVision extends AWSServiceClient {
     input: StartModelRequest,
   ): Effect.Effect<
     StartModelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartModel", input);
   }
@@ -248,14 +150,7 @@ export class LookoutVision extends AWSServiceClient {
     input: StartModelPackagingJobRequest,
   ): Effect.Effect<
     StartModelPackagingJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartModelPackagingJob", input);
   }
@@ -263,13 +158,7 @@ export class LookoutVision extends AWSServiceClient {
     input: StopModelRequest,
   ): Effect.Effect<
     StopModelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopModel", input);
   }
@@ -277,14 +166,7 @@ export class LookoutVision extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -292,13 +174,7 @@ export class LookoutVision extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -306,13 +182,7 @@ export class LookoutVision extends AWSServiceClient {
     input: UpdateDatasetEntriesRequest,
   ): Effect.Effect<
     UpdateDatasetEntriesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateDatasetEntries", input);
   }
@@ -423,17 +293,7 @@ export type DatasetMetadataList = Array<DatasetMetadata>;
 export interface DatasetSource {
   GroundTruthManifest?: DatasetGroundTruthManifest;
 }
-export type DatasetStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_COMPLETE"
-  | "UPDATE_FAILED_ROLLBACK_IN_PROGRESS"
-  | "UPDATE_FAILED_ROLLBACK_COMPLETE"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_COMPLETE"
-  | "DELETE_FAILED";
+export type DatasetStatus = "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_COMPLETE" | "UPDATE_FAILED_ROLLBACK_IN_PROGRESS" | "UPDATE_FAILED_ROLLBACK_COMPLETE" | "DELETE_IN_PROGRESS" | "DELETE_COMPLETE" | "DELETE_FAILED";
 export type DatasetStatusMessage = string;
 
 export type DatasetType = string;
@@ -445,7 +305,8 @@ export interface DeleteDatasetRequest {
   DatasetType: string;
   ClientToken?: string;
 }
-export interface DeleteDatasetResponse {}
+export interface DeleteDatasetResponse {
+}
 export interface DeleteModelRequest {
   ProjectName: string;
   ModelVersion: string;
@@ -614,12 +475,7 @@ export interface ModelDescription {
 }
 export type ModelDescriptionMessage = string;
 
-export type ModelHostingStatus =
-  | "STARTING_HOSTING"
-  | "HOSTED"
-  | "HOSTING_FAILED"
-  | "STOPPING_HOSTING"
-  | "SYSTEM_UPDATING";
+export type ModelHostingStatus = "STARTING_HOSTING" | "HOSTED" | "HOSTING_FAILED" | "STOPPING_HOSTING" | "SYSTEM_UPDATING";
 export interface ModelMetadata {
   CreationTimestamp?: Date | string;
   ModelVersion?: string;
@@ -662,11 +518,7 @@ export interface ModelPackagingJobMetadata {
 export type ModelPackagingJobName = string;
 
 export type ModelPackagingJobsList = Array<ModelPackagingJobMetadata>;
-export type ModelPackagingJobStatus =
-  | "CREATED"
-  | "RUNNING"
-  | "SUCCEEDED"
-  | "FAILED";
+export type ModelPackagingJobStatus = "CREATED" | "RUNNING" | "SUCCEEDED" | "FAILED";
 export type ModelPackagingMethod = string;
 
 export interface ModelPackagingOutputDetails {
@@ -679,16 +531,7 @@ export interface ModelPerformance {
   Recall?: number;
   Precision?: number;
 }
-export type ModelStatus =
-  | "TRAINING"
-  | "TRAINED"
-  | "TRAINING_FAILED"
-  | "STARTING_HOSTING"
-  | "HOSTED"
-  | "HOSTING_FAILED"
-  | "STOPPING_HOSTING"
-  | "SYSTEM_UPDATING"
-  | "DELETING";
+export type ModelStatus = "TRAINING" | "TRAINED" | "TRAINING_FAILED" | "STARTING_HOSTING" | "HOSTED" | "HOSTING_FAILED" | "STOPPING_HOSTING" | "SYSTEM_UPDATING" | "DELETING";
 export type ModelStatusMessage = string;
 
 export type ModelVersion = string;
@@ -735,12 +578,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly ResourceId: string;
   readonly ResourceType: ResourceType;
 }> {}
-export type ResourceType =
-  | "PROJECT"
-  | "DATASET"
-  | "MODEL"
-  | "TRIAL"
-  | "MODEL_PACKAGE_JOB";
+export type ResourceType = "PROJECT" | "DATASET" | "MODEL" | "TRIAL" | "MODEL_PACKAGE_JOB";
 export type RetryAfterSeconds = number;
 
 export type S3BucketName = string;
@@ -809,7 +647,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TargetDevice = "JETSON_XAVIER";
@@ -833,7 +672,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDatasetEntriesRequest {
   ProjectName: string;
   DatasetType: string;
@@ -1137,3 +977,4 @@ export declare namespace UpdateDatasetEntries {
     | ValidationException
     | CommonAwsError;
 }
+

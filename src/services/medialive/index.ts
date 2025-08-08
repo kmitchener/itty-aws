@@ -2,22 +2,18 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MediaLive extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("medialive", new RestJson1Protocol(), cfg);
+  }
+
   acceptInputDeviceTransfer(
     input: AcceptInputDeviceTransferRequest,
   ): Effect.Effect<
     AcceptInputDeviceTransferResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("AcceptInputDeviceTransfer", input);
   }
@@ -25,15 +21,7 @@ export class MediaLive extends AWSServiceClient {
     input: BatchDeleteRequest,
   ): Effect.Effect<
     BatchDeleteResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("BatchDelete", input);
   }
@@ -41,15 +29,7 @@ export class MediaLive extends AWSServiceClient {
     input: BatchStartRequest,
   ): Effect.Effect<
     BatchStartResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("BatchStart", input);
   }
@@ -57,15 +37,7 @@ export class MediaLive extends AWSServiceClient {
     input: BatchStopRequest,
   ): Effect.Effect<
     BatchStopResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("BatchStop", input);
   }
@@ -73,15 +45,7 @@ export class MediaLive extends AWSServiceClient {
     input: BatchUpdateScheduleRequest,
   ): Effect.Effect<
     BatchUpdateScheduleResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("BatchUpdateSchedule", input);
   }
@@ -89,16 +53,7 @@ export class MediaLive extends AWSServiceClient {
     input: CancelInputDeviceTransferRequest,
   ): Effect.Effect<
     CancelInputDeviceTransferResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("CancelInputDeviceTransfer", input);
   }
@@ -106,15 +61,7 @@ export class MediaLive extends AWSServiceClient {
     input: ClaimDeviceRequest,
   ): Effect.Effect<
     ClaimDeviceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("ClaimDevice", input);
   }
@@ -122,15 +69,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateChannelRequest,
   ): Effect.Effect<
     CreateChannelResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("CreateChannel", input);
   }
@@ -138,14 +77,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateChannelPlacementGroupRequest,
   ): Effect.Effect<
     CreateChannelPlacementGroupResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("CreateChannelPlacementGroup", input);
   }
@@ -153,13 +85,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateCloudWatchAlarmTemplateRequest,
   ): Effect.Effect<
     CreateCloudWatchAlarmTemplateResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateCloudWatchAlarmTemplate", input);
   }
@@ -167,13 +93,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateCloudWatchAlarmTemplateGroupRequest,
   ): Effect.Effect<
     CreateCloudWatchAlarmTemplateGroupResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateCloudWatchAlarmTemplateGroup", input);
   }
@@ -181,14 +101,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateCluster", input);
   }
@@ -196,13 +109,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateEventBridgeRuleTemplateRequest,
   ): Effect.Effect<
     CreateEventBridgeRuleTemplateResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateEventBridgeRuleTemplate", input);
   }
@@ -210,13 +117,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateEventBridgeRuleTemplateGroupRequest,
   ): Effect.Effect<
     CreateEventBridgeRuleTemplateGroupResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateEventBridgeRuleTemplateGroup", input);
   }
@@ -224,13 +125,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateInputRequest,
   ): Effect.Effect<
     CreateInputResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateInput", input);
   }
@@ -238,13 +133,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateInputSecurityGroupRequest,
   ): Effect.Effect<
     CreateInputSecurityGroupResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateInputSecurityGroup", input);
   }
@@ -252,15 +141,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateMultiplexRequest,
   ): Effect.Effect<
     CreateMultiplexResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("CreateMultiplex", input);
   }
@@ -268,15 +149,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateMultiplexProgramRequest,
   ): Effect.Effect<
     CreateMultiplexProgramResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("CreateMultiplexProgram", input);
   }
@@ -284,14 +157,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateNetworkRequest,
   ): Effect.Effect<
     CreateNetworkResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateNetwork", input);
   }
@@ -299,14 +165,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateNodeRequest,
   ): Effect.Effect<
     CreateNodeResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("CreateNode", input);
   }
@@ -314,14 +173,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateNodeRegistrationScriptRequest,
   ): Effect.Effect<
     CreateNodeRegistrationScriptResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateNodeRegistrationScript", input);
   }
@@ -329,13 +181,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreatePartnerInputRequest,
   ): Effect.Effect<
     CreatePartnerInputResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreatePartnerInput", input);
   }
@@ -343,14 +189,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateSdiSourceRequest,
   ): Effect.Effect<
     CreateSdiSourceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateSdiSource", input);
   }
@@ -358,13 +197,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateSignalMapRequest,
   ): Effect.Effect<
     CreateSignalMapResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateSignalMap", input);
   }
@@ -372,11 +205,7 @@ export class MediaLive extends AWSServiceClient {
     input: CreateTagsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("CreateTags", input);
   }
@@ -384,15 +213,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteChannelRequest,
   ): Effect.Effect<
     DeleteChannelResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteChannel", input);
   }
@@ -400,15 +221,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteChannelPlacementGroupRequest,
   ): Effect.Effect<
     DeleteChannelPlacementGroupResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteChannelPlacementGroup", input);
   }
@@ -416,13 +229,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteCloudWatchAlarmTemplateRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteCloudWatchAlarmTemplate", input);
   }
@@ -430,13 +237,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteCloudWatchAlarmTemplateGroupRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteCloudWatchAlarmTemplateGroup", input);
   }
@@ -444,15 +245,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteCluster", input);
   }
@@ -460,13 +253,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteEventBridgeRuleTemplateRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteEventBridgeRuleTemplate", input);
   }
@@ -474,13 +261,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteEventBridgeRuleTemplateGroupRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteEventBridgeRuleTemplateGroup", input);
   }
@@ -488,15 +269,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteInputRequest,
   ): Effect.Effect<
     DeleteInputResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteInput", input);
   }
@@ -504,14 +277,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteInputSecurityGroupRequest,
   ): Effect.Effect<
     DeleteInputSecurityGroupResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteInputSecurityGroup", input);
   }
@@ -519,15 +285,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteMultiplexRequest,
   ): Effect.Effect<
     DeleteMultiplexResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteMultiplex", input);
   }
@@ -535,15 +293,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteMultiplexProgramRequest,
   ): Effect.Effect<
     DeleteMultiplexProgramResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteMultiplexProgram", input);
   }
@@ -551,15 +301,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteNetworkRequest,
   ): Effect.Effect<
     DeleteNetworkResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteNetwork", input);
   }
@@ -567,15 +309,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteNodeRequest,
   ): Effect.Effect<
     DeleteNodeResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteNode", input);
   }
@@ -583,15 +317,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteReservationRequest,
   ): Effect.Effect<
     DeleteReservationResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteReservation", input);
   }
@@ -599,14 +325,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteScheduleRequest,
   ): Effect.Effect<
     DeleteScheduleResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteSchedule", input);
   }
@@ -614,15 +333,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteSdiSourceRequest,
   ): Effect.Effect<
     DeleteSdiSourceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteSdiSource", input);
   }
@@ -630,13 +341,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteSignalMapRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteSignalMap", input);
   }
@@ -644,11 +349,7 @@ export class MediaLive extends AWSServiceClient {
     input: DeleteTagsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteTags", input);
   }
@@ -656,13 +357,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeAccountConfigurationRequest,
   ): Effect.Effect<
     DescribeAccountConfigurationResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeAccountConfiguration", input);
   }
@@ -670,14 +365,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeChannelRequest,
   ): Effect.Effect<
     DescribeChannelResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeChannel", input);
   }
@@ -685,14 +373,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeChannelPlacementGroupRequest,
   ): Effect.Effect<
     DescribeChannelPlacementGroupResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeChannelPlacementGroup", input);
   }
@@ -700,14 +381,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeClusterRequest,
   ): Effect.Effect<
     DescribeClusterResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeCluster", input);
   }
@@ -715,14 +389,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeInputRequest,
   ): Effect.Effect<
     DescribeInputResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeInput", input);
   }
@@ -730,14 +397,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeInputDeviceRequest,
   ): Effect.Effect<
     DescribeInputDeviceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeInputDevice", input);
   }
@@ -745,14 +405,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeInputDeviceThumbnailRequest,
   ): Effect.Effect<
     DescribeInputDeviceThumbnailResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeInputDeviceThumbnail", input);
   }
@@ -760,14 +413,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeInputSecurityGroupRequest,
   ): Effect.Effect<
     DescribeInputSecurityGroupResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeInputSecurityGroup", input);
   }
@@ -775,14 +421,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeMultiplexRequest,
   ): Effect.Effect<
     DescribeMultiplexResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeMultiplex", input);
   }
@@ -790,14 +429,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeMultiplexProgramRequest,
   ): Effect.Effect<
     DescribeMultiplexProgramResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeMultiplexProgram", input);
   }
@@ -805,14 +437,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeNetworkRequest,
   ): Effect.Effect<
     DescribeNetworkResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeNetwork", input);
   }
@@ -820,14 +445,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeNodeRequest,
   ): Effect.Effect<
     DescribeNodeResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeNode", input);
   }
@@ -835,14 +453,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeOfferingRequest,
   ): Effect.Effect<
     DescribeOfferingResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeOffering", input);
   }
@@ -850,14 +461,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeReservationRequest,
   ): Effect.Effect<
     DescribeReservationResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeReservation", input);
   }
@@ -865,14 +469,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeScheduleRequest,
   ): Effect.Effect<
     DescribeScheduleResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeSchedule", input);
   }
@@ -880,14 +477,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeSdiSourceRequest,
   ): Effect.Effect<
     DescribeSdiSourceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeSdiSource", input);
   }
@@ -895,15 +485,7 @@ export class MediaLive extends AWSServiceClient {
     input: DescribeThumbnailsRequest,
   ): Effect.Effect<
     DescribeThumbnailsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeThumbnails", input);
   }
@@ -911,12 +493,7 @@ export class MediaLive extends AWSServiceClient {
     input: GetCloudWatchAlarmTemplateRequest,
   ): Effect.Effect<
     GetCloudWatchAlarmTemplateResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetCloudWatchAlarmTemplate", input);
   }
@@ -924,12 +501,7 @@ export class MediaLive extends AWSServiceClient {
     input: GetCloudWatchAlarmTemplateGroupRequest,
   ): Effect.Effect<
     GetCloudWatchAlarmTemplateGroupResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetCloudWatchAlarmTemplateGroup", input);
   }
@@ -937,12 +509,7 @@ export class MediaLive extends AWSServiceClient {
     input: GetEventBridgeRuleTemplateRequest,
   ): Effect.Effect<
     GetEventBridgeRuleTemplateResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetEventBridgeRuleTemplate", input);
   }
@@ -950,12 +517,7 @@ export class MediaLive extends AWSServiceClient {
     input: GetEventBridgeRuleTemplateGroupRequest,
   ): Effect.Effect<
     GetEventBridgeRuleTemplateGroupResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetEventBridgeRuleTemplateGroup", input);
   }
@@ -963,12 +525,7 @@ export class MediaLive extends AWSServiceClient {
     input: GetSignalMapRequest,
   ): Effect.Effect<
     GetSignalMapResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetSignalMap", input);
   }
@@ -976,13 +533,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListChannelPlacementGroupsRequest,
   ): Effect.Effect<
     ListChannelPlacementGroupsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListChannelPlacementGroups", input);
   }
@@ -990,13 +541,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListChannelsRequest,
   ): Effect.Effect<
     ListChannelsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListChannels", input);
   }
@@ -1004,12 +549,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListCloudWatchAlarmTemplateGroupsRequest,
   ): Effect.Effect<
     ListCloudWatchAlarmTemplateGroupsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListCloudWatchAlarmTemplateGroups", input);
   }
@@ -1017,12 +557,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListCloudWatchAlarmTemplatesRequest,
   ): Effect.Effect<
     ListCloudWatchAlarmTemplatesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListCloudWatchAlarmTemplates", input);
   }
@@ -1030,13 +565,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListClustersRequest,
   ): Effect.Effect<
     ListClustersResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListClusters", input);
   }
@@ -1044,12 +573,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListEventBridgeRuleTemplateGroupsRequest,
   ): Effect.Effect<
     ListEventBridgeRuleTemplateGroupsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListEventBridgeRuleTemplateGroups", input);
   }
@@ -1057,12 +581,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListEventBridgeRuleTemplatesRequest,
   ): Effect.Effect<
     ListEventBridgeRuleTemplatesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListEventBridgeRuleTemplates", input);
   }
@@ -1070,13 +589,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListInputDevicesRequest,
   ): Effect.Effect<
     ListInputDevicesResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListInputDevices", input);
   }
@@ -1084,14 +597,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListInputDeviceTransfersRequest,
   ): Effect.Effect<
     ListInputDeviceTransfersResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("ListInputDeviceTransfers", input);
   }
@@ -1099,13 +605,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListInputsRequest,
   ): Effect.Effect<
     ListInputsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListInputs", input);
   }
@@ -1113,13 +613,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListInputSecurityGroupsRequest,
   ): Effect.Effect<
     ListInputSecurityGroupsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListInputSecurityGroups", input);
   }
@@ -1127,13 +621,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListMultiplexesRequest,
   ): Effect.Effect<
     ListMultiplexesResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListMultiplexes", input);
   }
@@ -1141,14 +629,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListMultiplexProgramsRequest,
   ): Effect.Effect<
     ListMultiplexProgramsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListMultiplexPrograms", input);
   }
@@ -1156,13 +637,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListNetworksRequest,
   ): Effect.Effect<
     ListNetworksResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListNetworks", input);
   }
@@ -1170,13 +645,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListNodesRequest,
   ): Effect.Effect<
     ListNodesResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListNodes", input);
   }
@@ -1184,13 +653,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListOfferingsRequest,
   ): Effect.Effect<
     ListOfferingsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListOfferings", input);
   }
@@ -1198,13 +661,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListReservationsRequest,
   ): Effect.Effect<
     ListReservationsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListReservations", input);
   }
@@ -1212,13 +669,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListSdiSourcesRequest,
   ): Effect.Effect<
     ListSdiSourcesResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListSdiSources", input);
   }
@@ -1226,12 +677,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListSignalMapsRequest,
   ): Effect.Effect<
     ListSignalMapsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListSignalMaps", input);
   }
@@ -1239,11 +685,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -1251,15 +693,7 @@ export class MediaLive extends AWSServiceClient {
     input: ListVersionsRequest,
   ): Effect.Effect<
     ListVersionsResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListVersions", input);
   }
@@ -1267,15 +701,7 @@ export class MediaLive extends AWSServiceClient {
     input: PurchaseOfferingRequest,
   ): Effect.Effect<
     PurchaseOfferingResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PurchaseOffering", input);
   }
@@ -1283,15 +709,7 @@ export class MediaLive extends AWSServiceClient {
     input: RebootInputDeviceRequest,
   ): Effect.Effect<
     RebootInputDeviceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("RebootInputDevice", input);
   }
@@ -1299,16 +717,7 @@ export class MediaLive extends AWSServiceClient {
     input: RejectInputDeviceTransferRequest,
   ): Effect.Effect<
     RejectInputDeviceTransferResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("RejectInputDeviceTransfer", input);
   }
@@ -1316,15 +725,7 @@ export class MediaLive extends AWSServiceClient {
     input: RestartChannelPipelinesRequest,
   ): Effect.Effect<
     RestartChannelPipelinesResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("RestartChannelPipelines", input);
   }
@@ -1332,15 +733,7 @@ export class MediaLive extends AWSServiceClient {
     input: StartChannelRequest,
   ): Effect.Effect<
     StartChannelResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("StartChannel", input);
   }
@@ -1348,13 +741,7 @@ export class MediaLive extends AWSServiceClient {
     input: StartDeleteMonitorDeploymentRequest,
   ): Effect.Effect<
     StartDeleteMonitorDeploymentResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("StartDeleteMonitorDeployment", input);
   }
@@ -1362,15 +749,7 @@ export class MediaLive extends AWSServiceClient {
     input: StartInputDeviceRequest,
   ): Effect.Effect<
     StartInputDeviceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("StartInputDevice", input);
   }
@@ -1378,15 +757,7 @@ export class MediaLive extends AWSServiceClient {
     input: StartInputDeviceMaintenanceWindowRequest,
   ): Effect.Effect<
     StartInputDeviceMaintenanceWindowResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("StartInputDeviceMaintenanceWindow", input);
   }
@@ -1394,13 +765,7 @@ export class MediaLive extends AWSServiceClient {
     input: StartMonitorDeploymentRequest,
   ): Effect.Effect<
     StartMonitorDeploymentResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("StartMonitorDeployment", input);
   }
@@ -1408,15 +773,7 @@ export class MediaLive extends AWSServiceClient {
     input: StartMultiplexRequest,
   ): Effect.Effect<
     StartMultiplexResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("StartMultiplex", input);
   }
@@ -1424,13 +781,7 @@ export class MediaLive extends AWSServiceClient {
     input: StartUpdateSignalMapRequest,
   ): Effect.Effect<
     StartUpdateSignalMapResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("StartUpdateSignalMap", input);
   }
@@ -1438,15 +789,7 @@ export class MediaLive extends AWSServiceClient {
     input: StopChannelRequest,
   ): Effect.Effect<
     StopChannelResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("StopChannel", input);
   }
@@ -1454,15 +797,7 @@ export class MediaLive extends AWSServiceClient {
     input: StopInputDeviceRequest,
   ): Effect.Effect<
     StopInputDeviceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("StopInputDevice", input);
   }
@@ -1470,15 +805,7 @@ export class MediaLive extends AWSServiceClient {
     input: StopMultiplexRequest,
   ): Effect.Effect<
     StopMultiplexResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("StopMultiplex", input);
   }
@@ -1486,16 +813,7 @@ export class MediaLive extends AWSServiceClient {
     input: TransferInputDeviceRequest,
   ): Effect.Effect<
     TransferInputDeviceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("TransferInputDevice", input);
   }
@@ -1503,14 +821,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateAccountConfigurationRequest,
   ): Effect.Effect<
     UpdateAccountConfigurationResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("UpdateAccountConfiguration", input);
   }
@@ -1518,14 +829,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateChannelRequest,
   ): Effect.Effect<
     UpdateChannelResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("UpdateChannel", input);
   }
@@ -1533,16 +837,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateChannelClassRequest,
   ): Effect.Effect<
     UpdateChannelClassResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("UpdateChannelClass", input);
   }
@@ -1550,15 +845,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateChannelPlacementGroupRequest,
   ): Effect.Effect<
     UpdateChannelPlacementGroupResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("UpdateChannelPlacementGroup", input);
   }
@@ -1566,13 +853,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateCloudWatchAlarmTemplateRequest,
   ): Effect.Effect<
     UpdateCloudWatchAlarmTemplateResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateCloudWatchAlarmTemplate", input);
   }
@@ -1580,13 +861,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateCloudWatchAlarmTemplateGroupRequest,
   ): Effect.Effect<
     UpdateCloudWatchAlarmTemplateGroupResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateCloudWatchAlarmTemplateGroup", input);
   }
@@ -1594,14 +869,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateClusterRequest,
   ): Effect.Effect<
     UpdateClusterResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateCluster", input);
   }
@@ -1609,13 +877,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateEventBridgeRuleTemplateRequest,
   ): Effect.Effect<
     UpdateEventBridgeRuleTemplateResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateEventBridgeRuleTemplate", input);
   }
@@ -1623,13 +885,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateEventBridgeRuleTemplateGroupRequest,
   ): Effect.Effect<
     UpdateEventBridgeRuleTemplateGroupResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateEventBridgeRuleTemplateGroup", input);
   }
@@ -1637,14 +893,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateInputRequest,
   ): Effect.Effect<
     UpdateInputResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateInput", input);
   }
@@ -1652,15 +901,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateInputDeviceRequest,
   ): Effect.Effect<
     UpdateInputDeviceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("UpdateInputDevice", input);
   }
@@ -1668,14 +909,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateInputSecurityGroupRequest,
   ): Effect.Effect<
     UpdateInputSecurityGroupResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateInputSecurityGroup", input);
   }
@@ -1683,15 +917,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateMultiplexRequest,
   ): Effect.Effect<
     UpdateMultiplexResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("UpdateMultiplex", input);
   }
@@ -1699,15 +925,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateMultiplexProgramRequest,
   ): Effect.Effect<
     UpdateMultiplexProgramResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("UpdateMultiplexProgram", input);
   }
@@ -1715,14 +933,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateNetworkRequest,
   ): Effect.Effect<
     UpdateNetworkResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateNetwork", input);
   }
@@ -1730,14 +941,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateNodeRequest,
   ): Effect.Effect<
     UpdateNodeResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateNode", input);
   }
@@ -1745,15 +949,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateNodeStateRequest,
   ): Effect.Effect<
     UpdateNodeStateResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("UpdateNodeState", input);
   }
@@ -1761,15 +957,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateReservationRequest,
   ): Effect.Effect<
     UpdateReservationResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateReservation", input);
   }
@@ -1777,14 +965,7 @@ export class MediaLive extends AWSServiceClient {
     input: UpdateSdiSourceRequest,
   ): Effect.Effect<
     UpdateSdiSourceResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | GatewayTimeoutException
-    | InternalServerErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | ForbiddenException | GatewayTimeoutException | InternalServerErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateSdiSource", input);
   }
@@ -1947,37 +1128,27 @@ export type __listOfAudioDescription = Array<AudioDescription>;
 export type __listOfAudioSelector = Array<AudioSelector>;
 export type __listOfAudioTrack = Array<AudioTrack>;
 export type __listOfBatchFailedResultModel = Array<BatchFailedResultModel>;
-export type __listOfBatchSuccessfulResultModel =
-  Array<BatchSuccessfulResultModel>;
+export type __listOfBatchSuccessfulResultModel = Array<BatchSuccessfulResultModel>;
 export type __listOfCaptionDescription = Array<CaptionDescription>;
 export type __listOfCaptionLanguageMapping = Array<CaptionLanguageMapping>;
 export type __listOfCaptionSelector = Array<CaptionSelector>;
 export type __listOfChannelEgressEndpoint = Array<ChannelEgressEndpoint>;
-export type __listOfChannelEngineVersionResponse =
-  Array<ChannelEngineVersionResponse>;
-export type __listOfChannelPipelineIdToRestart =
-  Array<ChannelPipelineIdToRestart>;
+export type __listOfChannelEngineVersionResponse = Array<ChannelEngineVersionResponse>;
+export type __listOfChannelPipelineIdToRestart = Array<ChannelPipelineIdToRestart>;
 export type __listOfChannelSummary = Array<ChannelSummary>;
-export type __listOfCloudWatchAlarmTemplateGroupSummary =
-  Array<CloudWatchAlarmTemplateGroupSummary>;
-export type __listOfCloudWatchAlarmTemplateSummary =
-  Array<CloudWatchAlarmTemplateSummary>;
-export type __listOfCmafIngestCaptionLanguageMapping =
-  Array<CmafIngestCaptionLanguageMapping>;
+export type __listOfCloudWatchAlarmTemplateGroupSummary = Array<CloudWatchAlarmTemplateGroupSummary>;
+export type __listOfCloudWatchAlarmTemplateSummary = Array<CloudWatchAlarmTemplateSummary>;
+export type __listOfCmafIngestCaptionLanguageMapping = Array<CmafIngestCaptionLanguageMapping>;
 export type __listOfColorCorrection = Array<ColorCorrection>;
 export type __listOfDashRoleAudio = Array<DashRoleAudio>;
 export type __listOfDashRoleCaption = Array<DashRoleCaption>;
-export type __listOfDescribeChannelPlacementGroupSummary =
-  Array<DescribeChannelPlacementGroupSummary>;
+export type __listOfDescribeChannelPlacementGroupSummary = Array<DescribeChannelPlacementGroupSummary>;
 export type __listOfDescribeClusterSummary = Array<DescribeClusterSummary>;
 export type __listOfDescribeNetworkSummary = Array<DescribeNetworkSummary>;
 export type __listOfDescribeNodeSummary = Array<DescribeNodeSummary>;
-export type __listOfEventBridgeRuleTemplateGroupSummary =
-  Array<EventBridgeRuleTemplateGroupSummary>;
-export type __listOfEventBridgeRuleTemplateSummary =
-  Array<EventBridgeRuleTemplateSummary>;
-export type __listOfEventBridgeRuleTemplateTarget =
-  Array<EventBridgeRuleTemplateTarget>;
+export type __listOfEventBridgeRuleTemplateGroupSummary = Array<EventBridgeRuleTemplateGroupSummary>;
+export type __listOfEventBridgeRuleTemplateSummary = Array<EventBridgeRuleTemplateSummary>;
+export type __listOfEventBridgeRuleTemplateTarget = Array<EventBridgeRuleTemplateTarget>;
 export type __listOfFailoverCondition = Array<FailoverCondition>;
 export type __listOfHlsAdMarkers = Array<HlsAdMarkers>;
 export type __listOfInput = Array<Input>;
@@ -1986,15 +1157,12 @@ export type __listOfInputChannelLevel = Array<InputChannelLevel>;
 export type __listOfInputDestination = Array<InputDestination>;
 export type __listOfInputDestinationRequest = Array<InputDestinationRequest>;
 export type __listOfInputDestinationRoute = Array<InputDestinationRoute>;
-export type __listOfInputDeviceConfigurableAudioChannelPairConfig =
-  Array<InputDeviceConfigurableAudioChannelPairConfig>;
+export type __listOfInputDeviceConfigurableAudioChannelPairConfig = Array<InputDeviceConfigurableAudioChannelPairConfig>;
 export type __listOfInputDeviceRequest = Array<InputDeviceRequest>;
 export type __listOfInputDeviceSettings = Array<InputDeviceSettings>;
 export type __listOfInputDeviceSummary = Array<InputDeviceSummary>;
-export type __listOfInputDeviceUhdAudioChannelPairConfig =
-  Array<InputDeviceUhdAudioChannelPairConfig>;
-export type __listOfInputRequestDestinationRoute =
-  Array<InputRequestDestinationRoute>;
+export type __listOfInputDeviceUhdAudioChannelPairConfig = Array<InputDeviceUhdAudioChannelPairConfig>;
+export type __listOfInputRequestDestinationRoute = Array<InputRequestDestinationRoute>;
 export type __listOfInputSdpLocation = Array<InputSdpLocation>;
 export type __listOfInputSecurityGroup = Array<InputSecurityGroup>;
 export type __listOfInputSource = Array<InputSource>;
@@ -2002,41 +1170,31 @@ export type __listOfInputSourceRequest = Array<InputSourceRequest>;
 export type __listOfInputWhitelistRule = Array<InputWhitelistRule>;
 export type __listOfInputWhitelistRuleCidr = Array<InputWhitelistRuleCidr>;
 export type __listOfInterfaceMapping = Array<InterfaceMapping>;
-export type __listOfInterfaceMappingCreateRequest =
-  Array<InterfaceMappingCreateRequest>;
-export type __listOfInterfaceMappingUpdateRequest =
-  Array<InterfaceMappingUpdateRequest>;
+export type __listOfInterfaceMappingCreateRequest = Array<InterfaceMappingCreateRequest>;
+export type __listOfInterfaceMappingUpdateRequest = Array<InterfaceMappingUpdateRequest>;
 export type __listOfIpPool = Array<IpPool>;
 export type __listOfIpPoolCreateRequest = Array<IpPoolCreateRequest>;
 export type __listOfIpPoolUpdateRequest = Array<IpPoolUpdateRequest>;
 export type __listOfMediaConnectFlow = Array<MediaConnectFlow>;
 export type __listOfMediaConnectFlowRequest = Array<MediaConnectFlowRequest>;
-export type __listOfMediaPackageOutputDestinationSettings =
-  Array<MediaPackageOutputDestinationSettings>;
+export type __listOfMediaPackageOutputDestinationSettings = Array<MediaPackageOutputDestinationSettings>;
 export type __listOfMediaResourceNeighbor = Array<MediaResourceNeighbor>;
 export type __listOfMulticastSource = Array<MulticastSource>;
-export type __listOfMulticastSourceCreateRequest =
-  Array<MulticastSourceCreateRequest>;
-export type __listOfMulticastSourceUpdateRequest =
-  Array<MulticastSourceUpdateRequest>;
-export type __listOfMultiplexOutputDestination =
-  Array<MultiplexOutputDestination>;
-export type __listOfMultiplexProgramPipelineDetail =
-  Array<MultiplexProgramPipelineDetail>;
+export type __listOfMulticastSourceCreateRequest = Array<MulticastSourceCreateRequest>;
+export type __listOfMulticastSourceUpdateRequest = Array<MulticastSourceUpdateRequest>;
+export type __listOfMultiplexOutputDestination = Array<MultiplexOutputDestination>;
+export type __listOfMultiplexProgramPipelineDetail = Array<MultiplexProgramPipelineDetail>;
 export type __listOfMultiplexProgramSummary = Array<MultiplexProgramSummary>;
 export type __listOfMultiplexSummary = Array<MultiplexSummary>;
 export type __listOfNodeInterfaceMapping = Array<NodeInterfaceMapping>;
-export type __listOfNodeInterfaceMappingCreateRequest =
-  Array<NodeInterfaceMappingCreateRequest>;
+export type __listOfNodeInterfaceMappingCreateRequest = Array<NodeInterfaceMappingCreateRequest>;
 export type __listOfOffering = Array<Offering>;
 export type __listOfOutput = Array<Output>;
 export type __listOfOutputDestination = Array<OutputDestination>;
-export type __listOfOutputDestinationSettings =
-  Array<OutputDestinationSettings>;
+export type __listOfOutputDestinationSettings = Array<OutputDestinationSettings>;
 export type __listOfOutputGroup = Array<OutputGroup>;
 export type __listOfPipelineDetail = Array<PipelineDetail>;
-export type __listOfPipelinePauseStateSettings =
-  Array<PipelinePauseStateSettings>;
+export type __listOfPipelinePauseStateSettings = Array<PipelinePauseStateSettings>;
 export type __listOfReservation = Array<Reservation>;
 export type __listOfRoute = Array<Route>;
 export type __listOfRouteCreateRequest = Array<RouteCreateRequest>;
@@ -2049,12 +1207,10 @@ export type __listOfSignalMapSummary = Array<SignalMapSummary>;
 export type __listOfSmpte2110ReceiverGroup = Array<Smpte2110ReceiverGroup>;
 export type __listOfSrtCallerSource = Array<SrtCallerSource>;
 export type __listOfSrtCallerSourceRequest = Array<SrtCallerSourceRequest>;
-export type __listOfSrtOutputDestinationSettings =
-  Array<SrtOutputDestinationSettings>;
+export type __listOfSrtOutputDestinationSettings = Array<SrtOutputDestinationSettings>;
 export type __listOfThumbnail = Array<Thumbnail>;
 export type __listOfThumbnailDetail = Array<ThumbnailDetail>;
-export type __listOfTransferringInputDeviceSummary =
-  Array<TransferringInputDeviceSummary>;
+export type __listOfTransferringInputDeviceSummary = Array<TransferringInputDeviceSummary>;
 export type __listOfValidationError = Array<ValidationError>;
 export type __listOfVideoDescription = Array<VideoDescription>;
 export type __long = number;
@@ -2133,12 +1289,7 @@ export type __timestamp = Date | string;
 
 export type __timestampIso8601 = Date | string;
 
-export type AacCodingMode =
-  | "AD_RECEIVER_MIX"
-  | "CODING_MODE_1_0"
-  | "CODING_MODE_1_1"
-  | "CODING_MODE_2_0"
-  | "CODING_MODE_5_1";
+export type AacCodingMode = "AD_RECEIVER_MIX" | "CODING_MODE_1_0" | "CODING_MODE_1_1" | "CODING_MODE_2_0" | "CODING_MODE_5_1";
 export type AacInputType = "BROADCASTER_MIXED_AD" | "NORMAL";
 export type AacProfile = "HEV1" | "HEV2" | "LC";
 export type AacRateControlMode = "CBR" | "VBR";
@@ -2157,20 +1308,8 @@ export interface AacSettings {
 export type AacSpec = "MPEG2" | "MPEG4";
 export type AacVbrQuality = "HIGH" | "LOW" | "MEDIUM_HIGH" | "MEDIUM_LOW";
 export type Ac3AttenuationControl = "ATTENUATE_3_DB" | "NONE";
-export type Ac3BitstreamMode =
-  | "COMMENTARY"
-  | "COMPLETE_MAIN"
-  | "DIALOGUE"
-  | "EMERGENCY"
-  | "HEARING_IMPAIRED"
-  | "MUSIC_AND_EFFECTS"
-  | "VISUALLY_IMPAIRED"
-  | "VOICE_OVER";
-export type Ac3CodingMode =
-  | "CODING_MODE_1_0"
-  | "CODING_MODE_1_1"
-  | "CODING_MODE_2_0"
-  | "CODING_MODE_3_2_LFE";
+export type Ac3BitstreamMode = "COMMENTARY" | "COMPLETE_MAIN" | "DIALOGUE" | "EMERGENCY" | "HEARING_IMPAIRED" | "MUSIC_AND_EFFECTS" | "VISUALLY_IMPAIRED" | "VOICE_OVER";
+export type Ac3CodingMode = "CODING_MODE_1_0" | "CODING_MODE_1_1" | "CODING_MODE_2_0" | "CODING_MODE_3_2_LFE";
 export type Ac3DrcProfile = "FILM_STANDARD" | "NONE";
 export type Ac3LfeFilter = "DISABLED" | "ENABLED";
 export type Ac3MetadataControl = "FOLLOW_INPUT" | "USE_CONFIGURED";
@@ -2188,10 +1327,9 @@ export type AcceptHeader = "image_jpeg";
 export interface AcceptInputDeviceTransferRequest {
   InputDeviceId: string;
 }
-export interface AcceptInputDeviceTransferResponse {}
-export type AccessibilityType =
-  | "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES"
-  | "IMPLEMENTS_ACCESSIBILITY_FEATURES";
+export interface AcceptInputDeviceTransferResponse {
+}
+export type AccessibilityType = "DOES_NOT_IMPLEMENT_ACCESSIBILITY_FEATURES" | "IMPLEMENTS_ACCESSIBILITY_FEATURES";
 export interface AccountConfiguration {
   KmsKeyId?: string;
 }
@@ -2224,8 +1362,10 @@ export interface ArchiveOutputSettings {
 export interface ArchiveS3Settings {
   CannedAcl?: S3CannedAcl;
 }
-export interface AribDestinationSettings {}
-export interface AribSourceSettings {}
+export interface AribDestinationSettings {
+}
+export interface AribSourceSettings {
+}
 export interface AudioChannelMapping {
   InputChannelLevels: Array<InputChannelLevel>;
   OutputChannel: number;
@@ -2254,12 +1394,8 @@ export interface AudioDescription {
   AudioDashRoles?: Array<DashRoleAudio>;
   DvbDashAccessibility?: DvbDashAccessibility;
 }
-export type AudioDescriptionAudioTypeControl =
-  | "FOLLOW_INPUT"
-  | "USE_CONFIGURED";
-export type AudioDescriptionLanguageCodeControl =
-  | "FOLLOW_INPUT"
-  | "USE_CONFIGURED";
+export type AudioDescriptionAudioTypeControl = "FOLLOW_INPUT" | "USE_CONFIGURED";
+export type AudioDescriptionLanguageCodeControl = "FOLLOW_INPUT" | "USE_CONFIGURED";
 export interface AudioDolbyEDecode {
   ProgramSelection: DolbyEProgramSelection;
 }
@@ -2286,11 +1422,7 @@ export interface AudioOnlyHlsSettings {
   AudioTrackType?: AudioOnlyHlsTrackType;
   SegmentType?: AudioOnlyHlsSegmentType;
 }
-export type AudioOnlyHlsTrackType =
-  | "ALTERNATE_AUDIO_AUTO_SELECT"
-  | "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
-  | "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
-  | "AUDIO_ONLY_VARIANT_STREAM";
+export type AudioOnlyHlsTrackType = "ALTERNATE_AUDIO_AUTO_SELECT" | "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" | "ALTERNATE_AUDIO_NOT_AUTO_SELECT" | "AUDIO_ONLY_VARIANT_STREAM";
 export interface AudioPidSelection {
   Pid: number;
 }
@@ -2315,11 +1447,7 @@ export interface AudioTrackSelection {
   Tracks: Array<AudioTrack>;
   DolbyEDecode?: AudioDolbyEDecode;
 }
-export type AudioType =
-  | "CLEAN_EFFECTS"
-  | "HEARING_IMPAIRED"
-  | "UNDEFINED"
-  | "VISUAL_IMPAIRED_COMMENTARY";
+export type AudioType = "CLEAN_EFFECTS" | "HEARING_IMPAIRED" | "UNDEFINED" | "VISUAL_IMPAIRED_COMMENTARY";
 export interface AudioWatermarkSettings {
   NielsenWatermarksSettings?: NielsenWatermarksSettings;
 }
@@ -2337,22 +1465,7 @@ export interface Av1ColorSpaceSettings {
   Rec709Settings?: Rec709Settings;
 }
 export type Av1GopSizeUnits = "FRAMES" | "SECONDS";
-export type Av1Level =
-  | "AV1_LEVEL_2"
-  | "AV1_LEVEL_2_1"
-  | "AV1_LEVEL_3"
-  | "AV1_LEVEL_3_1"
-  | "AV1_LEVEL_4"
-  | "AV1_LEVEL_4_1"
-  | "AV1_LEVEL_5"
-  | "AV1_LEVEL_5_1"
-  | "AV1_LEVEL_5_2"
-  | "AV1_LEVEL_5_3"
-  | "AV1_LEVEL_6"
-  | "AV1_LEVEL_6_1"
-  | "AV1_LEVEL_6_2"
-  | "AV1_LEVEL_6_3"
-  | "AV1_LEVEL_AUTO";
+export type Av1Level = "AV1_LEVEL_2" | "AV1_LEVEL_2_1" | "AV1_LEVEL_3" | "AV1_LEVEL_3_1" | "AV1_LEVEL_4" | "AV1_LEVEL_4_1" | "AV1_LEVEL_5" | "AV1_LEVEL_5_1" | "AV1_LEVEL_5_2" | "AV1_LEVEL_5_3" | "AV1_LEVEL_6" | "AV1_LEVEL_6_1" | "AV1_LEVEL_6_2" | "AV1_LEVEL_6_3" | "AV1_LEVEL_AUTO";
 export type Av1LookAheadRateControl = "HIGH" | "LOW" | "MEDIUM";
 export type Av1RateControlMode = "CBR" | "QVBR";
 export type Av1SceneChangeDetect = "DISABLED" | "ENABLED";
@@ -2405,17 +1518,8 @@ export interface BandwidthReductionFilterSettings {
   PostFilterSharpening?: BandwidthReductionPostFilterSharpening;
   Strength?: BandwidthReductionFilterStrength;
 }
-export type BandwidthReductionFilterStrength =
-  | "AUTO"
-  | "STRENGTH_1"
-  | "STRENGTH_2"
-  | "STRENGTH_3"
-  | "STRENGTH_4";
-export type BandwidthReductionPostFilterSharpening =
-  | "DISABLED"
-  | "SHARPENING_1"
-  | "SHARPENING_2"
-  | "SHARPENING_3";
+export type BandwidthReductionFilterStrength = "AUTO" | "STRENGTH_1" | "STRENGTH_2" | "STRENGTH_3" | "STRENGTH_4";
+export type BandwidthReductionPostFilterSharpening = "DISABLED" | "SHARPENING_1" | "SHARPENING_2" | "SHARPENING_3";
 export interface BatchDeleteRequest {
   ChannelIds?: Array<string>;
   InputIds?: Array<string>;
@@ -2504,26 +1608,15 @@ export interface BurnInDestinationSettings {
   XPosition?: number;
   YPosition?: number;
 }
-export type BurnInFontColor =
-  | "BLACK"
-  | "BLUE"
-  | "GREEN"
-  | "RED"
-  | "WHITE"
-  | "YELLOW";
-export type BurnInOutlineColor =
-  | "BLACK"
-  | "BLUE"
-  | "GREEN"
-  | "RED"
-  | "WHITE"
-  | "YELLOW";
+export type BurnInFontColor = "BLACK" | "BLUE" | "GREEN" | "RED" | "WHITE" | "YELLOW";
+export type BurnInOutlineColor = "BLACK" | "BLUE" | "GREEN" | "RED" | "WHITE" | "YELLOW";
 export type BurnInShadowColor = "BLACK" | "NONE" | "WHITE";
 export type BurnInTeletextGridControl = "FIXED" | "SCALED";
 export interface CancelInputDeviceTransferRequest {
   InputDeviceId: string;
 }
-export interface CancelInputDeviceTransferResponse {}
+export interface CancelInputDeviceTransferResponse {
+}
 export interface CaptionDescription {
   Accessibility?: AccessibilityType;
   CaptionSelectorName: string;
@@ -2612,26 +1705,8 @@ export interface ChannelEngineVersionResponse {
   Version?: string;
 }
 export type ChannelPipelineIdToRestart = "PIPELINE_0" | "PIPELINE_1";
-export type ChannelPlacementGroupState =
-  | "UNASSIGNED"
-  | "ASSIGNING"
-  | "ASSIGNED"
-  | "DELETING"
-  | "DELETE_FAILED"
-  | "DELETED"
-  | "UNASSIGNING";
-export type ChannelState =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "IDLE"
-  | "STARTING"
-  | "RUNNING"
-  | "RECOVERING"
-  | "STOPPING"
-  | "DELETING"
-  | "DELETED"
-  | "UPDATING"
-  | "UPDATE_FAILED";
+export type ChannelPlacementGroupState = "UNASSIGNED" | "ASSIGNING" | "ASSIGNED" | "DELETING" | "DELETE_FAILED" | "DELETED" | "UNASSIGNING";
+export type ChannelState = "CREATING" | "CREATE_FAILED" | "IDLE" | "STARTING" | "RUNNING" | "RECOVERING" | "STOPPING" | "DELETING" | "DELETED" | "UPDATING" | "UPDATE_FAILED";
 export interface ChannelSummary {
   Arn?: string;
   CdiInputSpecification?: CdiInputSpecification;
@@ -2656,12 +1731,9 @@ export interface ChannelSummary {
 export interface ClaimDeviceRequest {
   Id?: string;
 }
-export interface ClaimDeviceResponse {}
-export type CloudWatchAlarmTemplateComparisonOperator =
-  | "GreaterThanOrEqualToThreshold"
-  | "GreaterThanThreshold"
-  | "LessThanThreshold"
-  | "LessThanOrEqualToThreshold";
+export interface ClaimDeviceResponse {
+}
+export type CloudWatchAlarmTemplateComparisonOperator = "GreaterThanOrEqualToThreshold" | "GreaterThanThreshold" | "LessThanThreshold" | "LessThanOrEqualToThreshold";
 export interface CloudWatchAlarmTemplateGroupSummary {
   Arn: string;
   CreatedAt: Date | string;
@@ -2672,12 +1744,7 @@ export interface CloudWatchAlarmTemplateGroupSummary {
   Tags?: Record<string, string>;
   TemplateCount: number;
 }
-export type CloudWatchAlarmTemplateStatistic =
-  | "SampleCount"
-  | "Average"
-  | "Sum"
-  | "Minimum"
-  | "Maximum";
+export type CloudWatchAlarmTemplateStatistic = "SampleCount" | "Average" | "Sum" | "Minimum" | "Maximum";
 export interface CloudWatchAlarmTemplateSummary {
   Arn: string;
   ComparisonOperator: CloudWatchAlarmTemplateComparisonOperator;
@@ -2697,21 +1764,8 @@ export interface CloudWatchAlarmTemplateSummary {
   Threshold: number;
   TreatMissingData: CloudWatchAlarmTemplateTreatMissingData;
 }
-export type CloudWatchAlarmTemplateTargetResourceType =
-  | "CLOUDFRONT_DISTRIBUTION"
-  | "MEDIALIVE_MULTIPLEX"
-  | "MEDIALIVE_CHANNEL"
-  | "MEDIALIVE_INPUT_DEVICE"
-  | "MEDIAPACKAGE_CHANNEL"
-  | "MEDIAPACKAGE_ORIGIN_ENDPOINT"
-  | "MEDIACONNECT_FLOW"
-  | "S3_BUCKET"
-  | "MEDIATAILOR_PLAYBACK_CONFIGURATION";
-export type CloudWatchAlarmTemplateTreatMissingData =
-  | "notBreaching"
-  | "breaching"
-  | "ignore"
-  | "missing";
+export type CloudWatchAlarmTemplateTargetResourceType = "CLOUDFRONT_DISTRIBUTION" | "MEDIALIVE_MULTIPLEX" | "MEDIALIVE_CHANNEL" | "MEDIALIVE_INPUT_DEVICE" | "MEDIAPACKAGE_CHANNEL" | "MEDIAPACKAGE_ORIGIN_ENDPOINT" | "MEDIACONNECT_FLOW" | "S3_BUCKET" | "MEDIATAILOR_PLAYBACK_CONFIGURATION";
+export type CloudWatchAlarmTemplateTreatMissingData = "notBreaching" | "breaching" | "ignore" | "missing";
 export interface ClusterNetworkSettings {
   DefaultRoute?: string;
   InterfaceMappings?: Array<InterfaceMapping>;
@@ -2724,13 +1778,7 @@ export interface ClusterNetworkSettingsUpdateRequest {
   DefaultRoute?: string;
   InterfaceMappings?: Array<InterfaceMappingUpdateRequest>;
 }
-export type ClusterState =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "ACTIVE"
-  | "DELETING"
-  | "DELETE_FAILED"
-  | "DELETED";
+export type ClusterState = "CREATING" | "CREATE_FAILED" | "ACTIVE" | "DELETING" | "DELETE_FAILED" | "DELETED";
 export type ClusterType = "ON_PREMISES";
 export type CmafId3Behavior = "DISABLED" | "ENABLED";
 export interface CmafIngestCaptionLanguageMapping {
@@ -2772,7 +1820,8 @@ export interface ColorCorrectionSettings {
   GlobalColorCorrections: Array<ColorCorrection>;
 }
 export type ColorSpace = "HDR10" | "HLG_2020" | "REC_601" | "REC_709";
-export interface ColorSpacePassthroughSettings {}
+export interface ColorSpacePassthroughSettings {
+}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -3067,30 +2116,8 @@ export interface CreateTagsRequest {
   ResourceArn: string;
   Tags?: Record<string, string>;
 }
-export type DashRoleAudio =
-  | "ALTERNATE"
-  | "COMMENTARY"
-  | "DESCRIPTION"
-  | "DUB"
-  | "EMERGENCY"
-  | "ENHANCED_AUDIO_INTELLIGIBILITY"
-  | "KARAOKE"
-  | "MAIN"
-  | "SUPPLEMENTARY";
-export type DashRoleCaption =
-  | "ALTERNATE"
-  | "CAPTION"
-  | "COMMENTARY"
-  | "DESCRIPTION"
-  | "DUB"
-  | "EASYREADER"
-  | "EMERGENCY"
-  | "FORCED_SUBTITLE"
-  | "KARAOKE"
-  | "MAIN"
-  | "METADATA"
-  | "SUBTITLE"
-  | "SUPPLEMENTARY";
+export type DashRoleAudio = "ALTERNATE" | "COMMENTARY" | "DESCRIPTION" | "DUB" | "EMERGENCY" | "ENHANCED_AUDIO_INTELLIGIBILITY" | "KARAOKE" | "MAIN" | "SUPPLEMENTARY";
+export type DashRoleCaption = "ALTERNATE" | "CAPTION" | "COMMENTARY" | "DESCRIPTION" | "DUB" | "EASYREADER" | "EMERGENCY" | "FORCED_SUBTITLE" | "KARAOKE" | "MAIN" | "METADATA" | "SUBTITLE" | "SUPPLEMENTARY";
 export interface DeleteChannelPlacementGroupRequest {
   ChannelPlacementGroupId: string;
   ClusterId: string;
@@ -3157,11 +2184,13 @@ export interface DeleteEventBridgeRuleTemplateRequest {
 export interface DeleteInputRequest {
   InputId: string;
 }
-export interface DeleteInputResponse {}
+export interface DeleteInputResponse {
+}
 export interface DeleteInputSecurityGroupRequest {
   InputSecurityGroupId: string;
 }
-export interface DeleteInputSecurityGroupResponse {}
+export interface DeleteInputSecurityGroupResponse {
+}
 export interface DeleteMultiplexProgramRequest {
   MultiplexId: string;
   ProgramName: string;
@@ -3244,7 +2273,8 @@ export interface DeleteReservationResponse {
 export interface DeleteScheduleRequest {
   ChannelId: string;
 }
-export interface DeleteScheduleResponse {}
+export interface DeleteScheduleResponse {
+}
 export interface DeleteSdiSourceRequest {
   SdiSourceId: string;
 }
@@ -3258,7 +2288,8 @@ export interface DeleteTagsRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface DescribeAccountConfigurationRequest {}
+export interface DescribeAccountConfigurationRequest {
+}
 export interface DescribeAccountConfigurationResponse {
   AccountConfiguration?: AccountConfiguration;
 }
@@ -3548,35 +2579,16 @@ export interface DescribeThumbnailsResponse {
 }
 export type DeviceSettingsSyncState = "SYNCED" | "SYNCING";
 export type DeviceUpdateStatus = "UP_TO_DATE" | "NOT_UP_TO_DATE" | "UPDATING";
-export type DolbyEProgramSelection =
-  | "ALL_CHANNELS"
-  | "PROGRAM_1"
-  | "PROGRAM_2"
-  | "PROGRAM_3"
-  | "PROGRAM_4"
-  | "PROGRAM_5"
-  | "PROGRAM_6"
-  | "PROGRAM_7"
-  | "PROGRAM_8";
-export interface DolbyVision81Settings {}
-export type DvbDashAccessibility =
-  | "DVBDASH_1_VISUALLY_IMPAIRED"
-  | "DVBDASH_2_HARD_OF_HEARING"
-  | "DVBDASH_3_SUPPLEMENTAL_COMMENTARY"
-  | "DVBDASH_4_DIRECTORS_COMMENTARY"
-  | "DVBDASH_5_EDUCATIONAL_NOTES"
-  | "DVBDASH_6_MAIN_PROGRAM"
-  | "DVBDASH_7_CLEAN_FEED";
+export type DolbyEProgramSelection = "ALL_CHANNELS" | "PROGRAM_1" | "PROGRAM_2" | "PROGRAM_3" | "PROGRAM_4" | "PROGRAM_5" | "PROGRAM_6" | "PROGRAM_7" | "PROGRAM_8";
+export interface DolbyVision81Settings {
+}
+export type DvbDashAccessibility = "DVBDASH_1_VISUALLY_IMPAIRED" | "DVBDASH_2_HARD_OF_HEARING" | "DVBDASH_3_SUPPLEMENTAL_COMMENTARY" | "DVBDASH_4_DIRECTORS_COMMENTARY" | "DVBDASH_5_EDUCATIONAL_NOTES" | "DVBDASH_6_MAIN_PROGRAM" | "DVBDASH_7_CLEAN_FEED";
 export interface DvbNitSettings {
   NetworkId: number;
   NetworkName: string;
   RepInterval?: number;
 }
-export type DvbSdtOutputSdt =
-  | "SDT_FOLLOW"
-  | "SDT_FOLLOW_IF_PRESENT"
-  | "SDT_MANUAL"
-  | "SDT_NONE";
+export type DvbSdtOutputSdt = "SDT_FOLLOW" | "SDT_FOLLOW_IF_PRESENT" | "SDT_MANUAL" | "SDT_NONE";
 export interface DvbSdtSettings {
   OutputSdt?: DvbSdtOutputSdt;
   RepInterval?: number;
@@ -3585,20 +2597,8 @@ export interface DvbSdtSettings {
 }
 export type DvbSubDestinationAlignment = "CENTERED" | "LEFT" | "SMART";
 export type DvbSubDestinationBackgroundColor = "BLACK" | "NONE" | "WHITE";
-export type DvbSubDestinationFontColor =
-  | "BLACK"
-  | "BLUE"
-  | "GREEN"
-  | "RED"
-  | "WHITE"
-  | "YELLOW";
-export type DvbSubDestinationOutlineColor =
-  | "BLACK"
-  | "BLUE"
-  | "GREEN"
-  | "RED"
-  | "WHITE"
-  | "YELLOW";
+export type DvbSubDestinationFontColor = "BLACK" | "BLUE" | "GREEN" | "RED" | "WHITE" | "YELLOW";
+export type DvbSubDestinationOutlineColor = "BLACK" | "BLUE" | "GREEN" | "RED" | "WHITE" | "YELLOW";
 export interface DvbSubDestinationSettings {
   Alignment?: DvbSubDestinationAlignment;
   BackgroundColor?: DvbSubDestinationBackgroundColor;
@@ -3628,24 +2628,9 @@ export interface DvbSubSourceSettings {
 export interface DvbTdtSettings {
   RepInterval?: number;
 }
-export type Eac3AtmosCodingMode =
-  | "CODING_MODE_5_1_4"
-  | "CODING_MODE_7_1_4"
-  | "CODING_MODE_9_1_6";
-export type Eac3AtmosDrcLine =
-  | "FILM_LIGHT"
-  | "FILM_STANDARD"
-  | "MUSIC_LIGHT"
-  | "MUSIC_STANDARD"
-  | "NONE"
-  | "SPEECH";
-export type Eac3AtmosDrcRf =
-  | "FILM_LIGHT"
-  | "FILM_STANDARD"
-  | "MUSIC_LIGHT"
-  | "MUSIC_STANDARD"
-  | "NONE"
-  | "SPEECH";
+export type Eac3AtmosCodingMode = "CODING_MODE_5_1_4" | "CODING_MODE_7_1_4" | "CODING_MODE_9_1_6";
+export type Eac3AtmosDrcLine = "FILM_LIGHT" | "FILM_STANDARD" | "MUSIC_LIGHT" | "MUSIC_STANDARD" | "NONE" | "SPEECH";
+export type Eac3AtmosDrcRf = "FILM_LIGHT" | "FILM_STANDARD" | "MUSIC_LIGHT" | "MUSIC_STANDARD" | "NONE" | "SPEECH";
 export interface Eac3AtmosSettings {
   Bitrate?: number;
   CodingMode?: Eac3AtmosCodingMode;
@@ -3656,31 +2641,11 @@ export interface Eac3AtmosSettings {
   SurroundTrim?: number;
 }
 export type Eac3AttenuationControl = "ATTENUATE_3_DB" | "NONE";
-export type Eac3BitstreamMode =
-  | "COMMENTARY"
-  | "COMPLETE_MAIN"
-  | "EMERGENCY"
-  | "HEARING_IMPAIRED"
-  | "VISUALLY_IMPAIRED";
-export type Eac3CodingMode =
-  | "CODING_MODE_1_0"
-  | "CODING_MODE_2_0"
-  | "CODING_MODE_3_2";
+export type Eac3BitstreamMode = "COMMENTARY" | "COMPLETE_MAIN" | "EMERGENCY" | "HEARING_IMPAIRED" | "VISUALLY_IMPAIRED";
+export type Eac3CodingMode = "CODING_MODE_1_0" | "CODING_MODE_2_0" | "CODING_MODE_3_2";
 export type Eac3DcFilter = "DISABLED" | "ENABLED";
-export type Eac3DrcLine =
-  | "FILM_LIGHT"
-  | "FILM_STANDARD"
-  | "MUSIC_LIGHT"
-  | "MUSIC_STANDARD"
-  | "NONE"
-  | "SPEECH";
-export type Eac3DrcRf =
-  | "FILM_LIGHT"
-  | "FILM_STANDARD"
-  | "MUSIC_LIGHT"
-  | "MUSIC_STANDARD"
-  | "NONE"
-  | "SPEECH";
+export type Eac3DrcLine = "FILM_LIGHT" | "FILM_STANDARD" | "MUSIC_LIGHT" | "MUSIC_STANDARD" | "NONE" | "SPEECH";
+export type Eac3DrcRf = "FILM_LIGHT" | "FILM_STANDARD" | "MUSIC_LIGHT" | "MUSIC_STANDARD" | "NONE" | "SPEECH";
 export type Eac3LfeControl = "LFE" | "NO_LFE";
 export type Eac3LfeFilter = "DISABLED" | "ENABLED";
 export type Eac3MetadataControl = "FOLLOW_INPUT" | "USE_CONFIGURED";
@@ -3722,8 +2687,10 @@ export interface EbuTtDDestinationSettings {
 export type EbuTtDDestinationStyleControl = "EXCLUDE" | "INCLUDE";
 export type EbuTtDFillLineGapControl = "DISABLED" | "ENABLED";
 export type EmbeddedConvert608To708 = "DISABLED" | "UPCONVERT";
-export interface EmbeddedDestinationSettings {}
-export interface EmbeddedPlusScte20DestinationSettings {}
+export interface EmbeddedDestinationSettings {
+}
+export interface EmbeddedPlusScte20DestinationSettings {
+}
 export type EmbeddedScte20Detection = "AUTO" | "OFF";
 export interface EmbeddedSourceSettings {
   Convert608To708?: EmbeddedConvert608To708;
@@ -3759,20 +2726,7 @@ export interface Esam {
   Username?: string;
   ZoneIdentity?: string;
 }
-export type EventBridgeRuleTemplateEventType =
-  | "MEDIALIVE_MULTIPLEX_ALERT"
-  | "MEDIALIVE_MULTIPLEX_STATE_CHANGE"
-  | "MEDIALIVE_CHANNEL_ALERT"
-  | "MEDIALIVE_CHANNEL_INPUT_CHANGE"
-  | "MEDIALIVE_CHANNEL_STATE_CHANGE"
-  | "MEDIAPACKAGE_INPUT_NOTIFICATION"
-  | "MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION"
-  | "MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION"
-  | "SIGNAL_MAP_ACTIVE_ALARM"
-  | "MEDIACONNECT_ALERT"
-  | "MEDIACONNECT_SOURCE_HEALTH"
-  | "MEDIACONNECT_OUTPUT_HEALTH"
-  | "MEDIACONNECT_FLOW_STATUS_CHANGE";
+export type EventBridgeRuleTemplateEventType = "MEDIALIVE_MULTIPLEX_ALERT" | "MEDIALIVE_MULTIPLEX_STATE_CHANGE" | "MEDIALIVE_CHANNEL_ALERT" | "MEDIALIVE_CHANNEL_INPUT_CHANGE" | "MEDIALIVE_CHANNEL_STATE_CHANGE" | "MEDIAPACKAGE_INPUT_NOTIFICATION" | "MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION" | "MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION" | "SIGNAL_MAP_ACTIVE_ALARM" | "MEDIACONNECT_ALERT" | "MEDIACONNECT_SOURCE_HEALTH" | "MEDIACONNECT_OUTPUT_HEALTH" | "MEDIACONNECT_FLOW_STATUS_CHANGE";
 export interface EventBridgeRuleTemplateGroupSummary {
   Arn: string;
   CreatedAt: Date | string;
@@ -3811,30 +2765,15 @@ export interface FeatureActivations {
   InputPrepareScheduleActions?: FeatureActivationsInputPrepareScheduleActions;
   OutputStaticImageOverlayScheduleActions?: FeatureActivationsOutputStaticImageOverlayScheduleActions;
 }
-export type FeatureActivationsInputPrepareScheduleActions =
-  | "DISABLED"
-  | "ENABLED";
-export type FeatureActivationsOutputStaticImageOverlayScheduleActions =
-  | "DISABLED"
-  | "ENABLED";
+export type FeatureActivationsInputPrepareScheduleActions = "DISABLED" | "ENABLED";
+export type FeatureActivationsOutputStaticImageOverlayScheduleActions = "DISABLED" | "ENABLED";
 export type FecOutputIncludeFec = "COLUMN" | "COLUMN_AND_ROW";
 export interface FecOutputSettings {
   ColumnDepth?: number;
   IncludeFec?: FecOutputIncludeFec;
   RowLength?: number;
 }
-export type FixedAfd =
-  | "AFD_0000"
-  | "AFD_0010"
-  | "AFD_0011"
-  | "AFD_0100"
-  | "AFD_1000"
-  | "AFD_1001"
-  | "AFD_1010"
-  | "AFD_1011"
-  | "AFD_1101"
-  | "AFD_1110"
-  | "AFD_1111";
+export type FixedAfd = "AFD_0000" | "AFD_0010" | "AFD_0011" | "AFD_0100" | "AFD_1000" | "AFD_1001" | "AFD_1010" | "AFD_1011" | "AFD_1101" | "AFD_1110" | "AFD_1111";
 export interface FixedModeScheduleActionStartSettings {
   Time: string;
 }
@@ -3862,7 +2801,8 @@ export interface FrameCaptureGroupSettings {
   Destination: OutputLocationRef;
   FrameCaptureCdnSettings?: FrameCaptureCdnSettings;
 }
-export interface FrameCaptureHlsSettings {}
+export interface FrameCaptureHlsSettings {
+}
 export type FrameCaptureIntervalUnit = "MILLISECONDS" | "SECONDS";
 export interface FrameCaptureOutputSettings {
   NameModifier?: string;
@@ -3973,25 +2913,11 @@ export interface GlobalConfiguration {
   SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs;
   OutputLockingSettings?: OutputLockingSettings;
 }
-export type GlobalConfigurationInputEndAction =
-  | "NONE"
-  | "SWITCH_AND_LOOP_INPUTS";
+export type GlobalConfigurationInputEndAction = "NONE" | "SWITCH_AND_LOOP_INPUTS";
 export type GlobalConfigurationLowFramerateInputs = "DISABLED" | "ENABLED";
-export type GlobalConfigurationOutputLockingMode =
-  | "EPOCH_LOCKING"
-  | "PIPELINE_LOCKING"
-  | "DISABLED";
-export type GlobalConfigurationOutputTimingSource =
-  | "INPUT_CLOCK"
-  | "SYSTEM_CLOCK";
-export type H264AdaptiveQuantization =
-  | "AUTO"
-  | "HIGH"
-  | "HIGHER"
-  | "LOW"
-  | "MAX"
-  | "MEDIUM"
-  | "OFF";
+export type GlobalConfigurationOutputLockingMode = "EPOCH_LOCKING" | "PIPELINE_LOCKING" | "DISABLED";
+export type GlobalConfigurationOutputTimingSource = "INPUT_CLOCK" | "SYSTEM_CLOCK";
+export type H264AdaptiveQuantization = "AUTO" | "HIGH" | "HIGHER" | "LOW" | "MAX" | "MEDIUM" | "OFF";
 export type H264ColorMetadata = "IGNORE" | "INSERT";
 export interface H264ColorSpaceSettings {
   ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
@@ -4008,33 +2934,10 @@ export type H264ForceFieldPictures = "DISABLED" | "ENABLED";
 export type H264FramerateControl = "INITIALIZE_FROM_SOURCE" | "SPECIFIED";
 export type H264GopBReference = "DISABLED" | "ENABLED";
 export type H264GopSizeUnits = "FRAMES" | "SECONDS";
-export type H264Level =
-  | "H264_LEVEL_1"
-  | "H264_LEVEL_1_1"
-  | "H264_LEVEL_1_2"
-  | "H264_LEVEL_1_3"
-  | "H264_LEVEL_2"
-  | "H264_LEVEL_2_1"
-  | "H264_LEVEL_2_2"
-  | "H264_LEVEL_3"
-  | "H264_LEVEL_3_1"
-  | "H264_LEVEL_3_2"
-  | "H264_LEVEL_4"
-  | "H264_LEVEL_4_1"
-  | "H264_LEVEL_4_2"
-  | "H264_LEVEL_5"
-  | "H264_LEVEL_5_1"
-  | "H264_LEVEL_5_2"
-  | "H264_LEVEL_AUTO";
+export type H264Level = "H264_LEVEL_1" | "H264_LEVEL_1_1" | "H264_LEVEL_1_2" | "H264_LEVEL_1_3" | "H264_LEVEL_2" | "H264_LEVEL_2_1" | "H264_LEVEL_2_2" | "H264_LEVEL_3" | "H264_LEVEL_3_1" | "H264_LEVEL_3_2" | "H264_LEVEL_4" | "H264_LEVEL_4_1" | "H264_LEVEL_4_2" | "H264_LEVEL_5" | "H264_LEVEL_5_1" | "H264_LEVEL_5_2" | "H264_LEVEL_AUTO";
 export type H264LookAheadRateControl = "HIGH" | "LOW" | "MEDIUM";
 export type H264ParControl = "INITIALIZE_FROM_SOURCE" | "SPECIFIED";
-export type H264Profile =
-  | "BASELINE"
-  | "HIGH"
-  | "HIGH_10BIT"
-  | "HIGH_422"
-  | "HIGH_422_10BIT"
-  | "MAIN";
+export type H264Profile = "BASELINE" | "HIGH" | "HIGH_10BIT" | "HIGH_422" | "HIGH_422_10BIT" | "MAIN";
 export type H264QualityLevel = "ENHANCED_QUALITY" | "STANDARD_QUALITY";
 export type H264RateControlMode = "CBR" | "MULTIPLEX" | "QVBR" | "VBR";
 export type H264ScanType = "INTERLACED" | "PROGRESSIVE";
@@ -4089,14 +2992,7 @@ export type H264SubGopLength = "DYNAMIC" | "FIXED";
 export type H264Syntax = "DEFAULT" | "RP2027";
 export type H264TemporalAq = "DISABLED" | "ENABLED";
 export type H264TimecodeInsertionBehavior = "DISABLED" | "PIC_TIMING_SEI";
-export type H265AdaptiveQuantization =
-  | "AUTO"
-  | "HIGH"
-  | "HIGHER"
-  | "LOW"
-  | "MAX"
-  | "MEDIUM"
-  | "OFF";
+export type H265AdaptiveQuantization = "AUTO" | "HIGH" | "HIGHER" | "LOW" | "MAX" | "MEDIUM" | "OFF";
 export type H265AlternativeTransferFunction = "INSERT" | "OMIT";
 export type H265ColorMetadata = "IGNORE" | "INSERT";
 export interface H265ColorSpaceSettings {
@@ -4113,21 +3009,7 @@ export interface H265FilterSettings {
 }
 export type H265FlickerAq = "DISABLED" | "ENABLED";
 export type H265GopSizeUnits = "FRAMES" | "SECONDS";
-export type H265Level =
-  | "H265_LEVEL_1"
-  | "H265_LEVEL_2"
-  | "H265_LEVEL_2_1"
-  | "H265_LEVEL_3"
-  | "H265_LEVEL_3_1"
-  | "H265_LEVEL_4"
-  | "H265_LEVEL_4_1"
-  | "H265_LEVEL_5"
-  | "H265_LEVEL_5_1"
-  | "H265_LEVEL_5_2"
-  | "H265_LEVEL_6"
-  | "H265_LEVEL_6_1"
-  | "H265_LEVEL_6_2"
-  | "H265_LEVEL_AUTO";
+export type H265Level = "H265_LEVEL_1" | "H265_LEVEL_2" | "H265_LEVEL_2_1" | "H265_LEVEL_3" | "H265_LEVEL_3_1" | "H265_LEVEL_4" | "H265_LEVEL_4_1" | "H265_LEVEL_5" | "H265_LEVEL_5_1" | "H265_LEVEL_5_2" | "H265_LEVEL_6" | "H265_LEVEL_6_1" | "H265_LEVEL_6_2" | "H265_LEVEL_AUTO";
 export type H265LookAheadRateControl = "HIGH" | "LOW" | "MEDIUM";
 export type H265MvOverPictureBoundaries = "DISABLED" | "ENABLED";
 export type H265MvTemporalPredictor = "DISABLED" | "ENABLED";
@@ -4210,9 +3092,7 @@ export interface HlsCdnSettings {
 }
 export type HlsClientCache = "DISABLED" | "ENABLED";
 export type HlsCodecSpecification = "RFC_4281" | "RFC_6381";
-export type HlsDirectoryStructure =
-  | "SINGLE_DIRECTORY"
-  | "SUBDIRECTORY_PER_STREAM";
+export type HlsDirectoryStructure = "SINGLE_DIRECTORY" | "SUBDIRECTORY_PER_STREAM";
 export type HlsDiscontinuityTags = "INSERT" | "NEVER_INSERT";
 export type HlsEncryptionType = "AES128" | "SAMPLE_AES";
 export interface HlsGroupSettings {
@@ -4287,10 +3167,7 @@ export interface HlsMediaStoreSettings {
 }
 export type HlsMediaStoreStorageClass = "TEMPORAL";
 export type HlsMode = "LIVE" | "VOD";
-export type HlsOutputSelection =
-  | "MANIFESTS_AND_SEGMENTS"
-  | "SEGMENTS_ONLY"
-  | "VARIANT_MANIFESTS_AND_SEGMENTS";
+export type HlsOutputSelection = "MANIFESTS_AND_SEGMENTS" | "SEGMENTS_ONLY" | "VARIANT_MANIFESTS_AND_SEGMENTS";
 export interface HlsOutputSettings {
   H265PackagingType?: HlsH265PackagingType;
   HlsSettings: HlsSettings;
@@ -4298,17 +3175,13 @@ export interface HlsOutputSettings {
   SegmentModifier?: string;
 }
 export type HlsProgramDateTime = "EXCLUDE" | "INCLUDE";
-export type HlsProgramDateTimeClock =
-  | "INITIALIZE_FROM_OUTPUT_TIMECODE"
-  | "SYSTEM_CLOCK";
+export type HlsProgramDateTimeClock = "INITIALIZE_FROM_OUTPUT_TIMECODE" | "SYSTEM_CLOCK";
 export type HlsRedundantManifest = "DISABLED" | "ENABLED";
 export interface HlsS3Settings {
   CannedAcl?: S3CannedAcl;
 }
 export type HlsScte35SourceType = "MANIFEST" | "SEGMENTS";
-export type HlsSegmentationMode =
-  | "USE_INPUT_SEGMENTATION"
-  | "USE_SEGMENT_DURATION";
+export type HlsSegmentationMode = "USE_INPUT_SEGMENTATION" | "USE_SEGMENT_DURATION";
 export interface HlsSettings {
   AudioOnlyHlsSettings?: AudioOnlyHlsSettings;
   Fmp4HlsSettings?: Fmp4HlsSettings;
@@ -4329,13 +3202,15 @@ export interface HlsWebdavSettings {
   NumRetries?: number;
   RestartDelay?: number;
 }
-export interface HtmlMotionGraphicsSettings {}
+export interface HtmlMotionGraphicsSettings {
+}
 export interface Id3SegmentTaggingScheduleActionSettings {
   Id3?: string;
   Tag?: string;
 }
 export type IFrameOnlyPlaylistType = "DISABLED" | "STANDARD";
-export interface ImmediateModeScheduleActionStartSettings {}
+export interface ImmediateModeScheduleActionStartSettings {
+}
 export type IncludeFillerNalUnits = "AUTO" | "DROP" | "INCLUDE";
 export interface Input {
   Arn?: string;
@@ -4408,15 +3283,7 @@ export interface InputDeviceConfigurableAudioChannelPairConfig {
   Id?: number;
   Profile?: InputDeviceConfigurableAudioChannelPairProfile;
 }
-export type InputDeviceConfigurableAudioChannelPairProfile =
-  | "DISABLED"
-  | "VBR_AAC_HHE_16000"
-  | "VBR_AAC_HE_64000"
-  | "VBR_AAC_LC_128000"
-  | "CBR_AAC_HQ_192000"
-  | "CBR_AAC_HQ_256000"
-  | "CBR_AAC_HQ_384000"
-  | "CBR_AAC_HQ_512000";
+export type InputDeviceConfigurableAudioChannelPairProfile = "DISABLED" | "VBR_AAC_HHE_16000" | "VBR_AAC_HE_64000" | "VBR_AAC_LC_128000" | "CBR_AAC_HQ_192000" | "CBR_AAC_HQ_256000" | "CBR_AAC_HQ_384000" | "CBR_AAC_HQ_512000";
 export interface InputDeviceConfigurableSettings {
   ConfiguredInput?: InputDeviceConfiguredInput;
   MaxBitrate?: number;
@@ -4459,10 +3326,7 @@ export interface InputDeviceNetworkSettings {
   IpScheme?: InputDeviceIpScheme;
   SubnetMask?: string;
 }
-export type InputDeviceOutputType =
-  | "NONE"
-  | "MEDIALIVE_INPUT"
-  | "MEDIACONNECT_FLOW";
+export type InputDeviceOutputType = "NONE" | "MEDIALIVE_INPUT" | "MEDIACONNECT_FLOW";
 export interface InputDeviceRequest {
   Id?: string;
 }
@@ -4497,15 +3361,7 @@ export interface InputDeviceUhdAudioChannelPairConfig {
   Id?: number;
   Profile?: InputDeviceUhdAudioChannelPairProfile;
 }
-export type InputDeviceUhdAudioChannelPairProfile =
-  | "DISABLED"
-  | "VBR_AAC_HHE_16000"
-  | "VBR_AAC_HE_64000"
-  | "VBR_AAC_LC_128000"
-  | "CBR_AAC_HQ_192000"
-  | "CBR_AAC_HQ_256000"
-  | "CBR_AAC_HQ_384000"
-  | "CBR_AAC_HQ_512000";
+export type InputDeviceUhdAudioChannelPairProfile = "DISABLED" | "VBR_AAC_HHE_16000" | "VBR_AAC_HE_64000" | "VBR_AAC_LC_128000" | "CBR_AAC_HQ_192000" | "CBR_AAC_HQ_256000" | "CBR_AAC_HQ_384000" | "CBR_AAC_HQ_512000";
 export interface InputDeviceUhdSettings {
   ActiveInput?: InputDeviceActiveInput;
   ConfiguredInput?: InputDeviceConfiguredInput;
@@ -4530,10 +3386,7 @@ export interface InputLocation {
 export type InputLossActionForHlsOut = "EMIT_OUTPUT" | "PAUSE_OUTPUT";
 export type InputLossActionForMsSmoothOut = "EMIT_OUTPUT" | "PAUSE_OUTPUT";
 export type InputLossActionForRtmpOut = "EMIT_OUTPUT" | "PAUSE_OUTPUT";
-export type InputLossActionForUdpOut =
-  | "DROP_PROGRAM"
-  | "DROP_TS"
-  | "EMIT_PROGRAM";
+export type InputLossActionForUdpOut = "DROP_PROGRAM" | "DROP_TS" | "EMIT_PROGRAM";
 export interface InputLossBehavior {
   BlackFrameMsec?: number;
   InputLossImageColor?: string;
@@ -4547,9 +3400,7 @@ export interface InputLossFailoverSettings {
 export type InputLossImageType = "COLOR" | "SLATE";
 export type InputMaximumBitrate = "MAX_10_MBPS" | "MAX_20_MBPS" | "MAX_50_MBPS";
 export type InputNetworkLocation = "AWS" | "ON_PREMISES";
-export type InputPreference =
-  | "EQUAL_INPUT_PREFERENCE"
-  | "PRIMARY_INPUT_PREFERRED";
+export type InputPreference = "EQUAL_INPUT_PREFERENCE" | "PRIMARY_INPUT_PREFERRED";
 export interface InputPrepareScheduleActionSettings {
   InputAttachmentNameReference?: string;
   InputClippingSettings?: InputClippingSettings;
@@ -4573,11 +3424,7 @@ export interface InputSecurityGroup {
   Tags?: Record<string, string>;
   WhitelistRules?: Array<InputWhitelistRule>;
 }
-export type InputSecurityGroupState =
-  | "IDLE"
-  | "IN_USE"
-  | "UPDATING"
-  | "DELETED";
+export type InputSecurityGroupState = "IDLE" | "IN_USE" | "UPDATING" | "DELETED";
 export interface InputSettings {
   AudioSelectors?: Array<AudioSelector>;
   CaptionSelectors?: Array<CaptionSelector>;
@@ -4608,33 +3455,14 @@ export interface InputSpecification {
   MaximumBitrate?: InputMaximumBitrate;
   Resolution?: InputResolution;
 }
-export type InputState =
-  | "CREATING"
-  | "DETACHED"
-  | "ATTACHED"
-  | "DELETING"
-  | "DELETED";
+export type InputState = "CREATING" | "DETACHED" | "ATTACHED" | "DELETING" | "DELETED";
 export interface InputSwitchScheduleActionSettings {
   InputAttachmentNameReference: string;
   InputClippingSettings?: InputClippingSettings;
   UrlPath?: Array<string>;
 }
 export type InputTimecodeSource = "ZEROBASED" | "EMBEDDED";
-export type InputType =
-  | "UDP_PUSH"
-  | "RTP_PUSH"
-  | "RTMP_PUSH"
-  | "RTMP_PULL"
-  | "URL_PULL"
-  | "MP4_FILE"
-  | "MEDIACONNECT"
-  | "INPUT_DEVICE"
-  | "AWS_CDI"
-  | "TS_FILE"
-  | "SRT_CALLER"
-  | "MULTICAST"
-  | "SMPTE_2110_RECEIVER_GROUP"
-  | "SDI";
+export type InputType = "UDP_PUSH" | "RTP_PUSH" | "RTMP_PUSH" | "RTMP_PULL" | "URL_PULL" | "MP4_FILE" | "MEDIACONNECT" | "INPUT_DEVICE" | "AWS_CDI" | "TS_FILE" | "SRT_CALLER" | "MULTICAST" | "SMPTE_2110_RECEIVER_GROUP" | "SDI";
 export interface InputVpcRequest {
   SecurityGroupIds?: Array<string>;
   SubnetIds: Array<string>;
@@ -4674,9 +3502,7 @@ export interface IpPoolUpdateRequest {
 export interface KeyProviderSettings {
   StaticKeySettings?: StaticKeySettings;
 }
-export type LastFrameClippingBehavior =
-  | "EXCLUDE_LAST_FRAME"
-  | "INCLUDE_LAST_FRAME";
+export type LastFrameClippingBehavior = "EXCLUDE_LAST_FRAME" | "INCLUDE_LAST_FRAME";
 export interface ListChannelPlacementGroupsRequest {
   ClusterId: string;
   MaxResults?: number;
@@ -4867,7 +3693,8 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
-export interface ListVersionsRequest {}
+export interface ListVersionsRequest {
+}
 export interface ListVersionsResponse {
   Versions?: Array<ChannelEngineVersionResponse>;
 }
@@ -4888,13 +3715,7 @@ export type M2tsNielsenId3Behavior = "NO_PASSTHROUGH" | "PASSTHROUGH";
 export type M2tsPcrControl = "CONFIGURED_PCR_PERIOD" | "PCR_EVERY_PES_PACKET";
 export type M2tsRateMode = "CBR" | "VBR";
 export type M2tsScte35Control = "NONE" | "PASSTHROUGH";
-export type M2tsSegmentationMarkers =
-  | "EBP"
-  | "EBP_LEGACY"
-  | "NONE"
-  | "PSI_SEGSTART"
-  | "RAI_ADAPT"
-  | "RAI_SEGSTART";
+export type M2tsSegmentationMarkers = "EBP" | "EBP_LEGACY" | "NONE" | "PSI_SEGSTART" | "RAI_ADAPT" | "RAI_SEGSTART";
 export type M2tsSegmentationStyle = "MAINTAIN_CADENCE" | "RESET_CADENCE";
 export interface M2tsSettings {
   AbsentInputAudioBehavior?: M2tsAbsentInputAudioBehavior;
@@ -4977,14 +3798,7 @@ export interface MaintenanceCreateSettings {
   MaintenanceDay?: MaintenanceDay;
   MaintenanceStartTime?: string;
 }
-export type MaintenanceDay =
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY"
-  | "SUNDAY";
+export type MaintenanceDay = "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY" | "SUNDAY";
 export interface MaintenanceStatus {
   MaintenanceDay?: MaintenanceDay;
   MaintenanceDeadline?: string;
@@ -5012,7 +3826,8 @@ export interface MediaPackageOutputDestinationSettings {
   ChannelGroup?: string;
   ChannelName?: string;
 }
-export interface MediaPackageOutputSettings {}
+export interface MediaPackageOutputSettings {
+}
 export interface MediaResource {
   Destinations?: Array<MediaResourceNeighbor>;
   Name?: string;
@@ -5038,7 +3853,8 @@ export interface MotionGraphicsConfiguration {
   MotionGraphicsInsertion?: MotionGraphicsInsertion;
   MotionGraphicsSettings: MotionGraphicsSettings;
 }
-export interface MotionGraphicsDeactivateScheduleActionSettings {}
+export interface MotionGraphicsDeactivateScheduleActionSettings {
+}
 export type MotionGraphicsInsertion = "DISABLED" | "ENABLED";
 export interface MotionGraphicsSettings {
   HtmlMotionGraphicsSettings?: HtmlMotionGraphicsSettings;
@@ -5049,12 +3865,7 @@ export interface Mp2Settings {
   CodingMode?: Mp2CodingMode;
   SampleRate?: number;
 }
-export type Mpeg2AdaptiveQuantization =
-  | "AUTO"
-  | "HIGH"
-  | "LOW"
-  | "MEDIUM"
-  | "OFF";
+export type Mpeg2AdaptiveQuantization = "AUTO" | "HIGH" | "LOW" | "MEDIUM" | "OFF";
 export type Mpeg2ColorMetadata = "IGNORE" | "INSERT";
 export type Mpeg2ColorSpace = "AUTO" | "PASSTHROUGH";
 export type Mpeg2DisplayRatio = "DISPLAYRATIO16X9" | "DISPLAYRATIO4X3";
@@ -5149,7 +3960,8 @@ export interface Multiplex {
 export interface MultiplexContainerSettings {
   MultiplexM2tsSettings?: MultiplexM2tsSettings;
 }
-export interface MultiplexGroupSettings {}
+export interface MultiplexGroupSettings {
+}
 export interface MultiplexM2tsSettings {
   AbsentInputAudioBehavior?: M2tsAbsentInputAudioBehavior;
   Arib?: M2tsArib;
@@ -5176,10 +3988,7 @@ export interface MultiplexOutputSettings {
   Destination: OutputLocationRef;
   ContainerSettings?: MultiplexContainerSettings;
 }
-export type MultiplexPacketIdentifiersMapping = Record<
-  string,
-  MultiplexProgramPacketIdentifiersMap
->;
+export type MultiplexPacketIdentifiersMapping = Record<string, MultiplexProgramPacketIdentifiersMap>;
 export interface MultiplexProgram {
   ChannelId?: string;
   MultiplexProgramSettings?: MultiplexProgramSettings;
@@ -5237,16 +4046,7 @@ export interface MultiplexSettings {
 export interface MultiplexSettingsSummary {
   TransportStreamBitrate?: number;
 }
-export type MultiplexState =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "IDLE"
-  | "STARTING"
-  | "RUNNING"
-  | "RECOVERING"
-  | "STOPPING"
-  | "DELETING"
-  | "DELETED";
+export type MultiplexState = "CREATING" | "CREATE_FAILED" | "IDLE" | "STARTING" | "RUNNING" | "RECOVERING" | "STOPPING" | "DELETING" | "DELETED";
 export interface MultiplexStatmuxVideoSettings {
   MaximumBitrate?: number;
   MinimumBitrate?: number;
@@ -5267,25 +4067,14 @@ export interface MultiplexVideoSettings {
   ConstantBitrate?: number;
   StatmuxSettings?: MultiplexStatmuxVideoSettings;
 }
-export type NetworkInputServerValidation =
-  | "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME"
-  | "CHECK_CRYPTOGRAPHY_ONLY";
+export type NetworkInputServerValidation = "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME" | "CHECK_CRYPTOGRAPHY_ONLY";
 export interface NetworkInputSettings {
   HlsInputSettings?: HlsInputSettings;
   ServerValidation?: NetworkInputServerValidation;
   MulticastInputSettings?: MulticastInputSettings;
 }
 export type NetworkInterfaceMode = "NAT" | "BRIDGE";
-export type NetworkState =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "ACTIVE"
-  | "DELETING"
-  | "IDLE"
-  | "IN_USE"
-  | "UPDATING"
-  | "DELETE_FAILED"
-  | "DELETED";
+export type NetworkState = "CREATING" | "CREATE_FAILED" | "ACTIVE" | "DELETING" | "IDLE" | "IN_USE" | "UPDATING" | "DELETE_FAILED" | "DELETED";
 export interface NielsenCBET {
   CbetCheckDigitString: string;
   CbetStepaside: NielsenWatermarksCbetStepaside;
@@ -5302,25 +4091,13 @@ export interface NielsenNaesIiNw {
 }
 export type NielsenPcmToId3TaggingState = "DISABLED" | "ENABLED";
 export type NielsenWatermarksCbetStepaside = "DISABLED" | "ENABLED";
-export type NielsenWatermarksDistributionTypes =
-  | "FINAL_DISTRIBUTOR"
-  | "PROGRAM_CONTENT";
+export type NielsenWatermarksDistributionTypes = "FINAL_DISTRIBUTOR" | "PROGRAM_CONTENT";
 export interface NielsenWatermarksSettings {
   NielsenCbetSettings?: NielsenCBET;
   NielsenDistributionType?: NielsenWatermarksDistributionTypes;
   NielsenNaesIiNwSettings?: NielsenNaesIiNw;
 }
-export type NielsenWatermarkTimezones =
-  | "AMERICA_PUERTO_RICO"
-  | "US_ALASKA"
-  | "US_ARIZONA"
-  | "US_CENTRAL"
-  | "US_EASTERN"
-  | "US_HAWAII"
-  | "US_MOUNTAIN"
-  | "US_PACIFIC"
-  | "US_SAMOA"
-  | "UTC";
+export type NielsenWatermarkTimezones = "AMERICA_PUERTO_RICO" | "US_ALASKA" | "US_ARIZONA" | "US_CENTRAL" | "US_EASTERN" | "US_HAWAII" | "US_MOUNTAIN" | "US_PACIFIC" | "US_SAMOA" | "UTC";
 export type NodeConnectionState = "CONNECTED" | "DISCONNECTED";
 export interface NodeInterfaceMapping {
   LogicalInterfaceName?: string;
@@ -5333,19 +4110,7 @@ export interface NodeInterfaceMappingCreateRequest {
   PhysicalInterfaceName?: string;
 }
 export type NodeRole = "BACKUP" | "ACTIVE";
-export type NodeState =
-  | "CREATED"
-  | "REGISTERING"
-  | "READY_TO_ACTIVATE"
-  | "REGISTRATION_FAILED"
-  | "ACTIVATION_FAILED"
-  | "ACTIVE"
-  | "READY"
-  | "IN_USE"
-  | "DEREGISTERING"
-  | "DRAINING"
-  | "DEREGISTRATION_FAILED"
-  | "DEREGISTERED";
+export type NodeState = "CREATED" | "REGISTERING" | "READY_TO_ACTIVATE" | "REGISTRATION_FAILED" | "ACTIVATION_FAILED" | "ACTIVE" | "READY" | "IN_USE" | "DEREGISTERING" | "DRAINING" | "DEREGISTRATION_FAILED" | "DEREGISTERED";
 export declare class NotFoundException extends EffectData.TaggedError(
   "NotFoundException",
 )<{
@@ -5423,7 +4188,8 @@ export interface OutputSettings {
   CmafIngestOutputSettings?: CmafIngestOutputSettings;
   SrtOutputSettings?: SrtOutputSettings;
 }
-export interface PassThroughSettings {}
+export interface PassThroughSettings {
+}
 export interface PauseStateScheduleActionSettings {
   Pipelines?: Array<PipelinePauseStateSettings>;
 }
@@ -5436,14 +4202,12 @@ export interface PipelineDetail {
   ChannelEngineVersion?: ChannelEngineVersionResponse;
 }
 export type PipelineId = "PIPELINE_0" | "PIPELINE_1";
-export interface PipelineLockingSettings {}
+export interface PipelineLockingSettings {
+}
 export interface PipelinePauseStateSettings {
   PipelineId: PipelineId;
 }
-export type PreferredChannelPipeline =
-  | "CURRENTLY_ACTIVE"
-  | "PIPELINE_0"
-  | "PIPELINE_1";
+export type PreferredChannelPipeline = "CURRENTLY_ACTIVE" | "PIPELINE_0" | "PIPELINE_1";
 export interface PurchaseOfferingRequest {
   Count: number;
   Name?: string;
@@ -5456,19 +4220,24 @@ export interface PurchaseOfferingRequest {
 export interface PurchaseOfferingResponse {
   Reservation?: Reservation;
 }
-export interface RawSettings {}
+export interface RawSettings {
+}
 export type RebootInputDeviceForce = "NO" | "YES";
 export interface RebootInputDeviceRequest {
   Force?: RebootInputDeviceForce;
   InputDeviceId: string;
 }
-export interface RebootInputDeviceResponse {}
-export interface Rec601Settings {}
-export interface Rec709Settings {}
+export interface RebootInputDeviceResponse {
+}
+export interface Rec601Settings {
+}
+export interface Rec709Settings {
+}
 export interface RejectInputDeviceTransferRequest {
   InputDeviceId: string;
 }
-export interface RejectInputDeviceTransferResponse {}
+export interface RejectInputDeviceTransferResponse {
+}
 export interface RemixSettings {
   ChannelMappings: Array<AudioChannelMapping>;
   ChannelsIn?: number;
@@ -5499,21 +4268,9 @@ export interface Reservation {
   Tags?: Record<string, string>;
   UsagePrice?: number;
 }
-export type ReservationAutomaticRenewal =
-  | "DISABLED"
-  | "ENABLED"
-  | "UNAVAILABLE";
-export type ReservationCodec =
-  | "MPEG2"
-  | "AVC"
-  | "HEVC"
-  | "AUDIO"
-  | "LINK"
-  | "AV1";
-export type ReservationMaximumBitrate =
-  | "MAX_10_MBPS"
-  | "MAX_20_MBPS"
-  | "MAX_50_MBPS";
+export type ReservationAutomaticRenewal = "DISABLED" | "ENABLED" | "UNAVAILABLE";
+export type ReservationCodec = "MPEG2" | "AVC" | "HEVC" | "AUDIO" | "LINK" | "AV1";
+export type ReservationMaximumBitrate = "MAX_10_MBPS" | "MAX_20_MBPS" | "MAX_50_MBPS";
 export type ReservationMaximumFramerate = "MAX_30_FPS" | "MAX_60_FPS";
 export type ReservationResolution = "SD" | "HD" | "FHD" | "UHD";
 export interface ReservationResourceSpecification {
@@ -5526,16 +4283,8 @@ export interface ReservationResourceSpecification {
   SpecialFeature?: ReservationSpecialFeature;
   VideoQuality?: ReservationVideoQuality;
 }
-export type ReservationResourceType =
-  | "INPUT"
-  | "OUTPUT"
-  | "MULTIPLEX"
-  | "CHANNEL";
-export type ReservationSpecialFeature =
-  | "ADVANCED_AUDIO"
-  | "AUDIO_NORMALIZATION"
-  | "MGHD"
-  | "MGUHD";
+export type ReservationResourceType = "INPUT" | "OUTPUT" | "MULTIPLEX" | "CHANNEL";
+export type ReservationSpecialFeature = "ADVANCED_AUDIO" | "AUDIO_NORMALIZATION" | "MGHD" | "MGUHD";
 export type ReservationState = "ACTIVE" | "EXPIRED" | "CANCELED" | "DELETED";
 export type ReservationVideoQuality = "STANDARD" | "ENHANCED" | "PREMIUM";
 export interface RestartChannelPipelinesRequest {
@@ -5578,11 +4327,10 @@ export interface RouteUpdateRequest {
   Gateway?: string;
 }
 export type RtmpAdMarkers = "ON_CUE_POINT_SCTE35";
-export type RtmpCacheFullBehavior =
-  | "DISCONNECT_IMMEDIATELY"
-  | "WAIT_FOR_SERVER";
+export type RtmpCacheFullBehavior = "DISCONNECT_IMMEDIATELY" | "WAIT_FOR_SERVER";
 export type RtmpCaptionData = "ALL" | "FIELD1_608" | "FIELD1_AND_FIELD2_608";
-export interface RtmpCaptionInfoDestinationSettings {}
+export interface RtmpCaptionInfoDestinationSettings {
+}
 export interface RtmpGroupSettings {
   AdMarkers?: Array<RtmpAdMarkers>;
   AuthenticationScheme?: AuthenticationScheme;
@@ -5600,11 +4348,7 @@ export interface RtmpOutputSettings {
   Destination: OutputLocationRef;
   NumRetries?: number;
 }
-export type S3CannedAcl =
-  | "AUTHENTICATED_READ"
-  | "BUCKET_OWNER_FULL_CONTROL"
-  | "BUCKET_OWNER_READ"
-  | "PUBLIC_READ";
+export type S3CannedAcl = "AUTHENTICATED_READ" | "BUCKET_OWNER_FULL_CONTROL" | "BUCKET_OWNER_READ" | "PUBLIC_READ";
 export interface ScheduleAction {
   ActionName: string;
   ScheduleActionSettings: ScheduleActionSettings;
@@ -5635,12 +4379,14 @@ export interface ScheduleActionStartSettings {
   ImmediateModeScheduleActionStartSettings?: ImmediateModeScheduleActionStartSettings;
 }
 export type Scte20Convert608To708 = "DISABLED" | "UPCONVERT";
-export interface Scte20PlusEmbeddedDestinationSettings {}
+export interface Scte20PlusEmbeddedDestinationSettings {
+}
 export interface Scte20SourceSettings {
   Convert608To708?: Scte20Convert608To708;
   Source608ChannelNumber?: number;
 }
-export interface Scte27DestinationSettings {}
+export interface Scte27DestinationSettings {
+}
 export type Scte27OcrLanguage = "DEU" | "ENG" | "FRA" | "NLD" | "POR" | "SPA";
 export interface Scte27SourceSettings {
   OcrLanguage?: Scte27OcrLanguage;
@@ -5648,9 +4394,7 @@ export interface Scte27SourceSettings {
 }
 export type Scte35AposNoRegionalBlackoutBehavior = "FOLLOW" | "IGNORE";
 export type Scte35AposWebDeliveryAllowedBehavior = "FOLLOW" | "IGNORE";
-export type Scte35ArchiveAllowedFlag =
-  | "ARCHIVE_NOT_ALLOWED"
-  | "ARCHIVE_ALLOWED";
+export type Scte35ArchiveAllowedFlag = "ARCHIVE_NOT_ALLOWED" | "ARCHIVE_ALLOWED";
 export interface Scte35DeliveryRestrictions {
   ArchiveAllowedFlag: Scte35ArchiveAllowedFlag;
   DeviceRestrictions: Scte35DeviceRestrictions;
@@ -5663,25 +4407,17 @@ export interface Scte35Descriptor {
 export interface Scte35DescriptorSettings {
   SegmentationDescriptorScte35DescriptorSettings: Scte35SegmentationDescriptor;
 }
-export type Scte35DeviceRestrictions =
-  | "NONE"
-  | "RESTRICT_GROUP0"
-  | "RESTRICT_GROUP1"
-  | "RESTRICT_GROUP2";
+export type Scte35DeviceRestrictions = "NONE" | "RESTRICT_GROUP0" | "RESTRICT_GROUP1" | "RESTRICT_GROUP2";
 export type Scte35InputMode = "FIXED" | "FOLLOW_ACTIVE";
 export interface Scte35InputScheduleActionSettings {
   InputAttachmentNameReference?: string;
   Mode: Scte35InputMode;
 }
-export type Scte35NoRegionalBlackoutFlag =
-  | "REGIONAL_BLACKOUT"
-  | "NO_REGIONAL_BLACKOUT";
+export type Scte35NoRegionalBlackoutFlag = "REGIONAL_BLACKOUT" | "NO_REGIONAL_BLACKOUT";
 export interface Scte35ReturnToNetworkScheduleActionSettings {
   SpliceEventId: number;
 }
-export type Scte35SegmentationCancelIndicator =
-  | "SEGMENTATION_EVENT_NOT_CANCELED"
-  | "SEGMENTATION_EVENT_CANCELED";
+export type Scte35SegmentationCancelIndicator = "SEGMENTATION_EVENT_NOT_CANCELED" | "SEGMENTATION_EVENT_CANCELED";
 export interface Scte35SegmentationDescriptor {
   DeliveryRestrictions?: Scte35DeliveryRestrictions;
   SegmentNum?: number;
@@ -5695,9 +4431,7 @@ export interface Scte35SegmentationDescriptor {
   SubSegmentNum?: number;
   SubSegmentsExpected?: number;
 }
-export type Scte35SegmentationScope =
-  | "ALL_OUTPUT_GROUPS"
-  | "SCTE35_ENABLED_OUTPUT_GROUPS";
+export type Scte35SegmentationScope = "ALL_OUTPUT_GROUPS" | "SCTE35_ENABLED_OUTPUT_GROUPS";
 export interface Scte35SpliceInsert {
   AdAvailOffset?: number;
   NoRegionalBlackoutFlag?: Scte35SpliceInsertNoRegionalBlackoutBehavior;
@@ -5718,9 +4452,7 @@ export interface Scte35TimeSignalScheduleActionSettings {
   Scte35Descriptors: Array<Scte35Descriptor>;
 }
 export type Scte35Type = "NONE" | "SCTE_35_WITHOUT_SEGMENTATION";
-export type Scte35WebDeliveryAllowedFlag =
-  | "WEB_DELIVERY_NOT_ALLOWED"
-  | "WEB_DELIVERY_ALLOWED";
+export type Scte35WebDeliveryAllowedFlag = "WEB_DELIVERY_NOT_ALLOWED" | "WEB_DELIVERY_ALLOWED";
 export interface SdiSource {
   Arn?: string;
   Id?: string;
@@ -5736,8 +4468,7 @@ export interface SdiSourceMapping {
   SdiSource?: string;
 }
 export type SdiSourceMappings = Array<SdiSourceMapping>;
-export type SdiSourceMappingsUpdateRequest =
-  Array<SdiSourceMappingUpdateRequest>;
+export type SdiSourceMappingsUpdateRequest = Array<SdiSourceMappingUpdateRequest>;
 export interface SdiSourceMappingUpdateRequest {
   CardNumber?: number;
   ChannelNumber?: number;
@@ -5755,27 +4486,8 @@ export interface SdiSourceSummary {
   Type?: SdiSourceType;
 }
 export type SdiSourceType = "SINGLE" | "QUAD";
-export type SignalMapMonitorDeploymentStatus =
-  | "NOT_DEPLOYED"
-  | "DRY_RUN_DEPLOYMENT_COMPLETE"
-  | "DRY_RUN_DEPLOYMENT_FAILED"
-  | "DRY_RUN_DEPLOYMENT_IN_PROGRESS"
-  | "DEPLOYMENT_COMPLETE"
-  | "DEPLOYMENT_FAILED"
-  | "DEPLOYMENT_IN_PROGRESS"
-  | "DELETE_COMPLETE"
-  | "DELETE_FAILED"
-  | "DELETE_IN_PROGRESS";
-export type SignalMapStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_COMPLETE"
-  | "UPDATE_REVERTED"
-  | "UPDATE_FAILED"
-  | "READY"
-  | "NOT_READY";
+export type SignalMapMonitorDeploymentStatus = "NOT_DEPLOYED" | "DRY_RUN_DEPLOYMENT_COMPLETE" | "DRY_RUN_DEPLOYMENT_FAILED" | "DRY_RUN_DEPLOYMENT_IN_PROGRESS" | "DEPLOYMENT_COMPLETE" | "DEPLOYMENT_FAILED" | "DEPLOYMENT_IN_PROGRESS" | "DELETE_COMPLETE" | "DELETE_FAILED" | "DELETE_IN_PROGRESS";
+export type SignalMapStatus = "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_COMPLETE" | "UPDATE_REVERTED" | "UPDATE_FAILED" | "READY" | "NOT_READY";
 export interface SignalMapSummary {
   Arn: string;
   CreatedAt: Date | string;
@@ -5787,26 +4499,14 @@ export interface SignalMapSummary {
   Status: SignalMapStatus;
   Tags?: Record<string, string>;
 }
-export type SmoothGroupAudioOnlyTimecodeControl =
-  | "PASSTHROUGH"
-  | "USE_CONFIGURED_CLOCK";
+export type SmoothGroupAudioOnlyTimecodeControl = "PASSTHROUGH" | "USE_CONFIGURED_CLOCK";
 export type SmoothGroupCertificateMode = "SELF_SIGNED" | "VERIFY_AUTHENTICITY";
-export type SmoothGroupEventIdMode =
-  | "NO_EVENT_ID"
-  | "USE_CONFIGURED"
-  | "USE_TIMESTAMP";
+export type SmoothGroupEventIdMode = "NO_EVENT_ID" | "USE_CONFIGURED" | "USE_TIMESTAMP";
 export type SmoothGroupEventStopBehavior = "NONE" | "SEND_EOS";
-export type SmoothGroupSegmentationMode =
-  | "USE_INPUT_SEGMENTATION"
-  | "USE_SEGMENT_DURATION";
-export type SmoothGroupSparseTrackType =
-  | "NONE"
-  | "SCTE_35"
-  | "SCTE_35_WITHOUT_SEGMENTATION";
+export type SmoothGroupSegmentationMode = "USE_INPUT_SEGMENTATION" | "USE_SEGMENT_DURATION";
+export type SmoothGroupSparseTrackType = "NONE" | "SCTE_35" | "SCTE_35_WITHOUT_SEGMENTATION";
 export type SmoothGroupStreamManifestBehavior = "DO_NOT_SEND" | "SEND";
-export type SmoothGroupTimestampOffsetMode =
-  | "USE_CONFIGURED_OFFSET"
-  | "USE_EVENT_START_DATE";
+export type SmoothGroupTimestampOffsetMode = "USE_CONFIGURED_OFFSET" | "USE_EVENT_START_DATE";
 export type Smpte2038DataPreference = "IGNORE" | "PREFER";
 export interface Smpte2110ReceiverGroup {
   SdpSettings?: Smpte2110ReceiverGroupSdpSettings;
@@ -5819,7 +4519,8 @@ export interface Smpte2110ReceiverGroupSdpSettings {
 export interface Smpte2110ReceiverGroupSettings {
   Smpte2110ReceiverGroups?: Array<Smpte2110ReceiverGroup>;
 }
-export interface SmpteTtDestinationSettings {}
+export interface SmpteTtDestinationSettings {
+}
 export interface SrtCallerDecryption {
   Algorithm?: Algorithm;
   PassphraseSecretArn?: string;
@@ -5919,11 +4620,13 @@ export interface StartDeleteMonitorDeploymentResponse {
 export interface StartInputDeviceMaintenanceWindowRequest {
   InputDeviceId: string;
 }
-export interface StartInputDeviceMaintenanceWindowResponse {}
+export interface StartInputDeviceMaintenanceWindowResponse {
+}
 export interface StartInputDeviceRequest {
   InputDeviceId: string;
 }
-export interface StartInputDeviceResponse {}
+export interface StartInputDeviceResponse {
+}
 export interface StartMonitorDeploymentRequest {
   DryRun?: boolean;
   Identifier: string;
@@ -6061,7 +4764,8 @@ export interface StopChannelResponse {
 export interface StopInputDeviceRequest {
   InputDeviceId: string;
 }
-export interface StopInputDeviceResponse {}
+export interface StopInputDeviceResponse {
+}
 export interface StopMultiplexRequest {
   MultiplexId: string;
 }
@@ -6087,37 +4791,18 @@ export interface SuccessfulMonitorDeployment {
 }
 export type TagMap = Record<string, string>;
 export type Tags = Record<string, string>;
-export interface TeletextDestinationSettings {}
+export interface TeletextDestinationSettings {
+}
 export interface TeletextSourceSettings {
   OutputRectangle?: CaptionRectangle;
   PageNumber?: string;
 }
-export type TemporalFilterPostFilterSharpening =
-  | "AUTO"
-  | "DISABLED"
-  | "ENABLED";
+export type TemporalFilterPostFilterSharpening = "AUTO" | "DISABLED" | "ENABLED";
 export interface TemporalFilterSettings {
   PostFilterSharpening?: TemporalFilterPostFilterSharpening;
   Strength?: TemporalFilterStrength;
 }
-export type TemporalFilterStrength =
-  | "AUTO"
-  | "STRENGTH_1"
-  | "STRENGTH_2"
-  | "STRENGTH_3"
-  | "STRENGTH_4"
-  | "STRENGTH_5"
-  | "STRENGTH_6"
-  | "STRENGTH_7"
-  | "STRENGTH_8"
-  | "STRENGTH_9"
-  | "STRENGTH_10"
-  | "STRENGTH_11"
-  | "STRENGTH_12"
-  | "STRENGTH_13"
-  | "STRENGTH_14"
-  | "STRENGTH_15"
-  | "STRENGTH_16";
+export type TemporalFilterStrength = "AUTO" | "STRENGTH_1" | "STRENGTH_2" | "STRENGTH_3" | "STRENGTH_4" | "STRENGTH_5" | "STRENGTH_6" | "STRENGTH_7" | "STRENGTH_8" | "STRENGTH_9" | "STRENGTH_10" | "STRENGTH_11" | "STRENGTH_12" | "STRENGTH_13" | "STRENGTH_14" | "STRENGTH_15" | "STRENGTH_16";
 export interface Thumbnail {
   Body?: string;
   ContentType?: string;
@@ -6133,21 +4818,8 @@ export interface ThumbnailDetail {
 }
 export type ThumbnailState = "AUTO" | "DISABLED";
 export type ThumbnailType = "UNSPECIFIED" | "CURRENT_ACTIVE";
-export type TimecodeBurninFontSize =
-  | "EXTRA_SMALL_10"
-  | "LARGE_48"
-  | "MEDIUM_32"
-  | "SMALL_16";
-export type TimecodeBurninPosition =
-  | "BOTTOM_CENTER"
-  | "BOTTOM_LEFT"
-  | "BOTTOM_RIGHT"
-  | "MIDDLE_CENTER"
-  | "MIDDLE_LEFT"
-  | "MIDDLE_RIGHT"
-  | "TOP_CENTER"
-  | "TOP_LEFT"
-  | "TOP_RIGHT";
+export type TimecodeBurninFontSize = "EXTRA_SMALL_10" | "LARGE_48" | "MEDIUM_32" | "SMALL_16";
+export type TimecodeBurninPosition = "BOTTOM_CENTER" | "BOTTOM_LEFT" | "BOTTOM_RIGHT" | "MIDDLE_CENTER" | "MIDDLE_LEFT" | "MIDDLE_RIGHT" | "TOP_CENTER" | "TOP_LEFT" | "TOP_RIGHT";
 export interface TimecodeBurninSettings {
   FontSize: TimecodeBurninFontSize;
   Position: TimecodeBurninPosition;
@@ -6172,7 +4844,8 @@ export interface TransferInputDeviceRequest {
   TargetRegion?: string;
   TransferMessage?: string;
 }
-export interface TransferInputDeviceResponse {}
+export interface TransferInputDeviceResponse {
+}
 export interface TransferringInputDeviceSummary {
   Id?: string;
   Message?: string;
@@ -6407,10 +5080,7 @@ export interface UpdateMultiplexRequest {
   MultiplexId: string;
   MultiplexSettings?: MultiplexSettings;
   Name?: string;
-  PacketIdentifiersMapping?: Record<
-    string,
-    MultiplexProgramPacketIdentifiersMap
-  >;
+  PacketIdentifiersMapping?: Record<string, MultiplexProgramPacketIdentifiersMap>;
 }
 export interface UpdateMultiplexResponse {
   Multiplex?: Multiplex;
@@ -6518,12 +5188,7 @@ export interface VideoSelector {
   ColorSpaceUsage?: VideoSelectorColorSpaceUsage;
   SelectorSettings?: VideoSelectorSettings;
 }
-export type VideoSelectorColorSpace =
-  | "FOLLOW"
-  | "HDR10"
-  | "HLG_2020"
-  | "REC_601"
-  | "REC_709";
+export type VideoSelectorColorSpace = "FOLLOW" | "HDR10" | "HLG_2020" | "REC_601" | "REC_709";
 export interface VideoSelectorColorSpaceSettings {
   Hdr10Settings?: Hdr10Settings;
 }
@@ -6549,11 +5214,7 @@ export interface VpcOutputSettingsDescription {
   SecurityGroupIds?: Array<string>;
   SubnetIds?: Array<string>;
 }
-export type WavCodingMode =
-  | "CODING_MODE_1_0"
-  | "CODING_MODE_2_0"
-  | "CODING_MODE_4_0"
-  | "CODING_MODE_8_0";
+export type WavCodingMode = "CODING_MODE_1_0" | "CODING_MODE_2_0" | "CODING_MODE_4_0" | "CODING_MODE_8_0";
 export interface WavSettings {
   BitDepth?: number;
   CodingMode?: WavCodingMode;
@@ -8226,3 +6887,4 @@ export declare namespace UpdateSdiSource {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

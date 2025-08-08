@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class MemoryDB extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("memorydb", new AwsJson11Protocol(), cfg);
+  }
+
   batchUpdateCluster(
     input: BatchUpdateClusterRequest,
   ): Effect.Effect<
@@ -15,15 +20,7 @@ export class MemoryDB extends AWSServiceClient {
     input: CopySnapshotRequest,
   ): Effect.Effect<
     CopySnapshotResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | InvalidSnapshotStateFault
-    | ServiceLinkedRoleNotFoundFault
-    | SnapshotAlreadyExistsFault
-    | SnapshotNotFoundFault
-    | SnapshotQuotaExceededFault
-    | TagQuotaPerResourceExceeded
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | InvalidSnapshotStateFault | ServiceLinkedRoleNotFoundFault | SnapshotAlreadyExistsFault | SnapshotNotFoundFault | SnapshotQuotaExceededFault | TagQuotaPerResourceExceeded | CommonAwsError
   > {
     return this.call("CopySnapshot", input);
   }
@@ -31,14 +28,7 @@ export class MemoryDB extends AWSServiceClient {
     input: CreateACLRequest,
   ): Effect.Effect<
     CreateACLResponse,
-    | ACLAlreadyExistsFault
-    | ACLQuotaExceededFault
-    | DefaultUserRequired
-    | DuplicateUserNameFault
-    | InvalidParameterValueException
-    | TagQuotaPerResourceExceeded
-    | UserNotFoundFault
-    | CommonAwsError
+    ACLAlreadyExistsFault | ACLQuotaExceededFault | DefaultUserRequired | DuplicateUserNameFault | InvalidParameterValueException | TagQuotaPerResourceExceeded | UserNotFoundFault | CommonAwsError
   > {
     return this.call("CreateACL", input);
   }
@@ -46,25 +36,7 @@ export class MemoryDB extends AWSServiceClient {
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
-    | ACLNotFoundFault
-    | ClusterAlreadyExistsFault
-    | ClusterQuotaForCustomerExceededFault
-    | InsufficientClusterCapacityFault
-    | InvalidACLStateFault
-    | InvalidCredentialsException
-    | InvalidMultiRegionClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | InvalidVPCNetworkStateFault
-    | MultiRegionClusterNotFoundFault
-    | NodeQuotaForClusterExceededFault
-    | NodeQuotaForCustomerExceededFault
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | ShardsPerClusterQuotaExceededFault
-    | SubnetGroupNotFoundFault
-    | TagQuotaPerResourceExceeded
-    | CommonAwsError
+    ACLNotFoundFault | ClusterAlreadyExistsFault | ClusterQuotaForCustomerExceededFault | InsufficientClusterCapacityFault | InvalidACLStateFault | InvalidCredentialsException | InvalidMultiRegionClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | InvalidVPCNetworkStateFault | MultiRegionClusterNotFoundFault | NodeQuotaForClusterExceededFault | NodeQuotaForCustomerExceededFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | ShardsPerClusterQuotaExceededFault | SubnetGroupNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
   > {
     return this.call("CreateCluster", input);
   }
@@ -72,13 +44,7 @@ export class MemoryDB extends AWSServiceClient {
     input: CreateMultiRegionClusterRequest,
   ): Effect.Effect<
     CreateMultiRegionClusterResponse,
-    | ClusterQuotaForCustomerExceededFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | MultiRegionClusterAlreadyExistsFault
-    | MultiRegionParameterGroupNotFoundFault
-    | TagQuotaPerResourceExceeded
-    | CommonAwsError
+    ClusterQuotaForCustomerExceededFault | InvalidParameterCombinationException | InvalidParameterValueException | MultiRegionClusterAlreadyExistsFault | MultiRegionParameterGroupNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
   > {
     return this.call("CreateMultiRegionCluster", input);
   }
@@ -86,14 +52,7 @@ export class MemoryDB extends AWSServiceClient {
     input: CreateParameterGroupRequest,
   ): Effect.Effect<
     CreateParameterGroupResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterGroupStateFault
-    | InvalidParameterValueException
-    | ParameterGroupAlreadyExistsFault
-    | ParameterGroupQuotaExceededFault
-    | ServiceLinkedRoleNotFoundFault
-    | TagQuotaPerResourceExceeded
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupAlreadyExistsFault | ParameterGroupQuotaExceededFault | ServiceLinkedRoleNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
   > {
     return this.call("CreateParameterGroup", input);
   }
@@ -101,15 +60,7 @@ export class MemoryDB extends AWSServiceClient {
     input: CreateSnapshotRequest,
   ): Effect.Effect<
     CreateSnapshotResponse,
-    | ClusterNotFoundFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | SnapshotAlreadyExistsFault
-    | SnapshotQuotaExceededFault
-    | TagQuotaPerResourceExceeded
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | SnapshotAlreadyExistsFault | SnapshotQuotaExceededFault | TagQuotaPerResourceExceeded | CommonAwsError
   > {
     return this.call("CreateSnapshot", input);
   }
@@ -117,14 +68,7 @@ export class MemoryDB extends AWSServiceClient {
     input: CreateSubnetGroupRequest,
   ): Effect.Effect<
     CreateSubnetGroupResponse,
-    | InvalidSubnet
-    | ServiceLinkedRoleNotFoundFault
-    | SubnetGroupAlreadyExistsFault
-    | SubnetGroupQuotaExceededFault
-    | SubnetNotAllowedFault
-    | SubnetQuotaExceededFault
-    | TagQuotaPerResourceExceeded
-    | CommonAwsError
+    InvalidSubnet | ServiceLinkedRoleNotFoundFault | SubnetGroupAlreadyExistsFault | SubnetGroupQuotaExceededFault | SubnetNotAllowedFault | SubnetQuotaExceededFault | TagQuotaPerResourceExceeded | CommonAwsError
   > {
     return this.call("CreateSubnetGroup", input);
   }
@@ -132,13 +76,7 @@ export class MemoryDB extends AWSServiceClient {
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | DuplicateUserNameFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | TagQuotaPerResourceExceeded
-    | UserAlreadyExistsFault
-    | UserQuotaExceededFault
-    | CommonAwsError
+    DuplicateUserNameFault | InvalidParameterCombinationException | InvalidParameterValueException | TagQuotaPerResourceExceeded | UserAlreadyExistsFault | UserQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateUser", input);
   }
@@ -146,10 +84,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DeleteACLRequest,
   ): Effect.Effect<
     DeleteACLResponse,
-    | ACLNotFoundFault
-    | InvalidACLStateFault
-    | InvalidParameterValueException
-    | CommonAwsError
+    ACLNotFoundFault | InvalidACLStateFault | InvalidParameterValueException | CommonAwsError
   > {
     return this.call("DeleteACL", input);
   }
@@ -157,13 +92,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
-    | ClusterNotFoundFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | SnapshotAlreadyExistsFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | SnapshotAlreadyExistsFault | CommonAwsError
   > {
     return this.call("DeleteCluster", input);
   }
@@ -171,10 +100,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DeleteMultiRegionClusterRequest,
   ): Effect.Effect<
     DeleteMultiRegionClusterResponse,
-    | InvalidMultiRegionClusterStateFault
-    | InvalidParameterValueException
-    | MultiRegionClusterNotFoundFault
-    | CommonAwsError
+    InvalidMultiRegionClusterStateFault | InvalidParameterValueException | MultiRegionClusterNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteMultiRegionCluster", input);
   }
@@ -182,12 +108,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DeleteParameterGroupRequest,
   ): Effect.Effect<
     DeleteParameterGroupResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterGroupStateFault
-    | InvalidParameterValueException
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteParameterGroup", input);
   }
@@ -195,12 +116,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DeleteSnapshotRequest,
   ): Effect.Effect<
     DeleteSnapshotResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | InvalidSnapshotStateFault
-    | ServiceLinkedRoleNotFoundFault
-    | SnapshotNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | InvalidSnapshotStateFault | ServiceLinkedRoleNotFoundFault | SnapshotNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteSnapshot", input);
   }
@@ -208,10 +124,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DeleteSubnetGroupRequest,
   ): Effect.Effect<
     DeleteSubnetGroupResponse,
-    | ServiceLinkedRoleNotFoundFault
-    | SubnetGroupInUseFault
-    | SubnetGroupNotFoundFault
-    | CommonAwsError
+    ServiceLinkedRoleNotFoundFault | SubnetGroupInUseFault | SubnetGroupNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteSubnetGroup", input);
   }
@@ -219,10 +132,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResponse,
-    | InvalidParameterValueException
-    | InvalidUserStateFault
-    | UserNotFoundFault
-    | CommonAwsError
+    InvalidParameterValueException | InvalidUserStateFault | UserNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteUser", input);
   }
@@ -238,11 +148,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DescribeClustersRequest,
   ): Effect.Effect<
     DescribeClustersResponse,
-    | ClusterNotFoundFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeClusters", input);
   }
@@ -250,10 +156,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DescribeEngineVersionsRequest,
   ): Effect.Effect<
     DescribeEngineVersionsResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeEngineVersions", input);
   }
@@ -261,10 +164,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DescribeEventsRequest,
   ): Effect.Effect<
     DescribeEventsResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeEvents", input);
   }
@@ -272,11 +172,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DescribeMultiRegionClustersRequest,
   ): Effect.Effect<
     DescribeMultiRegionClustersResponse,
-    | ClusterNotFoundFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | MultiRegionClusterNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidParameterCombinationException | InvalidParameterValueException | MultiRegionClusterNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeMultiRegionClusters", input);
   }
@@ -284,11 +180,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DescribeParameterGroupsRequest,
   ): Effect.Effect<
     DescribeParameterGroupsResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeParameterGroups", input);
   }
@@ -296,11 +188,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DescribeParametersRequest,
   ): Effect.Effect<
     DescribeParametersResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeParameters", input);
   }
@@ -308,11 +196,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DescribeReservedNodesRequest,
   ): Effect.Effect<
     DescribeReservedNodesResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ReservedNodeNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ReservedNodeNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeReservedNodes", input);
   }
@@ -320,11 +204,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DescribeReservedNodesOfferingsRequest,
   ): Effect.Effect<
     DescribeReservedNodesOfferingsResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ReservedNodesOfferingNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ReservedNodesOfferingNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeReservedNodesOfferings", input);
   }
@@ -332,9 +212,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DescribeServiceUpdatesRequest,
   ): Effect.Effect<
     DescribeServiceUpdatesResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | CommonAwsError
   > {
     return this.call("DescribeServiceUpdates", input);
   }
@@ -342,11 +220,7 @@ export class MemoryDB extends AWSServiceClient {
     input: DescribeSnapshotsRequest,
   ): Effect.Effect<
     DescribeSnapshotsResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | SnapshotNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | SnapshotNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeSnapshots", input);
   }
@@ -370,15 +244,7 @@ export class MemoryDB extends AWSServiceClient {
     input: FailoverShardRequest,
   ): Effect.Effect<
     FailoverShardResponse,
-    | APICallRateForCustomerExceededFault
-    | ClusterNotFoundFault
-    | InvalidClusterStateFault
-    | InvalidKMSKeyFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ShardNotFoundFault
-    | TestFailoverNotAvailableFault
-    | CommonAwsError
+    APICallRateForCustomerExceededFault | ClusterNotFoundFault | InvalidClusterStateFault | InvalidKMSKeyFault | InvalidParameterCombinationException | InvalidParameterValueException | ShardNotFoundFault | TestFailoverNotAvailableFault | CommonAwsError
   > {
     return this.call("FailoverShard", input);
   }
@@ -386,10 +252,7 @@ export class MemoryDB extends AWSServiceClient {
     input: ListAllowedMultiRegionClusterUpdatesRequest,
   ): Effect.Effect<
     ListAllowedMultiRegionClusterUpdatesResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | MultiRegionClusterNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | MultiRegionClusterNotFoundFault | CommonAwsError
   > {
     return this.call("ListAllowedMultiRegionClusterUpdates", input);
   }
@@ -397,11 +260,7 @@ export class MemoryDB extends AWSServiceClient {
     input: ListAllowedNodeTypeUpdatesRequest,
   ): Effect.Effect<
     ListAllowedNodeTypeUpdatesResponse,
-    | ClusterNotFoundFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("ListAllowedNodeTypeUpdates", input);
   }
@@ -409,18 +268,7 @@ export class MemoryDB extends AWSServiceClient {
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    | ACLNotFoundFault
-    | ClusterNotFoundFault
-    | InvalidARNFault
-    | InvalidClusterStateFault
-    | MultiRegionClusterNotFoundFault
-    | MultiRegionParameterGroupNotFoundFault
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | SnapshotNotFoundFault
-    | SubnetGroupNotFoundFault
-    | UserNotFoundFault
-    | CommonAwsError
+    ACLNotFoundFault | ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | MultiRegionClusterNotFoundFault | MultiRegionParameterGroupNotFoundFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | SnapshotNotFoundFault | SubnetGroupNotFoundFault | UserNotFoundFault | CommonAwsError
   > {
     return this.call("ListTags", input);
   }
@@ -428,14 +276,7 @@ export class MemoryDB extends AWSServiceClient {
     input: PurchaseReservedNodesOfferingRequest,
   ): Effect.Effect<
     PurchaseReservedNodesOfferingResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ReservedNodeAlreadyExistsFault
-    | ReservedNodeQuotaExceededFault
-    | ReservedNodesOfferingNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | TagQuotaPerResourceExceeded
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ReservedNodeAlreadyExistsFault | ReservedNodeQuotaExceededFault | ReservedNodesOfferingNotFoundFault | ServiceLinkedRoleNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
   > {
     return this.call("PurchaseReservedNodesOffering", input);
   }
@@ -443,12 +284,7 @@ export class MemoryDB extends AWSServiceClient {
     input: ResetParameterGroupRequest,
   ): Effect.Effect<
     ResetParameterGroupResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterGroupStateFault
-    | InvalidParameterValueException
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("ResetParameterGroup", input);
   }
@@ -456,20 +292,7 @@ export class MemoryDB extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ACLNotFoundFault
-    | ClusterNotFoundFault
-    | InvalidARNFault
-    | InvalidClusterStateFault
-    | InvalidParameterValueException
-    | MultiRegionClusterNotFoundFault
-    | MultiRegionParameterGroupNotFoundFault
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | SnapshotNotFoundFault
-    | SubnetGroupNotFoundFault
-    | TagQuotaPerResourceExceeded
-    | UserNotFoundFault
-    | CommonAwsError
+    ACLNotFoundFault | ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | InvalidParameterValueException | MultiRegionClusterNotFoundFault | MultiRegionParameterGroupNotFoundFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | SnapshotNotFoundFault | SubnetGroupNotFoundFault | TagQuotaPerResourceExceeded | UserNotFoundFault | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -477,20 +300,7 @@ export class MemoryDB extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ACLNotFoundFault
-    | ClusterNotFoundFault
-    | InvalidARNFault
-    | InvalidClusterStateFault
-    | InvalidParameterValueException
-    | MultiRegionClusterNotFoundFault
-    | MultiRegionParameterGroupNotFoundFault
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | SnapshotNotFoundFault
-    | SubnetGroupNotFoundFault
-    | TagNotFoundFault
-    | UserNotFoundFault
-    | CommonAwsError
+    ACLNotFoundFault | ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | InvalidParameterValueException | MultiRegionClusterNotFoundFault | MultiRegionParameterGroupNotFoundFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | SnapshotNotFoundFault | SubnetGroupNotFoundFault | TagNotFoundFault | UserNotFoundFault | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -498,14 +308,7 @@ export class MemoryDB extends AWSServiceClient {
     input: UpdateACLRequest,
   ): Effect.Effect<
     UpdateACLResponse,
-    | ACLNotFoundFault
-    | DefaultUserRequired
-    | DuplicateUserNameFault
-    | InvalidACLStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | UserNotFoundFault
-    | CommonAwsError
+    ACLNotFoundFault | DefaultUserRequired | DuplicateUserNameFault | InvalidACLStateFault | InvalidParameterCombinationException | InvalidParameterValueException | UserNotFoundFault | CommonAwsError
   > {
     return this.call("UpdateACL", input);
   }
@@ -513,23 +316,7 @@ export class MemoryDB extends AWSServiceClient {
     input: UpdateClusterRequest,
   ): Effect.Effect<
     UpdateClusterResponse,
-    | ACLNotFoundFault
-    | ClusterNotFoundFault
-    | ClusterQuotaForCustomerExceededFault
-    | InvalidACLStateFault
-    | InvalidClusterStateFault
-    | InvalidKMSKeyFault
-    | InvalidNodeStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | InvalidVPCNetworkStateFault
-    | NodeQuotaForClusterExceededFault
-    | NodeQuotaForCustomerExceededFault
-    | NoOperationFault
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | ShardsPerClusterQuotaExceededFault
-    | CommonAwsError
+    ACLNotFoundFault | ClusterNotFoundFault | ClusterQuotaForCustomerExceededFault | InvalidACLStateFault | InvalidClusterStateFault | InvalidKMSKeyFault | InvalidNodeStateFault | InvalidParameterCombinationException | InvalidParameterValueException | InvalidVPCNetworkStateFault | NodeQuotaForClusterExceededFault | NodeQuotaForCustomerExceededFault | NoOperationFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | ShardsPerClusterQuotaExceededFault | CommonAwsError
   > {
     return this.call("UpdateCluster", input);
   }
@@ -537,12 +324,7 @@ export class MemoryDB extends AWSServiceClient {
     input: UpdateMultiRegionClusterRequest,
   ): Effect.Effect<
     UpdateMultiRegionClusterResponse,
-    | InvalidMultiRegionClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | MultiRegionClusterNotFoundFault
-    | MultiRegionParameterGroupNotFoundFault
-    | CommonAwsError
+    InvalidMultiRegionClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | MultiRegionClusterNotFoundFault | MultiRegionParameterGroupNotFoundFault | CommonAwsError
   > {
     return this.call("UpdateMultiRegionCluster", input);
   }
@@ -550,12 +332,7 @@ export class MemoryDB extends AWSServiceClient {
     input: UpdateParameterGroupRequest,
   ): Effect.Effect<
     UpdateParameterGroupResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterGroupStateFault
-    | InvalidParameterValueException
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("UpdateParameterGroup", input);
   }
@@ -563,13 +340,7 @@ export class MemoryDB extends AWSServiceClient {
     input: UpdateSubnetGroupRequest,
   ): Effect.Effect<
     UpdateSubnetGroupResponse,
-    | InvalidSubnet
-    | ServiceLinkedRoleNotFoundFault
-    | SubnetGroupNotFoundFault
-    | SubnetInUse
-    | SubnetNotAllowedFault
-    | SubnetQuotaExceededFault
-    | CommonAwsError
+    InvalidSubnet | ServiceLinkedRoleNotFoundFault | SubnetGroupNotFoundFault | SubnetInUse | SubnetNotAllowedFault | SubnetQuotaExceededFault | CommonAwsError
   > {
     return this.call("UpdateSubnetGroup", input);
   }
@@ -577,11 +348,7 @@ export class MemoryDB extends AWSServiceClient {
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | InvalidUserStateFault
-    | UserNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | InvalidUserStateFault | UserNotFoundFault | CommonAwsError
   > {
     return this.call("UpdateUser", input);
   }
@@ -1267,8 +1034,7 @@ export interface PendingModifiedServiceUpdate {
   ServiceUpdateName?: string;
   Status?: ServiceUpdateStatus;
 }
-export type PendingModifiedServiceUpdateList =
-  Array<PendingModifiedServiceUpdate>;
+export type PendingModifiedServiceUpdateList = Array<PendingModifiedServiceUpdate>;
 export interface PurchaseReservedNodesOfferingRequest {
   ReservedNodesOfferingId: string;
   ReservationId?: string;
@@ -1378,11 +1144,7 @@ export declare class ServiceUpdateNotFoundFault extends EffectData.TaggedError(
 export interface ServiceUpdateRequest {
   ServiceUpdateNameToApply?: string;
 }
-export type ServiceUpdateStatus =
-  | "NOT_APPLIED"
-  | "IN_PROGRESS"
-  | "COMPLETE"
-  | "SCHEDULED";
+export type ServiceUpdateStatus = "NOT_APPLIED" | "IN_PROGRESS" | "COMPLETE" | "SCHEDULED";
 export type ServiceUpdateStatusList = Array<ServiceUpdateStatus>;
 export type ServiceUpdateType = "SECURITY_UPDATE";
 export interface Shard {
@@ -1446,13 +1208,7 @@ export declare class SnapshotQuotaExceededFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type SourceType =
-  | "node"
-  | "parameter_group"
-  | "subnet_group"
-  | "cluster"
-  | "user"
-  | "acl";
+export type SourceType = "node" | "parameter_group" | "subnet_group" | "cluster" | "user" | "acl";
 export type MemorydbString = string;
 
 export interface Subnet {
@@ -1490,7 +1246,9 @@ export declare class SubnetGroupQuotaExceededFault extends EffectData.TaggedErro
   readonly message?: string;
 }> {}
 export type SubnetIdentifierList = Array<string>;
-export declare class SubnetInUse extends EffectData.TaggedError("SubnetInUse")<{
+export declare class SubnetInUse extends EffectData.TaggedError(
+  "SubnetInUse",
+)<{
   readonly message?: string;
 }> {}
 export type SubnetList = Array<Subnet>;
@@ -2188,3 +1946,4 @@ export declare namespace UpdateUser {
     | UserNotFoundFault
     | CommonAwsError;
 }
+

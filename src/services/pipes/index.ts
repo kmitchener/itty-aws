@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Pipes extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("pipes", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -217,8 +222,7 @@ export interface EcsInferenceAcceleratorOverride {
   deviceName?: string;
   deviceType?: string;
 }
-export type EcsInferenceAcceleratorOverrideList =
-  Array<EcsInferenceAcceleratorOverride>;
+export type EcsInferenceAcceleratorOverrideList = Array<EcsInferenceAcceleratorOverride>;
 export interface EcsResourceRequirement {
   type: string;
   value: string;
@@ -347,9 +351,7 @@ interface _MQBrokerAccessCredentials {
   BasicAuth?: string;
 }
 
-export type MQBrokerAccessCredentials = _MQBrokerAccessCredentials & {
-  BasicAuth: string;
-};
+export type MQBrokerAccessCredentials = (_MQBrokerAccessCredentials & { BasicAuth: string });
 export type MQBrokerQueueName = string;
 
 interface _MSKAccessCredentials {
@@ -357,9 +359,7 @@ interface _MSKAccessCredentials {
   ClientCertificateTlsAuth?: string;
 }
 
-export type MSKAccessCredentials =
-  | (_MSKAccessCredentials & { SaslScram512Auth: string })
-  | (_MSKAccessCredentials & { ClientCertificateTlsAuth: string });
+export type MSKAccessCredentials = (_MSKAccessCredentials & { SaslScram512Auth: string }) | (_MSKAccessCredentials & { ClientCertificateTlsAuth: string });
 export type MSKStartPosition = string;
 
 export interface MultiMeasureAttributeMapping {
@@ -675,17 +675,7 @@ interface _SelfManagedKafkaAccessConfigurationCredentials {
   ClientCertificateTlsAuth?: string;
 }
 
-export type SelfManagedKafkaAccessConfigurationCredentials =
-  | (_SelfManagedKafkaAccessConfigurationCredentials & { BasicAuth: string })
-  | (_SelfManagedKafkaAccessConfigurationCredentials & {
-      SaslScram512Auth: string;
-    })
-  | (_SelfManagedKafkaAccessConfigurationCredentials & {
-      SaslScram256Auth: string;
-    })
-  | (_SelfManagedKafkaAccessConfigurationCredentials & {
-      ClientCertificateTlsAuth: string;
-    });
+export type SelfManagedKafkaAccessConfigurationCredentials = (_SelfManagedKafkaAccessConfigurationCredentials & { BasicAuth: string }) | (_SelfManagedKafkaAccessConfigurationCredentials & { SaslScram512Auth: string }) | (_SelfManagedKafkaAccessConfigurationCredentials & { SaslScram256Auth: string }) | (_SelfManagedKafkaAccessConfigurationCredentials & { ClientCertificateTlsAuth: string });
 export interface SelfManagedKafkaAccessConfigurationVpc {
   Subnets?: Array<string>;
   SecurityGroup?: Array<string>;
@@ -756,7 +746,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -779,7 +770,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdatePipeRequest {
   Name: string;
   Description?: string;
@@ -899,3 +891,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

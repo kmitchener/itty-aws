@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class forecastquery extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("forecastquery", new AwsJson11Protocol(), cfg);
+  }
+
   queryForecast(
     input: QueryForecastRequest,
   ): Effect.Effect<
     QueryForecastResponse,
-    | InvalidInputException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidInputException | InvalidNextTokenException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("QueryForecast", input);
   }
@@ -20,12 +20,7 @@ export class forecastquery extends AWSServiceClient {
     input: QueryWhatIfForecastRequest,
   ): Effect.Effect<
     QueryWhatIfForecastResponse,
-    | InvalidInputException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidInputException | InvalidNextTokenException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("QueryWhatIfForecast", input);
   }
@@ -133,3 +128,4 @@ export declare namespace QueryWhatIfForecast {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

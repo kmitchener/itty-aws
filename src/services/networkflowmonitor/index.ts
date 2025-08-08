@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class NetworkFlowMonitor extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("networkflowmonitor", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -21,13 +20,7 @@ export class NetworkFlowMonitor extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -35,13 +28,7 @@ export class NetworkFlowMonitor extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -105,18 +92,14 @@ export interface CreateScopeOutput {
 export interface DeleteMonitorInput {
   monitorName: string;
 }
-export interface DeleteMonitorOutput {}
+export interface DeleteMonitorOutput {
+}
 export interface DeleteScopeInput {
   scopeId: string;
 }
-export interface DeleteScopeOutput {}
-export type DestinationCategory =
-  | "INTRA_AZ"
-  | "INTER_AZ"
-  | "INTER_VPC"
-  | "UNCLASSIFIED"
-  | "AMAZON_S3"
-  | "AMAZON_DYNAMODB";
+export interface DeleteScopeOutput {
+}
+export type DestinationCategory = "INTRA_AZ" | "INTER_AZ" | "INTER_VPC" | "UNCLASSIFIED" | "AMAZON_S3" | "AMAZON_DYNAMODB";
 export interface GetMonitorInput {
   monitorName: string;
 }
@@ -239,34 +222,7 @@ export interface ListTagsForResourceOutput {
 }
 export type MaxResults = number;
 
-export type MetricUnit =
-  | "SECONDS"
-  | "MICROSECONDS"
-  | "MILLISECONDS"
-  | "BYTES"
-  | "KILOBYTES"
-  | "MEGABYTES"
-  | "GIGABYTES"
-  | "TERABYTES"
-  | "BITS"
-  | "KILOBITS"
-  | "MEGABITS"
-  | "GIGABITS"
-  | "TERABITS"
-  | "PERCENT"
-  | "COUNT"
-  | "BYTES_PER_SECOND"
-  | "KILOBYTES_PER_SECOND"
-  | "MEGABYTES_PER_SECOND"
-  | "GIGABYTES_PER_SECOND"
-  | "TERABYTES_PER_SECOND"
-  | "BITS_PER_SECOND"
-  | "KILOBITS_PER_SECOND"
-  | "MEGABITS_PER_SECOND"
-  | "GIGABITS_PER_SECOND"
-  | "TERABITS_PER_SECOND"
-  | "COUNT_PER_SECOND"
-  | "NONE";
+export type MetricUnit = "SECONDS" | "MICROSECONDS" | "MILLISECONDS" | "BYTES" | "KILOBYTES" | "MEGABYTES" | "GIGABYTES" | "TERABYTES" | "BITS" | "KILOBITS" | "MEGABITS" | "GIGABITS" | "TERABITS" | "PERCENT" | "COUNT" | "BYTES_PER_SECOND" | "KILOBYTES_PER_SECOND" | "MEGABYTES_PER_SECOND" | "GIGABYTES_PER_SECOND" | "TERABYTES_PER_SECOND" | "BITS_PER_SECOND" | "KILOBITS_PER_SECOND" | "MEGABITS_PER_SECOND" | "GIGABITS_PER_SECOND" | "TERABITS_PER_SECOND" | "COUNT_PER_SECOND" | "NONE";
 export type MonitorArn = string;
 
 export type MonitorList = Array<MonitorSummary>;
@@ -276,27 +232,14 @@ export interface MonitorLocalResource {
 }
 export type MonitorLocalResources = Array<MonitorLocalResource>;
 export type MonitorLocalResourceType = "AWS_VPC" | "AWS_AZ" | "AWS_SUBNET";
-export type MonitorMetric =
-  | "ROUND_TRIP_TIME"
-  | "TIMEOUTS"
-  | "RETRANSMISSIONS"
-  | "DATA_TRANSFERRED";
+export type MonitorMetric = "ROUND_TRIP_TIME" | "TIMEOUTS" | "RETRANSMISSIONS" | "DATA_TRANSFERRED";
 export interface MonitorRemoteResource {
   type: MonitorRemoteResourceType;
   identifier: string;
 }
 export type MonitorRemoteResources = Array<MonitorRemoteResource>;
-export type MonitorRemoteResourceType =
-  | "AWS_VPC"
-  | "AWS_AZ"
-  | "AWS_SUBNET"
-  | "AWS_SERVICE";
-export type MonitorStatus =
-  | "PENDING"
-  | "ACTIVE"
-  | "INACTIVE"
-  | "ERROR"
-  | "DELETING";
+export type MonitorRemoteResourceType = "AWS_VPC" | "AWS_AZ" | "AWS_SUBNET" | "AWS_SERVICE";
+export type MonitorStatus = "PENDING" | "ACTIVE" | "INACTIVE" | "ERROR" | "DELETING";
 export interface MonitorSummary {
   monitorArn: string;
   monitorName: string;
@@ -330,12 +273,7 @@ export interface MonitorTopContributorsRow {
   remoteVpcArn?: string;
 }
 export type MonitorTopContributorsRowList = Array<MonitorTopContributorsRow>;
-export type QueryStatus =
-  | "QUEUED"
-  | "RUNNING"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "CANCELED";
+export type QueryStatus = "QUEUED" | "RUNNING" | "SUCCEEDED" | "FAILED" | "CANCELED";
 export type ResourceName = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -345,12 +283,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 }> {}
 export type ScopeId = string;
 
-export type ScopeStatus =
-  | "SUCCEEDED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "DEACTIVATING"
-  | "DEACTIVATED";
+export type ScopeStatus = "SUCCEEDED" | "IN_PROGRESS" | "FAILED" | "DEACTIVATING" | "DEACTIVATED";
 export interface ScopeSummary {
   scopeId: string;
   status: ScopeStatus;
@@ -398,17 +331,20 @@ export interface StopQueryMonitorTopContributorsInput {
   monitorName: string;
   queryId: string;
 }
-export interface StopQueryMonitorTopContributorsOutput {}
+export interface StopQueryMonitorTopContributorsOutput {
+}
 export interface StopQueryWorkloadInsightsTopContributorsDataInput {
   scopeId: string;
   queryId: string;
 }
-export interface StopQueryWorkloadInsightsTopContributorsDataOutput {}
+export interface StopQueryWorkloadInsightsTopContributorsDataOutput {
+}
 export interface StopQueryWorkloadInsightsTopContributorsInput {
   scopeId: string;
   queryId: string;
 }
-export interface StopQueryWorkloadInsightsTopContributorsOutput {}
+export interface StopQueryWorkloadInsightsTopContributorsOutput {
+}
 export type SubnetArn = string;
 
 export type SubnetId = string;
@@ -421,14 +357,15 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 interface _TargetId {
   accountId?: string;
 }
 
-export type TargetId = _TargetId & { accountId: string };
+export type TargetId = (_TargetId & { accountId: string });
 export interface TargetIdentifier {
   targetId: TargetId;
   targetType: TargetType;
@@ -455,7 +392,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateMonitorInput {
   monitorName: string;
   localResourcesToAdd?: Array<MonitorLocalResource>;
@@ -496,17 +434,13 @@ export type VpcArn = string;
 
 export type VpcId = string;
 
-export type WorkloadInsightsMetric =
-  | "TIMEOUTS"
-  | "RETRANSMISSIONS"
-  | "DATA_TRANSFERRED";
+export type WorkloadInsightsMetric = "TIMEOUTS" | "RETRANSMISSIONS" | "DATA_TRANSFERRED";
 export interface WorkloadInsightsTopContributorsDataPoint {
   timestamps: Array<Date | string>;
   values: Array<number>;
   label: string;
 }
-export type WorkloadInsightsTopContributorsDataPoints =
-  Array<WorkloadInsightsTopContributorsDataPoint>;
+export type WorkloadInsightsTopContributorsDataPoints = Array<WorkloadInsightsTopContributorsDataPoint>;
 export interface WorkloadInsightsTopContributorsRow {
   accountId?: string;
   localSubnetId?: string;
@@ -518,11 +452,8 @@ export interface WorkloadInsightsTopContributorsRow {
   localSubnetArn?: string;
   localVpcArn?: string;
 }
-export type WorkloadInsightsTopContributorsRowList =
-  Array<WorkloadInsightsTopContributorsRow>;
-export type WorkloadInsightsTopContributorsTimestampsList = Array<
-  Date | string
->;
+export type WorkloadInsightsTopContributorsRowList = Array<WorkloadInsightsTopContributorsRow>;
+export type WorkloadInsightsTopContributorsTimestampsList = Array<Date | string>;
 export type WorkloadInsightsTopContributorsValuesList = Array<number>;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
@@ -562,3 +493,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

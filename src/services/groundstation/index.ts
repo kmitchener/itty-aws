@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class GroundStation extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("groundstation", new RestJson1Protocol(), cfg);
+  }
+
   getMinuteUsage(
     input: GetMinuteUsageRequest,
   ): Effect.Effect<
     GetMinuteUsageResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetMinuteUsage", input);
   }
@@ -18,10 +20,7 @@ export class GroundStation extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -29,10 +28,7 @@ export class GroundStation extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -40,10 +36,7 @@ export class GroundStation extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | DependencyException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DependencyException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -106,14 +99,7 @@ export type CapabilityArn = string;
 
 export type CapabilityArnList = Array<string>;
 export type CapabilityHealth = "HEALTHY" | "UNHEALTHY";
-export type CapabilityHealthReason =
-  | "NO_REGISTERED_AGENT"
-  | "INVALID_IP_OWNERSHIP"
-  | "NOT_AUTHORIZED_TO_CREATE_SLR"
-  | "UNVERIFIED_IP_OWNERSHIP"
-  | "INITIALIZING_DATAPLANE"
-  | "DATAPLANE_FAILURE"
-  | "HEALTHY";
+export type CapabilityHealthReason = "NO_REGISTERED_AGENT" | "INVALID_IP_OWNERSHIP" | "NOT_AUTHORIZED_TO_CREATE_SLR" | "UNVERIFIED_IP_OWNERSHIP" | "INITIALIZING_DATAPLANE" | "DATAPLANE_FAILURE" | "HEALTHY";
 export type CapabilityHealthReasonList = Array<CapabilityHealthReason>;
 export interface ComponentStatusData {
   componentType: string;
@@ -134,24 +120,14 @@ export interface ComponentVersion {
 export type ComponentVersionList = Array<ComponentVersion>;
 export type ConfigArn = string;
 
-export type ConfigCapabilityType =
-  | "ANTENNA_DOWNLINK"
-  | "ANTENNA_DOWNLINK_DEMOD_DECODE"
-  | "TRACKING"
-  | "DATAFLOW_ENDPOINT"
-  | "ANTENNA_UPLINK"
-  | "UPLINK_ECHO"
-  | "S3_RECORDING";
+export type ConfigCapabilityType = "ANTENNA_DOWNLINK" | "ANTENNA_DOWNLINK_DEMOD_DECODE" | "TRACKING" | "DATAFLOW_ENDPOINT" | "ANTENNA_UPLINK" | "UPLINK_ECHO" | "S3_RECORDING";
 interface _ConfigDetails {
   endpointDetails?: EndpointDetails;
   antennaDemodDecodeDetails?: AntennaDemodDecodeDetails;
   s3RecordingDetails?: S3RecordingDetails;
 }
 
-export type ConfigDetails =
-  | (_ConfigDetails & { endpointDetails: EndpointDetails })
-  | (_ConfigDetails & { antennaDemodDecodeDetails: AntennaDemodDecodeDetails })
-  | (_ConfigDetails & { s3RecordingDetails: S3RecordingDetails });
+export type ConfigDetails = (_ConfigDetails & { endpointDetails: EndpointDetails }) | (_ConfigDetails & { antennaDemodDecodeDetails: AntennaDemodDecodeDetails }) | (_ConfigDetails & { s3RecordingDetails: S3RecordingDetails });
 export interface ConfigIdResponse {
   configId?: string;
   configType?: ConfigCapabilityType;
@@ -174,16 +150,7 @@ interface _ConfigTypeData {
   s3RecordingConfig?: S3RecordingConfig;
 }
 
-export type ConfigTypeData =
-  | (_ConfigTypeData & { antennaDownlinkConfig: AntennaDownlinkConfig })
-  | (_ConfigTypeData & { trackingConfig: TrackingConfig })
-  | (_ConfigTypeData & { dataflowEndpointConfig: DataflowEndpointConfig })
-  | (_ConfigTypeData & {
-      antennaDownlinkDemodDecodeConfig: AntennaDownlinkDemodDecodeConfig;
-    })
-  | (_ConfigTypeData & { antennaUplinkConfig: AntennaUplinkConfig })
-  | (_ConfigTypeData & { uplinkEchoConfig: UplinkEchoConfig })
-  | (_ConfigTypeData & { s3RecordingConfig: S3RecordingConfig });
+export type ConfigTypeData = (_ConfigTypeData & { antennaDownlinkConfig: AntennaDownlinkConfig }) | (_ConfigTypeData & { trackingConfig: TrackingConfig }) | (_ConfigTypeData & { dataflowEndpointConfig: DataflowEndpointConfig }) | (_ConfigTypeData & { antennaDownlinkDemodDecodeConfig: AntennaDownlinkDemodDecodeConfig }) | (_ConfigTypeData & { antennaUplinkConfig: AntennaUplinkConfig }) | (_ConfigTypeData & { uplinkEchoConfig: UplinkEchoConfig }) | (_ConfigTypeData & { s3RecordingConfig: S3RecordingConfig });
 export interface ConnectionDetails {
   socketAddress: SocketAddress;
   mtu?: number;
@@ -209,20 +176,7 @@ export interface ContactIdResponse {
   contactId?: string;
 }
 export type ContactList = Array<ContactData>;
-export type ContactStatus =
-  | "SCHEDULING"
-  | "FAILED_TO_SCHEDULE"
-  | "SCHEDULED"
-  | "CANCELLED"
-  | "AWS_CANCELLED"
-  | "PREPASS"
-  | "PASS"
-  | "POSTPASS"
-  | "COMPLETED"
-  | "FAILED"
-  | "AVAILABLE"
-  | "CANCELLING"
-  | "AWS_FAILED";
+export type ContactStatus = "SCHEDULING" | "FAILED_TO_SCHEDULE" | "SCHEDULED" | "CANCELLED" | "AWS_CANCELLED" | "PREPASS" | "PASS" | "POSTPASS" | "COMPLETED" | "FAILED" | "AVAILABLE" | "CANCELLING" | "AWS_FAILED";
 export interface CreateConfigRequest {
   name: string;
   configData: ConfigTypeData;
@@ -379,21 +333,14 @@ export interface EndpointDetails {
   healthReasons?: Array<CapabilityHealthReason>;
 }
 export type EndpointDetailsList = Array<EndpointDetails>;
-export type EndpointStatus =
-  | "created"
-  | "creating"
-  | "deleted"
-  | "deleting"
-  | "failed";
+export type EndpointStatus = "created" | "creating" | "deleted" | "deleting" | "failed";
 export type EphemeridesList = Array<EphemerisItem>;
 interface _EphemerisData {
   tle?: TLEEphemeris;
   oem?: OEMEphemeris;
 }
 
-export type EphemerisData =
-  | (_EphemerisData & { tle: TLEEphemeris })
-  | (_EphemerisData & { oem: OEMEphemeris });
+export type EphemerisData = (_EphemerisData & { tle: TLEEphemeris }) | (_EphemerisData & { oem: OEMEphemeris });
 export interface EphemerisDescription {
   sourceS3Object?: S3Object;
   ephemerisData?: string;
@@ -401,12 +348,7 @@ export interface EphemerisDescription {
 export interface EphemerisIdResponse {
   ephemerisId?: string;
 }
-export type EphemerisInvalidReason =
-  | "METADATA_INVALID"
-  | "TIME_RANGE_INVALID"
-  | "TRAJECTORY_INVALID"
-  | "KMS_KEY_INVALID"
-  | "VALIDATION_ERROR";
+export type EphemerisInvalidReason = "METADATA_INVALID" | "TIME_RANGE_INVALID" | "TRAJECTORY_INVALID" | "KMS_KEY_INVALID" | "VALIDATION_ERROR";
 export interface EphemerisItem {
   ephemerisId?: string;
   status?: EphemerisStatus;
@@ -425,22 +367,14 @@ export interface EphemerisMetaData {
 export type EphemerisPriority = number;
 
 export type EphemerisSource = "CUSTOMER_PROVIDED" | "SPACE_TRACK";
-export type EphemerisStatus =
-  | "VALIDATING"
-  | "INVALID"
-  | "ERROR"
-  | "ENABLED"
-  | "DISABLED"
-  | "EXPIRED";
+export type EphemerisStatus = "VALIDATING" | "INVALID" | "ERROR" | "ENABLED" | "DISABLED" | "EXPIRED";
 export type EphemerisStatusList = Array<EphemerisStatus>;
 interface _EphemerisTypeDescription {
   tle?: EphemerisDescription;
   oem?: EphemerisDescription;
 }
 
-export type EphemerisTypeDescription =
-  | (_EphemerisTypeDescription & { tle: EphemerisDescription })
-  | (_EphemerisTypeDescription & { oem: EphemerisDescription });
+export type EphemerisTypeDescription = (_EphemerisTypeDescription & { tle: EphemerisDescription }) | (_EphemerisTypeDescription & { oem: EphemerisDescription });
 export interface Frequency {
   value: number;
   units: FrequencyUnits;
@@ -558,10 +492,7 @@ interface _KmsKey {
   kmsAliasName?: string;
 }
 
-export type KmsKey =
-  | (_KmsKey & { kmsKeyArn: string })
-  | (_KmsKey & { kmsAliasArn: string })
-  | (_KmsKey & { kmsAliasName: string });
+export type KmsKey = (_KmsKey & { kmsKeyArn: string }) | (_KmsKey & { kmsAliasArn: string }) | (_KmsKey & { kmsAliasName: string });
 export interface ListConfigsRequest {
   maxResults?: number;
   nextToken?: string;
@@ -762,7 +693,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsMap = Record<string, string>;
 export interface TimeRange {
   startTime: Date | string;
@@ -791,7 +723,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAgentStatusRequest {
   agentId: string;
   taskId: string;
@@ -878,3 +811,4 @@ export declare namespace UntagResource {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

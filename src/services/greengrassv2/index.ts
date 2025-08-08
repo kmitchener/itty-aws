@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class GreengrassV2 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("greengrassv2", new RestJson1Protocol(), cfg);
+  }
+
   associateServiceRoleToAccount(
     input: AssociateServiceRoleToAccountRequest,
   ): Effect.Effect<
@@ -15,12 +20,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: BatchAssociateClientDeviceWithCoreDeviceRequest,
   ): Effect.Effect<
     BatchAssociateClientDeviceWithCoreDeviceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchAssociateClientDeviceWithCoreDevice", input);
   }
@@ -28,12 +28,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: BatchDisassociateClientDeviceFromCoreDeviceRequest,
   ): Effect.Effect<
     BatchDisassociateClientDeviceFromCoreDeviceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDisassociateClientDeviceFromCoreDevice", input);
   }
@@ -41,13 +36,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: CancelDeploymentRequest,
   ): Effect.Effect<
     CancelDeploymentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelDeployment", input);
   }
@@ -55,14 +44,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: CreateComponentVersionRequest,
   ): Effect.Effect<
     CreateComponentVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestAlreadyInProgressException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestAlreadyInProgressException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateComponentVersion", input);
   }
@@ -70,14 +52,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: CreateDeploymentRequest,
   ): Effect.Effect<
     CreateDeploymentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestAlreadyInProgressException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestAlreadyInProgressException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDeployment", input);
   }
@@ -85,13 +60,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: DeleteComponentRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteComponent", input);
   }
@@ -99,13 +68,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: DeleteCoreDeviceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCoreDevice", input);
   }
@@ -113,13 +76,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: DeleteDeploymentRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDeployment", input);
   }
@@ -127,12 +84,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: DescribeComponentRequest,
   ): Effect.Effect<
     DescribeComponentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeComponent", input);
   }
@@ -148,12 +100,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: GetComponentRequest,
   ): Effect.Effect<
     GetComponentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetComponent", input);
   }
@@ -161,12 +108,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: GetComponentVersionArtifactRequest,
   ): Effect.Effect<
     GetComponentVersionArtifactResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetComponentVersionArtifact", input);
   }
@@ -182,12 +124,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: GetCoreDeviceRequest,
   ): Effect.Effect<
     GetCoreDeviceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCoreDevice", input);
   }
@@ -195,12 +132,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: GetDeploymentRequest,
   ): Effect.Effect<
     GetDeploymentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDeployment", input);
   }
@@ -216,12 +148,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: ListClientDevicesAssociatedWithCoreDeviceRequest,
   ): Effect.Effect<
     ListClientDevicesAssociatedWithCoreDeviceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListClientDevicesAssociatedWithCoreDevice", input);
   }
@@ -229,12 +156,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: ListComponentsRequest,
   ): Effect.Effect<
     ListComponentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListComponents", input);
   }
@@ -242,12 +164,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: ListComponentVersionsRequest,
   ): Effect.Effect<
     ListComponentVersionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListComponentVersions", input);
   }
@@ -255,11 +172,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: ListCoreDevicesRequest,
   ): Effect.Effect<
     ListCoreDevicesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCoreDevices", input);
   }
@@ -267,11 +180,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: ListDeploymentsRequest,
   ): Effect.Effect<
     ListDeploymentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDeployments", input);
   }
@@ -279,12 +188,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: ListEffectiveDeploymentsRequest,
   ): Effect.Effect<
     ListEffectiveDeploymentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEffectiveDeployments", input);
   }
@@ -292,12 +196,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: ListInstalledComponentsRequest,
   ): Effect.Effect<
     ListInstalledComponentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListInstalledComponents", input);
   }
@@ -305,10 +204,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -316,13 +212,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: ResolveComponentCandidatesRequest,
   ): Effect.Effect<
     ResolveComponentCandidatesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ResolveComponentCandidates", input);
   }
@@ -330,10 +220,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -341,10 +228,7 @@ export class GreengrassV2 extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -370,15 +254,13 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 export interface AssociateClientDeviceWithCoreDeviceEntry {
   thingName: string;
 }
-export type AssociateClientDeviceWithCoreDeviceEntryList =
-  Array<AssociateClientDeviceWithCoreDeviceEntry>;
+export type AssociateClientDeviceWithCoreDeviceEntryList = Array<AssociateClientDeviceWithCoreDeviceEntry>;
 export interface AssociateClientDeviceWithCoreDeviceErrorEntry {
   thingName?: string;
   code?: string;
   message?: string;
 }
-export type AssociateClientDeviceWithCoreDeviceErrorList =
-  Array<AssociateClientDeviceWithCoreDeviceErrorEntry>;
+export type AssociateClientDeviceWithCoreDeviceErrorList = Array<AssociateClientDeviceWithCoreDeviceErrorEntry>;
 export interface AssociatedClientDevice {
   thingName?: string;
   associationTimestamp?: Date | string;
@@ -412,12 +294,7 @@ export interface CancelDeploymentResponse {
 }
 export type ClientTokenString = string;
 
-export type CloudComponentState =
-  | "REQUESTED"
-  | "INITIATED"
-  | "DEPLOYABLE"
-  | "FAILED"
-  | "DEPRECATED";
+export type CloudComponentState = "REQUESTED" | "INITIATED" | "DEPLOYABLE" | "FAILED" | "DEPRECATED";
 export interface CloudComponentStatus {
   componentState?: CloudComponentState;
   message?: string;
@@ -447,10 +324,7 @@ export interface ComponentConfigurationUpdate {
   merge?: string;
   reset?: Array<string>;
 }
-export type ComponentDependencyMap = Record<
-  string,
-  ComponentDependencyRequirement
->;
+export type ComponentDependencyMap = Record<string, ComponentDependencyRequirement>;
 export interface ComponentDependencyRequirement {
   versionRequirement?: string;
   dependencyType?: ComponentDependencyType;
@@ -461,10 +335,7 @@ export interface ComponentDeploymentSpecification {
   configurationUpdate?: ComponentConfigurationUpdate;
   runWith?: ComponentRunWith;
 }
-export type ComponentDeploymentSpecifications = Record<
-  string,
-  ComponentDeploymentSpecification
->;
+export type ComponentDeploymentSpecifications = Record<string, ComponentDeploymentSpecification>;
 export interface ComponentLatestVersion {
   arn?: string;
   componentVersion?: string;
@@ -585,9 +456,7 @@ export interface DeploymentComponentUpdatePolicy {
   timeoutInSeconds?: number;
   action?: DeploymentComponentUpdatePolicyAction;
 }
-export type DeploymentComponentUpdatePolicyAction =
-  | "NOTIFY_COMPONENTS"
-  | "SKIP_NOTIFY_COMPONENTS";
+export type DeploymentComponentUpdatePolicyAction = "NOTIFY_COMPONENTS" | "SKIP_NOTIFY_COMPONENTS";
 export interface DeploymentConfigurationValidationPolicy {
   timeoutInSeconds?: number;
 }
@@ -610,12 +479,7 @@ export interface DeploymentPolicies {
   componentUpdatePolicy?: DeploymentComponentUpdatePolicy;
   configurationValidationPolicy?: DeploymentConfigurationValidationPolicy;
 }
-export type DeploymentStatus =
-  | "ACTIVE"
-  | "COMPLETED"
-  | "CANCELED"
-  | "FAILED"
-  | "INACTIVE";
+export type DeploymentStatus = "ACTIVE" | "COMPLETED" | "CANCELED" | "FAILED" | "INACTIVE";
 export interface DescribeComponentRequest {
   arn: string;
 }
@@ -637,16 +501,15 @@ export type DescriptionString = string;
 export interface DisassociateClientDeviceFromCoreDeviceEntry {
   thingName: string;
 }
-export type DisassociateClientDeviceFromCoreDeviceEntryList =
-  Array<DisassociateClientDeviceFromCoreDeviceEntry>;
+export type DisassociateClientDeviceFromCoreDeviceEntryList = Array<DisassociateClientDeviceFromCoreDeviceEntry>;
 export interface DisassociateClientDeviceFromCoreDeviceErrorEntry {
   thingName?: string;
   code?: string;
   message?: string;
 }
-export type DisassociateClientDeviceFromCoreDeviceErrorList =
-  Array<DisassociateClientDeviceFromCoreDeviceErrorEntry>;
-export interface DisassociateServiceRoleFromAccountRequest {}
+export type DisassociateClientDeviceFromCoreDeviceErrorList = Array<DisassociateClientDeviceFromCoreDeviceErrorEntry>;
+export interface DisassociateServiceRoleFromAccountRequest {
+}
 export interface DisassociateServiceRoleFromAccountResponse {
   disassociatedAt?: string;
 }
@@ -669,15 +532,7 @@ export type EffectiveDeploymentErrorStack = Array<string>;
 export type EffectiveDeploymentErrorType = string;
 
 export type EffectiveDeploymentErrorTypeList = Array<string>;
-export type EffectiveDeploymentExecutionStatus =
-  | "IN_PROGRESS"
-  | "QUEUED"
-  | "FAILED"
-  | "COMPLETED"
-  | "TIMED_OUT"
-  | "CANCELED"
-  | "REJECTED"
-  | "SUCCEEDED";
+export type EffectiveDeploymentExecutionStatus = "IN_PROGRESS" | "QUEUED" | "FAILED" | "COMPLETED" | "TIMED_OUT" | "CANCELED" | "REJECTED" | "SUCCEEDED";
 export type EffectiveDeploymentsList = Array<EffectiveDeployment>;
 export interface EffectiveDeploymentStatusDetails {
   errorStack?: Array<string>;
@@ -744,7 +599,8 @@ export interface GetDeploymentResponse {
   parentTargetArn?: string;
   tags?: Record<string, string>;
 }
-export interface GetServiceRoleForAccountRequest {}
+export interface GetServiceRoleForAccountRequest {
+}
 export interface GetServiceRoleForAccountResponse {
   associatedAt?: string;
   roleArn?: string;
@@ -762,15 +618,7 @@ export interface InstalledComponent {
   lastInstallationSource?: string;
   lifecycleStatusCodes?: Array<string>;
 }
-export type InstalledComponentLifecycleState =
-  | "NEW"
-  | "INSTALLED"
-  | "STARTING"
-  | "RUNNING"
-  | "STOPPING"
-  | "ERRORED"
-  | "BROKEN"
-  | "FINISHED";
+export type InstalledComponentLifecycleState = "NEW" | "INSTALLED" | "STARTING" | "RUNNING" | "STOPPING" | "ERRORED" | "BROKEN" | "FINISHED";
 export type InstalledComponentLifecycleStatusCode = string;
 
 export type InstalledComponentLifecycleStatusCodeList = Array<string>;
@@ -798,11 +646,7 @@ export type IoTJobAbortThresholdPercentage = number;
 
 export type IoTJobARN = string;
 
-export type IoTJobExecutionFailureType =
-  | "FAILED"
-  | "REJECTED"
-  | "TIMED_OUT"
-  | "ALL";
+export type IoTJobExecutionFailureType = "FAILED" | "REJECTED" | "TIMED_OUT" | "ALL";
 export interface IoTJobExecutionsRolloutConfig {
   exponentialRate?: IoTJobExponentialRolloutRate;
   maximumPerMinute?: number;
@@ -1049,7 +893,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TargetARN = string;
@@ -1072,7 +917,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateConnectivityInfoRequest {
   thingName: string;
   connectivityInfo: Array<ConnectivityInfo>;
@@ -1093,11 +939,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export type VendorGuidance = "ACTIVE" | "DISCONTINUED" | "DELETED";
 export declare namespace AssociateServiceRoleToAccount {
   export type Input = AssociateServiceRoleToAccountRequest;
@@ -1227,7 +1069,9 @@ export declare namespace DescribeComponent {
 export declare namespace DisassociateServiceRoleFromAccount {
   export type Input = DisassociateServiceRoleFromAccountRequest;
   export type Output = DisassociateServiceRoleFromAccountResponse;
-  export type Error = InternalServerException | CommonAwsError;
+  export type Error =
+    | InternalServerException
+    | CommonAwsError;
 }
 
 export declare namespace GetComponent {
@@ -1290,7 +1134,9 @@ export declare namespace GetDeployment {
 export declare namespace GetServiceRoleForAccount {
   export type Input = GetServiceRoleForAccountRequest;
   export type Output = GetServiceRoleForAccountResponse;
-  export type Error = InternalServerException | CommonAwsError;
+  export type Error =
+    | InternalServerException
+    | CommonAwsError;
 }
 
 export declare namespace ListClientDevicesAssociatedWithCoreDevice {
@@ -1426,3 +1272,4 @@ export declare namespace UpdateConnectivityInfo {
     | ValidationException
     | CommonAwsError;
 }
+

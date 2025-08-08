@@ -1,21 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Chime extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("chime", new RestJson1Protocol(), cfg);
+  }
+
   associatePhoneNumberWithUser(
     input: AssociatePhoneNumberWithUserRequest,
   ): Effect.Effect<
     AssociatePhoneNumberWithUserResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("AssociatePhoneNumberWithUser", input);
   }
@@ -23,14 +20,7 @@ export class Chime extends AWSServiceClient {
     input: AssociateSigninDelegateGroupsWithAccountRequest,
   ): Effect.Effect<
     AssociateSigninDelegateGroupsWithAccountResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("AssociateSigninDelegateGroupsWithAccount", input);
   }
@@ -38,14 +28,7 @@ export class Chime extends AWSServiceClient {
     input: BatchCreateRoomMembershipRequest,
   ): Effect.Effect<
     BatchCreateRoomMembershipResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("BatchCreateRoomMembership", input);
   }
@@ -53,14 +36,7 @@ export class Chime extends AWSServiceClient {
     input: BatchDeletePhoneNumberRequest,
   ): Effect.Effect<
     BatchDeletePhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("BatchDeletePhoneNumber", input);
   }
@@ -68,14 +44,7 @@ export class Chime extends AWSServiceClient {
     input: BatchSuspendUserRequest,
   ): Effect.Effect<
     BatchSuspendUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("BatchSuspendUser", input);
   }
@@ -83,14 +52,7 @@ export class Chime extends AWSServiceClient {
     input: BatchUnsuspendUserRequest,
   ): Effect.Effect<
     BatchUnsuspendUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("BatchUnsuspendUser", input);
   }
@@ -98,14 +60,7 @@ export class Chime extends AWSServiceClient {
     input: BatchUpdatePhoneNumberRequest,
   ): Effect.Effect<
     BatchUpdatePhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("BatchUpdatePhoneNumber", input);
   }
@@ -113,14 +68,7 @@ export class Chime extends AWSServiceClient {
     input: BatchUpdateUserRequest,
   ): Effect.Effect<
     BatchUpdateUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("BatchUpdateUser", input);
   }
@@ -128,14 +76,7 @@ export class Chime extends AWSServiceClient {
     input: CreateAccountRequest,
   ): Effect.Effect<
     CreateAccountResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateAccount", input);
   }
@@ -143,15 +84,7 @@ export class Chime extends AWSServiceClient {
     input: CreateBotRequest,
   ): Effect.Effect<
     CreateBotResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateBot", input);
   }
@@ -159,15 +92,7 @@ export class Chime extends AWSServiceClient {
     input: CreateMeetingDialOutRequest,
   ): Effect.Effect<
     CreateMeetingDialOutResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateMeetingDialOut", input);
   }
@@ -175,15 +100,7 @@ export class Chime extends AWSServiceClient {
     input: CreatePhoneNumberOrderRequest,
   ): Effect.Effect<
     CreatePhoneNumberOrderResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreatePhoneNumberOrder", input);
   }
@@ -191,15 +108,7 @@ export class Chime extends AWSServiceClient {
     input: CreateRoomRequest,
   ): Effect.Effect<
     CreateRoomResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateRoom", input);
   }
@@ -207,16 +116,7 @@ export class Chime extends AWSServiceClient {
     input: CreateRoomMembershipRequest,
   ): Effect.Effect<
     CreateRoomMembershipResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateRoomMembership", input);
   }
@@ -224,15 +124,7 @@ export class Chime extends AWSServiceClient {
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateUser", input);
   }
@@ -240,15 +132,7 @@ export class Chime extends AWSServiceClient {
     input: DeleteAccountRequest,
   ): Effect.Effect<
     DeleteAccountResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("DeleteAccount", input);
   }
@@ -256,13 +140,7 @@ export class Chime extends AWSServiceClient {
     input: DeleteEventsConfigurationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteEventsConfiguration", input);
   }
@@ -270,14 +148,7 @@ export class Chime extends AWSServiceClient {
     input: DeletePhoneNumberRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeletePhoneNumber", input);
   }
@@ -285,14 +156,7 @@ export class Chime extends AWSServiceClient {
     input: DeleteRoomRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteRoom", input);
   }
@@ -300,14 +164,7 @@ export class Chime extends AWSServiceClient {
     input: DeleteRoomMembershipRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteRoomMembership", input);
   }
@@ -315,14 +172,7 @@ export class Chime extends AWSServiceClient {
     input: DisassociatePhoneNumberFromUserRequest,
   ): Effect.Effect<
     DisassociatePhoneNumberFromUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DisassociatePhoneNumberFromUser", input);
   }
@@ -330,14 +180,7 @@ export class Chime extends AWSServiceClient {
     input: DisassociateSigninDelegateGroupsFromAccountRequest,
   ): Effect.Effect<
     DisassociateSigninDelegateGroupsFromAccountResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DisassociateSigninDelegateGroupsFromAccount", input);
   }
@@ -345,14 +188,7 @@ export class Chime extends AWSServiceClient {
     input: GetAccountRequest,
   ): Effect.Effect<
     GetAccountResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetAccount", input);
   }
@@ -360,14 +196,7 @@ export class Chime extends AWSServiceClient {
     input: GetAccountSettingsRequest,
   ): Effect.Effect<
     GetAccountSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetAccountSettings", input);
   }
@@ -375,14 +204,7 @@ export class Chime extends AWSServiceClient {
     input: GetBotRequest,
   ): Effect.Effect<
     GetBotResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetBot", input);
   }
@@ -390,26 +212,15 @@ export class Chime extends AWSServiceClient {
     input: GetEventsConfigurationRequest,
   ): Effect.Effect<
     GetEventsConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetEventsConfiguration", input);
   }
-  getGlobalSettings(input: {}): Effect.Effect<
+  getGlobalSettings(
+    input: {},
+  ): Effect.Effect<
     GetGlobalSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetGlobalSettings", input);
   }
@@ -417,14 +228,7 @@ export class Chime extends AWSServiceClient {
     input: GetPhoneNumberRequest,
   ): Effect.Effect<
     GetPhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetPhoneNumber", input);
   }
@@ -432,26 +236,15 @@ export class Chime extends AWSServiceClient {
     input: GetPhoneNumberOrderRequest,
   ): Effect.Effect<
     GetPhoneNumberOrderResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetPhoneNumberOrder", input);
   }
-  getPhoneNumberSettings(input: {}): Effect.Effect<
+  getPhoneNumberSettings(
+    input: {},
+  ): Effect.Effect<
     GetPhoneNumberSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetPhoneNumberSettings", input);
   }
@@ -459,14 +252,7 @@ export class Chime extends AWSServiceClient {
     input: GetRetentionSettingsRequest,
   ): Effect.Effect<
     GetRetentionSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetRetentionSettings", input);
   }
@@ -474,14 +260,7 @@ export class Chime extends AWSServiceClient {
     input: GetRoomRequest,
   ): Effect.Effect<
     GetRoomResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetRoom", input);
   }
@@ -489,14 +268,7 @@ export class Chime extends AWSServiceClient {
     input: GetUserRequest,
   ): Effect.Effect<
     GetUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetUser", input);
   }
@@ -504,14 +276,7 @@ export class Chime extends AWSServiceClient {
     input: GetUserSettingsRequest,
   ): Effect.Effect<
     GetUserSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetUserSettings", input);
   }
@@ -519,14 +284,7 @@ export class Chime extends AWSServiceClient {
     input: InviteUsersRequest,
   ): Effect.Effect<
     InviteUsersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("InviteUsers", input);
   }
@@ -534,14 +292,7 @@ export class Chime extends AWSServiceClient {
     input: ListAccountsRequest,
   ): Effect.Effect<
     ListAccountsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListAccounts", input);
   }
@@ -549,14 +300,7 @@ export class Chime extends AWSServiceClient {
     input: ListBotsRequest,
   ): Effect.Effect<
     ListBotsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListBots", input);
   }
@@ -564,13 +308,7 @@ export class Chime extends AWSServiceClient {
     input: ListPhoneNumberOrdersRequest,
   ): Effect.Effect<
     ListPhoneNumberOrdersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListPhoneNumberOrders", input);
   }
@@ -578,14 +316,7 @@ export class Chime extends AWSServiceClient {
     input: ListPhoneNumbersRequest,
   ): Effect.Effect<
     ListPhoneNumbersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListPhoneNumbers", input);
   }
@@ -593,14 +324,7 @@ export class Chime extends AWSServiceClient {
     input: ListRoomMembershipsRequest,
   ): Effect.Effect<
     ListRoomMembershipsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListRoomMemberships", input);
   }
@@ -608,14 +332,7 @@ export class Chime extends AWSServiceClient {
     input: ListRoomsRequest,
   ): Effect.Effect<
     ListRoomsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListRooms", input);
   }
@@ -623,14 +340,7 @@ export class Chime extends AWSServiceClient {
     input: ListSupportedPhoneNumberCountriesRequest,
   ): Effect.Effect<
     ListSupportedPhoneNumberCountriesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListSupportedPhoneNumberCountries", input);
   }
@@ -638,14 +348,7 @@ export class Chime extends AWSServiceClient {
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListUsers", input);
   }
@@ -653,14 +356,7 @@ export class Chime extends AWSServiceClient {
     input: LogoutUserRequest,
   ): Effect.Effect<
     LogoutUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("LogoutUser", input);
   }
@@ -668,14 +364,7 @@ export class Chime extends AWSServiceClient {
     input: PutEventsConfigurationRequest,
   ): Effect.Effect<
     PutEventsConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutEventsConfiguration", input);
   }
@@ -683,15 +372,7 @@ export class Chime extends AWSServiceClient {
     input: PutRetentionSettingsRequest,
   ): Effect.Effect<
     PutRetentionSettingsResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutRetentionSettings", input);
   }
@@ -699,14 +380,7 @@ export class Chime extends AWSServiceClient {
     input: RedactConversationMessageRequest,
   ): Effect.Effect<
     RedactConversationMessageResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("RedactConversationMessage", input);
   }
@@ -714,14 +388,7 @@ export class Chime extends AWSServiceClient {
     input: RedactRoomMessageRequest,
   ): Effect.Effect<
     RedactRoomMessageResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("RedactRoomMessage", input);
   }
@@ -729,14 +396,7 @@ export class Chime extends AWSServiceClient {
     input: RegenerateSecurityTokenRequest,
   ): Effect.Effect<
     RegenerateSecurityTokenResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("RegenerateSecurityToken", input);
   }
@@ -744,14 +404,7 @@ export class Chime extends AWSServiceClient {
     input: ResetPersonalPINRequest,
   ): Effect.Effect<
     ResetPersonalPINResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ResetPersonalPIN", input);
   }
@@ -759,15 +412,7 @@ export class Chime extends AWSServiceClient {
     input: RestorePhoneNumberRequest,
   ): Effect.Effect<
     RestorePhoneNumberResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("RestorePhoneNumber", input);
   }
@@ -775,14 +420,7 @@ export class Chime extends AWSServiceClient {
     input: SearchAvailablePhoneNumbersRequest,
   ): Effect.Effect<
     SearchAvailablePhoneNumbersResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("SearchAvailablePhoneNumbers", input);
   }
@@ -790,14 +428,7 @@ export class Chime extends AWSServiceClient {
     input: UpdateAccountRequest,
   ): Effect.Effect<
     UpdateAccountResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateAccount", input);
   }
@@ -805,15 +436,7 @@ export class Chime extends AWSServiceClient {
     input: UpdateAccountSettingsRequest,
   ): Effect.Effect<
     UpdateAccountSettingsResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateAccountSettings", input);
   }
@@ -821,14 +444,7 @@ export class Chime extends AWSServiceClient {
     input: UpdateBotRequest,
   ): Effect.Effect<
     UpdateBotResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateBot", input);
   }
@@ -836,13 +452,7 @@ export class Chime extends AWSServiceClient {
     input: UpdateGlobalSettingsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateGlobalSettings", input);
   }
@@ -850,15 +460,7 @@ export class Chime extends AWSServiceClient {
     input: UpdatePhoneNumberRequest,
   ): Effect.Effect<
     UpdatePhoneNumberResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdatePhoneNumber", input);
   }
@@ -866,13 +468,7 @@ export class Chime extends AWSServiceClient {
     input: UpdatePhoneNumberSettingsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdatePhoneNumberSettings", input);
   }
@@ -880,14 +476,7 @@ export class Chime extends AWSServiceClient {
     input: UpdateRoomRequest,
   ): Effect.Effect<
     UpdateRoomResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateRoom", input);
   }
@@ -895,14 +484,7 @@ export class Chime extends AWSServiceClient {
     input: UpdateRoomMembershipRequest,
   ): Effect.Effect<
     UpdateRoomMembershipResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateRoomMembership", input);
   }
@@ -910,14 +492,7 @@ export class Chime extends AWSServiceClient {
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateUser", input);
   }
@@ -925,14 +500,7 @@ export class Chime extends AWSServiceClient {
     input: UpdateUserSettingsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateUserSettings", input);
   }
@@ -965,11 +533,7 @@ export interface AccountSettings {
   EnableDialOut?: boolean;
 }
 export type AccountStatus = "Suspended" | "Active";
-export type AccountType =
-  | "Team"
-  | "EnterpriseDirectory"
-  | "EnterpriseLWA"
-  | "EnterpriseOIDC";
+export type AccountType = "Team" | "EnterpriseDirectory" | "EnterpriseLWA" | "EnterpriseOIDC";
 export interface AlexaForBusinessMetadata {
   IsAlexaForBusinessEnabled?: boolean;
   AlexaForBusinessRoomArn?: string;
@@ -981,12 +545,14 @@ export interface AssociatePhoneNumberWithUserRequest {
   UserId: string;
   E164PhoneNumber: string;
 }
-export interface AssociatePhoneNumberWithUserResponse {}
+export interface AssociatePhoneNumberWithUserResponse {
+}
 export interface AssociateSigninDelegateGroupsWithAccountRequest {
   AccountId: string;
   SigninDelegateGroups: Array<SigninDelegateGroup>;
 }
-export interface AssociateSigninDelegateGroupsWithAccountResponse {}
+export interface AssociateSigninDelegateGroupsWithAccountResponse {
+}
 export declare class BadRequestException extends EffectData.TaggedError(
   "BadRequestException",
 )<{
@@ -1054,11 +620,7 @@ export interface BusinessCallingSettings {
 }
 export type CallingName = string;
 
-export type CallingNameStatus =
-  | "Unassigned"
-  | "UpdateInProgress"
-  | "UpdateSucceeded"
-  | "UpdateFailed";
+export type CallingNameStatus = "Unassigned" | "UpdateInProgress" | "UpdateSucceeded" | "UpdateFailed";
 export type ClientRequestToken = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -1129,7 +691,8 @@ export interface CreateUserResponse {
 export interface DeleteAccountRequest {
   AccountId: string;
 }
-export interface DeleteAccountResponse {}
+export interface DeleteAccountResponse {
+}
 export interface DeleteEventsConfigurationRequest {
   AccountId: string;
   BotId: string;
@@ -1150,34 +713,21 @@ export interface DisassociatePhoneNumberFromUserRequest {
   AccountId: string;
   UserId: string;
 }
-export interface DisassociatePhoneNumberFromUserResponse {}
+export interface DisassociatePhoneNumberFromUserResponse {
+}
 export interface DisassociateSigninDelegateGroupsFromAccountRequest {
   AccountId: string;
   GroupNames: Array<string>;
 }
-export interface DisassociateSigninDelegateGroupsFromAccountResponse {}
+export interface DisassociateSigninDelegateGroupsFromAccountResponse {
+}
 export type E164PhoneNumber = string;
 
 export type E164PhoneNumberList = Array<string>;
 export type EmailAddress = string;
 
 export type EmailStatus = "NotSent" | "Sent" | "Failed";
-export type ErrorCode =
-  | "BadRequest"
-  | "Conflict"
-  | "Forbidden"
-  | "NotFound"
-  | "PreconditionFailed"
-  | "ResourceLimitExceeded"
-  | "ServiceFailure"
-  | "AccessDenied"
-  | "ServiceUnavailable"
-  | "Throttled"
-  | "Throttling"
-  | "Unauthorized"
-  | "Unprocessable"
-  | "VoiceConnectorGroupAssociationsExist"
-  | "PhoneNumberAssociationsExist";
+export type ErrorCode = "BadRequest" | "Conflict" | "Forbidden" | "NotFound" | "PreconditionFailed" | "ResourceLimitExceeded" | "ServiceFailure" | "AccessDenied" | "ServiceUnavailable" | "Throttled" | "Throttling" | "Unauthorized" | "Unprocessable" | "VoiceConnectorGroupAssociationsExist" | "PhoneNumberAssociationsExist";
 export interface EventsConfiguration {
   BotId?: string;
   OutboundEventsHTTPSEndpoint?: string;
@@ -1367,7 +917,8 @@ export interface LogoutUserRequest {
   AccountId: string;
   UserId: string;
 }
-export interface LogoutUserResponse {}
+export interface LogoutUserResponse {
+}
 export interface Member {
   MemberId?: string;
   MemberType?: MemberType;
@@ -1425,12 +976,7 @@ export interface PhoneNumberAssociation {
   AssociatedTimestamp?: Date | string;
 }
 export type PhoneNumberAssociationList = Array<PhoneNumberAssociation>;
-export type PhoneNumberAssociationName =
-  | "AccountId"
-  | "UserId"
-  | "VoiceConnectorId"
-  | "VoiceConnectorGroupId"
-  | "SipRuleId";
+export type PhoneNumberAssociationName = "AccountId" | "UserId" | "VoiceConnectorId" | "VoiceConnectorGroupId" | "SipRuleId";
 export interface PhoneNumberCapabilities {
   InboundCall?: boolean;
   OutboundCall?: boolean;
@@ -1462,24 +1008,9 @@ export interface PhoneNumberOrder {
   UpdatedTimestamp?: Date | string;
 }
 export type PhoneNumberOrderList = Array<PhoneNumberOrder>;
-export type PhoneNumberOrderStatus =
-  | "Processing"
-  | "Successful"
-  | "Failed"
-  | "Partial";
-export type PhoneNumberProductType =
-  | "BusinessCalling"
-  | "VoiceConnector"
-  | "SipMediaApplicationDialIn";
-export type PhoneNumberStatus =
-  | "AcquireInProgress"
-  | "AcquireFailed"
-  | "Unassigned"
-  | "Assigned"
-  | "ReleaseInProgress"
-  | "DeleteInProgress"
-  | "ReleaseFailed"
-  | "DeleteFailed";
+export type PhoneNumberOrderStatus = "Processing" | "Successful" | "Failed" | "Partial";
+export type PhoneNumberProductType = "BusinessCalling" | "VoiceConnector" | "SipMediaApplicationDialIn";
+export type PhoneNumberStatus = "AcquireInProgress" | "AcquireFailed" | "Unassigned" | "Assigned" | "ReleaseInProgress" | "DeleteInProgress" | "ReleaseFailed" | "DeleteFailed";
 export type PhoneNumberType = "Local" | "TollFree";
 export type PhoneNumberTypeList = Array<PhoneNumberType>;
 export type ProfileServiceMaxResults = number;
@@ -1506,13 +1037,15 @@ export interface RedactConversationMessageRequest {
   ConversationId: string;
   MessageId: string;
 }
-export interface RedactConversationMessageResponse {}
+export interface RedactConversationMessageResponse {
+}
 export interface RedactRoomMessageRequest {
   AccountId: string;
   RoomId: string;
   MessageId: string;
 }
-export interface RedactRoomMessageResponse {}
+export interface RedactRoomMessageResponse {
+}
 export interface RegenerateSecurityTokenRequest {
   AccountId: string;
   BotId: string;
@@ -1640,7 +1173,8 @@ export interface UpdateAccountSettingsRequest {
   AccountId: string;
   AccountSettings: AccountSettings;
 }
-export interface UpdateAccountSettingsResponse {}
+export interface UpdateAccountSettingsResponse {
+}
 export interface UpdateBotRequest {
   AccountId: string;
   BotId: string;
@@ -1663,8 +1197,7 @@ export interface UpdatePhoneNumberRequestItem {
   ProductType?: PhoneNumberProductType;
   CallingName?: string;
 }
-export type UpdatePhoneNumberRequestItemList =
-  Array<UpdatePhoneNumberRequestItem>;
+export type UpdatePhoneNumberRequestItemList = Array<UpdatePhoneNumberRequestItem>;
 export interface UpdatePhoneNumberResponse {
   PhoneNumber?: PhoneNumber;
 }
@@ -2615,3 +2148,4 @@ export declare namespace UpdateUserSettings {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+

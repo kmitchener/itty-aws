@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Appflow extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("appflow", new RestJson1Protocol(), cfg);
+  }
+
   cancelFlowExecutions(
     input: CancelFlowExecutionsRequest,
   ): Effect.Effect<
     CancelFlowExecutionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelFlowExecutions", input);
   }
@@ -20,12 +20,7 @@ export class Appflow extends AWSServiceClient {
     input: CreateConnectorProfileRequest,
   ): Effect.Effect<
     CreateConnectorProfileResponse,
-    | ConflictException
-    | ConnectorAuthenticationException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ConnectorAuthenticationException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateConnectorProfile", input);
   }
@@ -33,15 +28,7 @@ export class Appflow extends AWSServiceClient {
     input: CreateFlowRequest,
   ): Effect.Effect<
     CreateFlowResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ConnectorAuthenticationException
-    | ConnectorServerException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ConnectorAuthenticationException | ConnectorServerException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateFlow", input);
   }
@@ -49,10 +36,7 @@ export class Appflow extends AWSServiceClient {
     input: DeleteConnectorProfileRequest,
   ): Effect.Effect<
     DeleteConnectorProfileResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteConnectorProfile", input);
   }
@@ -60,10 +44,7 @@ export class Appflow extends AWSServiceClient {
     input: DeleteFlowRequest,
   ): Effect.Effect<
     DeleteFlowResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteFlow", input);
   }
@@ -71,10 +52,7 @@ export class Appflow extends AWSServiceClient {
     input: DescribeConnectorRequest,
   ): Effect.Effect<
     DescribeConnectorResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeConnector", input);
   }
@@ -82,12 +60,7 @@ export class Appflow extends AWSServiceClient {
     input: DescribeConnectorEntityRequest,
   ): Effect.Effect<
     DescribeConnectorEntityResponse,
-    | ConnectorAuthenticationException
-    | ConnectorServerException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConnectorAuthenticationException | ConnectorServerException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeConnectorEntity", input);
   }
@@ -119,10 +92,7 @@ export class Appflow extends AWSServiceClient {
     input: DescribeFlowExecutionRecordsRequest,
   ): Effect.Effect<
     DescribeFlowExecutionRecordsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeFlowExecutionRecords", input);
   }
@@ -130,12 +100,7 @@ export class Appflow extends AWSServiceClient {
     input: ListConnectorEntitiesRequest,
   ): Effect.Effect<
     ListConnectorEntitiesResponse,
-    | ConnectorAuthenticationException
-    | ConnectorServerException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConnectorAuthenticationException | ConnectorServerException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListConnectorEntities", input);
   }
@@ -159,10 +124,7 @@ export class Appflow extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -170,16 +132,7 @@ export class Appflow extends AWSServiceClient {
     input: RegisterConnectorRequest,
   ): Effect.Effect<
     RegisterConnectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ConnectorAuthenticationException
-    | ConnectorServerException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ConnectorAuthenticationException | ConnectorServerException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RegisterConnector", input);
   }
@@ -187,11 +140,7 @@ export class Appflow extends AWSServiceClient {
     input: ResetConnectorMetadataCacheRequest,
   ): Effect.Effect<
     ResetConnectorMetadataCacheResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ResetConnectorMetadataCache", input);
   }
@@ -199,11 +148,7 @@ export class Appflow extends AWSServiceClient {
     input: StartFlowRequest,
   ): Effect.Effect<
     StartFlowResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
   > {
     return this.call("StartFlow", input);
   }
@@ -211,11 +156,7 @@ export class Appflow extends AWSServiceClient {
     input: StopFlowRequest,
   ): Effect.Effect<
     StopFlowResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StopFlow", input);
   }
@@ -223,10 +164,7 @@ export class Appflow extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -234,10 +172,7 @@ export class Appflow extends AWSServiceClient {
     input: UnregisterConnectorRequest,
   ): Effect.Effect<
     UnregisterConnectorResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UnregisterConnector", input);
   }
@@ -245,10 +180,7 @@ export class Appflow extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -256,12 +188,7 @@ export class Appflow extends AWSServiceClient {
     input: UpdateConnectorProfileRequest,
   ): Effect.Effect<
     UpdateConnectorProfileResponse,
-    | ConflictException
-    | ConnectorAuthenticationException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ConnectorAuthenticationException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateConnectorProfile", input);
   }
@@ -269,16 +196,7 @@ export class Appflow extends AWSServiceClient {
     input: UpdateConnectorRegistrationRequest,
   ): Effect.Effect<
     UpdateConnectorRegistrationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ConnectorAuthenticationException
-    | ConnectorServerException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ConnectorAuthenticationException | ConnectorServerException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateConnectorRegistration", input);
   }
@@ -286,15 +204,7 @@ export class Appflow extends AWSServiceClient {
     input: UpdateFlowRequest,
   ): Effect.Effect<
     UpdateFlowResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ConnectorAuthenticationException
-    | ConnectorServerException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ConnectorAuthenticationException | ConnectorServerException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateFlow", input);
   }
@@ -323,8 +233,10 @@ export interface AmplitudeConnectorProfileCredentials {
   apiKey: string;
   secretKey: string;
 }
-export interface AmplitudeConnectorProfileProperties {}
-export interface AmplitudeMetadata {}
+export interface AmplitudeConnectorProfileProperties {
+}
+export interface AmplitudeMetadata {
+}
 export interface AmplitudeSourceProperties {
   object: string;
 }
@@ -446,10 +358,7 @@ export interface ConnectorConfiguration {
   supportedDataTransferTypes?: Array<SupportedDataTransferType>;
   supportedDataTransferApis?: Array<DataTransferApi>;
 }
-export type ConnectorConfigurationsMap = Record<
-  ConnectorType,
-  ConnectorConfiguration
->;
+export type ConnectorConfigurationsMap = Record<ConnectorType, ConnectorConfiguration>;
 export type ConnectorDescription = string;
 
 export interface ConnectorDetail {
@@ -635,31 +544,7 @@ export type ConnectorSuppliedValue = string;
 
 export type ConnectorSuppliedValueList = Array<string>;
 export type ConnectorSuppliedValueOptionList = Array<string>;
-export type ConnectorType =
-  | "SALESFORCE"
-  | "SINGULAR"
-  | "SLACK"
-  | "REDSHIFT"
-  | "S3"
-  | "MARKETO"
-  | "GOOGLEANALYTICS"
-  | "ZENDESK"
-  | "SERVICENOW"
-  | "DATADOG"
-  | "TRENDMICRO"
-  | "SNOWFLAKE"
-  | "DYNATRACE"
-  | "INFORNEXUS"
-  | "AMPLITUDE"
-  | "VEEVA"
-  | "EVENTBRIDGE"
-  | "LOOKOUTMETRICS"
-  | "UPSOLVER"
-  | "HONEYCODE"
-  | "CUSTOMERPROFILES"
-  | "SAPODATA"
-  | "CUSTOMCONNECTOR"
-  | "PARDOT";
+export type ConnectorType = "SALESFORCE" | "SINGULAR" | "SLACK" | "REDSHIFT" | "S3" | "MARKETO" | "GOOGLEANALYTICS" | "ZENDESK" | "SERVICENOW" | "DATADOG" | "TRENDMICRO" | "SNOWFLAKE" | "DYNATRACE" | "INFORNEXUS" | "AMPLITUDE" | "VEEVA" | "EVENTBRIDGE" | "LOOKOUTMETRICS" | "UPSOLVER" | "HONEYCODE" | "CUSTOMERPROFILES" | "SAPODATA" | "CUSTOMCONNECTOR" | "PARDOT";
 export type ConnectorTypeList = Array<ConnectorType>;
 export type ConnectorVersion = string;
 
@@ -736,7 +621,8 @@ export interface CustomerProfilesDestinationProperties {
   domainName: string;
   objectTypeName?: string;
 }
-export interface CustomerProfilesMetadata {}
+export interface CustomerProfilesMetadata {
+}
 export type CustomProperties = Record<string, string>;
 export type CustomPropertyKey = string;
 
@@ -748,22 +634,7 @@ export type DatabaseName = string;
 
 export type DatabaseUrl = string;
 
-export type DatadogConnectorOperator =
-  | "PROJECTION"
-  | "BETWEEN"
-  | "EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type DatadogConnectorOperator = "PROJECTION" | "BETWEEN" | "EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface DatadogConnectorProfileCredentials {
   apiKey: string;
   applicationKey: string;
@@ -771,7 +642,8 @@ export interface DatadogConnectorProfileCredentials {
 export interface DatadogConnectorProfileProperties {
   instanceUrl: string;
 }
-export interface DatadogMetadata {}
+export interface DatadogMetadata {
+}
 export interface DatadogSourceProperties {
   object: string;
 }
@@ -791,12 +663,14 @@ export interface DeleteConnectorProfileRequest {
   connectorProfileName: string;
   forceDelete?: boolean;
 }
-export interface DeleteConnectorProfileResponse {}
+export interface DeleteConnectorProfileResponse {
+}
 export interface DeleteFlowRequest {
   flowName: string;
   forceDelete?: boolean;
 }
-export interface DeleteFlowResponse {}
+export interface DeleteFlowResponse {
+}
 export interface DescribeConnectorEntityRequest {
   connectorEntityName: string;
   connectorType?: ConnectorType;
@@ -907,29 +781,15 @@ export type DomainName = string;
 
 export type Double = number;
 
-export type DynatraceConnectorOperator =
-  | "PROJECTION"
-  | "BETWEEN"
-  | "EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type DynatraceConnectorOperator = "PROJECTION" | "BETWEEN" | "EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface DynatraceConnectorProfileCredentials {
   apiToken: string;
 }
 export interface DynatraceConnectorProfileProperties {
   instanceUrl: string;
 }
-export interface DynatraceMetadata {}
+export interface DynatraceMetadata {
+}
 export interface DynatraceSourceProperties {
   object: string;
 }
@@ -952,7 +812,8 @@ export interface EventBridgeDestinationProperties {
   object: string;
   errorHandlingConfig?: ErrorHandlingConfig;
 }
-export interface EventBridgeMetadata {}
+export interface EventBridgeMetadata {
+}
 export interface ExecutionDetails {
   mostRecentExecutionMessage?: string;
   mostRecentExecutionTime?: Date | string;
@@ -981,12 +842,7 @@ export interface ExecutionResult {
   numParallelProcesses?: number;
   maxPageSize?: number;
 }
-export type ExecutionStatus =
-  | "INPROGRESS"
-  | "SUCCESSFUL"
-  | "ERROR"
-  | "CANCELSTARTED"
-  | "CANCELED";
+export type ExecutionStatus = "INPROGRESS" | "SUCCESSFUL" | "ERROR" | "CANCELSTARTED" | "CANCELED";
 export type FieldType = string;
 
 export interface FieldTypeDetails {
@@ -1027,13 +883,7 @@ export type FlowExecutionList = Array<ExecutionRecord>;
 export type FlowList = Array<FlowDefinition>;
 export type FlowName = string;
 
-export type FlowStatus =
-  | "ACTIVE"
-  | "DEPRECATED"
-  | "DELETED"
-  | "DRAFT"
-  | "ERRORED"
-  | "SUSPENDED";
+export type FlowStatus = "ACTIVE" | "DEPRECATED" | "DELETED" | "DRAFT" | "ERRORED" | "SUSPENDED";
 export type FlowStatusMessage = string;
 
 export interface GlueDataCatalogConfig {
@@ -1055,7 +905,8 @@ export interface GoogleAnalyticsConnectorProfileCredentials {
   refreshToken?: string;
   oAuthRequest?: ConnectorOAuthRequest;
 }
-export interface GoogleAnalyticsConnectorProfileProperties {}
+export interface GoogleAnalyticsConnectorProfileProperties {
+}
 export interface GoogleAnalyticsMetadata {
   oAuthScopes?: Array<string>;
 }
@@ -1069,7 +920,8 @@ export interface HoneycodeConnectorProfileCredentials {
   refreshToken?: string;
   oAuthRequest?: ConnectorOAuthRequest;
 }
-export interface HoneycodeConnectorProfileProperties {}
+export interface HoneycodeConnectorProfileProperties {
+}
 export interface HoneycodeDestinationProperties {
   object: string;
   errorHandlingConfig?: ErrorHandlingConfig;
@@ -1083,22 +935,7 @@ export type IdFieldNameList = Array<string>;
 export interface IncrementalPullConfig {
   datetimeTypeFieldName?: string;
 }
-export type InforNexusConnectorOperator =
-  | "PROJECTION"
-  | "BETWEEN"
-  | "EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type InforNexusConnectorOperator = "PROJECTION" | "BETWEEN" | "EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface InforNexusConnectorProfileCredentials {
   accessKeyId: string;
   userId: string;
@@ -1108,7 +945,8 @@ export interface InforNexusConnectorProfileCredentials {
 export interface InforNexusConnectorProfileProperties {
   instanceUrl: string;
 }
-export interface InforNexusMetadata {}
+export interface InforNexusMetadata {
+}
 export interface InforNexusSourceProperties {
   object: string;
 }
@@ -1174,24 +1012,9 @@ export type LogoURL = string;
 
 export type Long = number;
 
-export interface LookoutMetricsDestinationProperties {}
-export type MarketoConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export interface LookoutMetricsDestinationProperties {
+}
+export type MarketoConnectorOperator = "PROJECTION" | "LESS_THAN" | "GREATER_THAN" | "BETWEEN" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface MarketoConnectorProfileCredentials {
   clientId: string;
   clientSecret: string;
@@ -1205,7 +1028,8 @@ export interface MarketoDestinationProperties {
   object: string;
   errorHandlingConfig?: ErrorHandlingConfig;
 }
-export interface MarketoMetadata {}
+export interface MarketoMetadata {
+}
 export interface MarketoSourceProperties {
   object: string;
 }
@@ -1252,10 +1076,7 @@ export interface OAuth2Defaults {
   oauth2GrantTypesSupported?: Array<OAuth2GrantType>;
   oauth2CustomProperties?: Array<OAuth2CustomParameter>;
 }
-export type OAuth2GrantType =
-  | "CLIENT_CREDENTIALS"
-  | "AUTHORIZATION_CODE"
-  | "JWT_BEARER";
+export type OAuth2GrantType = "CLIENT_CREDENTIALS" | "AUTHORIZATION_CODE" | "JWT_BEARER";
 export type OAuth2GrantTypeSupportedList = Array<OAuth2GrantType>;
 export interface OAuth2Properties {
   tokenUrl: string;
@@ -1281,83 +1102,10 @@ export type AppflowObject = string;
 
 export type ObjectTypeName = string;
 
-export type Operator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "CONTAINS"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
-export type OperatorPropertiesKeys =
-  | "VALUE"
-  | "VALUES"
-  | "DATA_TYPE"
-  | "UPPER_BOUND"
-  | "LOWER_BOUND"
-  | "SOURCE_DATA_TYPE"
-  | "DESTINATION_DATA_TYPE"
-  | "VALIDATION_ACTION"
-  | "MASK_VALUE"
-  | "MASK_LENGTH"
-  | "TRUNCATE_LENGTH"
-  | "MATH_OPERATION_FIELDS_ORDER"
-  | "CONCAT_FORMAT"
-  | "SUBFIELD_CATEGORY_MAP"
-  | "EXCLUDE_SOURCE_FIELDS_LIST"
-  | "INCLUDE_NEW_FIELDS"
-  | "ORDERED_PARTITION_KEYS_LIST";
-export type Operators =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "CONTAINS"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
-export type PardotConnectorOperator =
-  | "PROJECTION"
-  | "EQUAL_TO"
-  | "NO_OP"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC";
+export type Operator = "PROJECTION" | "LESS_THAN" | "GREATER_THAN" | "CONTAINS" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
+export type OperatorPropertiesKeys = "VALUE" | "VALUES" | "DATA_TYPE" | "UPPER_BOUND" | "LOWER_BOUND" | "SOURCE_DATA_TYPE" | "DESTINATION_DATA_TYPE" | "VALIDATION_ACTION" | "MASK_VALUE" | "MASK_LENGTH" | "TRUNCATE_LENGTH" | "MATH_OPERATION_FIELDS_ORDER" | "CONCAT_FORMAT" | "SUBFIELD_CATEGORY_MAP" | "EXCLUDE_SOURCE_FIELDS_LIST" | "INCLUDE_NEW_FIELDS" | "ORDERED_PARTITION_KEYS_LIST";
+export type Operators = "PROJECTION" | "LESS_THAN" | "GREATER_THAN" | "CONTAINS" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
+export type PardotConnectorOperator = "PROJECTION" | "EQUAL_TO" | "NO_OP" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC";
 export interface PardotConnectorProfileCredentials {
   accessToken?: string;
   refreshToken?: string;
@@ -1369,7 +1117,8 @@ export interface PardotConnectorProfileProperties {
   isSandboxEnvironment?: boolean;
   businessUnitId?: string;
 }
-export interface PardotMetadata {}
+export interface PardotMetadata {
+}
 export interface PardotSourceProperties {
   object: string;
 }
@@ -1386,12 +1135,7 @@ export interface PrefixConfig {
 }
 export type PrefixFormat = "YEAR" | "MONTH" | "DAY" | "HOUR" | "MINUTE";
 export type PrefixType = "FILENAME" | "PATH" | "PATH_AND_FILENAME";
-export type PrivateConnectionProvisioningFailureCause =
-  | "CONNECTOR_AUTHENTICATION"
-  | "CONNECTOR_SERVER"
-  | "INTERNAL_SERVER"
-  | "ACCESS_DENIED"
-  | "VALIDATION";
+export type PrivateConnectionProvisioningFailureCause = "CONNECTOR_AUTHENTICATION" | "CONNECTOR_SERVER" | "INTERNAL_SERVER" | "ACCESS_DENIED" | "VALIDATION";
 export type PrivateConnectionProvisioningFailureMessage = string;
 
 export interface PrivateConnectionProvisioningState {
@@ -1399,10 +1143,7 @@ export interface PrivateConnectionProvisioningState {
   failureMessage?: string;
   failureCause?: PrivateConnectionProvisioningFailureCause;
 }
-export type PrivateConnectionProvisioningStatus =
-  | "FAILED"
-  | "PENDING"
-  | "CREATED";
+export type PrivateConnectionProvisioningStatus = "FAILED" | "PENDING" | "CREATED";
 export type PrivateLinkServiceName = string;
 
 export type ProfilePropertiesMap = Record<string, string>;
@@ -1439,7 +1180,8 @@ export interface RedshiftDestinationProperties {
   bucketPrefix?: string;
   errorHandlingConfig?: ErrorHandlingConfig;
 }
-export interface RedshiftMetadata {}
+export interface RedshiftMetadata {
+}
 export type RefreshToken = string;
 
 export type Region = string;
@@ -1469,7 +1211,8 @@ export interface ResetConnectorMetadataCacheRequest {
   entitiesPath?: string;
   apiVersion?: string;
 }
-export interface ResetConnectorMetadataCacheResponse {}
+export interface ResetConnectorMetadataCacheResponse {
+}
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -1477,27 +1220,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 }> {}
 export type RoleArn = string;
 
-export type S3ConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type S3ConnectorOperator = "PROJECTION" | "LESS_THAN" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface S3DestinationProperties {
   bucketName: string;
   bucketPrefix?: string;
@@ -1507,7 +1230,8 @@ export type S3InputFileType = "CSV" | "JSON";
 export interface S3InputFormatConfig {
   s3InputFileType?: S3InputFileType;
 }
-export interface S3Metadata {}
+export interface S3Metadata {
+}
 export interface S3OutputFormatConfig {
   fileType?: FileType;
   prefixConfig?: PrefixConfig;
@@ -1519,28 +1243,7 @@ export interface S3SourceProperties {
   bucketPrefix?: string;
   s3InputFormatConfig?: S3InputFormatConfig;
 }
-export type SalesforceConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "CONTAINS"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type SalesforceConnectorOperator = "PROJECTION" | "LESS_THAN" | "CONTAINS" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface SalesforceConnectorProfileCredentials {
   accessToken?: string;
   refreshToken?: string;
@@ -1574,28 +1277,7 @@ export interface SalesforceSourceProperties {
   includeDeletedRecords?: boolean;
   dataTransferApi?: SalesforceDataTransferApi;
 }
-export type SAPODataConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "CONTAINS"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type SAPODataConnectorOperator = "PROJECTION" | "LESS_THAN" | "CONTAINS" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface SAPODataConnectorProfileCredentials {
   basicAuthCredentials?: BasicAuthCredentials;
   oAuthCredentials?: OAuthCredentials;
@@ -1621,7 +1303,8 @@ export type SAPODataMaxPageSize = number;
 
 export type SAPODataMaxParallelism = number;
 
-export interface SAPODataMetadata {}
+export interface SAPODataMetadata {
+}
 export interface SAPODataPaginationConfig {
   maxPageSize: number;
 }
@@ -1645,40 +1328,13 @@ export interface ScheduledTriggerProperties {
 }
 export type ScheduleExpression = string;
 
-export type ScheduleFrequencyType =
-  | "BYMINUTE"
-  | "HOURLY"
-  | "DAILY"
-  | "WEEKLY"
-  | "MONTHLY"
-  | "ONCE";
+export type ScheduleFrequencyType = "BYMINUTE" | "HOURLY" | "DAILY" | "WEEKLY" | "MONTHLY" | "ONCE";
 export type ScheduleOffset = number;
 
 export type SchedulingFrequencyTypeList = Array<ScheduleFrequencyType>;
 export type SecretKey = string;
 
-export type ServiceNowConnectorOperator =
-  | "PROJECTION"
-  | "CONTAINS"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type ServiceNowConnectorOperator = "PROJECTION" | "CONTAINS" | "LESS_THAN" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface ServiceNowConnectorProfileCredentials {
   username?: string;
   password?: string;
@@ -1687,7 +1343,8 @@ export interface ServiceNowConnectorProfileCredentials {
 export interface ServiceNowConnectorProfileProperties {
   instanceUrl: string;
 }
-export interface ServiceNowMetadata {}
+export interface ServiceNowMetadata {
+}
 export interface ServiceNowSourceProperties {
   object: string;
 }
@@ -1696,49 +1353,18 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 )<{
   readonly message?: string;
 }> {}
-export type SingularConnectorOperator =
-  | "PROJECTION"
-  | "EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type SingularConnectorOperator = "PROJECTION" | "EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface SingularConnectorProfileCredentials {
   apiKey: string;
 }
-export interface SingularConnectorProfileProperties {}
-export interface SingularMetadata {}
+export interface SingularConnectorProfileProperties {
+}
+export interface SingularMetadata {
+}
 export interface SingularSourceProperties {
   object: string;
 }
-export type SlackConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type SlackConnectorOperator = "PROJECTION" | "LESS_THAN" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface SlackConnectorProfileCredentials {
   clientId: string;
   clientSecret: string;
@@ -1852,7 +1478,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface Task {
@@ -1864,17 +1491,7 @@ export interface Task {
 }
 export type TaskPropertiesMap = Record<OperatorPropertiesKeys, string>;
 export type Tasks = Array<Task>;
-export type TaskType =
-  | "ARITHMETIC"
-  | "FILTER"
-  | "MAP"
-  | "MAP_ALL"
-  | "MASK"
-  | "MERGE"
-  | "PASSTHROUGH"
-  | "TRUNCATE"
-  | "VALIDATE"
-  | "PARTITION";
+export type TaskType = "ARITHMETIC" | "FILTER" | "MAP" | "MAP_ALL" | "MASK" | "MERGE" | "PASSTHROUGH" | "TRUNCATE" | "VALIDATE" | "PARTITION";
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -1886,26 +1503,14 @@ export type TokenUrl = string;
 
 export type TokenUrlCustomProperties = Record<string, string>;
 export type TokenUrlList = Array<string>;
-export type TrendmicroConnectorOperator =
-  | "PROJECTION"
-  | "EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type TrendmicroConnectorOperator = "PROJECTION" | "EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface TrendmicroConnectorProfileCredentials {
   apiSecretKey: string;
 }
-export interface TrendmicroConnectorProfileProperties {}
-export interface TrendmicroMetadata {}
+export interface TrendmicroConnectorProfileProperties {
+}
+export interface TrendmicroMetadata {
+}
 export interface TrendmicroSourceProperties {
   object: string;
 }
@@ -1922,7 +1527,8 @@ export interface UnregisterConnectorRequest {
   connectorLabel: string;
   forceDelete?: boolean;
 }
-export interface UnregisterConnectorResponse {}
+export interface UnregisterConnectorResponse {
+}
 export declare class UnsupportedOperationException extends EffectData.TaggedError(
   "UnsupportedOperationException",
 )<{
@@ -1932,7 +1538,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateConnectorProfileRequest {
   connectorProfileName: string;
   connectionMode: ConnectionMode;
@@ -1973,7 +1580,8 @@ export interface UpsolverDestinationProperties {
   bucketPrefix?: string;
   s3OutputFormatConfig: UpsolverS3OutputFormatConfig;
 }
-export interface UpsolverMetadata {}
+export interface UpsolverMetadata {
+}
 export interface UpsolverS3OutputFormatConfig {
   fileType?: FileType;
   prefixConfig: PrefixConfig;
@@ -1988,28 +1596,7 @@ export declare class ValidationException extends EffectData.TaggedError(
 }> {}
 export type Value = string;
 
-export type VeevaConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "CONTAINS"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type VeevaConnectorOperator = "PROJECTION" | "LESS_THAN" | "GREATER_THAN" | "CONTAINS" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface VeevaConnectorProfileCredentials {
   username: string;
   password: string;
@@ -2017,7 +1604,8 @@ export interface VeevaConnectorProfileCredentials {
 export interface VeevaConnectorProfileProperties {
   instanceUrl: string;
 }
-export interface VeevaMetadata {}
+export interface VeevaMetadata {
+}
 export interface VeevaSourceProperties {
   object: string;
   documentType?: string;
@@ -2030,21 +1618,7 @@ export type Warehouse = string;
 export type WorkgroupName = string;
 
 export type WriteOperationType = "INSERT" | "UPSERT" | "UPDATE" | "DELETE";
-export type ZendeskConnectorOperator =
-  | "PROJECTION"
-  | "GREATER_THAN"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type ZendeskConnectorOperator = "PROJECTION" | "GREATER_THAN" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface ZendeskConnectorProfileCredentials {
   clientId: string;
   clientSecret: string;
@@ -2345,3 +1919,4 @@ export declare namespace UpdateFlow {
     | ValidationException
     | CommonAwsError;
 }
+

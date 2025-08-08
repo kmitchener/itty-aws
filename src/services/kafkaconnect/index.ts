@@ -1,21 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class KafkaConnect extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("kafkaconnect", new RestJson1Protocol(), cfg);
+  }
+
   createConnector(
     input: CreateConnectorRequest,
   ): Effect.Effect<
     CreateConnectorResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateConnector", input);
   }
@@ -23,15 +20,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: CreateCustomPluginRequest,
   ): Effect.Effect<
     CreateCustomPluginResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateCustomPlugin", input);
   }
@@ -39,15 +28,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: CreateWorkerConfigurationRequest,
   ): Effect.Effect<
     CreateWorkerConfigurationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateWorkerConfiguration", input);
   }
@@ -55,14 +36,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: DeleteConnectorRequest,
   ): Effect.Effect<
     DeleteConnectorResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteConnector", input);
   }
@@ -70,14 +44,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: DeleteCustomPluginRequest,
   ): Effect.Effect<
     DeleteCustomPluginResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteCustomPlugin", input);
   }
@@ -85,14 +52,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: DeleteWorkerConfigurationRequest,
   ): Effect.Effect<
     DeleteWorkerConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteWorkerConfiguration", input);
   }
@@ -100,14 +60,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: DescribeConnectorRequest,
   ): Effect.Effect<
     DescribeConnectorResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeConnector", input);
   }
@@ -115,14 +68,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: DescribeConnectorOperationRequest,
   ): Effect.Effect<
     DescribeConnectorOperationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeConnectorOperation", input);
   }
@@ -130,14 +76,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: DescribeCustomPluginRequest,
   ): Effect.Effect<
     DescribeCustomPluginResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeCustomPlugin", input);
   }
@@ -145,14 +84,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: DescribeWorkerConfigurationRequest,
   ): Effect.Effect<
     DescribeWorkerConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeWorkerConfiguration", input);
   }
@@ -160,14 +92,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: ListConnectorOperationsRequest,
   ): Effect.Effect<
     ListConnectorOperationsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListConnectorOperations", input);
   }
@@ -175,14 +100,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: ListConnectorsRequest,
   ): Effect.Effect<
     ListConnectorsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListConnectors", input);
   }
@@ -190,14 +108,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: ListCustomPluginsRequest,
   ): Effect.Effect<
     ListCustomPluginsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListCustomPlugins", input);
   }
@@ -205,14 +116,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -220,14 +124,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: ListWorkerConfigurationsRequest,
   ): Effect.Effect<
     ListWorkerConfigurationsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListWorkerConfigurations", input);
   }
@@ -235,15 +132,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -251,14 +140,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -266,14 +148,7 @@ export class KafkaConnect extends AWSServiceClient {
     input: UpdateConnectorRequest,
   ): Effect.Effect<
     UpdateConnectorResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateConnector", input);
   }
@@ -293,14 +168,12 @@ export type __integerMin1Max8 = number;
 
 export type __listOf__string = Array<string>;
 export type __listOfConnectorOperationStep = Array<ConnectorOperationStep>;
-export type __listOfConnectorOperationSummary =
-  Array<ConnectorOperationSummary>;
+export type __listOfConnectorOperationSummary = Array<ConnectorOperationSummary>;
 export type __listOfConnectorSummary = Array<ConnectorSummary>;
 export type __listOfCustomPluginSummary = Array<CustomPluginSummary>;
 export type __listOfPlugin = Array<Plugin>;
 export type __listOfPluginDescription = Array<PluginDescription>;
-export type __listOfWorkerConfigurationSummary =
-  Array<WorkerConfigurationSummary>;
+export type __listOfWorkerConfigurationSummary = Array<WorkerConfigurationSummary>;
 export type __long = number;
 
 export type __longMin1 = number;
@@ -749,7 +622,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -767,7 +641,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateConnectorRequest {
   capacity?: CapacityUpdate;
   connectorConfiguration?: Record<string, string>;
@@ -1084,3 +959,4 @@ export declare namespace UpdateConnector {
     | UnauthorizedException
     | CommonAwsError;
 }
+

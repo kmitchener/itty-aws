@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ResourceGroups extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("resource-groups", new RestJson1Protocol(), cfg);
+  }
+
   cancelTagSyncTask(
     input: CancelTagSyncTaskInput,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CancelTagSyncTask", input);
   }
@@ -21,12 +20,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: CreateGroupInput,
   ): Effect.Effect<
     CreateGroupOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateGroup", input);
   }
@@ -34,24 +28,15 @@ export class ResourceGroups extends AWSServiceClient {
     input: DeleteGroupInput,
   ): Effect.Effect<
     DeleteGroupOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteGroup", input);
   }
-  getAccountSettings(input: {}): Effect.Effect<
+  getAccountSettings(
+    input: {},
+  ): Effect.Effect<
     GetAccountSettingsOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetAccountSettings", input);
   }
@@ -59,13 +44,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: GetGroupInput,
   ): Effect.Effect<
     GetGroupOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetGroup", input);
   }
@@ -73,13 +52,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: GetGroupConfigurationInput,
   ): Effect.Effect<
     GetGroupConfigurationOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetGroupConfiguration", input);
   }
@@ -87,13 +60,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: GetGroupQueryInput,
   ): Effect.Effect<
     GetGroupQueryOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetGroupQuery", input);
   }
@@ -101,13 +68,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: GetTagsInput,
   ): Effect.Effect<
     GetTagsOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTags", input);
   }
@@ -115,14 +76,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: GetTagSyncTaskInput,
   ): Effect.Effect<
     GetTagSyncTaskOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetTagSyncTask", input);
   }
@@ -130,13 +84,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: GroupResourcesInput,
   ): Effect.Effect<
     GroupResourcesOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GroupResources", input);
   }
@@ -144,12 +92,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: ListGroupingStatusesInput,
   ): Effect.Effect<
     ListGroupingStatusesOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListGroupingStatuses", input);
   }
@@ -157,14 +100,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: ListGroupResourcesInput,
   ): Effect.Effect<
     ListGroupResourcesOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListGroupResources", input);
   }
@@ -172,12 +108,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: ListGroupsInput,
   ): Effect.Effect<
     ListGroupsOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListGroups", input);
   }
@@ -185,13 +116,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: ListTagSyncTasksInput,
   ): Effect.Effect<
     ListTagSyncTasksOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListTagSyncTasks", input);
   }
@@ -199,13 +124,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: PutGroupConfigurationInput,
   ): Effect.Effect<
     PutGroupConfigurationOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutGroupConfiguration", input);
   }
@@ -213,13 +132,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: SearchResourcesInput,
   ): Effect.Effect<
     SearchResourcesOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("SearchResources", input);
   }
@@ -227,14 +140,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: StartTagSyncTaskInput,
   ): Effect.Effect<
     StartTagSyncTaskOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("StartTagSyncTask", input);
   }
@@ -242,13 +148,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: TagInput,
   ): Effect.Effect<
     TagOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("Tag", input);
   }
@@ -256,13 +156,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: UngroupResourcesInput,
   ): Effect.Effect<
     UngroupResourcesOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UngroupResources", input);
   }
@@ -270,13 +164,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: UntagInput,
   ): Effect.Effect<
     UntagOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("Untag", input);
   }
@@ -284,12 +172,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: UpdateAccountSettingsInput,
   ): Effect.Effect<
     UpdateAccountSettingsOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateAccountSettings", input);
   }
@@ -297,13 +180,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: UpdateGroupInput,
   ): Effect.Effect<
     UpdateGroupOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateGroup", input);
   }
@@ -311,13 +188,7 @@ export class ResourceGroups extends AWSServiceClient {
     input: UpdateGroupQueryInput,
   ): Effect.Effect<
     UpdateGroupQueryOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | MethodNotAllowedException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | MethodNotAllowedException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateGroupQuery", input);
   }
@@ -469,10 +340,7 @@ export type GroupConfigurationParameterName = string;
 export type GroupConfigurationParameterValue = string;
 
 export type GroupConfigurationParameterValueList = Array<string>;
-export type GroupConfigurationStatus =
-  | "UPDATING"
-  | "UPDATE_COMPLETE"
-  | "UPDATE_FAILED";
+export type GroupConfigurationStatus = "UPDATING" | "UPDATE_COMPLETE" | "UPDATE_FAILED";
 export type GroupConfigurationType = string;
 
 export interface GroupFilter {
@@ -480,12 +348,7 @@ export interface GroupFilter {
   Values: Array<string>;
 }
 export type GroupFilterList = Array<GroupFilter>;
-export type GroupFilterName =
-  | "ResourceType"
-  | "ConfigurationType"
-  | "Owner"
-  | "DisplayName"
-  | "Criticality";
+export type GroupFilterName = "ResourceType" | "ConfigurationType" | "Owner" | "DisplayName" | "Criticality";
 export type GroupFilterValue = string;
 
 export type GroupFilterValues = Array<string>;
@@ -510,11 +373,7 @@ export interface GroupingStatusesItem {
 export type GroupingStatusesList = Array<GroupingStatusesItem>;
 export type GroupingType = "GROUP" | "UNGROUP";
 export type GroupLifecycleEventsDesiredStatus = "ACTIVE" | "INACTIVE";
-export type GroupLifecycleEventsStatus =
-  | "ACTIVE"
-  | "INACTIVE"
-  | "IN_PROGRESS"
-  | "ERROR";
+export type GroupLifecycleEventsStatus = "ACTIVE" | "INACTIVE" | "IN_PROGRESS" | "ERROR";
 export type GroupLifecycleEventsStatusMessage = string;
 
 export type GroupList = Array<Group>;
@@ -629,18 +488,15 @@ export interface PutGroupConfigurationInput {
   Group?: string;
   Configuration?: Array<GroupConfigurationItem>;
 }
-export interface PutGroupConfigurationOutput {}
+export interface PutGroupConfigurationOutput {
+}
 export type Query = string;
 
 export interface QueryError {
   ErrorCode?: QueryErrorCode;
   Message?: string;
 }
-export type QueryErrorCode =
-  | "CLOUDFORMATION_STACK_INACTIVE"
-  | "CLOUDFORMATION_STACK_NOT_EXISTING"
-  | "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE"
-  | "RESOURCE_TYPE_NOT_SUPPORTED";
+export type QueryErrorCode = "CLOUDFORMATION_STACK_INACTIVE" | "CLOUDFORMATION_STACK_NOT_EXISTING" | "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE" | "RESOURCE_TYPE_NOT_SUPPORTED";
 export type QueryErrorList = Array<QueryError>;
 export type QueryErrorMessage = string;
 
@@ -1080,3 +936,4 @@ export declare namespace UpdateGroupQuery {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

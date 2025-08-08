@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class AppTest extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("apptest", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -20,13 +20,7 @@ export class AppTest extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -34,12 +28,7 @@ export class AppTest extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -93,13 +82,7 @@ interface _CloudFormationStepSummary {
   deleteCloudformation?: DeleteCloudFormationSummary;
 }
 
-export type CloudFormationStepSummary =
-  | (_CloudFormationStepSummary & {
-      createCloudformation: CreateCloudFormationSummary;
-    })
-  | (_CloudFormationStepSummary & {
-      deleteCloudformation: DeleteCloudFormationSummary;
-    });
+export type CloudFormationStepSummary = (_CloudFormationStepSummary & { createCloudformation: CreateCloudFormationSummary }) | (_CloudFormationStepSummary & { deleteCloudformation: DeleteCloudFormationSummary });
 export interface CompareAction {
   input: Input;
   output?: Output;
@@ -141,9 +124,7 @@ interface _CompareFileType {
   databaseCDC?: CompareDatabaseCDCSummary;
 }
 
-export type CompareFileType =
-  | (_CompareFileType & { datasets: CompareDataSetsSummary })
-  | (_CompareFileType & { databaseCDC: CompareDatabaseCDCSummary });
+export type CompareFileType = (_CompareFileType & { datasets: CompareDataSetsSummary }) | (_CompareFileType & { databaseCDC: CompareDatabaseCDCSummary });
 export type ComparisonStatusEnum = "DIFFERENT" | "EQUIVALENT" | "EQUAL";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
@@ -217,7 +198,8 @@ export type DataSetType = "PS";
 export interface DeleteCloudFormationStepInput {
   stackId: string;
 }
-export interface DeleteCloudFormationStepOutput {}
+export interface DeleteCloudFormationStepOutput {
+}
 export interface DeleteCloudFormationSummary {
   stepInput: DeleteCloudFormationStepInput;
   stepOutput?: DeleteCloudFormationStepOutput;
@@ -225,33 +207,35 @@ export interface DeleteCloudFormationSummary {
 export interface DeleteTestCaseRequest {
   testCaseId: string;
 }
-export interface DeleteTestCaseResponse {}
+export interface DeleteTestCaseResponse {
+}
 export interface DeleteTestConfigurationRequest {
   testConfigurationId: string;
 }
-export interface DeleteTestConfigurationResponse {}
+export interface DeleteTestConfigurationResponse {
+}
 export interface DeleteTestRunRequest {
   testRunId: string;
 }
-export interface DeleteTestRunResponse {}
+export interface DeleteTestRunResponse {
+}
 export interface DeleteTestSuiteRequest {
   testSuiteId: string;
 }
-export interface DeleteTestSuiteResponse {}
+export interface DeleteTestSuiteResponse {
+}
 export type ExportDataSetNames = Array<string>;
 interface _File {
   fileType?: CompareFileType;
 }
 
-export type File = _File & { fileType: CompareFileType };
+export type File = (_File & { fileType: CompareFileType });
 interface _FileMetadata {
   dataSets?: Array<DataSet>;
   databaseCDC?: DatabaseCDC;
 }
 
-export type FileMetadata =
-  | (_FileMetadata & { dataSets: Array<DataSet> })
-  | (_FileMetadata & { databaseCDC: DatabaseCDC });
+export type FileMetadata = (_FileMetadata & { dataSets: Array<DataSet> }) | (_FileMetadata & { databaseCDC: DatabaseCDC });
 export type Format = "FIXED" | "VARIABLE" | "LINE_SEQUENTIAL";
 export interface GetTestCaseRequest {
   testCaseId: string;
@@ -340,7 +324,7 @@ interface _Input {
   file?: InputFile;
 }
 
-export type Input = _Input & { file: InputFile };
+export type Input = (_Input & { file: InputFile });
 export interface InputFile {
   sourceLocation: string;
   targetLocation: string;
@@ -470,7 +454,8 @@ export interface M2NonManagedApplicationStepInput {
   webAppName?: string;
   actionType: M2NonManagedActionType;
 }
-export interface M2NonManagedApplicationStepOutput {}
+export interface M2NonManagedApplicationStepOutput {
+}
 export interface M2NonManagedApplicationStepSummary {
   stepInput: M2NonManagedApplicationStepInput;
   stepOutput?: M2NonManagedApplicationStepOutput;
@@ -495,29 +480,19 @@ interface _MainframeActionSummary {
   tn3270?: TN3270Summary;
 }
 
-export type MainframeActionSummary =
-  | (_MainframeActionSummary & { batch: BatchSummary })
-  | (_MainframeActionSummary & { tn3270: TN3270Summary });
+export type MainframeActionSummary = (_MainframeActionSummary & { batch: BatchSummary }) | (_MainframeActionSummary & { tn3270: TN3270Summary });
 interface _MainframeActionType {
   batch?: Batch;
   tn3270?: TN3270;
 }
 
-export type MainframeActionType =
-  | (_MainframeActionType & { batch: Batch })
-  | (_MainframeActionType & { tn3270: TN3270 });
+export type MainframeActionType = (_MainframeActionType & { batch: Batch }) | (_MainframeActionType & { tn3270: TN3270 });
 interface _MainframeResourceSummary {
   m2ManagedApplication?: M2ManagedApplicationSummary;
   m2NonManagedApplication?: M2NonManagedApplicationSummary;
 }
 
-export type MainframeResourceSummary =
-  | (_MainframeResourceSummary & {
-      m2ManagedApplication: M2ManagedApplicationSummary;
-    })
-  | (_MainframeResourceSummary & {
-      m2NonManagedApplication: M2NonManagedApplicationSummary;
-    });
+export type MainframeResourceSummary = (_MainframeResourceSummary & { m2ManagedApplication: M2ManagedApplicationSummary }) | (_MainframeResourceSummary & { m2NonManagedApplication: M2NonManagedApplicationSummary });
 export type MaxResults = number;
 
 export type NextToken = string;
@@ -526,7 +501,7 @@ interface _Output {
   file?: OutputFile;
 }
 
-export type Output = _Output & { file: OutputFile };
+export type Output = (_Output & { file: OutputFile });
 export interface OutputFile {
   fileLocation?: string;
 }
@@ -541,28 +516,14 @@ interface _ResourceAction {
   cloudFormationAction?: CloudFormationAction;
 }
 
-export type ResourceAction =
-  | (_ResourceAction & {
-      m2ManagedApplicationAction: M2ManagedApplicationAction;
-    })
-  | (_ResourceAction & {
-      m2NonManagedApplicationAction: M2NonManagedApplicationAction;
-    })
-  | (_ResourceAction & { cloudFormationAction: CloudFormationAction });
+export type ResourceAction = (_ResourceAction & { m2ManagedApplicationAction: M2ManagedApplicationAction }) | (_ResourceAction & { m2NonManagedApplicationAction: M2NonManagedApplicationAction }) | (_ResourceAction & { cloudFormationAction: CloudFormationAction });
 interface _ResourceActionSummary {
   cloudFormation?: CloudFormationStepSummary;
   m2ManagedApplication?: M2ManagedApplicationStepSummary;
   m2NonManagedApplication?: M2NonManagedApplicationStepSummary;
 }
 
-export type ResourceActionSummary =
-  | (_ResourceActionSummary & { cloudFormation: CloudFormationStepSummary })
-  | (_ResourceActionSummary & {
-      m2ManagedApplication: M2ManagedApplicationStepSummary;
-    })
-  | (_ResourceActionSummary & {
-      m2NonManagedApplication: M2NonManagedApplicationStepSummary;
-    });
+export type ResourceActionSummary = (_ResourceActionSummary & { cloudFormation: CloudFormationStepSummary }) | (_ResourceActionSummary & { m2ManagedApplication: M2ManagedApplicationStepSummary }) | (_ResourceActionSummary & { m2NonManagedApplication: M2NonManagedApplicationStepSummary });
 export type ResourceDescription = string;
 
 export type ResourceList = Array<Resource>;
@@ -581,10 +542,7 @@ interface _ResourceType {
   m2NonManagedApplication?: M2NonManagedApplication;
 }
 
-export type ResourceType =
-  | (_ResourceType & { cloudFormation: CloudFormation })
-  | (_ResourceType & { m2ManagedApplication: M2ManagedApplication })
-  | (_ResourceType & { m2NonManagedApplication: M2NonManagedApplication });
+export type ResourceType = (_ResourceType & { cloudFormation: CloudFormation }) | (_ResourceType & { m2ManagedApplication: M2ManagedApplication }) | (_ResourceType & { m2NonManagedApplication: M2NonManagedApplication });
 export type S3Uri = string;
 
 export interface Script {
@@ -634,10 +592,7 @@ interface _StepAction {
   compareAction?: CompareAction;
 }
 
-export type StepAction =
-  | (_StepAction & { resourceAction: ResourceAction })
-  | (_StepAction & { mainframeAction: MainframeAction })
-  | (_StepAction & { compareAction: CompareAction });
+export type StepAction = (_StepAction & { resourceAction: ResourceAction }) | (_StepAction & { mainframeAction: MainframeAction }) | (_StepAction & { compareAction: CompareAction });
 export type StepList = Array<Step>;
 export type StepRunStatus = "SUCCESS" | "FAILED" | "RUNNING";
 interface _StepRunSummary {
@@ -646,10 +601,7 @@ interface _StepRunSummary {
   resourceAction?: ResourceActionSummary;
 }
 
-export type StepRunSummary =
-  | (_StepRunSummary & { mainframeAction: MainframeActionSummary })
-  | (_StepRunSummary & { compareAction: CompareActionSummary })
-  | (_StepRunSummary & { resourceAction: ResourceActionSummary });
+export type StepRunSummary = (_StepRunSummary & { mainframeAction: MainframeActionSummary }) | (_StepRunSummary & { compareAction: CompareActionSummary }) | (_StepRunSummary & { resourceAction: ResourceActionSummary });
 export type String100 = string;
 
 export type String50 = string;
@@ -662,7 +614,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TargetDatabase = "POSTGRESQL";
@@ -693,7 +646,7 @@ interface _TestCases {
   sequential?: Array<string>;
 }
 
-export type TestCases = _TestCases & { sequential: Array<string> };
+export type TestCases = (_TestCases & { sequential: Array<string> });
 export interface TestCaseSummary {
   testCaseId: string;
   testCaseArn: string;
@@ -759,12 +712,7 @@ export interface TestSuiteLatestVersion {
   status: TestSuiteLifecycle;
   statusReason?: string;
 }
-export type TestSuiteLifecycle =
-  | "CREATING"
-  | "UPDATING"
-  | "ACTIVE"
-  | "FAILED"
-  | "DELETING";
+export type TestSuiteLifecycle = "CREATING" | "UPDATING" | "ACTIVE" | "FAILED" | "DELETING";
 export type TestSuiteList = Array<TestSuiteSummary>;
 export interface TestSuiteSummary {
   testSuiteId: string;
@@ -808,7 +756,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateTestCaseRequest {
   testCaseId: string;
   description?: string;
@@ -852,11 +801,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export type Variable = string;
 
 export type Version = number;
@@ -897,3 +842,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

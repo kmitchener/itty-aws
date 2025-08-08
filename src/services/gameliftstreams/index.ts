@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class GameLiftStreams extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("gameliftstreams", new RestJson1Protocol(), cfg);
+  }
+
   addStreamGroupLocations(
     input: AddStreamGroupLocationsInput,
   ): Effect.Effect<
     AddStreamGroupLocationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AddStreamGroupLocations", input);
   }
@@ -21,13 +20,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: AssociateApplicationsInput,
   ): Effect.Effect<
     AssociateApplicationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateApplications", input);
   }
@@ -35,13 +28,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: CreateStreamSessionConnectionInput,
   ): Effect.Effect<
     CreateStreamSessionConnectionOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateStreamSessionConnection", input);
   }
@@ -49,12 +36,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: DisassociateApplicationsInput,
   ): Effect.Effect<
     DisassociateApplicationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateApplications", input);
   }
@@ -62,12 +44,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: ExportStreamSessionFilesInput,
   ): Effect.Effect<
     ExportStreamSessionFilesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ExportStreamSessionFiles", input);
   }
@@ -75,12 +52,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: GetStreamSessionInput,
   ): Effect.Effect<
     GetStreamSessionOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetStreamSession", input);
   }
@@ -88,12 +60,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: ListStreamSessionsInput,
   ): Effect.Effect<
     ListStreamSessionsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListStreamSessions", input);
   }
@@ -101,11 +68,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: ListStreamSessionsByAccountInput,
   ): Effect.Effect<
     ListStreamSessionsByAccountOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListStreamSessionsByAccount", input);
   }
@@ -113,11 +76,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -125,12 +84,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: RemoveStreamGroupLocationsInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RemoveStreamGroupLocations", input);
   }
@@ -138,13 +92,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: StartStreamSessionInput,
   ): Effect.Effect<
     StartStreamSessionOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartStreamSession", input);
   }
@@ -152,11 +100,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -164,12 +108,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: TerminateStreamSessionInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TerminateStreamSession", input);
   }
@@ -177,11 +116,7 @@ export class GameLiftStreams extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -210,12 +145,7 @@ export type ApplicationLogOutputUri = string;
 
 export type ApplicationSourceUri = string;
 
-export type ApplicationStatus =
-  | "INITIALIZED"
-  | "PROCESSING"
-  | "READY"
-  | "DELETING"
-  | "ERROR";
+export type ApplicationStatus = "INITIALIZED" | "PROCESSING" | "READY" | "DELETING" | "ERROR";
 export type ApplicationStatusReason = "INTERNAL_ERROR" | "ACCESS_DENIED";
 export interface ApplicationSummary {
   Arn: string;
@@ -341,7 +271,8 @@ export interface ExportStreamSessionFilesInput {
   StreamSessionIdentifier: string;
   OutputUri: string;
 }
-export interface ExportStreamSessionFilesOutput {}
+export interface ExportStreamSessionFilesOutput {
+}
 export type FileLocationUri = string;
 
 export type FilePath = string;
@@ -560,28 +491,10 @@ export interface StartStreamSessionOutput {
   ApplicationArn?: string;
   ExportFilesMetadata?: ExportFilesMetadata;
 }
-export type StreamClass =
-  | "gen4n_high"
-  | "gen4n_ultra"
-  | "gen4n_win2022"
-  | "gen5n_high"
-  | "gen5n_ultra"
-  | "gen5n_win2022";
-export type StreamGroupLocationStatus =
-  | "ACTIVATING"
-  | "ACTIVE"
-  | "ERROR"
-  | "REMOVING";
-export type StreamGroupStatus =
-  | "ACTIVATING"
-  | "UPDATING_LOCATIONS"
-  | "ACTIVE"
-  | "ACTIVE_WITH_ERRORS"
-  | "ERROR"
-  | "DELETING";
-export type StreamGroupStatusReason =
-  | "INTERNAL_ERROR"
-  | "NO_AVAILABLE_INSTANCES";
+export type StreamClass = "gen4n_high" | "gen4n_ultra" | "gen4n_win2022" | "gen5n_high" | "gen5n_ultra" | "gen5n_win2022";
+export type StreamGroupLocationStatus = "ACTIVATING" | "ACTIVE" | "ERROR" | "REMOVING";
+export type StreamGroupStatus = "ACTIVATING" | "UPDATING_LOCATIONS" | "ACTIVE" | "ACTIVE_WITH_ERRORS" | "ERROR" | "DELETING";
+export type StreamGroupStatusReason = "INTERNAL_ERROR" | "NO_AVAILABLE_INSTANCES";
 export interface StreamGroupSummary {
   Arn: string;
   Id?: string;
@@ -593,20 +506,8 @@ export interface StreamGroupSummary {
   LastUpdatedAt?: Date | string;
 }
 export type StreamGroupSummaryList = Array<StreamGroupSummary>;
-export type StreamSessionStatus =
-  | "ACTIVATING"
-  | "ACTIVE"
-  | "CONNECTED"
-  | "PENDING_CLIENT_RECONNECTION"
-  | "RECONNECTING"
-  | "TERMINATING"
-  | "TERMINATED"
-  | "ERROR";
-export type StreamSessionStatusReason =
-  | "INTERNAL_ERROR"
-  | "INVALID_SIGNAL_REQUEST"
-  | "PLACEMENT_TIMEOUT"
-  | "APP_LOG_S3_DESTINATION_ERROR";
+export type StreamSessionStatus = "ACTIVATING" | "ACTIVE" | "CONNECTED" | "PENDING_CLIENT_RECONNECTION" | "RECONNECTING" | "TERMINATING" | "TERMINATED" | "ERROR";
+export type StreamSessionStatusReason = "INTERNAL_ERROR" | "INVALID_SIGNAL_REQUEST" | "PLACEMENT_TIMEOUT" | "APP_LOG_S3_DESTINATION_ERROR";
 export interface StreamSessionSummary {
   Arn?: string;
   UserId?: string;
@@ -626,7 +527,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -643,7 +545,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationInput {
   Identifier: string;
   Description?: string;
@@ -860,3 +763,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

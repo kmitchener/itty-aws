@@ -1,21 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class ComputeOptimizer extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("compute-optimizer", new AwsJson10Protocol(), cfg);
+  }
+
   deleteRecommendationPreferences(
     input: DeleteRecommendationPreferencesRequest,
   ): Effect.Effect<
     DeleteRecommendationPreferencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteRecommendationPreferences", input);
   }
@@ -23,15 +20,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: DescribeRecommendationExportJobsRequest,
   ): Effect.Effect<
     DescribeRecommendationExportJobsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeRecommendationExportJobs", input);
   }
@@ -39,15 +28,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: ExportAutoScalingGroupRecommendationsRequest,
   ): Effect.Effect<
     ExportAutoScalingGroupRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | LimitExceededException | MissingAuthenticationToken | OptInRequiredException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ExportAutoScalingGroupRecommendations", input);
   }
@@ -55,15 +36,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: ExportEBSVolumeRecommendationsRequest,
   ): Effect.Effect<
     ExportEBSVolumeRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | LimitExceededException | MissingAuthenticationToken | OptInRequiredException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ExportEBSVolumeRecommendations", input);
   }
@@ -71,15 +44,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: ExportEC2InstanceRecommendationsRequest,
   ): Effect.Effect<
     ExportEC2InstanceRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | LimitExceededException | MissingAuthenticationToken | OptInRequiredException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ExportEC2InstanceRecommendations", input);
   }
@@ -87,15 +52,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: ExportECSServiceRecommendationsRequest,
   ): Effect.Effect<
     ExportECSServiceRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | LimitExceededException | MissingAuthenticationToken | OptInRequiredException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ExportECSServiceRecommendations", input);
   }
@@ -103,15 +60,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: ExportIdleRecommendationsRequest,
   ): Effect.Effect<
     ExportIdleRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | LimitExceededException | MissingAuthenticationToken | OptInRequiredException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ExportIdleRecommendations", input);
   }
@@ -119,15 +68,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: ExportLambdaFunctionRecommendationsRequest,
   ): Effect.Effect<
     ExportLambdaFunctionRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | LimitExceededException | MissingAuthenticationToken | OptInRequiredException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ExportLambdaFunctionRecommendations", input);
   }
@@ -135,15 +76,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: ExportLicenseRecommendationsRequest,
   ): Effect.Effect<
     ExportLicenseRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | LimitExceededException | MissingAuthenticationToken | OptInRequiredException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ExportLicenseRecommendations", input);
   }
@@ -151,15 +84,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: ExportRDSDatabaseRecommendationsRequest,
   ): Effect.Effect<
     ExportRDSDatabaseRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | LimitExceededException | MissingAuthenticationToken | OptInRequiredException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ExportRDSDatabaseRecommendations", input);
   }
@@ -167,15 +92,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetAutoScalingGroupRecommendationsRequest,
   ): Effect.Effect<
     GetAutoScalingGroupRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetAutoScalingGroupRecommendations", input);
   }
@@ -183,15 +100,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetEBSVolumeRecommendationsRequest,
   ): Effect.Effect<
     GetEBSVolumeRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEBSVolumeRecommendations", input);
   }
@@ -199,15 +108,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetEC2InstanceRecommendationsRequest,
   ): Effect.Effect<
     GetEC2InstanceRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEC2InstanceRecommendations", input);
   }
@@ -215,15 +116,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetEC2RecommendationProjectedMetricsRequest,
   ): Effect.Effect<
     GetEC2RecommendationProjectedMetricsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEC2RecommendationProjectedMetrics", input);
   }
@@ -231,15 +124,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetECSServiceRecommendationProjectedMetricsRequest,
   ): Effect.Effect<
     GetECSServiceRecommendationProjectedMetricsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetECSServiceRecommendationProjectedMetrics", input);
   }
@@ -247,15 +132,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetECSServiceRecommendationsRequest,
   ): Effect.Effect<
     GetECSServiceRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetECSServiceRecommendations", input);
   }
@@ -263,15 +140,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetEffectiveRecommendationPreferencesRequest,
   ): Effect.Effect<
     GetEffectiveRecommendationPreferencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEffectiveRecommendationPreferences", input);
   }
@@ -279,13 +148,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetEnrollmentStatusRequest,
   ): Effect.Effect<
     GetEnrollmentStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEnrollmentStatus", input);
   }
@@ -293,13 +156,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetEnrollmentStatusesForOrganizationRequest,
   ): Effect.Effect<
     GetEnrollmentStatusesForOrganizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEnrollmentStatusesForOrganization", input);
   }
@@ -307,15 +164,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetIdleRecommendationsRequest,
   ): Effect.Effect<
     GetIdleRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetIdleRecommendations", input);
   }
@@ -323,15 +172,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetLambdaFunctionRecommendationsRequest,
   ): Effect.Effect<
     GetLambdaFunctionRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | LimitExceededException | MissingAuthenticationToken | OptInRequiredException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetLambdaFunctionRecommendations", input);
   }
@@ -339,15 +180,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetLicenseRecommendationsRequest,
   ): Effect.Effect<
     GetLicenseRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetLicenseRecommendations", input);
   }
@@ -355,15 +188,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetRDSDatabaseRecommendationProjectedMetricsRequest,
   ): Effect.Effect<
     GetRDSDatabaseRecommendationProjectedMetricsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetRDSDatabaseRecommendationProjectedMetrics", input);
   }
@@ -371,15 +196,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetRDSDatabaseRecommendationsRequest,
   ): Effect.Effect<
     GetRDSDatabaseRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetRDSDatabaseRecommendations", input);
   }
@@ -387,15 +204,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetRecommendationPreferencesRequest,
   ): Effect.Effect<
     GetRecommendationPreferencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetRecommendationPreferences", input);
   }
@@ -403,14 +212,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: GetRecommendationSummariesRequest,
   ): Effect.Effect<
     GetRecommendationSummariesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetRecommendationSummaries", input);
   }
@@ -418,15 +220,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: PutRecommendationPreferencesRequest,
   ): Effect.Effect<
     PutRecommendationPreferencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | OptInRequiredException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | OptInRequiredException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutRecommendationPreferences", input);
   }
@@ -434,13 +228,7 @@ export class ComputeOptimizer extends AWSServiceClient {
     input: UpdateEnrollmentStatusRequest,
   ): Effect.Effect<
     UpdateEnrollmentStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidParameterValueException
-    | MissingAuthenticationToken
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidParameterValueException | MissingAuthenticationToken | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateEnrollmentStatus", input);
   }
@@ -467,9 +255,7 @@ export type AllocatedStorage = number;
 
 export type AllocationStrategy = "PRIORITIZED" | "LOWEST_PRICE";
 export type AsgType = "SINGLE_INSTANCE_TYPE" | "MIXED_INSTANCE_TYPE";
-export type AutoScalingConfiguration =
-  | "TARGET_TRACKING_SCALING_CPU"
-  | "TARGET_TRACKING_SCALING_MEMORY";
+export type AutoScalingConfiguration = "TARGET_TRACKING_SCALING_CPU" | "TARGET_TRACKING_SCALING_MEMORY";
 export type AutoScalingGroupArn = string;
 
 export type AutoScalingGroupArns = Array<string>;
@@ -514,10 +300,8 @@ export interface AutoScalingGroupRecommendationOption {
   savingsOpportunityAfterDiscounts?: AutoScalingGroupSavingsOpportunityAfterDiscounts;
   migrationEffort?: MigrationEffort;
 }
-export type AutoScalingGroupRecommendationOptions =
-  Array<AutoScalingGroupRecommendationOption>;
-export type AutoScalingGroupRecommendations =
-  Array<AutoScalingGroupRecommendation>;
+export type AutoScalingGroupRecommendationOptions = Array<AutoScalingGroupRecommendationOption>;
+export type AutoScalingGroupRecommendations = Array<AutoScalingGroupRecommendation>;
 export interface AutoScalingGroupSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
   estimatedMonthlySavings?: AutoScalingGroupEstimatedMonthlySavings;
@@ -556,11 +340,7 @@ export interface CurrentPerformanceRiskRatings {
   low?: number;
   veryLow?: number;
 }
-export type CustomizableMetricHeadroom =
-  | "PERCENT_30"
-  | "PERCENT_20"
-  | "PERCENT_10"
-  | "PERCENT_0";
+export type CustomizableMetricHeadroom = "PERCENT_30" | "PERCENT_20" | "PERCENT_10" | "PERCENT_0";
 export type CustomizableMetricName = "CPU_UTILIZATION" | "MEMORY_UTILIZATION";
 export interface CustomizableMetricParameters {
   threshold?: CustomizableMetricThreshold;
@@ -583,7 +363,8 @@ export interface DeleteRecommendationPreferencesRequest {
   scope?: Scope;
   recommendationPreferenceNames: Array<RecommendationPreferenceName>;
 }
-export interface DeleteRecommendationPreferencesResponse {}
+export interface DeleteRecommendationPreferencesResponse {
+}
 export interface DescribeRecommendationExportJobsRequest {
   jobIds?: Array<string>;
   filters?: Array<JobFilter>;
@@ -617,18 +398,11 @@ export interface EBSFilter {
 export type EBSFilterName = "FINDING";
 export type EBSFilters = Array<EBSFilter>;
 export type EBSFinding = "OPTIMIZED" | "NOT_OPTIMIZED";
-export type EBSMetricName =
-  | "VOLUME_READ_OPS_PER_SECOND"
-  | "VOLUME_WRITE_OPS_PER_SECOND"
-  | "VOLUME_READ_BYTES_PER_SECOND"
-  | "VOLUME_WRITE_BYTES_PER_SECOND";
+export type EBSMetricName = "VOLUME_READ_OPS_PER_SECOND" | "VOLUME_WRITE_OPS_PER_SECOND" | "VOLUME_READ_BYTES_PER_SECOND" | "VOLUME_WRITE_BYTES_PER_SECOND";
 export interface EBSSavingsEstimationMode {
   source?: EBSSavingsEstimationModeSource;
 }
-export type EBSSavingsEstimationModeSource =
-  | "PUBLIC_PRICING"
-  | "COST_EXPLORER_RIGHTSIZING"
-  | "COST_OPTIMIZATION_HUB";
+export type EBSSavingsEstimationModeSource = "PUBLIC_PRICING" | "COST_EXPLORER_RIGHTSIZING" | "COST_OPTIMIZATION_HUB";
 export interface EBSSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
   estimatedMonthlySavings?: EBSEstimatedMonthlySavings;
@@ -649,10 +423,7 @@ export interface ECSEstimatedMonthlySavings {
 export interface ECSSavingsEstimationMode {
   source?: ECSSavingsEstimationModeSource;
 }
-export type ECSSavingsEstimationModeSource =
-  | "PUBLIC_PRICING"
-  | "COST_EXPLORER_RIGHTSIZING"
-  | "COST_OPTIMIZATION_HUB";
+export type ECSSavingsEstimationModeSource = "PUBLIC_PRICING" | "COST_EXPLORER_RIGHTSIZING" | "COST_OPTIMIZATION_HUB";
 export interface ECSSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
   estimatedMonthlySavings?: ECSEstimatedMonthlySavings;
@@ -673,8 +444,7 @@ export interface ECSServiceProjectedUtilizationMetric {
   lowerBoundValue?: number;
   upperBoundValue?: number;
 }
-export type ECSServiceProjectedUtilizationMetrics =
-  Array<ECSServiceProjectedUtilizationMetric>;
+export type ECSServiceProjectedUtilizationMetrics = Array<ECSServiceProjectedUtilizationMetric>;
 export interface ECSServiceRecommendation {
   serviceArn?: string;
   accountId?: string;
@@ -694,22 +464,11 @@ export interface ECSServiceRecommendationFilter {
   name?: ECSServiceRecommendationFilterName;
   values?: Array<string>;
 }
-export type ECSServiceRecommendationFilterName =
-  | "FINDING"
-  | "FINDING_REASON_CODE";
-export type ECSServiceRecommendationFilters =
-  Array<ECSServiceRecommendationFilter>;
-export type ECSServiceRecommendationFinding =
-  | "OPTIMIZED"
-  | "UNDER_PROVISIONED"
-  | "OVER_PROVISIONED";
-export type ECSServiceRecommendationFindingReasonCode =
-  | "MEMORY_OVER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED"
-  | "CPU_OVER_PROVISIONED"
-  | "CPU_UNDER_PROVISIONED";
-export type ECSServiceRecommendationFindingReasonCodes =
-  Array<ECSServiceRecommendationFindingReasonCode>;
+export type ECSServiceRecommendationFilterName = "FINDING" | "FINDING_REASON_CODE";
+export type ECSServiceRecommendationFilters = Array<ECSServiceRecommendationFilter>;
+export type ECSServiceRecommendationFinding = "OPTIMIZED" | "UNDER_PROVISIONED" | "OVER_PROVISIONED";
+export type ECSServiceRecommendationFindingReasonCode = "MEMORY_OVER_PROVISIONED" | "MEMORY_UNDER_PROVISIONED" | "CPU_OVER_PROVISIONED" | "CPU_UNDER_PROVISIONED";
+export type ECSServiceRecommendationFindingReasonCodes = Array<ECSServiceRecommendationFindingReasonCode>;
 export interface ECSServiceRecommendationOption {
   memory?: number;
   cpu?: number;
@@ -718,16 +477,14 @@ export interface ECSServiceRecommendationOption {
   projectedUtilizationMetrics?: Array<ECSServiceProjectedUtilizationMetric>;
   containerRecommendations?: Array<ContainerRecommendation>;
 }
-export type ECSServiceRecommendationOptions =
-  Array<ECSServiceRecommendationOption>;
+export type ECSServiceRecommendationOptions = Array<ECSServiceRecommendationOption>;
 export type ECSServiceRecommendations = Array<ECSServiceRecommendation>;
 export interface ECSServiceRecommendedOptionProjectedMetric {
   recommendedCpuUnits?: number;
   recommendedMemorySize?: number;
   projectedMetrics?: Array<ECSServiceProjectedMetric>;
 }
-export type ECSServiceRecommendedOptionProjectedMetrics =
-  Array<ECSServiceRecommendedOptionProjectedMetric>;
+export type ECSServiceRecommendedOptionProjectedMetrics = Array<ECSServiceRecommendedOptionProjectedMetric>;
 export interface ECSServiceUtilizationMetric {
   name?: ECSServiceMetricName;
   statistic?: ECSServiceMetricStatistic;
@@ -768,384 +525,21 @@ export interface EstimatedMonthlySavings {
   currency?: Currency;
   value?: number;
 }
-export type ExportableAutoScalingGroupField =
-  | "ACCOUNT_ID"
-  | "AUTO_SCALING_GROUP_ARN"
-  | "AUTO_SCALING_GROUP_NAME"
-  | "FINDING"
-  | "UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "CURRENT_CONFIGURATION_INSTANCE_TYPE"
-  | "CURRENT_CONFIGURATION_DESIRED_CAPACITY"
-  | "CURRENT_CONFIGURATION_MIN_SIZE"
-  | "CURRENT_CONFIGURATION_MAX_SIZE"
-  | "CURRENT_CONFIGURATION_ALLOCATION_STRATEGY"
-  | "CURRENT_CONFIGURATION_MIXED_INSTANCE_TYPES"
-  | "CURRENT_CONFIGURATION_TYPE"
-  | "CURRENT_ON_DEMAND_PRICE"
-  | "CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "CURRENT_VCPUS"
-  | "CURRENT_MEMORY"
-  | "CURRENT_STORAGE"
-  | "CURRENT_NETWORK"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_ESTIMATED_INSTANCE_HOUR_REDUCTION_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_ALLOCATION_STRATEGY"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_MIXED_INSTANCE_TYPES"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_TYPE"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE"
-  | "RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "RECOMMENDATION_OPTIONS_VCPUS"
-  | "RECOMMENDATION_OPTIONS_MEMORY"
-  | "RECOMMENDATION_OPTIONS_STORAGE"
-  | "RECOMMENDATION_OPTIONS_NETWORK"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "CURRENT_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_PREFERRED_RESOURCES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD"
-  | "INFERRED_WORKLOAD_TYPES"
-  | "RECOMMENDATION_OPTIONS_MIGRATION_EFFORT"
-  | "CURRENT_INSTANCE_GPU_INFO"
-  | "RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO"
-  | "UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM"
-  | "UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_MAXIMUM"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
-export type ExportableAutoScalingGroupFields =
-  Array<ExportableAutoScalingGroupField>;
-export type ExportableECSServiceField =
-  | "ACCOUNT_ID"
-  | "SERVICE_ARN"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "LAUNCH_TYPE"
-  | "CURRENT_PERFORMANCE_RISK"
-  | "CURRENT_SERVICE_CONFIGURATION_MEMORY"
-  | "CURRENT_SERVICE_CONFIGURATION_CPU"
-  | "CURRENT_SERVICE_CONFIGURATION_TASK_DEFINITION_ARN"
-  | "CURRENT_SERVICE_CONFIGURATION_AUTO_SCALING_CONFIGURATION"
-  | "CURRENT_SERVICE_CONTAINER_CONFIGURATIONS"
-  | "UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "FINDING"
-  | "FINDING_REASON_CODES"
-  | "RECOMMENDATION_OPTIONS_MEMORY"
-  | "RECOMMENDATION_OPTIONS_CPU"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "RECOMMENDATION_OPTIONS_CONTAINER_RECOMMENDATIONS"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "TAGS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
+export type ExportableAutoScalingGroupField = "ACCOUNT_ID" | "AUTO_SCALING_GROUP_ARN" | "AUTO_SCALING_GROUP_NAME" | "FINDING" | "UTILIZATION_METRICS_CPU_MAXIMUM" | "UTILIZATION_METRICS_MEMORY_MAXIMUM" | "UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM" | "LOOKBACK_PERIOD_IN_DAYS" | "CURRENT_CONFIGURATION_INSTANCE_TYPE" | "CURRENT_CONFIGURATION_DESIRED_CAPACITY" | "CURRENT_CONFIGURATION_MIN_SIZE" | "CURRENT_CONFIGURATION_MAX_SIZE" | "CURRENT_CONFIGURATION_ALLOCATION_STRATEGY" | "CURRENT_CONFIGURATION_MIXED_INSTANCE_TYPES" | "CURRENT_CONFIGURATION_TYPE" | "CURRENT_ON_DEMAND_PRICE" | "CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE" | "CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE" | "CURRENT_VCPUS" | "CURRENT_MEMORY" | "CURRENT_STORAGE" | "CURRENT_NETWORK" | "RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE" | "RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY" | "RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE" | "RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE" | "RECOMMENDATION_OPTIONS_CONFIGURATION_ESTIMATED_INSTANCE_HOUR_REDUCTION_PERCENTAGE" | "RECOMMENDATION_OPTIONS_CONFIGURATION_ALLOCATION_STRATEGY" | "RECOMMENDATION_OPTIONS_CONFIGURATION_MIXED_INSTANCE_TYPES" | "RECOMMENDATION_OPTIONS_CONFIGURATION_TYPE" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM" | "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK" | "RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE" | "RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE" | "RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE" | "RECOMMENDATION_OPTIONS_VCPUS" | "RECOMMENDATION_OPTIONS_MEMORY" | "RECOMMENDATION_OPTIONS_STORAGE" | "RECOMMENDATION_OPTIONS_NETWORK" | "LAST_REFRESH_TIMESTAMP" | "CURRENT_PERFORMANCE_RISK" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_PREFERRED_RESOURCES" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD" | "INFERRED_WORKLOAD_TYPES" | "RECOMMENDATION_OPTIONS_MIGRATION_EFFORT" | "CURRENT_INSTANCE_GPU_INFO" | "RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO" | "UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM" | "UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MAXIMUM" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_MAXIMUM" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
+export type ExportableAutoScalingGroupFields = Array<ExportableAutoScalingGroupField>;
+export type ExportableECSServiceField = "ACCOUNT_ID" | "SERVICE_ARN" | "LOOKBACK_PERIOD_IN_DAYS" | "LAST_REFRESH_TIMESTAMP" | "LAUNCH_TYPE" | "CURRENT_PERFORMANCE_RISK" | "CURRENT_SERVICE_CONFIGURATION_MEMORY" | "CURRENT_SERVICE_CONFIGURATION_CPU" | "CURRENT_SERVICE_CONFIGURATION_TASK_DEFINITION_ARN" | "CURRENT_SERVICE_CONFIGURATION_AUTO_SCALING_CONFIGURATION" | "CURRENT_SERVICE_CONTAINER_CONFIGURATIONS" | "UTILIZATION_METRICS_CPU_MAXIMUM" | "UTILIZATION_METRICS_MEMORY_MAXIMUM" | "FINDING" | "FINDING_REASON_CODES" | "RECOMMENDATION_OPTIONS_MEMORY" | "RECOMMENDATION_OPTIONS_CPU" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE" | "RECOMMENDATION_OPTIONS_CONTAINER_RECOMMENDATIONS" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM" | "TAGS" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
 export type ExportableECSServiceFields = Array<ExportableECSServiceField>;
-export type ExportableIdleField =
-  | "ACCOUNT_ID"
-  | "RESOURCE_ARN"
-  | "RESOURCE_ID"
-  | "RESOURCE_TYPE"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "SAVINGS_OPPORTUNITY"
-  | "SAVINGS_OPPORTUNITY_AFTER_DISCOUNT"
-  | "UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_WRITE_IOPS_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "FINDING"
-  | "FINDING_DESCRIPTION"
-  | "TAGS";
+export type ExportableIdleField = "ACCOUNT_ID" | "RESOURCE_ARN" | "RESOURCE_ID" | "RESOURCE_TYPE" | "LAST_REFRESH_TIMESTAMP" | "LOOKBACK_PERIOD_IN_DAYS" | "SAVINGS_OPPORTUNITY" | "SAVINGS_OPPORTUNITY_AFTER_DISCOUNT" | "UTILIZATION_METRICS_CPU_MAXIMUM" | "UTILIZATION_METRICS_MEMORY_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM" | "UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM" | "UTILIZATION_METRICS_EBS_VOLUME_WRITE_IOPS_MAXIMUM" | "UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM" | "FINDING" | "FINDING_DESCRIPTION" | "TAGS";
 export type ExportableIdleFields = Array<ExportableIdleField>;
-export type ExportableInstanceField =
-  | "ACCOUNT_ID"
-  | "INSTANCE_ARN"
-  | "INSTANCE_NAME"
-  | "FINDING"
-  | "Finding_Reason_Codes"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "CURRENT_INSTANCE_TYPE"
-  | "UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM"
-  | "CURRENT_ON_DEMAND_PRICE"
-  | "CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "CURRENT_VCPUS"
-  | "CURRENT_MEMORY"
-  | "CURRENT_STORAGE"
-  | "CURRENT_NETWORK"
-  | "RECOMMENDATION_OPTIONS_INSTANCE_TYPE"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES"
-  | "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_VCPUS"
-  | "RECOMMENDATION_OPTIONS_MEMORY"
-  | "RECOMMENDATION_OPTIONS_STORAGE"
-  | "RECOMMENDATION_OPTIONS_NETWORK"
-  | "RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE"
-  | "RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-  | "RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN"
-  | "RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "CURRENT_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES"
-  | "INFERRED_WORKLOAD_TYPES"
-  | "RECOMMENDATION_OPTIONS_MIGRATION_EFFORT"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_EXTERNAL_METRICS_SOURCE"
-  | "TAGS"
-  | "INSTANCE_STATE"
-  | "EXTERNAL_METRIC_STATUS_CODE"
-  | "EXTERNAL_METRIC_STATUS_REASON"
-  | "CURRENT_INSTANCE_GPU_INFO"
-  | "RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO"
-  | "UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM"
-  | "UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM"
-  | "IDLE"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_PREFERRED_RESOURCES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_UTILIZATION_PREFERENCES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
+export type ExportableInstanceField = "ACCOUNT_ID" | "INSTANCE_ARN" | "INSTANCE_NAME" | "FINDING" | "Finding_Reason_Codes" | "LOOKBACK_PERIOD_IN_DAYS" | "CURRENT_INSTANCE_TYPE" | "UTILIZATION_METRICS_CPU_MAXIMUM" | "UTILIZATION_METRICS_MEMORY_MAXIMUM" | "UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM" | "CURRENT_ON_DEMAND_PRICE" | "CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE" | "CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE" | "CURRENT_VCPUS" | "CURRENT_MEMORY" | "CURRENT_STORAGE" | "CURRENT_NETWORK" | "RECOMMENDATION_OPTIONS_INSTANCE_TYPE" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM" | "RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES" | "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK" | "RECOMMENDATION_OPTIONS_VCPUS" | "RECOMMENDATION_OPTIONS_MEMORY" | "RECOMMENDATION_OPTIONS_STORAGE" | "RECOMMENDATION_OPTIONS_NETWORK" | "RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE" | "RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE" | "RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE" | "RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN" | "RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE" | "LAST_REFRESH_TIMESTAMP" | "CURRENT_PERFORMANCE_RISK" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES" | "INFERRED_WORKLOAD_TYPES" | "RECOMMENDATION_OPTIONS_MIGRATION_EFFORT" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_EXTERNAL_METRICS_SOURCE" | "TAGS" | "INSTANCE_STATE" | "EXTERNAL_METRIC_STATUS_CODE" | "EXTERNAL_METRIC_STATUS_REASON" | "CURRENT_INSTANCE_GPU_INFO" | "RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO" | "UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM" | "UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM" | "IDLE" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_PREFERRED_RESOURCES" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_UTILIZATION_PREFERENCES" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
 export type ExportableInstanceFields = Array<ExportableInstanceField>;
-export type ExportableLambdaFunctionField =
-  | "ACCOUNT_ID"
-  | "FUNCTION_ARN"
-  | "FUNCTION_VERSION"
-  | "FINDING"
-  | "FINDING_REASON_CODES"
-  | "NUMBER_OF_INVOCATIONS"
-  | "UTILIZATION_METRICS_DURATION_MAXIMUM"
-  | "UTILIZATION_METRICS_DURATION_AVERAGE"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_AVERAGE"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "CURRENT_CONFIGURATION_MEMORY_SIZE"
-  | "CURRENT_CONFIGURATION_TIMEOUT"
-  | "CURRENT_COST_TOTAL"
-  | "CURRENT_COST_AVERAGE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_MEMORY_SIZE"
-  | "RECOMMENDATION_OPTIONS_COST_LOW"
-  | "RECOMMENDATION_OPTIONS_COST_HIGH"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND"
-  | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "CURRENT_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "TAGS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
-export type ExportableLambdaFunctionFields =
-  Array<ExportableLambdaFunctionField>;
-export type ExportableLicenseField =
-  | "ACCOUNT_ID"
-  | "RESOURCE_ARN"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "LICENSE_FINDING"
-  | "LICENSE_FINDING_REASON_CODES"
-  | "CURRENT_LICENSE_CONFIGURATION_NUMBER_OF_CORES"
-  | "CURRENT_LICENSE_CONFIGURATION_INSTANCE_TYPE"
-  | "CURRENT_LICENSE_CONFIGURATION_OPERATING_SYSTEM"
-  | "CURRENT_LICENSE_CONFIGURATION_LICENSE_NAME"
-  | "CURRENT_LICENSE_CONFIGURATION_LICENSE_EDITION"
-  | "CURRENT_LICENSE_CONFIGURATION_LICENSE_MODEL"
-  | "CURRENT_LICENSE_CONFIGURATION_LICENSE_VERSION"
-  | "CURRENT_LICENSE_CONFIGURATION_METRICS_SOURCE"
-  | "RECOMMENDATION_OPTIONS_OPERATING_SYSTEM"
-  | "RECOMMENDATION_OPTIONS_LICENSE_EDITION"
-  | "RECOMMENDATION_OPTIONS_LICENSE_MODEL"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "TAGS";
+export type ExportableLambdaFunctionField = "ACCOUNT_ID" | "FUNCTION_ARN" | "FUNCTION_VERSION" | "FINDING" | "FINDING_REASON_CODES" | "NUMBER_OF_INVOCATIONS" | "UTILIZATION_METRICS_DURATION_MAXIMUM" | "UTILIZATION_METRICS_DURATION_AVERAGE" | "UTILIZATION_METRICS_MEMORY_MAXIMUM" | "UTILIZATION_METRICS_MEMORY_AVERAGE" | "LOOKBACK_PERIOD_IN_DAYS" | "CURRENT_CONFIGURATION_MEMORY_SIZE" | "CURRENT_CONFIGURATION_TIMEOUT" | "CURRENT_COST_TOTAL" | "CURRENT_COST_AVERAGE" | "RECOMMENDATION_OPTIONS_CONFIGURATION_MEMORY_SIZE" | "RECOMMENDATION_OPTIONS_COST_LOW" | "RECOMMENDATION_OPTIONS_COST_HIGH" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND" | "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED" | "LAST_REFRESH_TIMESTAMP" | "CURRENT_PERFORMANCE_RISK" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE" | "TAGS" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
+export type ExportableLambdaFunctionFields = Array<ExportableLambdaFunctionField>;
+export type ExportableLicenseField = "ACCOUNT_ID" | "RESOURCE_ARN" | "LOOKBACK_PERIOD_IN_DAYS" | "LAST_REFRESH_TIMESTAMP" | "LICENSE_FINDING" | "LICENSE_FINDING_REASON_CODES" | "CURRENT_LICENSE_CONFIGURATION_NUMBER_OF_CORES" | "CURRENT_LICENSE_CONFIGURATION_INSTANCE_TYPE" | "CURRENT_LICENSE_CONFIGURATION_OPERATING_SYSTEM" | "CURRENT_LICENSE_CONFIGURATION_LICENSE_NAME" | "CURRENT_LICENSE_CONFIGURATION_LICENSE_EDITION" | "CURRENT_LICENSE_CONFIGURATION_LICENSE_MODEL" | "CURRENT_LICENSE_CONFIGURATION_LICENSE_VERSION" | "CURRENT_LICENSE_CONFIGURATION_METRICS_SOURCE" | "RECOMMENDATION_OPTIONS_OPERATING_SYSTEM" | "RECOMMENDATION_OPTIONS_LICENSE_EDITION" | "RECOMMENDATION_OPTIONS_LICENSE_MODEL" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE" | "TAGS";
 export type ExportableLicenseFields = Array<ExportableLicenseField>;
-export type ExportableRDSDBField =
-  | "RESOURCE_ARN"
-  | "ACCOUNT_ID"
-  | "ENGINE"
-  | "ENGINE_VERSION"
-  | "IDLE"
-  | "MULTI_AZ_DB_INSTANCE"
-  | "CLUSTER_WRITER"
-  | "CURRENT_DB_INSTANCE_CLASS"
-  | "CURRENT_STORAGE_CONFIGURATION_STORAGE_TYPE"
-  | "CURRENT_STORAGE_CONFIGURATION_ALLOCATED_STORAGE"
-  | "CURRENT_STORAGE_CONFIGURATION_MAX_ALLOCATED_STORAGE"
-  | "CURRENT_STORAGE_CONFIGURATION_IOPS"
-  | "CURRENT_STORAGE_CONFIGURATION_STORAGE_THROUGHPUT"
-  | "CURRENT_STORAGE_ESTIMATED_MONTHLY_VOLUME_IOPS_COST_VARIATION"
-  | "CURRENT_INSTANCE_ON_DEMAND_HOURLY_PRICE"
-  | "CURRENT_STORAGE_ON_DEMAND_MONTHLY_PRICE"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "CURRENT_STORAGE_ESTIMATED_CLUSTER_INSTANCE_ON_DEMAND_MONTHLY_COST"
-  | "CURRENT_STORAGE_ESTIMATED_CLUSTER_STORAGE_ON_DEMAND_MONTHLY_COST"
-  | "CURRENT_STORAGE_ESTIMATED_CLUSTER_STORAGE_IO_ON_DEMAND_MONTHLY_COST"
-  | "CURRENT_INSTANCE_PERFORMANCE_RISK"
-  | "UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_STORAGE_SPACE_UTILIZATION_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_WRITE_IOPS_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_READ_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_EBS_VOLUME_WRITE_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM"
-  | "UTILIZATION_METRICS_STORAGE_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_STORAGE_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM"
-  | "UTILIZATION_METRICS_AURORA_MEMORY_HEALTH_STATE_MAXIMUM"
-  | "UTILIZATION_METRICS_AURORA_MEMORY_NUM_DECLINED_SQL_TOTAL_MAXIMUM"
-  | "UTILIZATION_METRICS_AURORA_MEMORY_NUM_KILL_CONN_TOTAL_MAXIMUM"
-  | "UTILIZATION_METRICS_AURORA_MEMORY_NUM_KILL_QUERY_TOTAL_MAXIMUM"
-  | "UTILIZATION_METRICS_READ_IOPS_EPHEMERAL_STORAGE_MAXIMUM"
-  | "UTILIZATION_METRICS_WRITE_IOPS_EPHEMERAL_STORAGE_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_BYTES_USED_AVERAGE"
-  | "UTILIZATION_METRICS_VOLUME_READ_IOPS_AVERAGE"
-  | "UTILIZATION_METRICS_VOLUME_WRITE_IOPS_AVERAGE"
-  | "INSTANCE_FINDING"
-  | "INSTANCE_FINDING_REASON_CODES"
-  | "STORAGE_FINDING"
-  | "STORAGE_FINDING_REASON_CODES"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_DB_INSTANCE_CLASS"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_RANK"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM"
-  | "STORAGE_RECOMMENDATION_OPTIONS_STORAGE_TYPE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ALLOCATED_STORAGE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_MAX_ALLOCATED_STORAGE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_IOPS"
-  | "STORAGE_RECOMMENDATION_OPTIONS_STORAGE_THROUGHPUT"
-  | "STORAGE_RECOMMENDATION_OPTIONS_RANK"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_VOLUME_IOPS_COST_VARIATION"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_INSTANCE_ON_DEMAND_HOURLY_PRICE"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ON_DEMAND_MONTHLY_PRICE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_INSTANCE_ON_DEMAND_MONTHLY_COST"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_STORAGE_ON_DEMAND_MONTHLY_COST"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_STORAGE_IO_ON_DEMAND_MONTHLY_COST"
-  | "STORAGE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "TAGS"
-  | "DB_CLUSTER_IDENTIFIER"
-  | "PROMOTION_TIER";
+export type ExportableRDSDBField = "RESOURCE_ARN" | "ACCOUNT_ID" | "ENGINE" | "ENGINE_VERSION" | "IDLE" | "MULTI_AZ_DB_INSTANCE" | "CLUSTER_WRITER" | "CURRENT_DB_INSTANCE_CLASS" | "CURRENT_STORAGE_CONFIGURATION_STORAGE_TYPE" | "CURRENT_STORAGE_CONFIGURATION_ALLOCATED_STORAGE" | "CURRENT_STORAGE_CONFIGURATION_MAX_ALLOCATED_STORAGE" | "CURRENT_STORAGE_CONFIGURATION_IOPS" | "CURRENT_STORAGE_CONFIGURATION_STORAGE_THROUGHPUT" | "CURRENT_STORAGE_ESTIMATED_MONTHLY_VOLUME_IOPS_COST_VARIATION" | "CURRENT_INSTANCE_ON_DEMAND_HOURLY_PRICE" | "CURRENT_STORAGE_ON_DEMAND_MONTHLY_PRICE" | "LOOKBACK_PERIOD_IN_DAYS" | "CURRENT_STORAGE_ESTIMATED_CLUSTER_INSTANCE_ON_DEMAND_MONTHLY_COST" | "CURRENT_STORAGE_ESTIMATED_CLUSTER_STORAGE_ON_DEMAND_MONTHLY_COST" | "CURRENT_STORAGE_ESTIMATED_CLUSTER_STORAGE_IO_ON_DEMAND_MONTHLY_COST" | "CURRENT_INSTANCE_PERFORMANCE_RISK" | "UTILIZATION_METRICS_CPU_MAXIMUM" | "UTILIZATION_METRICS_MEMORY_MAXIMUM" | "UTILIZATION_METRICS_EBS_VOLUME_STORAGE_SPACE_UTILIZATION_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM" | "UTILIZATION_METRICS_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM" | "UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM" | "UTILIZATION_METRICS_EBS_VOLUME_WRITE_IOPS_MAXIMUM" | "UTILIZATION_METRICS_EBS_VOLUME_READ_THROUGHPUT_MAXIMUM" | "UTILIZATION_METRICS_EBS_VOLUME_WRITE_THROUGHPUT_MAXIMUM" | "UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM" | "UTILIZATION_METRICS_STORAGE_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM" | "UTILIZATION_METRICS_STORAGE_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM" | "UTILIZATION_METRICS_AURORA_MEMORY_HEALTH_STATE_MAXIMUM" | "UTILIZATION_METRICS_AURORA_MEMORY_NUM_DECLINED_SQL_TOTAL_MAXIMUM" | "UTILIZATION_METRICS_AURORA_MEMORY_NUM_KILL_CONN_TOTAL_MAXIMUM" | "UTILIZATION_METRICS_AURORA_MEMORY_NUM_KILL_QUERY_TOTAL_MAXIMUM" | "UTILIZATION_METRICS_READ_IOPS_EPHEMERAL_STORAGE_MAXIMUM" | "UTILIZATION_METRICS_WRITE_IOPS_EPHEMERAL_STORAGE_MAXIMUM" | "UTILIZATION_METRICS_VOLUME_BYTES_USED_AVERAGE" | "UTILIZATION_METRICS_VOLUME_READ_IOPS_AVERAGE" | "UTILIZATION_METRICS_VOLUME_WRITE_IOPS_AVERAGE" | "INSTANCE_FINDING" | "INSTANCE_FINDING_REASON_CODES" | "STORAGE_FINDING" | "STORAGE_FINDING_REASON_CODES" | "INSTANCE_RECOMMENDATION_OPTIONS_DB_INSTANCE_CLASS" | "INSTANCE_RECOMMENDATION_OPTIONS_RANK" | "INSTANCE_RECOMMENDATION_OPTIONS_PERFORMANCE_RISK" | "INSTANCE_RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM" | "STORAGE_RECOMMENDATION_OPTIONS_STORAGE_TYPE" | "STORAGE_RECOMMENDATION_OPTIONS_ALLOCATED_STORAGE" | "STORAGE_RECOMMENDATION_OPTIONS_MAX_ALLOCATED_STORAGE" | "STORAGE_RECOMMENDATION_OPTIONS_IOPS" | "STORAGE_RECOMMENDATION_OPTIONS_STORAGE_THROUGHPUT" | "STORAGE_RECOMMENDATION_OPTIONS_RANK" | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_VOLUME_IOPS_COST_VARIATION" | "INSTANCE_RECOMMENDATION_OPTIONS_INSTANCE_ON_DEMAND_HOURLY_PRICE" | "INSTANCE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE" | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY" | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE" | "INSTANCE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE" | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS" | "INSTANCE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS" | "STORAGE_RECOMMENDATION_OPTIONS_ON_DEMAND_MONTHLY_PRICE" | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_INSTANCE_ON_DEMAND_MONTHLY_COST" | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_STORAGE_ON_DEMAND_MONTHLY_COST" | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_CLUSTER_STORAGE_IO_ON_DEMAND_MONTHLY_COST" | "STORAGE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE" | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY" | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE" | "STORAGE_RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE" | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS" | "STORAGE_RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE" | "LAST_REFRESH_TIMESTAMP" | "TAGS" | "DB_CLUSTER_IDENTIFIER" | "PROMOTION_TIER";
 export type ExportableRDSDBFields = Array<ExportableRDSDBField>;
-export type ExportableVolumeField =
-  | "ACCOUNT_ID"
-  | "VOLUME_ARN"
-  | "FINDING"
-  | "UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM"
-  | "UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM"
-  | "LOOKBACK_PERIOD_IN_DAYS"
-  | "CURRENT_CONFIGURATION_VOLUME_TYPE"
-  | "CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS"
-  | "CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT"
-  | "CURRENT_CONFIGURATION_VOLUME_BURST_IOPS"
-  | "CURRENT_CONFIGURATION_VOLUME_BURST_THROUGHPUT"
-  | "CURRENT_CONFIGURATION_VOLUME_SIZE"
-  | "CURRENT_MONTHLY_PRICE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_IOPS"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_IOPS"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_THROUGHPUT"
-  | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE"
-  | "RECOMMENDATION_OPTIONS_MONTHLY_PRICE"
-  | "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-  | "LAST_REFRESH_TIMESTAMP"
-  | "CURRENT_PERFORMANCE_RISK"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-  | "TAGS"
-  | "ROOT_VOLUME"
-  | "CURRENT_CONFIGURATION_ROOT_VOLUME"
-  | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE"
-  | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS"
-  | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
+export type ExportableVolumeField = "ACCOUNT_ID" | "VOLUME_ARN" | "FINDING" | "UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM" | "UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM" | "LOOKBACK_PERIOD_IN_DAYS" | "CURRENT_CONFIGURATION_VOLUME_TYPE" | "CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS" | "CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT" | "CURRENT_CONFIGURATION_VOLUME_BURST_IOPS" | "CURRENT_CONFIGURATION_VOLUME_BURST_THROUGHPUT" | "CURRENT_CONFIGURATION_VOLUME_SIZE" | "CURRENT_MONTHLY_PRICE" | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE" | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_IOPS" | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT" | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_IOPS" | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_THROUGHPUT" | "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE" | "RECOMMENDATION_OPTIONS_MONTHLY_PRICE" | "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK" | "LAST_REFRESH_TIMESTAMP" | "CURRENT_PERFORMANCE_RISK" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE" | "TAGS" | "ROOT_VOLUME" | "CURRENT_CONFIGURATION_ROOT_VOLUME" | "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE" | "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS" | "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS";
 export type ExportableVolumeFields = Array<ExportableVolumeField>;
 export interface ExportAutoScalingGroupRecommendationsRequest {
   accountIds?: Array<string>;
@@ -1252,26 +646,12 @@ export interface ExportRDSDatabaseRecommendationsResponse {
 export interface ExternalMetricsPreference {
   source?: ExternalMetricsSource;
 }
-export type ExternalMetricsSource =
-  | "DATADOG"
-  | "DYNATRACE"
-  | "NEWRELIC"
-  | "INSTANA";
+export type ExternalMetricsSource = "DATADOG" | "DYNATRACE" | "NEWRELIC" | "INSTANA";
 export interface ExternalMetricStatus {
   statusCode?: ExternalMetricStatusCode;
   statusReason?: string;
 }
-export type ExternalMetricStatusCode =
-  | "NO_EXTERNAL_METRIC_SET"
-  | "INTEGRATION_SUCCESS"
-  | "DATADOG_INTEGRATION_ERROR"
-  | "DYNATRACE_INTEGRATION_ERROR"
-  | "NEWRELIC_INTEGRATION_ERROR"
-  | "INSTANA_INTEGRATION_ERROR"
-  | "INSUFFICIENT_DATADOG_METRICS"
-  | "INSUFFICIENT_DYNATRACE_METRICS"
-  | "INSUFFICIENT_NEWRELIC_METRICS"
-  | "INSUFFICIENT_INSTANA_METRICS";
+export type ExternalMetricStatusCode = "NO_EXTERNAL_METRIC_SET" | "INTEGRATION_SUCCESS" | "DATADOG_INTEGRATION_ERROR" | "DYNATRACE_INTEGRATION_ERROR" | "NEWRELIC_INTEGRATION_ERROR" | "INSTANA_INTEGRATION_ERROR" | "INSUFFICIENT_DATADOG_METRICS" | "INSUFFICIENT_DYNATRACE_METRICS" | "INSUFFICIENT_NEWRELIC_METRICS" | "INSUFFICIENT_INSTANA_METRICS";
 export type ExternalMetricStatusReason = string;
 
 export type FailureReason = string;
@@ -1281,23 +661,13 @@ export interface Filter {
   name?: FilterName;
   values?: Array<string>;
 }
-export type FilterName =
-  | "FINDING"
-  | "FINDING_REASON_CODES"
-  | "RECOMMENDATION_SOURCE_TYPE"
-  | "INFERRED_WORKLOAD_TYPES";
+export type FilterName = "FINDING" | "FINDING_REASON_CODES" | "RECOMMENDATION_SOURCE_TYPE" | "INFERRED_WORKLOAD_TYPES";
 export type Filters = Array<Filter>;
 export type FilterValue = string;
 
 export type FilterValues = Array<string>;
-export type Finding =
-  | "UNDER_PROVISIONED"
-  | "OVER_PROVISIONED"
-  | "OPTIMIZED"
-  | "NOT_OPTIMIZED";
-export type FindingReasonCode =
-  | "MEMORY_OVER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED";
+export type Finding = "UNDER_PROVISIONED" | "OVER_PROVISIONED" | "OPTIMIZED" | "NOT_OPTIMIZED";
+export type FindingReasonCode = "MEMORY_OVER_PROVISIONED" | "MEMORY_UNDER_PROVISIONED";
 export type FunctionArn = string;
 
 export type FunctionArns = Array<string>;
@@ -1393,7 +763,8 @@ export interface GetEnrollmentStatusesForOrganizationResponse {
   accountEnrollmentStatuses?: Array<AccountEnrollmentStatus>;
   nextToken?: string;
 }
-export interface GetEnrollmentStatusRequest {}
+export interface GetEnrollmentStatusRequest {
+}
 export interface GetEnrollmentStatusResponse {
   status?: Status;
   statusReason?: string;
@@ -1512,16 +883,7 @@ export type IdleFindingDescription = string;
 
 export type IdleMaxResults = number;
 
-export type IdleMetricName =
-  | "CPU"
-  | "MEMORY"
-  | "NETWORK_OUT_BYTES_PER_SECOND"
-  | "NETWORK_IN_BYTES_PER_SECOND"
-  | "DATABASE_CONNECTIONS"
-  | "EBS_VOLUME_READ_IOPS"
-  | "EBS_VOLUME_WRITE_IOPS"
-  | "VOLUME_READ_OPS_PER_SECOND"
-  | "VOLUME_WRITE_OPS_PER_SECOND";
+export type IdleMetricName = "CPU" | "MEMORY" | "NETWORK_OUT_BYTES_PER_SECOND" | "NETWORK_IN_BYTES_PER_SECOND" | "DATABASE_CONNECTIONS" | "EBS_VOLUME_READ_IOPS" | "EBS_VOLUME_WRITE_IOPS" | "VOLUME_READ_OPS_PER_SECOND" | "VOLUME_WRITE_OPS_PER_SECOND";
 export interface IdleRecommendation {
   resourceArn?: string;
   resourceId?: string;
@@ -1549,12 +911,7 @@ export interface IdleRecommendationFilter {
 }
 export type IdleRecommendationFilterName = "FINDING" | "RESOURCE_TYPE";
 export type IdleRecommendationFilters = Array<IdleRecommendationFilter>;
-export type IdleRecommendationResourceType =
-  | "EC2_INSTANCE"
-  | "AUTO_SCALING_GROUP"
-  | "EBS_VOLUME"
-  | "ECS_SERVICE"
-  | "RDS_DB_INSTANCE";
+export type IdleRecommendationResourceType = "EC2_INSTANCE" | "AUTO_SCALING_GROUP" | "EBS_VOLUME" | "ECS_SERVICE" | "RDS_DB_INSTANCE";
 export type IdleRecommendations = Array<IdleRecommendation>;
 export interface IdleSavingsOpportunity {
   savingsOpportunityPercentage?: number;
@@ -1582,16 +939,7 @@ export interface InferredWorkloadSaving {
   estimatedMonthlySavings?: EstimatedMonthlySavings;
 }
 export type InferredWorkloadSavings = Array<InferredWorkloadSaving>;
-export type InferredWorkloadType =
-  | "AMAZON_EMR"
-  | "APACHE_CASSANDRA"
-  | "APACHE_HADOOP"
-  | "MEMCACHED"
-  | "NGINX"
-  | "POSTGRE_SQL"
-  | "REDIS"
-  | "KAFKA"
-  | "SQLSERVER";
+export type InferredWorkloadType = "AMAZON_EMR" | "APACHE_CASSANDRA" | "APACHE_HADOOP" | "MEMCACHED" | "NGINX" | "POSTGRE_SQL" | "REDIS" | "KAFKA" | "SQLSERVER";
 export type InferredWorkloadTypes = Array<InferredWorkloadType>;
 export type InferredWorkloadTypesPreference = "ACTIVE" | "INACTIVE";
 export type InstanceArn = string;
@@ -1625,29 +973,8 @@ export interface InstanceRecommendation {
   currentInstanceGpuInfo?: GpuInfo;
   idle?: InstanceIdle;
 }
-export type InstanceRecommendationFindingReasonCode =
-  | "CPU_OVER_PROVISIONED"
-  | "CPU_UNDER_PROVISIONED"
-  | "MEMORY_OVER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED"
-  | "EBS_THROUGHPUT_OVER_PROVISIONED"
-  | "EBS_THROUGHPUT_UNDER_PROVISIONED"
-  | "EBS_IOPS_OVER_PROVISIONED"
-  | "EBS_IOPS_UNDER_PROVISIONED"
-  | "NETWORK_BANDWIDTH_OVER_PROVISIONED"
-  | "NETWORK_BANDWIDTH_UNDER_PROVISIONED"
-  | "NETWORK_PPS_OVER_PROVISIONED"
-  | "NETWORK_PPS_UNDER_PROVISIONED"
-  | "DISK_IOPS_OVER_PROVISIONED"
-  | "DISK_IOPS_UNDER_PROVISIONED"
-  | "DISK_THROUGHPUT_OVER_PROVISIONED"
-  | "DISK_THROUGHPUT_UNDER_PROVISIONED"
-  | "GPU_UNDER_PROVISIONED"
-  | "GPU_OVER_PROVISIONED"
-  | "GPU_MEMORY_UNDER_PROVISIONED"
-  | "GPU_MEMORY_OVER_PROVISIONED";
-export type InstanceRecommendationFindingReasonCodes =
-  Array<InstanceRecommendationFindingReasonCode>;
+export type InstanceRecommendationFindingReasonCode = "CPU_OVER_PROVISIONED" | "CPU_UNDER_PROVISIONED" | "MEMORY_OVER_PROVISIONED" | "MEMORY_UNDER_PROVISIONED" | "EBS_THROUGHPUT_OVER_PROVISIONED" | "EBS_THROUGHPUT_UNDER_PROVISIONED" | "EBS_IOPS_OVER_PROVISIONED" | "EBS_IOPS_UNDER_PROVISIONED" | "NETWORK_BANDWIDTH_OVER_PROVISIONED" | "NETWORK_BANDWIDTH_UNDER_PROVISIONED" | "NETWORK_PPS_OVER_PROVISIONED" | "NETWORK_PPS_UNDER_PROVISIONED" | "DISK_IOPS_OVER_PROVISIONED" | "DISK_IOPS_UNDER_PROVISIONED" | "DISK_THROUGHPUT_OVER_PROVISIONED" | "DISK_THROUGHPUT_UNDER_PROVISIONED" | "GPU_UNDER_PROVISIONED" | "GPU_OVER_PROVISIONED" | "GPU_MEMORY_UNDER_PROVISIONED" | "GPU_MEMORY_OVER_PROVISIONED";
+export type InstanceRecommendationFindingReasonCodes = Array<InstanceRecommendationFindingReasonCode>;
 export interface InstanceRecommendationOption {
   instanceType?: string;
   instanceGpuInfo?: GpuInfo;
@@ -1663,21 +990,12 @@ export type InstanceRecommendations = Array<InstanceRecommendation>;
 export interface InstanceSavingsEstimationMode {
   source?: InstanceSavingsEstimationModeSource;
 }
-export type InstanceSavingsEstimationModeSource =
-  | "PUBLIC_PRICING"
-  | "COST_EXPLORER_RIGHTSIZING"
-  | "COST_OPTIMIZATION_HUB";
+export type InstanceSavingsEstimationModeSource = "PUBLIC_PRICING" | "COST_EXPLORER_RIGHTSIZING" | "COST_OPTIMIZATION_HUB";
 export interface InstanceSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
   estimatedMonthlySavings?: InstanceEstimatedMonthlySavings;
 }
-export type InstanceState =
-  | "PENDING"
-  | "RUNNING"
-  | "SHUTTING_DOWN"
-  | "TERMINATED"
-  | "STOPPING"
-  | "STOPPED";
+export type InstanceState = "PENDING" | "RUNNING" | "SHUTTING_DOWN" | "TERMINATED" | "STOPPING" | "STOPPED";
 export type InstanceType = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -1708,17 +1026,13 @@ export interface LambdaEstimatedMonthlySavings {
   value?: number;
 }
 export type LambdaFunctionMemoryMetricName = "DURATION";
-export type LambdaFunctionMemoryMetricStatistic =
-  | "LOWER_BOUND"
-  | "UPPER_BOUND"
-  | "EXPECTED";
+export type LambdaFunctionMemoryMetricStatistic = "LOWER_BOUND" | "UPPER_BOUND" | "EXPECTED";
 export interface LambdaFunctionMemoryProjectedMetric {
   name?: LambdaFunctionMemoryMetricName;
   statistic?: LambdaFunctionMemoryMetricStatistic;
   value?: number;
 }
-export type LambdaFunctionMemoryProjectedMetrics =
-  Array<LambdaFunctionMemoryProjectedMetric>;
+export type LambdaFunctionMemoryProjectedMetrics = Array<LambdaFunctionMemoryProjectedMetric>;
 export interface LambdaFunctionMemoryRecommendationOption {
   rank?: number;
   memorySize?: number;
@@ -1726,8 +1040,7 @@ export interface LambdaFunctionMemoryRecommendationOption {
   savingsOpportunity?: SavingsOpportunity;
   savingsOpportunityAfterDiscounts?: LambdaSavingsOpportunityAfterDiscounts;
 }
-export type LambdaFunctionMemoryRecommendationOptions =
-  Array<LambdaFunctionMemoryRecommendationOption>;
+export type LambdaFunctionMemoryRecommendationOptions = Array<LambdaFunctionMemoryRecommendationOption>;
 export type LambdaFunctionMetricName = "DURATION" | "MEMORY";
 export type LambdaFunctionMetricStatistic = "MAXIMUM" | "AVERAGE";
 export interface LambdaFunctionRecommendation {
@@ -1750,37 +1063,22 @@ export interface LambdaFunctionRecommendationFilter {
   name?: LambdaFunctionRecommendationFilterName;
   values?: Array<string>;
 }
-export type LambdaFunctionRecommendationFilterName =
-  | "FINDING"
-  | "FINDING_REASON_CODE";
-export type LambdaFunctionRecommendationFilters =
-  Array<LambdaFunctionRecommendationFilter>;
-export type LambdaFunctionRecommendationFinding =
-  | "OPTIMIZED"
-  | "NOT_OPTIMIZED"
-  | "UNAVAILABLE";
-export type LambdaFunctionRecommendationFindingReasonCode =
-  | "MEMORY_OVER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED"
-  | "INSUFFICIENT_DATA"
-  | "INCONCLUSIVE";
-export type LambdaFunctionRecommendationFindingReasonCodes =
-  Array<LambdaFunctionRecommendationFindingReasonCode>;
+export type LambdaFunctionRecommendationFilterName = "FINDING" | "FINDING_REASON_CODE";
+export type LambdaFunctionRecommendationFilters = Array<LambdaFunctionRecommendationFilter>;
+export type LambdaFunctionRecommendationFinding = "OPTIMIZED" | "NOT_OPTIMIZED" | "UNAVAILABLE";
+export type LambdaFunctionRecommendationFindingReasonCode = "MEMORY_OVER_PROVISIONED" | "MEMORY_UNDER_PROVISIONED" | "INSUFFICIENT_DATA" | "INCONCLUSIVE";
+export type LambdaFunctionRecommendationFindingReasonCodes = Array<LambdaFunctionRecommendationFindingReasonCode>;
 export type LambdaFunctionRecommendations = Array<LambdaFunctionRecommendation>;
 export interface LambdaFunctionUtilizationMetric {
   name?: LambdaFunctionMetricName;
   statistic?: LambdaFunctionMetricStatistic;
   value?: number;
 }
-export type LambdaFunctionUtilizationMetrics =
-  Array<LambdaFunctionUtilizationMetric>;
+export type LambdaFunctionUtilizationMetrics = Array<LambdaFunctionUtilizationMetric>;
 export interface LambdaSavingsEstimationMode {
   source?: LambdaSavingsEstimationModeSource;
 }
-export type LambdaSavingsEstimationModeSource =
-  | "PUBLIC_PRICING"
-  | "COST_EXPLORER_RIGHTSIZING"
-  | "COST_OPTIMIZATION_HUB";
+export type LambdaSavingsEstimationModeSource = "PUBLIC_PRICING" | "COST_EXPLORER_RIGHTSIZING" | "COST_OPTIMIZATION_HUB";
 export interface LambdaSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
   estimatedMonthlySavings?: LambdaEstimatedMonthlySavings;
@@ -1799,20 +1097,9 @@ export interface LicenseConfiguration {
   licenseVersion?: string;
   metricsSource?: Array<MetricSource>;
 }
-export type LicenseEdition =
-  | "ENTERPRISE"
-  | "STANDARD"
-  | "FREE"
-  | "NO_LICENSE_EDITION_FOUND";
-export type LicenseFinding =
-  | "INSUFFICIENT_METRICS"
-  | "OPTIMIZED"
-  | "NOT_OPTIMIZED";
-export type LicenseFindingReasonCode =
-  | "CW_APP_INSIGHTS_DISABLED"
-  | "CW_APP_INSIGHTS_ERROR"
-  | "LICENSE_OVER_PROVISIONED"
-  | "OPTIMIZED";
+export type LicenseEdition = "ENTERPRISE" | "STANDARD" | "FREE" | "NO_LICENSE_EDITION_FOUND";
+export type LicenseFinding = "INSUFFICIENT_METRICS" | "OPTIMIZED" | "NOT_OPTIMIZED";
+export type LicenseFindingReasonCode = "CW_APP_INSIGHTS_DISABLED" | "CW_APP_INSIGHTS_ERROR" | "LICENSE_OVER_PROVISIONED" | "OPTIMIZED";
 export type LicenseFindingReasonCodes = Array<LicenseFindingReasonCode>;
 export type LicenseModel = "LICENSE_INCLUDED" | "BRING_YOUR_OWN_LICENSE";
 export type LicenseName = "SQLSERVER";
@@ -1831,10 +1118,7 @@ export interface LicenseRecommendationFilter {
   name?: LicenseRecommendationFilterName;
   values?: Array<string>;
 }
-export type LicenseRecommendationFilterName =
-  | "LICENSE_FINDING"
-  | "LICENSE_FINDING_REASON_CODE"
-  | "LICENSE_NAME";
+export type LicenseRecommendationFilterName = "LICENSE_FINDING" | "LICENSE_FINDING_REASON_CODE" | "LICENSE_NAME";
 export type LicenseRecommendationFilters = Array<LicenseRecommendationFilter>;
 export interface LicenseRecommendationOption {
   rank?: number;
@@ -1877,23 +1161,7 @@ export type Message = string;
 
 export type MetadataKey = string;
 
-export type MetricName =
-  | "CPU"
-  | "MEMORY"
-  | "EBS_READ_OPS_PER_SECOND"
-  | "EBS_WRITE_OPS_PER_SECOND"
-  | "EBS_READ_BYTES_PER_SECOND"
-  | "EBS_WRITE_BYTES_PER_SECOND"
-  | "DISK_READ_OPS_PER_SECOND"
-  | "DISK_WRITE_OPS_PER_SECOND"
-  | "DISK_READ_BYTES_PER_SECOND"
-  | "DISK_WRITE_BYTES_PER_SECOND"
-  | "NETWORK_IN_BYTES_PER_SECOND"
-  | "NETWORK_OUT_BYTES_PER_SECOND"
-  | "NETWORK_PACKETS_IN_PER_SECOND"
-  | "NETWORK_PACKETS_OUT_PER_SECOND"
-  | "GPU_PERCENTAGE"
-  | "GPU_MEMORY_PERCENTAGE";
+export type MetricName = "CPU" | "MEMORY" | "EBS_READ_OPS_PER_SECOND" | "EBS_WRITE_OPS_PER_SECOND" | "EBS_READ_BYTES_PER_SECOND" | "EBS_WRITE_BYTES_PER_SECOND" | "DISK_READ_OPS_PER_SECOND" | "DISK_WRITE_OPS_PER_SECOND" | "DISK_READ_BYTES_PER_SECOND" | "DISK_WRITE_BYTES_PER_SECOND" | "NETWORK_IN_BYTES_PER_SECOND" | "NETWORK_OUT_BYTES_PER_SECOND" | "NETWORK_PACKETS_IN_PER_SECOND" | "NETWORK_PACKETS_OUT_PER_SECOND" | "GPU_PERCENTAGE" | "GPU_MEMORY_PERCENTAGE";
 export type MetricProviderArn = string;
 
 export interface MetricSource {
@@ -1957,13 +1225,7 @@ export type PerformanceRisk = number;
 
 export type Period = number;
 
-export type PlatformDifference =
-  | "HYPERVISOR"
-  | "NETWORK_INTERFACE"
-  | "STORAGE_INTERFACE"
-  | "INSTANCE_STORE_AVAILABILITY"
-  | "VIRTUALIZATION_TYPE"
-  | "ARCHITECTURE";
+export type PlatformDifference = "HYPERVISOR" | "NETWORK_INTERFACE" | "STORAGE_INTERFACE" | "INSTANCE_STORE_AVAILABILITY" | "VIRTUALIZATION_TYPE" | "ARCHITECTURE";
 export type PlatformDifferences = Array<PlatformDifference>;
 export interface PreferredResource {
   name?: PreferredResourceName;
@@ -1995,14 +1257,11 @@ export interface PutRecommendationPreferencesRequest {
   preferredResources?: Array<PreferredResource>;
   savingsEstimationMode?: SavingsEstimationMode;
 }
-export interface PutRecommendationPreferencesResponse {}
+export interface PutRecommendationPreferencesResponse {
+}
 export type Rank = number;
 
-export type RDSCurrentInstancePerformanceRisk =
-  | "VERY_LOW"
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH";
+export type RDSCurrentInstancePerformanceRisk = "VERY_LOW" | "LOW" | "MEDIUM" | "HIGH";
 export interface RDSDatabaseProjectedMetric {
   name?: RDSDBMetricName;
   timestamps?: Array<Date | string>;
@@ -2014,8 +1273,7 @@ export interface RDSDatabaseRecommendedOptionProjectedMetric {
   rank?: number;
   projectedMetrics?: Array<RDSDatabaseProjectedMetric>;
 }
-export type RDSDatabaseRecommendedOptionProjectedMetrics =
-  Array<RDSDatabaseRecommendedOptionProjectedMetric>;
+export type RDSDatabaseRecommendedOptionProjectedMetrics = Array<RDSDatabaseRecommendedOptionProjectedMetric>;
 export interface RDSDBInstanceRecommendationOption {
   dbInstanceClass?: string;
   projectedUtilizationMetrics?: Array<RDSDBUtilizationMetric>;
@@ -2024,30 +1282,8 @@ export interface RDSDBInstanceRecommendationOption {
   savingsOpportunity?: SavingsOpportunity;
   savingsOpportunityAfterDiscounts?: RDSInstanceSavingsOpportunityAfterDiscounts;
 }
-export type RDSDBInstanceRecommendationOptions =
-  Array<RDSDBInstanceRecommendationOption>;
-export type RDSDBMetricName =
-  | "CPU"
-  | "MEMORY"
-  | "EBS_VOLUME_STORAGE_SPACE_UTILIZATION"
-  | "NETWORK_RECEIVE_THROUGHPUT"
-  | "NETWORK_TRANSMIT_THROUGHPUT"
-  | "EBS_VOLUME_READ_IOPS"
-  | "EBS_VOLUME_WRITE_IOPS"
-  | "EBS_VOLUME_READ_THROUGHPUT"
-  | "EBS_VOLUME_WRITE_THROUGHPUT"
-  | "DATABASE_CONNECTIONS"
-  | "STORAGE_NETWORK_RECEIVE_THROUGHPUT"
-  | "STORAGE_NETWORK_TRANSMIT_THROUGHPUT"
-  | "AURORA_MEMORY_HEALTH_STATE"
-  | "AURORA_MEMORY_NUM_DECLINED_SQL"
-  | "AURORA_MEMORY_NUM_KILL_CONN_TOTAL"
-  | "AURORA_MEMORY_NUM_KILL_QUERY_TOTAL"
-  | "READ_IOPS_EPHEMERAL_STORAGE"
-  | "WRITE_IOPS_EPHEMERAL_STORAGE"
-  | "VOLUME_READ_IOPS"
-  | "VOLUME_BYTES_USED"
-  | "VOLUME_WRITE_IOPS";
+export type RDSDBInstanceRecommendationOptions = Array<RDSDBInstanceRecommendationOption>;
+export type RDSDBMetricName = "CPU" | "MEMORY" | "EBS_VOLUME_STORAGE_SPACE_UTILIZATION" | "NETWORK_RECEIVE_THROUGHPUT" | "NETWORK_TRANSMIT_THROUGHPUT" | "EBS_VOLUME_READ_IOPS" | "EBS_VOLUME_WRITE_IOPS" | "EBS_VOLUME_READ_THROUGHPUT" | "EBS_VOLUME_WRITE_THROUGHPUT" | "DATABASE_CONNECTIONS" | "STORAGE_NETWORK_RECEIVE_THROUGHPUT" | "STORAGE_NETWORK_TRANSMIT_THROUGHPUT" | "AURORA_MEMORY_HEALTH_STATE" | "AURORA_MEMORY_NUM_DECLINED_SQL" | "AURORA_MEMORY_NUM_KILL_CONN_TOTAL" | "AURORA_MEMORY_NUM_KILL_QUERY_TOTAL" | "READ_IOPS_EPHEMERAL_STORAGE" | "WRITE_IOPS_EPHEMERAL_STORAGE" | "VOLUME_READ_IOPS" | "VOLUME_BYTES_USED" | "VOLUME_WRITE_IOPS";
 export type RDSDBMetricStatistic = "MAXIMUM" | "MINIMUM" | "AVERAGE";
 export type RDSDBProjectedUtilizationMetrics = Array<RDSDBUtilizationMetric>;
 export interface RDSDBRecommendation {
@@ -2078,12 +1314,7 @@ export interface RDSDBRecommendationFilter {
   name?: RDSDBRecommendationFilterName;
   values?: Array<string>;
 }
-export type RDSDBRecommendationFilterName =
-  | "INSTANCE_FINDING"
-  | "INSTANCE_FINDING_REASON_CODE"
-  | "STORAGE_FINDING"
-  | "STORAGE_FINDING_REASON_CODE"
-  | "IDLE";
+export type RDSDBRecommendationFilterName = "INSTANCE_FINDING" | "INSTANCE_FINDING_REASON_CODE" | "STORAGE_FINDING" | "STORAGE_FINDING_REASON_CODE" | "IDLE";
 export type RDSDBRecommendationFilters = Array<RDSDBRecommendationFilter>;
 export type RDSDBRecommendations = Array<RDSDBRecommendation>;
 export interface RDSDBStorageRecommendationOption {
@@ -2093,8 +1324,7 @@ export interface RDSDBStorageRecommendationOption {
   savingsOpportunityAfterDiscounts?: RDSStorageSavingsOpportunityAfterDiscounts;
   estimatedMonthlyVolumeIOPsCostVariation?: RDSEstimatedMonthlyVolumeIOPsCostVariation;
 }
-export type RDSDBStorageRecommendationOptions =
-  Array<RDSDBStorageRecommendationOption>;
+export type RDSDBStorageRecommendationOptions = Array<RDSDBStorageRecommendationOption>;
 export interface RDSDBUtilizationMetric {
   name?: RDSDBMetricName;
   statistic?: RDSDBMetricStatistic;
@@ -2107,34 +1337,13 @@ export interface RDSEffectiveRecommendationPreferences {
   lookBackPeriod?: LookBackPeriodPreference;
   savingsEstimationMode?: RDSSavingsEstimationMode;
 }
-export type RDSEstimatedMonthlyVolumeIOPsCostVariation =
-  | "NONE"
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH";
+export type RDSEstimatedMonthlyVolumeIOPsCostVariation = "NONE" | "LOW" | "MEDIUM" | "HIGH";
 export interface RDSInstanceEstimatedMonthlySavings {
   currency?: Currency;
   value?: number;
 }
-export type RDSInstanceFinding =
-  | "OPTIMIZED"
-  | "UNDER_PROVISIONED"
-  | "OVER_PROVISIONED";
-export type RDSInstanceFindingReasonCode =
-  | "CPU_OVER_PROVISIONED"
-  | "NETWORK_BANDWIDTH_OVER_PROVISIONED"
-  | "EBS_IOPS_OVER_PROVISIONED"
-  | "EBS_IOPS_UNDER_PROVISIONED"
-  | "EBS_THROUGHPUT_OVER_PROVISIONED"
-  | "CPU_UNDER_PROVISIONED"
-  | "NETWORK_BANDWIDTH_UNDER_PROVISIONED"
-  | "EBS_THROUGHPUT_UNDER_PROVISIONED"
-  | "NEW_GENERATION_DB_INSTANCE_CLASS_AVAILABLE"
-  | "NEW_ENGINE_VERSION_AVAILABLE"
-  | "DB_CLUSTER_WRITER_UNDER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED"
-  | "INSTANCE_STORAGE_READ_IOPS_UNDER_PROVISIONED"
-  | "INSTANCE_STORAGE_WRITE_IOPS_UNDER_PROVISIONED";
+export type RDSInstanceFinding = "OPTIMIZED" | "UNDER_PROVISIONED" | "OVER_PROVISIONED";
+export type RDSInstanceFindingReasonCode = "CPU_OVER_PROVISIONED" | "NETWORK_BANDWIDTH_OVER_PROVISIONED" | "EBS_IOPS_OVER_PROVISIONED" | "EBS_IOPS_UNDER_PROVISIONED" | "EBS_THROUGHPUT_OVER_PROVISIONED" | "CPU_UNDER_PROVISIONED" | "NETWORK_BANDWIDTH_UNDER_PROVISIONED" | "EBS_THROUGHPUT_UNDER_PROVISIONED" | "NEW_GENERATION_DB_INSTANCE_CLASS_AVAILABLE" | "NEW_ENGINE_VERSION_AVAILABLE" | "DB_CLUSTER_WRITER_UNDER_PROVISIONED" | "MEMORY_UNDER_PROVISIONED" | "INSTANCE_STORAGE_READ_IOPS_UNDER_PROVISIONED" | "INSTANCE_STORAGE_WRITE_IOPS_UNDER_PROVISIONED";
 export type RDSInstanceFindingReasonCodes = Array<RDSInstanceFindingReasonCode>;
 export interface RDSInstanceSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
@@ -2143,27 +1352,13 @@ export interface RDSInstanceSavingsOpportunityAfterDiscounts {
 export interface RDSSavingsEstimationMode {
   source?: RDSSavingsEstimationModeSource;
 }
-export type RDSSavingsEstimationModeSource =
-  | "PUBLIC_PRICING"
-  | "COST_EXPLORER_RIGHTSIZING"
-  | "COST_OPTIMIZATION_HUB";
+export type RDSSavingsEstimationModeSource = "PUBLIC_PRICING" | "COST_EXPLORER_RIGHTSIZING" | "COST_OPTIMIZATION_HUB";
 export interface RDSStorageEstimatedMonthlySavings {
   currency?: Currency;
   value?: number;
 }
-export type RDSStorageFinding =
-  | "OPTIMIZED"
-  | "UNDER_PROVISIONED"
-  | "OVER_PROVISIONED"
-  | "NOT_OPTIMIZED";
-export type RDSStorageFindingReasonCode =
-  | "EBS_VOLUME_ALLOCATED_STORAGE_UNDER_PROVISIONED"
-  | "EBS_VOLUME_THROUGHPUT_UNDER_PROVISIONED"
-  | "EBS_VOLUME_IOPS_OVER_PROVISIONED"
-  | "EBS_VOLUME_THROUGHPUT_OVER_PROVISIONED"
-  | "NEW_GENERATION_STORAGE_TYPE_AVAILABLE"
-  | "DB_CLUSTER_STORAGE_OPTION_AVAILABLE"
-  | "DB_CLUSTER_STORAGE_SAVINGS_AVAILABLE";
+export type RDSStorageFinding = "OPTIMIZED" | "UNDER_PROVISIONED" | "OVER_PROVISIONED" | "NOT_OPTIMIZED";
+export type RDSStorageFindingReasonCode = "EBS_VOLUME_ALLOCATED_STORAGE_UNDER_PROVISIONED" | "EBS_VOLUME_THROUGHPUT_UNDER_PROVISIONED" | "EBS_VOLUME_IOPS_OVER_PROVISIONED" | "EBS_VOLUME_THROUGHPUT_OVER_PROVISIONED" | "NEW_GENERATION_STORAGE_TYPE_AVAILABLE" | "DB_CLUSTER_STORAGE_OPTION_AVAILABLE" | "DB_CLUSTER_STORAGE_SAVINGS_AVAILABLE";
 export type RDSStorageFindingReasonCodes = Array<RDSStorageFindingReasonCode>;
 export interface RDSStorageSavingsOpportunityAfterDiscounts {
   savingsOpportunityPercentage?: number;
@@ -2185,13 +1380,7 @@ export interface RecommendationExportJob {
 }
 export type RecommendationExportJobs = Array<RecommendationExportJob>;
 export type RecommendationOptions = Array<InstanceRecommendationOption>;
-export type RecommendationPreferenceName =
-  | "ENHANCED_INFRASTRUCTURE_METRICS"
-  | "INFERRED_WORKLOAD_TYPES"
-  | "EXTERNAL_METRICS_PREFERENCE"
-  | "LOOKBACK_PERIOD_PREFERENCE"
-  | "PREFERRED_RESOURCES"
-  | "UTILIZATION_PREFERENCES";
+export type RecommendationPreferenceName = "ENHANCED_INFRASTRUCTURE_METRICS" | "INFERRED_WORKLOAD_TYPES" | "EXTERNAL_METRICS_PREFERENCE" | "LOOKBACK_PERIOD_PREFERENCE" | "PREFERRED_RESOURCES" | "UTILIZATION_PREFERENCES";
 export type RecommendationPreferenceNames = Array<RecommendationPreferenceName>;
 export interface RecommendationPreferences {
   cpuVendorArchitectures?: Array<CpuVendorArchitecture>;
@@ -2207,8 +1396,7 @@ export interface RecommendationPreferencesDetail {
   preferredResources?: Array<EffectivePreferredResource>;
   savingsEstimationMode?: SavingsEstimationMode;
 }
-export type RecommendationPreferencesDetails =
-  Array<RecommendationPreferencesDetail>;
+export type RecommendationPreferencesDetails = Array<RecommendationPreferencesDetail>;
 export interface RecommendationSource {
   recommendationSourceArn?: string;
   recommendationSourceType?: RecommendationSourceType;
@@ -2216,16 +1404,7 @@ export interface RecommendationSource {
 export type RecommendationSourceArn = string;
 
 export type RecommendationSources = Array<RecommendationSource>;
-export type RecommendationSourceType =
-  | "EC2_INSTANCE"
-  | "AUTO_SCALING_GROUP"
-  | "EBS_VOLUME"
-  | "LAMBDA_FUNCTION"
-  | "ECS_SERVICE"
-  | "LICENSE"
-  | "RDS_DB_INSTANCE"
-  | "RDS_DB_INSTANCE_STORAGE"
-  | "AURORA_DB_CLUSTER_STORAGE";
+export type RecommendationSourceType = "EC2_INSTANCE" | "AUTO_SCALING_GROUP" | "EBS_VOLUME" | "LAMBDA_FUNCTION" | "ECS_SERVICE" | "LICENSE" | "RDS_DB_INSTANCE" | "RDS_DB_INSTANCE_STORAGE" | "AURORA_DB_CLUSTER_STORAGE";
 export type RecommendationSummaries = Array<RecommendationSummary>;
 export interface RecommendationSummary {
   summaries?: Array<Summary>;
@@ -2247,8 +1426,7 @@ export interface RecommendedOptionProjectedMetric {
   rank?: number;
   projectedMetrics?: Array<ProjectedMetric>;
 }
-export type RecommendedOptionProjectedMetrics =
-  Array<RecommendedOptionProjectedMetric>;
+export type RecommendedOptionProjectedMetrics = Array<RecommendedOptionProjectedMetric>;
 export type ResourceArn = string;
 
 export type ResourceArns = Array<string>;
@@ -2259,17 +1437,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type ResourceType =
-  | "EC2_INSTANCE"
-  | "AUTO_SCALING_GROUP"
-  | "EBS_VOLUME"
-  | "LAMBDA_FUNCTION"
-  | "NOT_APPLICABLE"
-  | "ECS_SERVICE"
-  | "LICENSE"
-  | "RDS_DB_INSTANCE"
-  | "AURORA_DB_CLUSTER_STORAGE"
-  | "IDLE";
+export type ResourceType = "EC2_INSTANCE" | "AUTO_SCALING_GROUP" | "EBS_VOLUME" | "LAMBDA_FUNCTION" | "NOT_APPLICABLE" | "ECS_SERVICE" | "LICENSE" | "RDS_DB_INSTANCE" | "AURORA_DB_CLUSTER_STORAGE" | "IDLE";
 export type RootVolume = boolean;
 
 export interface S3Destination {
@@ -2825,3 +1993,4 @@ export declare namespace UpdateEnrollmentStatus {
     | ThrottlingException
     | CommonAwsError;
 }
+

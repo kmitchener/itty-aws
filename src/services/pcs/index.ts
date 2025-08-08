@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class PCS extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("pcs", new AwsJson10Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -21,7 +26,10 @@ export class PCS extends AWSServiceClient {
   }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    ResourceNotFoundException | CommonAwsError
+  > {
     return this.call("UntagResource", input);
   }
 }
@@ -80,16 +88,7 @@ export interface ClusterSlurmConfigurationRequest {
   slurmCustomSettings?: Array<SlurmCustomSetting>;
   accounting?: AccountingRequest;
 }
-export type ClusterStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "CREATE_FAILED"
-  | "DELETE_FAILED"
-  | "UPDATE_FAILED"
-  | "SUSPENDING"
-  | "SUSPENDED";
+export type ClusterStatus = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "CREATE_FAILED" | "DELETE_FAILED" | "UPDATE_FAILED" | "SUSPENDING" | "SUSPENDED";
 export interface ClusterSummary {
   name: string;
   id: string;
@@ -120,8 +119,7 @@ export interface ComputeNodeGroup {
 export interface ComputeNodeGroupConfiguration {
   computeNodeGroupId?: string;
 }
-export type ComputeNodeGroupConfigurationList =
-  Array<ComputeNodeGroupConfiguration>;
+export type ComputeNodeGroupConfigurationList = Array<ComputeNodeGroupConfiguration>;
 export type ComputeNodeGroupIdentifier = string;
 
 export type ComputeNodeGroupList = Array<ComputeNodeGroupSummary>;
@@ -133,17 +131,7 @@ export interface ComputeNodeGroupSlurmConfiguration {
 export interface ComputeNodeGroupSlurmConfigurationRequest {
   slurmCustomSettings?: Array<SlurmCustomSetting>;
 }
-export type ComputeNodeGroupStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "CREATE_FAILED"
-  | "DELETE_FAILED"
-  | "UPDATE_FAILED"
-  | "DELETED"
-  | "SUSPENDING"
-  | "SUSPENDED";
+export type ComputeNodeGroupStatus = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "CREATE_FAILED" | "DELETE_FAILED" | "UPDATE_FAILED" | "DELETED" | "SUSPENDING" | "SUSPENDED";
 export interface ComputeNodeGroupSummary {
   name: string;
   id: string;
@@ -208,19 +196,22 @@ export interface DeleteClusterRequest {
   clusterIdentifier: string;
   clientToken?: string;
 }
-export interface DeleteClusterResponse {}
+export interface DeleteClusterResponse {
+}
 export interface DeleteComputeNodeGroupRequest {
   clusterIdentifier: string;
   computeNodeGroupIdentifier: string;
   clientToken?: string;
 }
-export interface DeleteComputeNodeGroupResponse {}
+export interface DeleteComputeNodeGroupResponse {
+}
 export interface DeleteQueueRequest {
   clusterIdentifier: string;
   queueIdentifier: string;
   clientToken?: string;
 }
-export interface DeleteQueueResponse {}
+export interface DeleteQueueResponse {
+}
 export interface Endpoint {
   type: EndpointType;
   privateIpAddress: string;
@@ -328,16 +319,7 @@ export type QueueIdentifier = string;
 export type QueueList = Array<QueueSummary>;
 export type QueueName = string;
 
-export type QueueStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "CREATE_FAILED"
-  | "DELETE_FAILED"
-  | "UPDATE_FAILED"
-  | "SUSPENDING"
-  | "SUSPENDED";
+export type QueueStatus = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "CREATE_FAILED" | "DELETE_FAILED" | "UPDATE_FAILED" | "SUSPENDING" | "SUSPENDED";
 export interface QueueSummary {
   name: string;
   id: string;
@@ -408,10 +390,7 @@ export interface SlurmCustomSetting {
   parameterValue: string;
 }
 export type SlurmCustomSettings = Array<SlurmCustomSetting>;
-export type SpotAllocationStrategy =
-  | "LOWEST_PRICE"
-  | "CAPACITY_OPTIMIZED"
-  | "PRICE_CAPACITY_OPTIMIZED";
+export type SpotAllocationStrategy = "LOWEST_PRICE" | "CAPACITY_OPTIMIZED" | "PRICE_CAPACITY_OPTIMIZED";
 export interface SpotOptions {
   allocationStrategy?: SpotAllocationStrategy;
 }
@@ -478,15 +457,13 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -501,5 +478,8 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
+

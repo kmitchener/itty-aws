@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ServiceCatalogAppRegistry extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("service-catalog-appregistry", new RestJson1Protocol(), cfg);
+  }
+
   associateAttributeGroup(
     input: AssociateAttributeGroupRequest,
   ): Effect.Effect<
     AssociateAttributeGroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateAttributeGroup", input);
   }
@@ -20,13 +20,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: AssociateResourceRequest,
   ): Effect.Effect<
     AssociateResourceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateResource", input);
   }
@@ -34,12 +28,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateApplication", input);
   }
@@ -47,11 +36,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: CreateAttributeGroupRequest,
   ): Effect.Effect<
     CreateAttributeGroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAttributeGroup", input);
   }
@@ -59,10 +44,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteApplication", input);
   }
@@ -70,10 +52,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: DeleteAttributeGroupRequest,
   ): Effect.Effect<
     DeleteAttributeGroupResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAttributeGroup", input);
   }
@@ -81,10 +60,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: DisassociateAttributeGroupRequest,
   ): Effect.Effect<
     DisassociateAttributeGroupResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateAttributeGroup", input);
   }
@@ -92,11 +68,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: DisassociateResourceRequest,
   ): Effect.Effect<
     DisassociateResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateResource", input);
   }
@@ -104,11 +76,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: GetApplicationRequest,
   ): Effect.Effect<
     GetApplicationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetApplication", input);
   }
@@ -116,10 +84,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: GetAssociatedResourceRequest,
   ): Effect.Effect<
     GetAssociatedResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetAssociatedResource", input);
   }
@@ -127,15 +92,13 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: GetAttributeGroupRequest,
   ): Effect.Effect<
     GetAttributeGroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetAttributeGroup", input);
   }
-  getConfiguration(input: {}): Effect.Effect<
+  getConfiguration(
+    input: {},
+  ): Effect.Effect<
     GetConfigurationResponse,
     InternalServerException | CommonAwsError
   > {
@@ -153,10 +116,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: ListAssociatedAttributeGroupsRequest,
   ): Effect.Effect<
     ListAssociatedAttributeGroupsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssociatedAttributeGroups", input);
   }
@@ -164,10 +124,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: ListAssociatedResourcesRequest,
   ): Effect.Effect<
     ListAssociatedResourcesResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssociatedResources", input);
   }
@@ -183,10 +140,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: ListAttributeGroupsForApplicationRequest,
   ): Effect.Effect<
     ListAttributeGroupsForApplicationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListAttributeGroupsForApplication", input);
   }
@@ -194,10 +148,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -205,10 +156,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: PutConfigurationRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("PutConfiguration", input);
   }
@@ -216,12 +164,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: SyncResourceRequest,
   ): Effect.Effect<
     SyncResourceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SyncResource", input);
   }
@@ -229,10 +172,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -240,10 +180,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -251,12 +188,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateApplication", input);
   }
@@ -264,11 +196,7 @@ export class ServiceCatalogAppRegistry extends AWSServiceClient {
     input: UpdateAttributeGroupRequest,
   ): Effect.Effect<
     UpdateAttributeGroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAttributeGroup", input);
   }
@@ -337,9 +265,7 @@ export interface AssociateResourceResponse {
 }
 export type AssociationCount = number;
 
-export type AssociationOption =
-  | "APPLY_APPLICATION_TAG"
-  | "SKIP_APPLICATION_TAG";
+export type AssociationOption = "APPLY_APPLICATION_TAG" | "SKIP_APPLICATION_TAG";
 export interface AttributeGroup {
   id?: string;
   arn?: string;
@@ -562,13 +488,7 @@ export interface ResourceGroup {
   arn?: string;
   errorMessage?: string;
 }
-export type ResourceGroupState =
-  | "CREATING"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "UPDATE_COMPLETE"
-  | "UPDATE_FAILED";
+export type ResourceGroupState = "CREATING" | "CREATE_COMPLETE" | "CREATE_FAILED" | "UPDATING" | "UPDATE_COMPLETE" | "UPDATE_FAILED";
 export interface ResourceInfo {
   name?: string;
   arn?: string;
@@ -579,11 +499,7 @@ export interface ResourceInfo {
 export interface ResourceIntegrations {
   resourceGroup?: ResourceGroup;
 }
-export type ResourceItemStatus =
-  | "SUCCESS"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "SKIPPED";
+export type ResourceItemStatus = "SUCCESS" | "FAILED" | "IN_PROGRESS" | "SKIPPED";
 export type ResourceItemType = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -633,7 +549,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -649,7 +566,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationRequest {
   application: string;
   name?: string;
@@ -796,7 +714,9 @@ export declare namespace GetAttributeGroup {
 export declare namespace GetConfiguration {
   export type Input = {};
   export type Output = GetConfigurationResponse;
-  export type Error = InternalServerException | CommonAwsError;
+  export type Error =
+    | InternalServerException
+    | CommonAwsError;
 }
 
 export declare namespace ListApplications {
@@ -921,3 +841,4 @@ export declare namespace UpdateAttributeGroup {
     | ValidationException
     | CommonAwsError;
 }
+

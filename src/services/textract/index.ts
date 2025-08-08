@@ -1,23 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class Textract extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("textract", new AwsJson11Protocol(), cfg);
+  }
+
   analyzeDocument(
     input: AnalyzeDocumentRequest,
   ): Effect.Effect<
     AnalyzeDocumentResponse,
-    | AccessDeniedException
-    | BadDocumentException
-    | DocumentTooLargeException
-    | HumanLoopQuotaExceededException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | UnsupportedDocumentException
-    | CommonAwsError
+    AccessDeniedException | BadDocumentException | DocumentTooLargeException | HumanLoopQuotaExceededException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | UnsupportedDocumentException | CommonAwsError
   > {
     return this.call("AnalyzeDocument", input);
   }
@@ -25,16 +20,7 @@ export class Textract extends AWSServiceClient {
     input: AnalyzeExpenseRequest,
   ): Effect.Effect<
     AnalyzeExpenseResponse,
-    | AccessDeniedException
-    | BadDocumentException
-    | DocumentTooLargeException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | UnsupportedDocumentException
-    | CommonAwsError
+    AccessDeniedException | BadDocumentException | DocumentTooLargeException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | UnsupportedDocumentException | CommonAwsError
   > {
     return this.call("AnalyzeExpense", input);
   }
@@ -42,16 +28,7 @@ export class Textract extends AWSServiceClient {
     input: AnalyzeIDRequest,
   ): Effect.Effect<
     AnalyzeIDResponse,
-    | AccessDeniedException
-    | BadDocumentException
-    | DocumentTooLargeException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | UnsupportedDocumentException
-    | CommonAwsError
+    AccessDeniedException | BadDocumentException | DocumentTooLargeException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | UnsupportedDocumentException | CommonAwsError
   > {
     return this.call("AnalyzeID", input);
   }
@@ -59,17 +36,7 @@ export class Textract extends AWSServiceClient {
     input: CreateAdapterRequest,
   ): Effect.Effect<
     CreateAdapterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAdapter", input);
   }
@@ -77,20 +44,7 @@ export class Textract extends AWSServiceClient {
     input: CreateAdapterVersionRequest,
   ): Effect.Effect<
     CreateAdapterVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidKMSKeyException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotentParameterMismatchException | InternalServerError | InvalidKMSKeyException | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAdapterVersion", input);
   }
@@ -98,15 +52,7 @@ export class Textract extends AWSServiceClient {
     input: DeleteAdapterRequest,
   ): Effect.Effect<
     DeleteAdapterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAdapter", input);
   }
@@ -114,15 +60,7 @@ export class Textract extends AWSServiceClient {
     input: DeleteAdapterVersionRequest,
   ): Effect.Effect<
     DeleteAdapterVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAdapterVersion", input);
   }
@@ -130,16 +68,7 @@ export class Textract extends AWSServiceClient {
     input: DetectDocumentTextRequest,
   ): Effect.Effect<
     DetectDocumentTextResponse,
-    | AccessDeniedException
-    | BadDocumentException
-    | DocumentTooLargeException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | UnsupportedDocumentException
-    | CommonAwsError
+    AccessDeniedException | BadDocumentException | DocumentTooLargeException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | UnsupportedDocumentException | CommonAwsError
   > {
     return this.call("DetectDocumentText", input);
   }
@@ -147,14 +76,7 @@ export class Textract extends AWSServiceClient {
     input: GetAdapterRequest,
   ): Effect.Effect<
     GetAdapterResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAdapter", input);
   }
@@ -162,14 +84,7 @@ export class Textract extends AWSServiceClient {
     input: GetAdapterVersionRequest,
   ): Effect.Effect<
     GetAdapterVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAdapterVersion", input);
   }
@@ -177,15 +92,7 @@ export class Textract extends AWSServiceClient {
     input: GetDocumentAnalysisRequest,
   ): Effect.Effect<
     GetDocumentAnalysisResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidJobIdException
-    | InvalidKMSKeyException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidJobIdException | InvalidKMSKeyException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetDocumentAnalysis", input);
   }
@@ -193,15 +100,7 @@ export class Textract extends AWSServiceClient {
     input: GetDocumentTextDetectionRequest,
   ): Effect.Effect<
     GetDocumentTextDetectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidJobIdException
-    | InvalidKMSKeyException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidJobIdException | InvalidKMSKeyException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetDocumentTextDetection", input);
   }
@@ -209,15 +108,7 @@ export class Textract extends AWSServiceClient {
     input: GetExpenseAnalysisRequest,
   ): Effect.Effect<
     GetExpenseAnalysisResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidJobIdException
-    | InvalidKMSKeyException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidJobIdException | InvalidKMSKeyException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetExpenseAnalysis", input);
   }
@@ -225,15 +116,7 @@ export class Textract extends AWSServiceClient {
     input: GetLendingAnalysisRequest,
   ): Effect.Effect<
     GetLendingAnalysisResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidJobIdException
-    | InvalidKMSKeyException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidJobIdException | InvalidKMSKeyException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetLendingAnalysis", input);
   }
@@ -241,15 +124,7 @@ export class Textract extends AWSServiceClient {
     input: GetLendingAnalysisSummaryRequest,
   ): Effect.Effect<
     GetLendingAnalysisSummaryResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidJobIdException
-    | InvalidKMSKeyException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidJobIdException | InvalidKMSKeyException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetLendingAnalysisSummary", input);
   }
@@ -257,13 +132,7 @@ export class Textract extends AWSServiceClient {
     input: ListAdaptersRequest,
   ): Effect.Effect<
     ListAdaptersResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAdapters", input);
   }
@@ -271,14 +140,7 @@ export class Textract extends AWSServiceClient {
     input: ListAdapterVersionsRequest,
   ): Effect.Effect<
     ListAdapterVersionsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAdapterVersions", input);
   }
@@ -286,14 +148,7 @@ export class Textract extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -301,19 +156,7 @@ export class Textract extends AWSServiceClient {
     input: StartDocumentAnalysisRequest,
   ): Effect.Effect<
     StartDocumentAnalysisResponse,
-    | AccessDeniedException
-    | BadDocumentException
-    | DocumentTooLargeException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidKMSKeyException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | UnsupportedDocumentException
-    | CommonAwsError
+    AccessDeniedException | BadDocumentException | DocumentTooLargeException | IdempotentParameterMismatchException | InternalServerError | InvalidKMSKeyException | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | UnsupportedDocumentException | CommonAwsError
   > {
     return this.call("StartDocumentAnalysis", input);
   }
@@ -321,19 +164,7 @@ export class Textract extends AWSServiceClient {
     input: StartDocumentTextDetectionRequest,
   ): Effect.Effect<
     StartDocumentTextDetectionResponse,
-    | AccessDeniedException
-    | BadDocumentException
-    | DocumentTooLargeException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidKMSKeyException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | UnsupportedDocumentException
-    | CommonAwsError
+    AccessDeniedException | BadDocumentException | DocumentTooLargeException | IdempotentParameterMismatchException | InternalServerError | InvalidKMSKeyException | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | UnsupportedDocumentException | CommonAwsError
   > {
     return this.call("StartDocumentTextDetection", input);
   }
@@ -341,19 +172,7 @@ export class Textract extends AWSServiceClient {
     input: StartExpenseAnalysisRequest,
   ): Effect.Effect<
     StartExpenseAnalysisResponse,
-    | AccessDeniedException
-    | BadDocumentException
-    | DocumentTooLargeException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidKMSKeyException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | UnsupportedDocumentException
-    | CommonAwsError
+    AccessDeniedException | BadDocumentException | DocumentTooLargeException | IdempotentParameterMismatchException | InternalServerError | InvalidKMSKeyException | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | UnsupportedDocumentException | CommonAwsError
   > {
     return this.call("StartExpenseAnalysis", input);
   }
@@ -361,19 +180,7 @@ export class Textract extends AWSServiceClient {
     input: StartLendingAnalysisRequest,
   ): Effect.Effect<
     StartLendingAnalysisResponse,
-    | AccessDeniedException
-    | BadDocumentException
-    | DocumentTooLargeException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidKMSKeyException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | UnsupportedDocumentException
-    | CommonAwsError
+    AccessDeniedException | BadDocumentException | DocumentTooLargeException | IdempotentParameterMismatchException | InternalServerError | InvalidKMSKeyException | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | UnsupportedDocumentException | CommonAwsError
   > {
     return this.call("StartLendingAnalysis", input);
   }
@@ -381,15 +188,7 @@ export class Textract extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -397,14 +196,7 @@ export class Textract extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -412,15 +204,7 @@ export class Textract extends AWSServiceClient {
     input: UpdateAdapterRequest,
   ): Effect.Effect<
     UpdateAdapterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAdapter", input);
   }
@@ -469,8 +253,7 @@ export interface AdapterVersionEvaluationMetric {
   AdapterVersion?: EvaluationMetric;
   FeatureType?: FeatureType;
 }
-export type AdapterVersionEvaluationMetrics =
-  Array<AdapterVersionEvaluationMetric>;
+export type AdapterVersionEvaluationMetrics = Array<AdapterVersionEvaluationMetric>;
 export type AdapterVersionList = Array<AdapterVersionOverview>;
 export interface AdapterVersionOverview {
   AdapterId?: string;
@@ -480,12 +263,7 @@ export interface AdapterVersionOverview {
   Status?: AdapterVersionStatus;
   StatusMessage?: string;
 }
-export type AdapterVersionStatus =
-  | "ACTIVE"
-  | "AT_RISK"
-  | "DEPRECATED"
-  | "CREATION_ERROR"
-  | "CREATION_IN_PROGRESS";
+export type AdapterVersionStatus = "ACTIVE" | "AT_RISK" | "DEPRECATED" | "CREATION_ERROR" | "CREATION_IN_PROGRESS";
 export type AdapterVersionStatusMessage = string;
 
 export type AmazonResourceName = string;
@@ -550,31 +328,7 @@ export interface Block {
   Query?: Query;
 }
 export type BlockList = Array<Block>;
-export type BlockType =
-  | "KEY_VALUE_SET"
-  | "PAGE"
-  | "LINE"
-  | "WORD"
-  | "TABLE"
-  | "CELL"
-  | "SELECTION_ELEMENT"
-  | "MERGED_CELL"
-  | "TITLE"
-  | "QUERY"
-  | "QUERY_RESULT"
-  | "SIGNATURE"
-  | "TABLE_TITLE"
-  | "TABLE_FOOTER"
-  | "LAYOUT_TEXT"
-  | "LAYOUT_TITLE"
-  | "LAYOUT_HEADER"
-  | "LAYOUT_FOOTER"
-  | "LAYOUT_SECTION_HEADER"
-  | "LAYOUT_PAGE_NUMBER"
-  | "LAYOUT_LIST"
-  | "LAYOUT_FIGURE"
-  | "LAYOUT_TABLE"
-  | "LAYOUT_KEY_VALUE";
+export type BlockType = "KEY_VALUE_SET" | "PAGE" | "LINE" | "WORD" | "TABLE" | "CELL" | "SELECTION_ELEMENT" | "MERGED_CELL" | "TITLE" | "QUERY" | "QUERY_RESULT" | "SIGNATURE" | "TABLE_TITLE" | "TABLE_FOOTER" | "LAYOUT_TEXT" | "LAYOUT_TITLE" | "LAYOUT_HEADER" | "LAYOUT_FOOTER" | "LAYOUT_SECTION_HEADER" | "LAYOUT_PAGE_NUMBER" | "LAYOUT_LIST" | "LAYOUT_FIGURE" | "LAYOUT_TABLE" | "LAYOUT_KEY_VALUE";
 export interface BoundingBox {
   Width?: number;
   Height?: number;
@@ -589,9 +343,7 @@ export declare class ConflictException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly Code?: string;
 }> {}
-export type ContentClassifier =
-  | "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
-  | "FREE_OF_ADULT_CONTENT";
+export type ContentClassifier = "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION" | "FREE_OF_ADULT_CONTENT";
 export type ContentClassifiers = Array<ContentClassifier>;
 export interface CreateAdapterRequest {
   AdapterName: string;
@@ -621,12 +373,14 @@ export type DateTime = Date | string;
 export interface DeleteAdapterRequest {
   AdapterId: string;
 }
-export interface DeleteAdapterResponse {}
+export interface DeleteAdapterResponse {
+}
 export interface DeleteAdapterVersionRequest {
   AdapterId: string;
   AdapterVersion: string;
 }
-export interface DeleteAdapterVersionResponse {}
+export interface DeleteAdapterVersionResponse {
+}
 export interface DetectDocumentTextRequest {
   Document: Document;
 }
@@ -663,16 +417,7 @@ export declare class DocumentTooLargeException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly Code?: string;
 }> {}
-export type EntityType =
-  | "KEY"
-  | "VALUE"
-  | "COLUMN_HEADER"
-  | "TABLE_TITLE"
-  | "TABLE_FOOTER"
-  | "TABLE_SECTION_TITLE"
-  | "TABLE_SUMMARY"
-  | "STRUCTURED_TABLE"
-  | "SEMI_STRUCTURED_TABLE";
+export type EntityType = "KEY" | "VALUE" | "COLUMN_HEADER" | "TABLE_TITLE" | "TABLE_FOOTER" | "TABLE_SECTION_TITLE" | "TABLE_SUMMARY" | "STRUCTURED_TABLE" | "SEMI_STRUCTURED_TABLE";
 export type EntityTypes = Array<EntityType>;
 export type ErrorCode = string;
 
@@ -721,12 +466,7 @@ export interface Extraction {
   IdentityDocument?: IdentityDocument;
 }
 export type ExtractionList = Array<Extraction>;
-export type FeatureType =
-  | "TABLES"
-  | "FORMS"
-  | "QUERIES"
-  | "SIGNATURES"
-  | "LAYOUT";
+export type FeatureType = "TABLES" | "FORMS" | "QUERIES" | "SIGNATURES" | "LAYOUT";
 export type FeatureTypes = Array<FeatureType>;
 export type Float = number;
 
@@ -914,11 +654,7 @@ export declare class InvalidS3ObjectException extends EffectData.TaggedError(
 }> {}
 export type JobId = string;
 
-export type JobStatus =
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "PARTIAL_SUCCESS";
+export type JobStatus = "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "PARTIAL_SUCCESS";
 export type JobTag = string;
 
 export type KMSKeyId = string;
@@ -1053,16 +789,7 @@ export interface Relationship {
   Ids?: Array<string>;
 }
 export type RelationshipList = Array<Relationship>;
-export type RelationshipType =
-  | "VALUE"
-  | "CHILD"
-  | "COMPLEX_FEATURES"
-  | "MERGED_CELL"
-  | "TITLE"
-  | "ANSWER"
-  | "TABLE"
-  | "TABLE_TITLE"
-  | "TABLE_FOOTER";
+export type RelationshipType = "VALUE" | "CHILD" | "COMPLEX_FEATURES" | "MERGED_CELL" | "TITLE" | "ANSWER" | "TABLE" | "TABLE_TITLE" | "TABLE_FOOTER";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -1153,8 +880,7 @@ export type StatusMessage = string;
 export type TextractString = string;
 
 export type StringList = Array<string>;
-export type SynthesizedJsonHumanLoopActivationConditionsEvaluationResults =
-  string;
+export type SynthesizedJsonHumanLoopActivationConditionsEvaluationResults = string;
 
 export type TagKey = string;
 
@@ -1164,7 +890,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TextType = "HANDWRITING" | "PRINTED";
@@ -1191,7 +918,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAdapterRequest {
   AdapterId: string;
   Description?: string;
@@ -1613,3 +1341,4 @@ export declare namespace UpdateAdapter {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsQueryProtocol } from "../../protocols/awsquery.js";
 
 export class DocDB extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("docdb", new AwsQueryProtocol(), cfg);
+  }
+
   addSourceIdentifierToSubscription(
     input: AddSourceIdentifierToSubscriptionMessage,
   ): Effect.Effect<
@@ -15,10 +20,7 @@ export class DocDB extends AWSServiceClient {
     input: AddTagsToResourceMessage,
   ): Effect.Effect<
     {},
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | DBSnapshotNotFoundFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBInstanceNotFoundFault | DBSnapshotNotFoundFault | CommonAwsError
   > {
     return this.call("AddTagsToResource", input);
   }
@@ -26,10 +28,7 @@ export class DocDB extends AWSServiceClient {
     input: ApplyPendingMaintenanceActionMessage,
   ): Effect.Effect<
     ApplyPendingMaintenanceActionResult,
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    InvalidDBClusterStateFault | InvalidDBInstanceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("ApplyPendingMaintenanceAction", input);
   }
@@ -37,10 +36,7 @@ export class DocDB extends AWSServiceClient {
     input: CopyDBClusterParameterGroupMessage,
   ): Effect.Effect<
     CopyDBClusterParameterGroupResult,
-    | DBParameterGroupAlreadyExistsFault
-    | DBParameterGroupNotFoundFault
-    | DBParameterGroupQuotaExceededFault
-    | CommonAwsError
+    DBParameterGroupAlreadyExistsFault | DBParameterGroupNotFoundFault | DBParameterGroupQuotaExceededFault | CommonAwsError
   > {
     return this.call("CopyDBClusterParameterGroup", input);
   }
@@ -48,13 +44,7 @@ export class DocDB extends AWSServiceClient {
     input: CopyDBClusterSnapshotMessage,
   ): Effect.Effect<
     CopyDBClusterSnapshotResult,
-    | DBClusterSnapshotAlreadyExistsFault
-    | DBClusterSnapshotNotFoundFault
-    | InvalidDBClusterSnapshotStateFault
-    | InvalidDBClusterStateFault
-    | KMSKeyNotAccessibleFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    DBClusterSnapshotAlreadyExistsFault | DBClusterSnapshotNotFoundFault | InvalidDBClusterSnapshotStateFault | InvalidDBClusterStateFault | KMSKeyNotAccessibleFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("CopyDBClusterSnapshot", input);
   }
@@ -62,24 +52,7 @@ export class DocDB extends AWSServiceClient {
     input: CreateDBClusterMessage,
   ): Effect.Effect<
     CreateDBClusterResult,
-    | DBClusterAlreadyExistsFault
-    | DBClusterNotFoundFault
-    | DBClusterParameterGroupNotFoundFault
-    | DBClusterQuotaExceededFault
-    | DBInstanceNotFoundFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | GlobalClusterNotFoundFault
-    | InsufficientStorageClusterCapacityFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBSubnetGroupStateFault
-    | InvalidGlobalClusterStateFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | StorageQuotaExceededFault
-    | CommonAwsError
+    DBClusterAlreadyExistsFault | DBClusterNotFoundFault | DBClusterParameterGroupNotFoundFault | DBClusterQuotaExceededFault | DBInstanceNotFoundFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | GlobalClusterNotFoundFault | InsufficientStorageClusterCapacityFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidDBSubnetGroupStateFault | InvalidGlobalClusterStateFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | StorageQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBCluster", input);
   }
@@ -87,9 +60,7 @@ export class DocDB extends AWSServiceClient {
     input: CreateDBClusterParameterGroupMessage,
   ): Effect.Effect<
     CreateDBClusterParameterGroupResult,
-    | DBParameterGroupAlreadyExistsFault
-    | DBParameterGroupQuotaExceededFault
-    | CommonAwsError
+    DBParameterGroupAlreadyExistsFault | DBParameterGroupQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBClusterParameterGroup", input);
   }
@@ -97,12 +68,7 @@ export class DocDB extends AWSServiceClient {
     input: CreateDBClusterSnapshotMessage,
   ): Effect.Effect<
     CreateDBClusterSnapshotResult,
-    | DBClusterNotFoundFault
-    | DBClusterSnapshotAlreadyExistsFault
-    | InvalidDBClusterSnapshotStateFault
-    | InvalidDBClusterStateFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBClusterSnapshotAlreadyExistsFault | InvalidDBClusterSnapshotStateFault | InvalidDBClusterStateFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBClusterSnapshot", input);
   }
@@ -110,22 +76,7 @@ export class DocDB extends AWSServiceClient {
     input: CreateDBInstanceMessage,
   ): Effect.Effect<
     CreateDBInstanceResult,
-    | AuthorizationNotFoundFault
-    | DBClusterNotFoundFault
-    | DBInstanceAlreadyExistsFault
-    | DBParameterGroupNotFoundFault
-    | DBSecurityGroupNotFoundFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | InstanceQuotaExceededFault
-    | InsufficientDBInstanceCapacityFault
-    | InvalidDBClusterStateFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
-    | CommonAwsError
+    AuthorizationNotFoundFault | DBClusterNotFoundFault | DBInstanceAlreadyExistsFault | DBParameterGroupNotFoundFault | DBSecurityGroupNotFoundFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | InstanceQuotaExceededFault | InsufficientDBInstanceCapacityFault | InvalidDBClusterStateFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | StorageQuotaExceededFault | StorageTypeNotSupportedFault | CommonAwsError
   > {
     return this.call("CreateDBInstance", input);
   }
@@ -133,12 +84,7 @@ export class DocDB extends AWSServiceClient {
     input: CreateDBSubnetGroupMessage,
   ): Effect.Effect<
     CreateDBSubnetGroupResult,
-    | DBSubnetGroupAlreadyExistsFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupQuotaExceededFault
-    | DBSubnetQuotaExceededFault
-    | InvalidSubnet
-    | CommonAwsError
+    DBSubnetGroupAlreadyExistsFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupQuotaExceededFault | DBSubnetQuotaExceededFault | InvalidSubnet | CommonAwsError
   > {
     return this.call("CreateDBSubnetGroup", input);
   }
@@ -146,14 +92,7 @@ export class DocDB extends AWSServiceClient {
     input: CreateEventSubscriptionMessage,
   ): Effect.Effect<
     CreateEventSubscriptionResult,
-    | EventSubscriptionQuotaExceededFault
-    | SNSInvalidTopicFault
-    | SNSNoAuthorizationFault
-    | SNSTopicArnNotFoundFault
-    | SourceNotFoundFault
-    | SubscriptionAlreadyExistFault
-    | SubscriptionCategoryNotFoundFault
-    | CommonAwsError
+    EventSubscriptionQuotaExceededFault | SNSInvalidTopicFault | SNSNoAuthorizationFault | SNSTopicArnNotFoundFault | SourceNotFoundFault | SubscriptionAlreadyExistFault | SubscriptionCategoryNotFoundFault | CommonAwsError
   > {
     return this.call("CreateEventSubscription", input);
   }
@@ -161,11 +100,7 @@ export class DocDB extends AWSServiceClient {
     input: CreateGlobalClusterMessage,
   ): Effect.Effect<
     CreateGlobalClusterResult,
-    | DBClusterNotFoundFault
-    | GlobalClusterAlreadyExistsFault
-    | GlobalClusterQuotaExceededFault
-    | InvalidDBClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | GlobalClusterAlreadyExistsFault | GlobalClusterQuotaExceededFault | InvalidDBClusterStateFault | CommonAwsError
   > {
     return this.call("CreateGlobalCluster", input);
   }
@@ -173,12 +108,7 @@ export class DocDB extends AWSServiceClient {
     input: DeleteDBClusterMessage,
   ): Effect.Effect<
     DeleteDBClusterResult,
-    | DBClusterNotFoundFault
-    | DBClusterSnapshotAlreadyExistsFault
-    | InvalidDBClusterSnapshotStateFault
-    | InvalidDBClusterStateFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBClusterSnapshotAlreadyExistsFault | InvalidDBClusterSnapshotStateFault | InvalidDBClusterStateFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("DeleteDBCluster", input);
   }
@@ -186,9 +116,7 @@ export class DocDB extends AWSServiceClient {
     input: DeleteDBClusterParameterGroupMessage,
   ): Effect.Effect<
     {},
-    | DBParameterGroupNotFoundFault
-    | InvalidDBParameterGroupStateFault
-    | CommonAwsError
+    DBParameterGroupNotFoundFault | InvalidDBParameterGroupStateFault | CommonAwsError
   > {
     return this.call("DeleteDBClusterParameterGroup", input);
   }
@@ -196,9 +124,7 @@ export class DocDB extends AWSServiceClient {
     input: DeleteDBClusterSnapshotMessage,
   ): Effect.Effect<
     DeleteDBClusterSnapshotResult,
-    | DBClusterSnapshotNotFoundFault
-    | InvalidDBClusterSnapshotStateFault
-    | CommonAwsError
+    DBClusterSnapshotNotFoundFault | InvalidDBClusterSnapshotStateFault | CommonAwsError
   > {
     return this.call("DeleteDBClusterSnapshot", input);
   }
@@ -206,12 +132,7 @@ export class DocDB extends AWSServiceClient {
     input: DeleteDBInstanceMessage,
   ): Effect.Effect<
     DeleteDBInstanceResult,
-    | DBInstanceNotFoundFault
-    | DBSnapshotAlreadyExistsFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | DBSnapshotAlreadyExistsFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("DeleteDBInstance", input);
   }
@@ -219,10 +140,7 @@ export class DocDB extends AWSServiceClient {
     input: DeleteDBSubnetGroupMessage,
   ): Effect.Effect<
     {},
-    | DBSubnetGroupNotFoundFault
-    | InvalidDBSubnetGroupStateFault
-    | InvalidDBSubnetStateFault
-    | CommonAwsError
+    DBSubnetGroupNotFoundFault | InvalidDBSubnetGroupStateFault | InvalidDBSubnetStateFault | CommonAwsError
   > {
     return this.call("DeleteDBSubnetGroup", input);
   }
@@ -230,9 +148,7 @@ export class DocDB extends AWSServiceClient {
     input: DeleteEventSubscriptionMessage,
   ): Effect.Effect<
     DeleteEventSubscriptionResult,
-    | InvalidEventSubscriptionStateFault
-    | SubscriptionNotFoundFault
-    | CommonAwsError
+    InvalidEventSubscriptionStateFault | SubscriptionNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteEventSubscription", input);
   }
@@ -270,7 +186,10 @@ export class DocDB extends AWSServiceClient {
   }
   describeDBClusters(
     input: DescribeDBClustersMessage,
-  ): Effect.Effect<DBClusterMessage, DBClusterNotFoundFault | CommonAwsError> {
+  ): Effect.Effect<
+    DBClusterMessage,
+    DBClusterNotFoundFault | CommonAwsError
+  > {
     return this.call("DescribeDBClusters", input);
   }
   describeDBClusterSnapshotAttributes(
@@ -291,7 +210,10 @@ export class DocDB extends AWSServiceClient {
   }
   describeDBEngineVersions(
     input: DescribeDBEngineVersionsMessage,
-  ): Effect.Effect<DBEngineVersionMessage, CommonAwsError> {
+  ): Effect.Effect<
+    DBEngineVersionMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeDBEngineVersions", input);
   }
   describeDBInstances(
@@ -320,12 +242,18 @@ export class DocDB extends AWSServiceClient {
   }
   describeEventCategories(
     input: DescribeEventCategoriesMessage,
-  ): Effect.Effect<EventCategoriesMessage, CommonAwsError> {
+  ): Effect.Effect<
+    EventCategoriesMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeEventCategories", input);
   }
   describeEvents(
     input: DescribeEventsMessage,
-  ): Effect.Effect<EventsMessage, CommonAwsError> {
+  ): Effect.Effect<
+    EventsMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeEvents", input);
   }
   describeEventSubscriptions(
@@ -346,7 +274,10 @@ export class DocDB extends AWSServiceClient {
   }
   describeOrderableDBInstanceOptions(
     input: DescribeOrderableDBInstanceOptionsMessage,
-  ): Effect.Effect<OrderableDBInstanceOptionsMessage, CommonAwsError> {
+  ): Effect.Effect<
+    OrderableDBInstanceOptionsMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeOrderableDBInstanceOptions", input);
   }
   describePendingMaintenanceActions(
@@ -361,10 +292,7 @@ export class DocDB extends AWSServiceClient {
     input: FailoverDBClusterMessage,
   ): Effect.Effect<
     FailoverDBClusterResult,
-    | DBClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | CommonAwsError
   > {
     return this.call("FailoverDBCluster", input);
   }
@@ -372,11 +300,7 @@ export class DocDB extends AWSServiceClient {
     input: FailoverGlobalClusterMessage,
   ): Effect.Effect<
     FailoverGlobalClusterResult,
-    | DBClusterNotFoundFault
-    | GlobalClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidGlobalClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | GlobalClusterNotFoundFault | InvalidDBClusterStateFault | InvalidGlobalClusterStateFault | CommonAwsError
   > {
     return this.call("FailoverGlobalCluster", input);
   }
@@ -384,10 +308,7 @@ export class DocDB extends AWSServiceClient {
     input: ListTagsForResourceMessage,
   ): Effect.Effect<
     TagListMessage,
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | DBSnapshotNotFoundFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBInstanceNotFoundFault | DBSnapshotNotFoundFault | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -395,18 +316,7 @@ export class DocDB extends AWSServiceClient {
     input: ModifyDBClusterMessage,
   ): Effect.Effect<
     ModifyDBClusterResult,
-    | DBClusterAlreadyExistsFault
-    | DBClusterNotFoundFault
-    | DBClusterParameterGroupNotFoundFault
-    | DBSubnetGroupNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBSecurityGroupStateFault
-    | InvalidDBSubnetGroupStateFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | StorageQuotaExceededFault
-    | CommonAwsError
+    DBClusterAlreadyExistsFault | DBClusterNotFoundFault | DBClusterParameterGroupNotFoundFault | DBSubnetGroupNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidDBSecurityGroupStateFault | InvalidDBSubnetGroupStateFault | InvalidSubnet | InvalidVPCNetworkStateFault | StorageQuotaExceededFault | CommonAwsError
   > {
     return this.call("ModifyDBCluster", input);
   }
@@ -414,9 +324,7 @@ export class DocDB extends AWSServiceClient {
     input: ModifyDBClusterParameterGroupMessage,
   ): Effect.Effect<
     DBClusterParameterGroupNameMessage,
-    | DBParameterGroupNotFoundFault
-    | InvalidDBParameterGroupStateFault
-    | CommonAwsError
+    DBParameterGroupNotFoundFault | InvalidDBParameterGroupStateFault | CommonAwsError
   > {
     return this.call("ModifyDBClusterParameterGroup", input);
   }
@@ -424,10 +332,7 @@ export class DocDB extends AWSServiceClient {
     input: ModifyDBClusterSnapshotAttributeMessage,
   ): Effect.Effect<
     ModifyDBClusterSnapshotAttributeResult,
-    | DBClusterSnapshotNotFoundFault
-    | InvalidDBClusterSnapshotStateFault
-    | SharedSnapshotQuotaExceededFault
-    | CommonAwsError
+    DBClusterSnapshotNotFoundFault | InvalidDBClusterSnapshotStateFault | SharedSnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("ModifyDBClusterSnapshotAttribute", input);
   }
@@ -435,20 +340,7 @@ export class DocDB extends AWSServiceClient {
     input: ModifyDBInstanceMessage,
   ): Effect.Effect<
     ModifyDBInstanceResult,
-    | AuthorizationNotFoundFault
-    | CertificateNotFoundFault
-    | DBInstanceAlreadyExistsFault
-    | DBInstanceNotFoundFault
-    | DBParameterGroupNotFoundFault
-    | DBSecurityGroupNotFoundFault
-    | DBUpgradeDependencyFailureFault
-    | InsufficientDBInstanceCapacityFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBSecurityGroupStateFault
-    | InvalidVPCNetworkStateFault
-    | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
-    | CommonAwsError
+    AuthorizationNotFoundFault | CertificateNotFoundFault | DBInstanceAlreadyExistsFault | DBInstanceNotFoundFault | DBParameterGroupNotFoundFault | DBSecurityGroupNotFoundFault | DBUpgradeDependencyFailureFault | InsufficientDBInstanceCapacityFault | InvalidDBInstanceStateFault | InvalidDBSecurityGroupStateFault | InvalidVPCNetworkStateFault | StorageQuotaExceededFault | StorageTypeNotSupportedFault | CommonAwsError
   > {
     return this.call("ModifyDBInstance", input);
   }
@@ -456,12 +348,7 @@ export class DocDB extends AWSServiceClient {
     input: ModifyDBSubnetGroupMessage,
   ): Effect.Effect<
     ModifyDBSubnetGroupResult,
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | DBSubnetQuotaExceededFault
-    | InvalidSubnet
-    | SubnetAlreadyInUse
-    | CommonAwsError
+    DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | DBSubnetQuotaExceededFault | InvalidSubnet | SubnetAlreadyInUse | CommonAwsError
   > {
     return this.call("ModifyDBSubnetGroup", input);
   }
@@ -469,13 +356,7 @@ export class DocDB extends AWSServiceClient {
     input: ModifyEventSubscriptionMessage,
   ): Effect.Effect<
     ModifyEventSubscriptionResult,
-    | EventSubscriptionQuotaExceededFault
-    | SNSInvalidTopicFault
-    | SNSNoAuthorizationFault
-    | SNSTopicArnNotFoundFault
-    | SubscriptionCategoryNotFoundFault
-    | SubscriptionNotFoundFault
-    | CommonAwsError
+    EventSubscriptionQuotaExceededFault | SNSInvalidTopicFault | SNSNoAuthorizationFault | SNSTopicArnNotFoundFault | SubscriptionCategoryNotFoundFault | SubscriptionNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyEventSubscription", input);
   }
@@ -499,10 +380,7 @@ export class DocDB extends AWSServiceClient {
     input: RemoveFromGlobalClusterMessage,
   ): Effect.Effect<
     RemoveFromGlobalClusterResult,
-    | DBClusterNotFoundFault
-    | GlobalClusterNotFoundFault
-    | InvalidGlobalClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | GlobalClusterNotFoundFault | InvalidGlobalClusterStateFault | CommonAwsError
   > {
     return this.call("RemoveFromGlobalCluster", input);
   }
@@ -518,10 +396,7 @@ export class DocDB extends AWSServiceClient {
     input: RemoveTagsFromResourceMessage,
   ): Effect.Effect<
     {},
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | DBSnapshotNotFoundFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBInstanceNotFoundFault | DBSnapshotNotFoundFault | CommonAwsError
   > {
     return this.call("RemoveTagsFromResource", input);
   }
@@ -529,9 +404,7 @@ export class DocDB extends AWSServiceClient {
     input: ResetDBClusterParameterGroupMessage,
   ): Effect.Effect<
     DBClusterParameterGroupNameMessage,
-    | DBParameterGroupNotFoundFault
-    | InvalidDBParameterGroupStateFault
-    | CommonAwsError
+    DBParameterGroupNotFoundFault | InvalidDBParameterGroupStateFault | CommonAwsError
   > {
     return this.call("ResetDBClusterParameterGroup", input);
   }
@@ -539,21 +412,7 @@ export class DocDB extends AWSServiceClient {
     input: RestoreDBClusterFromSnapshotMessage,
   ): Effect.Effect<
     RestoreDBClusterFromSnapshotResult,
-    | DBClusterAlreadyExistsFault
-    | DBClusterQuotaExceededFault
-    | DBClusterSnapshotNotFoundFault
-    | DBSnapshotNotFoundFault
-    | DBSubnetGroupNotFoundFault
-    | InsufficientDBClusterCapacityFault
-    | InsufficientStorageClusterCapacityFault
-    | InvalidDBClusterSnapshotStateFault
-    | InvalidDBSnapshotStateFault
-    | InvalidRestoreFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | StorageQuotaExceededFault
-    | CommonAwsError
+    DBClusterAlreadyExistsFault | DBClusterQuotaExceededFault | DBClusterSnapshotNotFoundFault | DBSnapshotNotFoundFault | DBSubnetGroupNotFoundFault | InsufficientDBClusterCapacityFault | InsufficientStorageClusterCapacityFault | InvalidDBClusterSnapshotStateFault | InvalidDBSnapshotStateFault | InvalidRestoreFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | StorageQuotaExceededFault | CommonAwsError
   > {
     return this.call("RestoreDBClusterFromSnapshot", input);
   }
@@ -561,22 +420,7 @@ export class DocDB extends AWSServiceClient {
     input: RestoreDBClusterToPointInTimeMessage,
   ): Effect.Effect<
     RestoreDBClusterToPointInTimeResult,
-    | DBClusterAlreadyExistsFault
-    | DBClusterNotFoundFault
-    | DBClusterQuotaExceededFault
-    | DBClusterSnapshotNotFoundFault
-    | DBSubnetGroupNotFoundFault
-    | InsufficientDBClusterCapacityFault
-    | InsufficientStorageClusterCapacityFault
-    | InvalidDBClusterSnapshotStateFault
-    | InvalidDBClusterStateFault
-    | InvalidDBSnapshotStateFault
-    | InvalidRestoreFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | StorageQuotaExceededFault
-    | CommonAwsError
+    DBClusterAlreadyExistsFault | DBClusterNotFoundFault | DBClusterQuotaExceededFault | DBClusterSnapshotNotFoundFault | DBSubnetGroupNotFoundFault | InsufficientDBClusterCapacityFault | InsufficientStorageClusterCapacityFault | InvalidDBClusterSnapshotStateFault | InvalidDBClusterStateFault | InvalidDBSnapshotStateFault | InvalidRestoreFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | StorageQuotaExceededFault | CommonAwsError
   > {
     return this.call("RestoreDBClusterToPointInTime", input);
   }
@@ -584,10 +428,7 @@ export class DocDB extends AWSServiceClient {
     input: StartDBClusterMessage,
   ): Effect.Effect<
     StartDBClusterResult,
-    | DBClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | CommonAwsError
   > {
     return this.call("StartDBCluster", input);
   }
@@ -595,10 +436,7 @@ export class DocDB extends AWSServiceClient {
     input: StopDBClusterMessage,
   ): Effect.Effect<
     StopDBClusterResult,
-    | DBClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | CommonAwsError
   > {
     return this.call("StopDBCluster", input);
   }
@@ -606,11 +444,7 @@ export class DocDB extends AWSServiceClient {
     input: SwitchoverGlobalClusterMessage,
   ): Effect.Effect<
     SwitchoverGlobalClusterResult,
-    | DBClusterNotFoundFault
-    | GlobalClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidGlobalClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | GlobalClusterNotFoundFault | InvalidDBClusterStateFault | InvalidGlobalClusterStateFault | CommonAwsError
   > {
     return this.call("SwitchoverGlobalCluster", input);
   }
@@ -1581,8 +1415,7 @@ export interface PendingMaintenanceAction {
   Description?: string;
 }
 export type PendingMaintenanceActionDetails = Array<PendingMaintenanceAction>;
-export type PendingMaintenanceActions =
-  Array<ResourcePendingMaintenanceActions>;
+export type PendingMaintenanceActions = Array<ResourcePendingMaintenanceActions>;
 export interface PendingMaintenanceActionsMessage {
   PendingMaintenanceActions?: Array<ResourcePendingMaintenanceActions>;
   Marker?: string;
@@ -1726,13 +1559,7 @@ export declare class SourceNotFoundFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type SourceType =
-  | "db_instance"
-  | "db_parameter_group"
-  | "db_security_group"
-  | "db_snapshot"
-  | "db_cluster"
-  | "db_cluster_snapshot";
+export type SourceType = "db_instance" | "db_parameter_group" | "db_security_group" | "db_snapshot" | "db_cluster" | "db_cluster_snapshot";
 export interface StartDBClusterMessage {
   DBClusterIdentifier: string;
 }
@@ -2044,97 +1871,124 @@ export declare namespace DeleteGlobalCluster {
 export declare namespace DescribeCertificates {
   export type Input = DescribeCertificatesMessage;
   export type Output = CertificateMessage;
-  export type Error = CertificateNotFoundFault | CommonAwsError;
+  export type Error =
+    | CertificateNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusterParameterGroups {
   export type Input = DescribeDBClusterParameterGroupsMessage;
   export type Output = DBClusterParameterGroupsMessage;
-  export type Error = DBParameterGroupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBParameterGroupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusterParameters {
   export type Input = DescribeDBClusterParametersMessage;
   export type Output = DBClusterParameterGroupDetails;
-  export type Error = DBParameterGroupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBParameterGroupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusters {
   export type Input = DescribeDBClustersMessage;
   export type Output = DBClusterMessage;
-  export type Error = DBClusterNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBClusterNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusterSnapshotAttributes {
   export type Input = DescribeDBClusterSnapshotAttributesMessage;
   export type Output = DescribeDBClusterSnapshotAttributesResult;
-  export type Error = DBClusterSnapshotNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBClusterSnapshotNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusterSnapshots {
   export type Input = DescribeDBClusterSnapshotsMessage;
   export type Output = DBClusterSnapshotMessage;
-  export type Error = DBClusterSnapshotNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBClusterSnapshotNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBEngineVersions {
   export type Input = DescribeDBEngineVersionsMessage;
   export type Output = DBEngineVersionMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBInstances {
   export type Input = DescribeDBInstancesMessage;
   export type Output = DBInstanceMessage;
-  export type Error = DBInstanceNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBInstanceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBSubnetGroups {
   export type Input = DescribeDBSubnetGroupsMessage;
   export type Output = DBSubnetGroupMessage;
-  export type Error = DBSubnetGroupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBSubnetGroupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEngineDefaultClusterParameters {
   export type Input = DescribeEngineDefaultClusterParametersMessage;
   export type Output = DescribeEngineDefaultClusterParametersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEventCategories {
   export type Input = DescribeEventCategoriesMessage;
   export type Output = EventCategoriesMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEvents {
   export type Input = DescribeEventsMessage;
   export type Output = EventsMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEventSubscriptions {
   export type Input = DescribeEventSubscriptionsMessage;
   export type Output = EventSubscriptionsMessage;
-  export type Error = SubscriptionNotFoundFault | CommonAwsError;
+  export type Error =
+    | SubscriptionNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeGlobalClusters {
   export type Input = DescribeGlobalClustersMessage;
   export type Output = GlobalClustersMessage;
-  export type Error = GlobalClusterNotFoundFault | CommonAwsError;
+  export type Error =
+    | GlobalClusterNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeOrderableDBInstanceOptions {
   export type Input = DescribeOrderableDBInstanceOptionsMessage;
   export type Output = OrderableDBInstanceOptionsMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribePendingMaintenanceActions {
   export type Input = DescribePendingMaintenanceActionsMessage;
   export type Output = PendingMaintenanceActionsMessage;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace FailoverDBCluster {
@@ -2379,3 +2233,4 @@ export declare namespace SwitchoverGlobalCluster {
     | InvalidGlobalClusterStateFault
     | CommonAwsError;
 }
+

@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class LookoutMetrics extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("lookoutmetrics", new RestJson1Protocol(), cfg);
+  }
+
   activateAnomalyDetector(
     input: ActivateAnomalyDetectorRequest,
   ): Effect.Effect<
     ActivateAnomalyDetectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ActivateAnomalyDetector", input);
   }
@@ -21,12 +20,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: BackTestAnomalyDetectorRequest,
   ): Effect.Effect<
     BackTestAnomalyDetectorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("BackTestAnomalyDetector", input);
   }
@@ -34,14 +28,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: CreateAlertRequest,
   ): Effect.Effect<
     CreateAlertResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAlert", input);
   }
@@ -49,13 +36,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: CreateAnomalyDetectorRequest,
   ): Effect.Effect<
     CreateAnomalyDetectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAnomalyDetector", input);
   }
@@ -63,14 +44,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: CreateMetricSetRequest,
   ): Effect.Effect<
     CreateMetricSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateMetricSet", input);
   }
@@ -78,13 +52,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: DeactivateAnomalyDetectorRequest,
   ): Effect.Effect<
     DeactivateAnomalyDetectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DeactivateAnomalyDetector", input);
   }
@@ -92,12 +60,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: DeleteAlertRequest,
   ): Effect.Effect<
     DeleteAlertResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAlert", input);
   }
@@ -105,13 +68,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: DeleteAnomalyDetectorRequest,
   ): Effect.Effect<
     DeleteAnomalyDetectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAnomalyDetector", input);
   }
@@ -119,12 +76,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: DescribeAlertRequest,
   ): Effect.Effect<
     DescribeAlertResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAlert", input);
   }
@@ -132,12 +84,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: DescribeAnomalyDetectionExecutionsRequest,
   ): Effect.Effect<
     DescribeAnomalyDetectionExecutionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAnomalyDetectionExecutions", input);
   }
@@ -145,12 +92,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: DescribeAnomalyDetectorRequest,
   ): Effect.Effect<
     DescribeAnomalyDetectorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAnomalyDetector", input);
   }
@@ -158,12 +100,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: DescribeMetricSetRequest,
   ): Effect.Effect<
     DescribeMetricSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeMetricSet", input);
   }
@@ -171,12 +108,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: DetectMetricSetConfigRequest,
   ): Effect.Effect<
     DetectMetricSetConfigResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DetectMetricSetConfig", input);
   }
@@ -184,12 +116,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: GetAnomalyGroupRequest,
   ): Effect.Effect<
     GetAnomalyGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetAnomalyGroup", input);
   }
@@ -197,12 +124,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: GetDataQualityMetricsRequest,
   ): Effect.Effect<
     GetDataQualityMetricsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetDataQualityMetrics", input);
   }
@@ -210,12 +132,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: GetFeedbackRequest,
   ): Effect.Effect<
     GetFeedbackResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetFeedback", input);
   }
@@ -223,12 +140,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: GetSampleDataRequest,
   ): Effect.Effect<
     GetSampleDataResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetSampleData", input);
   }
@@ -236,12 +148,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: ListAlertsRequest,
   ): Effect.Effect<
     ListAlertsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListAlerts", input);
   }
@@ -249,12 +156,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: ListAnomalyDetectorsRequest,
   ): Effect.Effect<
     ListAnomalyDetectorsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListAnomalyDetectors", input);
   }
@@ -262,12 +164,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: ListAnomalyGroupRelatedMetricsRequest,
   ): Effect.Effect<
     ListAnomalyGroupRelatedMetricsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListAnomalyGroupRelatedMetrics", input);
   }
@@ -275,12 +172,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: ListAnomalyGroupSummariesRequest,
   ): Effect.Effect<
     ListAnomalyGroupSummariesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListAnomalyGroupSummaries", input);
   }
@@ -288,12 +180,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: ListAnomalyGroupTimeSeriesRequest,
   ): Effect.Effect<
     ListAnomalyGroupTimeSeriesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListAnomalyGroupTimeSeries", input);
   }
@@ -301,12 +188,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: ListMetricSetsRequest,
   ): Effect.Effect<
     ListMetricSetsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListMetricSets", input);
   }
@@ -314,10 +196,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -325,12 +204,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: PutFeedbackRequest,
   ): Effect.Effect<
     PutFeedbackResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("PutFeedback", input);
   }
@@ -338,10 +212,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -349,10 +220,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -360,12 +228,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: UpdateAlertRequest,
   ): Effect.Effect<
     UpdateAlertResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAlert", input);
   }
@@ -373,12 +236,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: UpdateAnomalyDetectorRequest,
   ): Effect.Effect<
     UpdateAnomalyDetectorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAnomalyDetector", input);
   }
@@ -386,13 +244,7 @@ export class LookoutMetrics extends AWSServiceClient {
     input: UpdateMetricSetRequest,
   ): Effect.Effect<
     UpdateMetricSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateMetricSet", input);
   }
@@ -414,7 +266,8 @@ export interface Action {
 export interface ActivateAnomalyDetectorRequest {
   AnomalyDetectorArn: string;
 }
-export interface ActivateAnomalyDetectorResponse {}
+export interface ActivateAnomalyDetectorResponse {
+}
 export type AggregationFunction = "AVG" | "SUM";
 export interface Alert {
   Action?: Action;
@@ -451,12 +304,7 @@ export interface AlertSummary {
 }
 export type AlertSummaryList = Array<AlertSummary>;
 export type AlertType = "SNS" | "LAMBDA";
-export type AnomalyDetectionTaskStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "FAILED_TO_SCHEDULE";
+export type AnomalyDetectionTaskStatus = "PENDING" | "IN_PROGRESS" | "COMPLETED" | "FAILED" | "FAILED_TO_SCHEDULE";
 export type AnomalyDetectionTaskStatusMessage = string;
 
 export interface AnomalyDetectorConfig {
@@ -469,29 +317,13 @@ export interface AnomalyDetectorDataQualityMetric {
   StartTimestamp?: Date | string;
   MetricSetDataQualityMetricList?: Array<MetricSetDataQualityMetric>;
 }
-export type AnomalyDetectorDataQualityMetricList =
-  Array<AnomalyDetectorDataQualityMetric>;
+export type AnomalyDetectorDataQualityMetricList = Array<AnomalyDetectorDataQualityMetric>;
 export type AnomalyDetectorDescription = string;
 
-export type AnomalyDetectorFailureType =
-  | "ACTIVATION_FAILURE"
-  | "BACK_TEST_ACTIVATION_FAILURE"
-  | "DELETION_FAILURE"
-  | "DEACTIVATION_FAILURE";
+export type AnomalyDetectorFailureType = "ACTIVATION_FAILURE" | "BACK_TEST_ACTIVATION_FAILURE" | "DELETION_FAILURE" | "DEACTIVATION_FAILURE";
 export type AnomalyDetectorName = string;
 
-export type AnomalyDetectorStatus =
-  | "ACTIVE"
-  | "ACTIVATING"
-  | "DELETING"
-  | "FAILED"
-  | "INACTIVE"
-  | "LEARNING"
-  | "BACK_TEST_ACTIVATING"
-  | "BACK_TEST_ACTIVE"
-  | "BACK_TEST_COMPLETE"
-  | "DEACTIVATED"
-  | "DEACTIVATING";
+export type AnomalyDetectorStatus = "ACTIVE" | "ACTIVATING" | "DELETING" | "FAILED" | "INACTIVE" | "LEARNING" | "BACK_TEST_ACTIVATING" | "BACK_TEST_ACTIVE" | "BACK_TEST_COMPLETE" | "DEACTIVATED" | "DEACTIVATING";
 export interface AnomalyDetectorSummary {
   AnomalyDetectorArn?: string;
   AnomalyDetectorName?: string;
@@ -575,7 +407,8 @@ export interface AutoDetectionS3SourceConfig {
 export interface BackTestAnomalyDetectorRequest {
   AnomalyDetectorArn: string;
 }
-export interface BackTestAnomalyDetectorResponse {}
+export interface BackTestAnomalyDetectorResponse {
+}
 export interface BackTestConfiguration {
   RunBackTestMode: boolean;
 }
@@ -666,31 +499,24 @@ export interface DataQualityMetric {
 export type DataQualityMetricDescription = string;
 
 export type DataQualityMetricList = Array<DataQualityMetric>;
-export type DataQualityMetricType =
-  | "COLUMN_COMPLETENESS"
-  | "DIMENSION_UNIQUENESS"
-  | "TIME_SERIES_COUNT"
-  | "ROWS_PROCESSED"
-  | "ROWS_PARTIAL_COMPLIANCE"
-  | "INVALID_ROWS_COMPLIANCE"
-  | "BACKTEST_TRAINING_DATA_START_TIME_STAMP"
-  | "BACKTEST_TRAINING_DATA_END_TIME_STAMP"
-  | "BACKTEST_INFERENCE_DATA_START_TIME_STAMP"
-  | "BACKTEST_INFERENCE_DATA_END_TIME_STAMP";
+export type DataQualityMetricType = "COLUMN_COMPLETENESS" | "DIMENSION_UNIQUENESS" | "TIME_SERIES_COUNT" | "ROWS_PROCESSED" | "ROWS_PARTIAL_COMPLIANCE" | "INVALID_ROWS_COMPLIANCE" | "BACKTEST_TRAINING_DATA_START_TIME_STAMP" | "BACKTEST_TRAINING_DATA_END_TIME_STAMP" | "BACKTEST_INFERENCE_DATA_START_TIME_STAMP" | "BACKTEST_INFERENCE_DATA_END_TIME_STAMP";
 export type DateTimeFormat = string;
 
 export interface DeactivateAnomalyDetectorRequest {
   AnomalyDetectorArn: string;
 }
-export interface DeactivateAnomalyDetectorResponse {}
+export interface DeactivateAnomalyDetectorResponse {
+}
 export interface DeleteAlertRequest {
   AlertArn: string;
 }
-export interface DeleteAlertResponse {}
+export interface DeleteAlertResponse {
+}
 export interface DeleteAnomalyDetectorRequest {
   AnomalyDetectorArn: string;
 }
-export interface DeleteAnomalyDetectorResponse {}
+export interface DeleteAnomalyDetectorResponse {
+}
 export type Delimiter = string;
 
 export interface DescribeAlertRequest {
@@ -1038,7 +864,8 @@ export interface PutFeedbackRequest {
   AnomalyDetectorArn: string;
   AnomalyGroupTimeSeriesFeedback: AnomalyGroupTimeSeriesFeedback;
 }
-export interface PutFeedbackResponse {}
+export interface PutFeedbackResponse {
+}
 export type QuotaCode = string;
 
 export type QuoteSymbol = string;
@@ -1073,9 +900,7 @@ export interface RedshiftSourceConfig {
 }
 export type RelatedColumnName = string;
 
-export type RelationshipType =
-  | "CAUSE_OF_INPUT_ANOMALY_GROUP"
-  | "EFFECT_OF_INPUT_ANOMALY_GROUP";
+export type RelationshipType = "CAUSE_OF_INPUT_ANOMALY_GROUP" | "EFFECT_OF_INPUT_ANOMALY_GROUP";
 export type ResourceId = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -1141,7 +966,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TemplatedPath = string;
@@ -1180,7 +1006,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAlertRequest {
   AlertArn: string;
   AlertDescription?: string;
@@ -1228,11 +1055,7 @@ export interface ValidationExceptionField {
   Message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export interface VpcConfiguration {
   SubnetIdList: Array<string>;
   SecurityGroupIdList: Array<string>;
@@ -1599,3 +1422,4 @@ export declare namespace UpdateMetricSet {
     | ValidationException
     | CommonAwsError;
 }
+

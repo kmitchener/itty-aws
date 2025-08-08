@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class OAM extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("oam", new RestJson1Protocol(), cfg);
+  }
+
   createLink(
     input: CreateLinkInput,
   ): Effect.Effect<
     CreateLinkOutput,
-    | ConflictException
-    | InternalServiceFault
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    ConflictException | InternalServiceFault | InvalidParameterException | MissingRequiredParameterException | ServiceQuotaExceededException | CommonAwsError
   > {
     return this.call("CreateLink", input);
   }
@@ -20,12 +20,7 @@ export class OAM extends AWSServiceClient {
     input: CreateSinkInput,
   ): Effect.Effect<
     CreateSinkOutput,
-    | ConflictException
-    | InternalServiceFault
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    ConflictException | InternalServiceFault | InvalidParameterException | MissingRequiredParameterException | ServiceQuotaExceededException | CommonAwsError
   > {
     return this.call("CreateSink", input);
   }
@@ -33,11 +28,7 @@ export class OAM extends AWSServiceClient {
     input: DeleteLinkInput,
   ): Effect.Effect<
     DeleteLinkOutput,
-    | InternalServiceFault
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteLink", input);
   }
@@ -45,12 +36,7 @@ export class OAM extends AWSServiceClient {
     input: DeleteSinkInput,
   ): Effect.Effect<
     DeleteSinkOutput,
-    | ConflictException
-    | InternalServiceFault
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | InternalServiceFault | InvalidParameterException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteSink", input);
   }
@@ -58,11 +44,7 @@ export class OAM extends AWSServiceClient {
     input: GetLinkInput,
   ): Effect.Effect<
     GetLinkOutput,
-    | InternalServiceFault
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetLink", input);
   }
@@ -70,11 +52,7 @@ export class OAM extends AWSServiceClient {
     input: GetSinkInput,
   ): Effect.Effect<
     GetSinkOutput,
-    | InternalServiceFault
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetSink", input);
   }
@@ -82,11 +60,7 @@ export class OAM extends AWSServiceClient {
     input: GetSinkPolicyInput,
   ): Effect.Effect<
     GetSinkPolicyOutput,
-    | InternalServiceFault
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetSinkPolicy", input);
   }
@@ -94,11 +68,7 @@ export class OAM extends AWSServiceClient {
     input: ListAttachedLinksInput,
   ): Effect.Effect<
     ListAttachedLinksOutput,
-    | InternalServiceFault
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListAttachedLinks", input);
   }
@@ -106,10 +76,7 @@ export class OAM extends AWSServiceClient {
     input: ListLinksInput,
   ): Effect.Effect<
     ListLinksOutput,
-    | InternalServiceFault
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListLinks", input);
   }
@@ -117,10 +84,7 @@ export class OAM extends AWSServiceClient {
     input: ListSinksInput,
   ): Effect.Effect<
     ListSinksOutput,
-    | InternalServiceFault
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListSinks", input);
   }
@@ -136,11 +100,7 @@ export class OAM extends AWSServiceClient {
     input: PutSinkPolicyInput,
   ): Effect.Effect<
     PutSinkPolicyOutput,
-    | InternalServiceFault
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutSinkPolicy", input);
   }
@@ -148,10 +108,7 @@ export class OAM extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -167,11 +124,7 @@ export class OAM extends AWSServiceClient {
     input: UpdateLinkInput,
   ): Effect.Effect<
     UpdateLinkOutput,
-    | InternalServiceFault
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateLink", input);
   }
@@ -219,11 +172,13 @@ export interface CreateSinkOutput {
 export interface DeleteLinkInput {
   Identifier: string;
 }
-export interface DeleteLinkOutput {}
+export interface DeleteLinkOutput {
+}
 export interface DeleteSinkInput {
   Identifier: string;
 }
-export interface DeleteSinkOutput {}
+export interface DeleteSinkOutput {
+}
 export interface GetLinkInput {
   Identifier: string;
   IncludeTags?: boolean;
@@ -368,14 +323,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly amznErrorType?: string;
 }> {}
-export type ResourceType =
-  | "AWS_CLOUDWATCH_METRIC"
-  | "AWS_LOGS_LOGGROUP"
-  | "AWS_XRAY_TRACE"
-  | "AWS_APPLICATIONINSIGHTS_APPLICATION"
-  | "AWS_INTERNETMONITOR_MONITOR"
-  | "AWS_APPLICATION_SIGNALS_SERVICE"
-  | "AWS_APPLICATION_SIGNALS_SLO";
+export type ResourceType = "AWS_CLOUDWATCH_METRIC" | "AWS_LOGS_LOGGROUP" | "AWS_XRAY_TRACE" | "AWS_APPLICATIONINSIGHTS_APPLICATION" | "AWS_INTERNETMONITOR_MONITOR" | "AWS_APPLICATION_SIGNALS_SERVICE" | "AWS_APPLICATION_SIGNALS_SLO";
 export type ResourceTypesInput = Array<ResourceType>;
 export type ResourceTypesOutput = Array<string>;
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -397,7 +345,8 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export declare class TooManyTagsException extends EffectData.TaggedError(
@@ -409,7 +358,8 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateLinkInput {
   Identifier: string;
   ResourceTypes: Array<ResourceType>;
@@ -591,3 +541,4 @@ export declare namespace UpdateLink {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

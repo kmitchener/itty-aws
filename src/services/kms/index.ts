@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class KMS extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("kms", new AwsJson11Protocol(), cfg);
+  }
+
   cancelKeyDeletion(
     input: CancelKeyDeletionRequest,
   ): Effect.Effect<
     CancelKeyDeletionResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("CancelKeyDeletion", input);
   }
@@ -20,12 +20,7 @@ export class KMS extends AWSServiceClient {
     input: ConnectCustomKeyStoreRequest,
   ): Effect.Effect<
     ConnectCustomKeyStoreResponse,
-    | CloudHsmClusterInvalidConfigurationException
-    | CloudHsmClusterNotActiveException
-    | CustomKeyStoreInvalidStateException
-    | CustomKeyStoreNotFoundException
-    | KMSInternalException
-    | CommonAwsError
+    CloudHsmClusterInvalidConfigurationException | CloudHsmClusterNotActiveException | CustomKeyStoreInvalidStateException | CustomKeyStoreNotFoundException | KMSInternalException | CommonAwsError
   > {
     return this.call("ConnectCustomKeyStore", input);
   }
@@ -33,14 +28,7 @@ export class KMS extends AWSServiceClient {
     input: CreateAliasRequest,
   ): Effect.Effect<
     {},
-    | AlreadyExistsException
-    | DependencyTimeoutException
-    | InvalidAliasNameException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    AlreadyExistsException | DependencyTimeoutException | InvalidAliasNameException | KMSInternalException | KMSInvalidStateException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("CreateAlias", input);
   }
@@ -48,24 +36,7 @@ export class KMS extends AWSServiceClient {
     input: CreateCustomKeyStoreRequest,
   ): Effect.Effect<
     CreateCustomKeyStoreResponse,
-    | CloudHsmClusterInUseException
-    | CloudHsmClusterInvalidConfigurationException
-    | CloudHsmClusterNotActiveException
-    | CloudHsmClusterNotFoundException
-    | CustomKeyStoreNameInUseException
-    | IncorrectTrustAnchorException
-    | KMSInternalException
-    | LimitExceededException
-    | XksProxyIncorrectAuthenticationCredentialException
-    | XksProxyInvalidConfigurationException
-    | XksProxyInvalidResponseException
-    | XksProxyUriEndpointInUseException
-    | XksProxyUriInUseException
-    | XksProxyUriUnreachableException
-    | XksProxyVpcEndpointServiceInUseException
-    | XksProxyVpcEndpointServiceInvalidConfigurationException
-    | XksProxyVpcEndpointServiceNotFoundException
-    | CommonAwsError
+    CloudHsmClusterInUseException | CloudHsmClusterInvalidConfigurationException | CloudHsmClusterNotActiveException | CloudHsmClusterNotFoundException | CustomKeyStoreNameInUseException | IncorrectTrustAnchorException | KMSInternalException | LimitExceededException | XksProxyIncorrectAuthenticationCredentialException | XksProxyInvalidConfigurationException | XksProxyInvalidResponseException | XksProxyUriEndpointInUseException | XksProxyUriInUseException | XksProxyUriUnreachableException | XksProxyVpcEndpointServiceInUseException | XksProxyVpcEndpointServiceInvalidConfigurationException | XksProxyVpcEndpointServiceNotFoundException | CommonAwsError
   > {
     return this.call("CreateCustomKeyStore", input);
   }
@@ -73,16 +44,7 @@ export class KMS extends AWSServiceClient {
     input: CreateGrantRequest,
   ): Effect.Effect<
     CreateGrantResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | InvalidArnException
-    | InvalidGrantTokenException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | InvalidArnException | InvalidGrantTokenException | KMSInternalException | KMSInvalidStateException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("CreateGrant", input);
   }
@@ -90,20 +52,7 @@ export class KMS extends AWSServiceClient {
     input: CreateKeyRequest,
   ): Effect.Effect<
     CreateKeyResponse,
-    | CloudHsmClusterInvalidConfigurationException
-    | CustomKeyStoreInvalidStateException
-    | CustomKeyStoreNotFoundException
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | TagException
-    | UnsupportedOperationException
-    | XksKeyAlreadyInUseException
-    | XksKeyInvalidConfigurationException
-    | XksKeyNotFoundException
-    | CommonAwsError
+    CloudHsmClusterInvalidConfigurationException | CustomKeyStoreInvalidStateException | CustomKeyStoreNotFoundException | DependencyTimeoutException | InvalidArnException | KMSInternalException | LimitExceededException | MalformedPolicyDocumentException | TagException | UnsupportedOperationException | XksKeyAlreadyInUseException | XksKeyInvalidConfigurationException | XksKeyNotFoundException | CommonAwsError
   > {
     return this.call("CreateKey", input);
   }
@@ -111,18 +60,7 @@ export class KMS extends AWSServiceClient {
     input: DecryptRequest,
   ): Effect.Effect<
     DecryptResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | IncorrectKeyException
-    | InvalidCiphertextException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | IncorrectKeyException | InvalidCiphertextException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("Decrypt", input);
   }
@@ -130,11 +68,7 @@ export class KMS extends AWSServiceClient {
     input: DeleteAliasRequest,
   ): Effect.Effect<
     {},
-    | DependencyTimeoutException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteAlias", input);
   }
@@ -142,11 +76,7 @@ export class KMS extends AWSServiceClient {
     input: DeleteCustomKeyStoreRequest,
   ): Effect.Effect<
     DeleteCustomKeyStoreResponse,
-    | CustomKeyStoreHasCMKsException
-    | CustomKeyStoreInvalidStateException
-    | CustomKeyStoreNotFoundException
-    | KMSInternalException
-    | CommonAwsError
+    CustomKeyStoreHasCMKsException | CustomKeyStoreInvalidStateException | CustomKeyStoreNotFoundException | KMSInternalException | CommonAwsError
   > {
     return this.call("DeleteCustomKeyStore", input);
   }
@@ -154,13 +84,7 @@ export class KMS extends AWSServiceClient {
     input: DeleteImportedKeyMaterialRequest,
   ): Effect.Effect<
     DeleteImportedKeyMaterialResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteImportedKeyMaterial", input);
   }
@@ -168,16 +92,7 @@ export class KMS extends AWSServiceClient {
     input: DeriveSharedSecretRequest,
   ): Effect.Effect<
     DeriveSharedSecretResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("DeriveSharedSecret", input);
   }
@@ -185,10 +100,7 @@ export class KMS extends AWSServiceClient {
     input: DescribeCustomKeyStoresRequest,
   ): Effect.Effect<
     DescribeCustomKeyStoresResponse,
-    | CustomKeyStoreNotFoundException
-    | InvalidMarkerException
-    | KMSInternalException
-    | CommonAwsError
+    CustomKeyStoreNotFoundException | InvalidMarkerException | KMSInternalException | CommonAwsError
   > {
     return this.call("DescribeCustomKeyStores", input);
   }
@@ -196,11 +108,7 @@ export class KMS extends AWSServiceClient {
     input: DescribeKeyRequest,
   ): Effect.Effect<
     DescribeKeyResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | NotFoundException | CommonAwsError
   > {
     return this.call("DescribeKey", input);
   }
@@ -208,12 +116,7 @@ export class KMS extends AWSServiceClient {
     input: DisableKeyRequest,
   ): Effect.Effect<
     {},
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("DisableKey", input);
   }
@@ -221,14 +124,7 @@ export class KMS extends AWSServiceClient {
     input: DisableKeyRotationRequest,
   ): Effect.Effect<
     {},
-    | DependencyTimeoutException
-    | DisabledException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DisableKeyRotation", input);
   }
@@ -236,10 +132,7 @@ export class KMS extends AWSServiceClient {
     input: DisconnectCustomKeyStoreRequest,
   ): Effect.Effect<
     DisconnectCustomKeyStoreResponse,
-    | CustomKeyStoreInvalidStateException
-    | CustomKeyStoreNotFoundException
-    | KMSInternalException
-    | CommonAwsError
+    CustomKeyStoreInvalidStateException | CustomKeyStoreNotFoundException | KMSInternalException | CommonAwsError
   > {
     return this.call("DisconnectCustomKeyStore", input);
   }
@@ -247,13 +140,7 @@ export class KMS extends AWSServiceClient {
     input: EnableKeyRequest,
   ): Effect.Effect<
     {},
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("EnableKey", input);
   }
@@ -261,14 +148,7 @@ export class KMS extends AWSServiceClient {
     input: EnableKeyRotationRequest,
   ): Effect.Effect<
     {},
-    | DependencyTimeoutException
-    | DisabledException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("EnableKeyRotation", input);
   }
@@ -276,16 +156,7 @@ export class KMS extends AWSServiceClient {
     input: EncryptRequest,
   ): Effect.Effect<
     EncryptResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("Encrypt", input);
   }
@@ -293,16 +164,7 @@ export class KMS extends AWSServiceClient {
     input: GenerateDataKeyRequest,
   ): Effect.Effect<
     GenerateDataKeyResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("GenerateDataKey", input);
   }
@@ -310,17 +172,7 @@ export class KMS extends AWSServiceClient {
     input: GenerateDataKeyPairRequest,
   ): Effect.Effect<
     GenerateDataKeyPairResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GenerateDataKeyPair", input);
   }
@@ -328,17 +180,7 @@ export class KMS extends AWSServiceClient {
     input: GenerateDataKeyPairWithoutPlaintextRequest,
   ): Effect.Effect<
     GenerateDataKeyPairWithoutPlaintextResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GenerateDataKeyPairWithoutPlaintext", input);
   }
@@ -346,16 +188,7 @@ export class KMS extends AWSServiceClient {
     input: GenerateDataKeyWithoutPlaintextRequest,
   ): Effect.Effect<
     GenerateDataKeyWithoutPlaintextResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("GenerateDataKeyWithoutPlaintext", input);
   }
@@ -363,15 +196,7 @@ export class KMS extends AWSServiceClient {
     input: GenerateMacRequest,
   ): Effect.Effect<
     GenerateMacResponse,
-    | DisabledException
-    | DryRunOperationException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DisabledException | DryRunOperationException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("GenerateMac", input);
   }
@@ -379,12 +204,7 @@ export class KMS extends AWSServiceClient {
     input: GenerateRandomRequest,
   ): Effect.Effect<
     GenerateRandomResponse,
-    | CustomKeyStoreInvalidStateException
-    | CustomKeyStoreNotFoundException
-    | DependencyTimeoutException
-    | KMSInternalException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CustomKeyStoreInvalidStateException | CustomKeyStoreNotFoundException | DependencyTimeoutException | KMSInternalException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GenerateRandom", input);
   }
@@ -392,12 +212,7 @@ export class KMS extends AWSServiceClient {
     input: GetKeyPolicyRequest,
   ): Effect.Effect<
     GetKeyPolicyResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("GetKeyPolicy", input);
   }
@@ -405,13 +220,7 @@ export class KMS extends AWSServiceClient {
     input: GetKeyRotationStatusRequest,
   ): Effect.Effect<
     GetKeyRotationStatusResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetKeyRotationStatus", input);
   }
@@ -419,13 +228,7 @@ export class KMS extends AWSServiceClient {
     input: GetParametersForImportRequest,
   ): Effect.Effect<
     GetParametersForImportResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetParametersForImport", input);
   }
@@ -433,17 +236,7 @@ export class KMS extends AWSServiceClient {
     input: GetPublicKeyRequest,
   ): Effect.Effect<
     GetPublicKeyResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | InvalidArnException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | InvalidArnException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetPublicKey", input);
   }
@@ -451,17 +244,7 @@ export class KMS extends AWSServiceClient {
     input: ImportKeyMaterialRequest,
   ): Effect.Effect<
     ImportKeyMaterialResponse,
-    | DependencyTimeoutException
-    | ExpiredImportTokenException
-    | IncorrectKeyMaterialException
-    | InvalidArnException
-    | InvalidCiphertextException
-    | InvalidImportTokenException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DependencyTimeoutException | ExpiredImportTokenException | IncorrectKeyMaterialException | InvalidArnException | InvalidCiphertextException | InvalidImportTokenException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ImportKeyMaterial", input);
   }
@@ -469,12 +252,7 @@ export class KMS extends AWSServiceClient {
     input: ListAliasesRequest,
   ): Effect.Effect<
     ListAliasesResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | InvalidMarkerException
-    | KMSInternalException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | InvalidMarkerException | KMSInternalException | NotFoundException | CommonAwsError
   > {
     return this.call("ListAliases", input);
   }
@@ -482,14 +260,7 @@ export class KMS extends AWSServiceClient {
     input: ListGrantsRequest,
   ): Effect.Effect<
     ListGrantsResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | InvalidGrantIdException
-    | InvalidMarkerException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | InvalidGrantIdException | InvalidMarkerException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("ListGrants", input);
   }
@@ -497,12 +268,7 @@ export class KMS extends AWSServiceClient {
     input: ListKeyPoliciesRequest,
   ): Effect.Effect<
     ListKeyPoliciesResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("ListKeyPolicies", input);
   }
@@ -510,13 +276,7 @@ export class KMS extends AWSServiceClient {
     input: ListKeyRotationsRequest,
   ): Effect.Effect<
     ListKeyRotationsResponse,
-    | InvalidArnException
-    | InvalidMarkerException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidArnException | InvalidMarkerException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListKeyRotations", input);
   }
@@ -524,10 +284,7 @@ export class KMS extends AWSServiceClient {
     input: ListKeysRequest,
   ): Effect.Effect<
     ListKeysResponse,
-    | DependencyTimeoutException
-    | InvalidMarkerException
-    | KMSInternalException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidMarkerException | KMSInternalException | CommonAwsError
   > {
     return this.call("ListKeys", input);
   }
@@ -535,11 +292,7 @@ export class KMS extends AWSServiceClient {
     input: ListResourceTagsRequest,
   ): Effect.Effect<
     ListResourceTagsResponse,
-    | InvalidArnException
-    | InvalidMarkerException
-    | KMSInternalException
-    | NotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidMarkerException | KMSInternalException | NotFoundException | CommonAwsError
   > {
     return this.call("ListResourceTags", input);
   }
@@ -547,12 +300,7 @@ export class KMS extends AWSServiceClient {
     input: ListRetirableGrantsRequest,
   ): Effect.Effect<
     ListGrantsResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | InvalidMarkerException
-    | KMSInternalException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | InvalidMarkerException | KMSInternalException | NotFoundException | CommonAwsError
   > {
     return this.call("ListRetirableGrants", input);
   }
@@ -560,15 +308,7 @@ export class KMS extends AWSServiceClient {
     input: PutKeyPolicyRequest,
   ): Effect.Effect<
     {},
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | LimitExceededException | MalformedPolicyDocumentException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("PutKeyPolicy", input);
   }
@@ -576,18 +316,7 @@ export class KMS extends AWSServiceClient {
     input: ReEncryptRequest,
   ): Effect.Effect<
     ReEncryptResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | IncorrectKeyException
-    | InvalidCiphertextException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | IncorrectKeyException | InvalidCiphertextException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("ReEncrypt", input);
   }
@@ -595,17 +324,7 @@ export class KMS extends AWSServiceClient {
     input: ReplicateKeyRequest,
   ): Effect.Effect<
     ReplicateKeyResponse,
-    | AlreadyExistsException
-    | DisabledException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | NotFoundException
-    | TagException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AlreadyExistsException | DisabledException | InvalidArnException | KMSInternalException | KMSInvalidStateException | LimitExceededException | MalformedPolicyDocumentException | NotFoundException | TagException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ReplicateKey", input);
   }
@@ -613,15 +332,7 @@ export class KMS extends AWSServiceClient {
     input: RetireGrantRequest,
   ): Effect.Effect<
     {},
-    | DependencyTimeoutException
-    | DryRunOperationException
-    | InvalidArnException
-    | InvalidGrantIdException
-    | InvalidGrantTokenException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DryRunOperationException | InvalidArnException | InvalidGrantIdException | InvalidGrantTokenException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("RetireGrant", input);
   }
@@ -629,14 +340,7 @@ export class KMS extends AWSServiceClient {
     input: RevokeGrantRequest,
   ): Effect.Effect<
     {},
-    | DependencyTimeoutException
-    | DryRunOperationException
-    | InvalidArnException
-    | InvalidGrantIdException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DryRunOperationException | InvalidArnException | InvalidGrantIdException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("RevokeGrant", input);
   }
@@ -644,16 +348,7 @@ export class KMS extends AWSServiceClient {
     input: RotateKeyOnDemandRequest,
   ): Effect.Effect<
     RotateKeyOnDemandResponse,
-    | ConflictException
-    | DependencyTimeoutException
-    | DisabledException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | LimitExceededException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | DependencyTimeoutException | DisabledException | InvalidArnException | KMSInternalException | KMSInvalidStateException | LimitExceededException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("RotateKeyOnDemand", input);
   }
@@ -661,12 +356,7 @@ export class KMS extends AWSServiceClient {
     input: ScheduleKeyDeletionRequest,
   ): Effect.Effect<
     ScheduleKeyDeletionResponse,
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("ScheduleKeyDeletion", input);
   }
@@ -674,16 +364,7 @@ export class KMS extends AWSServiceClient {
     input: SignRequest,
   ): Effect.Effect<
     SignResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("Sign", input);
   }
@@ -691,13 +372,7 @@ export class KMS extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | LimitExceededException
-    | NotFoundException
-    | TagException
-    | CommonAwsError
+    InvalidArnException | KMSInternalException | KMSInvalidStateException | LimitExceededException | NotFoundException | TagException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -705,12 +380,7 @@ export class KMS extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | TagException
-    | CommonAwsError
+    InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | TagException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -718,12 +388,7 @@ export class KMS extends AWSServiceClient {
     input: UpdateAliasRequest,
   ): Effect.Effect<
     {},
-    | DependencyTimeoutException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | KMSInternalException | KMSInvalidStateException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateAlias", input);
   }
@@ -731,24 +396,7 @@ export class KMS extends AWSServiceClient {
     input: UpdateCustomKeyStoreRequest,
   ): Effect.Effect<
     UpdateCustomKeyStoreResponse,
-    | CloudHsmClusterInvalidConfigurationException
-    | CloudHsmClusterNotActiveException
-    | CloudHsmClusterNotFoundException
-    | CloudHsmClusterNotRelatedException
-    | CustomKeyStoreInvalidStateException
-    | CustomKeyStoreNameInUseException
-    | CustomKeyStoreNotFoundException
-    | KMSInternalException
-    | XksProxyIncorrectAuthenticationCredentialException
-    | XksProxyInvalidConfigurationException
-    | XksProxyInvalidResponseException
-    | XksProxyUriEndpointInUseException
-    | XksProxyUriInUseException
-    | XksProxyUriUnreachableException
-    | XksProxyVpcEndpointServiceInUseException
-    | XksProxyVpcEndpointServiceInvalidConfigurationException
-    | XksProxyVpcEndpointServiceNotFoundException
-    | CommonAwsError
+    CloudHsmClusterInvalidConfigurationException | CloudHsmClusterNotActiveException | CloudHsmClusterNotFoundException | CloudHsmClusterNotRelatedException | CustomKeyStoreInvalidStateException | CustomKeyStoreNameInUseException | CustomKeyStoreNotFoundException | KMSInternalException | XksProxyIncorrectAuthenticationCredentialException | XksProxyInvalidConfigurationException | XksProxyInvalidResponseException | XksProxyUriEndpointInUseException | XksProxyUriInUseException | XksProxyUriUnreachableException | XksProxyVpcEndpointServiceInUseException | XksProxyVpcEndpointServiceInvalidConfigurationException | XksProxyVpcEndpointServiceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateCustomKeyStore", input);
   }
@@ -756,12 +404,7 @@ export class KMS extends AWSServiceClient {
     input: UpdateKeyDescriptionRequest,
   ): Effect.Effect<
     {},
-    | DependencyTimeoutException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateKeyDescription", input);
   }
@@ -769,13 +412,7 @@ export class KMS extends AWSServiceClient {
     input: UpdatePrimaryRegionRequest,
   ): Effect.Effect<
     {},
-    | DisabledException
-    | InvalidArnException
-    | KMSInternalException
-    | KMSInvalidStateException
-    | NotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    DisabledException | InvalidArnException | KMSInternalException | KMSInvalidStateException | NotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("UpdatePrimaryRegion", input);
   }
@@ -783,17 +420,7 @@ export class KMS extends AWSServiceClient {
     input: VerifyRequest,
   ): Effect.Effect<
     VerifyResponse,
-    | DependencyTimeoutException
-    | DisabledException
-    | DryRunOperationException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidSignatureException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DependencyTimeoutException | DisabledException | DryRunOperationException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidSignatureException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("Verify", input);
   }
@@ -801,16 +428,7 @@ export class KMS extends AWSServiceClient {
     input: VerifyMacRequest,
   ): Effect.Effect<
     VerifyMacResponse,
-    | DisabledException
-    | DryRunOperationException
-    | InvalidGrantTokenException
-    | InvalidKeyUsageException
-    | KeyUnavailableException
-    | KMSInternalException
-    | KMSInvalidMacException
-    | KMSInvalidStateException
-    | NotFoundException
-    | CommonAwsError
+    DisabledException | DryRunOperationException | InvalidGrantTokenException | InvalidKeyUsageException | KeyUnavailableException | KMSInternalException | KMSInvalidMacException | KMSInvalidStateException | NotFoundException | CommonAwsError
   > {
     return this.call("VerifyMac", input);
   }
@@ -820,13 +438,7 @@ export class Kms extends KMS {}
 
 export default KMS;
 
-export type AlgorithmSpec =
-  | "RSAES_PKCS1_V1_5"
-  | "RSAES_OAEP_SHA_1"
-  | "RSAES_OAEP_SHA_256"
-  | "RSA_AES_KEY_WRAP_SHA_1"
-  | "RSA_AES_KEY_WRAP_SHA_256"
-  | "SM2PKE";
+export type AlgorithmSpec = "RSAES_PKCS1_V1_5" | "RSAES_OAEP_SHA_1" | "RSAES_OAEP_SHA_256" | "RSA_AES_KEY_WRAP_SHA_1" | "RSA_AES_KEY_WRAP_SHA_256" | "SM2PKE";
 export type AliasList = Array<AliasListEntry>;
 export interface AliasListEntry {
   AliasName?: string;
@@ -897,32 +509,10 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface ConnectCustomKeyStoreRequest {
   CustomKeyStoreId: string;
 }
-export interface ConnectCustomKeyStoreResponse {}
-export type ConnectionErrorCodeType =
-  | "INVALID_CREDENTIALS"
-  | "CLUSTER_NOT_FOUND"
-  | "NETWORK_ERRORS"
-  | "INTERNAL_ERROR"
-  | "INSUFFICIENT_CLOUDHSM_HSMS"
-  | "USER_LOCKED_OUT"
-  | "USER_NOT_FOUND"
-  | "USER_LOGGED_IN"
-  | "SUBNET_NOT_FOUND"
-  | "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET"
-  | "XKS_PROXY_ACCESS_DENIED"
-  | "XKS_PROXY_NOT_REACHABLE"
-  | "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND"
-  | "XKS_PROXY_INVALID_RESPONSE"
-  | "XKS_PROXY_INVALID_CONFIGURATION"
-  | "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION"
-  | "XKS_PROXY_TIMED_OUT"
-  | "XKS_PROXY_INVALID_TLS_CONFIGURATION";
-export type ConnectionStateType =
-  | "CONNECTED"
-  | "CONNECTING"
-  | "FAILED"
-  | "DISCONNECTED"
-  | "DISCONNECTING";
+export interface ConnectCustomKeyStoreResponse {
+}
+export type ConnectionErrorCodeType = "INVALID_CREDENTIALS" | "CLUSTER_NOT_FOUND" | "NETWORK_ERRORS" | "INTERNAL_ERROR" | "INSUFFICIENT_CLOUDHSM_HSMS" | "USER_LOCKED_OUT" | "USER_NOT_FOUND" | "USER_LOGGED_IN" | "SUBNET_NOT_FOUND" | "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET" | "XKS_PROXY_ACCESS_DENIED" | "XKS_PROXY_NOT_REACHABLE" | "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND" | "XKS_PROXY_INVALID_RESPONSE" | "XKS_PROXY_INVALID_CONFIGURATION" | "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION" | "XKS_PROXY_TIMED_OUT" | "XKS_PROXY_INVALID_TLS_CONFIGURATION";
+export type ConnectionStateType = "CONNECTED" | "CONNECTING" | "FAILED" | "DISCONNECTED" | "DISCONNECTING";
 export interface CreateAliasRequest {
   AliasName: string;
   TargetKeyId: string;
@@ -972,20 +562,7 @@ export interface CreateKeyRequest {
 export interface CreateKeyResponse {
   KeyMetadata?: KeyMetadata;
 }
-export type CustomerMasterKeySpec =
-  | "RSA_2048"
-  | "RSA_3072"
-  | "RSA_4096"
-  | "ECC_NIST_P256"
-  | "ECC_NIST_P384"
-  | "ECC_NIST_P521"
-  | "ECC_SECG_P256K1"
-  | "SYMMETRIC_DEFAULT"
-  | "HMAC_224"
-  | "HMAC_256"
-  | "HMAC_384"
-  | "HMAC_512"
-  | "SM2";
+export type CustomerMasterKeySpec = "RSA_2048" | "RSA_3072" | "RSA_4096" | "ECC_NIST_P256" | "ECC_NIST_P384" | "ECC_NIST_P521" | "ECC_SECG_P256K1" | "SYMMETRIC_DEFAULT" | "HMAC_224" | "HMAC_256" | "HMAC_384" | "HMAC_512" | "SM2";
 export declare class CustomKeyStoreHasCMKsException extends EffectData.TaggedError(
   "CustomKeyStoreHasCMKsException",
 )<{
@@ -1023,15 +600,7 @@ export interface CustomKeyStoresListEntry {
   XksProxyConfiguration?: XksProxyConfigurationType;
 }
 export type CustomKeyStoreType = "AWS_CLOUDHSM" | "EXTERNAL_KEY_STORE";
-export type DataKeyPairSpec =
-  | "RSA_2048"
-  | "RSA_3072"
-  | "RSA_4096"
-  | "ECC_NIST_P256"
-  | "ECC_NIST_P384"
-  | "ECC_NIST_P521"
-  | "ECC_SECG_P256K1"
-  | "SM2";
+export type DataKeyPairSpec = "RSA_2048" | "RSA_3072" | "RSA_4096" | "ECC_NIST_P256" | "ECC_NIST_P384" | "ECC_NIST_P521" | "ECC_SECG_P256K1" | "SM2";
 export type DataKeySpec = "AES_256" | "AES_128";
 export type DateType = Date | string;
 
@@ -1057,7 +626,8 @@ export interface DeleteAliasRequest {
 export interface DeleteCustomKeyStoreRequest {
   CustomKeyStoreId: string;
 }
-export interface DeleteCustomKeyStoreResponse {}
+export interface DeleteCustomKeyStoreResponse {
+}
 export interface DeleteImportedKeyMaterialRequest {
   KeyId: string;
   KeyMaterialId?: string;
@@ -1120,7 +690,8 @@ export interface DisableKeyRotationRequest {
 export interface DisconnectCustomKeyStoreRequest {
   CustomKeyStoreId: string;
 }
-export interface DisconnectCustomKeyStoreResponse {}
+export interface DisconnectCustomKeyStoreResponse {
+}
 export declare class DryRunOperationException extends EffectData.TaggedError(
   "DryRunOperationException",
 )<{
@@ -1133,11 +704,7 @@ export interface EnableKeyRotationRequest {
   KeyId: string;
   RotationPeriodInDays?: number;
 }
-export type EncryptionAlgorithmSpec =
-  | "SYMMETRIC_DEFAULT"
-  | "RSAES_OAEP_SHA_1"
-  | "RSAES_OAEP_SHA_256"
-  | "SM2PKE";
+export type EncryptionAlgorithmSpec = "SYMMETRIC_DEFAULT" | "RSAES_OAEP_SHA_1" | "RSAES_OAEP_SHA_256" | "SM2PKE";
 export type EncryptionAlgorithmSpecList = Array<EncryptionAlgorithmSpec>;
 export type EncryptionContextKey = string;
 
@@ -1159,9 +726,7 @@ export interface EncryptResponse {
 }
 export type ErrorMessageType = string;
 
-export type ExpirationModelType =
-  | "KEY_MATERIAL_EXPIRES"
-  | "KEY_MATERIAL_DOES_NOT_EXPIRE";
+export type ExpirationModelType = "KEY_MATERIAL_EXPIRES" | "KEY_MATERIAL_DOES_NOT_EXPIRE";
 export declare class ExpiredImportTokenException extends EffectData.TaggedError(
   "ExpiredImportTokenException",
 )<{
@@ -1311,24 +876,7 @@ export interface GrantListEntry {
 }
 export type GrantNameType = string;
 
-export type GrantOperation =
-  | "Decrypt"
-  | "Encrypt"
-  | "GenerateDataKey"
-  | "GenerateDataKeyWithoutPlaintext"
-  | "ReEncryptFrom"
-  | "ReEncryptTo"
-  | "Sign"
-  | "Verify"
-  | "GetPublicKey"
-  | "CreateGrant"
-  | "RetireGrant"
-  | "DescribeKey"
-  | "GenerateDataKeyPair"
-  | "GenerateDataKeyPairWithoutPlaintext"
-  | "GenerateMac"
-  | "VerifyMac"
-  | "DeriveSharedSecret";
+export type GrantOperation = "Decrypt" | "Encrypt" | "GenerateDataKey" | "GenerateDataKeyWithoutPlaintext" | "ReEncryptFrom" | "ReEncryptTo" | "Sign" | "Verify" | "GetPublicKey" | "CreateGrant" | "RetireGrant" | "DescribeKey" | "GenerateDataKeyPair" | "GenerateDataKeyPairWithoutPlaintext" | "GenerateMac" | "VerifyMac" | "DeriveSharedSecret";
 export type GrantOperationList = Array<GrantOperation>;
 export type GrantTokenList = Array<string>;
 export type GrantTokenType = string;
@@ -1447,32 +995,8 @@ export interface KeyMetadata {
   XksKeyConfiguration?: XksKeyConfigurationType;
   CurrentKeyMaterialId?: string;
 }
-export type KeySpec =
-  | "RSA_2048"
-  | "RSA_3072"
-  | "RSA_4096"
-  | "ECC_NIST_P256"
-  | "ECC_NIST_P384"
-  | "ECC_NIST_P521"
-  | "ECC_SECG_P256K1"
-  | "SYMMETRIC_DEFAULT"
-  | "HMAC_224"
-  | "HMAC_256"
-  | "HMAC_384"
-  | "HMAC_512"
-  | "SM2"
-  | "ML_DSA_44"
-  | "ML_DSA_65"
-  | "ML_DSA_87";
-export type KeyState =
-  | "Creating"
-  | "Enabled"
-  | "Disabled"
-  | "PendingDeletion"
-  | "PendingImport"
-  | "PendingReplicaDeletion"
-  | "Unavailable"
-  | "Updating";
+export type KeySpec = "RSA_2048" | "RSA_3072" | "RSA_4096" | "ECC_NIST_P256" | "ECC_NIST_P384" | "ECC_NIST_P521" | "ECC_SECG_P256K1" | "SYMMETRIC_DEFAULT" | "HMAC_224" | "HMAC_256" | "HMAC_384" | "HMAC_512" | "SM2" | "ML_DSA_44" | "ML_DSA_65" | "ML_DSA_87";
+export type KeyState = "Creating" | "Enabled" | "Disabled" | "PendingDeletion" | "PendingImport" | "PendingReplicaDeletion" | "Unavailable" | "Updating";
 export type KeyStorePasswordType = string;
 
 export declare class KeyUnavailableException extends EffectData.TaggedError(
@@ -1480,11 +1004,7 @@ export declare class KeyUnavailableException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type KeyUsageType =
-  | "SIGN_VERIFY"
-  | "ENCRYPT_DECRYPT"
-  | "GENERATE_VERIFY_MAC"
-  | "KEY_AGREEMENT";
+export type KeyUsageType = "SIGN_VERIFY" | "ENCRYPT_DECRYPT" | "GENERATE_VERIFY_MAC" | "KEY_AGREEMENT";
 export declare class KMSInternalException extends EffectData.TaggedError(
   "KMSInternalException",
 )<{
@@ -1579,11 +1099,7 @@ export interface ListRetirableGrantsRequest {
   Marker?: string;
   RetiringPrincipal: string;
 }
-export type MacAlgorithmSpec =
-  | "HMAC_SHA_224"
-  | "HMAC_SHA_256"
-  | "HMAC_SHA_384"
-  | "HMAC_SHA_512";
+export type MacAlgorithmSpec = "HMAC_SHA_224" | "HMAC_SHA_256" | "HMAC_SHA_384" | "HMAC_SHA_512";
 export type MacAlgorithmSpecList = Array<MacAlgorithmSpec>;
 export declare class MalformedPolicyDocumentException extends EffectData.TaggedError(
   "MalformedPolicyDocumentException",
@@ -1613,11 +1129,7 @@ export type NullableBooleanType = boolean;
 
 export type NumberOfBytesType = number;
 
-export type OriginType =
-  | "AWS_KMS"
-  | "EXTERNAL"
-  | "AWS_CLOUDHSM"
-  | "EXTERNAL_KEY_STORE";
+export type OriginType = "AWS_KMS" | "EXTERNAL" | "AWS_CLOUDHSM" | "EXTERNAL_KEY_STORE";
 export type PendingWindowInDaysType = number;
 
 export type PlaintextType = Uint8Array | string;
@@ -1718,18 +1230,7 @@ export interface ScheduleKeyDeletionResponse {
   KeyState?: KeyState;
   PendingWindowInDays?: number;
 }
-export type SigningAlgorithmSpec =
-  | "RSASSA_PSS_SHA_256"
-  | "RSASSA_PSS_SHA_384"
-  | "RSASSA_PSS_SHA_512"
-  | "RSASSA_PKCS1_V1_5_SHA_256"
-  | "RSASSA_PKCS1_V1_5_SHA_384"
-  | "RSASSA_PKCS1_V1_5_SHA_512"
-  | "ECDSA_SHA_256"
-  | "ECDSA_SHA_384"
-  | "ECDSA_SHA_512"
-  | "SM2DSA"
-  | "ML_DSA_SHAKE_256";
+export type SigningAlgorithmSpec = "RSASSA_PSS_SHA_256" | "RSASSA_PSS_SHA_384" | "RSASSA_PSS_SHA_512" | "RSASSA_PKCS1_V1_5_SHA_256" | "RSASSA_PKCS1_V1_5_SHA_384" | "RSASSA_PKCS1_V1_5_SHA_512" | "ECDSA_SHA_256" | "ECDSA_SHA_384" | "ECDSA_SHA_512" | "SM2DSA" | "ML_DSA_SHAKE_256";
 export type SigningAlgorithmSpecList = Array<SigningAlgorithmSpec>;
 export interface SignRequest {
   KeyId: string;
@@ -1789,7 +1290,8 @@ export interface UpdateCustomKeyStoreRequest {
   XksProxyAuthenticationCredential?: XksProxyAuthenticationCredentialType;
   XksProxyConnectivity?: XksProxyConnectivityType;
 }
-export interface UpdateCustomKeyStoreResponse {}
+export interface UpdateCustomKeyStoreResponse {
+}
 export interface UpdateKeyDescriptionRequest {
   KeyId: string;
   Description: string;
@@ -1861,9 +1363,7 @@ export interface XksProxyConfigurationType {
   UriPath?: string;
   VpcEndpointServiceName?: string;
 }
-export type XksProxyConnectivityType =
-  | "PUBLIC_ENDPOINT"
-  | "VPC_ENDPOINT_SERVICE";
+export type XksProxyConnectivityType = "PUBLIC_ENDPOINT" | "VPC_ENDPOINT_SERVICE";
 export declare class XksProxyIncorrectAuthenticationCredentialException extends EffectData.TaggedError(
   "XksProxyIncorrectAuthenticationCredentialException",
 )<{
@@ -2672,3 +2172,4 @@ export declare namespace VerifyMac {
     | NotFoundException
     | CommonAwsError;
 }
+

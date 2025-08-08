@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class BedrockAgentCoreControl extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("bedrock-agentcore-control", new RestJson1Protocol(), cfg);
+  }
+
   getTokenVault(
     input: GetTokenVaultRequest,
   ): Effect.Effect<
     GetTokenVaultResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("GetTokenVault", input);
   }
@@ -21,14 +20,7 @@ export class BedrockAgentCoreControl extends AWSServiceClient {
     input: SetTokenVaultCMKRequest,
   ): Effect.Effect<
     SetTokenVaultCMKResponse,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("SetTokenVaultCMK", input);
   }
@@ -56,9 +48,7 @@ interface _AgentArtifact {
   containerConfiguration?: ContainerConfiguration;
 }
 
-export type AgentArtifact = _AgentArtifact & {
-  containerConfiguration: ContainerConfiguration;
-};
+export type AgentArtifact = (_AgentArtifact & { containerConfiguration: ContainerConfiguration });
 export interface AgentEndpoint {
   name: string;
   liveVersion?: string;
@@ -74,13 +64,7 @@ export interface AgentEndpoint {
 export type AgentEndpointDescription = string;
 
 export type AgentEndpoints = Array<AgentEndpoint>;
-export type AgentEndpointStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "READY"
-  | "DELETING";
+export type AgentEndpointStatus = "CREATING" | "CREATE_FAILED" | "UPDATING" | "UPDATE_FAILED" | "READY" | "DELETING";
 export type AgentRuntimeArn = string;
 
 export type AgentRuntimeEndpointArn = string;
@@ -94,13 +78,7 @@ export type AgentRuntimeName = string;
 export type AgentRuntimeVersion = string;
 
 export type Agents = Array<Agent>;
-export type AgentStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "READY"
-  | "DELETING";
+export type AgentStatus = "CREATING" | "CREATE_FAILED" | "UPDATING" | "UPDATE_FAILED" | "READY" | "DELETING";
 export type AllowedAudience = string;
 
 export type AllowedAudienceList = Array<string>;
@@ -130,9 +108,7 @@ interface _ApiSchemaConfiguration {
   inlinePayload?: string;
 }
 
-export type ApiSchemaConfiguration =
-  | (_ApiSchemaConfiguration & { s3: S3Configuration })
-  | (_ApiSchemaConfiguration & { inlinePayload: string });
+export type ApiSchemaConfiguration = (_ApiSchemaConfiguration & { s3: S3Configuration }) | (_ApiSchemaConfiguration & { inlinePayload: string });
 export type Arn = string;
 
 export type AuthorizationEndpointType = string;
@@ -141,9 +117,7 @@ interface _AuthorizerConfiguration {
   customJWTAuthorizer?: CustomJWTAuthorizerConfiguration;
 }
 
-export type AuthorizerConfiguration = _AuthorizerConfiguration & {
-  customJWTAuthorizer: CustomJWTAuthorizerConfiguration;
-};
+export type AuthorizerConfiguration = (_AuthorizerConfiguration & { customJWTAuthorizer: CustomJWTAuthorizerConfiguration });
 export type AuthorizerType = "CUSTOM_JWT";
 export type AwsAccountId = string;
 
@@ -155,13 +129,7 @@ export interface BrowserNetworkConfiguration {
   networkMode: BrowserNetworkMode;
 }
 export type BrowserNetworkMode = "PUBLIC";
-export type BrowserStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "READY"
-  | "DELETING"
-  | "DELETE_FAILED"
-  | "DELETED";
+export type BrowserStatus = "CREATING" | "CREATE_FAILED" | "READY" | "DELETING" | "DELETE_FAILED" | "DELETED";
 export type BrowserSummaries = Array<BrowserSummary>;
 export interface BrowserSummary {
   browserId: string;
@@ -186,13 +154,7 @@ export interface CodeInterpreterNetworkConfiguration {
   networkMode: CodeInterpreterNetworkMode;
 }
 export type CodeInterpreterNetworkMode = "PUBLIC" | "SANDBOX";
-export type CodeInterpreterStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "READY"
-  | "DELETING"
-  | "DELETE_FAILED"
-  | "DELETED";
+export type CodeInterpreterStatus = "CREATING" | "CREATE_FAILED" | "READY" | "DELETING" | "DELETE_FAILED" | "DELETED";
 export type CodeInterpreterSummaries = Array<CodeInterpreterSummary>;
 export interface CodeInterpreterSummary {
   codeInterpreterId: string;
@@ -217,9 +179,7 @@ interface _ConsolidationConfiguration {
   customConsolidationConfiguration?: CustomConsolidationConfiguration;
 }
 
-export type ConsolidationConfiguration = _ConsolidationConfiguration & {
-  customConsolidationConfiguration: CustomConsolidationConfiguration;
-};
+export type ConsolidationConfiguration = (_ConsolidationConfiguration & { customConsolidationConfiguration: CustomConsolidationConfiguration });
 export interface ContainerConfiguration {
   containerUri: string;
 }
@@ -379,101 +339,51 @@ interface _CredentialProvider {
   apiKeyCredentialProvider?: GatewayApiKeyCredentialProvider;
 }
 
-export type CredentialProvider =
-  | (_CredentialProvider & { oauthCredentialProvider: OAuthCredentialProvider })
-  | (_CredentialProvider & {
-      apiKeyCredentialProvider: GatewayApiKeyCredentialProvider;
-    });
+export type CredentialProvider = (_CredentialProvider & { oauthCredentialProvider: OAuthCredentialProvider }) | (_CredentialProvider & { apiKeyCredentialProvider: GatewayApiKeyCredentialProvider });
 export type CredentialProviderArnType = string;
 
 export interface CredentialProviderConfiguration {
   credentialProviderType: CredentialProviderType;
   credentialProvider?: CredentialProvider;
 }
-export type CredentialProviderConfigurations =
-  Array<CredentialProviderConfiguration>;
+export type CredentialProviderConfigurations = Array<CredentialProviderConfiguration>;
 export type CredentialProviderName = string;
 
 export type CredentialProviderType = "GATEWAY_IAM_ROLE" | "OAUTH" | "API_KEY";
-export type CredentialProviderVendorType =
-  | "GoogleOauth2"
-  | "GithubOauth2"
-  | "SlackOauth2"
-  | "SalesforceOauth2"
-  | "MicrosoftOauth2"
-  | "CustomOauth2";
+export type CredentialProviderVendorType = "GoogleOauth2" | "GithubOauth2" | "SlackOauth2" | "SalesforceOauth2" | "MicrosoftOauth2" | "CustomOauth2";
 interface _CustomConfigurationInput {
   semanticOverride?: SemanticOverrideConfigurationInput;
   summaryOverride?: SummaryOverrideConfigurationInput;
   userPreferenceOverride?: UserPreferenceOverrideConfigurationInput;
 }
 
-export type CustomConfigurationInput =
-  | (_CustomConfigurationInput & {
-      semanticOverride: SemanticOverrideConfigurationInput;
-    })
-  | (_CustomConfigurationInput & {
-      summaryOverride: SummaryOverrideConfigurationInput;
-    })
-  | (_CustomConfigurationInput & {
-      userPreferenceOverride: UserPreferenceOverrideConfigurationInput;
-    });
+export type CustomConfigurationInput = (_CustomConfigurationInput & { semanticOverride: SemanticOverrideConfigurationInput }) | (_CustomConfigurationInput & { summaryOverride: SummaryOverrideConfigurationInput }) | (_CustomConfigurationInput & { userPreferenceOverride: UserPreferenceOverrideConfigurationInput });
 interface _CustomConsolidationConfiguration {
   semanticConsolidationOverride?: SemanticConsolidationOverride;
   summaryConsolidationOverride?: SummaryConsolidationOverride;
   userPreferenceConsolidationOverride?: UserPreferenceConsolidationOverride;
 }
 
-export type CustomConsolidationConfiguration =
-  | (_CustomConsolidationConfiguration & {
-      semanticConsolidationOverride: SemanticConsolidationOverride;
-    })
-  | (_CustomConsolidationConfiguration & {
-      summaryConsolidationOverride: SummaryConsolidationOverride;
-    })
-  | (_CustomConsolidationConfiguration & {
-      userPreferenceConsolidationOverride: UserPreferenceConsolidationOverride;
-    });
+export type CustomConsolidationConfiguration = (_CustomConsolidationConfiguration & { semanticConsolidationOverride: SemanticConsolidationOverride }) | (_CustomConsolidationConfiguration & { summaryConsolidationOverride: SummaryConsolidationOverride }) | (_CustomConsolidationConfiguration & { userPreferenceConsolidationOverride: UserPreferenceConsolidationOverride });
 interface _CustomConsolidationConfigurationInput {
   semanticConsolidationOverride?: SemanticOverrideConsolidationConfigurationInput;
   summaryConsolidationOverride?: SummaryOverrideConsolidationConfigurationInput;
   userPreferenceConsolidationOverride?: UserPreferenceOverrideConsolidationConfigurationInput;
 }
 
-export type CustomConsolidationConfigurationInput =
-  | (_CustomConsolidationConfigurationInput & {
-      semanticConsolidationOverride: SemanticOverrideConsolidationConfigurationInput;
-    })
-  | (_CustomConsolidationConfigurationInput & {
-      summaryConsolidationOverride: SummaryOverrideConsolidationConfigurationInput;
-    })
-  | (_CustomConsolidationConfigurationInput & {
-      userPreferenceConsolidationOverride: UserPreferenceOverrideConsolidationConfigurationInput;
-    });
+export type CustomConsolidationConfigurationInput = (_CustomConsolidationConfigurationInput & { semanticConsolidationOverride: SemanticOverrideConsolidationConfigurationInput }) | (_CustomConsolidationConfigurationInput & { summaryConsolidationOverride: SummaryOverrideConsolidationConfigurationInput }) | (_CustomConsolidationConfigurationInput & { userPreferenceConsolidationOverride: UserPreferenceOverrideConsolidationConfigurationInput });
 interface _CustomExtractionConfiguration {
   semanticExtractionOverride?: SemanticExtractionOverride;
   userPreferenceExtractionOverride?: UserPreferenceExtractionOverride;
 }
 
-export type CustomExtractionConfiguration =
-  | (_CustomExtractionConfiguration & {
-      semanticExtractionOverride: SemanticExtractionOverride;
-    })
-  | (_CustomExtractionConfiguration & {
-      userPreferenceExtractionOverride: UserPreferenceExtractionOverride;
-    });
+export type CustomExtractionConfiguration = (_CustomExtractionConfiguration & { semanticExtractionOverride: SemanticExtractionOverride }) | (_CustomExtractionConfiguration & { userPreferenceExtractionOverride: UserPreferenceExtractionOverride });
 interface _CustomExtractionConfigurationInput {
   semanticExtractionOverride?: SemanticOverrideExtractionConfigurationInput;
   userPreferenceExtractionOverride?: UserPreferenceOverrideExtractionConfigurationInput;
 }
 
-export type CustomExtractionConfigurationInput =
-  | (_CustomExtractionConfigurationInput & {
-      semanticExtractionOverride: SemanticOverrideExtractionConfigurationInput;
-    })
-  | (_CustomExtractionConfigurationInput & {
-      userPreferenceExtractionOverride: UserPreferenceOverrideExtractionConfigurationInput;
-    });
+export type CustomExtractionConfigurationInput = (_CustomExtractionConfigurationInput & { semanticExtractionOverride: SemanticOverrideExtractionConfigurationInput }) | (_CustomExtractionConfigurationInput & { userPreferenceExtractionOverride: UserPreferenceOverrideExtractionConfigurationInput });
 export interface CustomJWTAuthorizerConfiguration {
   discoveryUrl: string;
   allowedAudience?: Array<string>;
@@ -517,7 +427,8 @@ export interface DeleteAgentRuntimeResponse {
 export interface DeleteApiKeyCredentialProviderRequest {
   name: string;
 }
-export interface DeleteApiKeyCredentialProviderResponse {}
+export interface DeleteApiKeyCredentialProviderResponse {
+}
 export interface DeleteBrowserRequest {
   browserId: string;
   clientToken?: string;
@@ -569,11 +480,13 @@ export interface DeleteMemoryStrategyInput {
 export interface DeleteOauth2CredentialProviderRequest {
   name: string;
 }
-export interface DeleteOauth2CredentialProviderResponse {}
+export interface DeleteOauth2CredentialProviderResponse {
+}
 export interface DeleteWorkloadIdentityRequest {
   name: string;
 }
-export interface DeleteWorkloadIdentityResponse {}
+export interface DeleteWorkloadIdentityResponse {
+}
 export type Description = string;
 
 export type DiscoveryUrl = string;
@@ -597,9 +510,7 @@ interface _ExtractionConfiguration {
   customExtractionConfiguration?: CustomExtractionConfiguration;
 }
 
-export type ExtractionConfiguration = _ExtractionConfiguration & {
-  customExtractionConfiguration: CustomExtractionConfiguration;
-};
+export type ExtractionConfiguration = (_ExtractionConfiguration & { customExtractionConfiguration: CustomExtractionConfiguration });
 export interface GatewayApiKeyCredentialProvider {
   providerArn: string;
   credentialParameterName?: string;
@@ -624,17 +535,9 @@ interface _GatewayProtocolConfiguration {
   mcp?: MCPGatewayConfiguration;
 }
 
-export type GatewayProtocolConfiguration = _GatewayProtocolConfiguration & {
-  mcp: MCPGatewayConfiguration;
-};
+export type GatewayProtocolConfiguration = (_GatewayProtocolConfiguration & { mcp: MCPGatewayConfiguration });
 export type GatewayProtocolType = "MCP";
-export type GatewayStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "UPDATE_UNSUCCESSFUL"
-  | "DELETING"
-  | "READY"
-  | "FAILED";
+export type GatewayStatus = "CREATING" | "UPDATING" | "UPDATE_UNSUCCESSFUL" | "DELETING" | "READY" | "FAILED";
 export type GatewaySummaries = Array<GatewaySummary>;
 export interface GatewaySummary {
   gatewayId: string;
@@ -944,10 +847,7 @@ interface _McpTargetConfiguration {
   lambda?: McpLambdaTargetConfiguration;
 }
 
-export type McpTargetConfiguration =
-  | (_McpTargetConfiguration & { openApiSchema: ApiSchemaConfiguration })
-  | (_McpTargetConfiguration & { smithyModel: ApiSchemaConfiguration })
-  | (_McpTargetConfiguration & { lambda: McpLambdaTargetConfiguration });
+export type McpTargetConfiguration = (_McpTargetConfiguration & { openApiSchema: ApiSchemaConfiguration }) | (_McpTargetConfiguration & { smithyModel: ApiSchemaConfiguration }) | (_McpTargetConfiguration & { lambda: McpLambdaTargetConfiguration });
 export type McpVersion = string;
 
 export interface Memory {
@@ -989,31 +889,11 @@ interface _MemoryStrategyInput {
   customMemoryStrategy?: CustomMemoryStrategyInput;
 }
 
-export type MemoryStrategyInput =
-  | (_MemoryStrategyInput & {
-      semanticMemoryStrategy: SemanticMemoryStrategyInput;
-    })
-  | (_MemoryStrategyInput & {
-      summaryMemoryStrategy: SummaryMemoryStrategyInput;
-    })
-  | (_MemoryStrategyInput & {
-      userPreferenceMemoryStrategy: UserPreferenceMemoryStrategyInput;
-    })
-  | (_MemoryStrategyInput & {
-      customMemoryStrategy: CustomMemoryStrategyInput;
-    });
+export type MemoryStrategyInput = (_MemoryStrategyInput & { semanticMemoryStrategy: SemanticMemoryStrategyInput }) | (_MemoryStrategyInput & { summaryMemoryStrategy: SummaryMemoryStrategyInput }) | (_MemoryStrategyInput & { userPreferenceMemoryStrategy: UserPreferenceMemoryStrategyInput }) | (_MemoryStrategyInput & { customMemoryStrategy: CustomMemoryStrategyInput });
 export type MemoryStrategyInputList = Array<MemoryStrategyInput>;
 export type MemoryStrategyList = Array<MemoryStrategy>;
-export type MemoryStrategyStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "FAILED";
-export type MemoryStrategyType =
-  | "SEMANTIC"
-  | "SUMMARIZATION"
-  | "USER_PREFERENCE"
-  | "CUSTOM";
+export type MemoryStrategyStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED";
+export type MemoryStrategyType = "SEMANTIC" | "SUMMARIZATION" | "USER_PREFERENCE" | "CUSTOM";
 export interface MemorySummary {
   arn?: string;
   id?: string;
@@ -1033,17 +913,12 @@ interface _ModifyConsolidationConfiguration {
   customConsolidationConfiguration?: CustomConsolidationConfigurationInput;
 }
 
-export type ModifyConsolidationConfiguration =
-  _ModifyConsolidationConfiguration & {
-    customConsolidationConfiguration: CustomConsolidationConfigurationInput;
-  };
+export type ModifyConsolidationConfiguration = (_ModifyConsolidationConfiguration & { customConsolidationConfiguration: CustomConsolidationConfigurationInput });
 interface _ModifyExtractionConfiguration {
   customExtractionConfiguration?: CustomExtractionConfigurationInput;
 }
 
-export type ModifyExtractionConfiguration = _ModifyExtractionConfiguration & {
-  customExtractionConfiguration: CustomExtractionConfigurationInput;
-};
+export type ModifyExtractionConfiguration = (_ModifyExtractionConfiguration & { customExtractionConfiguration: CustomExtractionConfigurationInput });
 export interface ModifyMemoryStrategies {
   addMemoryStrategies?: Array<MemoryStrategyInput>;
   modifyMemoryStrategies?: Array<ModifyMemoryStrategyInput>;
@@ -1094,11 +969,7 @@ interface _Oauth2Discovery {
   authorizationServerMetadata?: Oauth2AuthorizationServerMetadata;
 }
 
-export type Oauth2Discovery =
-  | (_Oauth2Discovery & { discoveryUrl: string })
-  | (_Oauth2Discovery & {
-      authorizationServerMetadata: Oauth2AuthorizationServerMetadata;
-    });
+export type Oauth2Discovery = (_Oauth2Discovery & { discoveryUrl: string }) | (_Oauth2Discovery & { authorizationServerMetadata: Oauth2AuthorizationServerMetadata });
 interface _Oauth2ProviderConfigInput {
   customOauth2ProviderConfig?: CustomOauth2ProviderConfigInput;
   googleOauth2ProviderConfig?: GoogleOauth2ProviderConfigInput;
@@ -1108,25 +979,7 @@ interface _Oauth2ProviderConfigInput {
   microsoftOauth2ProviderConfig?: MicrosoftOauth2ProviderConfigInput;
 }
 
-export type Oauth2ProviderConfigInput =
-  | (_Oauth2ProviderConfigInput & {
-      customOauth2ProviderConfig: CustomOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      googleOauth2ProviderConfig: GoogleOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      githubOauth2ProviderConfig: GithubOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      slackOauth2ProviderConfig: SlackOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigInput;
-    });
+export type Oauth2ProviderConfigInput = (_Oauth2ProviderConfigInput & { customOauth2ProviderConfig: CustomOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { googleOauth2ProviderConfig: GoogleOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { githubOauth2ProviderConfig: GithubOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { slackOauth2ProviderConfig: SlackOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigInput });
 interface _Oauth2ProviderConfigOutput {
   customOauth2ProviderConfig?: CustomOauth2ProviderConfigOutput;
   googleOauth2ProviderConfig?: GoogleOauth2ProviderConfigOutput;
@@ -1136,25 +989,7 @@ interface _Oauth2ProviderConfigOutput {
   microsoftOauth2ProviderConfig?: MicrosoftOauth2ProviderConfigOutput;
 }
 
-export type Oauth2ProviderConfigOutput =
-  | (_Oauth2ProviderConfigOutput & {
-      customOauth2ProviderConfig: CustomOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      googleOauth2ProviderConfig: GoogleOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      githubOauth2ProviderConfig: GithubOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      slackOauth2ProviderConfig: SlackOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigOutput;
-    });
+export type Oauth2ProviderConfigOutput = (_Oauth2ProviderConfigOutput & { customOauth2ProviderConfig: CustomOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { googleOauth2ProviderConfig: GoogleOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { githubOauth2ProviderConfig: GithubOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { slackOauth2ProviderConfig: SlackOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigOutput });
 export interface OAuthCredentialProvider {
   providerArn: string;
   scopes: Array<string>;
@@ -1170,10 +1005,7 @@ export type OAuthCustomParametersValue = string;
 export type OAuthScope = string;
 
 export type OAuthScopes = Array<string>;
-export type OverrideType =
-  | "SEMANTIC_OVERRIDE"
-  | "SUMMARY_OVERRIDE"
-  | "USER_PREFERENCE_OVERRIDE";
+export type OverrideType = "SEMANTIC_OVERRIDE" | "SUMMARY_OVERRIDE" | "USER_PREFERENCE_OVERRIDE";
 export type Prompt = string;
 
 export interface ProtocolConfiguration {
@@ -1232,13 +1064,7 @@ export interface SchemaDefinition {
   description?: string;
 }
 export type SchemaProperties = Record<string, SchemaDefinition>;
-export type SchemaType =
-  | "STRING"
-  | "NUMBER"
-  | "OBJECT"
-  | "ARRAY"
-  | "BOOLEAN"
-  | "INTEGER";
+export type SchemaType = "STRING" | "NUMBER" | "OBJECT" | "ARRAY" | "BOOLEAN" | "INTEGER";
 export type SearchType = "SEMANTIC";
 export interface Secret {
   secretArn: string;
@@ -1325,9 +1151,7 @@ interface _TargetConfiguration {
   mcp?: McpTargetConfiguration;
 }
 
-export type TargetConfiguration = _TargetConfiguration & {
-  mcp: McpTargetConfiguration;
-};
+export type TargetConfiguration = (_TargetConfiguration & { mcp: McpTargetConfiguration });
 export type TargetDescription = string;
 
 export type TargetId = string;
@@ -1338,13 +1162,7 @@ export type TargetName = string;
 
 export type TargetNextToken = string;
 
-export type TargetStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "UPDATE_UNSUCCESSFUL"
-  | "DELETING"
-  | "READY"
-  | "FAILED";
+export type TargetStatus = "CREATING" | "UPDATING" | "UPDATE_UNSUCCESSFUL" | "DELETING" | "READY" | "FAILED";
 export type TargetSummaries = Array<TargetSummary>;
 export interface TargetSummary {
   targetId: string;
@@ -1380,9 +1198,7 @@ interface _ToolSchema {
   inlinePayload?: Array<ToolDefinition>;
 }
 
-export type ToolSchema =
-  | (_ToolSchema & { s3: S3Configuration })
-  | (_ToolSchema & { inlinePayload: Array<ToolDefinition> });
+export type ToolSchema = (_ToolSchema & { s3: S3Configuration }) | (_ToolSchema & { inlinePayload: Array<ToolDefinition> });
 export declare class UnauthorizedException extends EffectData.TaggedError(
   "UnauthorizedException",
 )<{
@@ -1559,12 +1375,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION"
-  | "ROOT_EVENT_IN_OTHER_SESSION"
-  | "RESOURCE_CONFLICT";
+export type ValidationExceptionReason = "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION" | "ROOT_EVENT_IN_OTHER_SESSION" | "RESOURCE_CONFLICT";
 export type WorkloadIdentityArn = string;
 
 export type WorkloadIdentityArnType = string;
@@ -1605,3 +1416,4 @@ export declare namespace SetTokenVaultCMK {
     | ValidationException
     | CommonAwsError;
 }
+

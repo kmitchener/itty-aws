@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class mgn extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("mgn", new RestJson1Protocol(), cfg);
+  }
+
   initializeService(
     input: InitializeServiceRequest,
   ): Effect.Effect<
@@ -23,12 +28,7 @@ export class mgn extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -36,12 +36,7 @@ export class mgn extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -49,12 +44,7 @@ export class mgn extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -129,14 +119,16 @@ export interface AssociateApplicationsRequest {
   applicationIDs: Array<string>;
   accountID?: string;
 }
-export interface AssociateApplicationsResponse {}
+export interface AssociateApplicationsResponse {
+}
 export interface AssociateSourceServersRequest {
   applicationID: string;
   sourceServerIDs: Array<string>;
   accountID?: string;
 }
 export type AssociateSourceServersRequestSourceServerIDs = Array<string>;
-export interface AssociateSourceServersResponse {}
+export interface AssociateSourceServersResponse {
+}
 export type BandwidthThrottling = number;
 
 export type BootMode = string;
@@ -266,8 +258,7 @@ export interface DataReplicationInfoReplicatedDisk {
   rescannedStorageBytes?: number;
   backloggedStorageBytes?: number;
 }
-export type DataReplicationInfoReplicatedDisks =
-  Array<DataReplicationInfoReplicatedDisk>;
+export type DataReplicationInfoReplicatedDisks = Array<DataReplicationInfoReplicatedDisk>;
 export interface DataReplicationInitiation {
   startDateTime?: string;
   nextAttemptDateTime?: string;
@@ -279,8 +270,7 @@ export interface DataReplicationInitiationStep {
 }
 export type DataReplicationInitiationStepName = string;
 
-export type DataReplicationInitiationSteps =
-  Array<DataReplicationInitiationStep>;
+export type DataReplicationInitiationSteps = Array<DataReplicationInitiationStep>;
 export type DataReplicationInitiationStepStatus = string;
 
 export type DataReplicationState = string;
@@ -289,7 +279,8 @@ export interface DeleteApplicationRequest {
   applicationID: string;
   accountID?: string;
 }
-export interface DeleteApplicationResponse {}
+export interface DeleteApplicationResponse {
+}
 export interface DeleteConnectorRequest {
   connectorID: string;
 }
@@ -297,20 +288,24 @@ export interface DeleteJobRequest {
   jobID: string;
   accountID?: string;
 }
-export interface DeleteJobResponse {}
+export interface DeleteJobResponse {
+}
 export interface DeleteLaunchConfigurationTemplateRequest {
   launchConfigurationTemplateID: string;
 }
-export interface DeleteLaunchConfigurationTemplateResponse {}
+export interface DeleteLaunchConfigurationTemplateResponse {
+}
 export interface DeleteReplicationConfigurationTemplateRequest {
   replicationConfigurationTemplateID: string;
 }
-export interface DeleteReplicationConfigurationTemplateResponse {}
+export interface DeleteReplicationConfigurationTemplateResponse {
+}
 export interface DeleteSourceServerRequest {
   sourceServerID: string;
   accountID?: string;
 }
-export interface DeleteSourceServerResponse {}
+export interface DeleteSourceServerResponse {
+}
 export interface DeleteVcenterClientRequest {
   vcenterClientID: string;
 }
@@ -318,7 +313,8 @@ export interface DeleteWaveRequest {
   waveID: string;
   accountID?: string;
 }
-export interface DeleteWaveResponse {}
+export interface DeleteWaveResponse {
+}
 export interface DescribeJobLogItemsRequest {
   jobID: string;
   maxResults?: number;
@@ -395,14 +391,16 @@ export interface DisassociateApplicationsRequest {
   applicationIDs: Array<string>;
   accountID?: string;
 }
-export interface DisassociateApplicationsResponse {}
+export interface DisassociateApplicationsResponse {
+}
 export interface DisassociateSourceServersRequest {
   applicationID: string;
   sourceServerIDs: Array<string>;
   accountID?: string;
 }
 export type DisassociateSourceServersRequestSourceServerIDs = Array<string>;
-export interface DisassociateSourceServersResponse {}
+export interface DisassociateSourceServersResponse {
+}
 export interface DisconnectFromServiceRequest {
   sourceServerID: string;
   accountID?: string;
@@ -525,8 +523,10 @@ export interface ImportTaskSummaryWaves {
   createdCount?: number;
   modifiedCount?: number;
 }
-export interface InitializeServiceRequest {}
-export interface InitializeServiceResponse {}
+export interface InitializeServiceRequest {
+}
+export interface InitializeServiceResponse {
+}
 export type InitiatedBy = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -849,8 +849,7 @@ export interface PostLaunchActions {
 }
 export type PostLaunchActionsDeploymentType = string;
 
-export type PostLaunchActionsLaunchStatusList =
-  Array<JobPostLaunchActionsLaunchStatus>;
+export type PostLaunchActionsLaunchStatusList = Array<JobPostLaunchActionsLaunchStatus>;
 export interface PostLaunchActionsStatus {
   ssmAgentDiscoveryDatetime?: string;
   postLaunchActionsLaunchStatusList?: Array<JobPostLaunchActionsLaunchStatus>;
@@ -892,12 +891,14 @@ export interface RemoveSourceServerActionRequest {
   actionID: string;
   accountID?: string;
 }
-export interface RemoveSourceServerActionResponse {}
+export interface RemoveSourceServerActionResponse {
+}
 export interface RemoveTemplateActionRequest {
   launchConfigurationTemplateID: string;
   actionID: string;
 }
-export interface RemoveTemplateActionResponse {}
+export interface RemoveTemplateActionResponse {
+}
 export interface ReplicationConfiguration {
   sourceServerID?: string;
   name?: string;
@@ -929,8 +930,7 @@ export interface ReplicationConfigurationReplicatedDisk {
   iops?: number;
   throughput?: number;
 }
-export type ReplicationConfigurationReplicatedDisks =
-  Array<ReplicationConfigurationReplicatedDisk>;
+export type ReplicationConfigurationReplicatedDisks = Array<ReplicationConfigurationReplicatedDisk>;
 export type ReplicationConfigurationReplicatedDiskStagingDiskType = string;
 
 export interface ReplicationConfigurationTemplate {
@@ -954,8 +954,7 @@ export interface ReplicationConfigurationTemplate {
 export type ReplicationConfigurationTemplateID = string;
 
 export type ReplicationConfigurationTemplateIDs = Array<string>;
-export type ReplicationConfigurationTemplates =
-  Array<ReplicationConfigurationTemplate>;
+export type ReplicationConfigurationTemplates = Array<ReplicationConfigurationTemplate>;
 export type ReplicationServersSecurityGroupsIDs = Array<string>;
 export type ReplicationType = string;
 
@@ -1063,18 +1062,12 @@ export interface SsmDocument {
   parameters?: Record<string, Array<SsmParameterStoreParameter>>;
   externalParameters?: Record<string, SsmExternalParameter>;
 }
-export type SsmDocumentExternalParameters = Record<
-  string,
-  SsmExternalParameter
->;
+export type SsmDocumentExternalParameters = Record<string, SsmExternalParameter>;
 export type SsmDocumentName = string;
 
 export type SsmDocumentParameterName = string;
 
-export type SsmDocumentParameters = Record<
-  string,
-  Array<SsmParameterStoreParameter>
->;
+export type SsmDocumentParameters = Record<string, Array<SsmParameterStoreParameter>>;
 export type SsmDocuments = Array<SsmDocument>;
 export type SsmDocumentType = string;
 
@@ -1082,9 +1075,7 @@ interface _SsmExternalParameter {
   dynamicPath?: string;
 }
 
-export type SsmExternalParameter = _SsmExternalParameter & {
-  dynamicPath: string;
-};
+export type SsmExternalParameter = (_SsmExternalParameter & { dynamicPath: string });
 export type SsmInstanceID = string;
 
 export interface SsmParameterStoreParameter {
@@ -1415,3 +1406,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

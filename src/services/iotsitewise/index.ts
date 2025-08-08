@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IoTSiteWise extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iotsitewise", new RestJson1Protocol(), cfg);
+  }
+
   associateAssets(
     input: AssociateAssetsRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateAssets", input);
   }
@@ -22,12 +20,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: AssociateTimeSeriesToAssetPropertyRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateTimeSeriesToAssetProperty", input);
   }
@@ -35,12 +28,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: BatchAssociateProjectAssetsRequest,
   ): Effect.Effect<
     BatchAssociateProjectAssetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchAssociateProjectAssets", input);
   }
@@ -48,11 +36,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: BatchDisassociateProjectAssetsRequest,
   ): Effect.Effect<
     BatchDisassociateProjectAssetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchDisassociateProjectAssets", input);
   }
@@ -60,11 +44,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: BatchGetAssetPropertyAggregatesRequest,
   ): Effect.Effect<
     BatchGetAssetPropertyAggregatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchGetAssetPropertyAggregates", input);
   }
@@ -72,11 +52,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: BatchGetAssetPropertyValueRequest,
   ): Effect.Effect<
     BatchGetAssetPropertyValueResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchGetAssetPropertyValue", input);
   }
@@ -84,11 +60,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: BatchGetAssetPropertyValueHistoryRequest,
   ): Effect.Effect<
     BatchGetAssetPropertyValueHistoryResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchGetAssetPropertyValueHistory", input);
   }
@@ -96,14 +68,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: BatchPutAssetPropertyValueRequest,
   ): Effect.Effect<
     BatchPutAssetPropertyValueResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchPutAssetPropertyValue", input);
   }
@@ -111,12 +76,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreateAccessPolicyRequest,
   ): Effect.Effect<
     CreateAccessPolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateAccessPolicy", input);
   }
@@ -124,14 +84,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreateAssetRequest,
   ): Effect.Effect<
     CreateAssetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateAsset", input);
   }
@@ -139,14 +92,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreateAssetModelRequest,
   ): Effect.Effect<
     CreateAssetModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateAssetModel", input);
   }
@@ -154,15 +100,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreateAssetModelCompositeModelRequest,
   ): Effect.Effect<
     CreateAssetModelCompositeModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | PreconditionFailedException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | PreconditionFailedException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateAssetModelCompositeModel", input);
   }
@@ -170,14 +108,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreateBulkImportJobRequest,
   ): Effect.Effect<
     CreateBulkImportJobResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateBulkImportJob", input);
   }
@@ -185,14 +116,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreateComputationModelRequest,
   ): Effect.Effect<
     CreateComputationModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateComputationModel", input);
   }
@@ -200,12 +124,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreateDashboardRequest,
   ): Effect.Effect<
     CreateDashboardResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDashboard", input);
   }
@@ -213,14 +132,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDataset", input);
   }
@@ -228,12 +140,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreateGatewayRequest,
   ): Effect.Effect<
     CreateGatewayResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateGateway", input);
   }
@@ -241,12 +148,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreatePortalRequest,
   ): Effect.Effect<
     CreatePortalResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreatePortal", input);
   }
@@ -254,12 +156,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: CreateProjectRequest,
   ): Effect.Effect<
     CreateProjectResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateProject", input);
   }
@@ -267,11 +164,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeleteAccessPolicyRequest,
   ): Effect.Effect<
     DeleteAccessPolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAccessPolicy", input);
   }
@@ -279,12 +172,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeleteAssetRequest,
   ): Effect.Effect<
     DeleteAssetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAsset", input);
   }
@@ -292,13 +180,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeleteAssetModelRequest,
   ): Effect.Effect<
     DeleteAssetModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | PreconditionFailedException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAssetModel", input);
   }
@@ -306,13 +188,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeleteAssetModelCompositeModelRequest,
   ): Effect.Effect<
     DeleteAssetModelCompositeModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | PreconditionFailedException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAssetModelCompositeModel", input);
   }
@@ -320,12 +196,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeleteComputationModelRequest,
   ): Effect.Effect<
     DeleteComputationModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteComputationModel", input);
   }
@@ -333,11 +204,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeleteDashboardRequest,
   ): Effect.Effect<
     DeleteDashboardResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDashboard", input);
   }
@@ -345,12 +212,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     DeleteDatasetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDataset", input);
   }
@@ -358,12 +220,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeleteGatewayRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteGateway", input);
   }
@@ -371,12 +228,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeletePortalRequest,
   ): Effect.Effect<
     DeletePortalResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeletePortal", input);
   }
@@ -384,11 +236,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeleteProjectRequest,
   ): Effect.Effect<
     DeleteProjectResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteProject", input);
   }
@@ -396,12 +244,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DeleteTimeSeriesRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteTimeSeries", input);
   }
@@ -409,11 +252,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeAccessPolicyRequest,
   ): Effect.Effect<
     DescribeAccessPolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAccessPolicy", input);
   }
@@ -421,11 +260,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeActionRequest,
   ): Effect.Effect<
     DescribeActionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAction", input);
   }
@@ -433,11 +268,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeAssetRequest,
   ): Effect.Effect<
     DescribeAssetResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAsset", input);
   }
@@ -445,11 +276,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeAssetCompositeModelRequest,
   ): Effect.Effect<
     DescribeAssetCompositeModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAssetCompositeModel", input);
   }
@@ -457,11 +284,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeAssetModelRequest,
   ): Effect.Effect<
     DescribeAssetModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAssetModel", input);
   }
@@ -469,11 +292,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeAssetModelCompositeModelRequest,
   ): Effect.Effect<
     DescribeAssetModelCompositeModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAssetModelCompositeModel", input);
   }
@@ -481,11 +300,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeAssetPropertyRequest,
   ): Effect.Effect<
     DescribeAssetPropertyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAssetProperty", input);
   }
@@ -493,11 +308,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeBulkImportJobRequest,
   ): Effect.Effect<
     DescribeBulkImportJobResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeBulkImportJob", input);
   }
@@ -505,11 +316,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeComputationModelRequest,
   ): Effect.Effect<
     DescribeComputationModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeComputationModel", input);
   }
@@ -517,11 +324,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeComputationModelExecutionSummaryRequest,
   ): Effect.Effect<
     DescribeComputationModelExecutionSummaryResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeComputationModelExecutionSummary", input);
   }
@@ -529,11 +332,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeDashboardRequest,
   ): Effect.Effect<
     DescribeDashboardResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDashboard", input);
   }
@@ -541,11 +340,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDataset", input);
   }
@@ -553,10 +348,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeDefaultEncryptionConfigurationRequest,
   ): Effect.Effect<
     DescribeDefaultEncryptionConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDefaultEncryptionConfiguration", input);
   }
@@ -564,11 +356,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeExecutionRequest,
   ): Effect.Effect<
     DescribeExecutionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeExecution", input);
   }
@@ -576,11 +364,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeGatewayRequest,
   ): Effect.Effect<
     DescribeGatewayResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeGateway", input);
   }
@@ -588,11 +372,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeGatewayCapabilityConfigurationRequest,
   ): Effect.Effect<
     DescribeGatewayCapabilityConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeGatewayCapabilityConfiguration", input);
   }
@@ -600,11 +380,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeLoggingOptionsRequest,
   ): Effect.Effect<
     DescribeLoggingOptionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeLoggingOptions", input);
   }
@@ -612,11 +388,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribePortalRequest,
   ): Effect.Effect<
     DescribePortalResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribePortal", input);
   }
@@ -624,11 +396,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeProjectRequest,
   ): Effect.Effect<
     DescribeProjectResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeProject", input);
   }
@@ -636,13 +404,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeStorageConfigurationRequest,
   ): Effect.Effect<
     DescribeStorageConfigurationResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeStorageConfiguration", input);
   }
@@ -650,11 +412,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DescribeTimeSeriesRequest,
   ): Effect.Effect<
     DescribeTimeSeriesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeTimeSeries", input);
   }
@@ -662,12 +420,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DisassociateAssetsRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateAssets", input);
   }
@@ -675,12 +428,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: DisassociateTimeSeriesFromAssetPropertyRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateTimeSeriesFromAssetProperty", input);
   }
@@ -688,13 +436,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ExecuteActionRequest,
   ): Effect.Effect<
     ExecuteActionResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ExecuteAction", input);
   }
@@ -702,14 +444,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ExecuteQueryRequest,
   ): Effect.Effect<
     ExecuteQueryResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidRequestException
-    | QueryTimeoutException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidRequestException | QueryTimeoutException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ExecuteQuery", input);
   }
@@ -717,12 +452,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: GetAssetPropertyAggregatesRequest,
   ): Effect.Effect<
     GetAssetPropertyAggregatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetAssetPropertyAggregates", input);
   }
@@ -730,12 +460,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: GetAssetPropertyValueRequest,
   ): Effect.Effect<
     GetAssetPropertyValueResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetAssetPropertyValue", input);
   }
@@ -743,12 +468,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: GetAssetPropertyValueHistoryRequest,
   ): Effect.Effect<
     GetAssetPropertyValueHistoryResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetAssetPropertyValueHistory", input);
   }
@@ -756,12 +476,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: GetInterpolatedAssetPropertyValuesRequest,
   ): Effect.Effect<
     GetInterpolatedAssetPropertyValuesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetInterpolatedAssetPropertyValues", input);
   }
@@ -769,14 +484,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: InvokeAssistantRequest,
   ): Effect.Effect<
     InvokeAssistantResponse,
-    | AccessDeniedException
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("InvokeAssistant", input);
   }
@@ -784,10 +492,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListAccessPoliciesRequest,
   ): Effect.Effect<
     ListAccessPoliciesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAccessPolicies", input);
   }
@@ -795,11 +500,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListActionsRequest,
   ): Effect.Effect<
     ListActionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListActions", input);
   }
@@ -807,11 +508,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListAssetModelCompositeModelsRequest,
   ): Effect.Effect<
     ListAssetModelCompositeModelsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAssetModelCompositeModels", input);
   }
@@ -819,11 +516,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListAssetModelPropertiesRequest,
   ): Effect.Effect<
     ListAssetModelPropertiesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAssetModelProperties", input);
   }
@@ -831,10 +524,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListAssetModelsRequest,
   ): Effect.Effect<
     ListAssetModelsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAssetModels", input);
   }
@@ -842,11 +532,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListAssetPropertiesRequest,
   ): Effect.Effect<
     ListAssetPropertiesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAssetProperties", input);
   }
@@ -854,11 +540,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListAssetRelationshipsRequest,
   ): Effect.Effect<
     ListAssetRelationshipsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAssetRelationships", input);
   }
@@ -866,11 +548,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListAssetsRequest,
   ): Effect.Effect<
     ListAssetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAssets", input);
   }
@@ -878,11 +556,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListAssociatedAssetsRequest,
   ): Effect.Effect<
     ListAssociatedAssetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAssociatedAssets", input);
   }
@@ -890,11 +564,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListBulkImportJobsRequest,
   ): Effect.Effect<
     ListBulkImportJobsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListBulkImportJobs", input);
   }
@@ -902,11 +572,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListCompositionRelationshipsRequest,
   ): Effect.Effect<
     ListCompositionRelationshipsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListCompositionRelationships", input);
   }
@@ -914,10 +580,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListComputationModelDataBindingUsagesRequest,
   ): Effect.Effect<
     ListComputationModelDataBindingUsagesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListComputationModelDataBindingUsages", input);
   }
@@ -925,11 +588,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListComputationModelResolveToResourcesRequest,
   ): Effect.Effect<
     ListComputationModelResolveToResourcesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListComputationModelResolveToResources", input);
   }
@@ -937,10 +596,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListComputationModelsRequest,
   ): Effect.Effect<
     ListComputationModelsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListComputationModels", input);
   }
@@ -948,10 +604,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListDashboardsRequest,
   ): Effect.Effect<
     ListDashboardsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDashboards", input);
   }
@@ -959,10 +612,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListDatasetsRequest,
   ): Effect.Effect<
     ListDatasetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDatasets", input);
   }
@@ -970,11 +620,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListExecutionsRequest,
   ): Effect.Effect<
     ListExecutionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListExecutions", input);
   }
@@ -982,10 +628,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListGatewaysRequest,
   ): Effect.Effect<
     ListGatewaysResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListGateways", input);
   }
@@ -993,10 +636,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListPortalsRequest,
   ): Effect.Effect<
     ListPortalsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListPortals", input);
   }
@@ -1004,10 +644,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListProjectAssetsRequest,
   ): Effect.Effect<
     ListProjectAssetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListProjectAssets", input);
   }
@@ -1015,10 +652,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListProjectsRequest,
   ): Effect.Effect<
     ListProjectsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListProjects", input);
   }
@@ -1026,14 +660,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -1041,11 +668,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: ListTimeSeriesRequest,
   ): Effect.Effect<
     ListTimeSeriesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTimeSeries", input);
   }
@@ -1053,12 +676,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: PutDefaultEncryptionConfigurationRequest,
   ): Effect.Effect<
     PutDefaultEncryptionConfigurationResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutDefaultEncryptionConfiguration", input);
   }
@@ -1066,12 +684,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
     PutLoggingOptionsResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutLoggingOptions", input);
   }
@@ -1079,14 +692,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: PutStorageConfigurationRequest,
   ): Effect.Effect<
     PutStorageConfigurationResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutStorageConfiguration", input);
   }
@@ -1094,15 +700,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | TooManyTagsException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | TooManyTagsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1110,14 +708,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1125,11 +716,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateAccessPolicyRequest,
   ): Effect.Effect<
     UpdateAccessPolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAccessPolicy", input);
   }
@@ -1137,13 +724,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateAssetRequest,
   ): Effect.Effect<
     UpdateAssetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAsset", input);
   }
@@ -1151,15 +732,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateAssetModelRequest,
   ): Effect.Effect<
     UpdateAssetModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | PreconditionFailedException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | PreconditionFailedException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAssetModel", input);
   }
@@ -1167,15 +740,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateAssetModelCompositeModelRequest,
   ): Effect.Effect<
     UpdateAssetModelCompositeModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | PreconditionFailedException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | PreconditionFailedException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAssetModelCompositeModel", input);
   }
@@ -1183,12 +748,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateAssetPropertyRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAssetProperty", input);
   }
@@ -1196,14 +756,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateComputationModelRequest,
   ): Effect.Effect<
     UpdateComputationModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateComputationModel", input);
   }
@@ -1211,11 +764,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateDashboardRequest,
   ): Effect.Effect<
     UpdateDashboardResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDashboard", input);
   }
@@ -1223,13 +772,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateDatasetRequest,
   ): Effect.Effect<
     UpdateDatasetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDataset", input);
   }
@@ -1237,12 +780,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateGatewayRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateGateway", input);
   }
@@ -1250,13 +788,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateGatewayCapabilityConfigurationRequest,
   ): Effect.Effect<
     UpdateGatewayCapabilityConfigurationResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateGatewayCapabilityConfiguration", input);
   }
@@ -1264,12 +796,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdatePortalRequest,
   ): Effect.Effect<
     UpdatePortalResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdatePortal", input);
   }
@@ -1277,11 +804,7 @@ export class IoTSiteWise extends AWSServiceClient {
     input: UpdateProjectRequest,
   ): Effect.Effect<
     UpdateProjectResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateProject", input);
   }
@@ -1341,13 +864,7 @@ export interface Aggregates {
   sum?: number;
   standardDeviation?: number;
 }
-export type AggregateType =
-  | "AVERAGE"
-  | "COUNT"
-  | "MAXIMUM"
-  | "MINIMUM"
-  | "SUM"
-  | "STANDARD_DEVIATION";
+export type AggregateType = "AVERAGE" | "COUNT" | "MAXIMUM" | "MINIMUM" | "SUM" | "STANDARD_DEVIATION";
 export type AggregateTypes = Array<AggregateType>;
 export interface Alarms {
   alarmRoleArn: string;
@@ -1421,17 +938,14 @@ export interface AssetModelCompositeModelDefinition {
   type: string;
   properties?: Array<AssetModelPropertyDefinition>;
 }
-export type AssetModelCompositeModelDefinitions =
-  Array<AssetModelCompositeModelDefinition>;
-export type AssetModelCompositeModelPath =
-  Array<AssetModelCompositeModelPathSegment>;
+export type AssetModelCompositeModelDefinitions = Array<AssetModelCompositeModelDefinition>;
+export type AssetModelCompositeModelPath = Array<AssetModelCompositeModelPathSegment>;
 export interface AssetModelCompositeModelPathSegment {
   id?: string;
   name?: string;
 }
 export type AssetModelCompositeModels = Array<AssetModelCompositeModel>;
-export type AssetModelCompositeModelSummaries =
-  Array<AssetModelCompositeModelSummary>;
+export type AssetModelCompositeModelSummaries = Array<AssetModelCompositeModelSummary>;
 export interface AssetModelCompositeModelSummary {
   id: string;
   externalId?: string;
@@ -1453,8 +967,7 @@ export interface AssetModelHierarchyDefinition {
   name: string;
   childAssetModelId: string;
 }
-export type AssetModelHierarchyDefinitions =
-  Array<AssetModelHierarchyDefinition>;
+export type AssetModelHierarchyDefinitions = Array<AssetModelHierarchyDefinition>;
 export type AssetModelProperties = Array<AssetModelProperty>;
 export interface AssetModelProperty {
   id?: string;
@@ -1501,13 +1014,7 @@ export interface AssetModelPropertySummary {
   assetModelCompositeModelId?: string;
   path?: Array<AssetModelPropertyPathSegment>;
 }
-export type AssetModelState =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "PROPAGATING"
-  | "DELETING"
-  | "FAILED";
+export type AssetModelState = "CREATING" | "ACTIVE" | "UPDATING" | "PROPAGATING" | "DELETING" | "FAILED";
 export interface AssetModelStatus {
   state: AssetModelState;
   error?: ErrorDetails;
@@ -1579,12 +1086,7 @@ export interface AssetRelationshipSummary {
   relationshipType: AssetRelationshipType;
 }
 export type AssetRelationshipType = "HIERARCHY";
-export type AssetState =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "FAILED";
+export type AssetState = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "FAILED";
 export interface AssetStatus {
   state: AssetState;
   error?: ErrorDetails;
@@ -1650,8 +1152,7 @@ export interface BatchDisassociateProjectAssetsResponse {
   errors?: Array<AssetErrorDetails>;
 }
 export type BatchEntryCompletionStatus = "SUCCESS" | "ERROR";
-export type BatchGetAssetPropertyAggregatesEntries =
-  Array<BatchGetAssetPropertyAggregatesEntry>;
+export type BatchGetAssetPropertyAggregatesEntries = Array<BatchGetAssetPropertyAggregatesEntry>;
 export interface BatchGetAssetPropertyAggregatesEntry {
   entryId: string;
   assetId?: string;
@@ -1664,12 +1165,8 @@ export interface BatchGetAssetPropertyAggregatesEntry {
   qualities?: Array<Quality>;
   timeOrdering?: TimeOrdering;
 }
-export type BatchGetAssetPropertyAggregatesErrorCode =
-  | "ResourceNotFoundException"
-  | "InvalidRequestException"
-  | "AccessDeniedException";
-export type BatchGetAssetPropertyAggregatesErrorEntries =
-  Array<BatchGetAssetPropertyAggregatesErrorEntry>;
+export type BatchGetAssetPropertyAggregatesErrorCode = "ResourceNotFoundException" | "InvalidRequestException" | "AccessDeniedException";
+export type BatchGetAssetPropertyAggregatesErrorEntries = Array<BatchGetAssetPropertyAggregatesErrorEntry>;
 export interface BatchGetAssetPropertyAggregatesErrorEntry {
   errorCode: BatchGetAssetPropertyAggregatesErrorCode;
   errorMessage: string;
@@ -1692,33 +1189,26 @@ export interface BatchGetAssetPropertyAggregatesResponse {
   skippedEntries: Array<BatchGetAssetPropertyAggregatesSkippedEntry>;
   nextToken?: string;
 }
-export type BatchGetAssetPropertyAggregatesSkippedEntries =
-  Array<BatchGetAssetPropertyAggregatesSkippedEntry>;
+export type BatchGetAssetPropertyAggregatesSkippedEntries = Array<BatchGetAssetPropertyAggregatesSkippedEntry>;
 export interface BatchGetAssetPropertyAggregatesSkippedEntry {
   entryId: string;
   completionStatus: BatchEntryCompletionStatus;
   errorInfo?: BatchGetAssetPropertyAggregatesErrorInfo;
 }
-export type BatchGetAssetPropertyAggregatesSuccessEntries =
-  Array<BatchGetAssetPropertyAggregatesSuccessEntry>;
+export type BatchGetAssetPropertyAggregatesSuccessEntries = Array<BatchGetAssetPropertyAggregatesSuccessEntry>;
 export interface BatchGetAssetPropertyAggregatesSuccessEntry {
   entryId: string;
   aggregatedValues: Array<AggregatedValue>;
 }
-export type BatchGetAssetPropertyValueEntries =
-  Array<BatchGetAssetPropertyValueEntry>;
+export type BatchGetAssetPropertyValueEntries = Array<BatchGetAssetPropertyValueEntry>;
 export interface BatchGetAssetPropertyValueEntry {
   entryId: string;
   assetId?: string;
   propertyId?: string;
   propertyAlias?: string;
 }
-export type BatchGetAssetPropertyValueErrorCode =
-  | "ResourceNotFoundException"
-  | "InvalidRequestException"
-  | "AccessDeniedException";
-export type BatchGetAssetPropertyValueErrorEntries =
-  Array<BatchGetAssetPropertyValueErrorEntry>;
+export type BatchGetAssetPropertyValueErrorCode = "ResourceNotFoundException" | "InvalidRequestException" | "AccessDeniedException";
+export type BatchGetAssetPropertyValueErrorEntries = Array<BatchGetAssetPropertyValueErrorEntry>;
 export interface BatchGetAssetPropertyValueErrorEntry {
   errorCode: BatchGetAssetPropertyValueErrorCode;
   errorMessage: string;
@@ -1728,8 +1218,7 @@ export interface BatchGetAssetPropertyValueErrorInfo {
   errorCode: BatchGetAssetPropertyValueErrorCode;
   errorTimestamp: Date | string;
 }
-export type BatchGetAssetPropertyValueHistoryEntries =
-  Array<BatchGetAssetPropertyValueHistoryEntry>;
+export type BatchGetAssetPropertyValueHistoryEntries = Array<BatchGetAssetPropertyValueHistoryEntry>;
 export interface BatchGetAssetPropertyValueHistoryEntry {
   entryId: string;
   assetId?: string;
@@ -1740,12 +1229,8 @@ export interface BatchGetAssetPropertyValueHistoryEntry {
   qualities?: Array<Quality>;
   timeOrdering?: TimeOrdering;
 }
-export type BatchGetAssetPropertyValueHistoryErrorCode =
-  | "ResourceNotFoundException"
-  | "InvalidRequestException"
-  | "AccessDeniedException";
-export type BatchGetAssetPropertyValueHistoryErrorEntries =
-  Array<BatchGetAssetPropertyValueHistoryErrorEntry>;
+export type BatchGetAssetPropertyValueHistoryErrorCode = "ResourceNotFoundException" | "InvalidRequestException" | "AccessDeniedException";
+export type BatchGetAssetPropertyValueHistoryErrorEntries = Array<BatchGetAssetPropertyValueHistoryErrorEntry>;
 export interface BatchGetAssetPropertyValueHistoryErrorEntry {
   errorCode: BatchGetAssetPropertyValueHistoryErrorCode;
   errorMessage: string;
@@ -1768,15 +1253,13 @@ export interface BatchGetAssetPropertyValueHistoryResponse {
   skippedEntries: Array<BatchGetAssetPropertyValueHistorySkippedEntry>;
   nextToken?: string;
 }
-export type BatchGetAssetPropertyValueHistorySkippedEntries =
-  Array<BatchGetAssetPropertyValueHistorySkippedEntry>;
+export type BatchGetAssetPropertyValueHistorySkippedEntries = Array<BatchGetAssetPropertyValueHistorySkippedEntry>;
 export interface BatchGetAssetPropertyValueHistorySkippedEntry {
   entryId: string;
   completionStatus: BatchEntryCompletionStatus;
   errorInfo?: BatchGetAssetPropertyValueHistoryErrorInfo;
 }
-export type BatchGetAssetPropertyValueHistorySuccessEntries =
-  Array<BatchGetAssetPropertyValueHistorySuccessEntry>;
+export type BatchGetAssetPropertyValueHistorySuccessEntries = Array<BatchGetAssetPropertyValueHistorySuccessEntry>;
 export interface BatchGetAssetPropertyValueHistorySuccessEntry {
   entryId: string;
   assetPropertyValueHistory: Array<AssetPropertyValue>;
@@ -1791,15 +1274,13 @@ export interface BatchGetAssetPropertyValueResponse {
   skippedEntries: Array<BatchGetAssetPropertyValueSkippedEntry>;
   nextToken?: string;
 }
-export type BatchGetAssetPropertyValueSkippedEntries =
-  Array<BatchGetAssetPropertyValueSkippedEntry>;
+export type BatchGetAssetPropertyValueSkippedEntries = Array<BatchGetAssetPropertyValueSkippedEntry>;
 export interface BatchGetAssetPropertyValueSkippedEntry {
   entryId: string;
   completionStatus: BatchEntryCompletionStatus;
   errorInfo?: BatchGetAssetPropertyValueErrorInfo;
 }
-export type BatchGetAssetPropertyValueSuccessEntries =
-  Array<BatchGetAssetPropertyValueSuccessEntry>;
+export type BatchGetAssetPropertyValueSuccessEntries = Array<BatchGetAssetPropertyValueSuccessEntry>;
 export interface BatchGetAssetPropertyValueSuccessEntry {
   entryId: string;
   assetPropertyValue?: AssetPropertyValue;
@@ -1809,23 +1290,13 @@ export interface BatchPutAssetPropertyError {
   errorMessage: string;
   timestamps: Array<TimeInNanos>;
 }
-export type BatchPutAssetPropertyErrorEntries =
-  Array<BatchPutAssetPropertyErrorEntry>;
+export type BatchPutAssetPropertyErrorEntries = Array<BatchPutAssetPropertyErrorEntry>;
 export interface BatchPutAssetPropertyErrorEntry {
   entryId: string;
   errors: Array<BatchPutAssetPropertyError>;
 }
 export type BatchPutAssetPropertyErrors = Array<BatchPutAssetPropertyError>;
-export type BatchPutAssetPropertyValueErrorCode =
-  | "ResourceNotFoundException"
-  | "InvalidRequestException"
-  | "InternalFailureException"
-  | "ServiceUnavailableException"
-  | "ThrottlingException"
-  | "LimitExceededException"
-  | "ConflictingOperationException"
-  | "TimestampOutOfRangeException"
-  | "AccessDeniedException";
+export type BatchPutAssetPropertyValueErrorCode = "ResourceNotFoundException" | "InvalidRequestException" | "InternalFailureException" | "ServiceUnavailableException" | "ThrottlingException" | "LimitExceededException" | "ConflictingOperationException" | "TimestampOutOfRangeException" | "AccessDeniedException";
 export interface BatchPutAssetPropertyValueRequest {
   enablePartialEntryProcessing?: boolean;
   entries: Array<PutAssetPropertyValueEntry>;
@@ -1842,12 +1313,7 @@ export type CapabilityConfiguration = string;
 
 export type CapabilityNamespace = string;
 
-export type CapabilitySyncStatus =
-  | "IN_SYNC"
-  | "OUT_OF_SYNC"
-  | "SYNC_FAILED"
-  | "UNKNOWN"
-  | "NOT_APPLICABLE";
+export type CapabilitySyncStatus = "IN_SYNC" | "OUT_OF_SYNC" | "SYNC_FAILED" | "UNKNOWN" | "NOT_APPLICABLE";
 export interface Citation {
   reference?: Reference;
   content?: Content;
@@ -1859,15 +1325,7 @@ export interface ColumnInfo {
   name?: string;
   type?: ColumnType;
 }
-export type ColumnName =
-  | "ALIAS"
-  | "ASSET_ID"
-  | "PROPERTY_ID"
-  | "DATA_TYPE"
-  | "TIMESTAMP_SECONDS"
-  | "TIMESTAMP_NANO_OFFSET"
-  | "QUALITY"
-  | "VALUE";
+export type ColumnName = "ALIAS" | "ASSET_ID" | "PROPERTY_ID" | "DATA_TYPE" | "TIMESTAMP_SECONDS" | "TIMESTAMP_NANO_OFFSET" | "QUALITY" | "VALUE";
 export type ColumnNames = Array<ColumnName>;
 export type ColumnsList = Array<ColumnInfo>;
 export interface ColumnType {
@@ -1887,8 +1345,7 @@ export type CompositionRelationship = Array<CompositionRelationshipItem>;
 export interface CompositionRelationshipItem {
   id?: string;
 }
-export type CompositionRelationshipSummaries =
-  Array<CompositionRelationshipSummary>;
+export type CompositionRelationshipSummaries = Array<CompositionRelationshipSummary>;
 export interface CompositionRelationshipSummary {
   assetModelId: string;
   assetModelCompositeModelId: string;
@@ -1901,12 +1358,8 @@ export interface ComputationModelAnomalyDetectionConfiguration {
 export interface ComputationModelConfiguration {
   anomalyDetection?: ComputationModelAnomalyDetectionConfiguration;
 }
-export type ComputationModelDataBinding = Record<
-  string,
-  ComputationModelDataBindingValue
->;
-export type ComputationModelDataBindingUsageSummaries =
-  Array<ComputationModelDataBindingUsageSummary>;
+export type ComputationModelDataBinding = Record<string, ComputationModelDataBindingValue>;
+export type ComputationModelDataBindingUsageSummaries = Array<ComputationModelDataBindingUsageSummary>;
 export interface ComputationModelDataBindingUsageSummary {
   computationModelIds: Array<string>;
   matchedDataBinding: MatchedDataBinding;
@@ -1924,17 +1377,11 @@ export type ComputationModelExecutionSummaryKey = string;
 export type ComputationModelExecutionSummaryValue = string;
 
 export type ComputationModelIdList = Array<string>;
-export type ComputationModelResolveToResourceSummaries =
-  Array<ComputationModelResolveToResourceSummary>;
+export type ComputationModelResolveToResourceSummaries = Array<ComputationModelResolveToResourceSummary>;
 export interface ComputationModelResolveToResourceSummary {
   resolveTo?: ResolveTo;
 }
-export type ComputationModelState =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "FAILED";
+export type ComputationModelState = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "FAILED";
 export interface ComputationModelStatus {
   state: ComputationModelState;
   error?: ErrorDetails;
@@ -1957,10 +1404,7 @@ export interface ConfigurationErrorDetails {
   code: ErrorCode;
   message: string;
 }
-export type ConfigurationState =
-  | "ACTIVE"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_FAILED";
+export type ConfigurationState = "ACTIVE" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED";
 export interface ConfigurationStatus {
   state: ConfigurationState;
   error?: ConfigurationErrorDetails;
@@ -1977,10 +1421,7 @@ export interface Content {
 }
 export type ConversationId = string;
 
-export type CoreDeviceOperatingSystem =
-  | "LINUX_AARCH64"
-  | "LINUX_AMD64"
-  | "WINDOWS_AMD64";
+export type CoreDeviceOperatingSystem = "LINUX_AARCH64" | "LINUX_AMD64" | "WINDOWS_AMD64";
 export type CoreDeviceThingName = string;
 
 export interface CreateAccessPolicyRequest {
@@ -2179,12 +1620,7 @@ export interface DatasetSource {
 }
 export type DatasetSourceFormat = "KNOWLEDGE_BASE";
 export type DatasetSourceType = "KENDRA";
-export type DatasetState =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "FAILED";
+export type DatasetState = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "FAILED";
 export interface DatasetStatus {
   state: DatasetState;
   error?: ErrorDetails;
@@ -2212,7 +1648,8 @@ export interface DeleteAccessPolicyRequest {
   accessPolicyId: string;
   clientToken?: string;
 }
-export interface DeleteAccessPolicyResponse {}
+export interface DeleteAccessPolicyResponse {
+}
 export interface DeleteAssetModelCompositeModelRequest {
   assetModelId: string;
   assetModelCompositeModelId: string;
@@ -2252,7 +1689,8 @@ export interface DeleteDashboardRequest {
   dashboardId: string;
   clientToken?: string;
 }
-export interface DeleteDashboardResponse {}
+export interface DeleteDashboardResponse {
+}
 export interface DeleteDatasetRequest {
   datasetId: string;
   clientToken?: string;
@@ -2276,7 +1714,8 @@ export interface DeleteProjectRequest {
   projectId: string;
   clientToken?: string;
 }
-export interface DeleteProjectResponse {}
+export interface DeleteProjectResponse {
+}
 export interface DeleteTimeSeriesRequest {
   alias?: string;
   assetId?: string;
@@ -2462,7 +1901,8 @@ export interface DescribeDatasetResponse {
   datasetLastUpdateDate: Date | string;
   datasetVersion?: string;
 }
-export interface DescribeDefaultEncryptionConfigurationRequest {}
+export interface DescribeDefaultEncryptionConfigurationRequest {
+}
 export interface DescribeDefaultEncryptionConfigurationResponse {
   encryptionType: EncryptionType;
   kmsKeyArn?: string;
@@ -2507,7 +1947,8 @@ export interface DescribeGatewayResponse {
   creationDate: Date | string;
   lastUpdateDate: Date | string;
 }
-export interface DescribeLoggingOptionsRequest {}
+export interface DescribeLoggingOptionsRequest {
+}
 export interface DescribeLoggingOptionsResponse {
   loggingOptions: LoggingOptions;
 }
@@ -2545,7 +1986,8 @@ export interface DescribeProjectResponse {
   projectCreationDate: Date | string;
   projectLastUpdateDate: Date | string;
 }
-export interface DescribeStorageConfigurationRequest {}
+export interface DescribeStorageConfigurationRequest {
+}
 export interface DescribeStorageConfigurationResponse {
   storageType: StorageType;
   multiLayerStorage?: MultiLayerStorage;
@@ -2579,9 +2021,7 @@ export interface DetailedError {
   code: DetailedErrorCode;
   message: string;
 }
-export type DetailedErrorCode =
-  | "INCOMPATIBLE_COMPUTE_LOCATION"
-  | "INCOMPATIBLE_FORWARDING_CONFIGURATION";
+export type DetailedErrorCode = "INCOMPATIBLE_COMPUTE_LOCATION" | "INCOMPATIBLE_FORWARDING_CONFIGURATION";
 export type DetailedErrorMessage = string;
 
 export type DetailedErrors = Array<DetailedError>;
@@ -2602,9 +2042,7 @@ export interface DisassociateTimeSeriesFromAssetPropertyRequest {
 }
 export type Email = string;
 
-export type EncryptionType =
-  | "SITEWISE_DEFAULT_ENCRYPTION"
-  | "KMS_BASED_ENCRYPTION";
+export type EncryptionType = "SITEWISE_DEFAULT_ENCRYPTION" | "KMS_BASED_ENCRYPTION";
 export type EntryId = string;
 
 export type ErrorCode = "VALIDATION_ERROR" | "INTERNAL_FAILURE";
@@ -2842,8 +2280,7 @@ export interface InterpolatedAssetPropertyValue {
   timestamp: TimeInNanos;
   value: Variant;
 }
-export type InterpolatedAssetPropertyValues =
-  Array<InterpolatedAssetPropertyValue>;
+export type InterpolatedAssetPropertyValues = Array<InterpolatedAssetPropertyValue>;
 export type InterpolationType = string;
 
 export type Interval = string;
@@ -2875,13 +2312,7 @@ export type IotCoreThingName = string;
 export interface JobConfiguration {
   fileFormat: FileFormat;
 }
-export type JobStatus =
-  | "PENDING"
-  | "CANCELLED"
-  | "RUNNING"
-  | "COMPLETED"
-  | "FAILED"
-  | "COMPLETED_WITH_FAILURES";
+export type JobStatus = "PENDING" | "CANCELLED" | "RUNNING" | "COMPLETED" | "FAILED" | "COMPLETED_WITH_FAILURES";
 export type JobSummaries = Array<JobSummary>;
 export interface JobSummary {
   id: string;
@@ -3000,14 +2431,7 @@ export interface ListAssociatedAssetsResponse {
   assetSummaries: Array<AssociatedAssetsSummary>;
   nextToken?: string;
 }
-export type ListBulkImportJobsFilter =
-  | "ALL"
-  | "PENDING"
-  | "RUNNING"
-  | "CANCELLED"
-  | "FAILED"
-  | "COMPLETED_WITH_FAILURES"
-  | "COMPLETED";
+export type ListBulkImportJobsFilter = "ALL" | "PENDING" | "RUNNING" | "CANCELLED" | "FAILED" | "COMPLETED_WITH_FAILURES" | "COMPLETED";
 export interface ListBulkImportJobsRequest {
   nextToken?: string;
   maxResults?: number;
@@ -3172,10 +2596,7 @@ export interface MetricProcessingConfig {
 export interface MetricWindow {
   tumbling?: TumblingWindow;
 }
-export type MonitorErrorCode =
-  | "INTERNAL_FAILURE"
-  | "VALIDATION_ERROR"
-  | "LIMIT_EXCEEDED";
+export type MonitorErrorCode = "INTERNAL_FAILURE" | "VALIDATION_ERROR" | "LIMIT_EXCEEDED";
 export interface MonitorErrorDetails {
   code?: MonitorErrorCode;
   message?: string;
@@ -3197,20 +2618,15 @@ export type Offset = string;
 
 export type OffsetInNanos = number;
 
-export interface Parquet {}
+export interface Parquet {
+}
 export type Permission = "ADMINISTRATOR" | "VIEWER";
 export type PortalClientId = string;
 
 export interface PortalResource {
   id: string;
 }
-export type PortalState =
-  | "CREATING"
-  | "PENDING"
-  | "UPDATING"
-  | "DELETING"
-  | "ACTIVE"
-  | "FAILED";
+export type PortalState = "CREATING" | "PENDING" | "UPDATING" | "DELETING" | "ACTIVE" | "FAILED";
 export interface PortalStatus {
   state: PortalState;
   error?: MonitorErrorDetails;
@@ -3266,12 +2682,7 @@ export interface Property {
 }
 export type PropertyAlias = string;
 
-export type PropertyDataType =
-  | "STRING"
-  | "INTEGER"
-  | "DOUBLE"
-  | "BOOLEAN"
-  | "STRUCT";
+export type PropertyDataType = "STRING" | "INTEGER" | "DOUBLE" | "BOOLEAN" | "STRUCT";
 export interface PropertyNotification {
   topic: string;
   state: PropertyNotificationState;
@@ -3318,7 +2729,8 @@ export interface PutDefaultEncryptionConfigurationResponse {
 export interface PutLoggingOptionsRequest {
   loggingOptions: LoggingOptions;
 }
-export interface PutLoggingOptionsResponse {}
+export interface PutLoggingOptionsResponse {
+}
 export interface PutStorageConfigurationRequest {
   storageType: StorageType;
   multiLayerStorage?: MultiLayerStorage;
@@ -3347,12 +2759,7 @@ export declare class QueryTimeoutException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type RawValueType =
-  | "DOUBLE"
-  | "BOOLEAN"
-  | "STRING"
-  | "INTEGER"
-  | "UNKNOWN";
+export type RawValueType = "DOUBLE" | "BOOLEAN" | "STRING" | "INTEGER" | "UNKNOWN";
 export interface Reference {
   dataset?: DataSetReference;
 }
@@ -3395,18 +2802,7 @@ interface _ResponseStream {
   throttlingException?: ThrottlingException;
 }
 
-export type ResponseStream =
-  | (_ResponseStream & { trace: Trace })
-  | (_ResponseStream & { output: InvocationOutput })
-  | (_ResponseStream & { accessDeniedException: AccessDeniedException })
-  | (_ResponseStream & {
-      conflictingOperationException: ConflictingOperationException;
-    })
-  | (_ResponseStream & { internalFailureException: InternalFailureException })
-  | (_ResponseStream & { invalidRequestException: InvalidRequestException })
-  | (_ResponseStream & { limitExceededException: LimitExceededException })
-  | (_ResponseStream & { resourceNotFoundException: ResourceNotFoundException })
-  | (_ResponseStream & { throttlingException: ThrottlingException });
+export type ResponseStream = (_ResponseStream & { trace: Trace }) | (_ResponseStream & { output: InvocationOutput }) | (_ResponseStream & { accessDeniedException: AccessDeniedException }) | (_ResponseStream & { conflictingOperationException: ConflictingOperationException }) | (_ResponseStream & { internalFailureException: InternalFailureException }) | (_ResponseStream & { invalidRequestException: InvalidRequestException }) | (_ResponseStream & { limitExceededException: LimitExceededException }) | (_ResponseStream & { resourceNotFoundException: ResourceNotFoundException }) | (_ResponseStream & { throttlingException: ThrottlingException });
 export type RestrictedDescription = string;
 
 export type RestrictedName = string;
@@ -3454,7 +2850,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TargetResource {
@@ -3526,7 +2923,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAccessPolicyRequest {
   accessPolicyId: string;
   accessPolicyIdentity: Identity;
@@ -3534,7 +2932,8 @@ export interface UpdateAccessPolicyRequest {
   accessPolicyPermission: Permission;
   clientToken?: string;
 }
-export interface UpdateAccessPolicyResponse {}
+export interface UpdateAccessPolicyResponse {
+}
 export interface UpdateAssetModelCompositeModelRequest {
   assetModelId: string;
   assetModelCompositeModelId: string;
@@ -3603,7 +3002,8 @@ export interface UpdateDashboardRequest {
   dashboardDefinition: string;
   clientToken?: string;
 }
-export interface UpdateDashboardResponse {}
+export interface UpdateDashboardResponse {
+}
 export interface UpdateDatasetRequest {
   datasetId: string;
   datasetName: string;
@@ -3651,7 +3051,8 @@ export interface UpdateProjectRequest {
   projectDescription?: string;
   clientToken?: string;
 }
-export interface UpdateProjectResponse {}
+export interface UpdateProjectResponse {
+}
 export type Url = string;
 
 export interface UserIdentity {
@@ -4864,3 +4265,4 @@ export declare namespace UpdateProject {
     | ThrottlingException
     | CommonAwsError;
 }
+

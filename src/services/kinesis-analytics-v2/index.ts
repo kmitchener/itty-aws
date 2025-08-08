@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class KinesisAnalyticsV2 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("kinesis-analytics-v2", new AwsJson11Protocol(), cfg);
+  }
+
   addApplicationCloudWatchLoggingOption(
     input: AddApplicationCloudWatchLoggingOptionRequest,
   ): Effect.Effect<
     AddApplicationCloudWatchLoggingOptionResponse,
-    | ConcurrentModificationException
-    | InvalidApplicationConfigurationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidApplicationConfigurationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("AddApplicationCloudWatchLoggingOption", input);
   }
@@ -21,13 +20,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: AddApplicationInputRequest,
   ): Effect.Effect<
     AddApplicationInputResponse,
-    | CodeValidationException
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    CodeValidationException | ConcurrentModificationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("AddApplicationInput", input);
   }
@@ -35,12 +28,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: AddApplicationInputProcessingConfigurationRequest,
   ): Effect.Effect<
     AddApplicationInputProcessingConfigurationResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("AddApplicationInputProcessingConfiguration", input);
   }
@@ -48,12 +36,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: AddApplicationOutputRequest,
   ): Effect.Effect<
     AddApplicationOutputResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("AddApplicationOutput", input);
   }
@@ -61,12 +44,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: AddApplicationReferenceDataSourceRequest,
   ): Effect.Effect<
     AddApplicationReferenceDataSourceResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("AddApplicationReferenceDataSource", input);
   }
@@ -74,12 +52,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: AddApplicationVpcConfigurationRequest,
   ): Effect.Effect<
     AddApplicationVpcConfigurationResponse,
-    | ConcurrentModificationException
-    | InvalidApplicationConfigurationException
-    | InvalidArgumentException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidApplicationConfigurationException | InvalidArgumentException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("AddApplicationVpcConfiguration", input);
   }
@@ -87,15 +60,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | CodeValidationException
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceInUseException
-    | TooManyTagsException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CodeValidationException | ConcurrentModificationException | InvalidArgumentException | InvalidRequestException | LimitExceededException | ResourceInUseException | TooManyTagsException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CreateApplication", input);
   }
@@ -103,10 +68,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: CreateApplicationPresignedUrlRequest,
   ): Effect.Effect<
     CreateApplicationPresignedUrlResponse,
-    | InvalidArgumentException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArgumentException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("CreateApplicationPresignedUrl", input);
   }
@@ -114,14 +76,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: CreateApplicationSnapshotRequest,
   ): Effect.Effect<
     CreateApplicationSnapshotResponse,
-    | InvalidApplicationConfigurationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidApplicationConfigurationException | InvalidArgumentException | InvalidRequestException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CreateApplicationSnapshot", input);
   }
@@ -129,13 +84,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    | ConcurrentModificationException
-    | InvalidApplicationConfigurationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidApplicationConfigurationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteApplication", input);
   }
@@ -143,13 +92,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DeleteApplicationCloudWatchLoggingOptionRequest,
   ): Effect.Effect<
     DeleteApplicationCloudWatchLoggingOptionResponse,
-    | ConcurrentModificationException
-    | InvalidApplicationConfigurationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidApplicationConfigurationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteApplicationCloudWatchLoggingOption", input);
   }
@@ -157,12 +100,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DeleteApplicationInputProcessingConfigurationRequest,
   ): Effect.Effect<
     DeleteApplicationInputProcessingConfigurationResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteApplicationInputProcessingConfiguration", input);
   }
@@ -170,12 +108,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DeleteApplicationOutputRequest,
   ): Effect.Effect<
     DeleteApplicationOutputResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteApplicationOutput", input);
   }
@@ -183,12 +116,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DeleteApplicationReferenceDataSourceRequest,
   ): Effect.Effect<
     DeleteApplicationReferenceDataSourceResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteApplicationReferenceDataSource", input);
   }
@@ -196,13 +124,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DeleteApplicationSnapshotRequest,
   ): Effect.Effect<
     DeleteApplicationSnapshotResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteApplicationSnapshot", input);
   }
@@ -210,12 +132,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DeleteApplicationVpcConfigurationRequest,
   ): Effect.Effect<
     DeleteApplicationVpcConfigurationResponse,
-    | ConcurrentModificationException
-    | InvalidApplicationConfigurationException
-    | InvalidArgumentException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidApplicationConfigurationException | InvalidArgumentException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteApplicationVpcConfiguration", input);
   }
@@ -223,10 +140,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DescribeApplicationRequest,
   ): Effect.Effect<
     DescribeApplicationResponse,
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArgumentException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeApplication", input);
   }
@@ -234,10 +148,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DescribeApplicationOperationRequest,
   ): Effect.Effect<
     DescribeApplicationOperationResponse,
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidArgumentException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DescribeApplicationOperation", input);
   }
@@ -245,10 +156,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DescribeApplicationSnapshotRequest,
   ): Effect.Effect<
     DescribeApplicationSnapshotResponse,
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidArgumentException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DescribeApplicationSnapshot", input);
   }
@@ -256,10 +164,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DescribeApplicationVersionRequest,
   ): Effect.Effect<
     DescribeApplicationVersionResponse,
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidArgumentException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DescribeApplicationVersion", input);
   }
@@ -267,13 +172,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: DiscoverInputSchemaRequest,
   ): Effect.Effect<
     DiscoverInputSchemaResponse,
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceProvisionedThroughputExceededException
-    | ServiceUnavailableException
-    | UnableToDetectSchemaException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidArgumentException | InvalidRequestException | ResourceProvisionedThroughputExceededException | ServiceUnavailableException | UnableToDetectSchemaException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DiscoverInputSchema", input);
   }
@@ -281,10 +180,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: ListApplicationOperationsRequest,
   ): Effect.Effect<
     ListApplicationOperationsResponse,
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidArgumentException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListApplicationOperations", input);
   }
@@ -308,10 +204,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: ListApplicationVersionsRequest,
   ): Effect.Effect<
     ListApplicationVersionsResponse,
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidArgumentException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListApplicationVersions", input);
   }
@@ -319,10 +212,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -330,13 +220,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: RollbackApplicationRequest,
   ): Effect.Effect<
     RollbackApplicationResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("RollbackApplication", input);
   }
@@ -344,12 +228,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: StartApplicationRequest,
   ): Effect.Effect<
     StartApplicationResponse,
-    | InvalidApplicationConfigurationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidApplicationConfigurationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartApplication", input);
   }
@@ -357,13 +236,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: StopApplicationRequest,
   ): Effect.Effect<
     StopApplicationResponse,
-    | ConcurrentModificationException
-    | InvalidApplicationConfigurationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidApplicationConfigurationException | InvalidArgumentException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StopApplication", input);
   }
@@ -371,12 +244,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | ResourceInUseException | ResourceNotFoundException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -384,12 +252,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | ResourceInUseException | ResourceNotFoundException | TooManyTagsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -397,15 +260,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    | CodeValidationException
-    | ConcurrentModificationException
-    | InvalidApplicationConfigurationException
-    | InvalidArgumentException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    CodeValidationException | ConcurrentModificationException | InvalidApplicationConfigurationException | InvalidArgumentException | InvalidRequestException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateApplication", input);
   }
@@ -413,12 +268,7 @@ export class KinesisAnalyticsV2 extends AWSServiceClient {
     input: UpdateApplicationMaintenanceConfigurationRequest,
   ): Effect.Effect<
     UpdateApplicationMaintenanceConfigurationResponse,
-    | ConcurrentModificationException
-    | InvalidArgumentException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgumentException | ResourceInUseException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("UpdateApplicationMaintenanceConfiguration", input);
   }
@@ -591,10 +441,7 @@ export interface ApplicationRestoreConfiguration {
   ApplicationRestoreType: ApplicationRestoreType;
   SnapshotName?: string;
 }
-export type ApplicationRestoreType =
-  | "SKIP_RESTORE_FROM_SNAPSHOT"
-  | "RESTORE_FROM_LATEST_SNAPSHOT"
-  | "RESTORE_FROM_CUSTOM_SNAPSHOT";
+export type ApplicationRestoreType = "SKIP_RESTORE_FROM_SNAPSHOT" | "RESTORE_FROM_LATEST_SNAPSHOT" | "RESTORE_FROM_CUSTOM_SNAPSHOT";
 export interface ApplicationSnapshotConfiguration {
   SnapshotsEnabled: boolean;
 }
@@ -604,18 +451,7 @@ export interface ApplicationSnapshotConfigurationDescription {
 export interface ApplicationSnapshotConfigurationUpdate {
   SnapshotsEnabledUpdate: boolean;
 }
-export type ApplicationStatus =
-  | "DELETING"
-  | "STARTING"
-  | "STOPPING"
-  | "READY"
-  | "RUNNING"
-  | "UPDATING"
-  | "AUTOSCALING"
-  | "FORCE_STOPPING"
-  | "ROLLING_BACK"
-  | "MAINTENANCE"
-  | "ROLLED_BACK";
+export type ApplicationStatus = "DELETING" | "STARTING" | "STOPPING" | "READY" | "RUNNING" | "UPDATING" | "AUTOSCALING" | "FORCE_STOPPING" | "ROLLING_BACK" | "MAINTENANCE" | "ROLLED_BACK";
 export type ApplicationSummaries = Array<ApplicationSummary>;
 export interface ApplicationSummary {
   ApplicationName: string;
@@ -691,15 +527,13 @@ export interface CloudWatchLoggingOptionDescription {
   LogStreamARN: string;
   RoleARN?: string;
 }
-export type CloudWatchLoggingOptionDescriptions =
-  Array<CloudWatchLoggingOptionDescription>;
+export type CloudWatchLoggingOptionDescriptions = Array<CloudWatchLoggingOptionDescription>;
 export type CloudWatchLoggingOptions = Array<CloudWatchLoggingOption>;
 export interface CloudWatchLoggingOptionUpdate {
   CloudWatchLoggingOptionId: string;
   LogStreamARNUpdate?: string;
 }
-export type CloudWatchLoggingOptionUpdates =
-  Array<CloudWatchLoggingOptionUpdate>;
+export type CloudWatchLoggingOptionUpdates = Array<CloudWatchLoggingOptionUpdate>;
 export interface CodeContent {
   TextContent?: string;
   ZipFileContent?: Uint8Array | string;
@@ -759,7 +593,8 @@ export interface CreateApplicationSnapshotRequest {
   ApplicationName: string;
   SnapshotName: string;
 }
-export interface CreateApplicationSnapshotResponse {}
+export interface CreateApplicationSnapshotResponse {
+}
 export interface CSVMappingParameters {
   RecordRowDelimiter: string;
   RecordColumnDelimiter: string;
@@ -774,10 +609,8 @@ export interface CustomArtifactConfigurationDescription {
   S3ContentLocationDescription?: S3ContentLocation;
   MavenReferenceDescription?: MavenReference;
 }
-export type CustomArtifactsConfigurationDescriptionList =
-  Array<CustomArtifactConfigurationDescription>;
-export type CustomArtifactsConfigurationList =
-  Array<CustomArtifactConfiguration>;
+export type CustomArtifactsConfigurationDescriptionList = Array<CustomArtifactConfigurationDescription>;
+export type CustomArtifactsConfigurationList = Array<CustomArtifactConfiguration>;
 export type DatabaseARN = string;
 
 export interface DeleteApplicationCloudWatchLoggingOptionRequest {
@@ -823,13 +656,15 @@ export interface DeleteApplicationRequest {
   ApplicationName: string;
   CreateTimestamp: Date | string;
 }
-export interface DeleteApplicationResponse {}
+export interface DeleteApplicationResponse {
+}
 export interface DeleteApplicationSnapshotRequest {
   ApplicationName: string;
   SnapshotName: string;
   SnapshotCreationTimestamp: Date | string;
 }
-export interface DeleteApplicationSnapshotResponse {}
+export interface DeleteApplicationSnapshotResponse {
+}
 export interface DeleteApplicationVpcConfigurationRequest {
   ApplicationName: string;
   CurrentApplicationVersionId?: number;
@@ -1000,10 +835,7 @@ export interface InputSchemaUpdate {
   RecordEncodingUpdate?: string;
   RecordColumnUpdates?: Array<RecordColumn>;
 }
-export type InputStartingPosition =
-  | "NOW"
-  | "TRIM_HORIZON"
-  | "LAST_STOPPED_POINT";
+export type InputStartingPosition = "NOW" | "TRIM_HORIZON" | "LAST_STOPPED_POINT";
 export interface InputStartingPositionConfiguration {
   InputStartingPosition?: InputStartingPosition;
 }
@@ -1193,11 +1025,7 @@ export interface OperationFailureDetails {
 }
 export type OperationId = string;
 
-export type OperationStatus =
-  | "IN_PROGRESS"
-  | "CANCELLED"
-  | "SUCCESSFUL"
-  | "FAILED";
+export type OperationStatus = "IN_PROGRESS" | "CANCELLED" | "SUCCESSFUL" | "FAILED";
 export interface Output {
   Name: string;
   KinesisStreamsOutput?: KinesisStreamsOutput;
@@ -1303,8 +1131,7 @@ export interface ReferenceDataSourceDescription {
   S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription;
   ReferenceSchema?: SourceSchema;
 }
-export type ReferenceDataSourceDescriptions =
-  Array<ReferenceDataSourceDescription>;
+export type ReferenceDataSourceDescriptions = Array<ReferenceDataSourceDescription>;
 export type ReferenceDataSources = Array<ReferenceDataSource>;
 export interface ReferenceDataSourceUpdate {
   ReferenceId: string;
@@ -1353,19 +1180,7 @@ export interface RunConfigurationUpdate {
   FlinkRunConfiguration?: FlinkRunConfiguration;
   ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration;
 }
-export type RuntimeEnvironment =
-  | "SQL_1_0"
-  | "FLINK_1_6"
-  | "FLINK_1_8"
-  | "ZEPPELIN_FLINK_1_0"
-  | "FLINK_1_11"
-  | "FLINK_1_13"
-  | "ZEPPELIN_FLINK_2_0"
-  | "FLINK_1_15"
-  | "ZEPPELIN_FLINK_3_0"
-  | "FLINK_1_18"
-  | "FLINK_1_19"
-  | "FLINK_1_20";
+export type RuntimeEnvironment = "SQL_1_0" | "FLINK_1_6" | "FLINK_1_8" | "ZEPPELIN_FLINK_1_0" | "FLINK_1_11" | "FLINK_1_13" | "ZEPPELIN_FLINK_2_0" | "FLINK_1_15" | "ZEPPELIN_FLINK_3_0" | "FLINK_1_18" | "FLINK_1_19" | "FLINK_1_20";
 export interface S3ApplicationCodeLocationDescription {
   BucketARN: string;
   FileKey: string;
@@ -1484,7 +1299,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
@@ -1513,7 +1329,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationMaintenanceConfigurationRequest {
   ApplicationName: string;
   ApplicationMaintenanceConfigurationUpdate: ApplicationMaintenanceConfigurationUpdate;
@@ -1852,7 +1669,9 @@ export declare namespace ListApplicationOperations {
 export declare namespace ListApplications {
   export type Input = ListApplicationsRequest;
   export type Output = ListApplicationsResponse;
-  export type Error = InvalidRequestException | CommonAwsError;
+  export type Error =
+    | InvalidRequestException
+    | CommonAwsError;
 }
 
 export declare namespace ListApplicationSnapshots {
@@ -1972,3 +1791,4 @@ export declare namespace UpdateApplicationMaintenanceConfiguration {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+

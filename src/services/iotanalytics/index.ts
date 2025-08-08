@@ -1,18 +1,19 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IoTAnalytics extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iotanalytics", new RestJson1Protocol(), cfg);
+  }
+
   batchPutMessage(
     input: BatchPutMessageRequest,
   ): Effect.Effect<
     BatchPutMessageResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchPutMessage", input);
   }
@@ -20,12 +21,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: CancelPipelineReprocessingRequest,
   ): Effect.Effect<
     CancelPipelineReprocessingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelPipelineReprocessing", input);
   }
@@ -33,13 +29,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: CreateChannelRequest,
   ): Effect.Effect<
     CreateChannelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateChannel", input);
   }
@@ -47,13 +37,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDataset", input);
   }
@@ -61,12 +45,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: CreateDatasetContentRequest,
   ): Effect.Effect<
     CreateDatasetContentResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDatasetContent", input);
   }
@@ -74,13 +53,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: CreateDatastoreRequest,
   ): Effect.Effect<
     CreateDatastoreResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDatastore", input);
   }
@@ -88,13 +61,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: CreatePipelineRequest,
   ): Effect.Effect<
     CreatePipelineResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreatePipeline", input);
   }
@@ -102,12 +69,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: DeleteChannelRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteChannel", input);
   }
@@ -115,12 +77,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDataset", input);
   }
@@ -128,12 +85,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: DeleteDatasetContentRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDatasetContent", input);
   }
@@ -141,12 +93,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: DeleteDatastoreRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDatastore", input);
   }
@@ -154,12 +101,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: DeletePipelineRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeletePipeline", input);
   }
@@ -167,12 +109,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: DescribeChannelRequest,
   ): Effect.Effect<
     DescribeChannelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeChannel", input);
   }
@@ -180,12 +117,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDataset", input);
   }
@@ -193,12 +125,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: DescribeDatastoreRequest,
   ): Effect.Effect<
     DescribeDatastoreResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDatastore", input);
   }
@@ -206,12 +133,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: DescribeLoggingOptionsRequest,
   ): Effect.Effect<
     DescribeLoggingOptionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeLoggingOptions", input);
   }
@@ -219,12 +141,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: DescribePipelineRequest,
   ): Effect.Effect<
     DescribePipelineResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribePipeline", input);
   }
@@ -232,12 +149,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: GetDatasetContentRequest,
   ): Effect.Effect<
     GetDatasetContentResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetDatasetContent", input);
   }
@@ -245,11 +157,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: ListChannelsRequest,
   ): Effect.Effect<
     ListChannelsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListChannels", input);
   }
@@ -257,12 +165,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: ListDatasetContentsRequest,
   ): Effect.Effect<
     ListDatasetContentsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDatasetContents", input);
   }
@@ -270,11 +173,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: ListDatasetsRequest,
   ): Effect.Effect<
     ListDatasetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDatasets", input);
   }
@@ -282,11 +181,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: ListDatastoresRequest,
   ): Effect.Effect<
     ListDatastoresResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDatastores", input);
   }
@@ -294,11 +189,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: ListPipelinesRequest,
   ): Effect.Effect<
     ListPipelinesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListPipelines", input);
   }
@@ -306,13 +197,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -320,11 +205,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutLoggingOptions", input);
   }
@@ -332,11 +213,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: RunPipelineActivityRequest,
   ): Effect.Effect<
     RunPipelineActivityResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("RunPipelineActivity", input);
   }
@@ -344,12 +221,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: SampleChannelDataRequest,
   ): Effect.Effect<
     SampleChannelDataResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("SampleChannelData", input);
   }
@@ -357,13 +229,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: StartPipelineReprocessingRequest,
   ): Effect.Effect<
     StartPipelineReprocessingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartPipelineReprocessing", input);
   }
@@ -371,13 +237,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -385,13 +245,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -399,12 +253,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: UpdateChannelRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateChannel", input);
   }
@@ -412,12 +261,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: UpdateDatasetRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDataset", input);
   }
@@ -425,12 +269,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: UpdateDatastoreRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDatastore", input);
   }
@@ -438,13 +277,7 @@ export class IoTAnalytics extends AWSServiceClient {
     input: UpdatePipelineRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdatePipeline", input);
   }
@@ -488,7 +321,8 @@ export interface CancelPipelineReprocessingRequest {
   pipelineName: string;
   reprocessingId: string;
 }
-export interface CancelPipelineReprocessingResponse {}
+export interface CancelPipelineReprocessingResponse {
+}
 export interface Channel {
   name?: string;
   storage?: ChannelStorage;
@@ -744,14 +578,7 @@ interface _DatastoreStorage {
   iotSiteWiseMultiLayerStorage?: DatastoreIotSiteWiseMultiLayerStorage;
 }
 
-export type DatastoreStorage =
-  | (_DatastoreStorage & { serviceManagedS3: ServiceManagedDatastoreS3Storage })
-  | (_DatastoreStorage & {
-      customerManagedS3: CustomerManagedDatastoreS3Storage;
-    })
-  | (_DatastoreStorage & {
-      iotSiteWiseMultiLayerStorage: DatastoreIotSiteWiseMultiLayerStorage;
-    });
+export type DatastoreStorage = (_DatastoreStorage & { serviceManagedS3: ServiceManagedDatastoreS3Storage }) | (_DatastoreStorage & { customerManagedS3: CustomerManagedDatastoreS3Storage }) | (_DatastoreStorage & { iotSiteWiseMultiLayerStorage: DatastoreIotSiteWiseMultiLayerStorage });
 export interface DatastoreStorageSummary {
   serviceManagedS3?: ServiceManagedDatastoreS3StorageSummary;
   customerManagedS3?: CustomerManagedDatastoreS3StorageSummary;
@@ -813,7 +640,8 @@ export interface DescribeDatastoreResponse {
   datastore?: Datastore;
   statistics?: DatastoreStatistics;
 }
-export interface DescribeLoggingOptionsRequest {}
+export interface DescribeLoggingOptionsRequest {
+}
 export interface DescribeLoggingOptionsResponse {
   loggingOptions?: LoggingOptions;
 }
@@ -908,7 +736,8 @@ export interface IotSiteWiseCustomerManagedDatastoreS3StorageSummary {
   bucket?: string;
   keyPrefix?: string;
 }
-export interface JsonConfiguration {}
+export interface JsonConfiguration {
+}
 export interface LambdaActivity {
   name: string;
   lambdaName: string;
@@ -1083,11 +912,7 @@ export interface RemoveAttributesActivity {
 }
 export type ReprocessingId = string;
 
-export type ReprocessingStatus =
-  | "RUNNING"
-  | "SUCCEEDED"
-  | "CANCELLED"
-  | "FAILED";
+export type ReprocessingStatus = "RUNNING" | "SUCCEEDED" | "CANCELLED" | "FAILED";
 export type ReprocessingSummaries = Array<ReprocessingSummary>;
 export interface ReprocessingSummary {
   id?: string;
@@ -1165,10 +990,14 @@ export interface SelectAttributesActivity {
   attributes: Array<string>;
   next?: string;
 }
-export interface ServiceManagedChannelS3Storage {}
-export interface ServiceManagedChannelS3StorageSummary {}
-export interface ServiceManagedDatastoreS3Storage {}
-export interface ServiceManagedDatastoreS3StorageSummary {}
+export interface ServiceManagedChannelS3Storage {
+}
+export interface ServiceManagedChannelS3StorageSummary {
+}
+export interface ServiceManagedDatastoreS3Storage {
+}
+export interface ServiceManagedDatastoreS3StorageSummary {
+}
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
   "ServiceUnavailableException",
 )<{
@@ -1209,7 +1038,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1238,7 +1068,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateChannelRequest {
   channelName: string;
   channelStorage?: ChannelStorage;
@@ -1689,3 +1520,4 @@ export declare namespace UpdatePipeline {
     | ThrottlingException
     | CommonAwsError;
 }
+

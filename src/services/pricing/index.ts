@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class Pricing extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("pricing", new AwsJson11Protocol(), cfg);
+  }
+
   describeServices(
     input: DescribeServicesRequest,
   ): Effect.Effect<
     DescribeServicesResponse,
-    | ExpiredNextTokenException
-    | InternalErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | NotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ExpiredNextTokenException | InternalErrorException | InvalidNextTokenException | InvalidParameterException | NotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeServices", input);
   }
@@ -21,13 +20,7 @@ export class Pricing extends AWSServiceClient {
     input: GetAttributeValuesRequest,
   ): Effect.Effect<
     GetAttributeValuesResponse,
-    | ExpiredNextTokenException
-    | InternalErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | NotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ExpiredNextTokenException | InternalErrorException | InvalidNextTokenException | InvalidParameterException | NotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetAttributeValues", input);
   }
@@ -35,13 +28,7 @@ export class Pricing extends AWSServiceClient {
     input: GetPriceListFileUrlRequest,
   ): Effect.Effect<
     GetPriceListFileUrlResponse,
-    | AccessDeniedException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalErrorException | InvalidParameterException | NotFoundException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetPriceListFileUrl", input);
   }
@@ -49,13 +36,7 @@ export class Pricing extends AWSServiceClient {
     input: GetProductsRequest,
   ): Effect.Effect<
     GetProductsResponse,
-    | ExpiredNextTokenException
-    | InternalErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | NotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ExpiredNextTokenException | InternalErrorException | InvalidNextTokenException | InvalidParameterException | NotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetProducts", input);
   }
@@ -63,15 +44,7 @@ export class Pricing extends AWSServiceClient {
     input: ListPriceListsRequest,
   ): Effect.Effect<
     ListPriceListsResponse,
-    | AccessDeniedException
-    | ExpiredNextTokenException
-    | InternalErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | NotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ExpiredNextTokenException | InternalErrorException | InvalidNextTokenException | InvalidParameterException | NotFoundException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListPriceLists", input);
   }
@@ -124,12 +97,7 @@ export interface Filter {
   Value: string;
 }
 export type Filters = Array<Filter>;
-export type FilterType =
-  | "TERM_MATCH"
-  | "EQUALS"
-  | "CONTAINS"
-  | "ANY_OF"
-  | "NONE_OF";
+export type FilterType = "TERM_MATCH" | "EQUALS" | "CONTAINS" | "ANY_OF" | "NONE_OF";
 export type FormatVersion = string;
 
 export interface GetAttributeValuesRequest {
@@ -296,3 +264,4 @@ export declare namespace ListPriceLists {
     | ThrottlingException
     | CommonAwsError;
 }
+

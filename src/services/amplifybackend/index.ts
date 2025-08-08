@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class AmplifyBackend extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("amplifybackend", new RestJson1Protocol(), cfg);
+  }
+
   cloneBackend(
     input: CloneBackendRequest,
   ): Effect.Effect<
     CloneBackendResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CloneBackend", input);
   }
@@ -19,11 +20,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: CreateBackendRequest,
   ): Effect.Effect<
     CreateBackendResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateBackend", input);
   }
@@ -31,11 +28,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: CreateBackendAPIRequest,
   ): Effect.Effect<
     CreateBackendAPIResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateBackendAPI", input);
   }
@@ -43,11 +36,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: CreateBackendAuthRequest,
   ): Effect.Effect<
     CreateBackendAuthResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateBackendAuth", input);
   }
@@ -55,11 +44,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: CreateBackendConfigRequest,
   ): Effect.Effect<
     CreateBackendConfigResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateBackendConfig", input);
   }
@@ -67,11 +52,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: CreateBackendStorageRequest,
   ): Effect.Effect<
     CreateBackendStorageResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateBackendStorage", input);
   }
@@ -79,11 +60,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: CreateTokenRequest,
   ): Effect.Effect<
     CreateTokenResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateToken", input);
   }
@@ -91,11 +68,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: DeleteBackendRequest,
   ): Effect.Effect<
     DeleteBackendResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteBackend", input);
   }
@@ -103,11 +76,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: DeleteBackendAPIRequest,
   ): Effect.Effect<
     DeleteBackendAPIResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteBackendAPI", input);
   }
@@ -115,11 +84,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: DeleteBackendAuthRequest,
   ): Effect.Effect<
     DeleteBackendAuthResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteBackendAuth", input);
   }
@@ -127,11 +92,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: DeleteBackendStorageRequest,
   ): Effect.Effect<
     DeleteBackendStorageResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteBackendStorage", input);
   }
@@ -139,11 +100,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: DeleteTokenRequest,
   ): Effect.Effect<
     DeleteTokenResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteToken", input);
   }
@@ -151,11 +108,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: GenerateBackendAPIModelsRequest,
   ): Effect.Effect<
     GenerateBackendAPIModelsResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GenerateBackendAPIModels", input);
   }
@@ -163,11 +116,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: GetBackendRequest,
   ): Effect.Effect<
     GetBackendResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetBackend", input);
   }
@@ -175,11 +124,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: GetBackendAPIRequest,
   ): Effect.Effect<
     GetBackendAPIResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetBackendAPI", input);
   }
@@ -187,11 +132,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: GetBackendAPIModelsRequest,
   ): Effect.Effect<
     GetBackendAPIModelsResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetBackendAPIModels", input);
   }
@@ -199,11 +140,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: GetBackendAuthRequest,
   ): Effect.Effect<
     GetBackendAuthResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetBackendAuth", input);
   }
@@ -211,11 +148,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: GetBackendJobRequest,
   ): Effect.Effect<
     GetBackendJobResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetBackendJob", input);
   }
@@ -223,11 +156,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: GetBackendStorageRequest,
   ): Effect.Effect<
     GetBackendStorageResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetBackendStorage", input);
   }
@@ -235,11 +164,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: GetTokenRequest,
   ): Effect.Effect<
     GetTokenResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetToken", input);
   }
@@ -247,11 +172,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: ImportBackendAuthRequest,
   ): Effect.Effect<
     ImportBackendAuthResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ImportBackendAuth", input);
   }
@@ -259,11 +180,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: ImportBackendStorageRequest,
   ): Effect.Effect<
     ImportBackendStorageResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ImportBackendStorage", input);
   }
@@ -271,11 +188,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: ListBackendJobsRequest,
   ): Effect.Effect<
     ListBackendJobsResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListBackendJobs", input);
   }
@@ -283,11 +196,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: ListS3BucketsRequest,
   ): Effect.Effect<
     ListS3BucketsResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListS3Buckets", input);
   }
@@ -295,11 +204,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: RemoveAllBackendsRequest,
   ): Effect.Effect<
     RemoveAllBackendsResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("RemoveAllBackends", input);
   }
@@ -307,11 +212,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: RemoveBackendConfigRequest,
   ): Effect.Effect<
     RemoveBackendConfigResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("RemoveBackendConfig", input);
   }
@@ -319,11 +220,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: UpdateBackendAPIRequest,
   ): Effect.Effect<
     UpdateBackendAPIResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateBackendAPI", input);
   }
@@ -331,11 +228,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: UpdateBackendAuthRequest,
   ): Effect.Effect<
     UpdateBackendAuthResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateBackendAuth", input);
   }
@@ -343,11 +236,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: UpdateBackendConfigRequest,
   ): Effect.Effect<
     UpdateBackendConfigResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateBackendConfig", input);
   }
@@ -355,11 +244,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: UpdateBackendJobRequest,
   ): Effect.Effect<
     UpdateBackendJobResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateBackendJob", input);
   }
@@ -367,11 +252,7 @@ export class AmplifyBackend extends AWSServiceClient {
     input: UpdateBackendStorageRequest,
   ): Effect.Effect<
     UpdateBackendStorageResponse,
-    | BadRequestException
-    | GatewayTimeoutException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | GatewayTimeoutException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateBackendStorage", input);
   }
@@ -389,11 +270,7 @@ export type __integerMin1Max25 = number;
 
 export type __string = string;
 
-export type AdditionalConstraintsElement =
-  | "REQUIRE_DIGIT"
-  | "REQUIRE_LOWERCASE"
-  | "REQUIRE_SYMBOL"
-  | "REQUIRE_UPPERCASE";
+export type AdditionalConstraintsElement = "REQUIRE_DIGIT" | "REQUIRE_LOWERCASE" | "REQUIRE_SYMBOL" | "REQUIRE_UPPERCASE";
 export type AuthenticatedElement = "READ" | "CREATE_AND_UPDATE" | "DELETE";
 export type AuthResources = "USER_POOL_ONLY" | "IDENTITY_POOL_AND_USER_POOL";
 export interface BackendAPIAppSyncAuthSettings {
@@ -801,15 +678,13 @@ export interface ListBackendJobsResponse {
   NextToken?: string;
 }
 export type ListOf__string = Array<string>;
-export type ListOfAdditionalConstraintsElement =
-  Array<AdditionalConstraintsElement>;
+export type ListOfAdditionalConstraintsElement = Array<AdditionalConstraintsElement>;
 export type ListOfAuthenticatedElement = Array<AuthenticatedElement>;
 export type ListOfBackendAPIAuthType = Array<BackendAPIAuthType>;
 export type ListOfBackendJobRespObj = Array<BackendJobRespObj>;
 export type ListOfMfaTypesElement = Array<MfaTypesElement>;
 export type ListOfOAuthScopesElement = Array<OAuthScopesElement>;
-export type ListOfRequiredSignUpAttributesElement =
-  Array<RequiredSignUpAttributesElement>;
+export type ListOfRequiredSignUpAttributesElement = Array<RequiredSignUpAttributesElement>;
 export type ListOfS3BucketInfo = Array<S3BucketInfo>;
 export type ListOfUnAuthenticatedElement = Array<UnAuthenticatedElement>;
 export interface ListS3BucketsRequest {
@@ -827,11 +702,7 @@ export interface LoginAuthConfigReqObj {
 }
 export type MFAMode = "ON" | "OFF" | "OPTIONAL";
 export type MfaTypesElement = "SMS" | "TOTP";
-export type Mode =
-  | "API_KEY"
-  | "AWS_IAM"
-  | "AMAZON_COGNITO_USER_POOLS"
-  | "OPENID_CONNECT";
+export type Mode = "API_KEY" | "AWS_IAM" | "AMAZON_COGNITO_USER_POOLS" | "OPENID_CONNECT";
 export declare class NotFoundException extends EffectData.TaggedError(
   "NotFoundException",
 )<{
@@ -839,12 +710,7 @@ export declare class NotFoundException extends EffectData.TaggedError(
   readonly ResourceType?: string;
 }> {}
 export type OAuthGrantType = "CODE" | "IMPLICIT";
-export type OAuthScopesElement =
-  | "PHONE"
-  | "EMAIL"
-  | "OPENID"
-  | "PROFILE"
-  | "AWS_COGNITO_SIGNIN_USER_ADMIN";
+export type OAuthScopesElement = "PHONE" | "EMAIL" | "OPENID" | "PROFILE" | "AWS_COGNITO_SIGNIN_USER_ADMIN";
 export interface RemoveAllBackendsRequest {
   AppId: string;
   CleanAmplifyApp?: boolean;
@@ -862,30 +728,10 @@ export interface RemoveBackendConfigRequest {
 export interface RemoveBackendConfigResponse {
   Error?: string;
 }
-export type RequiredSignUpAttributesElement =
-  | "ADDRESS"
-  | "BIRTHDATE"
-  | "EMAIL"
-  | "FAMILY_NAME"
-  | "GENDER"
-  | "GIVEN_NAME"
-  | "LOCALE"
-  | "MIDDLE_NAME"
-  | "NAME"
-  | "NICKNAME"
-  | "PHONE_NUMBER"
-  | "PICTURE"
-  | "PREFERRED_USERNAME"
-  | "PROFILE"
-  | "UPDATED_AT"
-  | "WEBSITE"
-  | "ZONE_INFO";
-export type ResolutionStrategy =
-  | "OPTIMISTIC_CONCURRENCY"
-  | "LAMBDA"
-  | "AUTOMERGE"
-  | "NONE";
-export interface ResourceConfig {}
+export type RequiredSignUpAttributesElement = "ADDRESS" | "BIRTHDATE" | "EMAIL" | "FAMILY_NAME" | "GENDER" | "GIVEN_NAME" | "LOCALE" | "MIDDLE_NAME" | "NAME" | "NICKNAME" | "PHONE_NUMBER" | "PICTURE" | "PREFERRED_USERNAME" | "PROFILE" | "UPDATED_AT" | "WEBSITE" | "ZONE_INFO";
+export type ResolutionStrategy = "OPTIMISTIC_CONCURRENCY" | "LAMBDA" | "AUTOMERGE" | "NONE";
+export interface ResourceConfig {
+}
 export interface S3BucketInfo {
   CreationDate?: string;
   Name?: string;
@@ -896,11 +742,7 @@ export interface Settings {
   MfaTypes?: Array<MfaTypesElement>;
   SmsMessage?: string;
 }
-export type SignInMethod =
-  | "EMAIL"
-  | "EMAIL_AND_PHONE_NUMBER"
-  | "PHONE_NUMBER"
-  | "USERNAME";
+export type SignInMethod = "EMAIL" | "EMAIL_AND_PHONE_NUMBER" | "PHONE_NUMBER" | "USERNAME";
 export interface SmsSettings {
   SmsMessage?: string;
 }
@@ -1371,3 +1213,4 @@ export declare namespace UpdateBackendStorage {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

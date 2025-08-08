@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class PaymentCryptography extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("payment-cryptography", new AwsJson10Protocol(), cfg);
+  }
+
   exportKey(
     input: ExportKeyInput,
   ): Effect.Effect<
     ExportKeyOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ExportKey", input);
   }
@@ -22,15 +20,7 @@ export class PaymentCryptography extends AWSServiceClient {
     input: GetParametersForExportInput,
   ): Effect.Effect<
     GetParametersForExportOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetParametersForExport", input);
   }
@@ -38,15 +28,7 @@ export class PaymentCryptography extends AWSServiceClient {
     input: GetParametersForImportInput,
   ): Effect.Effect<
     GetParametersForImportOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetParametersForImport", input);
   }
@@ -54,13 +36,7 @@ export class PaymentCryptography extends AWSServiceClient {
     input: GetPublicKeyCertificateInput,
   ): Effect.Effect<
     GetPublicKeyCertificateOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPublicKeyCertificate", input);
   }
@@ -68,15 +44,7 @@ export class PaymentCryptography extends AWSServiceClient {
     input: ImportKeyInput,
   ): Effect.Effect<
     ImportKeyOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ImportKey", input);
   }
@@ -84,13 +52,7 @@ export class PaymentCryptography extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -98,15 +60,7 @@ export class PaymentCryptography extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -114,14 +68,7 @@ export class PaymentCryptography extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -169,7 +116,8 @@ export interface CreateKeyOutput {
 export interface DeleteAliasInput {
   AliasName: string;
 }
-export interface DeleteAliasOutput {}
+export interface DeleteAliasOutput {
+}
 export interface DeleteKeyInput {
   KeyIdentifier: string;
   DeleteKeyInDays?: number;
@@ -183,9 +131,7 @@ interface _DiffieHellmanDerivationData {
   SharedInformation?: string;
 }
 
-export type DiffieHellmanDerivationData = _DiffieHellmanDerivationData & {
-  SharedInformation: string;
-};
+export type DiffieHellmanDerivationData = (_DiffieHellmanDerivationData & { SharedInformation: string });
 export type EvenHexLengthBetween16And32 = string;
 
 export interface ExportAttributes {
@@ -222,13 +168,7 @@ interface _ExportKeyMaterial {
   DiffieHellmanTr31KeyBlock?: ExportDiffieHellmanTr31KeyBlock;
 }
 
-export type ExportKeyMaterial =
-  | (_ExportKeyMaterial & { Tr31KeyBlock: ExportTr31KeyBlock })
-  | (_ExportKeyMaterial & { Tr34KeyBlock: ExportTr34KeyBlock })
-  | (_ExportKeyMaterial & { KeyCryptogram: ExportKeyCryptogram })
-  | (_ExportKeyMaterial & {
-      DiffieHellmanTr31KeyBlock: ExportDiffieHellmanTr31KeyBlock;
-    });
+export type ExportKeyMaterial = (_ExportKeyMaterial & { Tr31KeyBlock: ExportTr31KeyBlock }) | (_ExportKeyMaterial & { Tr34KeyBlock: ExportTr34KeyBlock }) | (_ExportKeyMaterial & { KeyCryptogram: ExportKeyCryptogram }) | (_ExportKeyMaterial & { DiffieHellmanTr31KeyBlock: ExportDiffieHellmanTr31KeyBlock });
 export interface ExportKeyOutput {
   WrappedKey?: WrappedKey;
 }
@@ -321,19 +261,7 @@ interface _ImportKeyMaterial {
   DiffieHellmanTr31KeyBlock?: ImportDiffieHellmanTr31KeyBlock;
 }
 
-export type ImportKeyMaterial =
-  | (_ImportKeyMaterial & {
-      RootCertificatePublicKey: RootCertificatePublicKey;
-    })
-  | (_ImportKeyMaterial & {
-      TrustedCertificatePublicKey: TrustedCertificatePublicKey;
-    })
-  | (_ImportKeyMaterial & { Tr31KeyBlock: ImportTr31KeyBlock })
-  | (_ImportKeyMaterial & { Tr34KeyBlock: ImportTr34KeyBlock })
-  | (_ImportKeyMaterial & { KeyCryptogram: ImportKeyCryptogram })
-  | (_ImportKeyMaterial & {
-      DiffieHellmanTr31KeyBlock: ImportDiffieHellmanTr31KeyBlock;
-    });
+export type ImportKeyMaterial = (_ImportKeyMaterial & { RootCertificatePublicKey: RootCertificatePublicKey }) | (_ImportKeyMaterial & { TrustedCertificatePublicKey: TrustedCertificatePublicKey }) | (_ImportKeyMaterial & { Tr31KeyBlock: ImportTr31KeyBlock }) | (_ImportKeyMaterial & { Tr34KeyBlock: ImportTr34KeyBlock }) | (_ImportKeyMaterial & { KeyCryptogram: ImportKeyCryptogram }) | (_ImportKeyMaterial & { DiffieHellmanTr31KeyBlock: ImportDiffieHellmanTr31KeyBlock });
 export interface ImportKeyOutput {
   Key: Key;
 }
@@ -509,16 +437,7 @@ export interface StopKeyUsageInput {
 export interface StopKeyUsageOutput {
   Key: Key;
 }
-export type SymmetricKeyAlgorithm =
-  | "TDES_2KEY"
-  | "TDES_3KEY"
-  | "AES_128"
-  | "AES_192"
-  | "AES_256"
-  | "HMAC_SHA256"
-  | "HMAC_SHA384"
-  | "HMAC_SHA512"
-  | "HMAC_SHA224";
+export type SymmetricKeyAlgorithm = "TDES_2KEY" | "TDES_3KEY" | "AES_128" | "AES_192" | "AES_256" | "HMAC_SHA256" | "HMAC_SHA384" | "HMAC_SHA512" | "HMAC_SHA224";
 export interface Tag {
   Key: string;
   Value: string;
@@ -530,7 +449,8 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
@@ -556,7 +476,8 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateAliasInput {
   AliasName: string;
   KeyArn?: string;
@@ -695,3 +616,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

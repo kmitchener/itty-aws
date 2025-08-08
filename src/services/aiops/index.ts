@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class AIOps extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("aiops", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -21,13 +20,7 @@ export class AIOps extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -35,13 +28,7 @@ export class AIOps extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -83,7 +70,8 @@ export interface CrossAccountConfiguration {
   sourceRoleArn?: string;
 }
 export type CrossAccountConfigurations = Array<CrossAccountConfiguration>;
-export interface DeleteInvestigationGroupPolicyOutput {}
+export interface DeleteInvestigationGroupPolicyOutput {
+}
 export interface DeleteInvestigationGroupPolicyRequest {
   identifier: string;
 }
@@ -94,9 +82,7 @@ export interface EncryptionConfiguration {
   type?: EncryptionConfigurationType;
   kmsKeyId?: string;
 }
-export type EncryptionConfigurationType =
-  | "AWS_OWNED_KEY"
-  | "CUSTOMER_MANAGED_KMS_KEY";
+export type EncryptionConfigurationType = "AWS_OWNED_KEY" | "CUSTOMER_MANAGED_KMS_KEY";
 export declare class ForbiddenException extends EffectData.TaggedError(
   "ForbiddenException",
 )<{
@@ -200,7 +186,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -213,8 +200,10 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
-export interface UpdateInvestigationGroupOutput {}
+export interface UntagResourceResponse {
+}
+export interface UpdateInvestigationGroupOutput {
+}
 export interface UpdateInvestigationGroupRequest {
   identifier: string;
   roleArn?: string;
@@ -267,3 +256,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

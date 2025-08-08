@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Scheduler extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("scheduler", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -19,12 +20,7 @@ export class Scheduler extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -32,12 +28,7 @@ export class Scheduler extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -108,13 +99,15 @@ export interface DeleteScheduleGroupInput {
   Name: string;
   ClientToken?: string;
 }
-export interface DeleteScheduleGroupOutput {}
+export interface DeleteScheduleGroupOutput {
+}
 export interface DeleteScheduleInput {
   Name: string;
   GroupName?: string;
   ClientToken?: string;
 }
-export interface DeleteScheduleOutput {}
+export interface DeleteScheduleOutput {
+}
 export type Description = string;
 
 export type DetailType = string;
@@ -359,7 +352,8 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type Tags = Array<Record<string, string>>;
 export type TagValue = string;
 
@@ -397,7 +391,8 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateScheduleInput {
   Name: string;
   GroupName?: string;
@@ -455,3 +450,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

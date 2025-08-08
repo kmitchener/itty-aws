@@ -1,44 +1,50 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class GeoMaps extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("geo-maps", new RestJson1Protocol(), cfg);
+  }
+
   getGlyphs(
     input: GetGlyphsRequest,
-  ): Effect.Effect<GetGlyphsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    GetGlyphsResponse,
+    CommonAwsError
+  > {
     return this.call("GetGlyphs", input);
   }
   getSprites(
     input: GetSpritesRequest,
-  ): Effect.Effect<GetSpritesResponse, CommonAwsError> {
+  ): Effect.Effect<
+    GetSpritesResponse,
+    CommonAwsError
+  > {
     return this.call("GetSprites", input);
   }
   getStaticMap(
     input: GetStaticMapRequest,
   ): Effect.Effect<
     GetStaticMapResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetStaticMap", input);
   }
   getStyleDescriptor(
     input: GetStyleDescriptorRequest,
-  ): Effect.Effect<GetStyleDescriptorResponse, CommonAwsError> {
+  ): Effect.Effect<
+    GetStyleDescriptorResponse,
+    CommonAwsError
+  > {
     return this.call("GetStyleDescriptor", input);
   }
   getTile(
     input: GetTileRequest,
   ): Effect.Effect<
     GetTileResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetTile", input);
   }
@@ -187,13 +193,15 @@ export type Variant = string;
 export declare namespace GetGlyphs {
   export type Input = GetGlyphsRequest;
   export type Output = GetGlyphsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetSprites {
   export type Input = GetSpritesRequest;
   export type Output = GetSpritesResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetStaticMap {
@@ -210,7 +218,8 @@ export declare namespace GetStaticMap {
 export declare namespace GetStyleDescriptor {
   export type Input = GetStyleDescriptorRequest;
   export type Output = GetStyleDescriptorResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetTile {
@@ -223,3 +232,4 @@ export declare namespace GetTile {
     | ValidationException
     | CommonAwsError;
 }
+

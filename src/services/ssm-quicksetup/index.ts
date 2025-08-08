@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SSMQuickSetup extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("ssm-quicksetup", new RestJson1Protocol(), cfg);
+  }
+
   createConfigurationManager(
     input: CreateConfigurationManagerInput,
   ): Effect.Effect<
     CreateConfigurationManagerOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateConfigurationManager", input);
   }
@@ -20,13 +20,7 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: DeleteConfigurationManagerInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteConfigurationManager", input);
   }
@@ -34,13 +28,7 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: GetConfigurationInput,
   ): Effect.Effect<
     GetConfigurationOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetConfiguration", input);
   }
@@ -48,23 +36,15 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: GetConfigurationManagerInput,
   ): Effect.Effect<
     GetConfigurationManagerOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetConfigurationManager", input);
   }
-  getServiceSettings(input: {}): Effect.Effect<
+  getServiceSettings(
+    input: {},
+  ): Effect.Effect<
     GetServiceSettingsOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetServiceSettings", input);
   }
@@ -72,12 +52,7 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: ListConfigurationManagersInput,
   ): Effect.Effect<
     ListConfigurationManagersOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListConfigurationManagers", input);
   }
@@ -85,22 +60,15 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: ListConfigurationsInput,
   ): Effect.Effect<
     ListConfigurationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListConfigurations", input);
   }
-  listQuickSetupTypes(input: {}): Effect.Effect<
+  listQuickSetupTypes(
+    input: {},
+  ): Effect.Effect<
     ListQuickSetupTypesOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListQuickSetupTypes", input);
   }
@@ -108,13 +76,7 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -122,13 +84,7 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -136,13 +92,7 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -150,13 +100,7 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: UpdateConfigurationDefinitionInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateConfigurationDefinition", input);
   }
@@ -164,13 +108,7 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: UpdateConfigurationManagerInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateConfigurationManager", input);
   }
@@ -178,12 +116,7 @@ export class SSMQuickSetup extends AWSServiceClient {
     input: UpdateServiceSettingsInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateServiceSettings", input);
   }
@@ -213,11 +146,9 @@ export interface ConfigurationDefinitionInput {
   LocalDeploymentExecutionRoleName?: string;
   LocalDeploymentAdministrationRoleArn?: string;
 }
-export type ConfigurationDefinitionsInputList =
-  Array<ConfigurationDefinitionInput>;
+export type ConfigurationDefinitionsInputList = Array<ConfigurationDefinitionInput>;
 export type ConfigurationDefinitionsList = Array<ConfigurationDefinition>;
-export type ConfigurationDefinitionSummariesList =
-  Array<ConfigurationDefinitionSummary>;
+export type ConfigurationDefinitionSummariesList = Array<ConfigurationDefinitionSummary>;
 export interface ConfigurationDefinitionSummary {
   Id?: string;
   Type?: string;
@@ -350,17 +281,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 export interface ServiceSettings {
   ExplorerEnablingRoleArn?: string;
 }
-export type Status =
-  | "INITIALIZING"
-  | "DEPLOYING"
-  | "SUCCEEDED"
-  | "DELETING"
-  | "STOPPING"
-  | "FAILED"
-  | "STOPPED"
-  | "DELETE_FAILED"
-  | "STOP_FAILED"
-  | "NONE";
+export type Status = "INITIALIZING" | "DEPLOYING" | "SUCCEEDED" | "DELETING" | "STOPPING" | "FAILED" | "STOPPED" | "DELETE_FAILED" | "STOP_FAILED" | "NONE";
 export type StatusDetails = Record<string, string>;
 export type StatusSummariesList = Array<StatusSummary>;
 export interface StatusSummary {
@@ -585,3 +506,4 @@ export declare namespace UpdateServiceSettings {
     | ValidationException
     | CommonAwsError;
 }
+

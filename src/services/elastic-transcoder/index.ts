@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ElasticTranscoder extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("elastic-transcoder", new RestJson1Protocol(), cfg);
+  }
+
   cancelJob(
     input: CancelJobRequest,
   ): Effect.Effect<
     CancelJobResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CancelJob", input);
   }
@@ -21,13 +20,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: CreateJobRequest,
   ): Effect.Effect<
     CreateJobResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CreateJob", input);
   }
@@ -35,13 +28,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: CreatePipelineRequest,
   ): Effect.Effect<
     CreatePipelineResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePipeline", input);
   }
@@ -49,12 +36,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: CreatePresetRequest,
   ): Effect.Effect<
     CreatePresetResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | LimitExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePreset", input);
   }
@@ -62,13 +44,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: DeletePipelineRequest,
   ): Effect.Effect<
     DeletePipelineResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePipeline", input);
   }
@@ -76,12 +52,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: DeletePresetRequest,
   ): Effect.Effect<
     DeletePresetResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePreset", input);
   }
@@ -89,12 +60,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: ListJobsByPipelineRequest,
   ): Effect.Effect<
     ListJobsByPipelineResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListJobsByPipeline", input);
   }
@@ -102,12 +68,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: ListJobsByStatusRequest,
   ): Effect.Effect<
     ListJobsByStatusResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListJobsByStatus", input);
   }
@@ -115,11 +76,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: ListPipelinesRequest,
   ): Effect.Effect<
     ListPipelinesResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ValidationException | CommonAwsError
   > {
     return this.call("ListPipelines", input);
   }
@@ -127,11 +84,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: ListPresetsRequest,
   ): Effect.Effect<
     ListPresetsResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ValidationException | CommonAwsError
   > {
     return this.call("ListPresets", input);
   }
@@ -139,12 +92,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: ReadJobRequest,
   ): Effect.Effect<
     ReadJobResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ReadJob", input);
   }
@@ -152,12 +100,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: ReadPipelineRequest,
   ): Effect.Effect<
     ReadPipelineResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ReadPipeline", input);
   }
@@ -165,12 +108,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: ReadPresetRequest,
   ): Effect.Effect<
     ReadPresetResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ReadPreset", input);
   }
@@ -178,12 +116,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: TestRoleRequest,
   ): Effect.Effect<
     TestRoleResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TestRole", input);
   }
@@ -191,13 +124,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: UpdatePipelineRequest,
   ): Effect.Effect<
     UpdatePipelineResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePipeline", input);
   }
@@ -205,13 +132,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: UpdatePipelineNotificationsRequest,
   ): Effect.Effect<
     UpdatePipelineNotificationsResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePipelineNotifications", input);
   }
@@ -219,13 +140,7 @@ export class ElasticTranscoder extends AWSServiceClient {
     input: UpdatePipelineStatusRequest,
   ): Effect.Effect<
     UpdatePipelineStatusResponse,
-    | AccessDeniedException
-    | IncompatibleVersionException
-    | InternalServiceException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleVersionException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePipelineStatus", input);
   }
@@ -294,7 +209,8 @@ export type BucketName = string;
 export interface CancelJobRequest {
   Id: string;
 }
-export interface CancelJobResponse {}
+export interface CancelJobResponse {
+}
 export interface CaptionFormat {
   Format?: string;
   Pattern?: string;
@@ -391,11 +307,13 @@ export interface CreatePresetResponse {
 export interface DeletePipelineRequest {
   Id: string;
 }
-export interface DeletePipelineResponse {}
+export interface DeletePipelineResponse {
+}
 export interface DeletePresetRequest {
   Id: string;
 }
-export interface DeletePresetResponse {}
+export interface DeletePresetResponse {
+}
 export type Description = string;
 
 export interface DetectedProperties {
@@ -1051,3 +969,4 @@ export declare namespace UpdatePipelineStatus {
     | ValidationException
     | CommonAwsError;
 }
+

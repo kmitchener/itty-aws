@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsQueryProtocol } from "../../protocols/awsquery.js";
 
 export class ElasticLoadBalancingv2 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("elastic-load-balancing-v2", new AwsQueryProtocol(), cfg);
+  }
+
   addListenerCertificates(
     input: AddListenerCertificatesInput,
   ): Effect.Effect<
     AddListenerCertificatesOutput,
-    | CertificateNotFoundException
-    | ListenerNotFoundException
-    | TooManyCertificatesException
-    | CommonAwsError
+    CertificateNotFoundException | ListenerNotFoundException | TooManyCertificatesException | CommonAwsError
   > {
     return this.call("AddListenerCertificates", input);
   }
@@ -18,14 +20,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: AddTagsInput,
   ): Effect.Effect<
     AddTagsOutput,
-    | DuplicateTagKeysException
-    | ListenerNotFoundException
-    | LoadBalancerNotFoundException
-    | RuleNotFoundException
-    | TargetGroupNotFoundException
-    | TooManyTagsException
-    | TrustStoreNotFoundException
-    | CommonAwsError
+    DuplicateTagKeysException | ListenerNotFoundException | LoadBalancerNotFoundException | RuleNotFoundException | TargetGroupNotFoundException | TooManyTagsException | TrustStoreNotFoundException | CommonAwsError
   > {
     return this.call("AddTags", input);
   }
@@ -33,11 +28,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: AddTrustStoreRevocationsInput,
   ): Effect.Effect<
     AddTrustStoreRevocationsOutput,
-    | InvalidRevocationContentException
-    | RevocationContentNotFoundException
-    | TooManyTrustStoreRevocationEntriesException
-    | TrustStoreNotFoundException
-    | CommonAwsError
+    InvalidRevocationContentException | RevocationContentNotFoundException | TooManyTrustStoreRevocationEntriesException | TrustStoreNotFoundException | CommonAwsError
   > {
     return this.call("AddTrustStoreRevocations", input);
   }
@@ -45,27 +36,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: CreateListenerInput,
   ): Effect.Effect<
     CreateListenerOutput,
-    | ALPNPolicyNotSupportedException
-    | CertificateNotFoundException
-    | DuplicateListenerException
-    | IncompatibleProtocolsException
-    | InvalidConfigurationRequestException
-    | InvalidLoadBalancerActionException
-    | LoadBalancerNotFoundException
-    | SSLPolicyNotFoundException
-    | TargetGroupAssociationLimitException
-    | TargetGroupNotFoundException
-    | TooManyActionsException
-    | TooManyCertificatesException
-    | TooManyListenersException
-    | TooManyRegistrationsForTargetIdException
-    | TooManyTagsException
-    | TooManyTargetsException
-    | TooManyUniqueTargetGroupsPerLoadBalancerException
-    | TrustStoreNotFoundException
-    | TrustStoreNotReadyException
-    | UnsupportedProtocolException
-    | CommonAwsError
+    ALPNPolicyNotSupportedException | CertificateNotFoundException | DuplicateListenerException | IncompatibleProtocolsException | InvalidConfigurationRequestException | InvalidLoadBalancerActionException | LoadBalancerNotFoundException | SSLPolicyNotFoundException | TargetGroupAssociationLimitException | TargetGroupNotFoundException | TooManyActionsException | TooManyCertificatesException | TooManyListenersException | TooManyRegistrationsForTargetIdException | TooManyTagsException | TooManyTargetsException | TooManyUniqueTargetGroupsPerLoadBalancerException | TrustStoreNotFoundException | TrustStoreNotReadyException | UnsupportedProtocolException | CommonAwsError
   > {
     return this.call("CreateListener", input);
   }
@@ -73,20 +44,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: CreateLoadBalancerInput,
   ): Effect.Effect<
     CreateLoadBalancerOutput,
-    | AllocationIdNotFoundException
-    | AvailabilityZoneNotSupportedException
-    | DuplicateLoadBalancerNameException
-    | DuplicateTagKeysException
-    | InvalidConfigurationRequestException
-    | InvalidSchemeException
-    | InvalidSecurityGroupException
-    | InvalidSubnetException
-    | OperationNotPermittedException
-    | ResourceInUseException
-    | SubnetNotFoundException
-    | TooManyLoadBalancersException
-    | TooManyTagsException
-    | CommonAwsError
+    AllocationIdNotFoundException | AvailabilityZoneNotSupportedException | DuplicateLoadBalancerNameException | DuplicateTagKeysException | InvalidConfigurationRequestException | InvalidSchemeException | InvalidSecurityGroupException | InvalidSubnetException | OperationNotPermittedException | ResourceInUseException | SubnetNotFoundException | TooManyLoadBalancersException | TooManyTagsException | CommonAwsError
   > {
     return this.call("CreateLoadBalancer", input);
   }
@@ -94,22 +52,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: CreateRuleInput,
   ): Effect.Effect<
     CreateRuleOutput,
-    | IncompatibleProtocolsException
-    | InvalidConfigurationRequestException
-    | InvalidLoadBalancerActionException
-    | ListenerNotFoundException
-    | PriorityInUseException
-    | TargetGroupAssociationLimitException
-    | TargetGroupNotFoundException
-    | TooManyActionsException
-    | TooManyRegistrationsForTargetIdException
-    | TooManyRulesException
-    | TooManyTagsException
-    | TooManyTargetGroupsException
-    | TooManyTargetsException
-    | TooManyUniqueTargetGroupsPerLoadBalancerException
-    | UnsupportedProtocolException
-    | CommonAwsError
+    IncompatibleProtocolsException | InvalidConfigurationRequestException | InvalidLoadBalancerActionException | ListenerNotFoundException | PriorityInUseException | TargetGroupAssociationLimitException | TargetGroupNotFoundException | TooManyActionsException | TooManyRegistrationsForTargetIdException | TooManyRulesException | TooManyTagsException | TooManyTargetGroupsException | TooManyTargetsException | TooManyUniqueTargetGroupsPerLoadBalancerException | UnsupportedProtocolException | CommonAwsError
   > {
     return this.call("CreateRule", input);
   }
@@ -117,11 +60,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: CreateTargetGroupInput,
   ): Effect.Effect<
     CreateTargetGroupOutput,
-    | DuplicateTargetGroupNameException
-    | InvalidConfigurationRequestException
-    | TooManyTagsException
-    | TooManyTargetGroupsException
-    | CommonAwsError
+    DuplicateTargetGroupNameException | InvalidConfigurationRequestException | TooManyTagsException | TooManyTargetGroupsException | CommonAwsError
   > {
     return this.call("CreateTargetGroup", input);
   }
@@ -129,13 +68,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: CreateTrustStoreInput,
   ): Effect.Effect<
     CreateTrustStoreOutput,
-    | CaCertificatesBundleNotFoundException
-    | DuplicateTagKeysException
-    | DuplicateTrustStoreNameException
-    | InvalidCaCertificatesBundleException
-    | TooManyTagsException
-    | TooManyTrustStoresException
-    | CommonAwsError
+    CaCertificatesBundleNotFoundException | DuplicateTagKeysException | DuplicateTrustStoreNameException | InvalidCaCertificatesBundleException | TooManyTagsException | TooManyTrustStoresException | CommonAwsError
   > {
     return this.call("CreateTrustStore", input);
   }
@@ -151,10 +84,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: DeleteLoadBalancerInput,
   ): Effect.Effect<
     DeleteLoadBalancerOutput,
-    | LoadBalancerNotFoundException
-    | OperationNotPermittedException
-    | ResourceInUseException
-    | CommonAwsError
+    LoadBalancerNotFoundException | OperationNotPermittedException | ResourceInUseException | CommonAwsError
   > {
     return this.call("DeleteLoadBalancer", input);
   }
@@ -170,10 +100,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: DeleteSharedTrustStoreAssociationInput,
   ): Effect.Effect<
     DeleteSharedTrustStoreAssociationOutput,
-    | DeleteAssociationSameAccountException
-    | TrustStoreAssociationNotFoundException
-    | TrustStoreNotFoundException
-    | CommonAwsError
+    DeleteAssociationSameAccountException | TrustStoreAssociationNotFoundException | TrustStoreNotFoundException | CommonAwsError
   > {
     return this.call("DeleteSharedTrustStoreAssociation", input);
   }
@@ -203,7 +130,10 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
   }
   describeAccountLimits(
     input: DescribeAccountLimitsInput,
-  ): Effect.Effect<DescribeAccountLimitsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeAccountLimitsOutput,
+    CommonAwsError
+  > {
     return this.call("DescribeAccountLimits", input);
   }
   describeCapacityReservation(
@@ -234,10 +164,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: DescribeListenersInput,
   ): Effect.Effect<
     DescribeListenersOutput,
-    | ListenerNotFoundException
-    | LoadBalancerNotFoundException
-    | UnsupportedProtocolException
-    | CommonAwsError
+    ListenerNotFoundException | LoadBalancerNotFoundException | UnsupportedProtocolException | CommonAwsError
   > {
     return this.call("DescribeListeners", input);
   }
@@ -261,10 +188,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: DescribeRulesInput,
   ): Effect.Effect<
     DescribeRulesOutput,
-    | ListenerNotFoundException
-    | RuleNotFoundException
-    | UnsupportedProtocolException
-    | CommonAwsError
+    ListenerNotFoundException | RuleNotFoundException | UnsupportedProtocolException | CommonAwsError
   > {
     return this.call("DescribeRules", input);
   }
@@ -280,12 +204,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: DescribeTagsInput,
   ): Effect.Effect<
     DescribeTagsOutput,
-    | ListenerNotFoundException
-    | LoadBalancerNotFoundException
-    | RuleNotFoundException
-    | TargetGroupNotFoundException
-    | TrustStoreNotFoundException
-    | CommonAwsError
+    ListenerNotFoundException | LoadBalancerNotFoundException | RuleNotFoundException | TargetGroupNotFoundException | TrustStoreNotFoundException | CommonAwsError
   > {
     return this.call("DescribeTags", input);
   }
@@ -301,9 +220,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: DescribeTargetGroupsInput,
   ): Effect.Effect<
     DescribeTargetGroupsOutput,
-    | LoadBalancerNotFoundException
-    | TargetGroupNotFoundException
-    | CommonAwsError
+    LoadBalancerNotFoundException | TargetGroupNotFoundException | CommonAwsError
   > {
     return this.call("DescribeTargetGroups", input);
   }
@@ -311,10 +228,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: DescribeTargetHealthInput,
   ): Effect.Effect<
     DescribeTargetHealthOutput,
-    | HealthUnavailableException
-    | InvalidTargetException
-    | TargetGroupNotFoundException
-    | CommonAwsError
+    HealthUnavailableException | InvalidTargetException | TargetGroupNotFoundException | CommonAwsError
   > {
     return this.call("DescribeTargetHealth", input);
   }
@@ -370,15 +284,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: ModifyCapacityReservationInput,
   ): Effect.Effect<
     ModifyCapacityReservationOutput,
-    | CapacityDecreaseRequestsLimitExceededException
-    | CapacityReservationPendingException
-    | CapacityUnitsLimitExceededException
-    | InsufficientCapacityException
-    | InvalidConfigurationRequestException
-    | LoadBalancerNotFoundException
-    | OperationNotPermittedException
-    | PriorRequestNotCompleteException
-    | CommonAwsError
+    CapacityDecreaseRequestsLimitExceededException | CapacityReservationPendingException | CapacityUnitsLimitExceededException | InsufficientCapacityException | InvalidConfigurationRequestException | LoadBalancerNotFoundException | OperationNotPermittedException | PriorRequestNotCompleteException | CommonAwsError
   > {
     return this.call("ModifyCapacityReservation", input);
   }
@@ -394,26 +300,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: ModifyListenerInput,
   ): Effect.Effect<
     ModifyListenerOutput,
-    | ALPNPolicyNotSupportedException
-    | CertificateNotFoundException
-    | DuplicateListenerException
-    | IncompatibleProtocolsException
-    | InvalidConfigurationRequestException
-    | InvalidLoadBalancerActionException
-    | ListenerNotFoundException
-    | SSLPolicyNotFoundException
-    | TargetGroupAssociationLimitException
-    | TargetGroupNotFoundException
-    | TooManyActionsException
-    | TooManyCertificatesException
-    | TooManyListenersException
-    | TooManyRegistrationsForTargetIdException
-    | TooManyTargetsException
-    | TooManyUniqueTargetGroupsPerLoadBalancerException
-    | TrustStoreNotFoundException
-    | TrustStoreNotReadyException
-    | UnsupportedProtocolException
-    | CommonAwsError
+    ALPNPolicyNotSupportedException | CertificateNotFoundException | DuplicateListenerException | IncompatibleProtocolsException | InvalidConfigurationRequestException | InvalidLoadBalancerActionException | ListenerNotFoundException | SSLPolicyNotFoundException | TargetGroupAssociationLimitException | TargetGroupNotFoundException | TooManyActionsException | TooManyCertificatesException | TooManyListenersException | TooManyRegistrationsForTargetIdException | TooManyTargetsException | TooManyUniqueTargetGroupsPerLoadBalancerException | TrustStoreNotFoundException | TrustStoreNotReadyException | UnsupportedProtocolException | CommonAwsError
   > {
     return this.call("ModifyListener", input);
   }
@@ -421,9 +308,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: ModifyListenerAttributesInput,
   ): Effect.Effect<
     ModifyListenerAttributesOutput,
-    | InvalidConfigurationRequestException
-    | ListenerNotFoundException
-    | CommonAwsError
+    InvalidConfigurationRequestException | ListenerNotFoundException | CommonAwsError
   > {
     return this.call("ModifyListenerAttributes", input);
   }
@@ -431,9 +316,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: ModifyLoadBalancerAttributesInput,
   ): Effect.Effect<
     ModifyLoadBalancerAttributesOutput,
-    | InvalidConfigurationRequestException
-    | LoadBalancerNotFoundException
-    | CommonAwsError
+    InvalidConfigurationRequestException | LoadBalancerNotFoundException | CommonAwsError
   > {
     return this.call("ModifyLoadBalancerAttributes", input);
   }
@@ -441,18 +324,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: ModifyRuleInput,
   ): Effect.Effect<
     ModifyRuleOutput,
-    | IncompatibleProtocolsException
-    | InvalidLoadBalancerActionException
-    | OperationNotPermittedException
-    | RuleNotFoundException
-    | TargetGroupAssociationLimitException
-    | TargetGroupNotFoundException
-    | TooManyActionsException
-    | TooManyRegistrationsForTargetIdException
-    | TooManyTargetsException
-    | TooManyUniqueTargetGroupsPerLoadBalancerException
-    | UnsupportedProtocolException
-    | CommonAwsError
+    IncompatibleProtocolsException | InvalidLoadBalancerActionException | OperationNotPermittedException | RuleNotFoundException | TargetGroupAssociationLimitException | TargetGroupNotFoundException | TooManyActionsException | TooManyRegistrationsForTargetIdException | TooManyTargetsException | TooManyUniqueTargetGroupsPerLoadBalancerException | UnsupportedProtocolException | CommonAwsError
   > {
     return this.call("ModifyRule", input);
   }
@@ -460,9 +332,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: ModifyTargetGroupInput,
   ): Effect.Effect<
     ModifyTargetGroupOutput,
-    | InvalidConfigurationRequestException
-    | TargetGroupNotFoundException
-    | CommonAwsError
+    InvalidConfigurationRequestException | TargetGroupNotFoundException | CommonAwsError
   > {
     return this.call("ModifyTargetGroup", input);
   }
@@ -470,9 +340,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: ModifyTargetGroupAttributesInput,
   ): Effect.Effect<
     ModifyTargetGroupAttributesOutput,
-    | InvalidConfigurationRequestException
-    | TargetGroupNotFoundException
-    | CommonAwsError
+    InvalidConfigurationRequestException | TargetGroupNotFoundException | CommonAwsError
   > {
     return this.call("ModifyTargetGroupAttributes", input);
   }
@@ -480,10 +348,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: ModifyTrustStoreInput,
   ): Effect.Effect<
     ModifyTrustStoreOutput,
-    | CaCertificatesBundleNotFoundException
-    | InvalidCaCertificatesBundleException
-    | TrustStoreNotFoundException
-    | CommonAwsError
+    CaCertificatesBundleNotFoundException | InvalidCaCertificatesBundleException | TrustStoreNotFoundException | CommonAwsError
   > {
     return this.call("ModifyTrustStore", input);
   }
@@ -491,11 +356,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: RegisterTargetsInput,
   ): Effect.Effect<
     RegisterTargetsOutput,
-    | InvalidTargetException
-    | TargetGroupNotFoundException
-    | TooManyRegistrationsForTargetIdException
-    | TooManyTargetsException
-    | CommonAwsError
+    InvalidTargetException | TargetGroupNotFoundException | TooManyRegistrationsForTargetIdException | TooManyTargetsException | CommonAwsError
   > {
     return this.call("RegisterTargets", input);
   }
@@ -511,13 +372,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: RemoveTagsInput,
   ): Effect.Effect<
     RemoveTagsOutput,
-    | ListenerNotFoundException
-    | LoadBalancerNotFoundException
-    | RuleNotFoundException
-    | TargetGroupNotFoundException
-    | TooManyTagsException
-    | TrustStoreNotFoundException
-    | CommonAwsError
+    ListenerNotFoundException | LoadBalancerNotFoundException | RuleNotFoundException | TargetGroupNotFoundException | TooManyTagsException | TrustStoreNotFoundException | CommonAwsError
   > {
     return this.call("RemoveTags", input);
   }
@@ -533,10 +388,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: SetIpAddressTypeInput,
   ): Effect.Effect<
     SetIpAddressTypeOutput,
-    | InvalidConfigurationRequestException
-    | InvalidSubnetException
-    | LoadBalancerNotFoundException
-    | CommonAwsError
+    InvalidConfigurationRequestException | InvalidSubnetException | LoadBalancerNotFoundException | CommonAwsError
   > {
     return this.call("SetIpAddressType", input);
   }
@@ -544,10 +396,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: SetRulePrioritiesInput,
   ): Effect.Effect<
     SetRulePrioritiesOutput,
-    | OperationNotPermittedException
-    | PriorityInUseException
-    | RuleNotFoundException
-    | CommonAwsError
+    OperationNotPermittedException | PriorityInUseException | RuleNotFoundException | CommonAwsError
   > {
     return this.call("SetRulePriorities", input);
   }
@@ -555,10 +404,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: SetSecurityGroupsInput,
   ): Effect.Effect<
     SetSecurityGroupsOutput,
-    | InvalidConfigurationRequestException
-    | InvalidSecurityGroupException
-    | LoadBalancerNotFoundException
-    | CommonAwsError
+    InvalidConfigurationRequestException | InvalidSecurityGroupException | LoadBalancerNotFoundException | CommonAwsError
   > {
     return this.call("SetSecurityGroups", input);
   }
@@ -566,14 +412,7 @@ export class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: SetSubnetsInput,
   ): Effect.Effect<
     SetSubnetsOutput,
-    | AllocationIdNotFoundException
-    | AvailabilityZoneNotSupportedException
-    | CapacityReservationPendingException
-    | InvalidConfigurationRequestException
-    | InvalidSubnetException
-    | LoadBalancerNotFoundException
-    | SubnetNotFoundException
-    | CommonAwsError
+    AllocationIdNotFoundException | AvailabilityZoneNotSupportedException | CapacityReservationPendingException | InvalidConfigurationRequestException | InvalidSubnetException | LoadBalancerNotFoundException | SubnetNotFoundException | CommonAwsError
   > {
     return this.call("SetSubnets", input);
   }
@@ -596,12 +435,7 @@ export interface Action {
 export type ActionOrder = number;
 
 export type Actions = Array<Action>;
-export type ActionTypeEnum =
-  | "FORWARD"
-  | "AUTHENTICATE_OIDC"
-  | "AUTHENTICATE_COGNITO"
-  | "REDIRECT"
-  | "FIXED_RESPONSE";
+export type ActionTypeEnum = "FORWARD" | "AUTHENTICATE_OIDC" | "AUTHENTICATE_COGNITO" | "REDIRECT" | "FIXED_RESPONSE";
 export interface AddListenerCertificatesInput {
   ListenerArn: string;
   Certificates: Array<Certificate>;
@@ -613,7 +447,8 @@ export interface AddTagsInput {
   ResourceArns: Array<string>;
   Tags: Array<Tag>;
 }
-export interface AddTagsOutput {}
+export interface AddTagsOutput {
+}
 export interface AddTrustStoreRevocationsInput {
   TrustStoreArn: string;
   RevocationContents?: Array<RevocationContent>;
@@ -647,18 +482,12 @@ export interface AnomalyDetection {
   MitigationInEffect?: MitigationInEffectEnum;
 }
 export type AnomalyResultEnum = "ANOMALOUS" | "NORMAL";
-export type AuthenticateCognitoActionAuthenticationRequestExtraParams = Record<
-  string,
-  string
->;
+export type AuthenticateCognitoActionAuthenticationRequestExtraParams = Record<string, string>;
 export type AuthenticateCognitoActionAuthenticationRequestParamName = string;
 
 export type AuthenticateCognitoActionAuthenticationRequestParamValue = string;
 
-export type AuthenticateCognitoActionConditionalBehaviorEnum =
-  | "DENY"
-  | "ALLOW"
-  | "AUTHENTICATE";
+export type AuthenticateCognitoActionConditionalBehaviorEnum = "DENY" | "ALLOW" | "AUTHENTICATE";
 export interface AuthenticateCognitoActionConfig {
   UserPoolArn: string;
   UserPoolClientId: string;
@@ -681,10 +510,7 @@ export type AuthenticateCognitoActionUserPoolClientId = string;
 
 export type AuthenticateCognitoActionUserPoolDomain = string;
 
-export type AuthenticateOidcActionAuthenticationRequestExtraParams = Record<
-  string,
-  string
->;
+export type AuthenticateOidcActionAuthenticationRequestExtraParams = Record<string, string>;
 export type AuthenticateOidcActionAuthenticationRequestParamName = string;
 
 export type AuthenticateOidcActionAuthenticationRequestParamValue = string;
@@ -695,10 +521,7 @@ export type AuthenticateOidcActionClientId = string;
 
 export type AuthenticateOidcActionClientSecret = string;
 
-export type AuthenticateOidcActionConditionalBehaviorEnum =
-  | "DENY"
-  | "ALLOW"
-  | "AUTHENTICATE";
+export type AuthenticateOidcActionConditionalBehaviorEnum = "DENY" | "ALLOW" | "AUTHENTICATE";
 export interface AuthenticateOidcActionConfig {
   Issuer: string;
   AuthorizationEndpoint: string;
@@ -757,11 +580,7 @@ export declare class CapacityReservationPendingException extends EffectData.Tagg
 )<{
   readonly Message?: string;
 }> {}
-export type CapacityReservationStateEnum =
-  | "PROVISIONED"
-  | "PENDING"
-  | "REBALANCING"
-  | "FAILED";
+export type CapacityReservationStateEnum = "PROVISIONED" | "PENDING" | "REBALANCING" | "FAILED";
 export interface CapacityReservationStatus {
   Code?: CapacityReservationStateEnum;
   Reason?: string;
@@ -886,33 +705,40 @@ export declare class DeleteAssociationSameAccountException extends EffectData.Ta
 export interface DeleteListenerInput {
   ListenerArn: string;
 }
-export interface DeleteListenerOutput {}
+export interface DeleteListenerOutput {
+}
 export interface DeleteLoadBalancerInput {
   LoadBalancerArn: string;
 }
-export interface DeleteLoadBalancerOutput {}
+export interface DeleteLoadBalancerOutput {
+}
 export interface DeleteRuleInput {
   RuleArn: string;
 }
-export interface DeleteRuleOutput {}
+export interface DeleteRuleOutput {
+}
 export interface DeleteSharedTrustStoreAssociationInput {
   TrustStoreArn: string;
   ResourceArn: string;
 }
-export interface DeleteSharedTrustStoreAssociationOutput {}
+export interface DeleteSharedTrustStoreAssociationOutput {
+}
 export interface DeleteTargetGroupInput {
   TargetGroupArn: string;
 }
-export interface DeleteTargetGroupOutput {}
+export interface DeleteTargetGroupOutput {
+}
 export interface DeleteTrustStoreInput {
   TrustStoreArn: string;
 }
-export interface DeleteTrustStoreOutput {}
+export interface DeleteTrustStoreOutput {
+}
 export interface DeregisterTargetsInput {
   TargetGroupArn: string;
   Targets: Array<TargetDescription>;
 }
-export interface DeregisterTargetsOutput {}
+export interface DeregisterTargetsOutput {
+}
 export interface DescribeAccountLimitsInput {
   Marker?: string;
   PageSize?: number;
@@ -1038,8 +864,7 @@ export interface DescribeTrustStoreRevocation {
   RevocationType?: RevocationType;
   NumberOfRevokedEntries?: number;
 }
-export type DescribeTrustStoreRevocationResponse =
-  Array<DescribeTrustStoreRevocation>;
+export type DescribeTrustStoreRevocationResponse = Array<DescribeTrustStoreRevocation>;
 export interface DescribeTrustStoreRevocationsInput {
   TrustStoreArn: string;
   RevocationIds?: Array<number>;
@@ -1092,9 +917,7 @@ export declare class DuplicateTrustStoreNameException extends EffectData.TaggedE
 export type EnablePrefixForIpv6SourceNatEnum = "ON" | "OFF";
 export type EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = string;
 
-export type EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum =
-  | "on"
-  | "off";
+export type EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum = "on" | "off";
 export type ErrorDescription = string;
 
 export interface FixedResponseActionConfig {
@@ -1216,10 +1039,7 @@ export declare class InvalidTargetException extends EffectData.TaggedError(
 }> {}
 export type IpAddress = string;
 
-export type IpAddressType =
-  | "IPV4"
-  | "DUALSTACK"
-  | "DUALSTACK_WITHOUT_PUBLIC_IPV4";
+export type IpAddressType = "IPV4" | "DUALSTACK" | "DUALSTACK_WITHOUT_PUBLIC_IPV4";
 export type IpamPoolId = string;
 
 export interface IpamPools {
@@ -1265,8 +1085,7 @@ export declare class ListenerNotFoundException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type Listeners = Array<Listener>;
-export type ListOfDescribeTargetHealthIncludeOptions =
-  Array<DescribeTargetHealthInputIncludeEnum>;
+export type ListOfDescribeTargetHealthIncludeOptions = Array<DescribeTargetHealthInputIncludeEnum>;
 export type ListOfString = Array<string>;
 export interface LoadBalancer {
   LoadBalancerArn?: string;
@@ -1319,11 +1138,7 @@ export interface LoadBalancerState {
   Code?: LoadBalancerStateEnum;
   Reason?: string;
 }
-export type LoadBalancerStateEnum =
-  | "ACTIVE"
-  | "PROVISIONING"
-  | "ACTIVE_IMPAIRED"
-  | "FAILED";
+export type LoadBalancerStateEnum = "ACTIVE" | "PROVISIONING" | "ACTIVE_IMPAIRED" | "FAILED";
 export type LoadBalancerTypeEnum = "APPLICATION" | "NETWORK" | "GATEWAY";
 export type Location = string;
 
@@ -1469,14 +1284,7 @@ export declare class PriorRequestNotCompleteException extends EffectData.TaggedE
 }> {}
 export type PrivateIPv4Address = string;
 
-export type ProtocolEnum =
-  | "HTTP"
-  | "HTTPS"
-  | "TCP"
-  | "TLS"
-  | "UDP"
-  | "TCP_UDP"
-  | "GENEVE";
+export type ProtocolEnum = "HTTP" | "HTTPS" | "TCP" | "TLS" | "UDP" | "TCP_UDP" | "GENEVE";
 export type ProtocolVersion = string;
 
 export interface QueryStringConditionConfig {
@@ -1510,24 +1318,28 @@ export interface RegisterTargetsInput {
   TargetGroupArn: string;
   Targets: Array<TargetDescription>;
 }
-export interface RegisterTargetsOutput {}
+export interface RegisterTargetsOutput {
+}
 export type RemoveIpamPoolEnum = "ipv4";
 export type RemoveIpamPools = Array<RemoveIpamPoolEnum>;
 export interface RemoveListenerCertificatesInput {
   ListenerArn: string;
   Certificates: Array<Certificate>;
 }
-export interface RemoveListenerCertificatesOutput {}
+export interface RemoveListenerCertificatesOutput {
+}
 export interface RemoveTagsInput {
   ResourceArns: Array<string>;
   TagKeys: Array<string>;
 }
-export interface RemoveTagsOutput {}
+export interface RemoveTagsOutput {
+}
 export interface RemoveTrustStoreRevocationsInput {
   TrustStoreArn: string;
   RevocationIds: Array<number>;
 }
-export interface RemoveTrustStoreRevocationsOutput {}
+export interface RemoveTrustStoreRevocationsOutput {
+}
 export type ResetCapacityReservation = boolean;
 
 export type ResourceArn = string;
@@ -1702,16 +1514,8 @@ export type TagKeys = Array<string>;
 export type TagList = Array<Tag>;
 export type TagValue = string;
 
-export type TargetAdministrativeOverrideReasonEnum =
-  | "INTERNAL_ERROR"
-  | "NO_OVERRIDE_ENGAGED"
-  | "ZONAL_SHIFT_ENGAGED"
-  | "ZONAL_SHIFT_DELEGATED_TO_DNS";
-export type TargetAdministrativeOverrideStateEnum =
-  | "UNKNOWN"
-  | "NO_OVERRIDE"
-  | "ZONAL_SHIFT_ACTIVE"
-  | "ZONAL_SHIFT_DELEGATED_TO_DNS";
+export type TargetAdministrativeOverrideReasonEnum = "INTERNAL_ERROR" | "NO_OVERRIDE_ENGAGED" | "ZONAL_SHIFT_ENGAGED" | "ZONAL_SHIFT_DELEGATED_TO_DNS";
+export type TargetAdministrativeOverrideStateEnum = "UNKNOWN" | "NO_OVERRIDE" | "ZONAL_SHIFT_ACTIVE" | "ZONAL_SHIFT_DELEGATED_TO_DNS";
 export interface TargetDescription {
   Id: string;
   Port?: number;
@@ -1793,27 +1597,8 @@ export interface TargetHealthDescription {
   AdministrativeOverride?: AdministrativeOverride;
 }
 export type TargetHealthDescriptions = Array<TargetHealthDescription>;
-export type TargetHealthReasonEnum =
-  | "REGISTRATION_IN_PROGRESS"
-  | "INITIAL_HEALTH_CHECKING"
-  | "RESPONSE_CODE_MISMATCH"
-  | "TIMEOUT"
-  | "FAILED_HEALTH_CHECKS"
-  | "NOT_REGISTERED"
-  | "NOT_IN_USE"
-  | "DEREGISTRATION_IN_PROGRESS"
-  | "INVALID_STATE"
-  | "IP_UNUSABLE"
-  | "HEALTH_CHECK_DISABLED"
-  | "INTERNAL_ERROR";
-export type TargetHealthStateEnum =
-  | "INITIAL"
-  | "HEALTHY"
-  | "UNHEALTHY"
-  | "UNHEALTHY_DRAINING"
-  | "UNUSED"
-  | "DRAINING"
-  | "UNAVAILABLE";
+export type TargetHealthReasonEnum = "REGISTRATION_IN_PROGRESS" | "INITIAL_HEALTH_CHECKING" | "RESPONSE_CODE_MISMATCH" | "TIMEOUT" | "FAILED_HEALTH_CHECKS" | "NOT_REGISTERED" | "NOT_IN_USE" | "DEREGISTRATION_IN_PROGRESS" | "INVALID_STATE" | "IP_UNUSABLE" | "HEALTH_CHECK_DISABLED" | "INTERNAL_ERROR";
+export type TargetHealthStateEnum = "INITIAL" | "HEALTHY" | "UNHEALTHY" | "UNHEALTHY_DRAINING" | "UNUSED" | "DRAINING" | "UNAVAILABLE";
 export type TargetId = string;
 
 export type TargetTypeEnum = "INSTANCE" | "IP" | "LAMBDA" | "ALB";
@@ -1940,8 +1725,7 @@ export interface ZonalCapacityReservationState {
   AvailabilityZone?: string;
   EffectiveCapacityUnits?: number;
 }
-export type ZonalCapacityReservationStates =
-  Array<ZonalCapacityReservationState>;
+export type ZonalCapacityReservationStates = Array<ZonalCapacityReservationState>;
 export type ZoneName = string;
 
 export declare namespace AddListenerCertificates {
@@ -2113,7 +1897,9 @@ export declare namespace DeleteSharedTrustStoreAssociation {
 export declare namespace DeleteTargetGroup {
   export type Input = DeleteTargetGroupInput;
   export type Output = DeleteTargetGroupOutput;
-  export type Error = ResourceInUseException | CommonAwsError;
+  export type Error =
+    | ResourceInUseException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTrustStore {
@@ -2137,25 +1923,32 @@ export declare namespace DeregisterTargets {
 export declare namespace DescribeAccountLimits {
   export type Input = DescribeAccountLimitsInput;
   export type Output = DescribeAccountLimitsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityReservation {
   export type Input = DescribeCapacityReservationInput;
   export type Output = DescribeCapacityReservationOutput;
-  export type Error = LoadBalancerNotFoundException | CommonAwsError;
+  export type Error =
+    | LoadBalancerNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeListenerAttributes {
   export type Input = DescribeListenerAttributesInput;
   export type Output = DescribeListenerAttributesOutput;
-  export type Error = ListenerNotFoundException | CommonAwsError;
+  export type Error =
+    | ListenerNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeListenerCertificates {
   export type Input = DescribeListenerCertificatesInput;
   export type Output = DescribeListenerCertificatesOutput;
-  export type Error = ListenerNotFoundException | CommonAwsError;
+  export type Error =
+    | ListenerNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeListeners {
@@ -2171,13 +1964,17 @@ export declare namespace DescribeListeners {
 export declare namespace DescribeLoadBalancerAttributes {
   export type Input = DescribeLoadBalancerAttributesInput;
   export type Output = DescribeLoadBalancerAttributesOutput;
-  export type Error = LoadBalancerNotFoundException | CommonAwsError;
+  export type Error =
+    | LoadBalancerNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLoadBalancers {
   export type Input = DescribeLoadBalancersInput;
   export type Output = DescribeLoadBalancersOutput;
-  export type Error = LoadBalancerNotFoundException | CommonAwsError;
+  export type Error =
+    | LoadBalancerNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeRules {
@@ -2193,7 +1990,9 @@ export declare namespace DescribeRules {
 export declare namespace DescribeSSLPolicies {
   export type Input = DescribeSSLPoliciesInput;
   export type Output = DescribeSSLPoliciesOutput;
-  export type Error = SSLPolicyNotFoundException | CommonAwsError;
+  export type Error =
+    | SSLPolicyNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTags {
@@ -2211,7 +2010,9 @@ export declare namespace DescribeTags {
 export declare namespace DescribeTargetGroupAttributes {
   export type Input = DescribeTargetGroupAttributesInput;
   export type Output = DescribeTargetGroupAttributesOutput;
-  export type Error = TargetGroupNotFoundException | CommonAwsError;
+  export type Error =
+    | TargetGroupNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTargetGroups {
@@ -2236,7 +2037,9 @@ export declare namespace DescribeTargetHealth {
 export declare namespace DescribeTrustStoreAssociations {
   export type Input = DescribeTrustStoreAssociationsInput;
   export type Output = DescribeTrustStoreAssociationsOutput;
-  export type Error = TrustStoreNotFoundException | CommonAwsError;
+  export type Error =
+    | TrustStoreNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTrustStoreRevocations {
@@ -2251,19 +2054,25 @@ export declare namespace DescribeTrustStoreRevocations {
 export declare namespace DescribeTrustStores {
   export type Input = DescribeTrustStoresInput;
   export type Output = DescribeTrustStoresOutput;
-  export type Error = TrustStoreNotFoundException | CommonAwsError;
+  export type Error =
+    | TrustStoreNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace GetResourcePolicy {
   export type Input = GetResourcePolicyInput;
   export type Output = GetResourcePolicyOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace GetTrustStoreCaCertificatesBundle {
   export type Input = GetTrustStoreCaCertificatesBundleInput;
   export type Output = GetTrustStoreCaCertificatesBundleOutput;
-  export type Error = TrustStoreNotFoundException | CommonAwsError;
+  export type Error =
+    | TrustStoreNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace GetTrustStoreRevocationContent {
@@ -2293,7 +2102,9 @@ export declare namespace ModifyCapacityReservation {
 export declare namespace ModifyIpPools {
   export type Input = ModifyIpPoolsInput;
   export type Output = ModifyIpPoolsOutput;
-  export type Error = LoadBalancerNotFoundException | CommonAwsError;
+  export type Error =
+    | LoadBalancerNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace ModifyListener {
@@ -2471,3 +2282,4 @@ export declare namespace SetSubnets {
     | SubnetNotFoundException
     | CommonAwsError;
 }
+

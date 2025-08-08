@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class SecretsManager extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("secrets-manager", new AwsJson11Protocol(), cfg);
+  }
+
   batchGetSecretValue(
     input: BatchGetSecretValueRequest,
   ): Effect.Effect<
     BatchGetSecretValueResponse,
-    | DecryptionFailure
-    | InternalServiceError
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DecryptionFailure | InternalServiceError | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("BatchGetSecretValue", input);
   }
@@ -21,11 +20,7 @@ export class SecretsManager extends AWSServiceClient {
     input: CancelRotateSecretRequest,
   ): Effect.Effect<
     CancelRotateSecretResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("CancelRotateSecret", input);
   }
@@ -33,17 +28,7 @@ export class SecretsManager extends AWSServiceClient {
     input: CreateSecretRequest,
   ): Effect.Effect<
     CreateSecretResponse,
-    | DecryptionFailure
-    | EncryptionFailure
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DecryptionFailure | EncryptionFailure | InternalServiceError | InvalidParameterException | InvalidRequestException | LimitExceededException | MalformedPolicyDocumentException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("CreateSecret", input);
   }
@@ -51,11 +36,7 @@ export class SecretsManager extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -63,11 +44,7 @@ export class SecretsManager extends AWSServiceClient {
     input: DeleteSecretRequest,
   ): Effect.Effect<
     DeleteSecretResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteSecret", input);
   }
@@ -75,10 +52,7 @@ export class SecretsManager extends AWSServiceClient {
     input: DescribeSecretRequest,
   ): Effect.Effect<
     DescribeSecretResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeSecret", input);
   }
@@ -86,10 +60,7 @@ export class SecretsManager extends AWSServiceClient {
     input: GetRandomPasswordRequest,
   ): Effect.Effect<
     GetRandomPasswordResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | CommonAwsError
   > {
     return this.call("GetRandomPassword", input);
   }
@@ -97,11 +68,7 @@ export class SecretsManager extends AWSServiceClient {
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -109,12 +76,7 @@ export class SecretsManager extends AWSServiceClient {
     input: GetSecretValueRequest,
   ): Effect.Effect<
     GetSecretValueResponse,
-    | DecryptionFailure
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DecryptionFailure | InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetSecretValue", input);
   }
@@ -122,11 +84,7 @@ export class SecretsManager extends AWSServiceClient {
     input: ListSecretsRequest,
   ): Effect.Effect<
     ListSecretsResponse,
-    | InternalServiceError
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidRequestException
-    | CommonAwsError
+    InternalServiceError | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | CommonAwsError
   > {
     return this.call("ListSecrets", input);
   }
@@ -134,11 +92,7 @@ export class SecretsManager extends AWSServiceClient {
     input: ListSecretVersionIdsRequest,
   ): Effect.Effect<
     ListSecretVersionIdsResponse,
-    | InternalServiceError
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidNextTokenException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListSecretVersionIds", input);
   }
@@ -146,13 +100,7 @@ export class SecretsManager extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | MalformedPolicyDocumentException
-    | PublicPolicyException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | MalformedPolicyDocumentException | PublicPolicyException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -160,15 +108,7 @@ export class SecretsManager extends AWSServiceClient {
     input: PutSecretValueRequest,
   ): Effect.Effect<
     PutSecretValueResponse,
-    | DecryptionFailure
-    | EncryptionFailure
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DecryptionFailure | EncryptionFailure | InternalServiceError | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutSecretValue", input);
   }
@@ -176,11 +116,7 @@ export class SecretsManager extends AWSServiceClient {
     input: RemoveRegionsFromReplicationRequest,
   ): Effect.Effect<
     RemoveRegionsFromReplicationResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("RemoveRegionsFromReplication", input);
   }
@@ -188,11 +124,7 @@ export class SecretsManager extends AWSServiceClient {
     input: ReplicateSecretToRegionsRequest,
   ): Effect.Effect<
     ReplicateSecretToRegionsResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ReplicateSecretToRegions", input);
   }
@@ -200,11 +132,7 @@ export class SecretsManager extends AWSServiceClient {
     input: RestoreSecretRequest,
   ): Effect.Effect<
     RestoreSecretResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("RestoreSecret", input);
   }
@@ -212,11 +140,7 @@ export class SecretsManager extends AWSServiceClient {
     input: RotateSecretRequest,
   ): Effect.Effect<
     RotateSecretResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("RotateSecret", input);
   }
@@ -224,11 +148,7 @@ export class SecretsManager extends AWSServiceClient {
     input: StopReplicationToReplicaRequest,
   ): Effect.Effect<
     StopReplicationToReplicaResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StopReplicationToReplica", input);
   }
@@ -236,11 +156,7 @@ export class SecretsManager extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -248,11 +164,7 @@ export class SecretsManager extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -260,17 +172,7 @@ export class SecretsManager extends AWSServiceClient {
     input: UpdateSecretRequest,
   ): Effect.Effect<
     UpdateSecretResponse,
-    | DecryptionFailure
-    | EncryptionFailure
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DecryptionFailure | EncryptionFailure | InternalServiceError | InvalidParameterException | InvalidRequestException | LimitExceededException | MalformedPolicyDocumentException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateSecret", input);
   }
@@ -278,12 +180,7 @@ export class SecretsManager extends AWSServiceClient {
     input: UpdateSecretVersionStageRequest,
   ): Effect.Effect<
     UpdateSecretVersionStageResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateSecretVersionStage", input);
   }
@@ -291,12 +188,7 @@ export class SecretsManager extends AWSServiceClient {
     input: ValidateResourcePolicyRequest,
   ): Effect.Effect<
     ValidateResourcePolicyResponse,
-    | InternalServiceError
-    | InvalidParameterException
-    | InvalidRequestException
-    | MalformedPolicyDocumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidParameterException | InvalidRequestException | MalformedPolicyDocumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ValidateResourcePolicy", input);
   }
@@ -431,14 +323,7 @@ export interface Filter {
   Key?: FilterNameStringType;
   Values?: Array<string>;
 }
-export type FilterNameStringType =
-  | "description"
-  | "name"
-  | "tag_key"
-  | "tag_value"
-  | "primary_region"
-  | "owning_service"
-  | "all";
+export type FilterNameStringType = "description" | "name" | "tag_key" | "tag_value" | "primary_region" | "owning_service" | "all";
 export type FiltersListType = Array<Filter>;
 export type FilterValuesStringList = Array<string>;
 export type FilterValueStringType = string;
@@ -1065,3 +950,4 @@ export declare namespace ValidateResourcePolicy {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

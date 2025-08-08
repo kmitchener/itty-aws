@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class Route53Domains extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("route-53-domains", new AwsJson11Protocol(), cfg);
+  }
+
   acceptDomainTransferFromAnotherAwsAccount(
     input: AcceptDomainTransferFromAnotherAwsAccountRequest,
   ): Effect.Effect<
     AcceptDomainTransferFromAnotherAwsAccountResponse,
-    | DomainLimitExceeded
-    | InvalidInput
-    | OperationLimitExceeded
-    | UnsupportedTLD
-    | CommonAwsError
+    DomainLimitExceeded | InvalidInput | OperationLimitExceeded | UnsupportedTLD | CommonAwsError
   > {
     return this.call("AcceptDomainTransferFromAnotherAwsAccount", input);
   }
@@ -19,13 +20,7 @@ export class Route53Domains extends AWSServiceClient {
     input: AssociateDelegationSignerToDomainRequest,
   ): Effect.Effect<
     AssociateDelegationSignerToDomainResponse,
-    | DnssecLimitExceeded
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DnssecLimitExceeded | DuplicateRequest | InvalidInput | OperationLimitExceeded | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("AssociateDelegationSignerToDomain", input);
   }
@@ -57,11 +52,7 @@ export class Route53Domains extends AWSServiceClient {
     input: DeleteDomainRequest,
   ): Effect.Effect<
     DeleteDomainResponse,
-    | DuplicateRequest
-    | InvalidInput
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DuplicateRequest | InvalidInput | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("DeleteDomain", input);
   }
@@ -85,12 +76,7 @@ export class Route53Domains extends AWSServiceClient {
     input: DisableDomainTransferLockRequest,
   ): Effect.Effect<
     DisableDomainTransferLockResponse,
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DuplicateRequest | InvalidInput | OperationLimitExceeded | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("DisableDomainTransferLock", input);
   }
@@ -98,12 +84,7 @@ export class Route53Domains extends AWSServiceClient {
     input: DisassociateDelegationSignerFromDomainRequest,
   ): Effect.Effect<
     DisassociateDelegationSignerFromDomainResponse,
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DuplicateRequest | InvalidInput | OperationLimitExceeded | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("DisassociateDelegationSignerFromDomain", input);
   }
@@ -119,12 +100,7 @@ export class Route53Domains extends AWSServiceClient {
     input: EnableDomainTransferLockRequest,
   ): Effect.Effect<
     EnableDomainTransferLockResponse,
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DuplicateRequest | InvalidInput | OperationLimitExceeded | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("EnableDomainTransferLock", input);
   }
@@ -154,17 +130,26 @@ export class Route53Domains extends AWSServiceClient {
   }
   getOperationDetail(
     input: GetOperationDetailRequest,
-  ): Effect.Effect<GetOperationDetailResponse, InvalidInput | CommonAwsError> {
+  ): Effect.Effect<
+    GetOperationDetailResponse,
+    InvalidInput | CommonAwsError
+  > {
     return this.call("GetOperationDetail", input);
   }
   listDomains(
     input: ListDomainsRequest,
-  ): Effect.Effect<ListDomainsResponse, InvalidInput | CommonAwsError> {
+  ): Effect.Effect<
+    ListDomainsResponse,
+    InvalidInput | CommonAwsError
+  > {
     return this.call("ListDomains", input);
   }
   listOperations(
     input: ListOperationsRequest,
-  ): Effect.Effect<ListOperationsResponse, InvalidInput | CommonAwsError> {
+  ): Effect.Effect<
+    ListOperationsResponse,
+    InvalidInput | CommonAwsError
+  > {
     return this.call("ListOperations", input);
   }
   listPrices(
@@ -195,13 +180,7 @@ export class Route53Domains extends AWSServiceClient {
     input: RegisterDomainRequest,
   ): Effect.Effect<
     RegisterDomainResponse,
-    | DomainLimitExceeded
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DomainLimitExceeded | DuplicateRequest | InvalidInput | OperationLimitExceeded | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("RegisterDomain", input);
   }
@@ -217,12 +196,7 @@ export class Route53Domains extends AWSServiceClient {
     input: RenewDomainRequest,
   ): Effect.Effect<
     RenewDomainResponse,
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DuplicateRequest | InvalidInput | OperationLimitExceeded | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("RenewDomain", input);
   }
@@ -236,7 +210,10 @@ export class Route53Domains extends AWSServiceClient {
   }
   resendOperationAuthorization(
     input: ResendOperationAuthorizationRequest,
-  ): Effect.Effect<{}, InvalidInput | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    InvalidInput | CommonAwsError
+  > {
     return this.call("ResendOperationAuthorization", input);
   }
   retrieveDomainAuthCode(
@@ -251,13 +228,7 @@ export class Route53Domains extends AWSServiceClient {
     input: TransferDomainRequest,
   ): Effect.Effect<
     TransferDomainResponse,
-    | DomainLimitExceeded
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DomainLimitExceeded | DuplicateRequest | InvalidInput | OperationLimitExceeded | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("TransferDomain", input);
   }
@@ -265,11 +236,7 @@ export class Route53Domains extends AWSServiceClient {
     input: TransferDomainToAnotherAwsAccountRequest,
   ): Effect.Effect<
     TransferDomainToAnotherAwsAccountResponse,
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | UnsupportedTLD
-    | CommonAwsError
+    DuplicateRequest | InvalidInput | OperationLimitExceeded | UnsupportedTLD | CommonAwsError
   > {
     return this.call("TransferDomainToAnotherAwsAccount", input);
   }
@@ -277,12 +244,7 @@ export class Route53Domains extends AWSServiceClient {
     input: UpdateDomainContactRequest,
   ): Effect.Effect<
     UpdateDomainContactResponse,
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DuplicateRequest | InvalidInput | OperationLimitExceeded | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("UpdateDomainContact", input);
   }
@@ -290,12 +252,7 @@ export class Route53Domains extends AWSServiceClient {
     input: UpdateDomainContactPrivacyRequest,
   ): Effect.Effect<
     UpdateDomainContactPrivacyResponse,
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DuplicateRequest | InvalidInput | OperationLimitExceeded | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("UpdateDomainContactPrivacy", input);
   }
@@ -303,12 +260,7 @@ export class Route53Domains extends AWSServiceClient {
     input: UpdateDomainNameserversRequest,
   ): Effect.Effect<
     UpdateDomainNameserversResponse,
-    | DuplicateRequest
-    | InvalidInput
-    | OperationLimitExceeded
-    | TLDRulesViolation
-    | UnsupportedTLD
-    | CommonAwsError
+    DuplicateRequest | InvalidInput | OperationLimitExceeded | TLDRulesViolation | UnsupportedTLD | CommonAwsError
   > {
     return this.call("UpdateDomainNameservers", input);
   }
@@ -322,7 +274,10 @@ export class Route53Domains extends AWSServiceClient {
   }
   viewBilling(
     input: ViewBillingRequest,
-  ): Effect.Effect<ViewBillingResponse, InvalidInput | CommonAwsError> {
+  ): Effect.Effect<
+    ViewBillingResponse,
+    InvalidInput | CommonAwsError
+  > {
     return this.call("ViewBilling", input);
   }
 }
@@ -404,264 +359,8 @@ export type ContactName = string;
 
 export type ContactNumber = string;
 
-export type ContactType =
-  | "PERSON"
-  | "COMPANY"
-  | "ASSOCIATION"
-  | "PUBLIC_BODY"
-  | "RESELLER";
-export type CountryCode =
-  | "AC"
-  | "AD"
-  | "AE"
-  | "AF"
-  | "AG"
-  | "AI"
-  | "AL"
-  | "AM"
-  | "AN"
-  | "AO"
-  | "AQ"
-  | "AR"
-  | "AS"
-  | "AT"
-  | "AU"
-  | "AW"
-  | "AX"
-  | "AZ"
-  | "BA"
-  | "BB"
-  | "BD"
-  | "BE"
-  | "BF"
-  | "BG"
-  | "BH"
-  | "BI"
-  | "BJ"
-  | "BL"
-  | "BM"
-  | "BN"
-  | "BO"
-  | "BQ"
-  | "BR"
-  | "BS"
-  | "BT"
-  | "BV"
-  | "BW"
-  | "BY"
-  | "BZ"
-  | "CA"
-  | "CC"
-  | "CD"
-  | "CF"
-  | "CG"
-  | "CH"
-  | "CI"
-  | "CK"
-  | "CL"
-  | "CM"
-  | "CN"
-  | "CO"
-  | "CR"
-  | "CU"
-  | "CV"
-  | "CW"
-  | "CX"
-  | "CY"
-  | "CZ"
-  | "DE"
-  | "DJ"
-  | "DK"
-  | "DM"
-  | "DO"
-  | "DZ"
-  | "EC"
-  | "EE"
-  | "EG"
-  | "EH"
-  | "ER"
-  | "ES"
-  | "ET"
-  | "FI"
-  | "FJ"
-  | "FK"
-  | "FM"
-  | "FO"
-  | "FR"
-  | "GA"
-  | "GB"
-  | "GD"
-  | "GE"
-  | "GF"
-  | "GG"
-  | "GH"
-  | "GI"
-  | "GL"
-  | "GM"
-  | "GN"
-  | "GP"
-  | "GQ"
-  | "GR"
-  | "GS"
-  | "GT"
-  | "GU"
-  | "GW"
-  | "GY"
-  | "HK"
-  | "HM"
-  | "HN"
-  | "HR"
-  | "HT"
-  | "HU"
-  | "ID"
-  | "IE"
-  | "IL"
-  | "IM"
-  | "IN"
-  | "IO"
-  | "IQ"
-  | "IR"
-  | "IS"
-  | "IT"
-  | "JE"
-  | "JM"
-  | "JO"
-  | "JP"
-  | "KE"
-  | "KG"
-  | "KH"
-  | "KI"
-  | "KM"
-  | "KN"
-  | "KP"
-  | "KR"
-  | "KW"
-  | "KY"
-  | "KZ"
-  | "LA"
-  | "LB"
-  | "LC"
-  | "LI"
-  | "LK"
-  | "LR"
-  | "LS"
-  | "LT"
-  | "LU"
-  | "LV"
-  | "LY"
-  | "MA"
-  | "MC"
-  | "MD"
-  | "ME"
-  | "MF"
-  | "MG"
-  | "MH"
-  | "MK"
-  | "ML"
-  | "MM"
-  | "MN"
-  | "MO"
-  | "MP"
-  | "MQ"
-  | "MR"
-  | "MS"
-  | "MT"
-  | "MU"
-  | "MV"
-  | "MW"
-  | "MX"
-  | "MY"
-  | "MZ"
-  | "NA"
-  | "NC"
-  | "NE"
-  | "NF"
-  | "NG"
-  | "NI"
-  | "NL"
-  | "NO"
-  | "NP"
-  | "NR"
-  | "NU"
-  | "NZ"
-  | "OM"
-  | "PA"
-  | "PE"
-  | "PF"
-  | "PG"
-  | "PH"
-  | "PK"
-  | "PL"
-  | "PM"
-  | "PN"
-  | "PR"
-  | "PS"
-  | "PT"
-  | "PW"
-  | "PY"
-  | "QA"
-  | "RE"
-  | "RO"
-  | "RS"
-  | "RU"
-  | "RW"
-  | "SA"
-  | "SB"
-  | "SC"
-  | "SD"
-  | "SE"
-  | "SG"
-  | "SH"
-  | "SI"
-  | "SJ"
-  | "SK"
-  | "SL"
-  | "SM"
-  | "SN"
-  | "SO"
-  | "SR"
-  | "SS"
-  | "ST"
-  | "SV"
-  | "SX"
-  | "SY"
-  | "SZ"
-  | "TC"
-  | "TD"
-  | "TF"
-  | "TG"
-  | "TH"
-  | "TJ"
-  | "TK"
-  | "TL"
-  | "TM"
-  | "TN"
-  | "TO"
-  | "TP"
-  | "TR"
-  | "TT"
-  | "TV"
-  | "TW"
-  | "TZ"
-  | "UA"
-  | "UG"
-  | "US"
-  | "UY"
-  | "UZ"
-  | "VA"
-  | "VC"
-  | "VE"
-  | "VG"
-  | "VI"
-  | "VN"
-  | "VU"
-  | "WF"
-  | "WS"
-  | "YE"
-  | "YT"
-  | "ZA"
-  | "ZM"
-  | "ZW";
+export type ContactType = "PERSON" | "COMPANY" | "ASSOCIATION" | "PUBLIC_BODY" | "RESELLER";
+export type CountryCode = "AC" | "AD" | "AE" | "AF" | "AG" | "AI" | "AL" | "AM" | "AN" | "AO" | "AQ" | "AR" | "AS" | "AT" | "AU" | "AW" | "AX" | "AZ" | "BA" | "BB" | "BD" | "BE" | "BF" | "BG" | "BH" | "BI" | "BJ" | "BL" | "BM" | "BN" | "BO" | "BQ" | "BR" | "BS" | "BT" | "BV" | "BW" | "BY" | "BZ" | "CA" | "CC" | "CD" | "CF" | "CG" | "CH" | "CI" | "CK" | "CL" | "CM" | "CN" | "CO" | "CR" | "CU" | "CV" | "CW" | "CX" | "CY" | "CZ" | "DE" | "DJ" | "DK" | "DM" | "DO" | "DZ" | "EC" | "EE" | "EG" | "EH" | "ER" | "ES" | "ET" | "FI" | "FJ" | "FK" | "FM" | "FO" | "FR" | "GA" | "GB" | "GD" | "GE" | "GF" | "GG" | "GH" | "GI" | "GL" | "GM" | "GN" | "GP" | "GQ" | "GR" | "GS" | "GT" | "GU" | "GW" | "GY" | "HK" | "HM" | "HN" | "HR" | "HT" | "HU" | "ID" | "IE" | "IL" | "IM" | "IN" | "IO" | "IQ" | "IR" | "IS" | "IT" | "JE" | "JM" | "JO" | "JP" | "KE" | "KG" | "KH" | "KI" | "KM" | "KN" | "KP" | "KR" | "KW" | "KY" | "KZ" | "LA" | "LB" | "LC" | "LI" | "LK" | "LR" | "LS" | "LT" | "LU" | "LV" | "LY" | "MA" | "MC" | "MD" | "ME" | "MF" | "MG" | "MH" | "MK" | "ML" | "MM" | "MN" | "MO" | "MP" | "MQ" | "MR" | "MS" | "MT" | "MU" | "MV" | "MW" | "MX" | "MY" | "MZ" | "NA" | "NC" | "NE" | "NF" | "NG" | "NI" | "NL" | "NO" | "NP" | "NR" | "NU" | "NZ" | "OM" | "PA" | "PE" | "PF" | "PG" | "PH" | "PK" | "PL" | "PM" | "PN" | "PR" | "PS" | "PT" | "PW" | "PY" | "QA" | "RE" | "RO" | "RS" | "RU" | "RW" | "SA" | "SB" | "SC" | "SD" | "SE" | "SG" | "SH" | "SI" | "SJ" | "SK" | "SL" | "SM" | "SN" | "SO" | "SR" | "SS" | "ST" | "SV" | "SX" | "SY" | "SZ" | "TC" | "TD" | "TF" | "TG" | "TH" | "TJ" | "TK" | "TL" | "TM" | "TN" | "TO" | "TP" | "TR" | "TT" | "TV" | "TW" | "TZ" | "UA" | "UG" | "US" | "UY" | "UZ" | "VA" | "VC" | "VE" | "VG" | "VI" | "VN" | "VU" | "WF" | "WS" | "YE" | "YT" | "ZA" | "ZM" | "ZW";
 export type Currency = string;
 
 export type CurrentExpiryYear = number;
@@ -676,11 +375,13 @@ export interface DeleteTagsForDomainRequest {
   DomainName: string;
   TagsToDelete: Array<string>;
 }
-export interface DeleteTagsForDomainResponse {}
+export interface DeleteTagsForDomainResponse {
+}
 export interface DisableDomainAutoRenewRequest {
   DomainName: string;
 }
-export interface DisableDomainAutoRenewResponse {}
+export interface DisableDomainAutoRenewResponse {
+}
 export interface DisableDomainTransferLockRequest {
   DomainName: string;
 }
@@ -720,17 +421,7 @@ export interface DnssecSigningAttributes {
 }
 export type DomainAuthCode = string;
 
-export type DomainAvailability =
-  | "AVAILABLE"
-  | "AVAILABLE_RESERVED"
-  | "AVAILABLE_PREORDER"
-  | "UNAVAILABLE"
-  | "UNAVAILABLE_PREMIUM"
-  | "UNAVAILABLE_RESTRICTED"
-  | "RESERVED"
-  | "DONT_KNOW"
-  | "INVALID_NAME_FOR_TLD"
-  | "PENDING";
+export type DomainAvailability = "AVAILABLE" | "AVAILABLE_RESERVED" | "AVAILABLE_PREORDER" | "UNAVAILABLE" | "UNAVAILABLE_PREMIUM" | "UNAVAILABLE_RESTRICTED" | "RESERVED" | "DONT_KNOW" | "INVALID_NAME_FOR_TLD" | "PENDING";
 export declare class DomainLimitExceeded extends EffectData.TaggedError(
   "DomainLimitExceeded",
 )<{
@@ -780,7 +471,8 @@ export type Email = string;
 export interface EnableDomainAutoRenewRequest {
   DomainName: string;
 }
-export interface EnableDomainAutoRenewResponse {}
+export interface EnableDomainAutoRenewResponse {
+}
 export interface EnableDomainTransferLockRequest {
   DomainName: string;
 }
@@ -794,38 +486,7 @@ export interface ExtraParam {
   Value: string;
 }
 export type ExtraParamList = Array<ExtraParam>;
-export type ExtraParamName =
-  | "DUNS_NUMBER"
-  | "BRAND_NUMBER"
-  | "BIRTH_DEPARTMENT"
-  | "BIRTH_DATE_IN_YYYY_MM_DD"
-  | "BIRTH_COUNTRY"
-  | "BIRTH_CITY"
-  | "DOCUMENT_NUMBER"
-  | "AU_ID_NUMBER"
-  | "AU_ID_TYPE"
-  | "CA_LEGAL_TYPE"
-  | "CA_BUSINESS_ENTITY_TYPE"
-  | "CA_LEGAL_REPRESENTATIVE"
-  | "CA_LEGAL_REPRESENTATIVE_CAPACITY"
-  | "ES_IDENTIFICATION"
-  | "ES_IDENTIFICATION_TYPE"
-  | "ES_LEGAL_FORM"
-  | "FI_BUSINESS_NUMBER"
-  | "ONWER_FI_ID_NUMBER"
-  | "FI_NATIONALITY"
-  | "FI_ORGANIZATION_TYPE"
-  | "IT_NATIONALITY"
-  | "IT_PIN"
-  | "IT_REGISTRANT_ENTITY_TYPE"
-  | "RU_PASSPORT_DATA"
-  | "SE_ID_NUMBER"
-  | "SG_ID_NUMBER"
-  | "VAT_NUMBER"
-  | "UK_CONTACT_TYPE"
-  | "UK_COMPANY_NUMBER"
-  | "EU_COUNTRY_OF_CITIZENSHIP"
-  | "AU_PRIORITY_TOKEN";
+export type ExtraParamName = "DUNS_NUMBER" | "BRAND_NUMBER" | "BIRTH_DEPARTMENT" | "BIRTH_DATE_IN_YYYY_MM_DD" | "BIRTH_COUNTRY" | "BIRTH_CITY" | "DOCUMENT_NUMBER" | "AU_ID_NUMBER" | "AU_ID_TYPE" | "CA_LEGAL_TYPE" | "CA_BUSINESS_ENTITY_TYPE" | "CA_LEGAL_REPRESENTATIVE" | "CA_LEGAL_REPRESENTATIVE_CAPACITY" | "ES_IDENTIFICATION" | "ES_IDENTIFICATION_TYPE" | "ES_LEGAL_FORM" | "FI_BUSINESS_NUMBER" | "ONWER_FI_ID_NUMBER" | "FI_NATIONALITY" | "FI_ORGANIZATION_TYPE" | "IT_NATIONALITY" | "IT_PIN" | "IT_REGISTRANT_ENTITY_TYPE" | "RU_PASSPORT_DATA" | "SE_ID_NUMBER" | "SG_ID_NUMBER" | "VAT_NUMBER" | "UK_CONTACT_TYPE" | "UK_COMPANY_NUMBER" | "EU_COUNTRY_OF_CITIZENSHIP" | "AU_PRIORITY_TOKEN";
 export type ExtraParamValue = string;
 
 export type FIAuthKey = string;
@@ -969,12 +630,7 @@ export declare class OperationLimitExceeded extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type OperationStatus =
-  | "SUBMITTED"
-  | "IN_PROGRESS"
-  | "ERROR"
-  | "SUCCESSFUL"
-  | "FAILED";
+export type OperationStatus = "SUBMITTED" | "IN_PROGRESS" | "ERROR" | "SUCCESSFUL" | "FAILED";
 export type OperationStatusList = Array<OperationStatus>;
 export interface OperationSummary {
   OperationId?: string;
@@ -987,28 +643,7 @@ export interface OperationSummary {
   LastUpdatedDate?: Date | string;
 }
 export type OperationSummaryList = Array<OperationSummary>;
-export type OperationType =
-  | "REGISTER_DOMAIN"
-  | "DELETE_DOMAIN"
-  | "TRANSFER_IN_DOMAIN"
-  | "UPDATE_DOMAIN_CONTACT"
-  | "UPDATE_NAMESERVER"
-  | "CHANGE_PRIVACY_PROTECTION"
-  | "DOMAIN_LOCK"
-  | "ENABLE_AUTORENEW"
-  | "DISABLE_AUTORENEW"
-  | "ADD_DNSSEC"
-  | "REMOVE_DNSSEC"
-  | "EXPIRE_DOMAIN"
-  | "TRANSFER_OUT_DOMAIN"
-  | "CHANGE_DOMAIN_OWNER"
-  | "RENEW_DOMAIN"
-  | "PUSH_DOMAIN"
-  | "INTERNAL_TRANSFER_OUT_DOMAIN"
-  | "INTERNAL_TRANSFER_IN_DOMAIN"
-  | "RELEASE_TO_GANDI"
-  | "TRANSFER_ON_RENEW"
-  | "RESTORE_DOMAIN";
+export type OperationType = "REGISTER_DOMAIN" | "DELETE_DOMAIN" | "TRANSFER_IN_DOMAIN" | "UPDATE_DOMAIN_CONTACT" | "UPDATE_NAMESERVER" | "CHANGE_PRIVACY_PROTECTION" | "DOMAIN_LOCK" | "ENABLE_AUTORENEW" | "DISABLE_AUTORENEW" | "ADD_DNSSEC" | "REMOVE_DNSSEC" | "EXPIRE_DOMAIN" | "TRANSFER_OUT_DOMAIN" | "CHANGE_DOMAIN_OWNER" | "RENEW_DOMAIN" | "PUSH_DOMAIN" | "INTERNAL_TRANSFER_OUT_DOMAIN" | "INTERNAL_TRANSFER_IN_DOMAIN" | "RELEASE_TO_GANDI" | "TRANSFER_ON_RENEW" | "RESTORE_DOMAIN";
 export type OperationTypeList = Array<OperationType>;
 export type Operator = "LE" | "GE" | "BEGINS_WITH";
 export type PageMarker = string;
@@ -1095,12 +730,7 @@ export interface SortCondition {
 export type SortOrder = "ASC" | "DESC";
 export type State = string;
 
-export type StatusFlag =
-  | "PENDING_ACCEPTANCE"
-  | "PENDING_CUSTOMER_ACTION"
-  | "PENDING_AUTHORIZATION"
-  | "PENDING_PAYMENT_VERIFICATION"
-  | "PENDING_SUPPORT_CASE";
+export type StatusFlag = "PENDING_ACCEPTANCE" | "PENDING_CUSTOMER_ACTION" | "PENDING_AUTHORIZATION" | "PENDING_PAYMENT_VERIFICATION" | "PENDING_SUPPORT_CASE";
 export type Route53DomainsString = string;
 
 export interface Tag {
@@ -1122,13 +752,7 @@ export declare class TLDRulesViolation extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type Transferable =
-  | "TRANSFERABLE"
-  | "UNTRANSFERABLE"
-  | "DONT_KNOW"
-  | "DOMAIN_IN_OWN_ACCOUNT"
-  | "DOMAIN_IN_ANOTHER_ACCOUNT"
-  | "PREMIUM_DOMAIN";
+export type Transferable = "TRANSFERABLE" | "UNTRANSFERABLE" | "DONT_KNOW" | "DOMAIN_IN_OWN_ACCOUNT" | "DOMAIN_IN_ANOTHER_ACCOUNT" | "PREMIUM_DOMAIN";
 export interface TransferDomainRequest {
   DomainName: string;
   IdnLangCode?: string;
@@ -1194,7 +818,8 @@ export interface UpdateTagsForDomainRequest {
   DomainName: string;
   TagsToUpdate?: Array<Tag>;
 }
-export interface UpdateTagsForDomainResponse {}
+export interface UpdateTagsForDomainResponse {
+}
 export type Value = string;
 
 export type Values = Array<string>;
@@ -1247,13 +872,19 @@ export declare namespace CancelDomainTransferToAnotherAwsAccount {
 export declare namespace CheckDomainAvailability {
   export type Input = CheckDomainAvailabilityRequest;
   export type Output = CheckDomainAvailabilityResponse;
-  export type Error = InvalidInput | UnsupportedTLD | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | UnsupportedTLD
+    | CommonAwsError;
 }
 
 export declare namespace CheckDomainTransferability {
   export type Input = CheckDomainTransferabilityRequest;
   export type Output = CheckDomainTransferabilityResponse;
-  export type Error = InvalidInput | UnsupportedTLD | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | UnsupportedTLD
+    | CommonAwsError;
 }
 
 export declare namespace DeleteDomain {
@@ -1280,7 +911,10 @@ export declare namespace DeleteTagsForDomain {
 export declare namespace DisableDomainAutoRenew {
   export type Input = DisableDomainAutoRenewRequest;
   export type Output = DisableDomainAutoRenewResponse;
-  export type Error = InvalidInput | UnsupportedTLD | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | UnsupportedTLD
+    | CommonAwsError;
 }
 
 export declare namespace DisableDomainTransferLock {
@@ -1342,37 +976,52 @@ export declare namespace GetContactReachabilityStatus {
 export declare namespace GetDomainDetail {
   export type Input = GetDomainDetailRequest;
   export type Output = GetDomainDetailResponse;
-  export type Error = InvalidInput | UnsupportedTLD | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | UnsupportedTLD
+    | CommonAwsError;
 }
 
 export declare namespace GetDomainSuggestions {
   export type Input = GetDomainSuggestionsRequest;
   export type Output = GetDomainSuggestionsResponse;
-  export type Error = InvalidInput | UnsupportedTLD | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | UnsupportedTLD
+    | CommonAwsError;
 }
 
 export declare namespace GetOperationDetail {
   export type Input = GetOperationDetailRequest;
   export type Output = GetOperationDetailResponse;
-  export type Error = InvalidInput | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | CommonAwsError;
 }
 
 export declare namespace ListDomains {
   export type Input = ListDomainsRequest;
   export type Output = ListDomainsResponse;
-  export type Error = InvalidInput | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | CommonAwsError;
 }
 
 export declare namespace ListOperations {
   export type Input = ListOperationsRequest;
   export type Output = ListOperationsResponse;
-  export type Error = InvalidInput | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | CommonAwsError;
 }
 
 export declare namespace ListPrices {
   export type Input = ListPricesRequest;
   export type Output = ListPricesResponse;
-  export type Error = InvalidInput | UnsupportedTLD | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | UnsupportedTLD
+    | CommonAwsError;
 }
 
 export declare namespace ListTagsForDomain {
@@ -1443,13 +1092,18 @@ export declare namespace ResendContactReachabilityEmail {
 export declare namespace ResendOperationAuthorization {
   export type Input = ResendOperationAuthorizationRequest;
   export type Output = {};
-  export type Error = InvalidInput | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | CommonAwsError;
 }
 
 export declare namespace RetrieveDomainAuthCode {
   export type Input = RetrieveDomainAuthCodeRequest;
   export type Output = RetrieveDomainAuthCodeResponse;
-  export type Error = InvalidInput | UnsupportedTLD | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | UnsupportedTLD
+    | CommonAwsError;
 }
 
 export declare namespace TransferDomain {
@@ -1525,5 +1179,8 @@ export declare namespace UpdateTagsForDomain {
 export declare namespace ViewBilling {
   export type Input = ViewBillingRequest;
   export type Output = ViewBillingResponse;
-  export type Error = InvalidInput | CommonAwsError;
+  export type Error =
+    | InvalidInput
+    | CommonAwsError;
 }
+

@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class codeartifact extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("codeartifact", new RestJson1Protocol(), cfg);
+  }
+
   associateExternalConnection(
     input: AssociateExternalConnectionRequest,
   ): Effect.Effect<
     AssociateExternalConnectionResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateExternalConnection", input);
   }
@@ -22,14 +20,7 @@ export class codeartifact extends AWSServiceClient {
     input: CopyPackageVersionsRequest,
   ): Effect.Effect<
     CopyPackageVersionsResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CopyPackageVersions", input);
   }
@@ -37,14 +28,7 @@ export class codeartifact extends AWSServiceClient {
     input: CreateDomainRequest,
   ): Effect.Effect<
     CreateDomainResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDomain", input);
   }
@@ -52,14 +36,7 @@ export class codeartifact extends AWSServiceClient {
     input: CreatePackageGroupRequest,
   ): Effect.Effect<
     CreatePackageGroupResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePackageGroup", input);
   }
@@ -67,14 +44,7 @@ export class codeartifact extends AWSServiceClient {
     input: CreateRepositoryRequest,
   ): Effect.Effect<
     CreateRepositoryResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRepository", input);
   }
@@ -82,12 +52,7 @@ export class codeartifact extends AWSServiceClient {
     input: DeleteDomainRequest,
   ): Effect.Effect<
     DeleteDomainResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDomain", input);
   }
@@ -95,13 +60,7 @@ export class codeartifact extends AWSServiceClient {
     input: DeleteDomainPermissionsPolicyRequest,
   ): Effect.Effect<
     DeleteDomainPermissionsPolicyResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDomainPermissionsPolicy", input);
   }
@@ -109,13 +68,7 @@ export class codeartifact extends AWSServiceClient {
     input: DeletePackageRequest,
   ): Effect.Effect<
     DeletePackageResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePackage", input);
   }
@@ -123,14 +76,7 @@ export class codeartifact extends AWSServiceClient {
     input: DeletePackageGroupRequest,
   ): Effect.Effect<
     DeletePackageGroupResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePackageGroup", input);
   }
@@ -138,13 +84,7 @@ export class codeartifact extends AWSServiceClient {
     input: DeletePackageVersionsRequest,
   ): Effect.Effect<
     DeletePackageVersionsResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePackageVersions", input);
   }
@@ -152,13 +92,7 @@ export class codeartifact extends AWSServiceClient {
     input: DeleteRepositoryRequest,
   ): Effect.Effect<
     DeleteRepositoryResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRepository", input);
   }
@@ -166,13 +100,7 @@ export class codeartifact extends AWSServiceClient {
     input: DeleteRepositoryPermissionsPolicyRequest,
   ): Effect.Effect<
     DeleteRepositoryPermissionsPolicyResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRepositoryPermissionsPolicy", input);
   }
@@ -180,12 +108,7 @@ export class codeartifact extends AWSServiceClient {
     input: DescribeDomainRequest,
   ): Effect.Effect<
     DescribeDomainResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDomain", input);
   }
@@ -193,12 +116,7 @@ export class codeartifact extends AWSServiceClient {
     input: DescribePackageRequest,
   ): Effect.Effect<
     DescribePackageResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePackage", input);
   }
@@ -206,12 +124,7 @@ export class codeartifact extends AWSServiceClient {
     input: DescribePackageGroupRequest,
   ): Effect.Effect<
     DescribePackageGroupResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePackageGroup", input);
   }
@@ -219,13 +132,7 @@ export class codeartifact extends AWSServiceClient {
     input: DescribePackageVersionRequest,
   ): Effect.Effect<
     DescribePackageVersionResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePackageVersion", input);
   }
@@ -233,12 +140,7 @@ export class codeartifact extends AWSServiceClient {
     input: DescribeRepositoryRequest,
   ): Effect.Effect<
     DescribeRepositoryResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRepository", input);
   }
@@ -246,14 +148,7 @@ export class codeartifact extends AWSServiceClient {
     input: DisassociateExternalConnectionRequest,
   ): Effect.Effect<
     DisassociateExternalConnectionResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateExternalConnection", input);
   }
@@ -261,13 +156,7 @@ export class codeartifact extends AWSServiceClient {
     input: DisposePackageVersionsRequest,
   ): Effect.Effect<
     DisposePackageVersionsResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisposePackageVersions", input);
   }
@@ -275,11 +164,7 @@ export class codeartifact extends AWSServiceClient {
     input: GetAssociatedPackageGroupRequest,
   ): Effect.Effect<
     GetAssociatedPackageGroupResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetAssociatedPackageGroup", input);
   }
@@ -287,12 +172,7 @@ export class codeartifact extends AWSServiceClient {
     input: GetAuthorizationTokenRequest,
   ): Effect.Effect<
     GetAuthorizationTokenResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAuthorizationToken", input);
   }
@@ -300,12 +180,7 @@ export class codeartifact extends AWSServiceClient {
     input: GetDomainPermissionsPolicyRequest,
   ): Effect.Effect<
     GetDomainPermissionsPolicyResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDomainPermissionsPolicy", input);
   }
@@ -313,13 +188,7 @@ export class codeartifact extends AWSServiceClient {
     input: GetPackageVersionAssetRequest,
   ): Effect.Effect<
     GetPackageVersionAssetResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPackageVersionAsset", input);
   }
@@ -327,12 +196,7 @@ export class codeartifact extends AWSServiceClient {
     input: GetPackageVersionReadmeRequest,
   ): Effect.Effect<
     GetPackageVersionReadmeResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPackageVersionReadme", input);
   }
@@ -340,12 +204,7 @@ export class codeartifact extends AWSServiceClient {
     input: GetRepositoryEndpointRequest,
   ): Effect.Effect<
     GetRepositoryEndpointResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRepositoryEndpoint", input);
   }
@@ -353,12 +212,7 @@ export class codeartifact extends AWSServiceClient {
     input: GetRepositoryPermissionsPolicyRequest,
   ): Effect.Effect<
     GetRepositoryPermissionsPolicyResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRepositoryPermissionsPolicy", input);
   }
@@ -366,13 +220,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListAllowedRepositoriesForGroupRequest,
   ): Effect.Effect<
     ListAllowedRepositoriesForGroupResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAllowedRepositoriesForGroup", input);
   }
@@ -380,11 +228,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListAssociatedPackagesRequest,
   ): Effect.Effect<
     ListAssociatedPackagesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssociatedPackages", input);
   }
@@ -392,11 +236,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListDomainsRequest,
   ): Effect.Effect<
     ListDomainsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDomains", input);
   }
@@ -404,12 +244,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListPackageGroupsRequest,
   ): Effect.Effect<
     ListPackageGroupsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPackageGroups", input);
   }
@@ -417,12 +252,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListPackagesRequest,
   ): Effect.Effect<
     ListPackagesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPackages", input);
   }
@@ -430,12 +260,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListPackageVersionAssetsRequest,
   ): Effect.Effect<
     ListPackageVersionAssetsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPackageVersionAssets", input);
   }
@@ -443,12 +268,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListPackageVersionDependenciesRequest,
   ): Effect.Effect<
     ListPackageVersionDependenciesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPackageVersionDependencies", input);
   }
@@ -456,12 +276,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListPackageVersionsRequest,
   ): Effect.Effect<
     ListPackageVersionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPackageVersions", input);
   }
@@ -469,11 +284,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListRepositoriesRequest,
   ): Effect.Effect<
     ListRepositoriesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRepositories", input);
   }
@@ -481,12 +292,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListRepositoriesInDomainRequest,
   ): Effect.Effect<
     ListRepositoriesInDomainResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRepositoriesInDomain", input);
   }
@@ -494,12 +300,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListSubPackageGroupsRequest,
   ): Effect.Effect<
     ListSubPackageGroupsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSubPackageGroups", input);
   }
@@ -507,11 +308,7 @@ export class codeartifact extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResult,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -519,14 +316,7 @@ export class codeartifact extends AWSServiceClient {
     input: PublishPackageVersionRequest,
   ): Effect.Effect<
     PublishPackageVersionResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PublishPackageVersion", input);
   }
@@ -534,14 +324,7 @@ export class codeartifact extends AWSServiceClient {
     input: PutDomainPermissionsPolicyRequest,
   ): Effect.Effect<
     PutDomainPermissionsPolicyResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutDomainPermissionsPolicy", input);
   }
@@ -549,12 +332,7 @@ export class codeartifact extends AWSServiceClient {
     input: PutPackageOriginConfigurationRequest,
   ): Effect.Effect<
     PutPackageOriginConfigurationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutPackageOriginConfiguration", input);
   }
@@ -562,14 +340,7 @@ export class codeartifact extends AWSServiceClient {
     input: PutRepositoryPermissionsPolicyRequest,
   ): Effect.Effect<
     PutRepositoryPermissionsPolicyResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutRepositoryPermissionsPolicy", input);
   }
@@ -577,12 +348,7 @@ export class codeartifact extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResult,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -590,11 +356,7 @@ export class codeartifact extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResult,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -602,13 +364,7 @@ export class codeartifact extends AWSServiceClient {
     input: UpdatePackageGroupRequest,
   ): Effect.Effect<
     UpdatePackageGroupResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePackageGroup", input);
   }
@@ -616,13 +372,7 @@ export class codeartifact extends AWSServiceClient {
     input: UpdatePackageGroupOriginConfigurationRequest,
   ): Effect.Effect<
     UpdatePackageGroupOriginConfigurationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePackageGroupOriginConfiguration", input);
   }
@@ -630,13 +380,7 @@ export class codeartifact extends AWSServiceClient {
     input: UpdatePackageVersionsStatusRequest,
   ): Effect.Effect<
     UpdatePackageVersionsStatusResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePackageVersionsStatus", input);
   }
@@ -644,14 +388,7 @@ export class codeartifact extends AWSServiceClient {
     input: UpdateRepositoryRequest,
   ): Effect.Effect<
     UpdateRepositoryResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRepository", input);
   }
@@ -1198,10 +935,7 @@ export type Long = number;
 
 export type LongOptional = number;
 
-export type OriginRestrictions = Record<
-  PackageGroupOriginRestrictionType,
-  PackageGroupOriginRestrictionMode
->;
+export type OriginRestrictions = Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestrictionMode>;
 export interface PackageDependency {
   namespace?: string;
   package?: string;
@@ -1215,29 +949,14 @@ export interface PackageDescription {
   name?: string;
   originConfiguration?: PackageOriginConfiguration;
 }
-export type PackageFormat =
-  | "NPM"
-  | "PYPI"
-  | "MAVEN"
-  | "NUGET"
-  | "GENERIC"
-  | "RUBY"
-  | "SWIFT"
-  | "CARGO";
+export type PackageFormat = "NPM" | "PYPI" | "MAVEN" | "NUGET" | "GENERIC" | "RUBY" | "SWIFT" | "CARGO";
 export interface PackageGroupAllowedRepository {
   repositoryName?: string;
   originRestrictionType?: PackageGroupOriginRestrictionType;
 }
-export type PackageGroupAllowedRepositoryList =
-  Array<PackageGroupAllowedRepository>;
-export type PackageGroupAllowedRepositoryUpdate = Record<
-  PackageGroupAllowedRepositoryUpdateType,
-  Array<string>
->;
-export type PackageGroupAllowedRepositoryUpdates = Record<
-  PackageGroupOriginRestrictionType,
-  Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>
->;
+export type PackageGroupAllowedRepositoryList = Array<PackageGroupAllowedRepository>;
+export type PackageGroupAllowedRepositoryUpdate = Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>;
+export type PackageGroupAllowedRepositoryUpdates = Record<PackageGroupOriginRestrictionType, Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>>;
 export type PackageGroupAllowedRepositoryUpdateType = "ADDED" | "REMOVED";
 export type PackageGroupAssociationType = "STRONG" | "WEAK";
 export type PackageGroupContactInfo = string;
@@ -1254,10 +973,7 @@ export interface PackageGroupDescription {
   parent?: PackageGroupReference;
 }
 export interface PackageGroupOriginConfiguration {
-  restrictions?: Record<
-    PackageGroupOriginRestrictionType,
-    PackageGroupOriginRestriction
-  >;
+  restrictions?: Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestriction>;
 }
 export interface PackageGroupOriginRestriction {
   mode?: PackageGroupOriginRestrictionMode;
@@ -1265,19 +981,9 @@ export interface PackageGroupOriginRestriction {
   inheritedFrom?: PackageGroupReference;
   repositoriesCount?: number;
 }
-export type PackageGroupOriginRestrictionMode =
-  | "ALLOW"
-  | "ALLOW_SPECIFIC_REPOSITORIES"
-  | "BLOCK"
-  | "INHERIT";
-export type PackageGroupOriginRestrictions = Record<
-  PackageGroupOriginRestrictionType,
-  PackageGroupOriginRestriction
->;
-export type PackageGroupOriginRestrictionType =
-  | "EXTERNAL_UPSTREAM"
-  | "INTERNAL_UPSTREAM"
-  | "PUBLISH";
+export type PackageGroupOriginRestrictionMode = "ALLOW" | "ALLOW_SPECIFIC_REPOSITORIES" | "BLOCK" | "INHERIT";
+export type PackageGroupOriginRestrictions = Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestriction>;
+export type PackageGroupOriginRestrictionType = "EXTERNAL_UPSTREAM" | "INTERNAL_UPSTREAM" | "PUBLISH";
 export type PackageGroupPattern = string;
 
 export type PackageGroupPatternPrefix = string;
@@ -1337,13 +1043,7 @@ export interface PackageVersionError {
   errorCode?: PackageVersionErrorCode;
   errorMessage?: string;
 }
-export type PackageVersionErrorCode =
-  | "ALREADY_EXISTS"
-  | "MISMATCHED_REVISION"
-  | "MISMATCHED_STATUS"
-  | "NOT_ALLOWED"
-  | "NOT_FOUND"
-  | "SKIPPED";
+export type PackageVersionErrorCode = "ALREADY_EXISTS" | "MISMATCHED_REVISION" | "MISMATCHED_STATUS" | "NOT_ALLOWED" | "NOT_FOUND" | "SKIPPED";
 export type PackageVersionErrorMap = Record<string, PackageVersionError>;
 export type PackageVersionList = Array<string>;
 export interface PackageVersionOrigin {
@@ -1355,13 +1055,7 @@ export type PackageVersionRevision = string;
 
 export type PackageVersionRevisionMap = Record<string, string>;
 export type PackageVersionSortType = "PUBLISHED_TIME";
-export type PackageVersionStatus =
-  | "PUBLISHED"
-  | "UNFINISHED"
-  | "UNLISTED"
-  | "ARCHIVED"
-  | "DISPOSED"
-  | "DELETED";
+export type PackageVersionStatus = "PUBLISHED" | "UNFINISHED" | "UNLISTED" | "ARCHIVED" | "DISPOSED" | "DELETED";
 export interface PackageVersionSummary {
   version: string;
   revision?: string;
@@ -1444,8 +1138,7 @@ export interface RepositoryExternalConnectionInfo {
   packageFormat?: PackageFormat;
   status?: ExternalConnectionStatus;
 }
-export type RepositoryExternalConnectionInfoList =
-  Array<RepositoryExternalConnectionInfo>;
+export type RepositoryExternalConnectionInfoList = Array<RepositoryExternalConnectionInfo>;
 export type RepositoryName = string;
 
 export type RepositoryNameList = Array<string>;
@@ -1471,12 +1164,7 @@ export interface ResourcePolicy {
   revision?: string;
   document?: string;
 }
-export type ResourceType =
-  | "DOMAIN"
-  | "REPOSITORY"
-  | "PACKAGE"
-  | "PACKAGE_VERSION"
-  | "ASSET";
+export type ResourceType = "DOMAIN" | "REPOSITORY" | "PACKAGE" | "PACKAGE_VERSION" | "ASSET";
 export type RetryAfterSeconds = number;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -1496,10 +1184,7 @@ export interface SuccessfulPackageVersionInfo {
   revision?: string;
   status?: PackageVersionStatus;
 }
-export type SuccessfulPackageVersionInfoMap = Record<
-  string,
-  SuccessfulPackageVersionInfo
->;
+export type SuccessfulPackageVersionInfoMap = Record<string, SuccessfulPackageVersionInfo>;
 export interface Tag {
   key: string;
   value: string;
@@ -1512,7 +1197,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResult {}
+export interface TagResourceResult {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1527,24 +1213,19 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResult {}
+export interface UntagResourceResult {
+}
 export interface UpdatePackageGroupOriginConfigurationRequest {
   domain: string;
   domainOwner?: string;
   packageGroup: string;
-  restrictions?: Record<
-    PackageGroupOriginRestrictionType,
-    PackageGroupOriginRestrictionMode
-  >;
+  restrictions?: Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestrictionMode>;
   addAllowedRepositories?: Array<PackageGroupAllowedRepository>;
   removeAllowedRepositories?: Array<PackageGroupAllowedRepository>;
 }
 export interface UpdatePackageGroupOriginConfigurationResult {
   packageGroup?: PackageGroupDescription;
-  allowedRepositoryUpdates?: Record<
-    PackageGroupOriginRestrictionType,
-    Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>
-  >;
+  allowedRepositoryUpdates?: Record<PackageGroupOriginRestrictionType, Record<PackageGroupAllowedRepositoryUpdateType, Array<string>>>;
 }
 export interface UpdatePackageGroupRequest {
   domain: string;
@@ -1596,12 +1277,7 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly message: string;
   readonly reason?: ValidationExceptionReason;
 }> {}
-export type ValidationExceptionReason =
-  | "CANNOT_PARSE"
-  | "ENCRYPTION_KEY_ERROR"
-  | "FIELD_VALIDATION_FAILED"
-  | "UNKNOWN_OPERATION"
-  | "OTHER";
+export type ValidationExceptionReason = "CANNOT_PARSE" | "ENCRYPTION_KEY_ERROR" | "FIELD_VALIDATION_FAILED" | "UNKNOWN_OPERATION" | "OTHER";
 export declare namespace AssociateExternalConnection {
   export type Input = AssociateExternalConnectionRequest;
   export type Output = AssociateExternalConnectionResult;
@@ -2205,3 +1881,4 @@ export declare namespace UpdateRepository {
     | ValidationException
     | CommonAwsError;
 }
+

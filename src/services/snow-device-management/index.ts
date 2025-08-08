@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SnowDeviceManagement extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("snow-device-management", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -18,10 +20,7 @@ export class SnowDeviceManagement extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     {},
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -29,10 +28,7 @@ export class SnowDeviceManagement extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     {},
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -66,9 +62,7 @@ interface _Command {
   reboot?: Reboot;
 }
 
-export type Command =
-  | (_Command & { unlock: Unlock })
-  | (_Command & { reboot: Reboot });
+export type Command = (_Command & { unlock: Unlock }) | (_Command & { reboot: Reboot });
 export interface CpuOptions {
   coreCount?: number;
   threadsPerCore?: number;
@@ -262,7 +256,8 @@ export interface PhysicalNetworkInterface {
   macAddress?: string;
 }
 export type PhysicalNetworkInterfaceList = Array<PhysicalNetworkInterface>;
-export interface Reboot {}
+export interface Reboot {
+}
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -314,7 +309,8 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export interface Unlock {}
+export interface Unlock {
+}
 export type UnlockState = string;
 
 export interface UntagResourceInput {
@@ -355,3 +351,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class AppIntegrations extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("appintegrations", new RestJson1Protocol(), cfg);
+  }
+
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | AccessDeniedException
-    | DuplicateResourceException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceQuotaExceededException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | DuplicateResourceException | InternalServiceError | InvalidRequestException | ResourceQuotaExceededException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CreateApplication", input);
   }
@@ -22,13 +20,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: CreateDataIntegrationRequest,
   ): Effect.Effect<
     CreateDataIntegrationResponse,
-    | AccessDeniedException
-    | DuplicateResourceException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | DuplicateResourceException | InternalServiceError | InvalidRequestException | ResourceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDataIntegration", input);
   }
@@ -36,13 +28,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: CreateDataIntegrationAssociationRequest,
   ): Effect.Effect<
     CreateDataIntegrationAssociationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ResourceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDataIntegrationAssociation", input);
   }
@@ -50,13 +36,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: CreateEventIntegrationRequest,
   ): Effect.Effect<
     CreateEventIntegrationResponse,
-    | AccessDeniedException
-    | DuplicateResourceException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | DuplicateResourceException | InternalServiceError | InvalidRequestException | ResourceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateEventIntegration", input);
   }
@@ -64,12 +44,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteApplication", input);
   }
@@ -77,12 +52,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: DeleteDataIntegrationRequest,
   ): Effect.Effect<
     DeleteDataIntegrationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDataIntegration", input);
   }
@@ -90,12 +60,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: DeleteEventIntegrationRequest,
   ): Effect.Effect<
     DeleteEventIntegrationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteEventIntegration", input);
   }
@@ -103,12 +68,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: GetApplicationRequest,
   ): Effect.Effect<
     GetApplicationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetApplication", input);
   }
@@ -116,12 +76,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: GetDataIntegrationRequest,
   ): Effect.Effect<
     GetDataIntegrationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetDataIntegration", input);
   }
@@ -129,12 +84,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: GetEventIntegrationRequest,
   ): Effect.Effect<
     GetEventIntegrationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEventIntegration", input);
   }
@@ -142,12 +92,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: ListApplicationAssociationsRequest,
   ): Effect.Effect<
     ListApplicationAssociationsResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListApplicationAssociations", input);
   }
@@ -155,11 +100,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListApplications", input);
   }
@@ -167,12 +108,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: ListDataIntegrationAssociationsRequest,
   ): Effect.Effect<
     ListDataIntegrationAssociationsResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDataIntegrationAssociations", input);
   }
@@ -180,11 +116,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: ListDataIntegrationsRequest,
   ): Effect.Effect<
     ListDataIntegrationsResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDataIntegrations", input);
   }
@@ -192,12 +124,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: ListEventIntegrationAssociationsRequest,
   ): Effect.Effect<
     ListEventIntegrationAssociationsResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListEventIntegrationAssociations", input);
   }
@@ -205,11 +132,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: ListEventIntegrationsRequest,
   ): Effect.Effect<
     ListEventIntegrationsResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListEventIntegrations", input);
   }
@@ -217,11 +140,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -229,11 +148,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -241,11 +156,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -253,13 +164,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("UpdateApplication", input);
   }
@@ -267,12 +172,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: UpdateDataIntegrationRequest,
   ): Effect.Effect<
     UpdateDataIntegrationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDataIntegration", input);
   }
@@ -280,12 +180,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: UpdateDataIntegrationAssociationRequest,
   ): Effect.Effect<
     UpdateDataIntegrationAssociationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDataIntegrationAssociation", input);
   }
@@ -293,12 +188,7 @@ export class AppIntegrations extends AWSServiceClient {
     input: UpdateEventIntegrationRequest,
   ): Effect.Effect<
     UpdateEventIntegrationResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateEventIntegration", input);
   }
@@ -422,8 +312,7 @@ export interface CreateEventIntegrationRequest {
 export interface CreateEventIntegrationResponse {
   EventIntegrationArn?: string;
 }
-export type DataIntegrationAssociationsList =
-  Array<DataIntegrationAssociationSummary>;
+export type DataIntegrationAssociationsList = Array<DataIntegrationAssociationSummary>;
 export interface DataIntegrationAssociationSummary {
   DataIntegrationAssociationArn?: string;
   DataIntegrationArn?: string;
@@ -441,15 +330,18 @@ export interface DataIntegrationSummary {
 export interface DeleteApplicationRequest {
   Arn: string;
 }
-export interface DeleteApplicationResponse {}
+export interface DeleteApplicationResponse {
+}
 export interface DeleteDataIntegrationRequest {
   DataIntegrationIdentifier: string;
 }
-export interface DeleteDataIntegrationResponse {}
+export interface DeleteDataIntegrationResponse {
+}
 export interface DeleteEventIntegrationRequest {
   Name: string;
 }
-export interface DeleteEventIntegrationResponse {}
+export interface DeleteEventIntegrationResponse {
+}
 export type Description = string;
 
 export type DestinationURI = string;
@@ -484,8 +376,7 @@ export interface EventIntegrationAssociation {
   EventBridgeRuleName?: string;
   ClientAssociationMetadata?: Record<string, string>;
 }
-export type EventIntegrationAssociationsList =
-  Array<EventIntegrationAssociation>;
+export type EventIntegrationAssociationsList = Array<EventIntegrationAssociation>;
 export type EventIntegrationsList = Array<EventIntegration>;
 export type EventName = string;
 
@@ -700,7 +591,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -719,7 +611,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationRequest {
   Arn: string;
   Name?: string;
@@ -733,24 +626,28 @@ export interface UpdateApplicationRequest {
   ApplicationConfig?: ApplicationConfig;
   IframeConfig?: IframeConfig;
 }
-export interface UpdateApplicationResponse {}
+export interface UpdateApplicationResponse {
+}
 export interface UpdateDataIntegrationAssociationRequest {
   DataIntegrationIdentifier: string;
   DataIntegrationAssociationIdentifier: string;
   ExecutionConfiguration: ExecutionConfiguration;
 }
-export interface UpdateDataIntegrationAssociationResponse {}
+export interface UpdateDataIntegrationAssociationResponse {
+}
 export interface UpdateDataIntegrationRequest {
   Identifier: string;
   Name?: string;
   Description?: string;
 }
-export interface UpdateDataIntegrationResponse {}
+export interface UpdateDataIntegrationResponse {
+}
 export interface UpdateEventIntegrationRequest {
   Name: string;
   Description?: string;
 }
-export interface UpdateEventIntegrationResponse {}
+export interface UpdateEventIntegrationResponse {
+}
 export type URL = string;
 
 export type UUID = string;
@@ -1030,3 +927,4 @@ export declare namespace UpdateEventIntegration {
     | ThrottlingException
     | CommonAwsError;
 }
+

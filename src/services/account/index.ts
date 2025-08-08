@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Account extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("account", new RestJson1Protocol(), cfg);
+  }
+
   acceptPrimaryEmailUpdate(
     input: AcceptPrimaryEmailUpdateRequest,
   ): Effect.Effect<
     AcceptPrimaryEmailUpdateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("AcceptPrimaryEmailUpdate", input);
   }
@@ -21,12 +20,7 @@ export class Account extends AWSServiceClient {
     input: DeleteAlternateContactRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAlternateContact", input);
   }
@@ -34,12 +28,7 @@ export class Account extends AWSServiceClient {
     input: DisableRegionRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("DisableRegion", input);
   }
@@ -47,12 +36,7 @@ export class Account extends AWSServiceClient {
     input: EnableRegionRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("EnableRegion", input);
   }
@@ -60,11 +44,7 @@ export class Account extends AWSServiceClient {
     input: GetAccountInformationRequest,
   ): Effect.Effect<
     GetAccountInformationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetAccountInformation", input);
   }
@@ -72,12 +52,7 @@ export class Account extends AWSServiceClient {
     input: GetAlternateContactRequest,
   ): Effect.Effect<
     GetAlternateContactResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetAlternateContact", input);
   }
@@ -85,12 +60,7 @@ export class Account extends AWSServiceClient {
     input: GetContactInformationRequest,
   ): Effect.Effect<
     GetContactInformationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetContactInformation", input);
   }
@@ -98,12 +68,7 @@ export class Account extends AWSServiceClient {
     input: GetPrimaryEmailRequest,
   ): Effect.Effect<
     GetPrimaryEmailResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetPrimaryEmail", input);
   }
@@ -111,11 +76,7 @@ export class Account extends AWSServiceClient {
     input: GetRegionOptStatusRequest,
   ): Effect.Effect<
     GetRegionOptStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetRegionOptStatus", input);
   }
@@ -123,11 +84,7 @@ export class Account extends AWSServiceClient {
     input: ListRegionsRequest,
   ): Effect.Effect<
     ListRegionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListRegions", input);
   }
@@ -135,11 +92,7 @@ export class Account extends AWSServiceClient {
     input: PutAccountNameRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("PutAccountName", input);
   }
@@ -147,11 +100,7 @@ export class Account extends AWSServiceClient {
     input: PutAlternateContactRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("PutAlternateContact", input);
   }
@@ -159,11 +108,7 @@ export class Account extends AWSServiceClient {
     input: PutContactInformationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("PutContactInformation", input);
   }
@@ -171,13 +116,7 @@ export class Account extends AWSServiceClient {
     input: StartPrimaryEmailUpdateRequest,
   ): Effect.Effect<
     StartPrimaryEmailUpdateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("StartPrimaryEmailUpdate", input);
   }
@@ -555,3 +494,4 @@ export declare namespace StartPrimaryEmailUpdate {
     | ValidationException
     | CommonAwsError;
 }
+

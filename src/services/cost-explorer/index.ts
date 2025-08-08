@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class CostExplorer extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cost-explorer", new AwsJson11Protocol(), cfg);
+  }
+
   createAnomalyMonitor(
     input: CreateAnomalyMonitorRequest,
   ): Effect.Effect<
@@ -71,10 +76,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetAnomalyMonitorsRequest,
   ): Effect.Effect<
     GetAnomalyMonitorsResponse,
-    | InvalidNextTokenException
-    | LimitExceededException
-    | UnknownMonitorException
-    | CommonAwsError
+    InvalidNextTokenException | LimitExceededException | UnknownMonitorException | CommonAwsError
   > {
     return this.call("GetAnomalyMonitors", input);
   }
@@ -82,10 +84,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetAnomalySubscriptionsRequest,
   ): Effect.Effect<
     GetAnomalySubscriptionsResponse,
-    | InvalidNextTokenException
-    | LimitExceededException
-    | UnknownSubscriptionException
-    | CommonAwsError
+    InvalidNextTokenException | LimitExceededException | UnknownSubscriptionException | CommonAwsError
   > {
     return this.call("GetAnomalySubscriptions", input);
   }
@@ -101,10 +100,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetCommitmentPurchaseAnalysisRequest,
   ): Effect.Effect<
     GetCommitmentPurchaseAnalysisResponse,
-    | AnalysisNotFoundException
-    | DataUnavailableException
-    | LimitExceededException
-    | CommonAwsError
+    AnalysisNotFoundException | DataUnavailableException | LimitExceededException | CommonAwsError
   > {
     return this.call("GetCommitmentPurchaseAnalysis", input);
   }
@@ -112,13 +108,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetCostAndUsageRequest,
   ): Effect.Effect<
     GetCostAndUsageResponse,
-    | BillExpirationException
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | RequestChangedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BillExpirationException | DataUnavailableException | InvalidNextTokenException | LimitExceededException | RequestChangedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetCostAndUsage", input);
   }
@@ -126,11 +116,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetCostAndUsageComparisonsRequest,
   ): Effect.Effect<
     GetCostAndUsageComparisonsResponse,
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DataUnavailableException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetCostAndUsageComparisons", input);
   }
@@ -138,13 +124,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetCostAndUsageWithResourcesRequest,
   ): Effect.Effect<
     GetCostAndUsageWithResourcesResponse,
-    | BillExpirationException
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | RequestChangedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BillExpirationException | DataUnavailableException | InvalidNextTokenException | LimitExceededException | RequestChangedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetCostAndUsageWithResources", input);
   }
@@ -152,13 +132,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetCostCategoriesRequest,
   ): Effect.Effect<
     GetCostCategoriesResponse,
-    | BillExpirationException
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | RequestChangedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BillExpirationException | DataUnavailableException | InvalidNextTokenException | LimitExceededException | RequestChangedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetCostCategories", input);
   }
@@ -166,11 +140,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetCostComparisonDriversRequest,
   ): Effect.Effect<
     GetCostComparisonDriversResponse,
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DataUnavailableException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetCostComparisonDrivers", input);
   }
@@ -178,10 +148,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetCostForecastRequest,
   ): Effect.Effect<
     GetCostForecastResponse,
-    | DataUnavailableException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DataUnavailableException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetCostForecast", input);
   }
@@ -189,13 +156,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetDimensionValuesRequest,
   ): Effect.Effect<
     GetDimensionValuesResponse,
-    | BillExpirationException
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | RequestChangedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BillExpirationException | DataUnavailableException | InvalidNextTokenException | LimitExceededException | RequestChangedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetDimensionValues", input);
   }
@@ -203,10 +164,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetReservationCoverageRequest,
   ): Effect.Effect<
     GetReservationCoverageResponse,
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | CommonAwsError
+    DataUnavailableException | InvalidNextTokenException | LimitExceededException | CommonAwsError
   > {
     return this.call("GetReservationCoverage", input);
   }
@@ -214,10 +172,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetReservationPurchaseRecommendationRequest,
   ): Effect.Effect<
     GetReservationPurchaseRecommendationResponse,
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | CommonAwsError
+    DataUnavailableException | InvalidNextTokenException | LimitExceededException | CommonAwsError
   > {
     return this.call("GetReservationPurchaseRecommendation", input);
   }
@@ -225,10 +180,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetReservationUtilizationRequest,
   ): Effect.Effect<
     GetReservationUtilizationResponse,
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | CommonAwsError
+    DataUnavailableException | InvalidNextTokenException | LimitExceededException | CommonAwsError
   > {
     return this.call("GetReservationUtilization", input);
   }
@@ -252,10 +204,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetSavingsPlansCoverageRequest,
   ): Effect.Effect<
     GetSavingsPlansCoverageResponse,
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | CommonAwsError
+    DataUnavailableException | InvalidNextTokenException | LimitExceededException | CommonAwsError
   > {
     return this.call("GetSavingsPlansCoverage", input);
   }
@@ -279,10 +228,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetSavingsPlansUtilizationDetailsRequest,
   ): Effect.Effect<
     GetSavingsPlansUtilizationDetailsResponse,
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | CommonAwsError
+    DataUnavailableException | InvalidNextTokenException | LimitExceededException | CommonAwsError
   > {
     return this.call("GetSavingsPlansUtilizationDetails", input);
   }
@@ -290,13 +236,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetTagsRequest,
   ): Effect.Effect<
     GetTagsResponse,
-    | BillExpirationException
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | RequestChangedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BillExpirationException | DataUnavailableException | InvalidNextTokenException | LimitExceededException | RequestChangedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetTags", input);
   }
@@ -304,11 +244,7 @@ export class CostExplorer extends AWSServiceClient {
     input: GetUsageForecastRequest,
   ): Effect.Effect<
     GetUsageForecastResponse,
-    | DataUnavailableException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | UnresolvableUsageUnitException
-    | CommonAwsError
+    DataUnavailableException | LimitExceededException | ResourceNotFoundException | UnresolvableUsageUnitException | CommonAwsError
   > {
     return this.call("GetUsageForecast", input);
   }
@@ -316,10 +252,7 @@ export class CostExplorer extends AWSServiceClient {
     input: ListCommitmentPurchaseAnalysesRequest,
   ): Effect.Effect<
     ListCommitmentPurchaseAnalysesResponse,
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | CommonAwsError
+    DataUnavailableException | InvalidNextTokenException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListCommitmentPurchaseAnalyses", input);
   }
@@ -351,10 +284,7 @@ export class CostExplorer extends AWSServiceClient {
     input: ListSavingsPlansPurchaseRecommendationGenerationRequest,
   ): Effect.Effect<
     ListSavingsPlansPurchaseRecommendationGenerationResponse,
-    | DataUnavailableException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | CommonAwsError
+    DataUnavailableException | InvalidNextTokenException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListSavingsPlansPurchaseRecommendationGeneration", input);
   }
@@ -378,11 +308,7 @@ export class CostExplorer extends AWSServiceClient {
     input: StartCommitmentPurchaseAnalysisRequest,
   ): Effect.Effect<
     StartCommitmentPurchaseAnalysisResponse,
-    | DataUnavailableException
-    | GenerationExistsException
-    | LimitExceededException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    DataUnavailableException | GenerationExistsException | LimitExceededException | ServiceQuotaExceededException | CommonAwsError
   > {
     return this.call("StartCommitmentPurchaseAnalysis", input);
   }
@@ -398,25 +324,15 @@ export class CostExplorer extends AWSServiceClient {
     input: StartSavingsPlansPurchaseRecommendationGenerationRequest,
   ): Effect.Effect<
     StartSavingsPlansPurchaseRecommendationGenerationResponse,
-    | DataUnavailableException
-    | GenerationExistsException
-    | LimitExceededException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    DataUnavailableException | GenerationExistsException | LimitExceededException | ServiceQuotaExceededException | CommonAwsError
   > {
-    return this.call(
-      "StartSavingsPlansPurchaseRecommendationGeneration",
-      input,
-    );
+    return this.call("StartSavingsPlansPurchaseRecommendationGeneration", input);
   }
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | LimitExceededException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | CommonAwsError
+    LimitExceededException | ResourceNotFoundException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -440,10 +356,7 @@ export class CostExplorer extends AWSServiceClient {
     input: UpdateAnomalySubscriptionRequest,
   ): Effect.Effect<
     UpdateAnomalySubscriptionResponse,
-    | LimitExceededException
-    | UnknownMonitorException
-    | UnknownSubscriptionException
-    | CommonAwsError
+    LimitExceededException | UnknownMonitorException | UnknownSubscriptionException | CommonAwsError
   > {
     return this.call("UpdateAnomalySubscription", input);
   }
@@ -459,10 +372,7 @@ export class CostExplorer extends AWSServiceClient {
     input: UpdateCostCategoryDefinitionRequest,
   ): Effect.Effect<
     UpdateCostCategoryDefinitionResponse,
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    LimitExceededException | ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
   > {
     return this.call("UpdateCostCategoryDefinition", input);
   }
@@ -591,12 +501,8 @@ export interface CostAllocationTagBackfillRequest {
   BackfillStatus?: CostAllocationTagBackfillStatus;
   LastUpdatedAt?: string;
 }
-export type CostAllocationTagBackfillRequestList =
-  Array<CostAllocationTagBackfillRequest>;
-export type CostAllocationTagBackfillStatus =
-  | "SUCCEEDED"
-  | "PROCESSING"
-  | "FAILED";
+export type CostAllocationTagBackfillRequestList = Array<CostAllocationTagBackfillRequest>;
+export type CostAllocationTagBackfillStatus = "SUCCEEDED" | "PROCESSING" | "FAILED";
 export type CostAllocationTagKeyList = Array<string>;
 export type CostAllocationTagList = Array<CostAllocationTag>;
 export type CostAllocationTagsMaxResults = number;
@@ -630,9 +536,7 @@ export interface CostCategoryInheritedValueDimension {
   DimensionName?: CostCategoryInheritedValueDimensionName;
   DimensionKey?: string;
 }
-export type CostCategoryInheritedValueDimensionName =
-  | "LINKED_ACCOUNT_NAME"
-  | "TAG";
+export type CostCategoryInheritedValueDimensionName = "LINKED_ACCOUNT_NAME" | "TAG";
 export type CostCategoryMaxResults = number;
 
 export type CostCategoryName = string;
@@ -642,8 +546,7 @@ export interface CostCategoryProcessingStatus {
   Component?: CostCategoryStatusComponent;
   Status?: CostCategoryStatus;
 }
-export type CostCategoryProcessingStatusList =
-  Array<CostCategoryProcessingStatus>;
+export type CostCategoryProcessingStatusList = Array<CostCategoryProcessingStatus>;
 export interface CostCategoryReference {
   CostCategoryArn?: string;
   Name?: string;
@@ -675,12 +578,10 @@ export interface CostCategorySplitChargeRuleParameter {
   Type: CostCategorySplitChargeRuleParameterType;
   Values: Array<string>;
 }
-export type CostCategorySplitChargeRuleParametersList =
-  Array<CostCategorySplitChargeRuleParameter>;
+export type CostCategorySplitChargeRuleParametersList = Array<CostCategorySplitChargeRuleParameter>;
 export type CostCategorySplitChargeRuleParameterType = "ALLOCATION_PERCENTAGES";
 export type CostCategorySplitChargeRuleParameterValuesList = Array<string>;
-export type CostCategorySplitChargeRulesList =
-  Array<CostCategorySplitChargeRule>;
+export type CostCategorySplitChargeRulesList = Array<CostCategorySplitChargeRule>;
 export type CostCategorySplitChargeRuleTargetsList = Array<string>;
 export type CostCategoryStatus = "PROCESSING" | "APPLIED";
 export type CostCategoryStatusComponent = "COST_EXPLORER";
@@ -788,11 +689,13 @@ export interface DateInterval {
 export interface DeleteAnomalyMonitorRequest {
   MonitorArn: string;
 }
-export interface DeleteAnomalyMonitorResponse {}
+export interface DeleteAnomalyMonitorResponse {
+}
 export interface DeleteAnomalySubscriptionRequest {
   SubscriptionArn: string;
 }
-export interface DeleteAnomalySubscriptionResponse {}
+export interface DeleteAnomalySubscriptionResponse {
+}
 export interface DeleteCostCategoryDefinitionRequest {
   CostCategoryArn: string;
 }
@@ -807,41 +710,7 @@ export interface DescribeCostCategoryDefinitionRequest {
 export interface DescribeCostCategoryDefinitionResponse {
   CostCategory?: CostCategory;
 }
-export type Dimension =
-  | "AZ"
-  | "INSTANCE_TYPE"
-  | "LINKED_ACCOUNT"
-  | "LINKED_ACCOUNT_NAME"
-  | "OPERATION"
-  | "PURCHASE_TYPE"
-  | "REGION"
-  | "SERVICE"
-  | "SERVICE_CODE"
-  | "USAGE_TYPE"
-  | "USAGE_TYPE_GROUP"
-  | "RECORD_TYPE"
-  | "OPERATING_SYSTEM"
-  | "TENANCY"
-  | "SCOPE"
-  | "PLATFORM"
-  | "SUBSCRIPTION_ID"
-  | "LEGAL_ENTITY_NAME"
-  | "DEPLOYMENT_OPTION"
-  | "DATABASE_ENGINE"
-  | "CACHE_ENGINE"
-  | "INSTANCE_TYPE_FAMILY"
-  | "BILLING_ENTITY"
-  | "RESERVATION_ID"
-  | "RESOURCE_ID"
-  | "RIGHTSIZING_TYPE"
-  | "SAVINGS_PLANS_TYPE"
-  | "SAVINGS_PLAN_ARN"
-  | "PAYMENT_OPTION"
-  | "AGREEMENT_END_DATE_TIME_AFTER"
-  | "AGREEMENT_END_DATE_TIME_BEFORE"
-  | "INVOICING_ENTITY"
-  | "ANOMALY_TOTAL_IMPACT_ABSOLUTE"
-  | "ANOMALY_TOTAL_IMPACT_PERCENTAGE";
+export type Dimension = "AZ" | "INSTANCE_TYPE" | "LINKED_ACCOUNT" | "LINKED_ACCOUNT_NAME" | "OPERATION" | "PURCHASE_TYPE" | "REGION" | "SERVICE" | "SERVICE_CODE" | "USAGE_TYPE" | "USAGE_TYPE_GROUP" | "RECORD_TYPE" | "OPERATING_SYSTEM" | "TENANCY" | "SCOPE" | "PLATFORM" | "SUBSCRIPTION_ID" | "LEGAL_ENTITY_NAME" | "DEPLOYMENT_OPTION" | "DATABASE_ENGINE" | "CACHE_ENGINE" | "INSTANCE_TYPE_FAMILY" | "BILLING_ENTITY" | "RESERVATION_ID" | "RESOURCE_ID" | "RIGHTSIZING_TYPE" | "SAVINGS_PLANS_TYPE" | "SAVINGS_PLAN_ARN" | "PAYMENT_OPTION" | "AGREEMENT_END_DATE_TIME_AFTER" | "AGREEMENT_END_DATE_TIME_BEFORE" | "INVOICING_ENTITY" | "ANOMALY_TOTAL_IMPACT_ABSOLUTE" | "ANOMALY_TOTAL_IMPACT_PERCENTAGE";
 export interface DimensionValues {
   Key?: Dimension;
   Values?: Array<string>;
@@ -851,8 +720,7 @@ export interface DimensionValuesWithAttributes {
   Value?: string;
   Attributes?: Record<string, string>;
 }
-export type DimensionValuesWithAttributesList =
-  Array<DimensionValuesWithAttributes>;
+export type DimensionValuesWithAttributesList = Array<DimensionValuesWithAttributes>;
 export interface DiskResourceUtilization {
   DiskReadOpsPerSecond?: string;
   DiskWriteOpsPerSecond?: string;
@@ -911,12 +779,7 @@ export interface ElastiCacheInstanceDetails {
 }
 export type Entity = string;
 
-export type ErrorCode =
-  | "NO_USAGE_FOUND"
-  | "INTERNAL_FAILURE"
-  | "INVALID_SAVINGS_PLANS_TO_ADD"
-  | "INVALID_SAVINGS_PLANS_TO_EXCLUDE"
-  | "INVALID_ACCOUNT_ID";
+export type ErrorCode = "NO_USAGE_FOUND" | "INTERNAL_FAILURE" | "INVALID_SAVINGS_PLANS_TO_ADD" | "INVALID_SAVINGS_PLANS_TO_EXCLUDE" | "INVALID_ACCOUNT_ID";
 export type ErrorMessage = string;
 
 export interface ESInstanceDetails {
@@ -937,23 +800,7 @@ export interface Expression {
   CostCategories?: CostCategoryValues;
 }
 export type Expressions = Array<Expression>;
-export type FindingReasonCode =
-  | "CPU_OVER_PROVISIONED"
-  | "CPU_UNDER_PROVISIONED"
-  | "MEMORY_OVER_PROVISIONED"
-  | "MEMORY_UNDER_PROVISIONED"
-  | "EBS_THROUGHPUT_OVER_PROVISIONED"
-  | "EBS_THROUGHPUT_UNDER_PROVISIONED"
-  | "EBS_IOPS_OVER_PROVISIONED"
-  | "EBS_IOPS_UNDER_PROVISIONED"
-  | "NETWORK_BANDWIDTH_OVER_PROVISIONED"
-  | "NETWORK_BANDWIDTH_UNDER_PROVISIONED"
-  | "NETWORK_PPS_OVER_PROVISIONED"
-  | "NETWORK_PPS_UNDER_PROVISIONED"
-  | "DISK_IOPS_OVER_PROVISIONED"
-  | "DISK_IOPS_UNDER_PROVISIONED"
-  | "DISK_THROUGHPUT_OVER_PROVISIONED"
-  | "DISK_THROUGHPUT_UNDER_PROVISIONED";
+export type FindingReasonCode = "CPU_OVER_PROVISIONED" | "CPU_UNDER_PROVISIONED" | "MEMORY_OVER_PROVISIONED" | "MEMORY_UNDER_PROVISIONED" | "EBS_THROUGHPUT_OVER_PROVISIONED" | "EBS_THROUGHPUT_UNDER_PROVISIONED" | "EBS_IOPS_OVER_PROVISIONED" | "EBS_IOPS_UNDER_PROVISIONED" | "NETWORK_BANDWIDTH_OVER_PROVISIONED" | "NETWORK_BANDWIDTH_UNDER_PROVISIONED" | "NETWORK_PPS_OVER_PROVISIONED" | "NETWORK_PPS_UNDER_PROVISIONED" | "DISK_IOPS_OVER_PROVISIONED" | "DISK_IOPS_UNDER_PROVISIONED" | "DISK_THROUGHPUT_OVER_PROVISIONED" | "DISK_THROUGHPUT_UNDER_PROVISIONED";
 export type FindingReasonCodes = Array<FindingReasonCode>;
 export interface ForecastResult {
   TimePeriod?: DateInterval;
@@ -1386,15 +1233,7 @@ export interface ListTagsForResourceResponse {
   ResourceTags?: Array<ResourceTag>;
 }
 export type LookbackPeriodInDays = "SEVEN_DAYS" | "THIRTY_DAYS" | "SIXTY_DAYS";
-export type MatchOption =
-  | "EQUALS"
-  | "ABSENT"
-  | "STARTS_WITH"
-  | "ENDS_WITH"
-  | "CONTAINS"
-  | "CASE_SENSITIVE"
-  | "CASE_INSENSITIVE"
-  | "GREATER_THAN_OR_EQUAL";
+export type MatchOption = "EQUALS" | "ABSENT" | "STARTS_WITH" | "ENDS_WITH" | "CONTAINS" | "CASE_SENSITIVE" | "CASE_INSENSITIVE" | "GREATER_THAN_OR_EQUAL";
 export type MatchOptions = Array<MatchOption>;
 export type MaxResults = number;
 
@@ -1405,22 +1244,14 @@ export interface MemoryDBInstanceDetails {
   CurrentGeneration?: boolean;
   SizeFlexEligible?: boolean;
 }
-export type Metric =
-  | "BLENDED_COST"
-  | "UNBLENDED_COST"
-  | "AMORTIZED_COST"
-  | "NET_UNBLENDED_COST"
-  | "NET_AMORTIZED_COST"
-  | "USAGE_QUANTITY"
-  | "NORMALIZED_USAGE_AMOUNT";
+export type Metric = "BLENDED_COST" | "UNBLENDED_COST" | "AMORTIZED_COST" | "NET_UNBLENDED_COST" | "NET_AMORTIZED_COST" | "USAGE_QUANTITY" | "NORMALIZED_USAGE_AMOUNT";
 export type MetricAmount = string;
 
 export type MetricName = string;
 
 export type MetricNames = Array<string>;
 export type Metrics = Record<string, MetricValue>;
-export type MetricsOverLookbackPeriod =
-  Array<RecommendationDetailHourlyMetrics>;
+export type MetricsOverLookbackPeriod = Array<RecommendationDetailHourlyMetrics>;
 export type MetricUnit = string;
 
 export interface MetricValue {
@@ -1449,13 +1280,7 @@ export type NonNegativeLong = number;
 
 export type NullableNonNegativeDouble = number;
 
-export type NumericOperator =
-  | "EQUAL"
-  | "GREATER_THAN_OR_EQUAL"
-  | "LESS_THAN_OR_EQUAL"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "BETWEEN";
+export type NumericOperator = "EQUAL" | "GREATER_THAN_OR_EQUAL" | "LESS_THAN_OR_EQUAL" | "GREATER_THAN" | "LESS_THAN" | "BETWEEN";
 export type OfferingClass = "STANDARD" | "CONVERTIBLE";
 export type OnDemandCost = string;
 
@@ -1467,19 +1292,8 @@ export type OnDemandNormalizedUnits = string;
 
 export type PageSize = number;
 
-export type PaymentOption =
-  | "NO_UPFRONT"
-  | "PARTIAL_UPFRONT"
-  | "ALL_UPFRONT"
-  | "LIGHT_UTILIZATION"
-  | "MEDIUM_UTILIZATION"
-  | "HEAVY_UTILIZATION";
-export type PlatformDifference =
-  | "HYPERVISOR"
-  | "NETWORK_INTERFACE"
-  | "STORAGE_INTERFACE"
-  | "INSTANCE_STORE_AVAILABILITY"
-  | "VIRTUALIZATION_TYPE";
+export type PaymentOption = "NO_UPFRONT" | "PARTIAL_UPFRONT" | "ALL_UPFRONT" | "LIGHT_UTILIZATION" | "MEDIUM_UTILIZATION" | "HEAVY_UTILIZATION";
+export type PlatformDifference = "HYPERVISOR" | "NETWORK_INTERFACE" | "STORAGE_INTERFACE" | "INSTANCE_STORE_AVAILABILITY" | "VIRTUALIZATION_TYPE";
 export type PlatformDifferences = Array<PlatformDifference>;
 export type PredictionIntervalLevel = number;
 
@@ -1550,9 +1364,7 @@ export type RecommendationDetailId = string;
 export type RecommendationId = string;
 
 export type RecommendationIdList = Array<string>;
-export type RecommendationTarget =
-  | "SAME_INSTANCE_FAMILY"
-  | "CROSS_INSTANCE_FAMILY";
+export type RecommendationTarget = "SAME_INSTANCE_FAMILY" | "CROSS_INSTANCE_FAMILY";
 export interface RedshiftInstanceDetails {
   Family?: string;
   NodeType?: string;
@@ -1628,15 +1440,13 @@ export interface ReservationPurchaseRecommendationDetail {
   MaximumNumberOfCapacityUnitsUsedPerHour?: string;
   AverageNumberOfCapacityUnitsUsedPerHour?: string;
 }
-export type ReservationPurchaseRecommendationDetails =
-  Array<ReservationPurchaseRecommendationDetail>;
+export type ReservationPurchaseRecommendationDetails = Array<ReservationPurchaseRecommendationDetail>;
 export interface ReservationPurchaseRecommendationMetadata {
   RecommendationId?: string;
   GenerationTimestamp?: string;
   AdditionalMetadata?: string;
 }
-export type ReservationPurchaseRecommendations =
-  Array<ReservationPurchaseRecommendation>;
+export type ReservationPurchaseRecommendations = Array<ReservationPurchaseRecommendation>;
 export interface ReservationPurchaseRecommendationSummary {
   TotalEstimatedMonthlySavingsAmount?: string;
   TotalEstimatedMonthlySavingsPercentage?: string;
@@ -1755,11 +1565,7 @@ export interface SavingsPlansCoverageData {
   CoveragePercentage?: string;
 }
 export type SavingsPlansCoverages = Array<SavingsPlansCoverage>;
-export type SavingsPlansDataType =
-  | "ATTRIBUTES"
-  | "UTILIZATION"
-  | "AMORTIZED_COMMITMENT"
-  | "SAVINGS";
+export type SavingsPlansDataType = "ATTRIBUTES" | "UTILIZATION" | "AMORTIZED_COMMITMENT" | "SAVINGS";
 export type SavingsPlansDataTypes = Array<SavingsPlansDataType>;
 export interface SavingsPlansDetails {
   Region?: string;
@@ -1828,8 +1634,7 @@ export interface SavingsPlansPurchaseRecommendationDetail {
   CurrentAverageHourlyOnDemandSpend?: string;
   RecommendationDetailId?: string;
 }
-export type SavingsPlansPurchaseRecommendationDetailList =
-  Array<SavingsPlansPurchaseRecommendationDetail>;
+export type SavingsPlansPurchaseRecommendationDetailList = Array<SavingsPlansPurchaseRecommendationDetail>;
 export interface SavingsPlansPurchaseRecommendationMetadata {
   RecommendationId?: string;
   GenerationTimestamp?: string;
@@ -1878,10 +1683,8 @@ export interface SavingsPlansUtilizationDetail {
   Savings?: SavingsPlansSavings;
   AmortizedCommitment?: SavingsPlansAmortizedCommitment;
 }
-export type SavingsPlansUtilizationDetails =
-  Array<SavingsPlansUtilizationDetail>;
-export type SavingsPlansUtilizationsByTime =
-  Array<SavingsPlansUtilizationByTime>;
+export type SavingsPlansUtilizationDetails = Array<SavingsPlansUtilizationDetail>;
+export type SavingsPlansUtilizationsByTime = Array<SavingsPlansUtilizationByTime>;
 export type SearchString = string;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -1914,7 +1717,8 @@ export interface StartCostAllocationTagBackfillRequest {
 export interface StartCostAllocationTagBackfillResponse {
   BackfillRequest?: CostAllocationTagBackfillRequest;
 }
-export interface StartSavingsPlansPurchaseRecommendationGenerationRequest {}
+export interface StartSavingsPlansPurchaseRecommendationGenerationRequest {
+}
 export interface StartSavingsPlansPurchaseRecommendationGenerationResponse {
   RecommendationId?: string;
   GenerationStartedTime?: string;
@@ -1930,10 +1734,7 @@ export type SubscriberAddress = string;
 export type Subscribers = Array<Subscriber>;
 export type SubscriberStatus = "CONFIRMED" | "DECLINED";
 export type SubscriberType = "EMAIL" | "SNS";
-export type SupportedSavingsPlansType =
-  | "COMPUTE_SP"
-  | "EC2_INSTANCE_SP"
-  | "SAGEMAKER_SP";
+export type SupportedSavingsPlansType = "COMPUTE_SP" | "EC2_INSTANCE_SP" | "SAGEMAKER_SP";
 export type TagKey = string;
 
 export type TagList = Array<string>;
@@ -1941,7 +1742,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   ResourceTags: Array<ResourceTag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export interface TagValues {
   Key?: string;
   Values?: Array<string>;
@@ -2007,7 +1809,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   ResourceTagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UnusedHours = string;
 
 export type UnusedUnits = string;
@@ -2036,8 +1839,7 @@ export interface UpdateCostAllocationTagsStatusError {
   Code?: string;
   Message?: string;
 }
-export type UpdateCostAllocationTagsStatusErrors =
-  Array<UpdateCostAllocationTagsStatusError>;
+export type UpdateCostAllocationTagsStatusErrors = Array<UpdateCostAllocationTagsStatusError>;
 export interface UpdateCostAllocationTagsStatusRequest {
   CostAllocationTagsStatus: Array<CostAllocationTagStatusEntry>;
 }
@@ -2077,7 +1879,9 @@ export type ZonedDateTime = string;
 export declare namespace CreateAnomalyMonitor {
   export type Input = CreateAnomalyMonitorRequest;
   export type Output = CreateAnomalyMonitorResponse;
-  export type Error = LimitExceededException | CommonAwsError;
+  export type Error =
+    | LimitExceededException
+    | CommonAwsError;
 }
 
 export declare namespace CreateAnomalySubscription {
@@ -2407,7 +2211,9 @@ export declare namespace ListCostAllocationTags {
 export declare namespace ListCostCategoryDefinitions {
   export type Input = ListCostCategoryDefinitionsRequest;
   export type Output = ListCostCategoryDefinitionsResponse;
-  export type Error = LimitExceededException | CommonAwsError;
+  export type Error =
+    | LimitExceededException
+    | CommonAwsError;
 }
 
 export declare namespace ListSavingsPlansPurchaseRecommendationGeneration {
@@ -2432,7 +2238,9 @@ export declare namespace ListTagsForResource {
 export declare namespace ProvideAnomalyFeedback {
   export type Input = ProvideAnomalyFeedbackRequest;
   export type Output = ProvideAnomalyFeedbackResponse;
-  export type Error = LimitExceededException | CommonAwsError;
+  export type Error =
+    | LimitExceededException
+    | CommonAwsError;
 }
 
 export declare namespace StartCommitmentPurchaseAnalysis {
@@ -2457,8 +2265,7 @@ export declare namespace StartCostAllocationTagBackfill {
 
 export declare namespace StartSavingsPlansPurchaseRecommendationGeneration {
   export type Input = StartSavingsPlansPurchaseRecommendationGenerationRequest;
-  export type Output =
-    StartSavingsPlansPurchaseRecommendationGenerationResponse;
+  export type Output = StartSavingsPlansPurchaseRecommendationGenerationResponse;
   export type Error =
     | DataUnavailableException
     | GenerationExistsException
@@ -2508,7 +2315,9 @@ export declare namespace UpdateAnomalySubscription {
 export declare namespace UpdateCostAllocationTagsStatus {
   export type Input = UpdateCostAllocationTagsStatusRequest;
   export type Output = UpdateCostAllocationTagsStatusResponse;
-  export type Error = LimitExceededException | CommonAwsError;
+  export type Error =
+    | LimitExceededException
+    | CommonAwsError;
 }
 
 export declare namespace UpdateCostCategoryDefinition {
@@ -2520,3 +2329,4 @@ export declare namespace UpdateCostCategoryDefinition {
     | ServiceQuotaExceededException
     | CommonAwsError;
 }
+

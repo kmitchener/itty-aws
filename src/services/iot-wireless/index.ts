@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IoTWireless extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iot-wireless", new RestJson1Protocol(), cfg);
+  }
+
   associateAwsAccountWithPartnerAccount(
     input: AssociateAwsAccountWithPartnerAccountRequest,
   ): Effect.Effect<
     AssociateAwsAccountWithPartnerAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateAwsAccountWithPartnerAccount", input);
   }
@@ -21,13 +20,7 @@ export class IoTWireless extends AWSServiceClient {
     input: AssociateMulticastGroupWithFuotaTaskRequest,
   ): Effect.Effect<
     AssociateMulticastGroupWithFuotaTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateMulticastGroupWithFuotaTask", input);
   }
@@ -35,13 +28,7 @@ export class IoTWireless extends AWSServiceClient {
     input: AssociateWirelessDeviceWithFuotaTaskRequest,
   ): Effect.Effect<
     AssociateWirelessDeviceWithFuotaTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateWirelessDeviceWithFuotaTask", input);
   }
@@ -49,13 +36,7 @@ export class IoTWireless extends AWSServiceClient {
     input: AssociateWirelessDeviceWithMulticastGroupRequest,
   ): Effect.Effect<
     AssociateWirelessDeviceWithMulticastGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateWirelessDeviceWithMulticastGroup", input);
   }
@@ -63,13 +44,7 @@ export class IoTWireless extends AWSServiceClient {
     input: AssociateWirelessDeviceWithThingRequest,
   ): Effect.Effect<
     AssociateWirelessDeviceWithThingResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateWirelessDeviceWithThing", input);
   }
@@ -77,13 +52,7 @@ export class IoTWireless extends AWSServiceClient {
     input: AssociateWirelessGatewayWithCertificateRequest,
   ): Effect.Effect<
     AssociateWirelessGatewayWithCertificateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateWirelessGatewayWithCertificate", input);
   }
@@ -91,13 +60,7 @@ export class IoTWireless extends AWSServiceClient {
     input: AssociateWirelessGatewayWithThingRequest,
   ): Effect.Effect<
     AssociateWirelessGatewayWithThingResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateWirelessGatewayWithThing", input);
   }
@@ -105,13 +68,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CancelMulticastGroupSessionRequest,
   ): Effect.Effect<
     CancelMulticastGroupSessionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelMulticastGroupSession", input);
   }
@@ -119,13 +76,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CreateDestinationRequest,
   ): Effect.Effect<
     CreateDestinationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDestination", input);
   }
@@ -133,12 +84,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CreateDeviceProfileRequest,
   ): Effect.Effect<
     CreateDeviceProfileResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDeviceProfile", input);
   }
@@ -146,13 +92,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CreateFuotaTaskRequest,
   ): Effect.Effect<
     CreateFuotaTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateFuotaTask", input);
   }
@@ -160,13 +100,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CreateMulticastGroupRequest,
   ): Effect.Effect<
     CreateMulticastGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateMulticastGroup", input);
   }
@@ -174,13 +108,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CreateNetworkAnalyzerConfigurationRequest,
   ): Effect.Effect<
     CreateNetworkAnalyzerConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateNetworkAnalyzerConfiguration", input);
   }
@@ -188,12 +116,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CreateServiceProfileRequest,
   ): Effect.Effect<
     CreateServiceProfileResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateServiceProfile", input);
   }
@@ -201,13 +124,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CreateWirelessDeviceRequest,
   ): Effect.Effect<
     CreateWirelessDeviceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateWirelessDevice", input);
   }
@@ -215,12 +132,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CreateWirelessGatewayRequest,
   ): Effect.Effect<
     CreateWirelessGatewayResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateWirelessGateway", input);
   }
@@ -228,13 +140,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CreateWirelessGatewayTaskRequest,
   ): Effect.Effect<
     CreateWirelessGatewayTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateWirelessGatewayTask", input);
   }
@@ -242,13 +148,7 @@ export class IoTWireless extends AWSServiceClient {
     input: CreateWirelessGatewayTaskDefinitionRequest,
   ): Effect.Effect<
     CreateWirelessGatewayTaskDefinitionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateWirelessGatewayTaskDefinition", input);
   }
@@ -256,13 +156,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteDestinationRequest,
   ): Effect.Effect<
     DeleteDestinationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDestination", input);
   }
@@ -270,13 +164,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteDeviceProfileRequest,
   ): Effect.Effect<
     DeleteDeviceProfileResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDeviceProfile", input);
   }
@@ -284,12 +172,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteFuotaTaskRequest,
   ): Effect.Effect<
     DeleteFuotaTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteFuotaTask", input);
   }
@@ -297,13 +180,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteMulticastGroupRequest,
   ): Effect.Effect<
     DeleteMulticastGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteMulticastGroup", input);
   }
@@ -311,13 +188,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteNetworkAnalyzerConfigurationRequest,
   ): Effect.Effect<
     DeleteNetworkAnalyzerConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteNetworkAnalyzerConfiguration", input);
   }
@@ -325,12 +196,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteQueuedMessagesRequest,
   ): Effect.Effect<
     DeleteQueuedMessagesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteQueuedMessages", input);
   }
@@ -338,13 +204,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteServiceProfileRequest,
   ): Effect.Effect<
     DeleteServiceProfileResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteServiceProfile", input);
   }
@@ -352,12 +212,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteWirelessDeviceRequest,
   ): Effect.Effect<
     DeleteWirelessDeviceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteWirelessDevice", input);
   }
@@ -365,13 +220,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
     DeleteWirelessDeviceImportTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteWirelessDeviceImportTask", input);
   }
@@ -379,12 +228,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteWirelessGatewayRequest,
   ): Effect.Effect<
     DeleteWirelessGatewayResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteWirelessGateway", input);
   }
@@ -392,12 +236,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteWirelessGatewayTaskRequest,
   ): Effect.Effect<
     DeleteWirelessGatewayTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteWirelessGatewayTask", input);
   }
@@ -405,12 +244,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeleteWirelessGatewayTaskDefinitionRequest,
   ): Effect.Effect<
     DeleteWirelessGatewayTaskDefinitionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteWirelessGatewayTaskDefinition", input);
   }
@@ -418,11 +252,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DeregisterWirelessDeviceRequest,
   ): Effect.Effect<
     DeregisterWirelessDeviceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeregisterWirelessDevice", input);
   }
@@ -430,11 +260,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DisassociateAwsAccountFromPartnerAccountRequest,
   ): Effect.Effect<
     DisassociateAwsAccountFromPartnerAccountResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateAwsAccountFromPartnerAccount", input);
   }
@@ -442,12 +268,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DisassociateMulticastGroupFromFuotaTaskRequest,
   ): Effect.Effect<
     DisassociateMulticastGroupFromFuotaTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateMulticastGroupFromFuotaTask", input);
   }
@@ -455,13 +276,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DisassociateWirelessDeviceFromFuotaTaskRequest,
   ): Effect.Effect<
     DisassociateWirelessDeviceFromFuotaTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateWirelessDeviceFromFuotaTask", input);
   }
@@ -469,12 +284,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DisassociateWirelessDeviceFromMulticastGroupRequest,
   ): Effect.Effect<
     DisassociateWirelessDeviceFromMulticastGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateWirelessDeviceFromMulticastGroup", input);
   }
@@ -482,13 +292,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DisassociateWirelessDeviceFromThingRequest,
   ): Effect.Effect<
     DisassociateWirelessDeviceFromThingResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateWirelessDeviceFromThing", input);
   }
@@ -496,12 +300,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DisassociateWirelessGatewayFromCertificateRequest,
   ): Effect.Effect<
     DisassociateWirelessGatewayFromCertificateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateWirelessGatewayFromCertificate", input);
   }
@@ -509,13 +308,7 @@ export class IoTWireless extends AWSServiceClient {
     input: DisassociateWirelessGatewayFromThingRequest,
   ): Effect.Effect<
     DisassociateWirelessGatewayFromThingResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateWirelessGatewayFromThing", input);
   }
@@ -523,12 +316,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetDestinationRequest,
   ): Effect.Effect<
     GetDestinationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDestination", input);
   }
@@ -536,12 +324,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetDeviceProfileRequest,
   ): Effect.Effect<
     GetDeviceProfileResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDeviceProfile", input);
   }
@@ -549,10 +332,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetEventConfigurationByResourceTypesRequest,
   ): Effect.Effect<
     GetEventConfigurationByResourceTypesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEventConfigurationByResourceTypes", input);
   }
@@ -560,12 +340,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetFuotaTaskRequest,
   ): Effect.Effect<
     GetFuotaTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetFuotaTask", input);
   }
@@ -573,12 +348,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetLogLevelsByResourceTypesRequest,
   ): Effect.Effect<
     GetLogLevelsByResourceTypesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetLogLevelsByResourceTypes", input);
   }
@@ -586,13 +356,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetMetricConfigurationRequest,
   ): Effect.Effect<
     GetMetricConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMetricConfiguration", input);
   }
@@ -600,13 +364,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetMetricsRequest,
   ): Effect.Effect<
     GetMetricsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMetrics", input);
   }
@@ -614,12 +372,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetMulticastGroupRequest,
   ): Effect.Effect<
     GetMulticastGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMulticastGroup", input);
   }
@@ -627,12 +380,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetMulticastGroupSessionRequest,
   ): Effect.Effect<
     GetMulticastGroupSessionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMulticastGroupSession", input);
   }
@@ -640,12 +388,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetNetworkAnalyzerConfigurationRequest,
   ): Effect.Effect<
     GetNetworkAnalyzerConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetNetworkAnalyzerConfiguration", input);
   }
@@ -653,11 +396,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetPartnerAccountRequest,
   ): Effect.Effect<
     GetPartnerAccountResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPartnerAccount", input);
   }
@@ -665,12 +404,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetPositionRequest,
   ): Effect.Effect<
     GetPositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPosition", input);
   }
@@ -678,12 +412,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetPositionConfigurationRequest,
   ): Effect.Effect<
     GetPositionConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPositionConfiguration", input);
   }
@@ -691,12 +420,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetPositionEstimateRequest,
   ): Effect.Effect<
     GetPositionEstimateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPositionEstimate", input);
   }
@@ -704,12 +428,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetResourceEventConfigurationRequest,
   ): Effect.Effect<
     GetResourceEventConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourceEventConfiguration", input);
   }
@@ -717,12 +436,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetResourceLogLevelRequest,
   ): Effect.Effect<
     GetResourceLogLevelResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourceLogLevel", input);
   }
@@ -730,12 +444,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetResourcePositionRequest,
   ): Effect.Effect<
     GetResourcePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcePosition", input);
   }
@@ -743,11 +452,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetServiceEndpointRequest,
   ): Effect.Effect<
     GetServiceEndpointResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetServiceEndpoint", input);
   }
@@ -755,12 +460,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetServiceProfileRequest,
   ): Effect.Effect<
     GetServiceProfileResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetServiceProfile", input);
   }
@@ -768,12 +468,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetWirelessDeviceRequest,
   ): Effect.Effect<
     GetWirelessDeviceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWirelessDevice", input);
   }
@@ -781,13 +476,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
     GetWirelessDeviceImportTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWirelessDeviceImportTask", input);
   }
@@ -795,12 +484,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetWirelessDeviceStatisticsRequest,
   ): Effect.Effect<
     GetWirelessDeviceStatisticsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWirelessDeviceStatistics", input);
   }
@@ -808,12 +492,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetWirelessGatewayRequest,
   ): Effect.Effect<
     GetWirelessGatewayResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWirelessGateway", input);
   }
@@ -821,12 +500,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetWirelessGatewayCertificateRequest,
   ): Effect.Effect<
     GetWirelessGatewayCertificateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWirelessGatewayCertificate", input);
   }
@@ -834,12 +508,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetWirelessGatewayFirmwareInformationRequest,
   ): Effect.Effect<
     GetWirelessGatewayFirmwareInformationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWirelessGatewayFirmwareInformation", input);
   }
@@ -847,12 +516,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetWirelessGatewayStatisticsRequest,
   ): Effect.Effect<
     GetWirelessGatewayStatisticsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWirelessGatewayStatistics", input);
   }
@@ -860,12 +524,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetWirelessGatewayTaskRequest,
   ): Effect.Effect<
     GetWirelessGatewayTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWirelessGatewayTask", input);
   }
@@ -873,12 +532,7 @@ export class IoTWireless extends AWSServiceClient {
     input: GetWirelessGatewayTaskDefinitionRequest,
   ): Effect.Effect<
     GetWirelessGatewayTaskDefinitionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWirelessGatewayTaskDefinition", input);
   }
@@ -886,11 +540,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListDestinationsRequest,
   ): Effect.Effect<
     ListDestinationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDestinations", input);
   }
@@ -898,11 +548,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListDeviceProfilesRequest,
   ): Effect.Effect<
     ListDeviceProfilesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDeviceProfiles", input);
   }
@@ -910,13 +556,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListDevicesForWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
     ListDevicesForWirelessDeviceImportTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDevicesForWirelessDeviceImportTask", input);
   }
@@ -924,11 +564,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListEventConfigurationsRequest,
   ): Effect.Effect<
     ListEventConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEventConfigurations", input);
   }
@@ -936,11 +572,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListFuotaTasksRequest,
   ): Effect.Effect<
     ListFuotaTasksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFuotaTasks", input);
   }
@@ -948,11 +580,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListMulticastGroupsRequest,
   ): Effect.Effect<
     ListMulticastGroupsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListMulticastGroups", input);
   }
@@ -960,12 +588,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListMulticastGroupsByFuotaTaskRequest,
   ): Effect.Effect<
     ListMulticastGroupsByFuotaTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListMulticastGroupsByFuotaTask", input);
   }
@@ -973,11 +596,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListNetworkAnalyzerConfigurationsRequest,
   ): Effect.Effect<
     ListNetworkAnalyzerConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListNetworkAnalyzerConfigurations", input);
   }
@@ -985,11 +604,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListPartnerAccountsRequest,
   ): Effect.Effect<
     ListPartnerAccountsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPartnerAccounts", input);
   }
@@ -997,11 +612,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListPositionConfigurationsRequest,
   ): Effect.Effect<
     ListPositionConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPositionConfigurations", input);
   }
@@ -1009,12 +620,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListQueuedMessagesRequest,
   ): Effect.Effect<
     ListQueuedMessagesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListQueuedMessages", input);
   }
@@ -1022,11 +628,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListServiceProfilesRequest,
   ): Effect.Effect<
     ListServiceProfilesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListServiceProfiles", input);
   }
@@ -1034,12 +636,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -1047,13 +644,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListWirelessDeviceImportTasksRequest,
   ): Effect.Effect<
     ListWirelessDeviceImportTasksResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListWirelessDeviceImportTasks", input);
   }
@@ -1061,11 +652,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListWirelessDevicesRequest,
   ): Effect.Effect<
     ListWirelessDevicesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListWirelessDevices", input);
   }
@@ -1073,11 +660,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListWirelessGatewaysRequest,
   ): Effect.Effect<
     ListWirelessGatewaysResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListWirelessGateways", input);
   }
@@ -1085,11 +668,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ListWirelessGatewayTaskDefinitionsRequest,
   ): Effect.Effect<
     ListWirelessGatewayTaskDefinitionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListWirelessGatewayTaskDefinitions", input);
   }
@@ -1097,12 +676,7 @@ export class IoTWireless extends AWSServiceClient {
     input: PutPositionConfigurationRequest,
   ): Effect.Effect<
     PutPositionConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutPositionConfiguration", input);
   }
@@ -1110,12 +684,7 @@ export class IoTWireless extends AWSServiceClient {
     input: PutResourceLogLevelRequest,
   ): Effect.Effect<
     PutResourceLogLevelResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutResourceLogLevel", input);
   }
@@ -1123,12 +692,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ResetAllResourceLogLevelsRequest,
   ): Effect.Effect<
     ResetAllResourceLogLevelsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ResetAllResourceLogLevels", input);
   }
@@ -1136,12 +700,7 @@ export class IoTWireless extends AWSServiceClient {
     input: ResetResourceLogLevelRequest,
   ): Effect.Effect<
     ResetResourceLogLevelResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ResetResourceLogLevel", input);
   }
@@ -1149,13 +708,7 @@ export class IoTWireless extends AWSServiceClient {
     input: SendDataToMulticastGroupRequest,
   ): Effect.Effect<
     SendDataToMulticastGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendDataToMulticastGroup", input);
   }
@@ -1163,11 +716,7 @@ export class IoTWireless extends AWSServiceClient {
     input: SendDataToWirelessDeviceRequest,
   ): Effect.Effect<
     SendDataToWirelessDeviceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendDataToWirelessDevice", input);
   }
@@ -1175,45 +724,23 @@ export class IoTWireless extends AWSServiceClient {
     input: StartBulkAssociateWirelessDeviceWithMulticastGroupRequest,
   ): Effect.Effect<
     StartBulkAssociateWirelessDeviceWithMulticastGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
-    return this.call(
-      "StartBulkAssociateWirelessDeviceWithMulticastGroup",
-      input,
-    );
+    return this.call("StartBulkAssociateWirelessDeviceWithMulticastGroup", input);
   }
   startBulkDisassociateWirelessDeviceFromMulticastGroup(
     input: StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest,
   ): Effect.Effect<
     StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
-    return this.call(
-      "StartBulkDisassociateWirelessDeviceFromMulticastGroup",
-      input,
-    );
+    return this.call("StartBulkDisassociateWirelessDeviceFromMulticastGroup", input);
   }
   startFuotaTask(
     input: StartFuotaTaskRequest,
   ): Effect.Effect<
     StartFuotaTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartFuotaTask", input);
   }
@@ -1221,13 +748,7 @@ export class IoTWireless extends AWSServiceClient {
     input: StartMulticastGroupSessionRequest,
   ): Effect.Effect<
     StartMulticastGroupSessionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartMulticastGroupSession", input);
   }
@@ -1235,13 +756,7 @@ export class IoTWireless extends AWSServiceClient {
     input: StartSingleWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
     StartSingleWirelessDeviceImportTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartSingleWirelessDeviceImportTask", input);
   }
@@ -1249,13 +764,7 @@ export class IoTWireless extends AWSServiceClient {
     input: StartWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
     StartWirelessDeviceImportTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartWirelessDeviceImportTask", input);
   }
@@ -1263,13 +772,7 @@ export class IoTWireless extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1277,11 +780,7 @@ export class IoTWireless extends AWSServiceClient {
     input: TestWirelessDeviceRequest,
   ): Effect.Effect<
     TestWirelessDeviceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TestWirelessDevice", input);
   }
@@ -1289,12 +788,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1302,12 +796,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateDestinationRequest,
   ): Effect.Effect<
     UpdateDestinationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateDestination", input);
   }
@@ -1315,11 +804,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateEventConfigurationByResourceTypesRequest,
   ): Effect.Effect<
     UpdateEventConfigurationByResourceTypesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateEventConfigurationByResourceTypes", input);
   }
@@ -1327,13 +812,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateFuotaTaskRequest,
   ): Effect.Effect<
     UpdateFuotaTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateFuotaTask", input);
   }
@@ -1341,13 +820,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateLogLevelsByResourceTypesRequest,
   ): Effect.Effect<
     UpdateLogLevelsByResourceTypesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateLogLevelsByResourceTypes", input);
   }
@@ -1355,13 +828,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateMetricConfigurationRequest,
   ): Effect.Effect<
     UpdateMetricConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateMetricConfiguration", input);
   }
@@ -1369,13 +836,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateMulticastGroupRequest,
   ): Effect.Effect<
     UpdateMulticastGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateMulticastGroup", input);
   }
@@ -1383,12 +844,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateNetworkAnalyzerConfigurationRequest,
   ): Effect.Effect<
     UpdateNetworkAnalyzerConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateNetworkAnalyzerConfiguration", input);
   }
@@ -1396,11 +852,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdatePartnerAccountRequest,
   ): Effect.Effect<
     UpdatePartnerAccountResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePartnerAccount", input);
   }
@@ -1408,12 +860,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdatePositionRequest,
   ): Effect.Effect<
     UpdatePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePosition", input);
   }
@@ -1421,13 +868,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateResourceEventConfigurationRequest,
   ): Effect.Effect<
     UpdateResourceEventConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateResourceEventConfiguration", input);
   }
@@ -1435,12 +876,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateResourcePositionRequest,
   ): Effect.Effect<
     UpdateResourcePositionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateResourcePosition", input);
   }
@@ -1448,12 +884,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateWirelessDeviceRequest,
   ): Effect.Effect<
     UpdateWirelessDeviceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateWirelessDevice", input);
   }
@@ -1461,13 +892,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateWirelessDeviceImportTaskRequest,
   ): Effect.Effect<
     UpdateWirelessDeviceImportTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateWirelessDeviceImportTask", input);
   }
@@ -1475,12 +900,7 @@ export class IoTWireless extends AWSServiceClient {
     input: UpdateWirelessGatewayRequest,
   ): Effect.Effect<
     UpdateWirelessGatewayResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateWirelessGateway", input);
   }
@@ -1553,22 +973,26 @@ export interface AssociateMulticastGroupWithFuotaTaskRequest {
   Id: string;
   MulticastGroupId: string;
 }
-export interface AssociateMulticastGroupWithFuotaTaskResponse {}
+export interface AssociateMulticastGroupWithFuotaTaskResponse {
+}
 export interface AssociateWirelessDeviceWithFuotaTaskRequest {
   Id: string;
   WirelessDeviceId: string;
 }
-export interface AssociateWirelessDeviceWithFuotaTaskResponse {}
+export interface AssociateWirelessDeviceWithFuotaTaskResponse {
+}
 export interface AssociateWirelessDeviceWithMulticastGroupRequest {
   Id: string;
   WirelessDeviceId: string;
 }
-export interface AssociateWirelessDeviceWithMulticastGroupResponse {}
+export interface AssociateWirelessDeviceWithMulticastGroupResponse {
+}
 export interface AssociateWirelessDeviceWithThingRequest {
   Id: string;
   ThingArn: string;
 }
-export interface AssociateWirelessDeviceWithThingResponse {}
+export interface AssociateWirelessDeviceWithThingResponse {
+}
 export interface AssociateWirelessGatewayWithCertificateRequest {
   Id: string;
   IotCertificateId: string;
@@ -1580,7 +1004,8 @@ export interface AssociateWirelessGatewayWithThingRequest {
   Id: string;
   ThingArn: string;
 }
-export interface AssociateWirelessGatewayWithThingResponse {}
+export interface AssociateWirelessGatewayWithThingResponse {
+}
 export type AutoCreateTasks = boolean;
 
 export type Avg = number;
@@ -1608,7 +1033,8 @@ export type BSIC = number;
 export interface CancelMulticastGroupSessionRequest {
   Id: string;
 }
-export interface CancelMulticastGroupSessionResponse {}
+export interface CancelMulticastGroupSessionResponse {
+}
 export type CaptureTimeAccuracy = number;
 
 export type CdmaChannel = number;
@@ -1820,58 +1246,71 @@ export type DakCertificateMetadataList = Array<DakCertificateMetadata>;
 export interface DeleteDestinationRequest {
   Name: string;
 }
-export interface DeleteDestinationResponse {}
+export interface DeleteDestinationResponse {
+}
 export interface DeleteDeviceProfileRequest {
   Id: string;
 }
-export interface DeleteDeviceProfileResponse {}
+export interface DeleteDeviceProfileResponse {
+}
 export interface DeleteFuotaTaskRequest {
   Id: string;
 }
-export interface DeleteFuotaTaskResponse {}
+export interface DeleteFuotaTaskResponse {
+}
 export interface DeleteMulticastGroupRequest {
   Id: string;
 }
-export interface DeleteMulticastGroupResponse {}
+export interface DeleteMulticastGroupResponse {
+}
 export interface DeleteNetworkAnalyzerConfigurationRequest {
   ConfigurationName: string;
 }
-export interface DeleteNetworkAnalyzerConfigurationResponse {}
+export interface DeleteNetworkAnalyzerConfigurationResponse {
+}
 export interface DeleteQueuedMessagesRequest {
   Id: string;
   MessageId: string;
   WirelessDeviceType?: WirelessDeviceType;
 }
-export interface DeleteQueuedMessagesResponse {}
+export interface DeleteQueuedMessagesResponse {
+}
 export interface DeleteServiceProfileRequest {
   Id: string;
 }
-export interface DeleteServiceProfileResponse {}
+export interface DeleteServiceProfileResponse {
+}
 export interface DeleteWirelessDeviceImportTaskRequest {
   Id: string;
 }
-export interface DeleteWirelessDeviceImportTaskResponse {}
+export interface DeleteWirelessDeviceImportTaskResponse {
+}
 export interface DeleteWirelessDeviceRequest {
   Id: string;
 }
-export interface DeleteWirelessDeviceResponse {}
+export interface DeleteWirelessDeviceResponse {
+}
 export interface DeleteWirelessGatewayRequest {
   Id: string;
 }
-export interface DeleteWirelessGatewayResponse {}
+export interface DeleteWirelessGatewayResponse {
+}
 export interface DeleteWirelessGatewayTaskDefinitionRequest {
   Id: string;
 }
-export interface DeleteWirelessGatewayTaskDefinitionResponse {}
+export interface DeleteWirelessGatewayTaskDefinitionResponse {
+}
 export interface DeleteWirelessGatewayTaskRequest {
   Id: string;
 }
-export interface DeleteWirelessGatewayTaskResponse {}
+export interface DeleteWirelessGatewayTaskResponse {
+}
 export interface DeregisterWirelessDeviceRequest {
   Identifier: string;
   WirelessDeviceType?: WirelessDeviceType;
 }
-export interface DeregisterWirelessDeviceResponse {}
+export interface DeregisterWirelessDeviceResponse {
+}
 export type Description = string;
 
 export type DestinationArn = string;
@@ -1917,11 +1356,7 @@ export interface DeviceRegistrationStateEventConfiguration {
 export interface DeviceRegistrationStateResourceTypeEventConfiguration {
   Sidewalk?: SidewalkResourceTypeEventConfiguration;
 }
-export type DeviceState =
-  | "PROVISIONED"
-  | "REGISTEREDNOTSEEN"
-  | "REGISTEREDREACHABLE"
-  | "REGISTEREDUNREACHABLE";
+export type DeviceState = "PROVISIONED" | "REGISTEREDNOTSEEN" | "REGISTEREDREACHABLE" | "REGISTEREDUNREACHABLE";
 export type DeviceTypeId = string;
 
 export type DevStatusReqFreq = number;
@@ -1938,34 +1373,41 @@ export interface DisassociateAwsAccountFromPartnerAccountRequest {
   PartnerAccountId: string;
   PartnerType: PartnerType;
 }
-export interface DisassociateAwsAccountFromPartnerAccountResponse {}
+export interface DisassociateAwsAccountFromPartnerAccountResponse {
+}
 export interface DisassociateMulticastGroupFromFuotaTaskRequest {
   Id: string;
   MulticastGroupId: string;
 }
-export interface DisassociateMulticastGroupFromFuotaTaskResponse {}
+export interface DisassociateMulticastGroupFromFuotaTaskResponse {
+}
 export interface DisassociateWirelessDeviceFromFuotaTaskRequest {
   Id: string;
   WirelessDeviceId: string;
 }
-export interface DisassociateWirelessDeviceFromFuotaTaskResponse {}
+export interface DisassociateWirelessDeviceFromFuotaTaskResponse {
+}
 export interface DisassociateWirelessDeviceFromMulticastGroupRequest {
   Id: string;
   WirelessDeviceId: string;
 }
-export interface DisassociateWirelessDeviceFromMulticastGroupResponse {}
+export interface DisassociateWirelessDeviceFromMulticastGroupResponse {
+}
 export interface DisassociateWirelessDeviceFromThingRequest {
   Id: string;
 }
-export interface DisassociateWirelessDeviceFromThingResponse {}
+export interface DisassociateWirelessDeviceFromThingResponse {
+}
 export interface DisassociateWirelessGatewayFromCertificateRequest {
   Id: string;
 }
-export interface DisassociateWirelessGatewayFromCertificateResponse {}
+export interface DisassociateWirelessGatewayFromCertificateResponse {
+}
 export interface DisassociateWirelessGatewayFromThingRequest {
   Id: string;
 }
-export interface DisassociateWirelessGatewayFromThingResponse {}
+export interface DisassociateWirelessGatewayFromThingResponse {
+}
 export type DlAllowed = boolean;
 
 export type DlBucketSize = number;
@@ -2021,10 +1463,7 @@ export interface EventNotificationItemConfigurations {
   MessageDeliveryStatus?: MessageDeliveryStatusEventConfiguration;
 }
 export type EventNotificationPartnerType = "Sidewalk";
-export type EventNotificationResourceType =
-  | "SidewalkAccount"
-  | "WirelessDevice"
-  | "WirelessGateway";
+export type EventNotificationResourceType = "SidewalkAccount" | "WirelessDevice" | "WirelessGateway";
 export type EventNotificationTopicStatus = "Enabled" | "Disabled";
 export type Expression = string;
 
@@ -2057,19 +1496,7 @@ export type FragmentIntervalMS = number;
 
 export type FragmentSizeBytes = number;
 
-export type FuotaDeviceStatus =
-  | "Initial"
-  | "Package_Not_Supported"
-  | "FragAlgo_unsupported"
-  | "Not_enough_memory"
-  | "FragIndex_unsupported"
-  | "Wrong_descriptor"
-  | "SessionCnt_replay"
-  | "MissingFrag"
-  | "MemoryError"
-  | "MICError"
-  | "Successful"
-  | "Device_exist_in_conflict_fuota_task";
+export type FuotaDeviceStatus = "Initial" | "Package_Not_Supported" | "FragAlgo_unsupported" | "Not_enough_memory" | "FragIndex_unsupported" | "Wrong_descriptor" | "SessionCnt_replay" | "MissingFrag" | "MemoryError" | "MICError" | "Successful" | "Device_exist_in_conflict_fuota_task";
 export interface FuotaTask {
   Id?: string;
   Arn?: string;
@@ -2094,12 +1521,7 @@ export interface FuotaTaskLogOption {
 export type FuotaTaskLogOptionList = Array<FuotaTaskLogOption>;
 export type FuotaTaskName = string;
 
-export type FuotaTaskStatus =
-  | "Pending"
-  | "FuotaSession_Waiting"
-  | "In_FuotaSession"
-  | "FuotaDone"
-  | "Delete_Waiting";
+export type FuotaTaskStatus = "Pending" | "FuotaSession_Waiting" | "In_FuotaSession" | "FuotaDone" | "Delete_Waiting";
 export type FuotaTaskType = "LoRaWAN";
 export type GatewayEui = string;
 
@@ -2138,7 +1560,8 @@ export interface GetDeviceProfileResponse {
   LoRaWAN?: LoRaWANDeviceProfile;
   Sidewalk?: SidewalkGetDeviceProfile;
 }
-export interface GetEventConfigurationByResourceTypesRequest {}
+export interface GetEventConfigurationByResourceTypesRequest {
+}
 export interface GetEventConfigurationByResourceTypesResponse {
   DeviceRegistrationState?: DeviceRegistrationStateResourceTypeEventConfiguration;
   Proximity?: ProximityResourceTypeEventConfiguration;
@@ -2164,14 +1587,16 @@ export interface GetFuotaTaskResponse {
   FragmentIntervalMS?: number;
   Descriptor?: string;
 }
-export interface GetLogLevelsByResourceTypesRequest {}
+export interface GetLogLevelsByResourceTypesRequest {
+}
 export interface GetLogLevelsByResourceTypesResponse {
   DefaultLogLevel?: LogLevel;
   WirelessGatewayLogOptions?: Array<WirelessGatewayLogOption>;
   WirelessDeviceLogOptions?: Array<WirelessDeviceLogOption>;
   FuotaTaskLogOptions?: Array<FuotaTaskLogOption>;
 }
-export interface GetMetricConfigurationRequest {}
+export interface GetMetricConfigurationRequest {
+}
 export interface GetMetricConfigurationResponse {
   SummaryMetric?: SummaryMetricConfiguration;
 }
@@ -2435,12 +1860,7 @@ export type Id = string;
 
 export type Identifier = string;
 
-export type IdentifierType =
-  | "PartnerAccountId"
-  | "DevEui"
-  | "GatewayEui"
-  | "WirelessDeviceId"
-  | "WirelessGatewayId";
+export type IdentifierType = "PartnerAccountId" | "DevEui" | "GatewayEui" | "WirelessDeviceId" | "WirelessGatewayId";
 export interface ImportedSidewalkDevice {
   SidewalkManufacturingSn?: string;
   OnboardingStatus?: OnboardStatus;
@@ -2457,13 +1877,7 @@ export type ImportTaskArn = string;
 
 export type ImportTaskId = string;
 
-export type ImportTaskStatus =
-  | "INITIALIZING"
-  | "INITIALIZED"
-  | "PENDING"
-  | "COMPLETE"
-  | "FAILED"
-  | "DELETING";
+export type ImportTaskStatus = "INITIALIZING" | "INITIALIZED" | "PENDING" | "COMPLETE" | "FAILED" | "DELETING";
 export type Integer = number;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -2786,8 +2200,7 @@ export interface LoRaWANPublicGatewayMetadata {
   RfRegion?: string;
   DlAllowed?: boolean;
 }
-export type LoRaWANPublicGatewayMetadataList =
-  Array<LoRaWANPublicGatewayMetadata>;
+export type LoRaWANPublicGatewayMetadataList = Array<LoRaWANPublicGatewayMetadata>;
 export interface LoRaWANSendDataToDevice {
   FPort?: number;
   ParticipatingGateways?: ParticipatingGateways;
@@ -2879,44 +2292,8 @@ export interface MessageDeliveryStatusResourceTypeEventConfiguration {
 }
 export type MessageId = string;
 
-export type MessageType =
-  | "CUSTOM_COMMAND_ID_NOTIFY"
-  | "CUSTOM_COMMAND_ID_GET"
-  | "CUSTOM_COMMAND_ID_SET"
-  | "CUSTOM_COMMAND_ID_RESP";
-export type MetricName =
-  | "DeviceRSSI"
-  | "DeviceSNR"
-  | "DeviceRoamingRSSI"
-  | "DeviceRoamingSNR"
-  | "DeviceUplinkCount"
-  | "DeviceDownlinkCount"
-  | "DeviceUplinkLostCount"
-  | "DeviceUplinkLostRate"
-  | "DeviceJoinRequestCount"
-  | "DeviceJoinAcceptCount"
-  | "DeviceRoamingUplinkCount"
-  | "DeviceRoamingDownlinkCount"
-  | "GatewayUpTime"
-  | "GatewayDownTime"
-  | "GatewayRSSI"
-  | "GatewaySNR"
-  | "GatewayUplinkCount"
-  | "GatewayDownlinkCount"
-  | "GatewayJoinRequestCount"
-  | "GatewayJoinAcceptCount"
-  | "AwsAccountUplinkCount"
-  | "AwsAccountDownlinkCount"
-  | "AwsAccountUplinkLostCount"
-  | "AwsAccountUplinkLostRate"
-  | "AwsAccountJoinRequestCount"
-  | "AwsAccountJoinAcceptCount"
-  | "AwsAccountRoamingUplinkCount"
-  | "AwsAccountRoamingDownlinkCount"
-  | "AwsAccountDeviceCount"
-  | "AwsAccountGatewayCount"
-  | "AwsAccountActiveDeviceCount"
-  | "AwsAccountActiveGatewayCount";
+export type MessageType = "CUSTOM_COMMAND_ID_NOTIFY" | "CUSTOM_COMMAND_ID_GET" | "CUSTOM_COMMAND_ID_SET" | "CUSTOM_COMMAND_ID_RESP";
+export type MetricName = "DeviceRSSI" | "DeviceSNR" | "DeviceRoamingRSSI" | "DeviceRoamingSNR" | "DeviceUplinkCount" | "DeviceDownlinkCount" | "DeviceUplinkLostCount" | "DeviceUplinkLostRate" | "DeviceJoinRequestCount" | "DeviceJoinAcceptCount" | "DeviceRoamingUplinkCount" | "DeviceRoamingDownlinkCount" | "GatewayUpTime" | "GatewayDownTime" | "GatewayRSSI" | "GatewaySNR" | "GatewayUplinkCount" | "GatewayDownlinkCount" | "GatewayJoinRequestCount" | "GatewayJoinAcceptCount" | "AwsAccountUplinkCount" | "AwsAccountDownlinkCount" | "AwsAccountUplinkLostCount" | "AwsAccountUplinkLostRate" | "AwsAccountJoinRequestCount" | "AwsAccountJoinAcceptCount" | "AwsAccountRoamingUplinkCount" | "AwsAccountRoamingDownlinkCount" | "AwsAccountDeviceCount" | "AwsAccountGatewayCount" | "AwsAccountActiveDeviceCount" | "AwsAccountActiveGatewayCount";
 export type MetricQueryEndTimestamp = Date | string;
 
 export type MetricQueryError = string;
@@ -2983,8 +2360,7 @@ export type NetId = string;
 export type NetIdFilters = Array<string>;
 export type NetworkAnalyzerConfigurationArn = string;
 
-export type NetworkAnalyzerConfigurationList =
-  Array<NetworkAnalyzerConfigurations>;
+export type NetworkAnalyzerConfigurationList = Array<NetworkAnalyzerConfigurations>;
 export type NetworkAnalyzerConfigurationName = string;
 
 export interface NetworkAnalyzerConfigurations {
@@ -3111,13 +2487,15 @@ export interface PutPositionConfigurationRequest {
   Solvers?: PositionSolverConfigurations;
   Destination?: string;
 }
-export interface PutPositionConfigurationResponse {}
+export interface PutPositionConfigurationResponse {
+}
 export interface PutResourceLogLevelRequest {
   ResourceIdentifier: string;
   ResourceType: string;
   LogLevel: LogLevel;
 }
-export interface PutResourceLogLevelResponse {}
+export interface PutResourceLogLevelResponse {
+}
 export type QualificationStatus = boolean;
 
 export type QueryString = string;
@@ -3134,13 +2512,16 @@ export type ReportDevStatusBattery = boolean;
 
 export type ReportDevStatusMargin = boolean;
 
-export interface ResetAllResourceLogLevelsRequest {}
-export interface ResetAllResourceLogLevelsResponse {}
+export interface ResetAllResourceLogLevelsRequest {
+}
+export interface ResetAllResourceLogLevelsResponse {
+}
 export interface ResetResourceLogLevelRequest {
   ResourceIdentifier: string;
   ResourceType: string;
 }
-export interface ResetResourceLogLevelResponse {}
+export interface ResetResourceLogLevelResponse {
+}
 export type ResourceId = string;
 
 export type ResourceIdentifier = string;
@@ -3245,7 +2626,8 @@ export interface SidewalkAccountInfoWithFingerprint {
   Arn?: string;
 }
 export type SidewalkAccountList = Array<SidewalkAccountInfoWithFingerprint>;
-export interface SidewalkCreateDeviceProfile {}
+export interface SidewalkCreateDeviceProfile {
+}
 export interface SidewalkCreateWirelessDevice {
   DeviceProfileId?: string;
 }
@@ -3318,23 +2700,27 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
   QueryString?: string;
   Tags?: Array<Tag>;
 }
-export interface StartBulkAssociateWirelessDeviceWithMulticastGroupResponse {}
+export interface StartBulkAssociateWirelessDeviceWithMulticastGroupResponse {
+}
 export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
   Id: string;
   QueryString?: string;
   Tags?: Array<Tag>;
 }
-export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse {}
+export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse {
+}
 export interface StartFuotaTaskRequest {
   Id: string;
   LoRaWAN?: LoRaWANStartFuotaTask;
 }
-export interface StartFuotaTaskResponse {}
+export interface StartFuotaTaskResponse {
+}
 export interface StartMulticastGroupSessionRequest {
   Id: string;
   LoRaWAN: LoRaWANMulticastSession;
 }
-export interface StartMulticastGroupSessionResponse {}
+export interface StartMulticastGroupSessionResponse {
+}
 export interface StartSingleWirelessDeviceImportTaskRequest {
   DestinationName: string;
   ClientRequestToken?: string;
@@ -3396,20 +2782,7 @@ export interface SummaryMetricQueryResult {
   Unit?: string;
 }
 export type SummaryMetricQueryResults = Array<SummaryMetricQueryResult>;
-export type SupportedRfRegion =
-  | "EU868"
-  | "US915"
-  | "AU915"
-  | "AS923_1"
-  | "AS923_2"
-  | "AS923_3"
-  | "AS923_4"
-  | "EU433"
-  | "CN470"
-  | "CN779"
-  | "RU864"
-  | "KR920"
-  | "IN865";
+export type SupportedRfRegion = "EU868" | "US915" | "AU915" | "AS923_1" | "AS923_2" | "AS923_3" | "AS923_4" | "EU433" | "CN470" | "CN779" | "RU864" | "KR920" | "IN865";
 export type Supports32BitFCnt = boolean;
 
 export type SupportsClassB = boolean;
@@ -3434,7 +2807,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TargetPer = number;
@@ -3515,7 +2889,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAbpV1_0_x {
   FCntStart?: number;
 }
@@ -3531,7 +2906,8 @@ export interface UpdateDestinationRequest {
   Description?: string;
   RoleArn?: string;
 }
-export interface UpdateDestinationResponse {}
+export interface UpdateDestinationResponse {
+}
 export interface UpdateEventConfigurationByResourceTypesRequest {
   DeviceRegistrationState?: DeviceRegistrationStateResourceTypeEventConfiguration;
   Proximity?: ProximityResourceTypeEventConfiguration;
@@ -3539,7 +2915,8 @@ export interface UpdateEventConfigurationByResourceTypesRequest {
   ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
   MessageDeliveryStatus?: MessageDeliveryStatusResourceTypeEventConfiguration;
 }
-export interface UpdateEventConfigurationByResourceTypesResponse {}
+export interface UpdateEventConfigurationByResourceTypesResponse {
+}
 export interface UpdateFPorts {
   Positioning?: Positioning;
   Applications?: Array<ApplicationConfig>;
@@ -3556,25 +2933,29 @@ export interface UpdateFuotaTaskRequest {
   FragmentIntervalMS?: number;
   Descriptor?: string;
 }
-export interface UpdateFuotaTaskResponse {}
+export interface UpdateFuotaTaskResponse {
+}
 export interface UpdateLogLevelsByResourceTypesRequest {
   DefaultLogLevel?: LogLevel;
   FuotaTaskLogOptions?: Array<FuotaTaskLogOption>;
   WirelessDeviceLogOptions?: Array<WirelessDeviceLogOption>;
   WirelessGatewayLogOptions?: Array<WirelessGatewayLogOption>;
 }
-export interface UpdateLogLevelsByResourceTypesResponse {}
+export interface UpdateLogLevelsByResourceTypesResponse {
+}
 export interface UpdateMetricConfigurationRequest {
   SummaryMetric?: SummaryMetricConfiguration;
 }
-export interface UpdateMetricConfigurationResponse {}
+export interface UpdateMetricConfigurationResponse {
+}
 export interface UpdateMulticastGroupRequest {
   Id: string;
   Name?: string;
   Description?: string;
   LoRaWAN?: LoRaWANMulticast;
 }
-export interface UpdateMulticastGroupResponse {}
+export interface UpdateMulticastGroupResponse {
+}
 export interface UpdateNetworkAnalyzerConfigurationRequest {
   ConfigurationName: string;
   TraceContent?: TraceContent;
@@ -3586,19 +2967,22 @@ export interface UpdateNetworkAnalyzerConfigurationRequest {
   MulticastGroupsToAdd?: Array<string>;
   MulticastGroupsToRemove?: Array<string>;
 }
-export interface UpdateNetworkAnalyzerConfigurationResponse {}
+export interface UpdateNetworkAnalyzerConfigurationResponse {
+}
 export interface UpdatePartnerAccountRequest {
   Sidewalk: SidewalkUpdateAccount;
   PartnerAccountId: string;
   PartnerType: PartnerType;
 }
-export interface UpdatePartnerAccountResponse {}
+export interface UpdatePartnerAccountResponse {
+}
 export interface UpdatePositionRequest {
   ResourceIdentifier: string;
   ResourceType: PositionResourceType;
   Position: Array<number>;
 }
-export interface UpdatePositionResponse {}
+export interface UpdatePositionResponse {
+}
 export interface UpdateResourceEventConfigurationRequest {
   Identifier: string;
   IdentifierType: IdentifierType;
@@ -3609,20 +2993,23 @@ export interface UpdateResourceEventConfigurationRequest {
   ConnectionStatus?: ConnectionStatusEventConfiguration;
   MessageDeliveryStatus?: MessageDeliveryStatusEventConfiguration;
 }
-export interface UpdateResourceEventConfigurationResponse {}
+export interface UpdateResourceEventConfigurationResponse {
+}
 export interface UpdateResourcePositionRequest {
   ResourceIdentifier: string;
   ResourceType: PositionResourceType;
   GeoJsonPayload?: Uint8Array | string;
 }
-export interface UpdateResourcePositionResponse {}
+export interface UpdateResourcePositionResponse {
+}
 export type UpdateSignature = string;
 
 export interface UpdateWirelessDeviceImportTaskRequest {
   Id: string;
   Sidewalk: SidewalkUpdateImportInfo;
 }
-export interface UpdateWirelessDeviceImportTaskResponse {}
+export interface UpdateWirelessDeviceImportTaskResponse {
+}
 export interface UpdateWirelessDeviceRequest {
   Id: string;
   DestinationName?: string;
@@ -3631,7 +3018,8 @@ export interface UpdateWirelessDeviceRequest {
   LoRaWAN?: LoRaWANUpdateDevice;
   Positioning?: PositioningConfigStatus;
 }
-export interface UpdateWirelessDeviceResponse {}
+export interface UpdateWirelessDeviceResponse {
+}
 export interface UpdateWirelessGatewayRequest {
   Id: string;
   Name?: string;
@@ -3640,7 +3028,8 @@ export interface UpdateWirelessGatewayRequest {
   NetIdFilters?: Array<string>;
   MaxEirp?: number;
 }
-export interface UpdateWirelessGatewayResponse {}
+export interface UpdateWirelessGatewayResponse {
+}
 export interface UpdateWirelessGatewayTaskCreate {
   UpdateDataSource?: string;
   UpdateDataRole?: string;
@@ -3692,26 +3081,16 @@ export interface WiFiAccessPoint {
 export type WiFiAccessPoints = Array<WiFiAccessPoint>;
 export type WirelessDeviceArn = string;
 
-export type WirelessDeviceEvent =
-  | "Join"
-  | "Rejoin"
-  | "Uplink_Data"
-  | "Downlink_Data"
-  | "Registration";
+export type WirelessDeviceEvent = "Join" | "Rejoin" | "Uplink_Data" | "Downlink_Data" | "Registration";
 export interface WirelessDeviceEventLogOption {
   Event: WirelessDeviceEvent;
   LogLevel: LogLevel;
 }
-export type WirelessDeviceEventLogOptionList =
-  Array<WirelessDeviceEventLogOption>;
+export type WirelessDeviceEventLogOptionList = Array<WirelessDeviceEventLogOption>;
 export type WirelessDeviceFrameInfo = "ENABLED" | "DISABLED";
 export type WirelessDeviceId = string;
 
-export type WirelessDeviceIdType =
-  | "WirelessDeviceId"
-  | "DevEui"
-  | "ThingName"
-  | "SidewalkManufacturingSn";
+export type WirelessDeviceIdType = "WirelessDeviceId" | "DevEui" | "ThingName" | "SidewalkManufacturingSn";
 export interface WirelessDeviceImportTask {
   Id?: string;
   Arn?: string;
@@ -3735,11 +3114,7 @@ export interface WirelessDeviceLogOption {
 export type WirelessDeviceLogOptionList = Array<WirelessDeviceLogOption>;
 export type WirelessDeviceName = string;
 
-export type WirelessDeviceSidewalkStatus =
-  | "PROVISIONED"
-  | "REGISTERED"
-  | "ACTIVATED"
-  | "UNKNOWN";
+export type WirelessDeviceSidewalkStatus = "PROVISIONED" | "REGISTERED" | "ACTIVATED" | "UNKNOWN";
 export interface WirelessDeviceStatistics {
   Arn?: string;
   Id?: string;
@@ -3762,14 +3137,10 @@ export interface WirelessGatewayEventLogOption {
   Event: WirelessGatewayEvent;
   LogLevel: LogLevel;
 }
-export type WirelessGatewayEventLogOptionList =
-  Array<WirelessGatewayEventLogOption>;
+export type WirelessGatewayEventLogOptionList = Array<WirelessGatewayEventLogOption>;
 export type WirelessGatewayId = string;
 
-export type WirelessGatewayIdType =
-  | "GatewayEui"
-  | "WirelessGatewayId"
-  | "ThingName";
+export type WirelessGatewayIdType = "GatewayEui" | "WirelessGatewayId" | "ThingName";
 export type WirelessGatewayList = Array<string>;
 export interface WirelessGatewayLogOption {
   Type: WirelessGatewayType;
@@ -3793,18 +3164,11 @@ export type WirelessGatewayTaskDefinitionArn = string;
 
 export type WirelessGatewayTaskDefinitionId = string;
 
-export type WirelessGatewayTaskDefinitionList =
-  Array<UpdateWirelessGatewayTaskEntry>;
+export type WirelessGatewayTaskDefinitionList = Array<UpdateWirelessGatewayTaskEntry>;
 export type WirelessGatewayTaskDefinitionType = "UPDATE";
 export type WirelessGatewayTaskName = string;
 
-export type WirelessGatewayTaskStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FIRST_RETRY"
-  | "SECOND_RETRY"
-  | "COMPLETED"
-  | "FAILED";
+export type WirelessGatewayTaskStatus = "PENDING" | "IN_PROGRESS" | "FIRST_RETRY" | "SECOND_RETRY" | "COMPLETED" | "FAILED";
 export type WirelessGatewayType = "LoRaWAN";
 export interface WirelessMetadata {
   LoRaWAN?: LoRaWANSendDataToDevice;
@@ -4891,8 +4255,7 @@ export declare namespace SendDataToWirelessDevice {
 
 export declare namespace StartBulkAssociateWirelessDeviceWithMulticastGroup {
   export type Input = StartBulkAssociateWirelessDeviceWithMulticastGroupRequest;
-  export type Output =
-    StartBulkAssociateWirelessDeviceWithMulticastGroupResponse;
+  export type Output = StartBulkAssociateWirelessDeviceWithMulticastGroupResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -4903,10 +4266,8 @@ export declare namespace StartBulkAssociateWirelessDeviceWithMulticastGroup {
 }
 
 export declare namespace StartBulkDisassociateWirelessDeviceFromMulticastGroup {
-  export type Input =
-    StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest;
-  export type Output =
-    StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse;
+  export type Input = StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest;
+  export type Output = StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse;
   export type Error =
     | AccessDeniedException
     | InternalServerException
@@ -5175,3 +4536,4 @@ export declare namespace UpdateWirelessGateway {
     | ValidationException
     | CommonAwsError;
 }
+

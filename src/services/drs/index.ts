@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class drs extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("drs", new RestJson1Protocol(), cfg);
+  }
+
   createExtendedSourceServer(
     input: CreateExtendedSourceServerRequest,
   ): Effect.Effect<
     CreateExtendedSourceServerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   > {
     return this.call("CreateExtendedSourceServer", input);
   }
@@ -22,12 +20,7 @@ export class drs extends AWSServiceClient {
     input: DeleteLaunchActionRequest,
   ): Effect.Effect<
     DeleteLaunchActionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteLaunchAction", input);
   }
@@ -35,11 +28,7 @@ export class drs extends AWSServiceClient {
     input: InitializeServiceRequest,
   ): Effect.Effect<
     InitializeServiceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("InitializeService", input);
   }
@@ -47,12 +36,7 @@ export class drs extends AWSServiceClient {
     input: ListExtensibleSourceServersRequest,
   ): Effect.Effect<
     ListExtensibleSourceServersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   > {
     return this.call("ListExtensibleSourceServers", input);
   }
@@ -60,12 +44,7 @@ export class drs extends AWSServiceClient {
     input: ListLaunchActionsRequest,
   ): Effect.Effect<
     ListLaunchActionsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | CommonAwsError
   > {
     return this.call("ListLaunchActions", input);
   }
@@ -73,12 +52,7 @@ export class drs extends AWSServiceClient {
     input: ListStagingAccountsRequest,
   ): Effect.Effect<
     ListStagingAccountsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   > {
     return this.call("ListStagingAccounts", input);
   }
@@ -86,12 +60,7 @@ export class drs extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -99,13 +68,7 @@ export class drs extends AWSServiceClient {
     input: PutLaunchActionRequest,
   ): Effect.Effect<
     PutLaunchActionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   > {
     return this.call("PutLaunchAction", input);
   }
@@ -113,12 +76,7 @@ export class drs extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -126,12 +84,7 @@ export class drs extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -266,8 +219,7 @@ export interface DataReplicationInfoReplicatedDisk {
   backloggedStorageBytes?: number;
   volumeStatus?: string;
 }
-export type DataReplicationInfoReplicatedDisks =
-  Array<DataReplicationInfoReplicatedDisk>;
+export type DataReplicationInfoReplicatedDisks = Array<DataReplicationInfoReplicatedDisk>;
 export interface DataReplicationInitiation {
   startDateTime?: string;
   nextAttemptDateTime?: string;
@@ -279,8 +231,7 @@ export interface DataReplicationInitiationStep {
 }
 export type DataReplicationInitiationStepName = string;
 
-export type DataReplicationInitiationSteps =
-  Array<DataReplicationInitiationStep>;
+export type DataReplicationInitiationSteps = Array<DataReplicationInitiationStep>;
 export type DataReplicationInitiationStepStatus = string;
 
 export type DataReplicationState = string;
@@ -288,31 +239,37 @@ export type DataReplicationState = string;
 export interface DeleteJobRequest {
   jobID: string;
 }
-export interface DeleteJobResponse {}
+export interface DeleteJobResponse {
+}
 export interface DeleteLaunchActionRequest {
   resourceId: string;
   actionId: string;
 }
-export interface DeleteLaunchActionResponse {}
+export interface DeleteLaunchActionResponse {
+}
 export interface DeleteLaunchConfigurationTemplateRequest {
   launchConfigurationTemplateID: string;
 }
-export interface DeleteLaunchConfigurationTemplateResponse {}
+export interface DeleteLaunchConfigurationTemplateResponse {
+}
 export interface DeleteRecoveryInstanceRequest {
   recoveryInstanceID: string;
 }
 export interface DeleteReplicationConfigurationTemplateRequest {
   replicationConfigurationTemplateID: string;
 }
-export interface DeleteReplicationConfigurationTemplateResponse {}
+export interface DeleteReplicationConfigurationTemplateResponse {
+}
 export interface DeleteSourceNetworkRequest {
   sourceNetworkID: string;
 }
-export interface DeleteSourceNetworkResponse {}
+export interface DeleteSourceNetworkResponse {
+}
 export interface DeleteSourceServerRequest {
   sourceServerID: string;
 }
-export interface DeleteSourceServerResponse {}
+export interface DeleteSourceServerResponse {
+}
 export interface DescribeJobLogItemsRequest {
   jobID: string;
   maxResults?: number;
@@ -440,9 +397,7 @@ interface _EventResourceData {
   sourceNetworkData?: SourceNetworkData;
 }
 
-export type EventResourceData = _EventResourceData & {
-  sourceNetworkData: SourceNetworkData;
-};
+export type EventResourceData = (_EventResourceData & { sourceNetworkData: SourceNetworkData });
 export interface ExportSourceNetworkCfnTemplateRequest {
   sourceNetworkID: string;
 }
@@ -480,8 +435,10 @@ export interface IdentificationHints {
   vmWareUuid?: string;
   awsInstanceID?: string;
 }
-export interface InitializeServiceRequest {}
-export interface InitializeServiceResponse {}
+export interface InitializeServiceRequest {
+}
+export interface InitializeServiceResponse {
+}
 export type InitiatedBy = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -711,9 +668,7 @@ interface _ParticipatingResourceID {
   sourceNetworkID?: string;
 }
 
-export type ParticipatingResourceID = _ParticipatingResourceID & {
-  sourceNetworkID: string;
-};
+export type ParticipatingResourceID = (_ParticipatingResourceID & { sourceNetworkID: string });
 export type ParticipatingResources = Array<ParticipatingResource>;
 export interface ParticipatingServer {
   sourceServerID?: string;
@@ -809,8 +764,7 @@ export interface RecoveryInstanceDataReplicationInfoReplicatedDisk {
   rescannedStorageBytes?: number;
   backloggedStorageBytes?: number;
 }
-export type RecoveryInstanceDataReplicationInfoReplicatedDisks =
-  Array<RecoveryInstanceDataReplicationInfoReplicatedDisk>;
+export type RecoveryInstanceDataReplicationInfoReplicatedDisks = Array<RecoveryInstanceDataReplicationInfoReplicatedDisk>;
 export interface RecoveryInstanceDataReplicationInitiation {
   startDateTime?: string;
   steps?: Array<RecoveryInstanceDataReplicationInitiationStep>;
@@ -821,8 +775,7 @@ export interface RecoveryInstanceDataReplicationInitiationStep {
 }
 export type RecoveryInstanceDataReplicationInitiationStepName = string;
 
-export type RecoveryInstanceDataReplicationInitiationSteps =
-  Array<RecoveryInstanceDataReplicationInitiationStep>;
+export type RecoveryInstanceDataReplicationInitiationSteps = Array<RecoveryInstanceDataReplicationInitiationStep>;
 export type RecoveryInstanceDataReplicationInitiationStepStatus = string;
 
 export type RecoveryInstanceDataReplicationState = string;
@@ -910,8 +863,7 @@ export interface ReplicationConfigurationReplicatedDisk {
   throughput?: number;
   optimizedStagingDiskType?: string;
 }
-export type ReplicationConfigurationReplicatedDisks =
-  Array<ReplicationConfigurationReplicatedDisk>;
+export type ReplicationConfigurationReplicatedDisks = Array<ReplicationConfigurationReplicatedDisk>;
 export type ReplicationConfigurationReplicatedDiskStagingDiskType = string;
 
 export interface ReplicationConfigurationTemplate {
@@ -936,8 +888,7 @@ export interface ReplicationConfigurationTemplate {
 export type ReplicationConfigurationTemplateID = string;
 
 export type ReplicationConfigurationTemplateIDs = Array<string>;
-export type ReplicationConfigurationTemplates =
-  Array<ReplicationConfigurationTemplate>;
+export type ReplicationConfigurationTemplates = Array<ReplicationConfigurationTemplate>;
 export type ReplicationDirection = string;
 
 export type ReplicationServersSecurityGroupsIDs = Array<string>;
@@ -1068,8 +1019,7 @@ export interface StartRecoveryRequestSourceServer {
   sourceServerID: string;
   recoverySnapshotID?: string;
 }
-export type StartRecoveryRequestSourceServers =
-  Array<StartRecoveryRequestSourceServer>;
+export type StartRecoveryRequestSourceServers = Array<StartRecoveryRequestSourceServer>;
 export interface StartRecoveryResponse {
   job?: Job;
 }
@@ -1084,8 +1034,7 @@ export interface StartSourceNetworkRecoveryRequest {
   deployAsNew?: boolean;
   tags?: Record<string, string>;
 }
-export type StartSourceNetworkRecoveryRequestNetworkEntries =
-  Array<StartSourceNetworkRecoveryRequestNetworkEntry>;
+export type StartSourceNetworkRecoveryRequestNetworkEntries = Array<StartSourceNetworkRecoveryRequestNetworkEntry>;
 export interface StartSourceNetworkRecoveryRequestNetworkEntry {
   sourceNetworkID: string;
   cfnStackName?: string;
@@ -1365,3 +1314,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

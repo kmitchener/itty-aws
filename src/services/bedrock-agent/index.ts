@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class BedrockAgent extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("bedrock-agent", new RestJson1Protocol(), cfg);
+  }
+
   validateFlowDefinition(
     input: ValidateFlowDefinitionRequest,
   ): Effect.Effect<
     ValidateFlowDefinitionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ValidateFlowDefinition", input);
   }
@@ -29,15 +30,8 @@ interface _ActionGroupExecutor {
   customControl?: CustomControlMethod;
 }
 
-export type ActionGroupExecutor =
-  | (_ActionGroupExecutor & { lambda: string })
-  | (_ActionGroupExecutor & { customControl: CustomControlMethod });
-export type ActionGroupSignature =
-  | "AMAZON_USERINPUT"
-  | "AMAZON_CODEINTERPRETER"
-  | "ANTHROPIC_COMPUTER"
-  | "ANTHROPIC_BASH"
-  | "ANTHROPIC_TEXTEDITOR";
+export type ActionGroupExecutor = (_ActionGroupExecutor & { lambda: string }) | (_ActionGroupExecutor & { customControl: CustomControlMethod });
+export type ActionGroupSignature = "AMAZON_USERINPUT" | "AMAZON_CODEINTERPRETER" | "ANTHROPIC_COMPUTER" | "ANTHROPIC_BASH" | "ANTHROPIC_TEXTEDITOR";
 export type ActionGroupSignatureParams = Record<string, string>;
 export type ActionGroupState = "ENABLED" | "DISABLED";
 export type ActionGroupSummaries = Array<ActionGroupSummary>;
@@ -119,19 +113,12 @@ export interface AgentAliasHistoryEvent {
 export type AgentAliasHistoryEvents = Array<AgentAliasHistoryEvent>;
 export type AgentAliasId = string;
 
-export type AgentAliasRoutingConfiguration =
-  Array<AgentAliasRoutingConfigurationListItem>;
+export type AgentAliasRoutingConfiguration = Array<AgentAliasRoutingConfigurationListItem>;
 export interface AgentAliasRoutingConfigurationListItem {
   agentVersion?: string;
   provisionedThroughput?: string;
 }
-export type AgentAliasStatus =
-  | "CREATING"
-  | "PREPARED"
-  | "FAILED"
-  | "UPDATING"
-  | "DELETING"
-  | "DISSOCIATED";
+export type AgentAliasStatus = "CREATING" | "PREPARED" | "FAILED" | "UPDATING" | "DELETING" | "DISSOCIATED";
 export type AgentAliasSummaries = Array<AgentAliasSummary>;
 export interface AgentAliasSummary {
   agentAliasId: string;
@@ -145,10 +132,7 @@ export interface AgentAliasSummary {
 }
 export type AgentArn = string;
 
-export type AgentCollaboration =
-  | "SUPERVISOR"
-  | "SUPERVISOR_ROUTER"
-  | "DISABLED";
+export type AgentCollaboration = "SUPERVISOR" | "SUPERVISOR_ROUTER" | "DISABLED";
 export interface AgentCollaborator {
   agentId: string;
   agentVersion: string;
@@ -197,15 +181,7 @@ export interface AgentKnowledgeBaseSummary {
 }
 export type AgentRoleArn = string;
 
-export type AgentStatus =
-  | "CREATING"
-  | "PREPARING"
-  | "PREPARED"
-  | "NOT_PREPARED"
-  | "DELETING"
-  | "FAILED"
-  | "VERSIONING"
-  | "UPDATING";
+export type AgentStatus = "CREATING" | "PREPARING" | "PREPARED" | "NOT_PREPARED" | "DELETING" | "FAILED" | "VERSIONING" | "UPDATING";
 export type AgentSummaries = Array<AgentSummary>;
 export interface AgentSummary {
   agentId: string;
@@ -248,15 +224,14 @@ export interface AgentVersionSummary {
   guardrailConfiguration?: GuardrailConfiguration;
 }
 export type AliasInvocationState = "ACCEPT_INVOCATIONS" | "REJECT_INVOCATIONS";
-export interface AnyToolChoice {}
+export interface AnyToolChoice {
+}
 interface _APISchema {
   s3?: S3Identifier;
   payload?: string;
 }
 
-export type APISchema =
-  | (_APISchema & { s3: S3Identifier })
-  | (_APISchema & { payload: string });
+export type APISchema = (_APISchema & { s3: S3Identifier }) | (_APISchema & { payload: string });
 export interface AssociateAgentCollaboratorRequest {
   agentId: string;
   agentVersion: string;
@@ -279,7 +254,8 @@ export interface AssociateAgentKnowledgeBaseRequest {
 export interface AssociateAgentKnowledgeBaseResponse {
   agentKnowledgeBase: AgentKnowledgeBase;
 }
-export interface AutoToolChoice {}
+export interface AutoToolChoice {
+}
 export type AwsDataCatalogTableName = string;
 
 export type AwsDataCatalogTableNames = Array<string>;
@@ -331,16 +307,13 @@ export interface ChunkingConfiguration {
   hierarchicalChunkingConfiguration?: HierarchicalChunkingConfiguration;
   semanticChunkingConfiguration?: SemanticChunkingConfiguration;
 }
-export type ChunkingStrategy =
-  | "FIXED_SIZE"
-  | "NONE"
-  | "HIERARCHICAL"
-  | "SEMANTIC";
+export type ChunkingStrategy = "FIXED_SIZE" | "NONE" | "HIERARCHICAL" | "SEMANTIC";
 export type ClientToken = string;
 
 export type CollaborationInstruction = string;
 
-export interface CollectorFlowNodeConfiguration {}
+export interface CollectorFlowNodeConfiguration {
+}
 export type ColumnName = string;
 
 export type ConcurrencyType = "AUTOMATIC" | "MANUAL";
@@ -372,9 +345,7 @@ interface _ContentBlock {
   cachePoint?: CachePointBlock;
 }
 
-export type ContentBlock =
-  | (_ContentBlock & { text: string })
-  | (_ContentBlock & { cachePoint: CachePointBlock });
+export type ContentBlock = (_ContentBlock & { text: string }) | (_ContentBlock & { cachePoint: CachePointBlock });
 export type ContentBlocks = Array<ContentBlock>;
 export type ContentDataSourceType = "CUSTOM" | "S3";
 export interface ContextEnrichmentConfiguration {
@@ -624,14 +595,7 @@ export interface DataSourceSummary {
   description?: string;
   updatedAt: Date | string;
 }
-export type DataSourceType =
-  | "S3"
-  | "WEB"
-  | "CONFLUENCE"
-  | "SALESFORCE"
-  | "SHAREPOINT"
-  | "CUSTOM"
-  | "REDSHIFT_METADATA";
+export type DataSourceType = "S3" | "WEB" | "CONFLUENCE" | "SALESFORCE" | "SHAREPOINT" | "CUSTOM" | "REDSHIFT_METADATA";
 export type DateTimestamp = Date | string;
 
 export interface DeleteAgentActionGroupRequest {
@@ -640,7 +604,8 @@ export interface DeleteAgentActionGroupRequest {
   actionGroupId: string;
   skipResourceInUseCheck?: boolean;
 }
-export interface DeleteAgentActionGroupResponse {}
+export interface DeleteAgentActionGroupResponse {
+}
 export interface DeleteAgentAliasRequest {
   agentId: string;
   agentAliasId: string;
@@ -736,13 +701,15 @@ export interface DisassociateAgentCollaboratorRequest {
   agentVersion: string;
   collaboratorId: string;
 }
-export interface DisassociateAgentCollaboratorResponse {}
+export interface DisassociateAgentCollaboratorResponse {
+}
 export interface DisassociateAgentKnowledgeBaseRequest {
   agentId: string;
   agentVersion: string;
   knowledgeBaseId: string;
 }
-export interface DisassociateAgentKnowledgeBaseResponse {}
+export interface DisassociateAgentKnowledgeBaseResponse {
+}
 export interface DocumentContent {
   dataSourceType: ContentDataSourceType;
   custom?: CustomContent;
@@ -759,19 +726,7 @@ export interface DocumentMetadata {
   inlineAttributes?: Array<MetadataAttribute>;
   s3Location?: CustomS3Location;
 }
-export type DocumentStatus =
-  | "INDEXED"
-  | "PARTIALLY_INDEXED"
-  | "PENDING"
-  | "FAILED"
-  | "METADATA_PARTIALLY_INDEXED"
-  | "METADATA_UPDATE_FAILED"
-  | "IGNORED"
-  | "NOT_FOUND"
-  | "STARTING"
-  | "IN_PROGRESS"
-  | "DELETING"
-  | "DELETE_IN_PROGRESS";
+export type DocumentStatus = "INDEXED" | "PARTIALLY_INDEXED" | "PENDING" | "FAILED" | "METADATA_PARTIALLY_INDEXED" | "METADATA_UPDATE_FAILED" | "IGNORED" | "NOT_FOUND" | "STARTING" | "IN_PROGRESS" | "DELETING" | "DELETE_IN_PROGRESS";
 export type DraftVersion = string;
 
 export interface DuplicateConditionExpressionFlowValidationDetails {
@@ -821,8 +776,7 @@ export type FlowAliasId = string;
 
 export type FlowAliasIdentifier = string;
 
-export type FlowAliasRoutingConfiguration =
-  Array<FlowAliasRoutingConfigurationListItem>;
+export type FlowAliasRoutingConfiguration = Array<FlowAliasRoutingConfigurationListItem>;
 export interface FlowAliasRoutingConfigurationListItem {
   flowVersion?: string;
 }
@@ -864,11 +818,7 @@ interface _FlowConnectionConfiguration {
   conditional?: FlowConditionalConnectionConfiguration;
 }
 
-export type FlowConnectionConfiguration =
-  | (_FlowConnectionConfiguration & { data: FlowDataConnectionConfiguration })
-  | (_FlowConnectionConfiguration & {
-      conditional: FlowConditionalConnectionConfiguration;
-    });
+export type FlowConnectionConfiguration = (_FlowConnectionConfiguration & { data: FlowDataConnectionConfiguration }) | (_FlowConnectionConfiguration & { conditional: FlowConditionalConnectionConfiguration });
 export type FlowConnectionName = string;
 
 export type FlowConnections = Array<FlowConnection>;
@@ -917,50 +867,20 @@ interface _FlowNodeConfiguration {
   loopController?: LoopControllerFlowNodeConfiguration;
 }
 
-export type FlowNodeConfiguration =
-  | (_FlowNodeConfiguration & { input: InputFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & { output: OutputFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & {
-      knowledgeBase: KnowledgeBaseFlowNodeConfiguration;
-    })
-  | (_FlowNodeConfiguration & { condition: ConditionFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & { lex: LexFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & { prompt: PromptFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & {
-      lambdaFunction: LambdaFunctionFlowNodeConfiguration;
-    })
-  | (_FlowNodeConfiguration & { storage: StorageFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & { agent: AgentFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & { retrieval: RetrievalFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & { iterator: IteratorFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & { collector: CollectorFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & { inlineCode: InlineCodeFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & { loop: LoopFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & { loopInput: LoopInputFlowNodeConfiguration })
-  | (_FlowNodeConfiguration & {
-      loopController: LoopControllerFlowNodeConfiguration;
-    });
+export type FlowNodeConfiguration = (_FlowNodeConfiguration & { input: InputFlowNodeConfiguration }) | (_FlowNodeConfiguration & { output: OutputFlowNodeConfiguration }) | (_FlowNodeConfiguration & { knowledgeBase: KnowledgeBaseFlowNodeConfiguration }) | (_FlowNodeConfiguration & { condition: ConditionFlowNodeConfiguration }) | (_FlowNodeConfiguration & { lex: LexFlowNodeConfiguration }) | (_FlowNodeConfiguration & { prompt: PromptFlowNodeConfiguration }) | (_FlowNodeConfiguration & { lambdaFunction: LambdaFunctionFlowNodeConfiguration }) | (_FlowNodeConfiguration & { storage: StorageFlowNodeConfiguration }) | (_FlowNodeConfiguration & { agent: AgentFlowNodeConfiguration }) | (_FlowNodeConfiguration & { retrieval: RetrievalFlowNodeConfiguration }) | (_FlowNodeConfiguration & { iterator: IteratorFlowNodeConfiguration }) | (_FlowNodeConfiguration & { collector: CollectorFlowNodeConfiguration }) | (_FlowNodeConfiguration & { inlineCode: InlineCodeFlowNodeConfiguration }) | (_FlowNodeConfiguration & { loop: LoopFlowNodeConfiguration }) | (_FlowNodeConfiguration & { loopInput: LoopInputFlowNodeConfiguration }) | (_FlowNodeConfiguration & { loopController: LoopControllerFlowNodeConfiguration });
 export interface FlowNodeInput {
   name: string;
   type: FlowNodeIODataType;
   expression: string;
   category?: FlowNodeInputCategory;
 }
-export type FlowNodeInputCategory =
-  | "LOOP_CONDITION"
-  | "RETURN_VALUE_TO_LOOP_START"
-  | "EXIT_LOOP";
+export type FlowNodeInputCategory = "LOOP_CONDITION" | "RETURN_VALUE_TO_LOOP_START" | "EXIT_LOOP";
 export type FlowNodeInputExpression = string;
 
 export type FlowNodeInputName = string;
 
 export type FlowNodeInputs = Array<FlowNodeInput>;
-export type FlowNodeIODataType =
-  | "STRING"
-  | "NUMBER"
-  | "BOOLEAN"
-  | "OBJECT"
-  | "ARRAY";
+export type FlowNodeIODataType = "STRING" | "NUMBER" | "BOOLEAN" | "OBJECT" | "ARRAY";
 export type FlowNodeName = string;
 
 export interface FlowNodeOutput {
@@ -971,23 +891,7 @@ export type FlowNodeOutputName = string;
 
 export type FlowNodeOutputs = Array<FlowNodeOutput>;
 export type FlowNodes = Array<FlowNode>;
-export type FlowNodeType =
-  | "INPUT"
-  | "OUTPUT"
-  | "KNOWLEDGE_BASE"
-  | "CONDITION"
-  | "LEX"
-  | "PROMPT"
-  | "LAMBDA_FUNCTION"
-  | "STORAGE"
-  | "AGENT"
-  | "RETRIEVAL"
-  | "ITERATOR"
-  | "COLLECTOR"
-  | "INLINE_CODE"
-  | "LOOP"
-  | "LOOP_INPUT"
-  | "LOOP_CONTROLLER";
+export type FlowNodeType = "INPUT" | "OUTPUT" | "KNOWLEDGE_BASE" | "CONDITION" | "LEX" | "PROMPT" | "LAMBDA_FUNCTION" | "STORAGE" | "AGENT" | "RETRIEVAL" | "ITERATOR" | "COLLECTOR" | "INLINE_CODE" | "LOOP" | "LOOP_INPUT" | "LOOP_CONTROLLER";
 export type FlowStatus = "FAILED" | "PREPARED" | "PREPARING" | "NOT_PREPARED";
 export type FlowSummaries = Array<FlowSummary>;
 export interface FlowSummary {
@@ -1042,140 +946,10 @@ interface _FlowValidationDetails {
   invalidLoopBoundary?: InvalidLoopBoundaryFlowValidationDetails;
 }
 
-export type FlowValidationDetails =
-  | (_FlowValidationDetails & {
-      cyclicConnection: CyclicConnectionFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      duplicateConnections: DuplicateConnectionsFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      duplicateConditionExpression: DuplicateConditionExpressionFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      unreachableNode: UnreachableNodeFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      unknownConnectionSource: UnknownConnectionSourceFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      unknownConnectionSourceOutput: UnknownConnectionSourceOutputFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      unknownConnectionTarget: UnknownConnectionTargetFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      unknownConnectionTargetInput: UnknownConnectionTargetInputFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      unknownConnectionCondition: UnknownConnectionConditionFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      malformedConditionExpression: MalformedConditionExpressionFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      malformedNodeInputExpression: MalformedNodeInputExpressionFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      mismatchedNodeInputType: MismatchedNodeInputTypeFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      mismatchedNodeOutputType: MismatchedNodeOutputTypeFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      incompatibleConnectionDataType: IncompatibleConnectionDataTypeFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      missingConnectionConfiguration: MissingConnectionConfigurationFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      missingDefaultCondition: MissingDefaultConditionFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      missingEndingNodes: MissingEndingNodesFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      missingNodeConfiguration: MissingNodeConfigurationFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      missingNodeInput: MissingNodeInputFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      missingNodeOutput: MissingNodeOutputFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      missingStartingNodes: MissingStartingNodesFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      multipleNodeInputConnections: MultipleNodeInputConnectionsFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      unfulfilledNodeInput: UnfulfilledNodeInputFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      unsatisfiedConnectionConditions: UnsatisfiedConnectionConditionsFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & { unspecified: UnspecifiedFlowValidationDetails })
-  | (_FlowValidationDetails & {
-      unknownNodeInput: UnknownNodeInputFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      unknownNodeOutput: UnknownNodeOutputFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      missingLoopInputNode: MissingLoopInputNodeFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      missingLoopControllerNode: MissingLoopControllerNodeFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      multipleLoopInputNodes: MultipleLoopInputNodesFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      multipleLoopControllerNodes: MultipleLoopControllerNodesFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      loopIncompatibleNodeType: LoopIncompatibleNodeTypeFlowValidationDetails;
-    })
-  | (_FlowValidationDetails & {
-      invalidLoopBoundary: InvalidLoopBoundaryFlowValidationDetails;
-    });
+export type FlowValidationDetails = (_FlowValidationDetails & { cyclicConnection: CyclicConnectionFlowValidationDetails }) | (_FlowValidationDetails & { duplicateConnections: DuplicateConnectionsFlowValidationDetails }) | (_FlowValidationDetails & { duplicateConditionExpression: DuplicateConditionExpressionFlowValidationDetails }) | (_FlowValidationDetails & { unreachableNode: UnreachableNodeFlowValidationDetails }) | (_FlowValidationDetails & { unknownConnectionSource: UnknownConnectionSourceFlowValidationDetails }) | (_FlowValidationDetails & { unknownConnectionSourceOutput: UnknownConnectionSourceOutputFlowValidationDetails }) | (_FlowValidationDetails & { unknownConnectionTarget: UnknownConnectionTargetFlowValidationDetails }) | (_FlowValidationDetails & { unknownConnectionTargetInput: UnknownConnectionTargetInputFlowValidationDetails }) | (_FlowValidationDetails & { unknownConnectionCondition: UnknownConnectionConditionFlowValidationDetails }) | (_FlowValidationDetails & { malformedConditionExpression: MalformedConditionExpressionFlowValidationDetails }) | (_FlowValidationDetails & { malformedNodeInputExpression: MalformedNodeInputExpressionFlowValidationDetails }) | (_FlowValidationDetails & { mismatchedNodeInputType: MismatchedNodeInputTypeFlowValidationDetails }) | (_FlowValidationDetails & { mismatchedNodeOutputType: MismatchedNodeOutputTypeFlowValidationDetails }) | (_FlowValidationDetails & { incompatibleConnectionDataType: IncompatibleConnectionDataTypeFlowValidationDetails }) | (_FlowValidationDetails & { missingConnectionConfiguration: MissingConnectionConfigurationFlowValidationDetails }) | (_FlowValidationDetails & { missingDefaultCondition: MissingDefaultConditionFlowValidationDetails }) | (_FlowValidationDetails & { missingEndingNodes: MissingEndingNodesFlowValidationDetails }) | (_FlowValidationDetails & { missingNodeConfiguration: MissingNodeConfigurationFlowValidationDetails }) | (_FlowValidationDetails & { missingNodeInput: MissingNodeInputFlowValidationDetails }) | (_FlowValidationDetails & { missingNodeOutput: MissingNodeOutputFlowValidationDetails }) | (_FlowValidationDetails & { missingStartingNodes: MissingStartingNodesFlowValidationDetails }) | (_FlowValidationDetails & { multipleNodeInputConnections: MultipleNodeInputConnectionsFlowValidationDetails }) | (_FlowValidationDetails & { unfulfilledNodeInput: UnfulfilledNodeInputFlowValidationDetails }) | (_FlowValidationDetails & { unsatisfiedConnectionConditions: UnsatisfiedConnectionConditionsFlowValidationDetails }) | (_FlowValidationDetails & { unspecified: UnspecifiedFlowValidationDetails }) | (_FlowValidationDetails & { unknownNodeInput: UnknownNodeInputFlowValidationDetails }) | (_FlowValidationDetails & { unknownNodeOutput: UnknownNodeOutputFlowValidationDetails }) | (_FlowValidationDetails & { missingLoopInputNode: MissingLoopInputNodeFlowValidationDetails }) | (_FlowValidationDetails & { missingLoopControllerNode: MissingLoopControllerNodeFlowValidationDetails }) | (_FlowValidationDetails & { multipleLoopInputNodes: MultipleLoopInputNodesFlowValidationDetails }) | (_FlowValidationDetails & { multipleLoopControllerNodes: MultipleLoopControllerNodesFlowValidationDetails }) | (_FlowValidationDetails & { loopIncompatibleNodeType: LoopIncompatibleNodeTypeFlowValidationDetails }) | (_FlowValidationDetails & { invalidLoopBoundary: InvalidLoopBoundaryFlowValidationDetails });
 export type FlowValidations = Array<FlowValidation>;
 export type FlowValidationSeverity = "WARNING" | "ERROR";
-export type FlowValidationType =
-  | "CYCLIC_CONNECTION"
-  | "DUPLICATE_CONNECTIONS"
-  | "DUPLICATE_CONDITION_EXPRESSION"
-  | "UNREACHABLE_NODE"
-  | "UNKNOWN_CONNECTION_SOURCE"
-  | "UNKNOWN_CONNECTION_SOURCE_OUTPUT"
-  | "UNKNOWN_CONNECTION_TARGET"
-  | "UNKNOWN_CONNECTION_TARGET_INPUT"
-  | "UNKNOWN_CONNECTION_CONDITION"
-  | "MALFORMED_CONDITION_EXPRESSION"
-  | "MALFORMED_NODE_INPUT_EXPRESSION"
-  | "MISMATCHED_NODE_INPUT_TYPE"
-  | "MISMATCHED_NODE_OUTPUT_TYPE"
-  | "INCOMPATIBLE_CONNECTION_DATA_TYPE"
-  | "MISSING_CONNECTION_CONFIGURATION"
-  | "MISSING_DEFAULT_CONDITION"
-  | "MISSING_ENDING_NODES"
-  | "MISSING_NODE_CONFIGURATION"
-  | "MISSING_NODE_INPUT"
-  | "MISSING_NODE_OUTPUT"
-  | "MISSING_STARTING_NODES"
-  | "MULTIPLE_NODE_INPUT_CONNECTIONS"
-  | "UNFULFILLED_NODE_INPUT"
-  | "UNSATISFIED_CONNECTION_CONDITIONS"
-  | "UNSPECIFIED"
-  | "UNKNOWN_NODE_INPUT"
-  | "UNKNOWN_NODE_OUTPUT"
-  | "MISSING_LOOP_INPUT_NODE"
-  | "MISSING_LOOP_CONTROLLER_NODE"
-  | "MULTIPLE_LOOP_INPUT_NODES"
-  | "MULTIPLE_LOOP_CONTROLLER_NODES"
-  | "LOOP_INCOMPATIBLE_NODE_TYPE"
-  | "INVALID_LOOP_BOUNDARY";
+export type FlowValidationType = "CYCLIC_CONNECTION" | "DUPLICATE_CONNECTIONS" | "DUPLICATE_CONDITION_EXPRESSION" | "UNREACHABLE_NODE" | "UNKNOWN_CONNECTION_SOURCE" | "UNKNOWN_CONNECTION_SOURCE_OUTPUT" | "UNKNOWN_CONNECTION_TARGET" | "UNKNOWN_CONNECTION_TARGET_INPUT" | "UNKNOWN_CONNECTION_CONDITION" | "MALFORMED_CONDITION_EXPRESSION" | "MALFORMED_NODE_INPUT_EXPRESSION" | "MISMATCHED_NODE_INPUT_TYPE" | "MISMATCHED_NODE_OUTPUT_TYPE" | "INCOMPATIBLE_CONNECTION_DATA_TYPE" | "MISSING_CONNECTION_CONFIGURATION" | "MISSING_DEFAULT_CONDITION" | "MISSING_ENDING_NODES" | "MISSING_NODE_CONFIGURATION" | "MISSING_NODE_INPUT" | "MISSING_NODE_OUTPUT" | "MISSING_STARTING_NODES" | "MULTIPLE_NODE_INPUT_CONNECTIONS" | "UNFULFILLED_NODE_INPUT" | "UNSATISFIED_CONNECTION_CONDITIONS" | "UNSPECIFIED" | "UNKNOWN_NODE_INPUT" | "UNKNOWN_NODE_OUTPUT" | "MISSING_LOOP_INPUT_NODE" | "MISSING_LOOP_CONTROLLER_NODE" | "MULTIPLE_LOOP_INPUT_NODES" | "MULTIPLE_LOOP_CONTROLLER_NODES" | "LOOP_INCOMPATIBLE_NODE_TYPE" | "INVALID_LOOP_BOUNDARY";
 export type FlowVersionSummaries = Array<FlowVersionSummary>;
 export interface FlowVersionSummary {
   id: string;
@@ -1197,9 +971,7 @@ interface _FunctionSchema {
   functions?: Array<BedrockAgentFunction>;
 }
 
-export type FunctionSchema = _FunctionSchema & {
-  functions: Array<BedrockAgentFunction>;
-};
+export type FunctionSchema = (_FunctionSchema & { functions: Array<BedrockAgentFunction> });
 export interface GetAgentActionGroupRequest {
   agentId: string;
   agentVersion: string;
@@ -1354,8 +1126,7 @@ export interface HierarchicalChunkingConfiguration {
 export interface HierarchicalChunkingLevelConfiguration {
   maxTokens: number;
 }
-export type HierarchicalChunkingLevelConfigurations =
-  Array<HierarchicalChunkingLevelConfiguration>;
+export type HierarchicalChunkingLevelConfigurations = Array<HierarchicalChunkingLevelConfiguration>;
 export type HttpsUrl = string;
 
 export type Id = string;
@@ -1364,11 +1135,7 @@ export type IncludeExclude = "INCLUDE" | "EXCLUDE";
 export interface IncompatibleConnectionDataTypeFlowValidationDetails {
   connection: string;
 }
-export type IncompatibleLoopNodeType =
-  | "INPUT"
-  | "CONDITION"
-  | "ITERATOR"
-  | "COLLECTOR";
+export type IncompatibleLoopNodeType = "INPUT" | "CONDITION" | "ITERATOR" | "COLLECTOR";
 export type IndexArn = string;
 
 export type IndexName = string;
@@ -1416,13 +1183,7 @@ export interface IngestionJobStatistics {
   numberOfDocumentsDeleted?: number;
   numberOfDocumentsFailed?: number;
 }
-export type IngestionJobStatus =
-  | "STARTING"
-  | "IN_PROGRESS"
-  | "COMPLETE"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED";
+export type IngestionJobStatus = "STARTING" | "IN_PROGRESS" | "COMPLETE" | "FAILED" | "STOPPING" | "STOPPED";
 export type IngestionJobSummaries = Array<IngestionJobSummary>;
 export interface IngestionJobSummary {
   knowledgeBaseId: string;
@@ -1455,7 +1216,8 @@ export interface InlineContent {
   textContent?: TextContentDoc;
 }
 export type InlineContentType = "BYTE" | "TEXT";
-export interface InputFlowNodeConfiguration {}
+export interface InputFlowNodeConfiguration {
+}
 export type Instruction = string;
 
 export interface IntermediateStorage {
@@ -1471,7 +1233,8 @@ export interface InvalidLoopBoundaryFlowValidationDetails {
   source: string;
   target: string;
 }
-export interface IteratorFlowNodeConfiguration {}
+export interface IteratorFlowNodeConfiguration {
+}
 export type KendraIndexArn = string;
 
 export interface KendraKnowledgeBaseConfiguration {
@@ -1542,22 +1305,8 @@ export interface KnowledgeBasePromptTemplate {
 export type KnowledgeBaseRoleArn = string;
 
 export type KnowledgeBaseState = "ENABLED" | "DISABLED";
-export type KnowledgeBaseStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "UPDATING"
-  | "FAILED"
-  | "DELETE_UNSUCCESSFUL";
-export type KnowledgeBaseStorageType =
-  | "OPENSEARCH_SERVERLESS"
-  | "PINECONE"
-  | "REDIS_ENTERPRISE_CLOUD"
-  | "RDS"
-  | "MONGO_DB_ATLAS"
-  | "NEPTUNE_ANALYTICS"
-  | "OPENSEARCH_MANAGED_CLUSTER"
-  | "S3_VECTORS";
+export type KnowledgeBaseStatus = "CREATING" | "ACTIVE" | "DELETING" | "UPDATING" | "FAILED" | "DELETE_UNSUCCESSFUL";
+export type KnowledgeBaseStorageType = "OPENSEARCH_SERVERLESS" | "PINECONE" | "REDIS_ENTERPRISE_CLOUD" | "RDS" | "MONGO_DB_ATLAS" | "NEPTUNE_ANALYTICS" | "OPENSEARCH_MANAGED_CLUSTER" | "S3_VECTORS";
 export type KnowledgeBaseSummaries = Array<KnowledgeBaseSummary>;
 export interface KnowledgeBaseSummary {
   knowledgeBaseId: string;
@@ -1730,7 +1479,8 @@ export interface LoopIncompatibleNodeTypeFlowValidationDetails {
   incompatibleNodeType: IncompatibleLoopNodeType;
   incompatibleNodeName: string;
 }
-export interface LoopInputFlowNodeConfiguration {}
+export interface LoopInputFlowNodeConfiguration {
+}
 export interface MalformedConditionExpressionFlowValidationDetails {
   node: string;
   condition: string;
@@ -1794,7 +1544,8 @@ export interface MissingConnectionConfigurationFlowValidationDetails {
 export interface MissingDefaultConditionFlowValidationDetails {
   node: string;
 }
-export interface MissingEndingNodesFlowValidationDetails {}
+export interface MissingEndingNodesFlowValidationDetails {
+}
 export interface MissingLoopControllerNodeFlowValidationDetails {
   loopNode: string;
 }
@@ -1812,7 +1563,8 @@ export interface MissingNodeOutputFlowValidationDetails {
   node: string;
   output: string;
 }
-export interface MissingStartingNodesFlowValidationDetails {}
+export interface MissingStartingNodesFlowValidationDetails {
+}
 export type ModelIdentifier = string;
 
 export type MongoDbAtlasCollectionName = string;
@@ -1907,9 +1659,10 @@ interface _OrchestrationExecutor {
   lambda?: string;
 }
 
-export type OrchestrationExecutor = _OrchestrationExecutor & { lambda: string };
+export type OrchestrationExecutor = (_OrchestrationExecutor & { lambda: string });
 export type OrchestrationType = "DEFAULT" | "CUSTOM_ORCHESTRATION";
-export interface OutputFlowNodeConfiguration {}
+export interface OutputFlowNodeConfiguration {
+}
 export type ParameterDescription = string;
 
 export interface ParameterDetail {
@@ -1929,9 +1682,7 @@ export interface ParsingPrompt {
 }
 export type ParsingPromptText = string;
 
-export type ParsingStrategy =
-  | "BEDROCK_FOUNDATION_MODEL"
-  | "BEDROCK_DATA_AUTOMATION";
+export type ParsingStrategy = "BEDROCK_FOUNDATION_MODEL" | "BEDROCK_DATA_AUTOMATION";
 export interface PatternObjectFilter {
   objectType: string;
   inclusionFilters?: Array<string>;
@@ -2014,20 +1765,12 @@ interface _PromptFlowNodeSourceConfiguration {
   inline?: PromptFlowNodeInlineConfiguration;
 }
 
-export type PromptFlowNodeSourceConfiguration =
-  | (_PromptFlowNodeSourceConfiguration & {
-      resource: PromptFlowNodeResourceConfiguration;
-    })
-  | (_PromptFlowNodeSourceConfiguration & {
-      inline: PromptFlowNodeInlineConfiguration;
-    });
+export type PromptFlowNodeSourceConfiguration = (_PromptFlowNodeSourceConfiguration & { resource: PromptFlowNodeResourceConfiguration }) | (_PromptFlowNodeSourceConfiguration & { inline: PromptFlowNodeInlineConfiguration });
 interface _PromptGenAiResource {
   agent?: PromptAgentResource;
 }
 
-export type PromptGenAiResource = _PromptGenAiResource & {
-  agent: PromptAgentResource;
-};
+export type PromptGenAiResource = (_PromptGenAiResource & { agent: PromptAgentResource });
 export type PromptId = string;
 
 export type PromptIdentifier = string;
@@ -2036,9 +1779,7 @@ interface _PromptInferenceConfiguration {
   text?: PromptModelInferenceConfiguration;
 }
 
-export type PromptInferenceConfiguration = _PromptInferenceConfiguration & {
-  text: PromptModelInferenceConfiguration;
-};
+export type PromptInferenceConfiguration = (_PromptInferenceConfiguration & { text: PromptModelInferenceConfiguration });
 export interface PromptInputVariable {
   name?: string;
 }
@@ -2084,16 +1825,9 @@ interface _PromptTemplateConfiguration {
   chat?: ChatPromptTemplateConfiguration;
 }
 
-export type PromptTemplateConfiguration =
-  | (_PromptTemplateConfiguration & { text: TextPromptTemplateConfiguration })
-  | (_PromptTemplateConfiguration & { chat: ChatPromptTemplateConfiguration });
+export type PromptTemplateConfiguration = (_PromptTemplateConfiguration & { text: TextPromptTemplateConfiguration }) | (_PromptTemplateConfiguration & { chat: ChatPromptTemplateConfiguration });
 export type PromptTemplateType = "TEXT" | "CHAT";
-export type PromptType =
-  | "PRE_PROCESSING"
-  | "ORCHESTRATION"
-  | "POST_PROCESSING"
-  | "KNOWLEDGE_BASE_RESPONSE_GENERATION"
-  | "MEMORY_SUMMARIZATION";
+export type PromptType = "PRE_PROCESSING" | "ORCHESTRATION" | "POST_PROCESSING" | "KNOWLEDGE_BASE_RESPONSE_GENERATION" | "MEMORY_SUMMARIZATION";
 export interface PromptVariant {
   name: string;
   templateType: PromptTemplateType;
@@ -2189,10 +1923,7 @@ export interface RedshiftProvisionedAuthConfiguration {
   databaseUser?: string;
   usernamePasswordSecretArn?: string;
 }
-export type RedshiftProvisionedAuthType =
-  | "IAM"
-  | "USERNAME_PASSWORD"
-  | "USERNAME";
+export type RedshiftProvisionedAuthType = "IAM" | "USERNAME_PASSWORD" | "USERNAME";
 export interface RedshiftProvisionedConfiguration {
   clusterIdentifier: string;
   authConfiguration: RedshiftProvisionedAuthConfiguration;
@@ -2213,8 +1944,7 @@ export interface RedshiftQueryEngineStorageConfiguration {
   awsDataCatalogConfiguration?: RedshiftQueryEngineAwsDataCatalogStorageConfiguration;
   redshiftConfiguration?: RedshiftQueryEngineRedshiftStorageConfiguration;
 }
-export type RedshiftQueryEngineStorageConfigurations =
-  Array<RedshiftQueryEngineStorageConfiguration>;
+export type RedshiftQueryEngineStorageConfigurations = Array<RedshiftQueryEngineStorageConfiguration>;
 export type RedshiftQueryEngineStorageType = "REDSHIFT" | "AWS_DATA_CATALOG";
 export type RedshiftQueryEngineType = "SERVERLESS" | "PROVISIONED";
 export interface RedshiftServerlessAuthConfiguration {
@@ -2234,13 +1964,7 @@ interface _RerankingMetadataSelectiveModeConfiguration {
   fieldsToExclude?: Array<FieldForReranking>;
 }
 
-export type RerankingMetadataSelectiveModeConfiguration =
-  | (_RerankingMetadataSelectiveModeConfiguration & {
-      fieldsToInclude: Array<FieldForReranking>;
-    })
-  | (_RerankingMetadataSelectiveModeConfiguration & {
-      fieldsToExclude: Array<FieldForReranking>;
-    });
+export type RerankingMetadataSelectiveModeConfiguration = (_RerankingMetadataSelectiveModeConfiguration & { fieldsToInclude: Array<FieldForReranking> }) | (_RerankingMetadataSelectiveModeConfiguration & { fieldsToExclude: Array<FieldForReranking> });
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -2256,10 +1980,7 @@ interface _RetrievalFlowNodeServiceConfiguration {
   s3?: RetrievalFlowNodeS3Configuration;
 }
 
-export type RetrievalFlowNodeServiceConfiguration =
-  _RetrievalFlowNodeServiceConfiguration & {
-    s3: RetrievalFlowNodeS3Configuration;
-  };
+export type RetrievalFlowNodeServiceConfiguration = (_RetrievalFlowNodeServiceConfiguration & { s3: RetrievalFlowNodeS3Configuration });
 export type S3BucketArn = string;
 
 export type S3BucketName = string;
@@ -2330,9 +2051,7 @@ export interface SessionSummaryConfiguration {
 }
 export type SessionTTL = number;
 
-export type SharePointAuthType =
-  | "OAUTH2_CLIENT_CREDENTIALS"
-  | "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS";
+export type SharePointAuthType = "OAUTH2_CLIENT_CREDENTIALS" | "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS";
 export interface SharePointCrawlerConfiguration {
   filterConfiguration?: CrawlFilterConfiguration;
 }
@@ -2404,8 +2123,7 @@ interface _StorageFlowNodeServiceConfiguration {
   s3?: StorageFlowNodeS3Configuration;
 }
 
-export type StorageFlowNodeServiceConfiguration =
-  _StorageFlowNodeServiceConfiguration & { s3: StorageFlowNodeS3Configuration };
+export type StorageFlowNodeServiceConfiguration = (_StorageFlowNodeServiceConfiguration & { s3: StorageFlowNodeS3Configuration });
 export type StringListValue = Array<string>;
 export type StringValue = string;
 
@@ -2416,8 +2134,7 @@ export interface SupplementalDataStorageLocation {
   type: SupplementalDataStorageLocationType;
   s3Location?: S3Location;
 }
-export type SupplementalDataStorageLocations =
-  Array<SupplementalDataStorageLocation>;
+export type SupplementalDataStorageLocations = Array<SupplementalDataStorageLocation>;
 export type SupplementalDataStorageLocationType = "S3";
 export type SupportedLanguages = "PYTHON_3";
 interface _SystemContentBlock {
@@ -2425,9 +2142,7 @@ interface _SystemContentBlock {
   cachePoint?: CachePointBlock;
 }
 
-export type SystemContentBlock =
-  | (_SystemContentBlock & { text: string })
-  | (_SystemContentBlock & { cachePoint: CachePointBlock });
+export type SystemContentBlock = (_SystemContentBlock & { text: string }) | (_SystemContentBlock & { cachePoint: CachePointBlock });
 export type SystemContentBlocks = Array<SystemContentBlock>;
 export type TaggableResourcesArn = string;
 
@@ -2438,7 +2153,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsMap = Record<string, string>;
 export type TagValue = string;
 
@@ -2464,19 +2180,14 @@ interface _Tool {
   cachePoint?: CachePointBlock;
 }
 
-export type Tool =
-  | (_Tool & { toolSpec: ToolSpecification })
-  | (_Tool & { cachePoint: CachePointBlock });
+export type Tool = (_Tool & { toolSpec: ToolSpecification }) | (_Tool & { cachePoint: CachePointBlock });
 interface _ToolChoice {
   auto?: AutoToolChoice;
   any?: AnyToolChoice;
   tool?: SpecificToolChoice;
 }
 
-export type ToolChoice =
-  | (_ToolChoice & { auto: AutoToolChoice })
-  | (_ToolChoice & { any: AnyToolChoice })
-  | (_ToolChoice & { tool: SpecificToolChoice });
+export type ToolChoice = (_ToolChoice & { auto: AutoToolChoice }) | (_ToolChoice & { any: AnyToolChoice }) | (_ToolChoice & { tool: SpecificToolChoice });
 export interface ToolConfiguration {
   tools: Array<Tool>;
   toolChoice?: ToolChoice;
@@ -2485,7 +2196,7 @@ interface _ToolInputSchema {
   json?: unknown;
 }
 
-export type ToolInputSchema = _ToolInputSchema & { json: unknown };
+export type ToolInputSchema = (_ToolInputSchema & { json: unknown });
 export type ToolName = string;
 
 export type Tools = Array<Tool>;
@@ -2543,12 +2254,14 @@ export interface UnreachableNodeFlowValidationDetails {
 export interface UnsatisfiedConnectionConditionsFlowValidationDetails {
   connection: string;
 }
-export interface UnspecifiedFlowValidationDetails {}
+export interface UnspecifiedFlowValidationDetails {
+}
 export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAgentActionGroupRequest {
   agentId: string;
   agentVersion: string;
@@ -2788,3 +2501,4 @@ export declare namespace ValidateFlowDefinition {
     | ValidationException
     | CommonAwsError;
 }
+

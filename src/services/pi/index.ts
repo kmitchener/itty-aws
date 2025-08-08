@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class PI extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("pi", new AwsJson11Protocol(), cfg);
+  }
+
   createPerformanceAnalysisReport(
     input: CreatePerformanceAnalysisReportRequest,
   ): Effect.Effect<
     CreatePerformanceAnalysisReportResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("CreatePerformanceAnalysisReport", input);
   }
@@ -18,10 +20,7 @@ export class PI extends AWSServiceClient {
     input: DeletePerformanceAnalysisReportRequest,
   ): Effect.Effect<
     DeletePerformanceAnalysisReportResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("DeletePerformanceAnalysisReport", input);
   }
@@ -29,10 +28,7 @@ export class PI extends AWSServiceClient {
     input: DescribeDimensionKeysRequest,
   ): Effect.Effect<
     DescribeDimensionKeysResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("DescribeDimensionKeys", input);
   }
@@ -40,10 +36,7 @@ export class PI extends AWSServiceClient {
     input: GetDimensionKeyDetailsRequest,
   ): Effect.Effect<
     GetDimensionKeyDetailsResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("GetDimensionKeyDetails", input);
   }
@@ -51,10 +44,7 @@ export class PI extends AWSServiceClient {
     input: GetPerformanceAnalysisReportRequest,
   ): Effect.Effect<
     GetPerformanceAnalysisReportResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("GetPerformanceAnalysisReport", input);
   }
@@ -62,10 +52,7 @@ export class PI extends AWSServiceClient {
     input: GetResourceMetadataRequest,
   ): Effect.Effect<
     GetResourceMetadataResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("GetResourceMetadata", input);
   }
@@ -73,10 +60,7 @@ export class PI extends AWSServiceClient {
     input: GetResourceMetricsRequest,
   ): Effect.Effect<
     GetResourceMetricsResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("GetResourceMetrics", input);
   }
@@ -84,10 +68,7 @@ export class PI extends AWSServiceClient {
     input: ListAvailableResourceDimensionsRequest,
   ): Effect.Effect<
     ListAvailableResourceDimensionsResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("ListAvailableResourceDimensions", input);
   }
@@ -95,10 +76,7 @@ export class PI extends AWSServiceClient {
     input: ListAvailableResourceMetricsRequest,
   ): Effect.Effect<
     ListAvailableResourceMetricsResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("ListAvailableResourceMetrics", input);
   }
@@ -106,10 +84,7 @@ export class PI extends AWSServiceClient {
     input: ListPerformanceAnalysisReportsRequest,
   ): Effect.Effect<
     ListPerformanceAnalysisReportsResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("ListPerformanceAnalysisReports", input);
   }
@@ -117,10 +92,7 @@ export class PI extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -128,10 +100,7 @@ export class PI extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -139,10 +108,7 @@ export class PI extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServiceError
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -207,7 +173,8 @@ export interface DeletePerformanceAnalysisReportRequest {
   Identifier: string;
   AnalysisReportId: string;
 }
-export interface DeletePerformanceAnalysisReportResponse {}
+export interface DeletePerformanceAnalysisReportResponse {
+}
 export interface DescribeDimensionKeysRequest {
   ServiceType: ServiceType;
   Identifier: string;
@@ -272,17 +239,8 @@ export interface FeatureMetadata {
   Status?: FeatureStatus;
 }
 export type FeatureMetadataMap = Record<string, FeatureMetadata>;
-export type FeatureStatus =
-  | "ENABLED"
-  | "DISABLED"
-  | "UNSUPPORTED"
-  | "ENABLED_PENDING_REBOOT"
-  | "DISABLED_PENDING_REBOOT"
-  | "UNKNOWN";
-export type FineGrainedAction =
-  | "DESCRIBE_DIMENSION_KEYS"
-  | "GET_DIMENSION_KEY_DETAILS"
-  | "GET_RESOURCE_METRICS";
+export type FeatureStatus = "ENABLED" | "DISABLED" | "UNSUPPORTED" | "ENABLED_PENDING_REBOOT" | "DISABLED_PENDING_REBOOT" | "UNKNOWN";
+export type FineGrainedAction = "DESCRIBE_DIMENSION_KEYS" | "GET_DIMENSION_KEY_DETAILS" | "GET_RESOURCE_METRICS";
 export interface GetDimensionKeyDetailsRequest {
   ServiceType: ServiceType;
   Identifier: string;
@@ -482,7 +440,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TextFormat = "PLAIN_TEXT" | "MARKDOWN";
@@ -491,7 +450,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare namespace CreatePerformanceAnalysisReport {
   export type Input = CreatePerformanceAnalysisReportRequest;
   export type Output = CreatePerformanceAnalysisReportResponse;
@@ -621,3 +581,4 @@ export declare namespace UntagResource {
     | NotAuthorizedException
     | CommonAwsError;
 }
+

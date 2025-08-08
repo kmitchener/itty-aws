@@ -1,25 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class EC2InstanceConnect extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("ec2-instance-connect", new AwsJson11Protocol(), cfg);
+  }
+
   sendSerialConsoleSSHPublicKey(
     input: SendSerialConsoleSSHPublicKeyRequest,
   ): Effect.Effect<
     SendSerialConsoleSSHPublicKeyResponse,
-    | AuthException
-    | EC2InstanceNotFoundException
-    | EC2InstanceStateInvalidException
-    | EC2InstanceTypeInvalidException
-    | EC2InstanceUnavailableException
-    | InvalidArgsException
-    | SerialConsoleAccessDisabledException
-    | SerialConsoleSessionLimitExceededException
-    | SerialConsoleSessionUnavailableException
-    | SerialConsoleSessionUnsupportedException
-    | ServiceException
-    | ThrottlingException
-    | CommonAwsError
+    AuthException | EC2InstanceNotFoundException | EC2InstanceStateInvalidException | EC2InstanceTypeInvalidException | EC2InstanceUnavailableException | InvalidArgsException | SerialConsoleAccessDisabledException | SerialConsoleSessionLimitExceededException | SerialConsoleSessionUnavailableException | SerialConsoleSessionUnsupportedException | ServiceException | ThrottlingException | CommonAwsError
   > {
     return this.call("SendSerialConsoleSSHPublicKey", input);
   }
@@ -27,14 +20,7 @@ export class EC2InstanceConnect extends AWSServiceClient {
     input: SendSSHPublicKeyRequest,
   ): Effect.Effect<
     SendSSHPublicKeyResponse,
-    | AuthException
-    | EC2InstanceNotFoundException
-    | EC2InstanceStateInvalidException
-    | EC2InstanceUnavailableException
-    | InvalidArgsException
-    | ServiceException
-    | ThrottlingException
-    | CommonAwsError
+    AuthException | EC2InstanceNotFoundException | EC2InstanceStateInvalidException | EC2InstanceUnavailableException | InvalidArgsException | ServiceException | ThrottlingException | CommonAwsError
   > {
     return this.call("SendSSHPublicKey", input);
   }
@@ -171,3 +157,4 @@ export declare namespace SendSSHPublicKey {
     | ThrottlingException
     | CommonAwsError;
 }
+

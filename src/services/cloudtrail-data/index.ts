@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class CloudTrailData extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cloudtrail-data", new RestJson1Protocol(), cfg);
+  }
+
   putAuditEvents(
     input: PutAuditEventsRequest,
   ): Effect.Effect<
     PutAuditEventsResponse,
-    | ChannelInsufficientPermission
-    | ChannelNotFound
-    | ChannelUnsupportedSchema
-    | DuplicatedAuditEventId
-    | InvalidChannelARN
-    | UnsupportedOperationException
-    | CommonAwsError
+    ChannelInsufficientPermission | ChannelNotFound | ChannelUnsupportedSchema | DuplicatedAuditEventId | InvalidChannelARN | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("PutAuditEvents", input);
   }
@@ -101,3 +100,4 @@ export declare namespace PutAuditEvents {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+

@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class MarketplaceCommerceAnalytics extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("marketplace-commerce-analytics", new AwsJson11Protocol(), cfg);
+  }
+
   generateDataSet(
     input: GenerateDataSetRequest,
   ): Effect.Effect<
@@ -28,32 +33,7 @@ export type DataSetPublicationDate = Date | string;
 
 export type DataSetRequestId = string;
 
-export type DataSetType =
-  | "CUSTOMER_SUBSCRIBER_HOURLY_MONTHLY_SUBSCRIPTIONS"
-  | "CUSTOMER_SUBSCRIBER_ANNUAL_SUBSCRIPTIONS"
-  | "DAILY_BUSINESS_USAGE_BY_INSTANCE_TYPE"
-  | "DAILY_BUSINESS_FEES"
-  | "DAILY_BUSINESS_FREE_TRIAL_CONVERSIONS"
-  | "DAILY_BUSINESS_NEW_INSTANCES"
-  | "DAILY_BUSINESS_NEW_PRODUCT_SUBSCRIBERS"
-  | "DAILY_BUSINESS_CANCELED_PRODUCT_SUBSCRIBERS"
-  | "MONTHLY_REVENUE_BILLING_AND_REVENUE_DATA"
-  | "MONTHLY_REVENUE_ANNUAL_SUBSCRIPTIONS"
-  | "MONTHLY_REVENUE_FIELD_DEMONSTRATION_USAGE"
-  | "MONTHLY_REVENUE_FLEXIBLE_PAYMENT_SCHEDULE"
-  | "DISBURSED_AMOUNT_BY_PRODUCT"
-  | "DISBURSED_AMOUNT_BY_PRODUCT_WITH_UNCOLLECTED_FUNDS"
-  | "DISBURSED_AMOUNT_BY_INSTANCE_HOURS"
-  | "DISBURSED_AMOUNT_BY_CUSTOMER_GEO"
-  | "DISBURSED_AMOUNT_BY_AGE_OF_UNCOLLECTED_FUNDS"
-  | "DISBURSED_AMOUNT_BY_AGE_OF_DISBURSED_FUNDS"
-  | "DISBURSED_AMOUNT_BY_AGE_OF_PAST_DUE_FUNDS"
-  | "DISBURSED_AMOUNT_BY_UNCOLLECTED_FUNDS_BREAKDOWN"
-  | "CUSTOMER_PROFILE_BY_INDUSTRY"
-  | "CUSTOMER_PROFILE_BY_REVENUE"
-  | "CUSTOMER_PROFILE_BY_GEOGRAPHY"
-  | "SALES_COMPENSATION_BILLED_REVENUE"
-  | "US_SALES_AND_USE_TAX_RECORDS";
+export type DataSetType = "CUSTOMER_SUBSCRIBER_HOURLY_MONTHLY_SUBSCRIPTIONS" | "CUSTOMER_SUBSCRIBER_ANNUAL_SUBSCRIPTIONS" | "DAILY_BUSINESS_USAGE_BY_INSTANCE_TYPE" | "DAILY_BUSINESS_FEES" | "DAILY_BUSINESS_FREE_TRIAL_CONVERSIONS" | "DAILY_BUSINESS_NEW_INSTANCES" | "DAILY_BUSINESS_NEW_PRODUCT_SUBSCRIBERS" | "DAILY_BUSINESS_CANCELED_PRODUCT_SUBSCRIBERS" | "MONTHLY_REVENUE_BILLING_AND_REVENUE_DATA" | "MONTHLY_REVENUE_ANNUAL_SUBSCRIPTIONS" | "MONTHLY_REVENUE_FIELD_DEMONSTRATION_USAGE" | "MONTHLY_REVENUE_FLEXIBLE_PAYMENT_SCHEDULE" | "DISBURSED_AMOUNT_BY_PRODUCT" | "DISBURSED_AMOUNT_BY_PRODUCT_WITH_UNCOLLECTED_FUNDS" | "DISBURSED_AMOUNT_BY_INSTANCE_HOURS" | "DISBURSED_AMOUNT_BY_CUSTOMER_GEO" | "DISBURSED_AMOUNT_BY_AGE_OF_UNCOLLECTED_FUNDS" | "DISBURSED_AMOUNT_BY_AGE_OF_DISBURSED_FUNDS" | "DISBURSED_AMOUNT_BY_AGE_OF_PAST_DUE_FUNDS" | "DISBURSED_AMOUNT_BY_UNCOLLECTED_FUNDS_BREAKDOWN" | "CUSTOMER_PROFILE_BY_INDUSTRY" | "CUSTOMER_PROFILE_BY_REVENUE" | "CUSTOMER_PROFILE_BY_GEOGRAPHY" | "SALES_COMPENSATION_BILLED_REVENUE" | "US_SALES_AND_USE_TAX_RECORDS";
 export type DestinationS3BucketName = string;
 
 export type DestinationS3Prefix = string;
@@ -99,17 +79,20 @@ export interface StartSupportDataExportRequest {
 export interface StartSupportDataExportResult {
   dataSetRequestId?: string;
 }
-export type SupportDataSetType =
-  | "customer_support_contacts_data"
-  | "test_customer_support_contacts_data";
+export type SupportDataSetType = "customer_support_contacts_data" | "test_customer_support_contacts_data";
 export declare namespace GenerateDataSet {
   export type Input = GenerateDataSetRequest;
   export type Output = GenerateDataSetResult;
-  export type Error = MarketplaceCommerceAnalyticsException | CommonAwsError;
+  export type Error =
+    | MarketplaceCommerceAnalyticsException
+    | CommonAwsError;
 }
 
 export declare namespace StartSupportDataExport {
   export type Input = StartSupportDataExportRequest;
   export type Output = StartSupportDataExportResult;
-  export type Error = MarketplaceCommerceAnalyticsException | CommonAwsError;
+  export type Error =
+    | MarketplaceCommerceAnalyticsException
+    | CommonAwsError;
 }
+

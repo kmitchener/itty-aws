@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Notifications extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("notifications", new RestJson1Protocol(), cfg);
+  }
+
   listManagedNotificationChannelAssociations(
     input: ListManagedNotificationChannelAssociationsRequest,
   ): Effect.Effect<
     ListManagedNotificationChannelAssociationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListManagedNotificationChannelAssociations", input);
   }
@@ -20,12 +20,7 @@ export class Notifications extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -33,12 +28,7 @@ export class Notifications extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -46,12 +36,7 @@ export class Notifications extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -96,17 +81,20 @@ export interface AssociateChannelRequest {
   arn: string;
   notificationConfigurationArn: string;
 }
-export interface AssociateChannelResponse {}
+export interface AssociateChannelResponse {
+}
 export interface AssociateManagedNotificationAccountContactRequest {
   contactIdentifier: string;
   managedNotificationConfigurationArn: string;
 }
-export interface AssociateManagedNotificationAccountContactResponse {}
+export interface AssociateManagedNotificationAccountContactResponse {
+}
 export interface AssociateManagedNotificationAdditionalChannelRequest {
   channelArn: string;
   managedNotificationConfigurationArn: string;
 }
-export interface AssociateManagedNotificationAdditionalChannelResponse {}
+export interface AssociateManagedNotificationAdditionalChannelResponse {
+}
 export type ChannelArn = string;
 
 export type ChannelAssociationOverrideOption = string;
@@ -149,11 +137,13 @@ export type CreationTime = Date | string;
 export interface DeleteEventRuleRequest {
   arn: string;
 }
-export interface DeleteEventRuleResponse {}
+export interface DeleteEventRuleResponse {
+}
 export interface DeleteNotificationConfigurationRequest {
   arn: string;
 }
-export interface DeleteNotificationConfigurationResponse {}
+export interface DeleteNotificationConfigurationResponse {
+}
 export interface DeregisterNotificationHubRequest {
   notificationHubRegion: string;
 }
@@ -166,25 +156,32 @@ export interface Dimension {
   value: string;
 }
 export type Dimensions = Array<Dimension>;
-export interface DisableNotificationsAccessForOrganizationRequest {}
-export interface DisableNotificationsAccessForOrganizationResponse {}
+export interface DisableNotificationsAccessForOrganizationRequest {
+}
+export interface DisableNotificationsAccessForOrganizationResponse {
+}
 export interface DisassociateChannelRequest {
   arn: string;
   notificationConfigurationArn: string;
 }
-export interface DisassociateChannelResponse {}
+export interface DisassociateChannelResponse {
+}
 export interface DisassociateManagedNotificationAccountContactRequest {
   contactIdentifier: string;
   managedNotificationConfigurationArn: string;
 }
-export interface DisassociateManagedNotificationAccountContactResponse {}
+export interface DisassociateManagedNotificationAccountContactResponse {
+}
 export interface DisassociateManagedNotificationAdditionalChannelRequest {
   channelArn: string;
   managedNotificationConfigurationArn: string;
 }
-export interface DisassociateManagedNotificationAdditionalChannelResponse {}
-export interface EnableNotificationsAccessForOrganizationRequest {}
-export interface EnableNotificationsAccessForOrganizationResponse {}
+export interface DisassociateManagedNotificationAdditionalChannelResponse {
+}
+export interface EnableNotificationsAccessForOrganizationRequest {
+}
+export interface EnableNotificationsAccessForOrganizationResponse {
+}
 export type ErrorMessage = string;
 
 export type EventRuleArn = string;
@@ -280,7 +277,8 @@ export interface GetNotificationEventResponse {
   creationTime: Date | string;
   content: NotificationEventSchema;
 }
-export interface GetNotificationsAccessForOrganizationRequest {}
+export interface GetNotificationsAccessForOrganizationRequest {
+}
 export interface GetNotificationsAccessForOrganizationResponse {
   notificationsAccessForOrganization: NotificationsAccessForOrganization;
 }
@@ -396,8 +394,7 @@ export interface ListTagsForResourceResponse {
 }
 export type LocaleCode = string;
 
-export type ManagedNotificationChannelAssociations =
-  Array<ManagedNotificationChannelAssociationSummary>;
+export type ManagedNotificationChannelAssociations = Array<ManagedNotificationChannelAssociationSummary>;
 export interface ManagedNotificationChannelAssociationSummary {
   channelIdentifier: string;
   channelType: string;
@@ -429,8 +426,7 @@ export interface ManagedNotificationChildEventOverview {
   aggregateManagedNotificationEventArn: string;
   organizationalUnitId?: string;
 }
-export type ManagedNotificationChildEvents =
-  Array<ManagedNotificationChildEventOverview>;
+export type ManagedNotificationChildEvents = Array<ManagedNotificationChildEventOverview>;
 export interface ManagedNotificationChildEventSummary {
   schemaVersion: string;
   sourceEventMetadata: ManagedSourceEventMetadataSummary;
@@ -445,8 +441,7 @@ export type ManagedNotificationConfigurationName = string;
 
 export type ManagedNotificationConfigurationOsArn = string;
 
-export type ManagedNotificationConfigurations =
-  Array<ManagedNotificationConfigurationStructure>;
+export type ManagedNotificationConfigurations = Array<ManagedNotificationConfigurationStructure>;
 export interface ManagedNotificationConfigurationStructure {
   arn: string;
   name: string;
@@ -524,8 +519,7 @@ export type NotificationConfigurationDescription = string;
 
 export type NotificationConfigurationName = string;
 
-export type NotificationConfigurations =
-  Array<NotificationConfigurationStructure>;
+export type NotificationConfigurations = Array<NotificationConfigurationStructure>;
 export type NotificationConfigurationStatus = string;
 
 export interface NotificationConfigurationStructure {
@@ -670,8 +664,7 @@ export interface SummarizationDimensionOverview {
   count: number;
   sampleValues?: Array<string>;
 }
-export type SummarizationDimensionOverviews =
-  Array<SummarizationDimensionOverview>;
+export type SummarizationDimensionOverviews = Array<SummarizationDimensionOverview>;
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
@@ -680,7 +673,8 @@ export interface TagResourceRequest {
   arn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Array<string>;
 export type TagValue = string;
 
@@ -710,7 +704,8 @@ export interface UntagResourceRequest {
   arn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateEventRuleRequest {
   arn: string;
   eventPattern?: string;
@@ -793,3 +788,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

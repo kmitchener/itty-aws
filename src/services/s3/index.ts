@@ -3,16 +3,27 @@ import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestXmlProtocol } from "../../protocols/restxml.js";
 
 export class S3 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("s3", new RestXmlProtocol(), cfg);
+  }
+
   abortMultipartUpload(
     input: AbortMultipartUploadRequest,
-  ): Effect.Effect<AbortMultipartUploadOutput, NoSuchUpload | CommonAwsError> {
+  ): Effect.Effect<
+    AbortMultipartUploadOutput,
+    NoSuchUpload | CommonAwsError
+  > {
     return this.call("AbortMultipartUpload", input);
   }
   completeMultipartUpload(
     input: CompleteMultipartUploadRequest,
-  ): Effect.Effect<CompleteMultipartUploadOutput, CommonAwsError> {
+  ): Effect.Effect<
+    CompleteMultipartUploadOutput,
+    CommonAwsError
+  > {
     return this.call("CompleteMultipartUpload", input);
   }
   copyObject(
@@ -33,140 +44,226 @@ export class S3 extends AWSServiceClient {
   }
   createBucketMetadataConfiguration(
     input: CreateBucketMetadataConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("CreateBucketMetadataConfiguration", input);
   }
   createBucketMetadataTableConfiguration(
     input: CreateBucketMetadataTableConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("CreateBucketMetadataTableConfiguration", input);
   }
   createMultipartUpload(
     input: CreateMultipartUploadRequest,
-  ): Effect.Effect<CreateMultipartUploadOutput, CommonAwsError> {
+  ): Effect.Effect<
+    CreateMultipartUploadOutput,
+    CommonAwsError
+  > {
     return this.call("CreateMultipartUpload", input);
   }
   createSession(
     input: CreateSessionRequest,
-  ): Effect.Effect<CreateSessionOutput, NoSuchBucket | CommonAwsError> {
+  ): Effect.Effect<
+    CreateSessionOutput,
+    NoSuchBucket | CommonAwsError
+  > {
     return this.call("CreateSession", input);
   }
-  deleteBucket(input: DeleteBucketRequest): Effect.Effect<{}, CommonAwsError> {
+  deleteBucket(
+    input: DeleteBucketRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucket", input);
   }
   deleteBucketAnalyticsConfiguration(
     input: DeleteBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketAnalyticsConfiguration", input);
   }
   deleteBucketCors(
     input: DeleteBucketCorsRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketCors", input);
   }
   deleteBucketEncryption(
     input: DeleteBucketEncryptionRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketEncryption", input);
   }
   deleteBucketIntelligentTieringConfiguration(
     input: DeleteBucketIntelligentTieringConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketIntelligentTieringConfiguration", input);
   }
   deleteBucketInventoryConfiguration(
     input: DeleteBucketInventoryConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketInventoryConfiguration", input);
   }
   deleteBucketLifecycle(
     input: DeleteBucketLifecycleRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketLifecycle", input);
   }
   deleteBucketMetadataConfiguration(
     input: DeleteBucketMetadataConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketMetadataConfiguration", input);
   }
   deleteBucketMetadataTableConfiguration(
     input: DeleteBucketMetadataTableConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketMetadataTableConfiguration", input);
   }
   deleteBucketMetricsConfiguration(
     input: DeleteBucketMetricsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketMetricsConfiguration", input);
   }
   deleteBucketOwnershipControls(
     input: DeleteBucketOwnershipControlsRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketOwnershipControls", input);
   }
   deleteBucketPolicy(
     input: DeleteBucketPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketPolicy", input);
   }
   deleteBucketReplication(
     input: DeleteBucketReplicationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketReplication", input);
   }
   deleteBucketTagging(
     input: DeleteBucketTaggingRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketTagging", input);
   }
   deleteBucketWebsite(
     input: DeleteBucketWebsiteRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeleteBucketWebsite", input);
   }
   deleteObject(
     input: DeleteObjectRequest,
-  ): Effect.Effect<DeleteObjectOutput, CommonAwsError> {
+  ): Effect.Effect<
+    DeleteObjectOutput,
+    CommonAwsError
+  > {
     return this.call("DeleteObject", input);
   }
   deleteObjects(
     input: DeleteObjectsRequest,
-  ): Effect.Effect<DeleteObjectsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    DeleteObjectsOutput,
+    CommonAwsError
+  > {
     return this.call("DeleteObjects", input);
   }
   deleteObjectTagging(
     input: DeleteObjectTaggingRequest,
-  ): Effect.Effect<DeleteObjectTaggingOutput, CommonAwsError> {
+  ): Effect.Effect<
+    DeleteObjectTaggingOutput,
+    CommonAwsError
+  > {
     return this.call("DeleteObjectTagging", input);
   }
   deletePublicAccessBlock(
     input: DeletePublicAccessBlockRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("DeletePublicAccessBlock", input);
   }
   getBucketAccelerateConfiguration(
     input: GetBucketAccelerateConfigurationRequest,
-  ): Effect.Effect<GetBucketAccelerateConfigurationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketAccelerateConfigurationOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketAccelerateConfiguration", input);
   }
   getBucketAcl(
     input: GetBucketAclRequest,
-  ): Effect.Effect<GetBucketAclOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketAclOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketAcl", input);
   }
   getBucketAnalyticsConfiguration(
     input: GetBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<GetBucketAnalyticsConfigurationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketAnalyticsConfigurationOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketAnalyticsConfiguration", input);
   }
   getBucketCors(
     input: GetBucketCorsRequest,
-  ): Effect.Effect<GetBucketCorsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketCorsOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketCors", input);
   }
   getBucketEncryption(
     input: GetBucketEncryptionRequest,
-  ): Effect.Effect<GetBucketEncryptionOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketEncryptionOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketEncryption", input);
   }
   getBucketIntelligentTieringConfiguration(
@@ -179,82 +276,130 @@ export class S3 extends AWSServiceClient {
   }
   getBucketInventoryConfiguration(
     input: GetBucketInventoryConfigurationRequest,
-  ): Effect.Effect<GetBucketInventoryConfigurationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketInventoryConfigurationOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketInventoryConfiguration", input);
   }
   getBucketLifecycleConfiguration(
     input: GetBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<GetBucketLifecycleConfigurationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketLifecycleConfigurationOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketLifecycleConfiguration", input);
   }
   getBucketLocation(
     input: GetBucketLocationRequest,
-  ): Effect.Effect<GetBucketLocationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketLocationOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketLocation", input);
   }
   getBucketLogging(
     input: GetBucketLoggingRequest,
-  ): Effect.Effect<GetBucketLoggingOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketLoggingOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketLogging", input);
   }
   getBucketMetadataConfiguration(
     input: GetBucketMetadataConfigurationRequest,
-  ): Effect.Effect<GetBucketMetadataConfigurationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketMetadataConfigurationOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketMetadataConfiguration", input);
   }
   getBucketMetadataTableConfiguration(
     input: GetBucketMetadataTableConfigurationRequest,
-  ): Effect.Effect<GetBucketMetadataTableConfigurationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketMetadataTableConfigurationOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketMetadataTableConfiguration", input);
   }
   getBucketMetricsConfiguration(
     input: GetBucketMetricsConfigurationRequest,
-  ): Effect.Effect<GetBucketMetricsConfigurationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketMetricsConfigurationOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketMetricsConfiguration", input);
   }
   getBucketNotificationConfiguration(
     input: GetBucketNotificationConfigurationRequest,
-  ): Effect.Effect<NotificationConfiguration, CommonAwsError> {
+  ): Effect.Effect<
+    NotificationConfiguration,
+    CommonAwsError
+  > {
     return this.call("GetBucketNotificationConfiguration", input);
   }
   getBucketOwnershipControls(
     input: GetBucketOwnershipControlsRequest,
-  ): Effect.Effect<GetBucketOwnershipControlsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketOwnershipControlsOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketOwnershipControls", input);
   }
   getBucketPolicy(
     input: GetBucketPolicyRequest,
-  ): Effect.Effect<GetBucketPolicyOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketPolicyOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketPolicy", input);
   }
   getBucketPolicyStatus(
     input: GetBucketPolicyStatusRequest,
-  ): Effect.Effect<GetBucketPolicyStatusOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketPolicyStatusOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketPolicyStatus", input);
   }
   getBucketReplication(
     input: GetBucketReplicationRequest,
-  ): Effect.Effect<GetBucketReplicationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketReplicationOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketReplication", input);
   }
   getBucketRequestPayment(
     input: GetBucketRequestPaymentRequest,
-  ): Effect.Effect<GetBucketRequestPaymentOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketRequestPaymentOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketRequestPayment", input);
   }
   getBucketTagging(
     input: GetBucketTaggingRequest,
-  ): Effect.Effect<GetBucketTaggingOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketTaggingOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketTagging", input);
   }
   getBucketVersioning(
     input: GetBucketVersioningRequest,
-  ): Effect.Effect<GetBucketVersioningOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketVersioningOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketVersioning", input);
   }
   getBucketWebsite(
     input: GetBucketWebsiteRequest,
-  ): Effect.Effect<GetBucketWebsiteOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetBucketWebsiteOutput,
+    CommonAwsError
+  > {
     return this.call("GetBucketWebsite", input);
   }
   getObject(
@@ -267,57 +412,90 @@ export class S3 extends AWSServiceClient {
   }
   getObjectAcl(
     input: GetObjectAclRequest,
-  ): Effect.Effect<GetObjectAclOutput, NoSuchKey | CommonAwsError> {
+  ): Effect.Effect<
+    GetObjectAclOutput,
+    NoSuchKey | CommonAwsError
+  > {
     return this.call("GetObjectAcl", input);
   }
   getObjectAttributes(
     input: GetObjectAttributesRequest,
-  ): Effect.Effect<GetObjectAttributesOutput, NoSuchKey | CommonAwsError> {
+  ): Effect.Effect<
+    GetObjectAttributesOutput,
+    NoSuchKey | CommonAwsError
+  > {
     return this.call("GetObjectAttributes", input);
   }
   getObjectLegalHold(
     input: GetObjectLegalHoldRequest,
-  ): Effect.Effect<GetObjectLegalHoldOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetObjectLegalHoldOutput,
+    CommonAwsError
+  > {
     return this.call("GetObjectLegalHold", input);
   }
   getObjectLockConfiguration(
     input: GetObjectLockConfigurationRequest,
-  ): Effect.Effect<GetObjectLockConfigurationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetObjectLockConfigurationOutput,
+    CommonAwsError
+  > {
     return this.call("GetObjectLockConfiguration", input);
   }
   getObjectRetention(
     input: GetObjectRetentionRequest,
-  ): Effect.Effect<GetObjectRetentionOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetObjectRetentionOutput,
+    CommonAwsError
+  > {
     return this.call("GetObjectRetention", input);
   }
   getObjectTagging(
     input: GetObjectTaggingRequest,
-  ): Effect.Effect<GetObjectTaggingOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetObjectTaggingOutput,
+    CommonAwsError
+  > {
     return this.call("GetObjectTagging", input);
   }
   getObjectTorrent(
     input: GetObjectTorrentRequest,
-  ): Effect.Effect<GetObjectTorrentOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetObjectTorrentOutput,
+    CommonAwsError
+  > {
     return this.call("GetObjectTorrent", input);
   }
   getPublicAccessBlock(
     input: GetPublicAccessBlockRequest,
-  ): Effect.Effect<GetPublicAccessBlockOutput, CommonAwsError> {
+  ): Effect.Effect<
+    GetPublicAccessBlockOutput,
+    CommonAwsError
+  > {
     return this.call("GetPublicAccessBlock", input);
   }
   headBucket(
     input: HeadBucketRequest,
-  ): Effect.Effect<HeadBucketOutput, NotFound | CommonAwsError> {
+  ): Effect.Effect<
+    HeadBucketOutput,
+    NotFound | CommonAwsError
+  > {
     return this.call("HeadBucket", input);
   }
   headObject(
     input: HeadObjectRequest,
-  ): Effect.Effect<HeadObjectOutput, NotFound | CommonAwsError> {
+  ): Effect.Effect<
+    HeadObjectOutput,
+    NotFound | CommonAwsError
+  > {
     return this.call("HeadObject", input);
   }
   listBucketAnalyticsConfigurations(
     input: ListBucketAnalyticsConfigurationsRequest,
-  ): Effect.Effect<ListBucketAnalyticsConfigurationsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    ListBucketAnalyticsConfigurationsOutput,
+    CommonAwsError
+  > {
     return this.call("ListBucketAnalyticsConfigurations", input);
   }
   listBucketIntelligentTieringConfigurations(
@@ -330,177 +508,274 @@ export class S3 extends AWSServiceClient {
   }
   listBucketInventoryConfigurations(
     input: ListBucketInventoryConfigurationsRequest,
-  ): Effect.Effect<ListBucketInventoryConfigurationsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    ListBucketInventoryConfigurationsOutput,
+    CommonAwsError
+  > {
     return this.call("ListBucketInventoryConfigurations", input);
   }
   listBucketMetricsConfigurations(
     input: ListBucketMetricsConfigurationsRequest,
-  ): Effect.Effect<ListBucketMetricsConfigurationsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    ListBucketMetricsConfigurationsOutput,
+    CommonAwsError
+  > {
     return this.call("ListBucketMetricsConfigurations", input);
   }
   listBuckets(
     input: ListBucketsRequest,
-  ): Effect.Effect<ListBucketsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    ListBucketsOutput,
+    CommonAwsError
+  > {
     return this.call("ListBuckets", input);
   }
   listDirectoryBuckets(
     input: ListDirectoryBucketsRequest,
-  ): Effect.Effect<ListDirectoryBucketsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    ListDirectoryBucketsOutput,
+    CommonAwsError
+  > {
     return this.call("ListDirectoryBuckets", input);
   }
   listMultipartUploads(
     input: ListMultipartUploadsRequest,
-  ): Effect.Effect<ListMultipartUploadsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    ListMultipartUploadsOutput,
+    CommonAwsError
+  > {
     return this.call("ListMultipartUploads", input);
   }
   listObjects(
     input: ListObjectsRequest,
-  ): Effect.Effect<ListObjectsOutput, NoSuchBucket | CommonAwsError> {
+  ): Effect.Effect<
+    ListObjectsOutput,
+    NoSuchBucket | CommonAwsError
+  > {
     return this.call("ListObjects", input);
   }
   listObjectsV2(
     input: ListObjectsV2Request,
-  ): Effect.Effect<ListObjectsV2Output, NoSuchBucket | CommonAwsError> {
+  ): Effect.Effect<
+    ListObjectsV2Output,
+    NoSuchBucket | CommonAwsError
+  > {
     return this.call("ListObjectsV2", input);
   }
   listObjectVersions(
     input: ListObjectVersionsRequest,
-  ): Effect.Effect<ListObjectVersionsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    ListObjectVersionsOutput,
+    CommonAwsError
+  > {
     return this.call("ListObjectVersions", input);
   }
   listParts(
     input: ListPartsRequest,
-  ): Effect.Effect<ListPartsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    ListPartsOutput,
+    CommonAwsError
+  > {
     return this.call("ListParts", input);
   }
   putBucketAccelerateConfiguration(
     input: PutBucketAccelerateConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketAccelerateConfiguration", input);
   }
-  putBucketAcl(input: PutBucketAclRequest): Effect.Effect<{}, CommonAwsError> {
+  putBucketAcl(
+    input: PutBucketAclRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketAcl", input);
   }
   putBucketAnalyticsConfiguration(
     input: PutBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketAnalyticsConfiguration", input);
   }
   putBucketCors(
     input: PutBucketCorsRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketCors", input);
   }
   putBucketEncryption(
     input: PutBucketEncryptionRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketEncryption", input);
   }
   putBucketIntelligentTieringConfiguration(
     input: PutBucketIntelligentTieringConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketIntelligentTieringConfiguration", input);
   }
   putBucketInventoryConfiguration(
     input: PutBucketInventoryConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketInventoryConfiguration", input);
   }
   putBucketLifecycleConfiguration(
     input: PutBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<PutBucketLifecycleConfigurationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    PutBucketLifecycleConfigurationOutput,
+    CommonAwsError
+  > {
     return this.call("PutBucketLifecycleConfiguration", input);
   }
   putBucketLogging(
     input: PutBucketLoggingRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketLogging", input);
   }
   putBucketMetricsConfiguration(
     input: PutBucketMetricsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketMetricsConfiguration", input);
   }
   putBucketNotificationConfiguration(
     input: PutBucketNotificationConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketNotificationConfiguration", input);
   }
   putBucketOwnershipControls(
     input: PutBucketOwnershipControlsRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketOwnershipControls", input);
   }
   putBucketPolicy(
     input: PutBucketPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketPolicy", input);
   }
   putBucketReplication(
     input: PutBucketReplicationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketReplication", input);
   }
   putBucketRequestPayment(
     input: PutBucketRequestPaymentRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketRequestPayment", input);
   }
   putBucketTagging(
     input: PutBucketTaggingRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketTagging", input);
   }
   putBucketVersioning(
     input: PutBucketVersioningRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketVersioning", input);
   }
   putBucketWebsite(
     input: PutBucketWebsiteRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutBucketWebsite", input);
   }
   putObject(
     input: PutObjectRequest,
   ): Effect.Effect<
     PutObjectOutput,
-    | EncryptionTypeMismatch
-    | InvalidRequest
-    | InvalidWriteOffset
-    | TooManyParts
-    | CommonAwsError
+    EncryptionTypeMismatch | InvalidRequest | InvalidWriteOffset | TooManyParts | CommonAwsError
   > {
     return this.call("PutObject", input);
   }
   putObjectAcl(
     input: PutObjectAclRequest,
-  ): Effect.Effect<PutObjectAclOutput, NoSuchKey | CommonAwsError> {
+  ): Effect.Effect<
+    PutObjectAclOutput,
+    NoSuchKey | CommonAwsError
+  > {
     return this.call("PutObjectAcl", input);
   }
   putObjectLegalHold(
     input: PutObjectLegalHoldRequest,
-  ): Effect.Effect<PutObjectLegalHoldOutput, CommonAwsError> {
+  ): Effect.Effect<
+    PutObjectLegalHoldOutput,
+    CommonAwsError
+  > {
     return this.call("PutObjectLegalHold", input);
   }
   putObjectLockConfiguration(
     input: PutObjectLockConfigurationRequest,
-  ): Effect.Effect<PutObjectLockConfigurationOutput, CommonAwsError> {
+  ): Effect.Effect<
+    PutObjectLockConfigurationOutput,
+    CommonAwsError
+  > {
     return this.call("PutObjectLockConfiguration", input);
   }
   putObjectRetention(
     input: PutObjectRetentionRequest,
-  ): Effect.Effect<PutObjectRetentionOutput, CommonAwsError> {
+  ): Effect.Effect<
+    PutObjectRetentionOutput,
+    CommonAwsError
+  > {
     return this.call("PutObjectRetention", input);
   }
   putObjectTagging(
     input: PutObjectTaggingRequest,
-  ): Effect.Effect<PutObjectTaggingOutput, CommonAwsError> {
+  ): Effect.Effect<
+    PutObjectTaggingOutput,
+    CommonAwsError
+  > {
     return this.call("PutObjectTagging", input);
   }
   putPublicAccessBlock(
     input: PutPublicAccessBlockRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("PutPublicAccessBlock", input);
   }
   renameObject(
@@ -521,32 +796,50 @@ export class S3 extends AWSServiceClient {
   }
   selectObjectContent(
     input: SelectObjectContentRequest,
-  ): Effect.Effect<SelectObjectContentOutput, CommonAwsError> {
+  ): Effect.Effect<
+    SelectObjectContentOutput,
+    CommonAwsError
+  > {
     return this.call("SelectObjectContent", input);
   }
   updateBucketMetadataInventoryTableConfiguration(
     input: UpdateBucketMetadataInventoryTableConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("UpdateBucketMetadataInventoryTableConfiguration", input);
   }
   updateBucketMetadataJournalTableConfiguration(
     input: UpdateBucketMetadataJournalTableConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("UpdateBucketMetadataJournalTableConfiguration", input);
   }
   uploadPart(
     input: UploadPartRequest,
-  ): Effect.Effect<UploadPartOutput, CommonAwsError> {
+  ): Effect.Effect<
+    UploadPartOutput,
+    CommonAwsError
+  > {
     return this.call("UploadPart", input);
   }
   uploadPartCopy(
     input: UploadPartCopyRequest,
-  ): Effect.Effect<UploadPartCopyOutput, CommonAwsError> {
+  ): Effect.Effect<
+    UploadPartCopyOutput,
+    CommonAwsError
+  > {
     return this.call("UploadPartCopy", input);
   }
   writeGetObjectResponse(
     input: WriteGetObjectResponseRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("WriteGetObjectResponse", input);
   }
 }
@@ -621,10 +914,7 @@ interface _AnalyticsFilter {
   And?: AnalyticsAndOperator;
 }
 
-export type AnalyticsFilter =
-  | (_AnalyticsFilter & { Prefix: string })
-  | (_AnalyticsFilter & { Tag: Tag })
-  | (_AnalyticsFilter & { And: AnalyticsAndOperator });
+export type AnalyticsFilter = (_AnalyticsFilter & { Prefix: string }) | (_AnalyticsFilter & { Tag: Tag }) | (_AnalyticsFilter & { And: AnalyticsAndOperator });
 export type AnalyticsId = string;
 
 export interface AnalyticsS3BucketDestination {
@@ -646,15 +936,13 @@ export interface Bucket {
 export type BucketAccelerateStatus = "Enabled" | "Suspended";
 export declare class BucketAlreadyExists extends EffectData.TaggedError(
   "BucketAlreadyExists",
-)<{}> {}
+)<{
+}> {}
 export declare class BucketAlreadyOwnedByYou extends EffectData.TaggedError(
   "BucketAlreadyOwnedByYou",
-)<{}> {}
-export type BucketCannedACL =
-  | "private"
-  | "public_read"
-  | "public_read_write"
-  | "authenticated_read";
+)<{
+}> {}
+export type BucketCannedACL = "private" | "public_read" | "public_read_write" | "authenticated_read";
 export interface BucketInfo {
   DataRedundancy?: DataRedundancy;
   Type?: BucketType;
@@ -664,40 +952,7 @@ export type BucketKeyEnabled = boolean;
 export interface BucketLifecycleConfiguration {
   Rules: Array<LifecycleRule>;
 }
-export type BucketLocationConstraint =
-  | "af_south_1"
-  | "ap_east_1"
-  | "ap_northeast_1"
-  | "ap_northeast_2"
-  | "ap_northeast_3"
-  | "ap_south_1"
-  | "ap_south_2"
-  | "ap_southeast_1"
-  | "ap_southeast_2"
-  | "ap_southeast_3"
-  | "ap_southeast_4"
-  | "ap_southeast_5"
-  | "ca_central_1"
-  | "cn_north_1"
-  | "cn_northwest_1"
-  | "EU"
-  | "eu_central_1"
-  | "eu_central_2"
-  | "eu_north_1"
-  | "eu_south_1"
-  | "eu_south_2"
-  | "eu_west_1"
-  | "eu_west_2"
-  | "eu_west_3"
-  | "il_central_1"
-  | "me_central_1"
-  | "me_south_1"
-  | "sa_east_1"
-  | "us_east_2"
-  | "us_gov_east_1"
-  | "us_gov_west_1"
-  | "us_west_1"
-  | "us_west_2";
+export type BucketLocationConstraint = "af_south_1" | "ap_east_1" | "ap_northeast_1" | "ap_northeast_2" | "ap_northeast_3" | "ap_south_1" | "ap_south_2" | "ap_southeast_1" | "ap_southeast_2" | "ap_southeast_3" | "ap_southeast_4" | "ap_southeast_5" | "ca_central_1" | "cn_north_1" | "cn_northwest_1" | "EU" | "eu_central_1" | "eu_central_2" | "eu_north_1" | "eu_south_1" | "eu_south_2" | "eu_west_1" | "eu_west_2" | "eu_west_3" | "il_central_1" | "me_central_1" | "me_south_1" | "sa_east_1" | "us_east_2" | "us_gov_east_1" | "us_gov_west_1" | "us_west_1" | "us_west_2";
 export type BucketLocationName = string;
 
 export interface BucketLoggingStatus {
@@ -729,12 +984,7 @@ export interface Checksum {
   ChecksumSHA256?: string;
   ChecksumType?: ChecksumType;
 }
-export type ChecksumAlgorithm =
-  | "CRC32"
-  | "CRC32C"
-  | "SHA1"
-  | "SHA256"
-  | "CRC64NVME";
+export type ChecksumAlgorithm = "CRC32" | "CRC32C" | "SHA1" | "SHA256" | "CRC64NVME";
 export type ChecksumAlgorithmList = Array<ChecksumAlgorithm>;
 export type ChecksumCRC32 = string;
 
@@ -830,7 +1080,8 @@ export type ContentRange = string;
 
 export type ContentType = string;
 
-export interface ContinuationEvent {}
+export interface ContinuationEvent {
+}
 export interface CopyObjectOutput {
   CopyObjectResult?: CopyObjectResult;
   Expiration?: string;
@@ -1240,10 +1491,12 @@ export interface EncryptionConfiguration {
 }
 export declare class EncryptionTypeMismatch extends EffectData.TaggedError(
   "EncryptionTypeMismatch",
-)<{}> {}
+)<{
+}> {}
 export type End = number;
 
-export interface EndEvent {}
+export interface EndEvent {
+}
 export interface S3Error {
   Key?: string;
   VersionId?: string;
@@ -1264,35 +1517,9 @@ export type ErrorMessage = string;
 export type Errors = Array<S3Error>;
 export type ETag = string;
 
-export type Event =
-  | "s3_ReducedRedundancyLostObject"
-  | "s3_ObjectCreated_"
-  | "s3_ObjectCreated_Put"
-  | "s3_ObjectCreated_Post"
-  | "s3_ObjectCreated_Copy"
-  | "s3_ObjectCreated_CompleteMultipartUpload"
-  | "s3_ObjectRemoved_"
-  | "s3_ObjectRemoved_Delete"
-  | "s3_ObjectRemoved_DeleteMarkerCreated"
-  | "s3_ObjectRestore_"
-  | "s3_ObjectRestore_Post"
-  | "s3_ObjectRestore_Completed"
-  | "s3_Replication_"
-  | "s3_Replication_OperationFailedReplication"
-  | "s3_Replication_OperationNotTracked"
-  | "s3_Replication_OperationMissedThreshold"
-  | "s3_Replication_OperationReplicatedAfterThreshold"
-  | "s3_ObjectRestore_Delete"
-  | "s3_LifecycleTransition"
-  | "s3_IntelligentTiering"
-  | "s3_ObjectAcl_Put"
-  | "s3_LifecycleExpiration_"
-  | "s3_LifecycleExpiration_Delete"
-  | "s3_LifecycleExpiration_DeleteMarkerCreated"
-  | "s3_ObjectTagging_"
-  | "s3_ObjectTagging_Put"
-  | "s3_ObjectTagging_Delete";
-export interface EventBridgeConfiguration {}
+export type Event = "s3_ReducedRedundancyLostObject" | "s3_ObjectCreated_" | "s3_ObjectCreated_Put" | "s3_ObjectCreated_Post" | "s3_ObjectCreated_Copy" | "s3_ObjectCreated_CompleteMultipartUpload" | "s3_ObjectRemoved_" | "s3_ObjectRemoved_Delete" | "s3_ObjectRemoved_DeleteMarkerCreated" | "s3_ObjectRestore_" | "s3_ObjectRestore_Post" | "s3_ObjectRestore_Completed" | "s3_Replication_" | "s3_Replication_OperationFailedReplication" | "s3_Replication_OperationNotTracked" | "s3_Replication_OperationMissedThreshold" | "s3_Replication_OperationReplicatedAfterThreshold" | "s3_ObjectRestore_Delete" | "s3_LifecycleTransition" | "s3_IntelligentTiering" | "s3_ObjectAcl_Put" | "s3_LifecycleExpiration_" | "s3_LifecycleExpiration_Delete" | "s3_LifecycleExpiration_DeleteMarkerCreated" | "s3_ObjectTagging_" | "s3_ObjectTagging_Put" | "s3_ObjectTagging_Delete";
+export interface EventBridgeConfiguration {
+}
 export type EventList = Array<Event>;
 export interface ExistingObjectReplication {
   Status: ExistingObjectReplicationStatus;
@@ -1769,7 +1996,8 @@ export type ID = string;
 
 export declare class IdempotencyParameterMismatch extends EffectData.TaggedError(
   "IdempotencyParameterMismatch",
-)<{}> {}
+)<{
+}> {}
 export type IfMatch = string;
 
 export type IfMatchInitiatedTime = Date | string;
@@ -1799,9 +2027,7 @@ export interface InputSerialization {
   JSON?: JSONInput;
   Parquet?: ParquetInput;
 }
-export type IntelligentTieringAccessTier =
-  | "ARCHIVE_ACCESS"
-  | "DEEP_ARCHIVE_ACCESS";
+export type IntelligentTieringAccessTier = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
 export interface IntelligentTieringAndOperator {
   Prefix?: string;
   Tags?: Array<Tag>;
@@ -1812,8 +2038,7 @@ export interface IntelligentTieringConfiguration {
   Status: IntelligentTieringStatus;
   Tierings: Array<Tiering>;
 }
-export type IntelligentTieringConfigurationList =
-  Array<IntelligentTieringConfiguration>;
+export type IntelligentTieringConfigurationList = Array<IntelligentTieringConfiguration>;
 export type IntelligentTieringDays = number;
 
 export interface IntelligentTieringFilter {
@@ -1832,10 +2057,12 @@ export declare class InvalidObjectState extends EffectData.TaggedError(
 }> {}
 export declare class InvalidRequest extends EffectData.TaggedError(
   "InvalidRequest",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidWriteOffset extends EffectData.TaggedError(
   "InvalidWriteOffset",
-)<{}> {}
+)<{
+}> {}
 export interface InventoryConfiguration {
   Destination: InventoryDestination;
   IsEnabled: boolean;
@@ -1862,22 +2089,7 @@ export type InventoryFrequency = "Daily" | "Weekly";
 export type InventoryId = string;
 
 export type InventoryIncludedObjectVersions = "All" | "Current";
-export type InventoryOptionalField =
-  | "Size"
-  | "LastModifiedDate"
-  | "StorageClass"
-  | "ETag"
-  | "IsMultipartUploaded"
-  | "ReplicationStatus"
-  | "EncryptionStatus"
-  | "ObjectLockRetainUntilDate"
-  | "ObjectLockMode"
-  | "ObjectLockLegalHoldStatus"
-  | "IntelligentTieringAccessTier"
-  | "BucketKeyStatus"
-  | "ChecksumAlgorithm"
-  | "ObjectAccessControlList"
-  | "ObjectOwner";
+export type InventoryOptionalField = "Size" | "LastModifiedDate" | "StorageClass" | "ETag" | "IsMultipartUploaded" | "ReplicationStatus" | "EncryptionStatus" | "ObjectLockRetainUntilDate" | "ObjectLockMode" | "ObjectLockLegalHoldStatus" | "IntelligentTieringAccessTier" | "BucketKeyStatus" | "ChecksumAlgorithm" | "ObjectAccessControlList" | "ObjectOwner";
 export type InventoryOptionalFields = Array<InventoryOptionalField>;
 export interface InventoryS3BucketDestination {
   AccountId?: string;
@@ -1953,8 +2165,7 @@ export interface LambdaFunctionConfiguration {
   Events: Array<Event>;
   Filter?: NotificationConfigurationFilter;
 }
-export type LambdaFunctionConfigurationList =
-  Array<LambdaFunctionConfiguration>;
+export type LambdaFunctionConfigurationList = Array<LambdaFunctionConfiguration>;
 export type LastModified = Date | string;
 
 export type LastModifiedTime = Date | string;
@@ -2274,11 +2485,7 @@ interface _MetricsFilter {
   And?: MetricsAndOperator;
 }
 
-export type MetricsFilter =
-  | (_MetricsFilter & { Prefix: string })
-  | (_MetricsFilter & { Tag: Tag })
-  | (_MetricsFilter & { AccessPointArn: string })
-  | (_MetricsFilter & { And: MetricsAndOperator });
+export type MetricsFilter = (_MetricsFilter & { Prefix: string }) | (_MetricsFilter & { Tag: Tag }) | (_MetricsFilter & { AccessPointArn: string }) | (_MetricsFilter & { And: MetricsAndOperator });
 export type MetricsId = string;
 
 export type MetricsStatus = "Enabled" | "Disabled";
@@ -2326,18 +2533,23 @@ export interface NoncurrentVersionTransition {
   StorageClass?: TransitionStorageClass;
   NewerNoncurrentVersions?: number;
 }
-export type NoncurrentVersionTransitionList =
-  Array<NoncurrentVersionTransition>;
+export type NoncurrentVersionTransitionList = Array<NoncurrentVersionTransition>;
 export declare class NoSuchBucket extends EffectData.TaggedError(
   "NoSuchBucket",
-)<{}> {}
+)<{
+}> {}
 export declare class NoSuchKey extends EffectData.TaggedError(
   "NoSuchKey",
-)<{}> {}
+)<{
+}> {}
 export declare class NoSuchUpload extends EffectData.TaggedError(
   "NoSuchUpload",
-)<{}> {}
-export declare class NotFound extends EffectData.TaggedError("NotFound")<{}> {}
+)<{
+}> {}
+export declare class NotFound extends EffectData.TaggedError(
+  "NotFound",
+)<{
+}> {}
 export interface NotificationConfiguration {
   TopicConfigurations?: Array<TopicConfiguration>;
   QueueConfigurations?: Array<QueueConfiguration>;
@@ -2362,22 +2574,11 @@ export interface S3Object {
 }
 export declare class ObjectAlreadyInActiveTierError extends EffectData.TaggedError(
   "ObjectAlreadyInActiveTierError",
-)<{}> {}
-export type ObjectAttributes =
-  | "ETAG"
-  | "CHECKSUM"
-  | "OBJECT_PARTS"
-  | "STORAGE_CLASS"
-  | "OBJECT_SIZE";
+)<{
+}> {}
+export type ObjectAttributes = "ETAG" | "CHECKSUM" | "OBJECT_PARTS" | "STORAGE_CLASS" | "OBJECT_SIZE";
 export type ObjectAttributesList = Array<ObjectAttributes>;
-export type ObjectCannedACL =
-  | "private"
-  | "public_read"
-  | "public_read_write"
-  | "authenticated_read"
-  | "aws_exec_read"
-  | "bucket_owner_read"
-  | "bucket_owner_full_control";
+export type ObjectCannedACL = "private" | "public_read" | "public_read_write" | "authenticated_read" | "aws_exec_read" | "bucket_owner_read" | "bucket_owner_full_control";
 export interface ObjectIdentifier {
   Key: string;
   VersionId?: string;
@@ -2415,11 +2616,9 @@ export type ObjectLockToken = string;
 
 export declare class ObjectNotInActiveTierError extends EffectData.TaggedError(
   "ObjectNotInActiveTierError",
-)<{}> {}
-export type ObjectOwnership =
-  | "BucketOwnerPreferred"
-  | "ObjectWriter"
-  | "BucketOwnerEnforced";
+)<{
+}> {}
+export type ObjectOwnership = "BucketOwnerPreferred" | "ObjectWriter" | "BucketOwnerEnforced";
 export interface ObjectPart {
   PartNumber?: number;
   Size?: number;
@@ -2435,19 +2634,7 @@ export type ObjectSizeGreaterThanBytes = number;
 
 export type ObjectSizeLessThanBytes = number;
 
-export type ObjectStorageClass =
-  | "STANDARD"
-  | "REDUCED_REDUNDANCY"
-  | "GLACIER"
-  | "STANDARD_IA"
-  | "ONEZONE_IA"
-  | "INTELLIGENT_TIERING"
-  | "DEEP_ARCHIVE"
-  | "OUTPOSTS"
-  | "GLACIER_IR"
-  | "SNOW"
-  | "EXPRESS_ONEZONE"
-  | "FSX_OPENZFS";
+export type ObjectStorageClass = "STANDARD" | "REDUCED_REDUNDANCY" | "GLACIER" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE" | "FSX_OPENZFS";
 export interface ObjectVersion {
   ETag?: string;
   ChecksumAlgorithm?: Array<ChecksumAlgorithm>;
@@ -2486,7 +2673,8 @@ export interface OwnershipControlsRule {
   ObjectOwnership: ObjectOwnership;
 }
 export type OwnershipControlsRules = Array<OwnershipControlsRule>;
-export interface ParquetInput {}
+export interface ParquetInput {
+}
 export interface Part {
   PartNumber?: number;
   LastModified?: Date | string;
@@ -2511,12 +2699,7 @@ export type PartsCount = number;
 
 export type PartsList = Array<ObjectPart>;
 export type Payer = "Requester" | "BucketOwner";
-export type Permission =
-  | "FULL_CONTROL"
-  | "WRITE"
-  | "WRITE_ACP"
-  | "READ"
-  | "READ_ACP";
+export type Permission = "FULL_CONTROL" | "WRITE" | "WRITE_ACP" | "READ" | "READ_ACP";
 export type Policy = string;
 
 export interface PolicyStatus {
@@ -2855,7 +3038,8 @@ export interface RedirectAllRequestsTo {
 }
 export type Region = string;
 
-export interface RenameObjectOutput {}
+export interface RenameObjectOutput {
+}
 export interface RenameObjectRequest {
   Bucket: string;
   Key: string;
@@ -2916,12 +3100,7 @@ export interface ReplicationRuleFilter {
 }
 export type ReplicationRules = Array<ReplicationRule>;
 export type ReplicationRuleStatus = "Enabled" | "Disabled";
-export type ReplicationStatus =
-  | "COMPLETE"
-  | "PENDING"
-  | "FAILED"
-  | "REPLICA"
-  | "COMPLETED";
+export type ReplicationStatus = "COMPLETE" | "PENDING" | "FAILED" | "REPLICA" | "COMPLETED";
 export interface ReplicationTime {
   Status: ReplicationTimeStatus;
   Time: ReplicationTimeValue;
@@ -3040,12 +3219,7 @@ interface _SelectObjectContentEventStream {
   End?: EndEvent;
 }
 
-export type SelectObjectContentEventStream =
-  | (_SelectObjectContentEventStream & { Records: RecordsEvent })
-  | (_SelectObjectContentEventStream & { Stats: StatsEvent })
-  | (_SelectObjectContentEventStream & { Progress: ProgressEvent })
-  | (_SelectObjectContentEventStream & { Cont: ContinuationEvent })
-  | (_SelectObjectContentEventStream & { End: EndEvent });
+export type SelectObjectContentEventStream = (_SelectObjectContentEventStream & { Records: RecordsEvent }) | (_SelectObjectContentEventStream & { Stats: StatsEvent }) | (_SelectObjectContentEventStream & { Progress: ProgressEvent }) | (_SelectObjectContentEventStream & { Cont: ContinuationEvent }) | (_SelectObjectContentEventStream & { End: EndEvent });
 export interface SelectObjectContentOutput {
   Payload?: SelectObjectContentEventStream;
 }
@@ -3069,11 +3243,7 @@ export interface SelectParameters {
   Expression: string;
   OutputSerialization: OutputSerialization;
 }
-export type ServerSideEncryption =
-  | "AES256"
-  | "aws_fsx"
-  | "aws_kms"
-  | "aws_kms_dsse";
+export type ServerSideEncryption = "AES256" | "aws_fsx" | "aws_kms" | "aws_kms_dsse";
 export interface ServerSideEncryptionByDefault {
   SSEAlgorithm: ServerSideEncryption;
   KMSMasterKeyID?: string;
@@ -3099,7 +3269,8 @@ export type SessionExpiration = Date | string;
 export type SessionMode = "ReadOnly" | "ReadWrite";
 export type Setting = boolean;
 
-export interface SimplePrefix {}
+export interface SimplePrefix {
+}
 export type Size = number;
 
 export type SkipValidation = boolean;
@@ -3125,7 +3296,8 @@ export type SSEKMSEncryptionContext = string;
 
 export type SSEKMSKeyId = string;
 
-export interface SSES3 {}
+export interface SSES3 {
+}
 export type Start = number;
 
 export type StartAfter = string;
@@ -3138,19 +3310,7 @@ export interface Stats {
 export interface StatsEvent {
   Details?: Stats;
 }
-export type StorageClass =
-  | "STANDARD"
-  | "REDUCED_REDUNDANCY"
-  | "STANDARD_IA"
-  | "ONEZONE_IA"
-  | "INTELLIGENT_TIERING"
-  | "GLACIER"
-  | "DEEP_ARCHIVE"
-  | "OUTPOSTS"
-  | "GLACIER_IR"
-  | "SNOW"
-  | "EXPRESS_ONEZONE"
-  | "FSX_OPENZFS";
+export type StorageClass = "STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "GLACIER" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE" | "FSX_OPENZFS";
 export interface StorageClassAnalysis {
   DataExport?: StorageClassAnalysisDataExport;
 }
@@ -3200,7 +3360,8 @@ export type Token = string;
 
 export declare class TooManyParts extends EffectData.TaggedError(
   "TooManyParts",
-)<{}> {}
+)<{
+}> {}
 export type TopicArn = string;
 
 export interface TopicConfiguration {
@@ -3215,17 +3376,9 @@ export interface Transition {
   Days?: number;
   StorageClass?: TransitionStorageClass;
 }
-export type TransitionDefaultMinimumObjectSize =
-  | "varies_by_storage_class"
-  | "all_storage_classes_128K";
+export type TransitionDefaultMinimumObjectSize = "varies_by_storage_class" | "all_storage_classes_128K";
 export type TransitionList = Array<Transition>;
-export type TransitionStorageClass =
-  | "GLACIER"
-  | "STANDARD_IA"
-  | "ONEZONE_IA"
-  | "INTELLIGENT_TIERING"
-  | "DEEP_ARCHIVE"
-  | "GLACIER_IR";
+export type TransitionStorageClass = "GLACIER" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "DEEP_ARCHIVE" | "GLACIER_IR";
 export type Type = "CanonicalUser" | "AmazonCustomerByEmail" | "Group";
 export interface UpdateBucketMetadataInventoryTableConfigurationRequest {
   Bucket: string;
@@ -3379,19 +3532,24 @@ export type Years = number;
 export declare namespace AbortMultipartUpload {
   export type Input = AbortMultipartUploadRequest;
   export type Output = AbortMultipartUploadOutput;
-  export type Error = NoSuchUpload | CommonAwsError;
+  export type Error =
+    | NoSuchUpload
+    | CommonAwsError;
 }
 
 export declare namespace CompleteMultipartUpload {
   export type Input = CompleteMultipartUploadRequest;
   export type Output = CompleteMultipartUploadOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CopyObject {
   export type Input = CopyObjectRequest;
   export type Output = CopyObjectOutput;
-  export type Error = ObjectNotInActiveTierError | CommonAwsError;
+  export type Error =
+    | ObjectNotInActiveTierError
+    | CommonAwsError;
 }
 
 export declare namespace CreateBucket {
@@ -3406,511 +3564,605 @@ export declare namespace CreateBucket {
 export declare namespace CreateBucketMetadataConfiguration {
   export type Input = CreateBucketMetadataConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateBucketMetadataTableConfiguration {
   export type Input = CreateBucketMetadataTableConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateMultipartUpload {
   export type Input = CreateMultipartUploadRequest;
   export type Output = CreateMultipartUploadOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateSession {
   export type Input = CreateSessionRequest;
   export type Output = CreateSessionOutput;
-  export type Error = NoSuchBucket | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucket {
   export type Input = DeleteBucketRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketAnalyticsConfiguration {
   export type Input = DeleteBucketAnalyticsConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketCors {
   export type Input = DeleteBucketCorsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketEncryption {
   export type Input = DeleteBucketEncryptionRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketIntelligentTieringConfiguration {
   export type Input = DeleteBucketIntelligentTieringConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketInventoryConfiguration {
   export type Input = DeleteBucketInventoryConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketLifecycle {
   export type Input = DeleteBucketLifecycleRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketMetadataConfiguration {
   export type Input = DeleteBucketMetadataConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketMetadataTableConfiguration {
   export type Input = DeleteBucketMetadataTableConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketMetricsConfiguration {
   export type Input = DeleteBucketMetricsConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketOwnershipControls {
   export type Input = DeleteBucketOwnershipControlsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketPolicy {
   export type Input = DeleteBucketPolicyRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketReplication {
   export type Input = DeleteBucketReplicationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketTagging {
   export type Input = DeleteBucketTaggingRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketWebsite {
   export type Input = DeleteBucketWebsiteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteObject {
   export type Input = DeleteObjectRequest;
   export type Output = DeleteObjectOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteObjects {
   export type Input = DeleteObjectsRequest;
   export type Output = DeleteObjectsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteObjectTagging {
   export type Input = DeleteObjectTaggingRequest;
   export type Output = DeleteObjectTaggingOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeletePublicAccessBlock {
   export type Input = DeletePublicAccessBlockRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketAccelerateConfiguration {
   export type Input = GetBucketAccelerateConfigurationRequest;
   export type Output = GetBucketAccelerateConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketAcl {
   export type Input = GetBucketAclRequest;
   export type Output = GetBucketAclOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketAnalyticsConfiguration {
   export type Input = GetBucketAnalyticsConfigurationRequest;
   export type Output = GetBucketAnalyticsConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketCors {
   export type Input = GetBucketCorsRequest;
   export type Output = GetBucketCorsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketEncryption {
   export type Input = GetBucketEncryptionRequest;
   export type Output = GetBucketEncryptionOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketIntelligentTieringConfiguration {
   export type Input = GetBucketIntelligentTieringConfigurationRequest;
   export type Output = GetBucketIntelligentTieringConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketInventoryConfiguration {
   export type Input = GetBucketInventoryConfigurationRequest;
   export type Output = GetBucketInventoryConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketLifecycleConfiguration {
   export type Input = GetBucketLifecycleConfigurationRequest;
   export type Output = GetBucketLifecycleConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketLocation {
   export type Input = GetBucketLocationRequest;
   export type Output = GetBucketLocationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketLogging {
   export type Input = GetBucketLoggingRequest;
   export type Output = GetBucketLoggingOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketMetadataConfiguration {
   export type Input = GetBucketMetadataConfigurationRequest;
   export type Output = GetBucketMetadataConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketMetadataTableConfiguration {
   export type Input = GetBucketMetadataTableConfigurationRequest;
   export type Output = GetBucketMetadataTableConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketMetricsConfiguration {
   export type Input = GetBucketMetricsConfigurationRequest;
   export type Output = GetBucketMetricsConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketNotificationConfiguration {
   export type Input = GetBucketNotificationConfigurationRequest;
   export type Output = NotificationConfiguration;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketOwnershipControls {
   export type Input = GetBucketOwnershipControlsRequest;
   export type Output = GetBucketOwnershipControlsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketPolicy {
   export type Input = GetBucketPolicyRequest;
   export type Output = GetBucketPolicyOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketPolicyStatus {
   export type Input = GetBucketPolicyStatusRequest;
   export type Output = GetBucketPolicyStatusOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketReplication {
   export type Input = GetBucketReplicationRequest;
   export type Output = GetBucketReplicationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketRequestPayment {
   export type Input = GetBucketRequestPaymentRequest;
   export type Output = GetBucketRequestPaymentOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketTagging {
   export type Input = GetBucketTaggingRequest;
   export type Output = GetBucketTaggingOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketVersioning {
   export type Input = GetBucketVersioningRequest;
   export type Output = GetBucketVersioningOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketWebsite {
   export type Input = GetBucketWebsiteRequest;
   export type Output = GetBucketWebsiteOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetObject {
   export type Input = GetObjectRequest;
   export type Output = GetObjectOutput;
-  export type Error = InvalidObjectState | NoSuchKey | CommonAwsError;
+  export type Error =
+    | InvalidObjectState
+    | NoSuchKey
+    | CommonAwsError;
 }
 
 export declare namespace GetObjectAcl {
   export type Input = GetObjectAclRequest;
   export type Output = GetObjectAclOutput;
-  export type Error = NoSuchKey | CommonAwsError;
+  export type Error =
+    | NoSuchKey
+    | CommonAwsError;
 }
 
 export declare namespace GetObjectAttributes {
   export type Input = GetObjectAttributesRequest;
   export type Output = GetObjectAttributesOutput;
-  export type Error = NoSuchKey | CommonAwsError;
+  export type Error =
+    | NoSuchKey
+    | CommonAwsError;
 }
 
 export declare namespace GetObjectLegalHold {
   export type Input = GetObjectLegalHoldRequest;
   export type Output = GetObjectLegalHoldOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetObjectLockConfiguration {
   export type Input = GetObjectLockConfigurationRequest;
   export type Output = GetObjectLockConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetObjectRetention {
   export type Input = GetObjectRetentionRequest;
   export type Output = GetObjectRetentionOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetObjectTagging {
   export type Input = GetObjectTaggingRequest;
   export type Output = GetObjectTaggingOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetObjectTorrent {
   export type Input = GetObjectTorrentRequest;
   export type Output = GetObjectTorrentOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetPublicAccessBlock {
   export type Input = GetPublicAccessBlockRequest;
   export type Output = GetPublicAccessBlockOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace HeadBucket {
   export type Input = HeadBucketRequest;
   export type Output = HeadBucketOutput;
-  export type Error = NotFound | CommonAwsError;
+  export type Error =
+    | NotFound
+    | CommonAwsError;
 }
 
 export declare namespace HeadObject {
   export type Input = HeadObjectRequest;
   export type Output = HeadObjectOutput;
-  export type Error = NotFound | CommonAwsError;
+  export type Error =
+    | NotFound
+    | CommonAwsError;
 }
 
 export declare namespace ListBucketAnalyticsConfigurations {
   export type Input = ListBucketAnalyticsConfigurationsRequest;
   export type Output = ListBucketAnalyticsConfigurationsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListBucketIntelligentTieringConfigurations {
   export type Input = ListBucketIntelligentTieringConfigurationsRequest;
   export type Output = ListBucketIntelligentTieringConfigurationsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListBucketInventoryConfigurations {
   export type Input = ListBucketInventoryConfigurationsRequest;
   export type Output = ListBucketInventoryConfigurationsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListBucketMetricsConfigurations {
   export type Input = ListBucketMetricsConfigurationsRequest;
   export type Output = ListBucketMetricsConfigurationsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListBuckets {
   export type Input = ListBucketsRequest;
   export type Output = ListBucketsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListDirectoryBuckets {
   export type Input = ListDirectoryBucketsRequest;
   export type Output = ListDirectoryBucketsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListMultipartUploads {
   export type Input = ListMultipartUploadsRequest;
   export type Output = ListMultipartUploadsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListObjects {
   export type Input = ListObjectsRequest;
   export type Output = ListObjectsOutput;
-  export type Error = NoSuchBucket | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | CommonAwsError;
 }
 
 export declare namespace ListObjectsV2 {
   export type Input = ListObjectsV2Request;
   export type Output = ListObjectsV2Output;
-  export type Error = NoSuchBucket | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | CommonAwsError;
 }
 
 export declare namespace ListObjectVersions {
   export type Input = ListObjectVersionsRequest;
   export type Output = ListObjectVersionsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListParts {
   export type Input = ListPartsRequest;
   export type Output = ListPartsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketAccelerateConfiguration {
   export type Input = PutBucketAccelerateConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketAcl {
   export type Input = PutBucketAclRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketAnalyticsConfiguration {
   export type Input = PutBucketAnalyticsConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketCors {
   export type Input = PutBucketCorsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketEncryption {
   export type Input = PutBucketEncryptionRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketIntelligentTieringConfiguration {
   export type Input = PutBucketIntelligentTieringConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketInventoryConfiguration {
   export type Input = PutBucketInventoryConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketLifecycleConfiguration {
   export type Input = PutBucketLifecycleConfigurationRequest;
   export type Output = PutBucketLifecycleConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketLogging {
   export type Input = PutBucketLoggingRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketMetricsConfiguration {
   export type Input = PutBucketMetricsConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketNotificationConfiguration {
   export type Input = PutBucketNotificationConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketOwnershipControls {
   export type Input = PutBucketOwnershipControlsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketPolicy {
   export type Input = PutBucketPolicyRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketReplication {
   export type Input = PutBucketReplicationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketRequestPayment {
   export type Input = PutBucketRequestPaymentRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketTagging {
   export type Input = PutBucketTaggingRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketVersioning {
   export type Input = PutBucketVersioningRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketWebsite {
   export type Input = PutBucketWebsiteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutObject {
@@ -3927,83 +4179,101 @@ export declare namespace PutObject {
 export declare namespace PutObjectAcl {
   export type Input = PutObjectAclRequest;
   export type Output = PutObjectAclOutput;
-  export type Error = NoSuchKey | CommonAwsError;
+  export type Error =
+    | NoSuchKey
+    | CommonAwsError;
 }
 
 export declare namespace PutObjectLegalHold {
   export type Input = PutObjectLegalHoldRequest;
   export type Output = PutObjectLegalHoldOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutObjectLockConfiguration {
   export type Input = PutObjectLockConfigurationRequest;
   export type Output = PutObjectLockConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutObjectRetention {
   export type Input = PutObjectRetentionRequest;
   export type Output = PutObjectRetentionOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutObjectTagging {
   export type Input = PutObjectTaggingRequest;
   export type Output = PutObjectTaggingOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutPublicAccessBlock {
   export type Input = PutPublicAccessBlockRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RenameObject {
   export type Input = RenameObjectRequest;
   export type Output = RenameObjectOutput;
-  export type Error = IdempotencyParameterMismatch | CommonAwsError;
+  export type Error =
+    | IdempotencyParameterMismatch
+    | CommonAwsError;
 }
 
 export declare namespace RestoreObject {
   export type Input = RestoreObjectRequest;
   export type Output = RestoreObjectOutput;
-  export type Error = ObjectAlreadyInActiveTierError | CommonAwsError;
+  export type Error =
+    | ObjectAlreadyInActiveTierError
+    | CommonAwsError;
 }
 
 export declare namespace SelectObjectContent {
   export type Input = SelectObjectContentRequest;
   export type Output = SelectObjectContentOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdateBucketMetadataInventoryTableConfiguration {
   export type Input = UpdateBucketMetadataInventoryTableConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdateBucketMetadataJournalTableConfiguration {
   export type Input = UpdateBucketMetadataJournalTableConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UploadPart {
   export type Input = UploadPartRequest;
   export type Output = UploadPartOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UploadPartCopy {
   export type Input = UploadPartCopyRequest;
   export type Output = UploadPartCopyOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace WriteGetObjectResponse {
   export type Input = WriteGetObjectResponseRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
+

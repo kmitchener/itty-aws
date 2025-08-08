@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class SMS extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sms", new AwsJson11Protocol(), cfg);
+  }
+
   createApp(
     input: CreateAppRequest,
   ): Effect.Effect<
     CreateAppResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("CreateApp", input);
   }
@@ -20,16 +20,7 @@ export class SMS extends AWSServiceClient {
     input: CreateReplicationJobRequest,
   ): Effect.Effect<
     CreateReplicationJobResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | NoConnectorsAvailableException
-    | OperationNotPermittedException
-    | ReplicationJobAlreadyExistsException
-    | ServerCannotBeReplicatedException
-    | TemporarilyUnavailableException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | NoConnectorsAvailableException | OperationNotPermittedException | ReplicationJobAlreadyExistsException | ServerCannotBeReplicatedException | TemporarilyUnavailableException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("CreateReplicationJob", input);
   }
@@ -37,12 +28,7 @@ export class SMS extends AWSServiceClient {
     input: DeleteAppRequest,
   ): Effect.Effect<
     DeleteAppResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("DeleteApp", input);
   }
@@ -50,12 +36,7 @@ export class SMS extends AWSServiceClient {
     input: DeleteAppLaunchConfigurationRequest,
   ): Effect.Effect<
     DeleteAppLaunchConfigurationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("DeleteAppLaunchConfiguration", input);
   }
@@ -63,12 +44,7 @@ export class SMS extends AWSServiceClient {
     input: DeleteAppReplicationConfigurationRequest,
   ): Effect.Effect<
     DeleteAppReplicationConfigurationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("DeleteAppReplicationConfiguration", input);
   }
@@ -76,12 +52,7 @@ export class SMS extends AWSServiceClient {
     input: DeleteAppValidationConfigurationRequest,
   ): Effect.Effect<
     DeleteAppValidationConfigurationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("DeleteAppValidationConfiguration", input);
   }
@@ -89,12 +60,7 @@ export class SMS extends AWSServiceClient {
     input: DeleteReplicationJobRequest,
   ): Effect.Effect<
     DeleteReplicationJobResponse,
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | ReplicationJobNotFoundException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | ReplicationJobNotFoundException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("DeleteReplicationJob", input);
   }
@@ -102,11 +68,7 @@ export class SMS extends AWSServiceClient {
     input: DeleteServerCatalogRequest,
   ): Effect.Effect<
     DeleteServerCatalogResponse,
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("DeleteServerCatalog", input);
   }
@@ -114,11 +76,7 @@ export class SMS extends AWSServiceClient {
     input: DisassociateConnectorRequest,
   ): Effect.Effect<
     DisassociateConnectorResponse,
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("DisassociateConnector", input);
   }
@@ -126,12 +84,7 @@ export class SMS extends AWSServiceClient {
     input: GenerateChangeSetRequest,
   ): Effect.Effect<
     GenerateChangeSetResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("GenerateChangeSet", input);
   }
@@ -139,12 +92,7 @@ export class SMS extends AWSServiceClient {
     input: GenerateTemplateRequest,
   ): Effect.Effect<
     GenerateTemplateResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("GenerateTemplate", input);
   }
@@ -152,12 +100,7 @@ export class SMS extends AWSServiceClient {
     input: GetAppRequest,
   ): Effect.Effect<
     GetAppResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("GetApp", input);
   }
@@ -165,12 +108,7 @@ export class SMS extends AWSServiceClient {
     input: GetAppLaunchConfigurationRequest,
   ): Effect.Effect<
     GetAppLaunchConfigurationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("GetAppLaunchConfiguration", input);
   }
@@ -178,12 +116,7 @@ export class SMS extends AWSServiceClient {
     input: GetAppReplicationConfigurationRequest,
   ): Effect.Effect<
     GetAppReplicationConfigurationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("GetAppReplicationConfiguration", input);
   }
@@ -191,12 +124,7 @@ export class SMS extends AWSServiceClient {
     input: GetAppValidationConfigurationRequest,
   ): Effect.Effect<
     GetAppValidationConfigurationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("GetAppValidationConfiguration", input);
   }
@@ -204,12 +132,7 @@ export class SMS extends AWSServiceClient {
     input: GetAppValidationOutputRequest,
   ): Effect.Effect<
     GetAppValidationOutputResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("GetAppValidationOutput", input);
   }
@@ -225,10 +148,7 @@ export class SMS extends AWSServiceClient {
     input: GetReplicationJobsRequest,
   ): Effect.Effect<
     GetReplicationJobsResponse,
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InvalidParameterException | MissingRequiredParameterException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("GetReplicationJobs", input);
   }
@@ -236,10 +156,7 @@ export class SMS extends AWSServiceClient {
     input: GetReplicationRunsRequest,
   ): Effect.Effect<
     GetReplicationRunsResponse,
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InvalidParameterException | MissingRequiredParameterException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("GetReplicationRuns", input);
   }
@@ -247,11 +164,7 @@ export class SMS extends AWSServiceClient {
     input: GetServersRequest,
   ): Effect.Effect<
     GetServersResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("GetServers", input);
   }
@@ -259,12 +172,7 @@ export class SMS extends AWSServiceClient {
     input: ImportAppCatalogRequest,
   ): Effect.Effect<
     ImportAppCatalogResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("ImportAppCatalog", input);
   }
@@ -272,12 +180,7 @@ export class SMS extends AWSServiceClient {
     input: ImportServerCatalogRequest,
   ): Effect.Effect<
     ImportServerCatalogResponse,
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | NoConnectorsAvailableException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InvalidParameterException | MissingRequiredParameterException | NoConnectorsAvailableException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("ImportServerCatalog", input);
   }
@@ -285,12 +188,7 @@ export class SMS extends AWSServiceClient {
     input: LaunchAppRequest,
   ): Effect.Effect<
     LaunchAppResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("LaunchApp", input);
   }
@@ -298,12 +196,7 @@ export class SMS extends AWSServiceClient {
     input: ListAppsRequest,
   ): Effect.Effect<
     ListAppsResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("ListApps", input);
   }
@@ -311,12 +204,7 @@ export class SMS extends AWSServiceClient {
     input: NotifyAppValidationOutputRequest,
   ): Effect.Effect<
     NotifyAppValidationOutputResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("NotifyAppValidationOutput", input);
   }
@@ -324,12 +212,7 @@ export class SMS extends AWSServiceClient {
     input: PutAppLaunchConfigurationRequest,
   ): Effect.Effect<
     PutAppLaunchConfigurationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("PutAppLaunchConfiguration", input);
   }
@@ -337,12 +220,7 @@ export class SMS extends AWSServiceClient {
     input: PutAppReplicationConfigurationRequest,
   ): Effect.Effect<
     PutAppReplicationConfigurationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("PutAppReplicationConfiguration", input);
   }
@@ -350,12 +228,7 @@ export class SMS extends AWSServiceClient {
     input: PutAppValidationConfigurationRequest,
   ): Effect.Effect<
     PutAppValidationConfigurationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("PutAppValidationConfiguration", input);
   }
@@ -363,12 +236,7 @@ export class SMS extends AWSServiceClient {
     input: StartAppReplicationRequest,
   ): Effect.Effect<
     StartAppReplicationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("StartAppReplication", input);
   }
@@ -376,12 +244,7 @@ export class SMS extends AWSServiceClient {
     input: StartOnDemandAppReplicationRequest,
   ): Effect.Effect<
     StartOnDemandAppReplicationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("StartOnDemandAppReplication", input);
   }
@@ -389,13 +252,7 @@ export class SMS extends AWSServiceClient {
     input: StartOnDemandReplicationRunRequest,
   ): Effect.Effect<
     StartOnDemandReplicationRunResponse,
-    | DryRunOperationException
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | ReplicationRunLimitExceededException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    DryRunOperationException | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | ReplicationRunLimitExceededException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("StartOnDemandReplicationRun", input);
   }
@@ -403,12 +260,7 @@ export class SMS extends AWSServiceClient {
     input: StopAppReplicationRequest,
   ): Effect.Effect<
     StopAppReplicationResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("StopAppReplication", input);
   }
@@ -416,12 +268,7 @@ export class SMS extends AWSServiceClient {
     input: TerminateAppRequest,
   ): Effect.Effect<
     TerminateAppResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("TerminateApp", input);
   }
@@ -429,12 +276,7 @@ export class SMS extends AWSServiceClient {
     input: UpdateAppRequest,
   ): Effect.Effect<
     UpdateAppResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("UpdateApp", input);
   }
@@ -442,15 +284,7 @@ export class SMS extends AWSServiceClient {
     input: UpdateReplicationJobRequest,
   ): Effect.Effect<
     UpdateReplicationJobResponse,
-    | InternalError
-    | InvalidParameterException
-    | MissingRequiredParameterException
-    | OperationNotPermittedException
-    | ReplicationJobNotFoundException
-    | ServerCannotBeReplicatedException
-    | TemporarilyUnavailableException
-    | UnauthorizedOperationException
-    | CommonAwsError
+    InternalError | InvalidParameterException | MissingRequiredParameterException | OperationNotPermittedException | ReplicationJobNotFoundException | ServerCannotBeReplicatedException | TemporarilyUnavailableException | UnauthorizedOperationException | CommonAwsError
   > {
     return this.call("UpdateReplicationJob", input);
   }
@@ -470,54 +304,17 @@ export type AppIds = Array<string>;
 export type AppIdWithValidation = string;
 
 export type AppLaunchConfigurationStatus = "NotConfigured" | "Configured";
-export type AppLaunchStatus =
-  | "ReadyForConfiguration"
-  | "ConfigurationInProgress"
-  | "ConfigurationInvalid"
-  | "ReadyForLaunch"
-  | "ValidationInProgress"
-  | "LaunchPending"
-  | "LaunchInProgress"
-  | "Launched"
-  | "PartiallyLaunched"
-  | "DeltaLaunchInProgress"
-  | "DeltaLaunchFailed"
-  | "LaunchFailed"
-  | "TerminateInProgress"
-  | "TerminateFailed"
-  | "Terminated";
+export type AppLaunchStatus = "ReadyForConfiguration" | "ConfigurationInProgress" | "ConfigurationInvalid" | "ReadyForLaunch" | "ValidationInProgress" | "LaunchPending" | "LaunchInProgress" | "Launched" | "PartiallyLaunched" | "DeltaLaunchInProgress" | "DeltaLaunchFailed" | "LaunchFailed" | "TerminateInProgress" | "TerminateFailed" | "Terminated";
 export type AppLaunchStatusMessage = string;
 
 export type AppName = string;
 
 export type AppReplicationConfigurationStatus = "NotConfigured" | "Configured";
-export type AppReplicationStatus =
-  | "ReadyForConfiguration"
-  | "ConfigurationInProgress"
-  | "ConfigurationInvalid"
-  | "ReadyForReplication"
-  | "ValidationInProgress"
-  | "ReplicationPending"
-  | "ReplicationInProgress"
-  | "Replicated"
-  | "PartiallyReplicated"
-  | "DeltaReplicationInProgress"
-  | "DeltaReplicated"
-  | "DeltaReplicationFailed"
-  | "ReplicationFailed"
-  | "ReplicationStopping"
-  | "ReplicationStopFailed"
-  | "ReplicationStopped";
+export type AppReplicationStatus = "ReadyForConfiguration" | "ConfigurationInProgress" | "ConfigurationInvalid" | "ReadyForReplication" | "ValidationInProgress" | "ReplicationPending" | "ReplicationInProgress" | "Replicated" | "PartiallyReplicated" | "DeltaReplicationInProgress" | "DeltaReplicated" | "DeltaReplicationFailed" | "ReplicationFailed" | "ReplicationStopping" | "ReplicationStopFailed" | "ReplicationStopped";
 export type AppReplicationStatusMessage = string;
 
 export type Apps = Array<AppSummary>;
-export type AppStatus =
-  | "Creating"
-  | "Active"
-  | "Updating"
-  | "Deleting"
-  | "Deleted"
-  | "DELETE_FAILED";
+export type AppStatus = "Creating" | "Active" | "Updating" | "Deleting" | "Deleted" | "DELETE_FAILED";
 export type AppStatusMessage = string;
 
 export interface AppSummary {
@@ -574,12 +371,7 @@ export interface Connector {
   macAddress?: string;
   associatedOn?: Date | string;
 }
-export type ConnectorCapability =
-  | "vSphere"
-  | "scvmm"
-  | "hyperVManager"
-  | "snapshotBatching"
-  | "smsOptimized";
+export type ConnectorCapability = "vSphere" | "scvmm" | "hyperVManager" | "snapshotBatching" | "smsOptimized";
 export type ConnectorCapabilityList = Array<ConnectorCapability>;
 export type ConnectorId = string;
 
@@ -618,33 +410,41 @@ export interface CreateReplicationJobResponse {
 export interface DeleteAppLaunchConfigurationRequest {
   appId?: string;
 }
-export interface DeleteAppLaunchConfigurationResponse {}
+export interface DeleteAppLaunchConfigurationResponse {
+}
 export interface DeleteAppReplicationConfigurationRequest {
   appId?: string;
 }
-export interface DeleteAppReplicationConfigurationResponse {}
+export interface DeleteAppReplicationConfigurationResponse {
+}
 export interface DeleteAppRequest {
   appId?: string;
   forceStopAppReplication?: boolean;
   forceTerminateApp?: boolean;
 }
-export interface DeleteAppResponse {}
+export interface DeleteAppResponse {
+}
 export interface DeleteAppValidationConfigurationRequest {
   appId: string;
 }
-export interface DeleteAppValidationConfigurationResponse {}
+export interface DeleteAppValidationConfigurationResponse {
+}
 export interface DeleteReplicationJobRequest {
   replicationJobId: string;
 }
-export interface DeleteReplicationJobResponse {}
-export interface DeleteServerCatalogRequest {}
-export interface DeleteServerCatalogResponse {}
+export interface DeleteReplicationJobResponse {
+}
+export interface DeleteServerCatalogRequest {
+}
+export interface DeleteServerCatalogResponse {
+}
 export type Description = string;
 
 export interface DisassociateConnectorRequest {
   connectorId: string;
 }
-export interface DisassociateConnectorResponse {}
+export interface DisassociateConnectorResponse {
+}
 export declare class DryRunOperationException extends EffectData.TaggedError(
   "DryRunOperationException",
 )<{
@@ -755,11 +555,14 @@ export interface GetServersResponse {
 export interface ImportAppCatalogRequest {
   roleName?: string;
 }
-export interface ImportAppCatalogResponse {}
+export interface ImportAppCatalogResponse {
+}
 export type ImportedAppId = string;
 
-export interface ImportServerCatalogRequest {}
-export interface ImportServerCatalogResponse {}
+export interface ImportServerCatalogRequest {
+}
+export interface ImportServerCatalogResponse {
+}
 export type InstanceId = string;
 
 export type InstanceType = string;
@@ -781,7 +584,8 @@ export type KmsKeyId = string;
 export interface LaunchAppRequest {
   appId?: string;
 }
-export interface LaunchAppResponse {}
+export interface LaunchAppResponse {
+}
 export interface LaunchDetails {
   latestLaunchTime?: Date | string;
   stackName?: string;
@@ -828,7 +632,8 @@ export interface NotifyAppValidationOutputRequest {
   appId: string;
   notificationContext?: NotificationContext;
 }
-export interface NotifyAppValidationOutputResponse {}
+export interface NotifyAppValidationOutputResponse {
+}
 export type NumberOfRecentAmisToKeep = number;
 
 export declare class OperationNotPermittedException extends EffectData.TaggedError(
@@ -843,18 +648,21 @@ export interface PutAppLaunchConfigurationRequest {
   autoLaunch?: boolean;
   serverGroupLaunchConfigurations?: Array<ServerGroupLaunchConfiguration>;
 }
-export interface PutAppLaunchConfigurationResponse {}
+export interface PutAppLaunchConfigurationResponse {
+}
 export interface PutAppReplicationConfigurationRequest {
   appId?: string;
   serverGroupReplicationConfigurations?: Array<ServerGroupReplicationConfiguration>;
 }
-export interface PutAppReplicationConfigurationResponse {}
+export interface PutAppReplicationConfigurationResponse {
+}
 export interface PutAppValidationConfigurationRequest {
   appId: string;
   appValidationConfigurations?: Array<AppValidationConfiguration>;
   serverGroupValidationConfigurations?: Array<ServerGroupValidationConfiguration>;
 }
-export interface PutAppValidationConfigurationResponse {}
+export interface PutAppValidationConfigurationResponse {
+}
 export interface ReplicationJob {
   replicationJobId?: string;
   serverId?: string;
@@ -888,15 +696,7 @@ export declare class ReplicationJobNotFoundException extends EffectData.TaggedEr
 )<{
   readonly message?: string;
 }> {}
-export type ReplicationJobState =
-  | "Pending"
-  | "Active"
-  | "Failed"
-  | "Deleting"
-  | "Deleted"
-  | "Completed"
-  | "PausedOnFailure"
-  | "Failing";
+export type ReplicationJobState = "Pending" | "Active" | "Failed" | "Deleting" | "Deleted" | "Completed" | "PausedOnFailure" | "Failing";
 export type ReplicationJobStatusMessage = string;
 
 export type ReplicationJobTerminated = boolean;
@@ -930,14 +730,7 @@ export interface ReplicationRunStageDetails {
 }
 export type ReplicationRunStageProgress = string;
 
-export type ReplicationRunState =
-  | "Pending"
-  | "Missed"
-  | "Active"
-  | "Failed"
-  | "Completed"
-  | "Deleting"
-  | "Deleted";
+export type ReplicationRunState = "Pending" | "Missed" | "Active" | "Failed" | "Completed" | "Deleting" | "Deleted";
 export type ReplicationRunStatusMessage = string;
 
 export type ReplicationRunType = "OnDemand" | "Automatic";
@@ -968,12 +761,7 @@ export declare class ServerCannotBeReplicatedException extends EffectData.Tagged
 )<{
   readonly message?: string;
 }> {}
-export type ServerCatalogStatus =
-  | "NotImported"
-  | "Importing"
-  | "Available"
-  | "Deleted"
-  | "Expired";
+export type ServerCatalogStatus = "NotImported" | "Importing" | "Available" | "Deleted" | "Expired";
 export interface ServerGroup {
   serverGroupId?: string;
   name?: string;
@@ -986,23 +774,20 @@ export interface ServerGroupLaunchConfiguration {
   launchOrder?: number;
   serverLaunchConfigurations?: Array<ServerLaunchConfiguration>;
 }
-export type ServerGroupLaunchConfigurations =
-  Array<ServerGroupLaunchConfiguration>;
+export type ServerGroupLaunchConfigurations = Array<ServerGroupLaunchConfiguration>;
 export type ServerGroupName = string;
 
 export interface ServerGroupReplicationConfiguration {
   serverGroupId?: string;
   serverReplicationConfigurations?: Array<ServerReplicationConfiguration>;
 }
-export type ServerGroupReplicationConfigurations =
-  Array<ServerGroupReplicationConfiguration>;
+export type ServerGroupReplicationConfigurations = Array<ServerGroupReplicationConfiguration>;
 export type ServerGroups = Array<ServerGroup>;
 export interface ServerGroupValidationConfiguration {
   serverGroupId?: string;
   serverValidationConfigurations?: Array<ServerValidationConfiguration>;
 }
-export type ServerGroupValidationConfigurations =
-  Array<ServerGroupValidationConfiguration>;
+export type ServerGroupValidationConfigurations = Array<ServerGroupValidationConfiguration>;
 export type ServerId = string;
 
 export interface ServerLaunchConfiguration {
@@ -1025,8 +810,7 @@ export interface ServerReplicationConfiguration {
   server?: Server;
   serverReplicationParameters?: ServerReplicationParameters;
 }
-export type ServerReplicationConfigurations =
-  Array<ServerReplicationConfiguration>;
+export type ServerReplicationConfigurations = Array<ServerReplicationConfiguration>;
 export interface ServerReplicationParameters {
   seedTime?: Date | string;
   frequency?: number;
@@ -1044,8 +828,7 @@ export interface ServerValidationConfiguration {
   serverValidationStrategy?: ServerValidationStrategy;
   userDataValidationParameters?: UserDataValidationParameters;
 }
-export type ServerValidationConfigurations =
-  Array<ServerValidationConfiguration>;
+export type ServerValidationConfigurations = Array<ServerValidationConfiguration>;
 export interface ServerValidationOutput {
   server?: Server;
 }
@@ -1071,12 +854,14 @@ export type StackName = string;
 export interface StartAppReplicationRequest {
   appId?: string;
 }
-export interface StartAppReplicationResponse {}
+export interface StartAppReplicationResponse {
+}
 export interface StartOnDemandAppReplicationRequest {
   appId: string;
   description?: string;
 }
-export interface StartOnDemandAppReplicationResponse {}
+export interface StartOnDemandAppReplicationResponse {
+}
 export interface StartOnDemandReplicationRunRequest {
   replicationJobId: string;
   description?: string;
@@ -1087,7 +872,8 @@ export interface StartOnDemandReplicationRunResponse {
 export interface StopAppReplicationRequest {
   appId?: string;
 }
-export interface StopAppReplicationResponse {}
+export interface StopAppReplicationResponse {
+}
 export type Subnet = string;
 
 export interface Tag {
@@ -1101,11 +887,13 @@ export type TagValue = string;
 
 export declare class TemporarilyUnavailableException extends EffectData.TaggedError(
   "TemporarilyUnavailableException",
-)<{}> {}
+)<{
+}> {}
 export interface TerminateAppRequest {
   appId?: string;
 }
-export interface TerminateAppResponse {}
+export interface TerminateAppResponse {
+}
 export type Timestamp = Date | string;
 
 export type TotalServerGroups = number;
@@ -1141,7 +929,8 @@ export interface UpdateReplicationJobRequest {
   encrypted?: boolean;
   kmsKeyId?: string;
 }
-export interface UpdateReplicationJobResponse {}
+export interface UpdateReplicationJobResponse {
+}
 export interface UserData {
   s3Location?: S3Location;
 }
@@ -1161,12 +950,7 @@ export interface ValidationOutput {
   serverValidationOutput?: ServerValidationOutput;
 }
 export type ValidationOutputList = Array<ValidationOutput>;
-export type ValidationStatus =
-  | "ReadyForValidation"
-  | "Pending"
-  | "InProgress"
-  | "Succeeded"
-  | "Failed";
+export type ValidationStatus = "ReadyForValidation" | "Pending" | "InProgress" | "Succeeded" | "Failed";
 export type ValidationStatusMessage = string;
 
 export type VmId = string;
@@ -1391,7 +1175,9 @@ export declare namespace GetAppValidationOutput {
 export declare namespace GetConnectors {
   export type Input = GetConnectorsRequest;
   export type Output = GetConnectorsResponse;
-  export type Error = UnauthorizedOperationException | CommonAwsError;
+  export type Error =
+    | UnauthorizedOperationException
+    | CommonAwsError;
 }
 
 export declare namespace GetReplicationJobs {
@@ -1608,3 +1394,4 @@ export declare namespace UpdateReplicationJob {
     | UnauthorizedOperationException
     | CommonAwsError;
 }
+

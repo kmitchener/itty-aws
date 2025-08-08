@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ConnectContactLens extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("connect-contact-lens", new RestJson1Protocol(), cfg);
+  }
+
   listRealtimeContactAnalysisSegments(
     input: ListRealtimeContactAnalysisSegmentsRequest,
   ): Effect.Effect<
     ListRealtimeContactAnalysisSegmentsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRealtimeContactAnalysisSegments", input);
   }
@@ -94,20 +94,14 @@ export interface PostContactSummary {
 }
 export type PostContactSummaryContent = string;
 
-export type PostContactSummaryFailureCode =
-  | "QUOTA_EXCEEDED"
-  | "INSUFFICIENT_CONVERSATION_CONTENT"
-  | "FAILED_SAFETY_GUIDELINES"
-  | "INVALID_ANALYSIS_CONFIGURATION"
-  | "INTERNAL_ERROR";
+export type PostContactSummaryFailureCode = "QUOTA_EXCEEDED" | "INSUFFICIENT_CONVERSATION_CONTENT" | "FAILED_SAFETY_GUIDELINES" | "INVALID_ANALYSIS_CONFIGURATION" | "INTERNAL_ERROR";
 export type PostContactSummaryStatus = "FAILED" | "COMPLETED";
 export interface RealtimeContactAnalysisSegment {
   Transcript?: Transcript;
   Categories?: Categories;
   PostContactSummary?: PostContactSummary;
 }
-export type RealtimeContactAnalysisSegments =
-  Array<RealtimeContactAnalysisSegment>;
+export type RealtimeContactAnalysisSegments = Array<RealtimeContactAnalysisSegment>;
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -144,3 +138,4 @@ export declare namespace ListRealtimeContactAnalysisSegments {
     | ThrottlingException
     | CommonAwsError;
 }
+

@@ -2,19 +2,18 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class schemas extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("schemas", new RestJson1Protocol(), cfg);
+  }
+
   createDiscoverer(
     input: CreateDiscovererRequest,
   ): Effect.Effect<
     CreateDiscovererResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateDiscoverer", input);
   }
@@ -22,13 +21,7 @@ export class schemas extends AWSServiceClient {
     input: CreateRegistryRequest,
   ): Effect.Effect<
     CreateRegistryResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateRegistry", input);
   }
@@ -36,11 +29,7 @@ export class schemas extends AWSServiceClient {
     input: CreateSchemaRequest,
   ): Effect.Effect<
     CreateSchemaResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateSchema", input);
   }
@@ -48,13 +37,7 @@ export class schemas extends AWSServiceClient {
     input: DeleteDiscovererRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteDiscoverer", input);
   }
@@ -62,13 +45,7 @@ export class schemas extends AWSServiceClient {
     input: DeleteRegistryRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteRegistry", input);
   }
@@ -76,13 +53,7 @@ export class schemas extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -90,13 +61,7 @@ export class schemas extends AWSServiceClient {
     input: DeleteSchemaRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteSchema", input);
   }
@@ -104,13 +69,7 @@ export class schemas extends AWSServiceClient {
     input: DeleteSchemaVersionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteSchemaVersion", input);
   }
@@ -118,13 +77,7 @@ export class schemas extends AWSServiceClient {
     input: DescribeCodeBindingRequest,
   ): Effect.Effect<
     DescribeCodeBindingResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeCodeBinding", input);
   }
@@ -132,13 +85,7 @@ export class schemas extends AWSServiceClient {
     input: DescribeDiscovererRequest,
   ): Effect.Effect<
     DescribeDiscovererResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeDiscoverer", input);
   }
@@ -146,13 +93,7 @@ export class schemas extends AWSServiceClient {
     input: DescribeRegistryRequest,
   ): Effect.Effect<
     DescribeRegistryResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeRegistry", input);
   }
@@ -160,13 +101,7 @@ export class schemas extends AWSServiceClient {
     input: DescribeSchemaRequest,
   ): Effect.Effect<
     DescribeSchemaResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeSchema", input);
   }
@@ -174,14 +109,7 @@ export class schemas extends AWSServiceClient {
     input: ExportSchemaRequest,
   ): Effect.Effect<
     ExportSchemaResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ExportSchema", input);
   }
@@ -189,13 +117,7 @@ export class schemas extends AWSServiceClient {
     input: GetCodeBindingSourceRequest,
   ): Effect.Effect<
     GetCodeBindingSourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetCodeBindingSource", input);
   }
@@ -203,12 +125,7 @@ export class schemas extends AWSServiceClient {
     input: GetDiscoveredSchemaRequest,
   ): Effect.Effect<
     GetDiscoveredSchemaResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDiscoveredSchema", input);
   }
@@ -216,13 +133,7 @@ export class schemas extends AWSServiceClient {
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -230,12 +141,7 @@ export class schemas extends AWSServiceClient {
     input: ListDiscoverersRequest,
   ): Effect.Effect<
     ListDiscoverersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListDiscoverers", input);
   }
@@ -243,12 +149,7 @@ export class schemas extends AWSServiceClient {
     input: ListRegistriesRequest,
   ): Effect.Effect<
     ListRegistriesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListRegistries", input);
   }
@@ -256,12 +157,7 @@ export class schemas extends AWSServiceClient {
     input: ListSchemasRequest,
   ): Effect.Effect<
     ListSchemasResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListSchemas", input);
   }
@@ -269,13 +165,7 @@ export class schemas extends AWSServiceClient {
     input: ListSchemaVersionsRequest,
   ): Effect.Effect<
     ListSchemaVersionsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListSchemaVersions", input);
   }
@@ -283,11 +173,7 @@ export class schemas extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -295,14 +181,7 @@ export class schemas extends AWSServiceClient {
     input: PutCodeBindingRequest,
   ): Effect.Effect<
     PutCodeBindingResponse,
-    | BadRequestException
-    | ForbiddenException
-    | GoneException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | GoneException | InternalServerErrorException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("PutCodeBinding", input);
   }
@@ -310,14 +189,7 @@ export class schemas extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | PreconditionFailedException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | PreconditionFailedException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -325,12 +197,7 @@ export class schemas extends AWSServiceClient {
     input: SearchSchemasRequest,
   ): Effect.Effect<
     SearchSchemasResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("SearchSchemas", input);
   }
@@ -338,13 +205,7 @@ export class schemas extends AWSServiceClient {
     input: StartDiscovererRequest,
   ): Effect.Effect<
     StartDiscovererResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("StartDiscoverer", input);
   }
@@ -352,13 +213,7 @@ export class schemas extends AWSServiceClient {
     input: StopDiscovererRequest,
   ): Effect.Effect<
     StopDiscovererResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("StopDiscoverer", input);
   }
@@ -366,11 +221,7 @@ export class schemas extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -378,11 +229,7 @@ export class schemas extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -390,13 +237,7 @@ export class schemas extends AWSServiceClient {
     input: UpdateDiscovererRequest,
   ): Effect.Effect<
     UpdateDiscovererResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateDiscoverer", input);
   }
@@ -404,13 +245,7 @@ export class schemas extends AWSServiceClient {
     input: UpdateRegistryRequest,
   ): Effect.Effect<
     UpdateRegistryResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateRegistry", input);
   }
@@ -418,12 +253,7 @@ export class schemas extends AWSServiceClient {
     input: UpdateSchemaRequest,
   ): Effect.Effect<
     UpdateSchemaResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateSchema", input);
   }
@@ -444,8 +274,7 @@ export type __listOfRegistrySummary = Array<RegistrySummary>;
 export type __listOfSchemaSummary = Array<SchemaSummary>;
 export type __listOfSchemaVersionSummary = Array<SchemaVersionSummary>;
 export type __listOfSearchSchemaSummary = Array<SearchSchemaSummary>;
-export type __listOfSearchSchemaVersionSummary =
-  Array<SearchSchemaVersionSummary>;
+export type __listOfSearchSchemaVersionSummary = Array<SearchSchemaVersionSummary>;
 export type __long = number;
 
 export type __string = string;
@@ -468,10 +297,7 @@ export declare class BadRequestException extends EffectData.TaggedError(
 }> {}
 export type Body = Uint8Array | string;
 
-export type CodeGenerationStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED";
+export type CodeGenerationStatus = "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -1249,3 +1075,4 @@ export declare namespace UpdateSchema {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+

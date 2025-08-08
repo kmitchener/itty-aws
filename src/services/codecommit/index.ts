@@ -1,25 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class CodeCommit extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("codecommit", new AwsJson11Protocol(), cfg);
+  }
+
   associateApprovalRuleTemplateWithRepository(
     input: AssociateApprovalRuleTemplateWithRepositoryInput,
   ): Effect.Effect<
     {},
-    | ApprovalRuleTemplateDoesNotExistException
-    | ApprovalRuleTemplateNameRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidApprovalRuleTemplateNameException
-    | InvalidRepositoryNameException
-    | MaximumRuleTemplatesAssociatedWithRepositoryException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    ApprovalRuleTemplateDoesNotExistException | ApprovalRuleTemplateNameRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidApprovalRuleTemplateNameException | InvalidRepositoryNameException | MaximumRuleTemplatesAssociatedWithRepositoryException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("AssociateApprovalRuleTemplateWithRepository", input);
   }
@@ -27,49 +20,15 @@ export class CodeCommit extends AWSServiceClient {
     input: BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
   ): Effect.Effect<
     BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
-    | ApprovalRuleTemplateDoesNotExistException
-    | ApprovalRuleTemplateNameRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidApprovalRuleTemplateNameException
-    | MaximumRepositoryNamesExceededException
-    | RepositoryNamesRequiredException
-    | CommonAwsError
+    ApprovalRuleTemplateDoesNotExistException | ApprovalRuleTemplateNameRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidApprovalRuleTemplateNameException | MaximumRepositoryNamesExceededException | RepositoryNamesRequiredException | CommonAwsError
   > {
-    return this.call(
-      "BatchAssociateApprovalRuleTemplateWithRepositories",
-      input,
-    );
+    return this.call("BatchAssociateApprovalRuleTemplateWithRepositories", input);
   }
   batchDescribeMergeConflicts(
     input: BatchDescribeMergeConflictsInput,
   ): Effect.Effect<
     BatchDescribeMergeConflictsOutput,
-    | CommitDoesNotExistException
-    | CommitRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommitException
-    | InvalidConflictDetailLevelException
-    | InvalidConflictResolutionStrategyException
-    | InvalidContinuationTokenException
-    | InvalidMaxConflictFilesException
-    | InvalidMaxMergeHunksException
-    | InvalidMergeOptionException
-    | InvalidRepositoryNameException
-    | MaximumFileContentToLoadExceededException
-    | MaximumItemsToCompareExceededException
-    | MergeOptionRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    CommitDoesNotExistException | CommitRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommitException | InvalidConflictDetailLevelException | InvalidConflictResolutionStrategyException | InvalidContinuationTokenException | InvalidMaxConflictFilesException | InvalidMaxMergeHunksException | InvalidMergeOptionException | InvalidRepositoryNameException | MaximumFileContentToLoadExceededException | MaximumItemsToCompareExceededException | MergeOptionRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("BatchDescribeMergeConflicts", input);
   }
@@ -77,38 +36,15 @@ export class CodeCommit extends AWSServiceClient {
     input: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
   ): Effect.Effect<
     BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
-    | ApprovalRuleTemplateDoesNotExistException
-    | ApprovalRuleTemplateNameRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidApprovalRuleTemplateNameException
-    | MaximumRepositoryNamesExceededException
-    | RepositoryNamesRequiredException
-    | CommonAwsError
+    ApprovalRuleTemplateDoesNotExistException | ApprovalRuleTemplateNameRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidApprovalRuleTemplateNameException | MaximumRepositoryNamesExceededException | RepositoryNamesRequiredException | CommonAwsError
   > {
-    return this.call(
-      "BatchDisassociateApprovalRuleTemplateFromRepositories",
-      input,
-    );
+    return this.call("BatchDisassociateApprovalRuleTemplateFromRepositories", input);
   }
   batchGetCommits(
     input: BatchGetCommitsInput,
   ): Effect.Effect<
     BatchGetCommitsOutput,
-    | CommitIdsLimitExceededException
-    | CommitIdsListRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    CommitIdsLimitExceededException | CommitIdsListRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("BatchGetCommits", input);
   }
@@ -116,15 +52,7 @@ export class CodeCommit extends AWSServiceClient {
     input: BatchGetRepositoriesInput,
   ): Effect.Effect<
     BatchGetRepositoriesOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidRepositoryNameException
-    | MaximumRepositoryNamesExceededException
-    | RepositoryNamesRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidRepositoryNameException | MaximumRepositoryNamesExceededException | RepositoryNamesRequiredException | CommonAwsError
   > {
     return this.call("BatchGetRepositories", input);
   }
@@ -132,14 +60,7 @@ export class CodeCommit extends AWSServiceClient {
     input: CreateApprovalRuleTemplateInput,
   ): Effect.Effect<
     CreateApprovalRuleTemplateOutput,
-    | ApprovalRuleTemplateContentRequiredException
-    | ApprovalRuleTemplateNameAlreadyExistsException
-    | ApprovalRuleTemplateNameRequiredException
-    | InvalidApprovalRuleTemplateContentException
-    | InvalidApprovalRuleTemplateDescriptionException
-    | InvalidApprovalRuleTemplateNameException
-    | NumberOfRuleTemplatesExceededException
-    | CommonAwsError
+    ApprovalRuleTemplateContentRequiredException | ApprovalRuleTemplateNameAlreadyExistsException | ApprovalRuleTemplateNameRequiredException | InvalidApprovalRuleTemplateContentException | InvalidApprovalRuleTemplateDescriptionException | InvalidApprovalRuleTemplateNameException | NumberOfRuleTemplatesExceededException | CommonAwsError
   > {
     return this.call("CreateApprovalRuleTemplate", input);
   }
@@ -147,21 +68,7 @@ export class CodeCommit extends AWSServiceClient {
     input: CreateBranchInput,
   ): Effect.Effect<
     {},
-    | BranchNameExistsException
-    | BranchNameRequiredException
-    | CommitDoesNotExistException
-    | CommitIdRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidBranchNameException
-    | InvalidCommitIdException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    BranchNameExistsException | BranchNameRequiredException | CommitDoesNotExistException | CommitIdRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidBranchNameException | InvalidCommitIdException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("CreateBranch", input);
   }
@@ -169,45 +76,7 @@ export class CodeCommit extends AWSServiceClient {
     input: CreateCommitInput,
   ): Effect.Effect<
     CreateCommitOutput,
-    | BranchDoesNotExistException
-    | BranchNameIsTagNameException
-    | BranchNameRequiredException
-    | CommitMessageLengthExceededException
-    | DirectoryNameConflictsWithFileNameException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileContentAndSourceFileSpecifiedException
-    | FileContentSizeLimitExceededException
-    | FileDoesNotExistException
-    | FileEntryRequiredException
-    | FileModeRequiredException
-    | FileNameConflictsWithDirectoryNameException
-    | FilePathConflictsWithSubmodulePathException
-    | FolderContentSizeLimitExceededException
-    | InvalidBranchNameException
-    | InvalidDeletionParameterException
-    | InvalidEmailException
-    | InvalidFileModeException
-    | InvalidParentCommitIdException
-    | InvalidPathException
-    | InvalidRepositoryNameException
-    | MaximumFileEntriesExceededException
-    | NameLengthExceededException
-    | NoChangeException
-    | ParentCommitDoesNotExistException
-    | ParentCommitIdOutdatedException
-    | ParentCommitIdRequiredException
-    | PathRequiredException
-    | PutFileEntryConflictException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | RestrictedSourceFileException
-    | SamePathRequestException
-    | SourceFileOrContentRequiredException
-    | CommonAwsError
+    BranchDoesNotExistException | BranchNameIsTagNameException | BranchNameRequiredException | CommitMessageLengthExceededException | DirectoryNameConflictsWithFileNameException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileContentAndSourceFileSpecifiedException | FileContentSizeLimitExceededException | FileDoesNotExistException | FileEntryRequiredException | FileModeRequiredException | FileNameConflictsWithDirectoryNameException | FilePathConflictsWithSubmodulePathException | FolderContentSizeLimitExceededException | InvalidBranchNameException | InvalidDeletionParameterException | InvalidEmailException | InvalidFileModeException | InvalidParentCommitIdException | InvalidPathException | InvalidRepositoryNameException | MaximumFileEntriesExceededException | NameLengthExceededException | NoChangeException | ParentCommitDoesNotExistException | ParentCommitIdOutdatedException | ParentCommitIdRequiredException | PathRequiredException | PutFileEntryConflictException | RepositoryDoesNotExistException | RepositoryNameRequiredException | RestrictedSourceFileException | SamePathRequestException | SourceFileOrContentRequiredException | CommonAwsError
   > {
     return this.call("CreateCommit", input);
   }
@@ -215,32 +84,7 @@ export class CodeCommit extends AWSServiceClient {
     input: CreatePullRequestInput,
   ): Effect.Effect<
     CreatePullRequestOutput,
-    | ClientRequestTokenRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | IdempotencyParameterMismatchException
-    | InvalidClientRequestTokenException
-    | InvalidDescriptionException
-    | InvalidReferenceNameException
-    | InvalidRepositoryNameException
-    | InvalidTargetException
-    | InvalidTargetsException
-    | InvalidTitleException
-    | MaximumOpenPullRequestsExceededException
-    | MultipleRepositoriesInPullRequestException
-    | ReferenceDoesNotExistException
-    | ReferenceNameRequiredException
-    | ReferenceTypeNotSupportedException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | SourceAndDestinationAreSameException
-    | TargetRequiredException
-    | TargetsRequiredException
-    | TitleRequiredException
-    | CommonAwsError
+    ClientRequestTokenRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | IdempotencyParameterMismatchException | InvalidClientRequestTokenException | InvalidDescriptionException | InvalidReferenceNameException | InvalidRepositoryNameException | InvalidTargetException | InvalidTargetsException | InvalidTitleException | MaximumOpenPullRequestsExceededException | MultipleRepositoriesInPullRequestException | ReferenceDoesNotExistException | ReferenceNameRequiredException | ReferenceTypeNotSupportedException | RepositoryDoesNotExistException | RepositoryNameRequiredException | SourceAndDestinationAreSameException | TargetRequiredException | TargetsRequiredException | TitleRequiredException | CommonAwsError
   > {
     return this.call("CreatePullRequest", input);
   }
@@ -248,22 +92,7 @@ export class CodeCommit extends AWSServiceClient {
     input: CreatePullRequestApprovalRuleInput,
   ): Effect.Effect<
     CreatePullRequestApprovalRuleOutput,
-    | ApprovalRuleContentRequiredException
-    | ApprovalRuleNameAlreadyExistsException
-    | ApprovalRuleNameRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidApprovalRuleContentException
-    | InvalidApprovalRuleNameException
-    | InvalidPullRequestIdException
-    | NumberOfRulesExceededException
-    | PullRequestAlreadyClosedException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | CommonAwsError
+    ApprovalRuleContentRequiredException | ApprovalRuleNameAlreadyExistsException | ApprovalRuleNameRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidApprovalRuleContentException | InvalidApprovalRuleNameException | InvalidPullRequestIdException | NumberOfRulesExceededException | PullRequestAlreadyClosedException | PullRequestDoesNotExistException | PullRequestIdRequiredException | CommonAwsError
   > {
     return this.call("CreatePullRequestApprovalRule", input);
   }
@@ -271,24 +100,7 @@ export class CodeCommit extends AWSServiceClient {
     input: CreateRepositoryInput,
   ): Effect.Effect<
     CreateRepositoryOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyInvalidIdException
-    | EncryptionKeyInvalidUsageException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidRepositoryDescriptionException
-    | InvalidRepositoryNameException
-    | InvalidSystemTagUsageException
-    | InvalidTagsMapException
-    | OperationNotAllowedException
-    | RepositoryLimitExceededException
-    | RepositoryNameExistsException
-    | RepositoryNameRequiredException
-    | TagPolicyException
-    | TooManyTagsException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyInvalidIdException | EncryptionKeyInvalidUsageException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidRepositoryDescriptionException | InvalidRepositoryNameException | InvalidSystemTagUsageException | InvalidTagsMapException | OperationNotAllowedException | RepositoryLimitExceededException | RepositoryNameExistsException | RepositoryNameRequiredException | TagPolicyException | TooManyTagsException | CommonAwsError
   > {
     return this.call("CreateRepository", input);
   }
@@ -296,43 +108,7 @@ export class CodeCommit extends AWSServiceClient {
     input: CreateUnreferencedMergeCommitInput,
   ): Effect.Effect<
     CreateUnreferencedMergeCommitOutput,
-    | CommitDoesNotExistException
-    | CommitMessageLengthExceededException
-    | CommitRequiredException
-    | ConcurrentReferenceUpdateException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileContentSizeLimitExceededException
-    | FileModeRequiredException
-    | FolderContentSizeLimitExceededException
-    | InvalidCommitException
-    | InvalidConflictDetailLevelException
-    | InvalidConflictResolutionException
-    | InvalidConflictResolutionStrategyException
-    | InvalidEmailException
-    | InvalidFileModeException
-    | InvalidMergeOptionException
-    | InvalidPathException
-    | InvalidReplacementContentException
-    | InvalidReplacementTypeException
-    | InvalidRepositoryNameException
-    | ManualMergeRequiredException
-    | MaximumConflictResolutionEntriesExceededException
-    | MaximumFileContentToLoadExceededException
-    | MaximumItemsToCompareExceededException
-    | MergeOptionRequiredException
-    | MultipleConflictResolutionEntriesException
-    | NameLengthExceededException
-    | PathRequiredException
-    | ReplacementContentRequiredException
-    | ReplacementTypeRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    CommitDoesNotExistException | CommitMessageLengthExceededException | CommitRequiredException | ConcurrentReferenceUpdateException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileContentSizeLimitExceededException | FileModeRequiredException | FolderContentSizeLimitExceededException | InvalidCommitException | InvalidConflictDetailLevelException | InvalidConflictResolutionException | InvalidConflictResolutionStrategyException | InvalidEmailException | InvalidFileModeException | InvalidMergeOptionException | InvalidPathException | InvalidReplacementContentException | InvalidReplacementTypeException | InvalidRepositoryNameException | ManualMergeRequiredException | MaximumConflictResolutionEntriesExceededException | MaximumFileContentToLoadExceededException | MaximumItemsToCompareExceededException | MergeOptionRequiredException | MultipleConflictResolutionEntriesException | NameLengthExceededException | PathRequiredException | ReplacementContentRequiredException | ReplacementTypeRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("CreateUnreferencedMergeCommit", input);
   }
@@ -340,10 +116,7 @@ export class CodeCommit extends AWSServiceClient {
     input: DeleteApprovalRuleTemplateInput,
   ): Effect.Effect<
     DeleteApprovalRuleTemplateOutput,
-    | ApprovalRuleTemplateInUseException
-    | ApprovalRuleTemplateNameRequiredException
-    | InvalidApprovalRuleTemplateNameException
-    | CommonAwsError
+    ApprovalRuleTemplateInUseException | ApprovalRuleTemplateNameRequiredException | InvalidApprovalRuleTemplateNameException | CommonAwsError
   > {
     return this.call("DeleteApprovalRuleTemplate", input);
   }
@@ -351,18 +124,7 @@ export class CodeCommit extends AWSServiceClient {
     input: DeleteBranchInput,
   ): Effect.Effect<
     DeleteBranchOutput,
-    | BranchNameRequiredException
-    | DefaultBranchCannotBeDeletedException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidBranchNameException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    BranchNameRequiredException | DefaultBranchCannotBeDeletedException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidBranchNameException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("DeleteBranch", input);
   }
@@ -370,11 +132,7 @@ export class CodeCommit extends AWSServiceClient {
     input: DeleteCommentContentInput,
   ): Effect.Effect<
     DeleteCommentContentOutput,
-    | CommentDeletedException
-    | CommentDoesNotExistException
-    | CommentIdRequiredException
-    | InvalidCommentIdException
-    | CommonAwsError
+    CommentDeletedException | CommentDoesNotExistException | CommentIdRequiredException | InvalidCommentIdException | CommonAwsError
   > {
     return this.call("DeleteCommentContent", input);
   }
@@ -382,29 +140,7 @@ export class CodeCommit extends AWSServiceClient {
     input: DeleteFileInput,
   ): Effect.Effect<
     DeleteFileOutput,
-    | BranchDoesNotExistException
-    | BranchNameIsTagNameException
-    | BranchNameRequiredException
-    | CommitMessageLengthExceededException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileDoesNotExistException
-    | InvalidBranchNameException
-    | InvalidEmailException
-    | InvalidParentCommitIdException
-    | InvalidPathException
-    | InvalidRepositoryNameException
-    | NameLengthExceededException
-    | ParentCommitDoesNotExistException
-    | ParentCommitIdOutdatedException
-    | ParentCommitIdRequiredException
-    | PathRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    BranchDoesNotExistException | BranchNameIsTagNameException | BranchNameRequiredException | CommitMessageLengthExceededException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileDoesNotExistException | InvalidBranchNameException | InvalidEmailException | InvalidParentCommitIdException | InvalidPathException | InvalidRepositoryNameException | NameLengthExceededException | ParentCommitDoesNotExistException | ParentCommitIdOutdatedException | ParentCommitIdRequiredException | PathRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("DeleteFile", input);
   }
@@ -412,19 +148,7 @@ export class CodeCommit extends AWSServiceClient {
     input: DeletePullRequestApprovalRuleInput,
   ): Effect.Effect<
     DeletePullRequestApprovalRuleOutput,
-    | ApprovalRuleNameRequiredException
-    | CannotDeleteApprovalRuleFromTemplateException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidApprovalRuleNameException
-    | InvalidPullRequestIdException
-    | PullRequestAlreadyClosedException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | CommonAwsError
+    ApprovalRuleNameRequiredException | CannotDeleteApprovalRuleFromTemplateException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidApprovalRuleNameException | InvalidPullRequestIdException | PullRequestAlreadyClosedException | PullRequestDoesNotExistException | PullRequestIdRequiredException | CommonAwsError
   > {
     return this.call("DeletePullRequestApprovalRule", input);
   }
@@ -432,14 +156,7 @@ export class CodeCommit extends AWSServiceClient {
     input: DeleteRepositoryInput,
   ): Effect.Effect<
     DeleteRepositoryOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidRepositoryNameException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidRepositoryNameException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("DeleteRepository", input);
   }
@@ -447,30 +164,7 @@ export class CodeCommit extends AWSServiceClient {
     input: DescribeMergeConflictsInput,
   ): Effect.Effect<
     DescribeMergeConflictsOutput,
-    | CommitDoesNotExistException
-    | CommitRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileDoesNotExistException
-    | InvalidCommitException
-    | InvalidConflictDetailLevelException
-    | InvalidConflictResolutionStrategyException
-    | InvalidContinuationTokenException
-    | InvalidMaxMergeHunksException
-    | InvalidMergeOptionException
-    | InvalidPathException
-    | InvalidRepositoryNameException
-    | MaximumFileContentToLoadExceededException
-    | MaximumItemsToCompareExceededException
-    | MergeOptionRequiredException
-    | PathRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    CommitDoesNotExistException | CommitRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileDoesNotExistException | InvalidCommitException | InvalidConflictDetailLevelException | InvalidConflictResolutionStrategyException | InvalidContinuationTokenException | InvalidMaxMergeHunksException | InvalidMergeOptionException | InvalidPathException | InvalidRepositoryNameException | MaximumFileContentToLoadExceededException | MaximumItemsToCompareExceededException | MergeOptionRequiredException | PathRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("DescribeMergeConflicts", input);
   }
@@ -478,20 +172,7 @@ export class CodeCommit extends AWSServiceClient {
     input: DescribePullRequestEventsInput,
   ): Effect.Effect<
     DescribePullRequestEventsOutput,
-    | ActorDoesNotExistException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidActorArnException
-    | InvalidContinuationTokenException
-    | InvalidMaxResultsException
-    | InvalidPullRequestEventTypeException
-    | InvalidPullRequestIdException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | CommonAwsError
+    ActorDoesNotExistException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidActorArnException | InvalidContinuationTokenException | InvalidMaxResultsException | InvalidPullRequestEventTypeException | InvalidPullRequestIdException | PullRequestDoesNotExistException | PullRequestIdRequiredException | CommonAwsError
   > {
     return this.call("DescribePullRequestEvents", input);
   }
@@ -499,18 +180,7 @@ export class CodeCommit extends AWSServiceClient {
     input: DisassociateApprovalRuleTemplateFromRepositoryInput,
   ): Effect.Effect<
     {},
-    | ApprovalRuleTemplateDoesNotExistException
-    | ApprovalRuleTemplateNameRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidApprovalRuleTemplateNameException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    ApprovalRuleTemplateDoesNotExistException | ApprovalRuleTemplateNameRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidApprovalRuleTemplateNameException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("DisassociateApprovalRuleTemplateFromRepository", input);
   }
@@ -518,18 +188,7 @@ export class CodeCommit extends AWSServiceClient {
     input: EvaluatePullRequestApprovalRulesInput,
   ): Effect.Effect<
     EvaluatePullRequestApprovalRulesOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidPullRequestIdException
-    | InvalidRevisionIdException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | RevisionIdRequiredException
-    | RevisionNotCurrentException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidPullRequestIdException | InvalidRevisionIdException | PullRequestDoesNotExistException | PullRequestIdRequiredException | RevisionIdRequiredException | RevisionNotCurrentException | CommonAwsError
   > {
     return this.call("EvaluatePullRequestApprovalRules", input);
   }
@@ -537,10 +196,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetApprovalRuleTemplateInput,
   ): Effect.Effect<
     GetApprovalRuleTemplateOutput,
-    | ApprovalRuleTemplateDoesNotExistException
-    | ApprovalRuleTemplateNameRequiredException
-    | InvalidApprovalRuleTemplateNameException
-    | CommonAwsError
+    ApprovalRuleTemplateDoesNotExistException | ApprovalRuleTemplateNameRequiredException | InvalidApprovalRuleTemplateNameException | CommonAwsError
   > {
     return this.call("GetApprovalRuleTemplate", input);
   }
@@ -548,19 +204,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetBlobInput,
   ): Effect.Effect<
     GetBlobOutput,
-    | BlobIdDoesNotExistException
-    | BlobIdRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileTooLargeException
-    | InvalidBlobIdException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    BlobIdDoesNotExistException | BlobIdRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileTooLargeException | InvalidBlobIdException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("GetBlob", input);
   }
@@ -568,18 +212,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetBranchInput,
   ): Effect.Effect<
     GetBranchOutput,
-    | BranchDoesNotExistException
-    | BranchNameRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidBranchNameException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    BranchDoesNotExistException | BranchNameRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidBranchNameException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("GetBranch", input);
   }
@@ -587,16 +220,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetCommentInput,
   ): Effect.Effect<
     GetCommentOutput,
-    | CommentDeletedException
-    | CommentDoesNotExistException
-    | CommentIdRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommentIdException
-    | CommonAwsError
+    CommentDeletedException | CommentDoesNotExistException | CommentIdRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommentIdException | CommonAwsError
   > {
     return this.call("GetComment", input);
   }
@@ -604,14 +228,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetCommentReactionsInput,
   ): Effect.Effect<
     GetCommentReactionsOutput,
-    | CommentDeletedException
-    | CommentDoesNotExistException
-    | CommentIdRequiredException
-    | InvalidCommentIdException
-    | InvalidContinuationTokenException
-    | InvalidMaxResultsException
-    | InvalidReactionUserArnException
-    | CommonAwsError
+    CommentDeletedException | CommentDoesNotExistException | CommentIdRequiredException | InvalidCommentIdException | InvalidContinuationTokenException | InvalidMaxResultsException | InvalidReactionUserArnException | CommonAwsError
   > {
     return this.call("GetCommentReactions", input);
   }
@@ -619,20 +236,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetCommentsForComparedCommitInput,
   ): Effect.Effect<
     GetCommentsForComparedCommitOutput,
-    | CommitDoesNotExistException
-    | CommitIdRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommitIdException
-    | InvalidContinuationTokenException
-    | InvalidMaxResultsException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    CommitDoesNotExistException | CommitIdRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommitIdException | InvalidContinuationTokenException | InvalidMaxResultsException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("GetCommentsForComparedCommit", input);
   }
@@ -640,24 +244,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetCommentsForPullRequestInput,
   ): Effect.Effect<
     GetCommentsForPullRequestOutput,
-    | CommitDoesNotExistException
-    | CommitIdRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommitIdException
-    | InvalidContinuationTokenException
-    | InvalidMaxResultsException
-    | InvalidPullRequestIdException
-    | InvalidRepositoryNameException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | RepositoryNotAssociatedWithPullRequestException
-    | CommonAwsError
+    CommitDoesNotExistException | CommitIdRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommitIdException | InvalidContinuationTokenException | InvalidMaxResultsException | InvalidPullRequestIdException | InvalidRepositoryNameException | PullRequestDoesNotExistException | PullRequestIdRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | RepositoryNotAssociatedWithPullRequestException | CommonAwsError
   > {
     return this.call("GetCommentsForPullRequest", input);
   }
@@ -665,18 +252,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetCommitInput,
   ): Effect.Effect<
     GetCommitOutput,
-    | CommitIdDoesNotExistException
-    | CommitIdRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommitIdException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    CommitIdDoesNotExistException | CommitIdRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommitIdException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("GetCommit", input);
   }
@@ -684,23 +260,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetDifferencesInput,
   ): Effect.Effect<
     GetDifferencesOutput,
-    | CommitDoesNotExistException
-    | CommitRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommitException
-    | InvalidCommitIdException
-    | InvalidContinuationTokenException
-    | InvalidMaxResultsException
-    | InvalidPathException
-    | InvalidRepositoryNameException
-    | PathDoesNotExistException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    CommitDoesNotExistException | CommitRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommitException | InvalidCommitIdException | InvalidContinuationTokenException | InvalidMaxResultsException | InvalidPathException | InvalidRepositoryNameException | PathDoesNotExistException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("GetDifferences", input);
   }
@@ -708,21 +268,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetFileInput,
   ): Effect.Effect<
     GetFileOutput,
-    | CommitDoesNotExistException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileDoesNotExistException
-    | FileTooLargeException
-    | InvalidCommitException
-    | InvalidPathException
-    | InvalidRepositoryNameException
-    | PathRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    CommitDoesNotExistException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileDoesNotExistException | FileTooLargeException | InvalidCommitException | InvalidPathException | InvalidRepositoryNameException | PathRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("GetFile", input);
   }
@@ -730,20 +276,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetFolderInput,
   ): Effect.Effect<
     GetFolderOutput,
-    | CommitDoesNotExistException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FolderDoesNotExistException
-    | InvalidCommitException
-    | InvalidPathException
-    | InvalidRepositoryNameException
-    | PathRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    CommitDoesNotExistException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FolderDoesNotExistException | InvalidCommitException | InvalidPathException | InvalidRepositoryNameException | PathRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("GetFolder", input);
   }
@@ -751,20 +284,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetMergeCommitInput,
   ): Effect.Effect<
     GetMergeCommitOutput,
-    | CommitDoesNotExistException
-    | CommitRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommitException
-    | InvalidConflictDetailLevelException
-    | InvalidConflictResolutionStrategyException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    CommitDoesNotExistException | CommitRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommitException | InvalidConflictDetailLevelException | InvalidConflictResolutionStrategyException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("GetMergeCommit", input);
   }
@@ -772,29 +292,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetMergeConflictsInput,
   ): Effect.Effect<
     GetMergeConflictsOutput,
-    | CommitDoesNotExistException
-    | CommitRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommitException
-    | InvalidConflictDetailLevelException
-    | InvalidConflictResolutionStrategyException
-    | InvalidContinuationTokenException
-    | InvalidDestinationCommitSpecifierException
-    | InvalidMaxConflictFilesException
-    | InvalidMergeOptionException
-    | InvalidRepositoryNameException
-    | InvalidSourceCommitSpecifierException
-    | MaximumFileContentToLoadExceededException
-    | MaximumItemsToCompareExceededException
-    | MergeOptionRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    CommitDoesNotExistException | CommitRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommitException | InvalidConflictDetailLevelException | InvalidConflictResolutionStrategyException | InvalidContinuationTokenException | InvalidDestinationCommitSpecifierException | InvalidMaxConflictFilesException | InvalidMergeOptionException | InvalidRepositoryNameException | InvalidSourceCommitSpecifierException | MaximumFileContentToLoadExceededException | MaximumItemsToCompareExceededException | MergeOptionRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("GetMergeConflicts", input);
   }
@@ -802,23 +300,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetMergeOptionsInput,
   ): Effect.Effect<
     GetMergeOptionsOutput,
-    | CommitDoesNotExistException
-    | CommitRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommitException
-    | InvalidConflictDetailLevelException
-    | InvalidConflictResolutionStrategyException
-    | InvalidRepositoryNameException
-    | MaximumFileContentToLoadExceededException
-    | MaximumItemsToCompareExceededException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    CommitDoesNotExistException | CommitRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommitException | InvalidConflictDetailLevelException | InvalidConflictResolutionStrategyException | InvalidRepositoryNameException | MaximumFileContentToLoadExceededException | MaximumItemsToCompareExceededException | RepositoryDoesNotExistException | RepositoryNameRequiredException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("GetMergeOptions", input);
   }
@@ -826,15 +308,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetPullRequestInput,
   ): Effect.Effect<
     GetPullRequestOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidPullRequestIdException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidPullRequestIdException | PullRequestDoesNotExistException | PullRequestIdRequiredException | CommonAwsError
   > {
     return this.call("GetPullRequest", input);
   }
@@ -842,17 +316,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetPullRequestApprovalStatesInput,
   ): Effect.Effect<
     GetPullRequestApprovalStatesOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidPullRequestIdException
-    | InvalidRevisionIdException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | RevisionIdRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidPullRequestIdException | InvalidRevisionIdException | PullRequestDoesNotExistException | PullRequestIdRequiredException | RevisionIdRequiredException | CommonAwsError
   > {
     return this.call("GetPullRequestApprovalStates", input);
   }
@@ -860,17 +324,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetPullRequestOverrideStateInput,
   ): Effect.Effect<
     GetPullRequestOverrideStateOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidPullRequestIdException
-    | InvalidRevisionIdException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | RevisionIdRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidPullRequestIdException | InvalidRevisionIdException | PullRequestDoesNotExistException | PullRequestIdRequiredException | RevisionIdRequiredException | CommonAwsError
   > {
     return this.call("GetPullRequestOverrideState", input);
   }
@@ -878,15 +332,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetRepositoryInput,
   ): Effect.Effect<
     GetRepositoryOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("GetRepository", input);
   }
@@ -894,15 +340,7 @@ export class CodeCommit extends AWSServiceClient {
     input: GetRepositoryTriggersInput,
   ): Effect.Effect<
     GetRepositoryTriggersOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("GetRepositoryTriggers", input);
   }
@@ -910,9 +348,7 @@ export class CodeCommit extends AWSServiceClient {
     input: ListApprovalRuleTemplatesInput,
   ): Effect.Effect<
     ListApprovalRuleTemplatesOutput,
-    | InvalidContinuationTokenException
-    | InvalidMaxResultsException
-    | CommonAwsError
+    InvalidContinuationTokenException | InvalidMaxResultsException | CommonAwsError
   > {
     return this.call("ListApprovalRuleTemplates", input);
   }
@@ -920,17 +356,7 @@ export class CodeCommit extends AWSServiceClient {
     input: ListAssociatedApprovalRuleTemplatesForRepositoryInput,
   ): Effect.Effect<
     ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidContinuationTokenException
-    | InvalidMaxResultsException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidContinuationTokenException | InvalidMaxResultsException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("ListAssociatedApprovalRuleTemplatesForRepository", input);
   }
@@ -938,16 +364,7 @@ export class CodeCommit extends AWSServiceClient {
     input: ListBranchesInput,
   ): Effect.Effect<
     ListBranchesOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidContinuationTokenException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidContinuationTokenException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("ListBranches", input);
   }
@@ -955,21 +372,7 @@ export class CodeCommit extends AWSServiceClient {
     input: ListFileCommitHistoryRequest,
   ): Effect.Effect<
     ListFileCommitHistoryResponse,
-    | CommitDoesNotExistException
-    | CommitRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommitException
-    | InvalidContinuationTokenException
-    | InvalidMaxResultsException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    CommitDoesNotExistException | CommitRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommitException | InvalidContinuationTokenException | InvalidMaxResultsException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("ListFileCommitHistory", input);
   }
@@ -977,20 +380,7 @@ export class CodeCommit extends AWSServiceClient {
     input: ListPullRequestsInput,
   ): Effect.Effect<
     ListPullRequestsOutput,
-    | AuthorDoesNotExistException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidAuthorArnException
-    | InvalidContinuationTokenException
-    | InvalidMaxResultsException
-    | InvalidPullRequestStatusException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    AuthorDoesNotExistException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidAuthorArnException | InvalidContinuationTokenException | InvalidMaxResultsException | InvalidPullRequestStatusException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("ListPullRequests", input);
   }
@@ -998,10 +388,7 @@ export class CodeCommit extends AWSServiceClient {
     input: ListRepositoriesInput,
   ): Effect.Effect<
     ListRepositoriesOutput,
-    | InvalidContinuationTokenException
-    | InvalidOrderException
-    | InvalidSortByException
-    | CommonAwsError
+    InvalidContinuationTokenException | InvalidOrderException | InvalidSortByException | CommonAwsError
   > {
     return this.call("ListRepositories", input);
   }
@@ -1009,17 +396,7 @@ export class CodeCommit extends AWSServiceClient {
     input: ListRepositoriesForApprovalRuleTemplateInput,
   ): Effect.Effect<
     ListRepositoriesForApprovalRuleTemplateOutput,
-    | ApprovalRuleTemplateDoesNotExistException
-    | ApprovalRuleTemplateNameRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidApprovalRuleTemplateNameException
-    | InvalidContinuationTokenException
-    | InvalidMaxResultsException
-    | CommonAwsError
+    ApprovalRuleTemplateDoesNotExistException | ApprovalRuleTemplateNameRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidApprovalRuleTemplateNameException | InvalidContinuationTokenException | InvalidMaxResultsException | CommonAwsError
   > {
     return this.call("ListRepositoriesForApprovalRuleTemplate", input);
   }
@@ -1027,11 +404,7 @@ export class CodeCommit extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InvalidRepositoryNameException
-    | InvalidResourceArnException
-    | RepositoryDoesNotExistException
-    | ResourceArnRequiredException
-    | CommonAwsError
+    InvalidRepositoryNameException | InvalidResourceArnException | RepositoryDoesNotExistException | ResourceArnRequiredException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -1039,26 +412,7 @@ export class CodeCommit extends AWSServiceClient {
     input: MergeBranchesByFastForwardInput,
   ): Effect.Effect<
     MergeBranchesByFastForwardOutput,
-    | BranchDoesNotExistException
-    | BranchNameIsTagNameException
-    | BranchNameRequiredException
-    | CommitDoesNotExistException
-    | CommitRequiredException
-    | ConcurrentReferenceUpdateException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidBranchNameException
-    | InvalidCommitException
-    | InvalidRepositoryNameException
-    | InvalidTargetBranchException
-    | ManualMergeRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    BranchDoesNotExistException | BranchNameIsTagNameException | BranchNameRequiredException | CommitDoesNotExistException | CommitRequiredException | ConcurrentReferenceUpdateException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidBranchNameException | InvalidCommitException | InvalidRepositoryNameException | InvalidTargetBranchException | ManualMergeRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("MergeBranchesByFastForward", input);
   }
@@ -1066,46 +420,7 @@ export class CodeCommit extends AWSServiceClient {
     input: MergeBranchesBySquashInput,
   ): Effect.Effect<
     MergeBranchesBySquashOutput,
-    | BranchDoesNotExistException
-    | BranchNameIsTagNameException
-    | BranchNameRequiredException
-    | CommitDoesNotExistException
-    | CommitMessageLengthExceededException
-    | CommitRequiredException
-    | ConcurrentReferenceUpdateException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileContentSizeLimitExceededException
-    | FileModeRequiredException
-    | FolderContentSizeLimitExceededException
-    | InvalidBranchNameException
-    | InvalidCommitException
-    | InvalidConflictDetailLevelException
-    | InvalidConflictResolutionException
-    | InvalidConflictResolutionStrategyException
-    | InvalidEmailException
-    | InvalidFileModeException
-    | InvalidPathException
-    | InvalidReplacementContentException
-    | InvalidReplacementTypeException
-    | InvalidRepositoryNameException
-    | InvalidTargetBranchException
-    | ManualMergeRequiredException
-    | MaximumConflictResolutionEntriesExceededException
-    | MaximumFileContentToLoadExceededException
-    | MaximumItemsToCompareExceededException
-    | MultipleConflictResolutionEntriesException
-    | NameLengthExceededException
-    | PathRequiredException
-    | ReplacementContentRequiredException
-    | ReplacementTypeRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    BranchDoesNotExistException | BranchNameIsTagNameException | BranchNameRequiredException | CommitDoesNotExistException | CommitMessageLengthExceededException | CommitRequiredException | ConcurrentReferenceUpdateException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileContentSizeLimitExceededException | FileModeRequiredException | FolderContentSizeLimitExceededException | InvalidBranchNameException | InvalidCommitException | InvalidConflictDetailLevelException | InvalidConflictResolutionException | InvalidConflictResolutionStrategyException | InvalidEmailException | InvalidFileModeException | InvalidPathException | InvalidReplacementContentException | InvalidReplacementTypeException | InvalidRepositoryNameException | InvalidTargetBranchException | ManualMergeRequiredException | MaximumConflictResolutionEntriesExceededException | MaximumFileContentToLoadExceededException | MaximumItemsToCompareExceededException | MultipleConflictResolutionEntriesException | NameLengthExceededException | PathRequiredException | ReplacementContentRequiredException | ReplacementTypeRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("MergeBranchesBySquash", input);
   }
@@ -1113,46 +428,7 @@ export class CodeCommit extends AWSServiceClient {
     input: MergeBranchesByThreeWayInput,
   ): Effect.Effect<
     MergeBranchesByThreeWayOutput,
-    | BranchDoesNotExistException
-    | BranchNameIsTagNameException
-    | BranchNameRequiredException
-    | CommitDoesNotExistException
-    | CommitMessageLengthExceededException
-    | CommitRequiredException
-    | ConcurrentReferenceUpdateException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileContentSizeLimitExceededException
-    | FileModeRequiredException
-    | FolderContentSizeLimitExceededException
-    | InvalidBranchNameException
-    | InvalidCommitException
-    | InvalidConflictDetailLevelException
-    | InvalidConflictResolutionException
-    | InvalidConflictResolutionStrategyException
-    | InvalidEmailException
-    | InvalidFileModeException
-    | InvalidPathException
-    | InvalidReplacementContentException
-    | InvalidReplacementTypeException
-    | InvalidRepositoryNameException
-    | InvalidTargetBranchException
-    | ManualMergeRequiredException
-    | MaximumConflictResolutionEntriesExceededException
-    | MaximumFileContentToLoadExceededException
-    | MaximumItemsToCompareExceededException
-    | MultipleConflictResolutionEntriesException
-    | NameLengthExceededException
-    | PathRequiredException
-    | ReplacementContentRequiredException
-    | ReplacementTypeRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    BranchDoesNotExistException | BranchNameIsTagNameException | BranchNameRequiredException | CommitDoesNotExistException | CommitMessageLengthExceededException | CommitRequiredException | ConcurrentReferenceUpdateException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileContentSizeLimitExceededException | FileModeRequiredException | FolderContentSizeLimitExceededException | InvalidBranchNameException | InvalidCommitException | InvalidConflictDetailLevelException | InvalidConflictResolutionException | InvalidConflictResolutionStrategyException | InvalidEmailException | InvalidFileModeException | InvalidPathException | InvalidReplacementContentException | InvalidReplacementTypeException | InvalidRepositoryNameException | InvalidTargetBranchException | ManualMergeRequiredException | MaximumConflictResolutionEntriesExceededException | MaximumFileContentToLoadExceededException | MaximumItemsToCompareExceededException | MultipleConflictResolutionEntriesException | NameLengthExceededException | PathRequiredException | ReplacementContentRequiredException | ReplacementTypeRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("MergeBranchesByThreeWay", input);
   }
@@ -1160,26 +436,7 @@ export class CodeCommit extends AWSServiceClient {
     input: MergePullRequestByFastForwardInput,
   ): Effect.Effect<
     MergePullRequestByFastForwardOutput,
-    | ConcurrentReferenceUpdateException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidCommitIdException
-    | InvalidPullRequestIdException
-    | InvalidRepositoryNameException
-    | ManualMergeRequiredException
-    | PullRequestAlreadyClosedException
-    | PullRequestApprovalRulesNotSatisfiedException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | ReferenceDoesNotExistException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | RepositoryNotAssociatedWithPullRequestException
-    | TipOfSourceReferenceIsDifferentException
-    | CommonAwsError
+    ConcurrentReferenceUpdateException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidCommitIdException | InvalidPullRequestIdException | InvalidRepositoryNameException | ManualMergeRequiredException | PullRequestAlreadyClosedException | PullRequestApprovalRulesNotSatisfiedException | PullRequestDoesNotExistException | PullRequestIdRequiredException | ReferenceDoesNotExistException | RepositoryDoesNotExistException | RepositoryNameRequiredException | RepositoryNotAssociatedWithPullRequestException | TipOfSourceReferenceIsDifferentException | CommonAwsError
   > {
     return this.call("MergePullRequestByFastForward", input);
   }
@@ -1187,45 +444,7 @@ export class CodeCommit extends AWSServiceClient {
     input: MergePullRequestBySquashInput,
   ): Effect.Effect<
     MergePullRequestBySquashOutput,
-    | CommitMessageLengthExceededException
-    | ConcurrentReferenceUpdateException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileContentSizeLimitExceededException
-    | FolderContentSizeLimitExceededException
-    | InvalidCommitIdException
-    | InvalidConflictDetailLevelException
-    | InvalidConflictResolutionException
-    | InvalidConflictResolutionStrategyException
-    | InvalidEmailException
-    | InvalidFileModeException
-    | InvalidPathException
-    | InvalidPullRequestIdException
-    | InvalidReplacementContentException
-    | InvalidReplacementTypeException
-    | InvalidRepositoryNameException
-    | ManualMergeRequiredException
-    | MaximumConflictResolutionEntriesExceededException
-    | MaximumFileContentToLoadExceededException
-    | MaximumItemsToCompareExceededException
-    | MultipleConflictResolutionEntriesException
-    | NameLengthExceededException
-    | PathRequiredException
-    | PullRequestAlreadyClosedException
-    | PullRequestApprovalRulesNotSatisfiedException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | ReplacementContentRequiredException
-    | ReplacementTypeRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | RepositoryNotAssociatedWithPullRequestException
-    | TipOfSourceReferenceIsDifferentException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    CommitMessageLengthExceededException | ConcurrentReferenceUpdateException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileContentSizeLimitExceededException | FolderContentSizeLimitExceededException | InvalidCommitIdException | InvalidConflictDetailLevelException | InvalidConflictResolutionException | InvalidConflictResolutionStrategyException | InvalidEmailException | InvalidFileModeException | InvalidPathException | InvalidPullRequestIdException | InvalidReplacementContentException | InvalidReplacementTypeException | InvalidRepositoryNameException | ManualMergeRequiredException | MaximumConflictResolutionEntriesExceededException | MaximumFileContentToLoadExceededException | MaximumItemsToCompareExceededException | MultipleConflictResolutionEntriesException | NameLengthExceededException | PathRequiredException | PullRequestAlreadyClosedException | PullRequestApprovalRulesNotSatisfiedException | PullRequestDoesNotExistException | PullRequestIdRequiredException | ReplacementContentRequiredException | ReplacementTypeRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | RepositoryNotAssociatedWithPullRequestException | TipOfSourceReferenceIsDifferentException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("MergePullRequestBySquash", input);
   }
@@ -1233,45 +452,7 @@ export class CodeCommit extends AWSServiceClient {
     input: MergePullRequestByThreeWayInput,
   ): Effect.Effect<
     MergePullRequestByThreeWayOutput,
-    | CommitMessageLengthExceededException
-    | ConcurrentReferenceUpdateException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileContentSizeLimitExceededException
-    | FolderContentSizeLimitExceededException
-    | InvalidCommitIdException
-    | InvalidConflictDetailLevelException
-    | InvalidConflictResolutionException
-    | InvalidConflictResolutionStrategyException
-    | InvalidEmailException
-    | InvalidFileModeException
-    | InvalidPathException
-    | InvalidPullRequestIdException
-    | InvalidReplacementContentException
-    | InvalidReplacementTypeException
-    | InvalidRepositoryNameException
-    | ManualMergeRequiredException
-    | MaximumConflictResolutionEntriesExceededException
-    | MaximumFileContentToLoadExceededException
-    | MaximumItemsToCompareExceededException
-    | MultipleConflictResolutionEntriesException
-    | NameLengthExceededException
-    | PathRequiredException
-    | PullRequestAlreadyClosedException
-    | PullRequestApprovalRulesNotSatisfiedException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | ReplacementContentRequiredException
-    | ReplacementTypeRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | RepositoryNotAssociatedWithPullRequestException
-    | TipOfSourceReferenceIsDifferentException
-    | TipsDivergenceExceededException
-    | CommonAwsError
+    CommitMessageLengthExceededException | ConcurrentReferenceUpdateException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileContentSizeLimitExceededException | FolderContentSizeLimitExceededException | InvalidCommitIdException | InvalidConflictDetailLevelException | InvalidConflictResolutionException | InvalidConflictResolutionStrategyException | InvalidEmailException | InvalidFileModeException | InvalidPathException | InvalidPullRequestIdException | InvalidReplacementContentException | InvalidReplacementTypeException | InvalidRepositoryNameException | ManualMergeRequiredException | MaximumConflictResolutionEntriesExceededException | MaximumFileContentToLoadExceededException | MaximumItemsToCompareExceededException | MultipleConflictResolutionEntriesException | NameLengthExceededException | PathRequiredException | PullRequestAlreadyClosedException | PullRequestApprovalRulesNotSatisfiedException | PullRequestDoesNotExistException | PullRequestIdRequiredException | ReplacementContentRequiredException | ReplacementTypeRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | RepositoryNotAssociatedWithPullRequestException | TipOfSourceReferenceIsDifferentException | TipsDivergenceExceededException | CommonAwsError
   > {
     return this.call("MergePullRequestByThreeWay", input);
   }
@@ -1279,22 +460,7 @@ export class CodeCommit extends AWSServiceClient {
     input: OverridePullRequestApprovalRulesInput,
   ): Effect.Effect<
     {},
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidOverrideStatusException
-    | InvalidPullRequestIdException
-    | InvalidRevisionIdException
-    | OverrideAlreadySetException
-    | OverrideStatusRequiredException
-    | PullRequestAlreadyClosedException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | RevisionIdRequiredException
-    | RevisionNotCurrentException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidOverrideStatusException | InvalidPullRequestIdException | InvalidRevisionIdException | OverrideAlreadySetException | OverrideStatusRequiredException | PullRequestAlreadyClosedException | PullRequestDoesNotExistException | PullRequestIdRequiredException | RevisionIdRequiredException | RevisionNotCurrentException | CommonAwsError
   > {
     return this.call("OverridePullRequestApprovalRules", input);
   }
@@ -1302,30 +468,7 @@ export class CodeCommit extends AWSServiceClient {
     input: PostCommentForComparedCommitInput,
   ): Effect.Effect<
     PostCommentForComparedCommitOutput,
-    | BeforeCommitIdAndAfterCommitIdAreSameException
-    | ClientRequestTokenRequiredException
-    | CommentContentRequiredException
-    | CommentContentSizeLimitExceededException
-    | CommitDoesNotExistException
-    | CommitIdRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | IdempotencyParameterMismatchException
-    | InvalidClientRequestTokenException
-    | InvalidCommitIdException
-    | InvalidFileLocationException
-    | InvalidFilePositionException
-    | InvalidPathException
-    | InvalidRelativeFileVersionEnumException
-    | InvalidRepositoryNameException
-    | PathDoesNotExistException
-    | PathRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    BeforeCommitIdAndAfterCommitIdAreSameException | ClientRequestTokenRequiredException | CommentContentRequiredException | CommentContentSizeLimitExceededException | CommitDoesNotExistException | CommitIdRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | IdempotencyParameterMismatchException | InvalidClientRequestTokenException | InvalidCommitIdException | InvalidFileLocationException | InvalidFilePositionException | InvalidPathException | InvalidRelativeFileVersionEnumException | InvalidRepositoryNameException | PathDoesNotExistException | PathRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("PostCommentForComparedCommit", input);
   }
@@ -1333,34 +476,7 @@ export class CodeCommit extends AWSServiceClient {
     input: PostCommentForPullRequestInput,
   ): Effect.Effect<
     PostCommentForPullRequestOutput,
-    | BeforeCommitIdAndAfterCommitIdAreSameException
-    | ClientRequestTokenRequiredException
-    | CommentContentRequiredException
-    | CommentContentSizeLimitExceededException
-    | CommitDoesNotExistException
-    | CommitIdRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | IdempotencyParameterMismatchException
-    | InvalidClientRequestTokenException
-    | InvalidCommitIdException
-    | InvalidFileLocationException
-    | InvalidFilePositionException
-    | InvalidPathException
-    | InvalidPullRequestIdException
-    | InvalidRelativeFileVersionEnumException
-    | InvalidRepositoryNameException
-    | PathDoesNotExistException
-    | PathRequiredException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | RepositoryNotAssociatedWithPullRequestException
-    | CommonAwsError
+    BeforeCommitIdAndAfterCommitIdAreSameException | ClientRequestTokenRequiredException | CommentContentRequiredException | CommentContentSizeLimitExceededException | CommitDoesNotExistException | CommitIdRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | IdempotencyParameterMismatchException | InvalidClientRequestTokenException | InvalidCommitIdException | InvalidFileLocationException | InvalidFilePositionException | InvalidPathException | InvalidPullRequestIdException | InvalidRelativeFileVersionEnumException | InvalidRepositoryNameException | PathDoesNotExistException | PathRequiredException | PullRequestDoesNotExistException | PullRequestIdRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | RepositoryNotAssociatedWithPullRequestException | CommonAwsError
   > {
     return this.call("PostCommentForPullRequest", input);
   }
@@ -1368,15 +484,7 @@ export class CodeCommit extends AWSServiceClient {
     input: PostCommentReplyInput,
   ): Effect.Effect<
     PostCommentReplyOutput,
-    | ClientRequestTokenRequiredException
-    | CommentContentRequiredException
-    | CommentContentSizeLimitExceededException
-    | CommentDoesNotExistException
-    | CommentIdRequiredException
-    | IdempotencyParameterMismatchException
-    | InvalidClientRequestTokenException
-    | InvalidCommentIdException
-    | CommonAwsError
+    ClientRequestTokenRequiredException | CommentContentRequiredException | CommentContentSizeLimitExceededException | CommentDoesNotExistException | CommentIdRequiredException | IdempotencyParameterMismatchException | InvalidClientRequestTokenException | InvalidCommentIdException | CommonAwsError
   > {
     return this.call("PostCommentReply", input);
   }
@@ -1384,14 +492,7 @@ export class CodeCommit extends AWSServiceClient {
     input: PutCommentReactionInput,
   ): Effect.Effect<
     {},
-    | CommentDeletedException
-    | CommentDoesNotExistException
-    | CommentIdRequiredException
-    | InvalidCommentIdException
-    | InvalidReactionValueException
-    | ReactionLimitExceededException
-    | ReactionValueRequiredException
-    | CommonAwsError
+    CommentDeletedException | CommentDoesNotExistException | CommentIdRequiredException | InvalidCommentIdException | InvalidReactionValueException | ReactionLimitExceededException | ReactionValueRequiredException | CommonAwsError
   > {
     return this.call("PutCommentReaction", input);
   }
@@ -1399,37 +500,7 @@ export class CodeCommit extends AWSServiceClient {
     input: PutFileInput,
   ): Effect.Effect<
     PutFileOutput,
-    | BranchDoesNotExistException
-    | BranchNameIsTagNameException
-    | BranchNameRequiredException
-    | CommitMessageLengthExceededException
-    | DirectoryNameConflictsWithFileNameException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | FileContentRequiredException
-    | FileContentSizeLimitExceededException
-    | FileNameConflictsWithDirectoryNameException
-    | FilePathConflictsWithSubmodulePathException
-    | FolderContentSizeLimitExceededException
-    | InvalidBranchNameException
-    | InvalidDeletionParameterException
-    | InvalidEmailException
-    | InvalidFileModeException
-    | InvalidParentCommitIdException
-    | InvalidPathException
-    | InvalidRepositoryNameException
-    | NameLengthExceededException
-    | ParentCommitDoesNotExistException
-    | ParentCommitIdOutdatedException
-    | ParentCommitIdRequiredException
-    | PathRequiredException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | SameFileContentException
-    | CommonAwsError
+    BranchDoesNotExistException | BranchNameIsTagNameException | BranchNameRequiredException | CommitMessageLengthExceededException | DirectoryNameConflictsWithFileNameException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | FileContentRequiredException | FileContentSizeLimitExceededException | FileNameConflictsWithDirectoryNameException | FilePathConflictsWithSubmodulePathException | FolderContentSizeLimitExceededException | InvalidBranchNameException | InvalidDeletionParameterException | InvalidEmailException | InvalidFileModeException | InvalidParentCommitIdException | InvalidPathException | InvalidRepositoryNameException | NameLengthExceededException | ParentCommitDoesNotExistException | ParentCommitIdOutdatedException | ParentCommitIdRequiredException | PathRequiredException | RepositoryDoesNotExistException | RepositoryNameRequiredException | SameFileContentException | CommonAwsError
   > {
     return this.call("PutFile", input);
   }
@@ -1437,28 +508,7 @@ export class CodeCommit extends AWSServiceClient {
     input: PutRepositoryTriggersInput,
   ): Effect.Effect<
     PutRepositoryTriggersOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidRepositoryNameException
-    | InvalidRepositoryTriggerBranchNameException
-    | InvalidRepositoryTriggerCustomDataException
-    | InvalidRepositoryTriggerDestinationArnException
-    | InvalidRepositoryTriggerEventsException
-    | InvalidRepositoryTriggerNameException
-    | InvalidRepositoryTriggerRegionException
-    | MaximumBranchesExceededException
-    | MaximumRepositoryTriggersExceededException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | RepositoryTriggerBranchNameListRequiredException
-    | RepositoryTriggerDestinationArnRequiredException
-    | RepositoryTriggerEventsListRequiredException
-    | RepositoryTriggerNameRequiredException
-    | RepositoryTriggersListRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidRepositoryNameException | InvalidRepositoryTriggerBranchNameException | InvalidRepositoryTriggerCustomDataException | InvalidRepositoryTriggerDestinationArnException | InvalidRepositoryTriggerEventsException | InvalidRepositoryTriggerNameException | InvalidRepositoryTriggerRegionException | MaximumBranchesExceededException | MaximumRepositoryTriggersExceededException | RepositoryDoesNotExistException | RepositoryNameRequiredException | RepositoryTriggerBranchNameListRequiredException | RepositoryTriggerDestinationArnRequiredException | RepositoryTriggerEventsListRequiredException | RepositoryTriggerNameRequiredException | RepositoryTriggersListRequiredException | CommonAwsError
   > {
     return this.call("PutRepositoryTriggers", input);
   }
@@ -1466,16 +516,7 @@ export class CodeCommit extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     {},
-    | InvalidRepositoryNameException
-    | InvalidResourceArnException
-    | InvalidSystemTagUsageException
-    | InvalidTagsMapException
-    | RepositoryDoesNotExistException
-    | ResourceArnRequiredException
-    | TagPolicyException
-    | TagsMapRequiredException
-    | TooManyTagsException
-    | CommonAwsError
+    InvalidRepositoryNameException | InvalidResourceArnException | InvalidSystemTagUsageException | InvalidTagsMapException | RepositoryDoesNotExistException | ResourceArnRequiredException | TagPolicyException | TagsMapRequiredException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1483,28 +524,7 @@ export class CodeCommit extends AWSServiceClient {
     input: TestRepositoryTriggersInput,
   ): Effect.Effect<
     TestRepositoryTriggersOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidRepositoryNameException
-    | InvalidRepositoryTriggerBranchNameException
-    | InvalidRepositoryTriggerCustomDataException
-    | InvalidRepositoryTriggerDestinationArnException
-    | InvalidRepositoryTriggerEventsException
-    | InvalidRepositoryTriggerNameException
-    | InvalidRepositoryTriggerRegionException
-    | MaximumBranchesExceededException
-    | MaximumRepositoryTriggersExceededException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | RepositoryTriggerBranchNameListRequiredException
-    | RepositoryTriggerDestinationArnRequiredException
-    | RepositoryTriggerEventsListRequiredException
-    | RepositoryTriggerNameRequiredException
-    | RepositoryTriggersListRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidRepositoryNameException | InvalidRepositoryTriggerBranchNameException | InvalidRepositoryTriggerCustomDataException | InvalidRepositoryTriggerDestinationArnException | InvalidRepositoryTriggerEventsException | InvalidRepositoryTriggerNameException | InvalidRepositoryTriggerRegionException | MaximumBranchesExceededException | MaximumRepositoryTriggersExceededException | RepositoryDoesNotExistException | RepositoryNameRequiredException | RepositoryTriggerBranchNameListRequiredException | RepositoryTriggerDestinationArnRequiredException | RepositoryTriggerEventsListRequiredException | RepositoryTriggerNameRequiredException | RepositoryTriggersListRequiredException | CommonAwsError
   > {
     return this.call("TestRepositoryTriggers", input);
   }
@@ -1512,16 +532,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     {},
-    | InvalidRepositoryNameException
-    | InvalidResourceArnException
-    | InvalidSystemTagUsageException
-    | InvalidTagKeysListException
-    | RepositoryDoesNotExistException
-    | ResourceArnRequiredException
-    | TagKeysListRequiredException
-    | TagPolicyException
-    | TooManyTagsException
-    | CommonAwsError
+    InvalidRepositoryNameException | InvalidResourceArnException | InvalidSystemTagUsageException | InvalidTagKeysListException | RepositoryDoesNotExistException | ResourceArnRequiredException | TagKeysListRequiredException | TagPolicyException | TooManyTagsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1529,13 +540,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdateApprovalRuleTemplateContentInput,
   ): Effect.Effect<
     UpdateApprovalRuleTemplateContentOutput,
-    | ApprovalRuleTemplateContentRequiredException
-    | ApprovalRuleTemplateDoesNotExistException
-    | ApprovalRuleTemplateNameRequiredException
-    | InvalidApprovalRuleTemplateContentException
-    | InvalidApprovalRuleTemplateNameException
-    | InvalidRuleContentSha256Exception
-    | CommonAwsError
+    ApprovalRuleTemplateContentRequiredException | ApprovalRuleTemplateDoesNotExistException | ApprovalRuleTemplateNameRequiredException | InvalidApprovalRuleTemplateContentException | InvalidApprovalRuleTemplateNameException | InvalidRuleContentSha256Exception | CommonAwsError
   > {
     return this.call("UpdateApprovalRuleTemplateContent", input);
   }
@@ -1543,11 +548,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdateApprovalRuleTemplateDescriptionInput,
   ): Effect.Effect<
     UpdateApprovalRuleTemplateDescriptionOutput,
-    | ApprovalRuleTemplateDoesNotExistException
-    | ApprovalRuleTemplateNameRequiredException
-    | InvalidApprovalRuleTemplateDescriptionException
-    | InvalidApprovalRuleTemplateNameException
-    | CommonAwsError
+    ApprovalRuleTemplateDoesNotExistException | ApprovalRuleTemplateNameRequiredException | InvalidApprovalRuleTemplateDescriptionException | InvalidApprovalRuleTemplateNameException | CommonAwsError
   > {
     return this.call("UpdateApprovalRuleTemplateDescription", input);
   }
@@ -1555,11 +556,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdateApprovalRuleTemplateNameInput,
   ): Effect.Effect<
     UpdateApprovalRuleTemplateNameOutput,
-    | ApprovalRuleTemplateDoesNotExistException
-    | ApprovalRuleTemplateNameAlreadyExistsException
-    | ApprovalRuleTemplateNameRequiredException
-    | InvalidApprovalRuleTemplateNameException
-    | CommonAwsError
+    ApprovalRuleTemplateDoesNotExistException | ApprovalRuleTemplateNameAlreadyExistsException | ApprovalRuleTemplateNameRequiredException | InvalidApprovalRuleTemplateNameException | CommonAwsError
   > {
     return this.call("UpdateApprovalRuleTemplateName", input);
   }
@@ -1567,14 +564,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdateCommentInput,
   ): Effect.Effect<
     UpdateCommentOutput,
-    | CommentContentRequiredException
-    | CommentContentSizeLimitExceededException
-    | CommentDeletedException
-    | CommentDoesNotExistException
-    | CommentIdRequiredException
-    | CommentNotCreatedByCallerException
-    | InvalidCommentIdException
-    | CommonAwsError
+    CommentContentRequiredException | CommentContentSizeLimitExceededException | CommentDeletedException | CommentDoesNotExistException | CommentIdRequiredException | CommentNotCreatedByCallerException | InvalidCommentIdException | CommonAwsError
   > {
     return this.call("UpdateComment", input);
   }
@@ -1582,18 +572,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdateDefaultBranchInput,
   ): Effect.Effect<
     {},
-    | BranchDoesNotExistException
-    | BranchNameRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidBranchNameException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    BranchDoesNotExistException | BranchNameRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidBranchNameException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("UpdateDefaultBranch", input);
   }
@@ -1601,23 +580,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdatePullRequestApprovalRuleContentInput,
   ): Effect.Effect<
     UpdatePullRequestApprovalRuleContentOutput,
-    | ApprovalRuleContentRequiredException
-    | ApprovalRuleDoesNotExistException
-    | ApprovalRuleNameRequiredException
-    | CannotModifyApprovalRuleFromTemplateException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidApprovalRuleContentException
-    | InvalidApprovalRuleNameException
-    | InvalidPullRequestIdException
-    | InvalidRuleContentSha256Exception
-    | PullRequestAlreadyClosedException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | CommonAwsError
+    ApprovalRuleContentRequiredException | ApprovalRuleDoesNotExistException | ApprovalRuleNameRequiredException | CannotModifyApprovalRuleFromTemplateException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidApprovalRuleContentException | InvalidApprovalRuleNameException | InvalidPullRequestIdException | InvalidRuleContentSha256Exception | PullRequestAlreadyClosedException | PullRequestDoesNotExistException | PullRequestIdRequiredException | CommonAwsError
   > {
     return this.call("UpdatePullRequestApprovalRuleContent", input);
   }
@@ -1625,23 +588,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdatePullRequestApprovalStateInput,
   ): Effect.Effect<
     {},
-    | ApprovalStateRequiredException
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidApprovalStateException
-    | InvalidPullRequestIdException
-    | InvalidRevisionIdException
-    | MaximumNumberOfApprovalsExceededException
-    | PullRequestAlreadyClosedException
-    | PullRequestCannotBeApprovedByAuthorException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | RevisionIdRequiredException
-    | RevisionNotCurrentException
-    | CommonAwsError
+    ApprovalStateRequiredException | EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidApprovalStateException | InvalidPullRequestIdException | InvalidRevisionIdException | MaximumNumberOfApprovalsExceededException | PullRequestAlreadyClosedException | PullRequestCannotBeApprovedByAuthorException | PullRequestDoesNotExistException | PullRequestIdRequiredException | RevisionIdRequiredException | RevisionNotCurrentException | CommonAwsError
   > {
     return this.call("UpdatePullRequestApprovalState", input);
   }
@@ -1649,12 +596,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdatePullRequestDescriptionInput,
   ): Effect.Effect<
     UpdatePullRequestDescriptionOutput,
-    | InvalidDescriptionException
-    | InvalidPullRequestIdException
-    | PullRequestAlreadyClosedException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | CommonAwsError
+    InvalidDescriptionException | InvalidPullRequestIdException | PullRequestAlreadyClosedException | PullRequestDoesNotExistException | PullRequestIdRequiredException | CommonAwsError
   > {
     return this.call("UpdatePullRequestDescription", input);
   }
@@ -1662,18 +604,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdatePullRequestStatusInput,
   ): Effect.Effect<
     UpdatePullRequestStatusOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidPullRequestIdException
-    | InvalidPullRequestStatusException
-    | InvalidPullRequestStatusUpdateException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | PullRequestStatusRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidPullRequestIdException | InvalidPullRequestStatusException | InvalidPullRequestStatusUpdateException | PullRequestDoesNotExistException | PullRequestIdRequiredException | PullRequestStatusRequiredException | CommonAwsError
   > {
     return this.call("UpdatePullRequestStatus", input);
   }
@@ -1681,13 +612,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdatePullRequestTitleInput,
   ): Effect.Effect<
     UpdatePullRequestTitleOutput,
-    | InvalidPullRequestIdException
-    | InvalidTitleException
-    | PullRequestAlreadyClosedException
-    | PullRequestDoesNotExistException
-    | PullRequestIdRequiredException
-    | TitleRequiredException
-    | CommonAwsError
+    InvalidPullRequestIdException | InvalidTitleException | PullRequestAlreadyClosedException | PullRequestDoesNotExistException | PullRequestIdRequiredException | TitleRequiredException | CommonAwsError
   > {
     return this.call("UpdatePullRequestTitle", input);
   }
@@ -1695,16 +620,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdateRepositoryDescriptionInput,
   ): Effect.Effect<
     {},
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyUnavailableException
-    | InvalidRepositoryDescriptionException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyNotFoundException | EncryptionKeyUnavailableException | InvalidRepositoryDescriptionException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("UpdateRepositoryDescription", input);
   }
@@ -1712,18 +628,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdateRepositoryEncryptionKeyInput,
   ): Effect.Effect<
     UpdateRepositoryEncryptionKeyOutput,
-    | EncryptionIntegrityChecksFailedException
-    | EncryptionKeyAccessDeniedException
-    | EncryptionKeyDisabledException
-    | EncryptionKeyInvalidIdException
-    | EncryptionKeyInvalidUsageException
-    | EncryptionKeyNotFoundException
-    | EncryptionKeyRequiredException
-    | EncryptionKeyUnavailableException
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    EncryptionIntegrityChecksFailedException | EncryptionKeyAccessDeniedException | EncryptionKeyDisabledException | EncryptionKeyInvalidIdException | EncryptionKeyInvalidUsageException | EncryptionKeyNotFoundException | EncryptionKeyRequiredException | EncryptionKeyUnavailableException | InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("UpdateRepositoryEncryptionKey", input);
   }
@@ -1731,11 +636,7 @@ export class CodeCommit extends AWSServiceClient {
     input: UpdateRepositoryNameInput,
   ): Effect.Effect<
     {},
-    | InvalidRepositoryNameException
-    | RepositoryDoesNotExistException
-    | RepositoryNameExistsException
-    | RepositoryNameRequiredException
-    | CommonAwsError
+    InvalidRepositoryNameException | RepositoryDoesNotExistException | RepositoryNameExistsException | RepositoryNameRequiredException | CommonAwsError
   > {
     return this.call("UpdateRepositoryName", input);
   }
@@ -1879,8 +780,7 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
   errorCode?: string;
   errorMessage?: string;
 }
-export type BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList =
-  Array<BatchAssociateApprovalRuleTemplateWithRepositoriesError>;
+export type BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList = Array<BatchAssociateApprovalRuleTemplateWithRepositoriesError>;
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
   approvalRuleTemplateName: string;
   repositoryNames: Array<string>;
@@ -1894,8 +794,7 @@ export interface BatchDescribeMergeConflictsError {
   exceptionName: string;
   message: string;
 }
-export type BatchDescribeMergeConflictsErrors =
-  Array<BatchDescribeMergeConflictsError>;
+export type BatchDescribeMergeConflictsErrors = Array<BatchDescribeMergeConflictsError>;
 export interface BatchDescribeMergeConflictsInput {
   repositoryName: string;
   destinationCommitSpecifier: string;
@@ -1921,8 +820,7 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
   errorCode?: string;
   errorMessage?: string;
 }
-export type BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList =
-  Array<BatchDisassociateApprovalRuleTemplateFromRepositoriesError>;
+export type BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList = Array<BatchDisassociateApprovalRuleTemplateFromRepositoriesError>;
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
   approvalRuleTemplateName: string;
   repositoryNames: Array<string>;
@@ -1951,13 +849,7 @@ export interface BatchGetRepositoriesError {
   errorCode?: BatchGetRepositoriesErrorCodeEnum;
   errorMessage?: string;
 }
-export type BatchGetRepositoriesErrorCodeEnum =
-  | "ENCRYPTION_INTEGRITY_CHECKS_FAILED_EXCEPTION"
-  | "ENCRYPTION_KEY_ACCESS_DENIED_EXCEPTION"
-  | "ENCRYPTION_KEY_DISABLED_EXCEPTION"
-  | "ENCRYPTION_KEY_NOT_FOUND_EXCEPTION"
-  | "ENCRYPTION_KEY_UNAVAILABLE_EXCEPTION"
-  | "REPOSITORY_DOES_NOT_EXIST_EXCEPTION";
+export type BatchGetRepositoriesErrorCodeEnum = "ENCRYPTION_INTEGRITY_CHECKS_FAILED_EXCEPTION" | "ENCRYPTION_KEY_ACCESS_DENIED_EXCEPTION" | "ENCRYPTION_KEY_DISABLED_EXCEPTION" | "ENCRYPTION_KEY_NOT_FOUND_EXCEPTION" | "ENCRYPTION_KEY_UNAVAILABLE_EXCEPTION" | "REPOSITORY_DOES_NOT_EXIST_EXCEPTION";
 export type BatchGetRepositoriesErrorsList = Array<BatchGetRepositoriesError>;
 export interface BatchGetRepositoriesInput {
   repositoryNames: Array<string>;
@@ -2185,11 +1077,7 @@ export interface ConflictResolution {
   deleteFiles?: Array<DeleteFileEntry>;
   setFileModes?: Array<SetFileModeEntry>;
 }
-export type ConflictResolutionStrategyTypeEnum =
-  | "NONE"
-  | "ACCEPT_SOURCE"
-  | "ACCEPT_DESTINATION"
-  | "AUTOMERGE";
+export type ConflictResolutionStrategyTypeEnum = "NONE" | "ACCEPT_SOURCE" | "ACCEPT_DESTINATION" | "AUTOMERGE";
 export type Conflicts = Array<Conflict>;
 export type Content = string;
 
@@ -3281,10 +2169,7 @@ export declare class MergeOptionRequiredException extends EffectData.TaggedError
   readonly message?: string;
 }> {}
 export type MergeOptions = Array<MergeOptionTypeEnum>;
-export type MergeOptionTypeEnum =
-  | "FAST_FORWARD_MERGE"
-  | "SQUASH_MERGE"
-  | "THREE_WAY_MERGE";
+export type MergeOptionTypeEnum = "FAST_FORWARD_MERGE" | "SQUASH_MERGE" | "THREE_WAY_MERGE";
 export interface MergePullRequestByFastForwardInput {
   pullRequestId: string;
   repositoryName: string;
@@ -3367,11 +2252,7 @@ export type ObjectId = string;
 
 export type ObjectSize = number;
 
-export type ObjectTypeEnum =
-  | "FILE"
-  | "DIRECTORY"
-  | "GIT_LINK"
-  | "SYMBOLIC_LINK";
+export type ObjectTypeEnum = "FILE" | "DIRECTORY" | "GIT_LINK" | "SYMBOLIC_LINK";
 export interface ObjectTypes {
   source?: ObjectTypeEnum;
   destination?: ObjectTypeEnum;
@@ -3532,16 +2413,7 @@ export interface PullRequestEvent {
   approvalRuleOverriddenEventMetadata?: ApprovalRuleOverriddenEventMetadata;
 }
 export type PullRequestEventList = Array<PullRequestEvent>;
-export type PullRequestEventType =
-  | "PULL_REQUEST_CREATED"
-  | "PULL_REQUEST_STATUS_CHANGED"
-  | "PULL_REQUEST_SOURCE_REFERENCE_UPDATED"
-  | "PULL_REQUEST_MERGE_STATE_CHANGED"
-  | "PULL_REQUEST_APPROVAL_RULE_CREATED"
-  | "PULL_REQUEST_APPROVAL_RULE_UPDATED"
-  | "PULL_REQUEST_APPROVAL_RULE_DELETED"
-  | "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN"
-  | "PULL_REQUEST_APPROVAL_STATE_CHANGED";
+export type PullRequestEventType = "PULL_REQUEST_CREATED" | "PULL_REQUEST_STATUS_CHANGED" | "PULL_REQUEST_SOURCE_REFERENCE_UPDATED" | "PULL_REQUEST_MERGE_STATE_CHANGED" | "PULL_REQUEST_APPROVAL_RULE_CREATED" | "PULL_REQUEST_APPROVAL_RULE_UPDATED" | "PULL_REQUEST_APPROVAL_RULE_DELETED" | "PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN" | "PULL_REQUEST_APPROVAL_STATE_CHANGED";
 export type PullRequestId = string;
 
 export type PullRequestIdList = Array<string>;
@@ -3680,11 +2552,7 @@ export declare class ReplacementContentRequiredException extends EffectData.Tagg
 )<{
   readonly message?: string;
 }> {}
-export type ReplacementTypeEnum =
-  | "KEEP_BASE"
-  | "KEEP_SOURCE"
-  | "KEEP_DESTINATION"
-  | "USE_NEW_CONTENT";
+export type ReplacementTypeEnum = "KEEP_BASE" | "KEEP_SOURCE" | "KEEP_DESTINATION" | "USE_NEW_CONTENT";
 export declare class ReplacementTypeRequiredException extends EffectData.TaggedError(
   "ReplacementTypeRequiredException",
 )<{
@@ -3766,11 +2634,7 @@ export declare class RepositoryTriggerDestinationArnRequiredException extends Ef
 )<{
   readonly message?: string;
 }> {}
-export type RepositoryTriggerEventEnum =
-  | "ALL"
-  | "UPDATE_REFERENCE"
-  | "CREATE_REFERENCE"
-  | "DELETE_REFERENCE";
+export type RepositoryTriggerEventEnum = "ALL" | "UPDATE_REFERENCE" | "CREATE_REFERENCE" | "DELETE_REFERENCE";
 export type RepositoryTriggerEventList = Array<RepositoryTriggerEventEnum>;
 export declare class RepositoryTriggerEventsListRequiredException extends EffectData.TaggedError(
   "RepositoryTriggerEventsListRequiredException",
@@ -3781,8 +2645,7 @@ export interface RepositoryTriggerExecutionFailure {
   trigger?: string;
   failureMessage?: string;
 }
-export type RepositoryTriggerExecutionFailureList =
-  Array<RepositoryTriggerExecutionFailure>;
+export type RepositoryTriggerExecutionFailureList = Array<RepositoryTriggerExecutionFailure>;
 export type RepositoryTriggerExecutionFailureMessage = string;
 
 export type RepositoryTriggerName = string;
@@ -4102,10 +2965,8 @@ export declare namespace BatchDescribeMergeConflicts {
 }
 
 export declare namespace BatchDisassociateApprovalRuleTemplateFromRepositories {
-  export type Input =
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesInput;
-  export type Output =
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput;
+  export type Input = BatchDisassociateApprovalRuleTemplateFromRepositoriesInput;
+  export type Output = BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput;
   export type Error =
     | ApprovalRuleTemplateDoesNotExistException
     | ApprovalRuleTemplateNameRequiredException
@@ -5689,3 +4550,4 @@ export declare namespace UpdateRepositoryName {
     | RepositoryNameRequiredException
     | CommonAwsError;
 }
+

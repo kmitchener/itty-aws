@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class AppFabric extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("appfabric", new RestJson1Protocol(), cfg);
+  }
+
   batchGetUserAccessTasks(
     input: BatchGetUserAccessTasksRequest,
   ): Effect.Effect<
     BatchGetUserAccessTasksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetUserAccessTasks", input);
   }
@@ -20,12 +20,7 @@ export class AppFabric extends AWSServiceClient {
     input: ConnectAppAuthorizationRequest,
   ): Effect.Effect<
     ConnectAppAuthorizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ConnectAppAuthorization", input);
   }
@@ -33,14 +28,7 @@ export class AppFabric extends AWSServiceClient {
     input: CreateAppAuthorizationRequest,
   ): Effect.Effect<
     CreateAppAuthorizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAppAuthorization", input);
   }
@@ -48,13 +36,7 @@ export class AppFabric extends AWSServiceClient {
     input: CreateAppBundleRequest,
   ): Effect.Effect<
     CreateAppBundleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAppBundle", input);
   }
@@ -62,13 +44,7 @@ export class AppFabric extends AWSServiceClient {
     input: CreateIngestionRequest,
   ): Effect.Effect<
     CreateIngestionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateIngestion", input);
   }
@@ -76,13 +52,7 @@ export class AppFabric extends AWSServiceClient {
     input: CreateIngestionDestinationRequest,
   ): Effect.Effect<
     CreateIngestionDestinationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateIngestionDestination", input);
   }
@@ -90,12 +60,7 @@ export class AppFabric extends AWSServiceClient {
     input: DeleteAppAuthorizationRequest,
   ): Effect.Effect<
     DeleteAppAuthorizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAppAuthorization", input);
   }
@@ -103,12 +68,7 @@ export class AppFabric extends AWSServiceClient {
     input: DeleteAppBundleRequest,
   ): Effect.Effect<
     DeleteAppBundleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAppBundle", input);
   }
@@ -116,12 +76,7 @@ export class AppFabric extends AWSServiceClient {
     input: DeleteIngestionRequest,
   ): Effect.Effect<
     DeleteIngestionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteIngestion", input);
   }
@@ -129,12 +84,7 @@ export class AppFabric extends AWSServiceClient {
     input: DeleteIngestionDestinationRequest,
   ): Effect.Effect<
     DeleteIngestionDestinationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteIngestionDestination", input);
   }
@@ -142,12 +92,7 @@ export class AppFabric extends AWSServiceClient {
     input: GetAppAuthorizationRequest,
   ): Effect.Effect<
     GetAppAuthorizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAppAuthorization", input);
   }
@@ -155,12 +100,7 @@ export class AppFabric extends AWSServiceClient {
     input: GetAppBundleRequest,
   ): Effect.Effect<
     GetAppBundleResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAppBundle", input);
   }
@@ -168,12 +108,7 @@ export class AppFabric extends AWSServiceClient {
     input: GetIngestionRequest,
   ): Effect.Effect<
     GetIngestionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetIngestion", input);
   }
@@ -181,12 +116,7 @@ export class AppFabric extends AWSServiceClient {
     input: GetIngestionDestinationRequest,
   ): Effect.Effect<
     GetIngestionDestinationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetIngestionDestination", input);
   }
@@ -194,12 +124,7 @@ export class AppFabric extends AWSServiceClient {
     input: ListAppAuthorizationsRequest,
   ): Effect.Effect<
     ListAppAuthorizationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppAuthorizations", input);
   }
@@ -207,11 +132,7 @@ export class AppFabric extends AWSServiceClient {
     input: ListAppBundlesRequest,
   ): Effect.Effect<
     ListAppBundlesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppBundles", input);
   }
@@ -219,12 +140,7 @@ export class AppFabric extends AWSServiceClient {
     input: ListIngestionDestinationsRequest,
   ): Effect.Effect<
     ListIngestionDestinationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListIngestionDestinations", input);
   }
@@ -232,12 +148,7 @@ export class AppFabric extends AWSServiceClient {
     input: ListIngestionsRequest,
   ): Effect.Effect<
     ListIngestionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListIngestions", input);
   }
@@ -245,12 +156,7 @@ export class AppFabric extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -258,13 +164,7 @@ export class AppFabric extends AWSServiceClient {
     input: StartIngestionRequest,
   ): Effect.Effect<
     StartIngestionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartIngestion", input);
   }
@@ -272,12 +172,7 @@ export class AppFabric extends AWSServiceClient {
     input: StartUserAccessTasksRequest,
   ): Effect.Effect<
     StartUserAccessTasksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartUserAccessTasks", input);
   }
@@ -285,13 +180,7 @@ export class AppFabric extends AWSServiceClient {
     input: StopIngestionRequest,
   ): Effect.Effect<
     StopIngestionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopIngestion", input);
   }
@@ -299,12 +188,7 @@ export class AppFabric extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -312,12 +196,7 @@ export class AppFabric extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -325,12 +204,7 @@ export class AppFabric extends AWSServiceClient {
     input: UpdateAppAuthorizationRequest,
   ): Effect.Effect<
     UpdateAppAuthorizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAppAuthorization", input);
   }
@@ -338,14 +212,7 @@ export class AppFabric extends AWSServiceClient {
     input: UpdateIngestionDestinationRequest,
   ): Effect.Effect<
     UpdateIngestionDestinationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateIngestionDestination", input);
   }
@@ -375,11 +242,7 @@ export interface AppAuthorization {
   persona?: Persona;
   authUrl?: string;
 }
-export type AppAuthorizationStatus =
-  | "PENDING_CONNECT"
-  | "CONNECTED"
-  | "CONNECTION_VALIDATION_FAILED"
-  | "TOKEN_AUTO_ROTATION_FAILED";
+export type AppAuthorizationStatus = "PENDING_CONNECT" | "CONNECTED" | "CONNECTION_VALIDATION_FAILED" | "TOKEN_AUTO_ROTATION_FAILED";
 export interface AppAuthorizationSummary {
   appAuthorizationArn: string;
   appBundleArn: string;
@@ -480,46 +343,44 @@ interface _Credential {
   apiKeyCredential?: ApiKeyCredential;
 }
 
-export type Credential =
-  | (_Credential & { oauth2Credential: Oauth2Credential })
-  | (_Credential & { apiKeyCredential: ApiKeyCredential });
+export type Credential = (_Credential & { oauth2Credential: Oauth2Credential }) | (_Credential & { apiKeyCredential: ApiKeyCredential });
 export type DateTime = Date | string;
 
 export interface DeleteAppAuthorizationRequest {
   appBundleIdentifier: string;
   appAuthorizationIdentifier: string;
 }
-export interface DeleteAppAuthorizationResponse {}
+export interface DeleteAppAuthorizationResponse {
+}
 export interface DeleteAppBundleRequest {
   appBundleIdentifier: string;
 }
-export interface DeleteAppBundleResponse {}
+export interface DeleteAppBundleResponse {
+}
 export interface DeleteIngestionDestinationRequest {
   appBundleIdentifier: string;
   ingestionIdentifier: string;
   ingestionDestinationIdentifier: string;
 }
-export interface DeleteIngestionDestinationResponse {}
+export interface DeleteIngestionDestinationResponse {
+}
 export interface DeleteIngestionRequest {
   appBundleIdentifier: string;
   ingestionIdentifier: string;
 }
-export interface DeleteIngestionResponse {}
+export interface DeleteIngestionResponse {
+}
 interface _Destination {
   s3Bucket?: S3Bucket;
   firehoseStream?: FirehoseStream;
 }
 
-export type Destination =
-  | (_Destination & { s3Bucket: S3Bucket })
-  | (_Destination & { firehoseStream: FirehoseStream });
+export type Destination = (_Destination & { s3Bucket: S3Bucket }) | (_Destination & { firehoseStream: FirehoseStream });
 interface _DestinationConfiguration {
   auditLog?: AuditLogDestinationConfiguration;
 }
 
-export type DestinationConfiguration = _DestinationConfiguration & {
-  auditLog: AuditLogDestinationConfiguration;
-};
+export type DestinationConfiguration = (_DestinationConfiguration & { auditLog: AuditLogDestinationConfiguration });
 export type Email = string;
 
 export interface FirehoseStream {
@@ -651,9 +512,7 @@ interface _ProcessingConfiguration {
   auditLog?: AuditLogProcessingConfiguration;
 }
 
-export type ProcessingConfiguration = _ProcessingConfiguration & {
-  auditLog: AuditLogProcessingConfiguration;
-};
+export type ProcessingConfiguration = (_ProcessingConfiguration & { auditLog: AuditLogProcessingConfiguration });
 export type RedirectUri = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -684,7 +543,8 @@ export interface StartIngestionRequest {
   ingestionIdentifier: string;
   appBundleIdentifier: string;
 }
-export interface StartIngestionResponse {}
+export interface StartIngestionResponse {
+}
 export interface StartUserAccessTasksRequest {
   appBundleIdentifier: string;
   email: string;
@@ -696,7 +556,8 @@ export interface StopIngestionRequest {
   ingestionIdentifier: string;
   appBundleIdentifier: string;
 }
-export interface StopIngestionResponse {}
+export interface StopIngestionResponse {
+}
 export type String120 = string;
 
 export type String2048 = string;
@@ -719,7 +580,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TaskError {
@@ -745,7 +607,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAppAuthorizationRequest {
   appBundleIdentifier: string;
   appAuthorizationIdentifier: string;
@@ -800,11 +663,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export declare namespace BatchGetUserAccessTasks {
   export type Input = BatchGetUserAccessTasksRequest;
   export type Output = BatchGetUserAccessTasksResponse;
@@ -1124,3 +983,4 @@ export declare namespace UpdateIngestionDestination {
     | ValidationException
     | CommonAwsError;
 }
+

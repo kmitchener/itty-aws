@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class DeviceFarm extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("device-farm", new AwsJson11Protocol(), cfg);
+  }
+
   createDevicePool(
     input: CreateDevicePoolRequest,
   ): Effect.Effect<
     CreateDevicePoolResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("CreateDevicePool", input);
   }
@@ -19,11 +20,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: CreateInstanceProfileRequest,
   ): Effect.Effect<
     CreateInstanceProfileResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("CreateInstanceProfile", input);
   }
@@ -31,11 +28,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: CreateNetworkProfileRequest,
   ): Effect.Effect<
     CreateNetworkProfileResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("CreateNetworkProfile", input);
   }
@@ -43,12 +36,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: CreateProjectRequest,
   ): Effect.Effect<
     CreateProjectResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | TagOperationException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | TagOperationException | CommonAwsError
   > {
     return this.call("CreateProject", input);
   }
@@ -56,11 +44,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: CreateRemoteAccessSessionRequest,
   ): Effect.Effect<
     CreateRemoteAccessSessionResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("CreateRemoteAccessSession", input);
   }
@@ -68,10 +52,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: CreateTestGridProjectRequest,
   ): Effect.Effect<
     CreateTestGridProjectResult,
-    | ArgumentException
-    | InternalServiceException
-    | LimitExceededException
-    | CommonAwsError
+    ArgumentException | InternalServiceException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateTestGridProject", input);
   }
@@ -79,10 +60,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: CreateTestGridUrlRequest,
   ): Effect.Effect<
     CreateTestGridUrlResult,
-    | ArgumentException
-    | InternalServiceException
-    | NotFoundException
-    | CommonAwsError
+    ArgumentException | InternalServiceException | NotFoundException | CommonAwsError
   > {
     return this.call("CreateTestGridUrl", input);
   }
@@ -90,11 +68,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: CreateUploadRequest,
   ): Effect.Effect<
     CreateUploadResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("CreateUpload", input);
   }
@@ -102,10 +76,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: CreateVPCEConfigurationRequest,
   ): Effect.Effect<
     CreateVPCEConfigurationResult,
-    | ArgumentException
-    | LimitExceededException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | ServiceAccountException | CommonAwsError
   > {
     return this.call("CreateVPCEConfiguration", input);
   }
@@ -113,11 +84,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: DeleteDevicePoolRequest,
   ): Effect.Effect<
     DeleteDevicePoolResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("DeleteDevicePool", input);
   }
@@ -125,11 +92,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: DeleteInstanceProfileRequest,
   ): Effect.Effect<
     DeleteInstanceProfileResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("DeleteInstanceProfile", input);
   }
@@ -137,11 +100,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: DeleteNetworkProfileRequest,
   ): Effect.Effect<
     DeleteNetworkProfileResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("DeleteNetworkProfile", input);
   }
@@ -149,11 +108,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: DeleteProjectRequest,
   ): Effect.Effect<
     DeleteProjectResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("DeleteProject", input);
   }
@@ -161,11 +116,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: DeleteRemoteAccessSessionRequest,
   ): Effect.Effect<
     DeleteRemoteAccessSessionResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("DeleteRemoteAccessSession", input);
   }
@@ -173,11 +124,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: DeleteRunRequest,
   ): Effect.Effect<
     DeleteRunResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("DeleteRun", input);
   }
@@ -185,11 +132,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: DeleteTestGridProjectRequest,
   ): Effect.Effect<
     DeleteTestGridProjectResult,
-    | ArgumentException
-    | CannotDeleteException
-    | InternalServiceException
-    | NotFoundException
-    | CommonAwsError
+    ArgumentException | CannotDeleteException | InternalServiceException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteTestGridProject", input);
   }
@@ -197,11 +140,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: DeleteUploadRequest,
   ): Effect.Effect<
     DeleteUploadResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("DeleteUpload", input);
   }
@@ -209,11 +148,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: DeleteVPCEConfigurationRequest,
   ): Effect.Effect<
     DeleteVPCEConfigurationResult,
-    | ArgumentException
-    | InvalidOperationException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | InvalidOperationException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("DeleteVPCEConfiguration", input);
   }
@@ -221,11 +156,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetAccountSettingsRequest,
   ): Effect.Effect<
     GetAccountSettingsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetAccountSettings", input);
   }
@@ -233,11 +164,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetDeviceRequest,
   ): Effect.Effect<
     GetDeviceResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetDevice", input);
   }
@@ -245,11 +172,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetDeviceInstanceRequest,
   ): Effect.Effect<
     GetDeviceInstanceResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetDeviceInstance", input);
   }
@@ -257,11 +180,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetDevicePoolRequest,
   ): Effect.Effect<
     GetDevicePoolResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetDevicePool", input);
   }
@@ -269,11 +188,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetDevicePoolCompatibilityRequest,
   ): Effect.Effect<
     GetDevicePoolCompatibilityResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetDevicePoolCompatibility", input);
   }
@@ -281,11 +196,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetInstanceProfileRequest,
   ): Effect.Effect<
     GetInstanceProfileResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetInstanceProfile", input);
   }
@@ -293,11 +204,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetJobRequest,
   ): Effect.Effect<
     GetJobResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetJob", input);
   }
@@ -305,11 +212,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetNetworkProfileRequest,
   ): Effect.Effect<
     GetNetworkProfileResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetNetworkProfile", input);
   }
@@ -317,12 +220,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetOfferingStatusRequest,
   ): Effect.Effect<
     GetOfferingStatusResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotEligibleException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotEligibleException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetOfferingStatus", input);
   }
@@ -330,11 +228,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetProjectRequest,
   ): Effect.Effect<
     GetProjectResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetProject", input);
   }
@@ -342,11 +236,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetRemoteAccessSessionRequest,
   ): Effect.Effect<
     GetRemoteAccessSessionResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetRemoteAccessSession", input);
   }
@@ -354,11 +244,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetRunRequest,
   ): Effect.Effect<
     GetRunResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetRun", input);
   }
@@ -366,11 +252,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetSuiteRequest,
   ): Effect.Effect<
     GetSuiteResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetSuite", input);
   }
@@ -378,11 +260,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetTestRequest,
   ): Effect.Effect<
     GetTestResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetTest", input);
   }
@@ -390,10 +268,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetTestGridProjectRequest,
   ): Effect.Effect<
     GetTestGridProjectResult,
-    | ArgumentException
-    | InternalServiceException
-    | NotFoundException
-    | CommonAwsError
+    ArgumentException | InternalServiceException | NotFoundException | CommonAwsError
   > {
     return this.call("GetTestGridProject", input);
   }
@@ -401,10 +276,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetTestGridSessionRequest,
   ): Effect.Effect<
     GetTestGridSessionResult,
-    | ArgumentException
-    | InternalServiceException
-    | NotFoundException
-    | CommonAwsError
+    ArgumentException | InternalServiceException | NotFoundException | CommonAwsError
   > {
     return this.call("GetTestGridSession", input);
   }
@@ -412,11 +284,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetUploadRequest,
   ): Effect.Effect<
     GetUploadResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetUpload", input);
   }
@@ -424,10 +292,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: GetVPCEConfigurationRequest,
   ): Effect.Effect<
     GetVPCEConfigurationResult,
-    | ArgumentException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("GetVPCEConfiguration", input);
   }
@@ -435,11 +300,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: InstallToRemoteAccessSessionRequest,
   ): Effect.Effect<
     InstallToRemoteAccessSessionResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("InstallToRemoteAccessSession", input);
   }
@@ -447,11 +308,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListArtifactsRequest,
   ): Effect.Effect<
     ListArtifactsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListArtifacts", input);
   }
@@ -459,11 +316,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListDeviceInstancesRequest,
   ): Effect.Effect<
     ListDeviceInstancesResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListDeviceInstances", input);
   }
@@ -471,11 +324,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListDevicePoolsRequest,
   ): Effect.Effect<
     ListDevicePoolsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListDevicePools", input);
   }
@@ -483,11 +332,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListDevicesRequest,
   ): Effect.Effect<
     ListDevicesResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListDevices", input);
   }
@@ -495,11 +340,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListInstanceProfilesRequest,
   ): Effect.Effect<
     ListInstanceProfilesResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListInstanceProfiles", input);
   }
@@ -507,11 +348,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListJobsRequest,
   ): Effect.Effect<
     ListJobsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListJobs", input);
   }
@@ -519,11 +356,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListNetworkProfilesRequest,
   ): Effect.Effect<
     ListNetworkProfilesResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListNetworkProfiles", input);
   }
@@ -531,12 +364,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListOfferingPromotionsRequest,
   ): Effect.Effect<
     ListOfferingPromotionsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotEligibleException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotEligibleException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListOfferingPromotions", input);
   }
@@ -544,12 +372,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListOfferingsRequest,
   ): Effect.Effect<
     ListOfferingsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotEligibleException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotEligibleException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListOfferings", input);
   }
@@ -557,12 +380,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListOfferingTransactionsRequest,
   ): Effect.Effect<
     ListOfferingTransactionsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotEligibleException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotEligibleException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListOfferingTransactions", input);
   }
@@ -570,11 +388,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListProjectsRequest,
   ): Effect.Effect<
     ListProjectsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListProjects", input);
   }
@@ -582,11 +396,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListRemoteAccessSessionsRequest,
   ): Effect.Effect<
     ListRemoteAccessSessionsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListRemoteAccessSessions", input);
   }
@@ -594,11 +404,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListRunsRequest,
   ): Effect.Effect<
     ListRunsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListRuns", input);
   }
@@ -606,11 +412,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListSamplesRequest,
   ): Effect.Effect<
     ListSamplesResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListSamples", input);
   }
@@ -618,11 +420,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListSuitesRequest,
   ): Effect.Effect<
     ListSuitesResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListSuites", input);
   }
@@ -630,10 +428,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | ArgumentException
-    | NotFoundException
-    | TagOperationException
-    | CommonAwsError
+    ArgumentException | NotFoundException | TagOperationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -649,10 +444,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListTestGridSessionActionsRequest,
   ): Effect.Effect<
     ListTestGridSessionActionsResult,
-    | ArgumentException
-    | InternalServiceException
-    | NotFoundException
-    | CommonAwsError
+    ArgumentException | InternalServiceException | NotFoundException | CommonAwsError
   > {
     return this.call("ListTestGridSessionActions", input);
   }
@@ -660,10 +452,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListTestGridSessionArtifactsRequest,
   ): Effect.Effect<
     ListTestGridSessionArtifactsResult,
-    | ArgumentException
-    | InternalServiceException
-    | NotFoundException
-    | CommonAwsError
+    ArgumentException | InternalServiceException | NotFoundException | CommonAwsError
   > {
     return this.call("ListTestGridSessionArtifacts", input);
   }
@@ -671,10 +460,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListTestGridSessionsRequest,
   ): Effect.Effect<
     ListTestGridSessionsResult,
-    | ArgumentException
-    | InternalServiceException
-    | NotFoundException
-    | CommonAwsError
+    ArgumentException | InternalServiceException | NotFoundException | CommonAwsError
   > {
     return this.call("ListTestGridSessions", input);
   }
@@ -682,11 +468,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListTestsRequest,
   ): Effect.Effect<
     ListTestsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListTests", input);
   }
@@ -694,11 +476,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListUniqueProblemsRequest,
   ): Effect.Effect<
     ListUniqueProblemsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListUniqueProblems", input);
   }
@@ -706,11 +484,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ListUploadsRequest,
   ): Effect.Effect<
     ListUploadsResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ListUploads", input);
   }
@@ -726,12 +500,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: PurchaseOfferingRequest,
   ): Effect.Effect<
     PurchaseOfferingResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotEligibleException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotEligibleException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("PurchaseOffering", input);
   }
@@ -739,12 +508,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: RenewOfferingRequest,
   ): Effect.Effect<
     RenewOfferingResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotEligibleException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotEligibleException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("RenewOffering", input);
   }
@@ -752,12 +516,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: ScheduleRunRequest,
   ): Effect.Effect<
     ScheduleRunResult,
-    | ArgumentException
-    | IdempotencyException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | IdempotencyException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("ScheduleRun", input);
   }
@@ -765,11 +524,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: StopJobRequest,
   ): Effect.Effect<
     StopJobResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("StopJob", input);
   }
@@ -777,11 +532,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: StopRemoteAccessSessionRequest,
   ): Effect.Effect<
     StopRemoteAccessSessionResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("StopRemoteAccessSession", input);
   }
@@ -789,11 +540,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: StopRunRequest,
   ): Effect.Effect<
     StopRunResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("StopRun", input);
   }
@@ -801,12 +548,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ArgumentException
-    | NotFoundException
-    | TagOperationException
-    | TagPolicyException
-    | TooManyTagsException
-    | CommonAwsError
+    ArgumentException | NotFoundException | TagOperationException | TagPolicyException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -814,10 +556,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ArgumentException
-    | NotFoundException
-    | TagOperationException
-    | CommonAwsError
+    ArgumentException | NotFoundException | TagOperationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -825,11 +564,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: UpdateDeviceInstanceRequest,
   ): Effect.Effect<
     UpdateDeviceInstanceResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("UpdateDeviceInstance", input);
   }
@@ -837,11 +572,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: UpdateDevicePoolRequest,
   ): Effect.Effect<
     UpdateDevicePoolResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("UpdateDevicePool", input);
   }
@@ -849,11 +580,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: UpdateInstanceProfileRequest,
   ): Effect.Effect<
     UpdateInstanceProfileResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("UpdateInstanceProfile", input);
   }
@@ -861,11 +588,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: UpdateNetworkProfileRequest,
   ): Effect.Effect<
     UpdateNetworkProfileResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("UpdateNetworkProfile", input);
   }
@@ -873,11 +596,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: UpdateProjectRequest,
   ): Effect.Effect<
     UpdateProjectResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("UpdateProject", input);
   }
@@ -885,11 +604,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: UpdateTestGridProjectRequest,
   ): Effect.Effect<
     UpdateTestGridProjectResult,
-    | ArgumentException
-    | InternalServiceException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    ArgumentException | InternalServiceException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateTestGridProject", input);
   }
@@ -897,11 +612,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: UpdateUploadRequest,
   ): Effect.Effect<
     UpdateUploadResult,
-    | ArgumentException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | LimitExceededException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("UpdateUpload", input);
   }
@@ -909,11 +620,7 @@ export class DeviceFarm extends AWSServiceClient {
     input: UpdateVPCEConfigurationRequest,
   ): Effect.Effect<
     UpdateVPCEConfigurationResult,
-    | ArgumentException
-    | InvalidOperationException
-    | NotFoundException
-    | ServiceAccountException
-    | CommonAwsError
+    ArgumentException | InvalidOperationException | NotFoundException | ServiceAccountException | CommonAwsError
   > {
     return this.call("UpdateVPCEConfiguration", input);
   }
@@ -953,35 +660,7 @@ export interface Artifact {
 }
 export type ArtifactCategory = "SCREENSHOT" | "FILE" | "LOG";
 export type Artifacts = Array<Artifact>;
-export type ArtifactType =
-  | "UNKNOWN"
-  | "SCREENSHOT"
-  | "DEVICE_LOG"
-  | "MESSAGE_LOG"
-  | "VIDEO_LOG"
-  | "RESULT_LOG"
-  | "SERVICE_LOG"
-  | "WEBKIT_LOG"
-  | "INSTRUMENTATION_OUTPUT"
-  | "EXERCISER_MONKEY_OUTPUT"
-  | "CALABASH_JSON_OUTPUT"
-  | "CALABASH_PRETTY_OUTPUT"
-  | "CALABASH_STANDARD_OUTPUT"
-  | "CALABASH_JAVA_XML_OUTPUT"
-  | "AUTOMATION_OUTPUT"
-  | "APPIUM_SERVER_OUTPUT"
-  | "APPIUM_JAVA_OUTPUT"
-  | "APPIUM_JAVA_XML_OUTPUT"
-  | "APPIUM_PYTHON_OUTPUT"
-  | "APPIUM_PYTHON_XML_OUTPUT"
-  | "EXPLORER_EVENT_LOG"
-  | "EXPLORER_SUMMARY_LOG"
-  | "APPLICATION_CRASH_REPORT"
-  | "XCTEST_LOG"
-  | "VIDEO"
-  | "CUSTOMER_ARTIFACT"
-  | "CUSTOMER_ARTIFACT_LOG"
-  | "TESTSPEC_OUTPUT";
+export type ArtifactType = "UNKNOWN" | "SCREENSHOT" | "DEVICE_LOG" | "MESSAGE_LOG" | "VIDEO_LOG" | "RESULT_LOG" | "SERVICE_LOG" | "WEBKIT_LOG" | "INSTRUMENTATION_OUTPUT" | "EXERCISER_MONKEY_OUTPUT" | "CALABASH_JSON_OUTPUT" | "CALABASH_PRETTY_OUTPUT" | "CALABASH_STANDARD_OUTPUT" | "CALABASH_JAVA_XML_OUTPUT" | "AUTOMATION_OUTPUT" | "APPIUM_SERVER_OUTPUT" | "APPIUM_JAVA_OUTPUT" | "APPIUM_JAVA_XML_OUTPUT" | "APPIUM_PYTHON_OUTPUT" | "APPIUM_PYTHON_XML_OUTPUT" | "EXPLORER_EVENT_LOG" | "EXPLORER_SUMMARY_LOG" | "APPLICATION_CRASH_REPORT" | "XCTEST_LOG" | "VIDEO" | "CUSTOMER_ARTIFACT" | "CUSTOMER_ARTIFACT_LOG" | "TESTSPEC_OUTPUT";
 export type AWSAccountNumber = string;
 
 export type BillingMethod = "METERED" | "UNMETERED";
@@ -1122,39 +801,48 @@ export type DateTime = Date | string;
 export interface DeleteDevicePoolRequest {
   arn: string;
 }
-export interface DeleteDevicePoolResult {}
+export interface DeleteDevicePoolResult {
+}
 export interface DeleteInstanceProfileRequest {
   arn: string;
 }
-export interface DeleteInstanceProfileResult {}
+export interface DeleteInstanceProfileResult {
+}
 export interface DeleteNetworkProfileRequest {
   arn: string;
 }
-export interface DeleteNetworkProfileResult {}
+export interface DeleteNetworkProfileResult {
+}
 export interface DeleteProjectRequest {
   arn: string;
 }
-export interface DeleteProjectResult {}
+export interface DeleteProjectResult {
+}
 export interface DeleteRemoteAccessSessionRequest {
   arn: string;
 }
-export interface DeleteRemoteAccessSessionResult {}
+export interface DeleteRemoteAccessSessionResult {
+}
 export interface DeleteRunRequest {
   arn: string;
 }
-export interface DeleteRunResult {}
+export interface DeleteRunResult {
+}
 export interface DeleteTestGridProjectRequest {
   projectArn: string;
 }
-export interface DeleteTestGridProjectResult {}
+export interface DeleteTestGridProjectResult {
+}
 export interface DeleteUploadRequest {
   arn: string;
 }
-export interface DeleteUploadResult {}
+export interface DeleteUploadResult {
+}
 export interface DeleteVPCEConfigurationRequest {
   arn: string;
 }
-export interface DeleteVPCEConfigurationResult {}
+export interface DeleteVPCEConfigurationResult {
+}
 export interface Device {
   arn?: string;
   name?: string;
@@ -1178,25 +866,8 @@ export interface Device {
   instances?: Array<DeviceInstance>;
   availability?: DeviceAvailability;
 }
-export type DeviceAttribute =
-  | "ARN"
-  | "PLATFORM"
-  | "FORM_FACTOR"
-  | "MANUFACTURER"
-  | "REMOTE_ACCESS_ENABLED"
-  | "REMOTE_DEBUG_ENABLED"
-  | "APPIUM_VERSION"
-  | "INSTANCE_ARN"
-  | "INSTANCE_LABELS"
-  | "FLEET_TYPE"
-  | "OS_VERSION"
-  | "MODEL"
-  | "AVAILABILITY";
-export type DeviceAvailability =
-  | "TEMPORARY_NOT_AVAILABLE"
-  | "BUSY"
-  | "AVAILABLE"
-  | "HIGHLY_AVAILABLE";
+export type DeviceAttribute = "ARN" | "PLATFORM" | "FORM_FACTOR" | "MANUFACTURER" | "REMOTE_ACCESS_ENABLED" | "REMOTE_DEBUG_ENABLED" | "APPIUM_VERSION" | "INSTANCE_ARN" | "INSTANCE_LABELS" | "FLEET_TYPE" | "OS_VERSION" | "MODEL" | "AVAILABILITY";
+export type DeviceAvailability = "TEMPORARY_NOT_AVAILABLE" | "BUSY" | "AVAILABLE" | "HIGHLY_AVAILABLE";
 export type DeviceFarmArn = string;
 
 export interface DeviceFilter {
@@ -1204,19 +875,7 @@ export interface DeviceFilter {
   operator: RuleOperator;
   values: Array<string>;
 }
-export type DeviceFilterAttribute =
-  | "ARN"
-  | "PLATFORM"
-  | "OS_VERSION"
-  | "MODEL"
-  | "AVAILABILITY"
-  | "FORM_FACTOR"
-  | "MANUFACTURER"
-  | "REMOTE_ACCESS_ENABLED"
-  | "REMOTE_DEBUG_ENABLED"
-  | "INSTANCE_ARN"
-  | "INSTANCE_LABELS"
-  | "FLEET_TYPE";
+export type DeviceFilterAttribute = "ARN" | "PLATFORM" | "OS_VERSION" | "MODEL" | "AVAILABILITY" | "FORM_FACTOR" | "MANUFACTURER" | "REMOTE_ACCESS_ENABLED" | "REMOTE_DEBUG_ENABLED" | "INSTANCE_ARN" | "INSTANCE_LABELS" | "FLEET_TYPE";
 export type DeviceFilters = Array<DeviceFilter>;
 export type DeviceFilterValues = Array<string>;
 export type DeviceFormFactor = "PHONE" | "TABLET";
@@ -1249,8 +908,7 @@ export interface DevicePoolCompatibilityResult {
   compatible?: boolean;
   incompatibilityMessages?: Array<IncompatibilityMessage>;
 }
-export type DevicePoolCompatibilityResults =
-  Array<DevicePoolCompatibilityResult>;
+export type DevicePoolCompatibilityResults = Array<DevicePoolCompatibilityResult>;
 export type DevicePools = Array<DevicePool>;
 export type DevicePoolType = "CURATED" | "PRIVATE";
 export interface DeviceProxy {
@@ -1282,30 +940,13 @@ export interface ExecutionConfiguration {
   videoCapture?: boolean;
   skipAppResign?: boolean;
 }
-export type ExecutionResult =
-  | "PENDING"
-  | "PASSED"
-  | "WARNED"
-  | "FAILED"
-  | "SKIPPED"
-  | "ERRORED"
-  | "STOPPED";
-export type ExecutionResultCode =
-  | "PARSING_FAILED"
-  | "VPC_ENDPOINT_SETUP_FAILED";
-export type ExecutionStatus =
-  | "PENDING"
-  | "PENDING_CONCURRNECY"
-  | "PENDING_DEVICE"
-  | "PROCESSING"
-  | "SCHEDULING"
-  | "PREPARING"
-  | "RUNNING"
-  | "COMPLETED"
-  | "STOPPING";
+export type ExecutionResult = "PENDING" | "PASSED" | "WARNED" | "FAILED" | "SKIPPED" | "ERRORED" | "STOPPED";
+export type ExecutionResultCode = "PARSING_FAILED" | "VPC_ENDPOINT_SETUP_FAILED";
+export type ExecutionStatus = "PENDING" | "PENDING_CONCURRNECY" | "PENDING_DEVICE" | "PROCESSING" | "SCHEDULING" | "PREPARING" | "RUNNING" | "COMPLETED" | "STOPPING";
 export type Filter = string;
 
-export interface GetAccountSettingsRequest {}
+export interface GetAccountSettingsRequest {
+}
 export interface GetAccountSettingsResult {
   accountSettings?: AccountSettings;
 }
@@ -1450,11 +1091,7 @@ export interface InstanceProfile {
   description?: string;
 }
 export type InstanceProfiles = Array<InstanceProfile>;
-export type InstanceStatus =
-  | "IN_USE"
-  | "PREPARING"
-  | "AVAILABLE"
-  | "NOT_AVAILABLE";
+export type InstanceStatus = "IN_USE" | "PREPARING" | "AVAILABLE" | "NOT_AVAILABLE";
 export type Integer = number;
 
 export type InteractionMode = "INTERACTIVE" | "NO_VIDEO" | "VIDEO_ONLY";
@@ -1872,15 +1509,7 @@ export interface Rule {
   operator?: RuleOperator;
   value?: string;
 }
-export type RuleOperator =
-  | "EQUALS"
-  | "LESS_THAN"
-  | "LESS_THAN_OR_EQUALS"
-  | "GREATER_THAN"
-  | "GREATER_THAN_OR_EQUALS"
-  | "IN"
-  | "NOT_IN"
-  | "CONTAINS";
+export type RuleOperator = "EQUALS" | "LESS_THAN" | "LESS_THAN_OR_EQUALS" | "GREATER_THAN" | "GREATER_THAN_OR_EQUALS" | "IN" | "NOT_IN" | "CONTAINS";
 export type Rules = Array<Rule>;
 export interface Run {
   arn?: string;
@@ -1924,24 +1553,7 @@ export interface Sample {
   url?: string;
 }
 export type Samples = Array<Sample>;
-export type SampleType =
-  | "CPU"
-  | "MEMORY"
-  | "THREADS"
-  | "RX_RATE"
-  | "TX_RATE"
-  | "RX"
-  | "TX"
-  | "NATIVE_FRAMES"
-  | "NATIVE_FPS"
-  | "NATIVE_MIN_DRAWTIME"
-  | "NATIVE_AVG_DRAWTIME"
-  | "NATIVE_MAX_DRAWTIME"
-  | "OPENGL_FRAMES"
-  | "OPENGL_FPS"
-  | "OPENGL_MIN_DRAWTIME"
-  | "OPENGL_AVG_DRAWTIME"
-  | "OPENGL_MAX_DRAWTIME";
+export type SampleType = "CPU" | "MEMORY" | "THREADS" | "RX_RATE" | "TX_RATE" | "RX" | "TX" | "NATIVE_FRAMES" | "NATIVE_FPS" | "NATIVE_MIN_DRAWTIME" | "NATIVE_AVG_DRAWTIME" | "NATIVE_MAX_DRAWTIME" | "OPENGL_FRAMES" | "OPENGL_FPS" | "OPENGL_MIN_DRAWTIME" | "OPENGL_AVG_DRAWTIME" | "OPENGL_MAX_DRAWTIME";
 export interface ScheduleRunConfiguration {
   extraDataPackageArn?: string;
   networkProfileArn?: string;
@@ -2053,7 +1665,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface Test {
@@ -2112,21 +1725,7 @@ export interface TestGridVpcConfig {
 }
 export type TestParameters = Record<string, string>;
 export type Tests = Array<Test>;
-export type TestType =
-  | "BUILTIN_FUZZ"
-  | "APPIUM_JAVA_JUNIT"
-  | "APPIUM_JAVA_TESTNG"
-  | "APPIUM_PYTHON"
-  | "APPIUM_NODE"
-  | "APPIUM_RUBY"
-  | "APPIUM_WEB_JAVA_JUNIT"
-  | "APPIUM_WEB_JAVA_TESTNG"
-  | "APPIUM_WEB_PYTHON"
-  | "APPIUM_WEB_NODE"
-  | "APPIUM_WEB_RUBY"
-  | "INSTRUMENTATION"
-  | "XCTEST"
-  | "XCTEST_UI";
+export type TestType = "BUILTIN_FUZZ" | "APPIUM_JAVA_JUNIT" | "APPIUM_JAVA_TESTNG" | "APPIUM_PYTHON" | "APPIUM_NODE" | "APPIUM_RUBY" | "APPIUM_WEB_JAVA_JUNIT" | "APPIUM_WEB_JAVA_TESTNG" | "APPIUM_WEB_PYTHON" | "APPIUM_WEB_NODE" | "APPIUM_WEB_RUBY" | "INSTRUMENTATION" | "XCTEST" | "XCTEST_UI";
 export declare class TooManyTagsException extends EffectData.TaggedError(
   "TooManyTagsException",
 )<{
@@ -2144,15 +1743,13 @@ export interface UniqueProblem {
   problems?: Array<Problem>;
 }
 export type UniqueProblems = Array<UniqueProblem>;
-export type UniqueProblemsByExecutionResultMap = Record<
-  ExecutionResult,
-  Array<UniqueProblem>
->;
+export type UniqueProblemsByExecutionResultMap = Record<ExecutionResult, Array<UniqueProblem>>;
 export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDeviceInstanceRequest {
   arn: string;
   profileArn?: string;
@@ -2251,44 +1848,8 @@ export interface Upload {
 }
 export type UploadCategory = "CURATED" | "PRIVATE";
 export type Uploads = Array<Upload>;
-export type UploadStatus =
-  | "INITIALIZED"
-  | "PROCESSING"
-  | "SUCCEEDED"
-  | "FAILED";
-export type UploadType =
-  | "ANDROID_APP"
-  | "IOS_APP"
-  | "WEB_APP"
-  | "EXTERNAL_DATA"
-  | "APPIUM_JAVA_JUNIT_TEST_PACKAGE"
-  | "APPIUM_JAVA_TESTNG_TEST_PACKAGE"
-  | "APPIUM_PYTHON_TEST_PACKAGE"
-  | "APPIUM_NODE_TEST_PACKAGE"
-  | "APPIUM_RUBY_TEST_PACKAGE"
-  | "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE"
-  | "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE"
-  | "APPIUM_WEB_PYTHON_TEST_PACKAGE"
-  | "APPIUM_WEB_NODE_TEST_PACKAGE"
-  | "APPIUM_WEB_RUBY_TEST_PACKAGE"
-  | "CALABASH_TEST_PACKAGE"
-  | "INSTRUMENTATION_TEST_PACKAGE"
-  | "UIAUTOMATION_TEST_PACKAGE"
-  | "UIAUTOMATOR_TEST_PACKAGE"
-  | "XCTEST_TEST_PACKAGE"
-  | "XCTEST_UI_TEST_PACKAGE"
-  | "APPIUM_JAVA_JUNIT_TEST_SPEC"
-  | "APPIUM_JAVA_TESTNG_TEST_SPEC"
-  | "APPIUM_PYTHON_TEST_SPEC"
-  | "APPIUM_NODE_TEST_SPEC"
-  | "APPIUM_RUBY_TEST_SPEC"
-  | "APPIUM_WEB_JAVA_JUNIT_TEST_SPEC"
-  | "APPIUM_WEB_JAVA_TESTNG_TEST_SPEC"
-  | "APPIUM_WEB_PYTHON_TEST_SPEC"
-  | "APPIUM_WEB_NODE_TEST_SPEC"
-  | "APPIUM_WEB_RUBY_TEST_SPEC"
-  | "INSTRUMENTATION_TEST_SPEC"
-  | "XCTEST_UI_TEST_SPEC";
+export type UploadStatus = "INITIALIZED" | "PROCESSING" | "SUCCEEDED" | "FAILED";
+export type UploadType = "ANDROID_APP" | "IOS_APP" | "WEB_APP" | "EXTERNAL_DATA" | "APPIUM_JAVA_JUNIT_TEST_PACKAGE" | "APPIUM_JAVA_TESTNG_TEST_PACKAGE" | "APPIUM_PYTHON_TEST_PACKAGE" | "APPIUM_NODE_TEST_PACKAGE" | "APPIUM_RUBY_TEST_PACKAGE" | "APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE" | "APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE" | "APPIUM_WEB_PYTHON_TEST_PACKAGE" | "APPIUM_WEB_NODE_TEST_PACKAGE" | "APPIUM_WEB_RUBY_TEST_PACKAGE" | "CALABASH_TEST_PACKAGE" | "INSTRUMENTATION_TEST_PACKAGE" | "UIAUTOMATION_TEST_PACKAGE" | "UIAUTOMATOR_TEST_PACKAGE" | "XCTEST_TEST_PACKAGE" | "XCTEST_UI_TEST_PACKAGE" | "APPIUM_JAVA_JUNIT_TEST_SPEC" | "APPIUM_JAVA_TESTNG_TEST_SPEC" | "APPIUM_PYTHON_TEST_SPEC" | "APPIUM_NODE_TEST_SPEC" | "APPIUM_RUBY_TEST_SPEC" | "APPIUM_WEB_JAVA_JUNIT_TEST_SPEC" | "APPIUM_WEB_JAVA_TESTNG_TEST_SPEC" | "APPIUM_WEB_PYTHON_TEST_SPEC" | "APPIUM_WEB_NODE_TEST_SPEC" | "APPIUM_WEB_RUBY_TEST_SPEC" | "INSTRUMENTATION_TEST_SPEC" | "XCTEST_UI_TEST_SPEC";
 export type URL = string;
 
 export type VideoCapture = boolean;
@@ -3154,3 +2715,4 @@ export declare namespace UpdateVPCEConfiguration {
     | ServiceAccountException
     | CommonAwsError;
 }
+

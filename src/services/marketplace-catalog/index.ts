@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MarketplaceCatalog extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("marketplace-catalog", new RestJson1Protocol(), cfg);
+  }
+
   batchDescribeEntities(
     input: BatchDescribeEntitiesRequest,
   ): Effect.Effect<
     BatchDescribeEntitiesResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDescribeEntities", input);
   }
@@ -19,13 +20,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: CancelChangeSetRequest,
   ): Effect.Effect<
     CancelChangeSetResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelChangeSet", input);
   }
@@ -33,12 +28,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -46,12 +36,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: DescribeChangeSetRequest,
   ): Effect.Effect<
     DescribeChangeSetResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeChangeSet", input);
   }
@@ -59,13 +44,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: DescribeEntityRequest,
   ): Effect.Effect<
     DescribeEntityResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ResourceNotSupportedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ResourceNotSupportedException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeEntity", input);
   }
@@ -73,12 +52,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -86,11 +60,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: ListChangeSetsRequest,
   ): Effect.Effect<
     ListChangeSetsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListChangeSets", input);
   }
@@ -98,12 +68,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: ListEntitiesRequest,
   ): Effect.Effect<
     ListEntitiesResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEntities", input);
   }
@@ -111,12 +76,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -124,12 +84,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -137,14 +92,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: StartChangeSetRequest,
   ): Effect.Effect<
     StartChangeSetResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceInUseException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartChangeSet", input);
   }
@@ -152,12 +100,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -165,12 +108,7 @@ export class MarketplaceCatalog extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -206,11 +144,7 @@ export interface AmiProductSort {
   SortBy?: AmiProductSortBy;
   SortOrder?: SortOrder;
 }
-export type AmiProductSortBy =
-  | "EntityId"
-  | "LastModifiedDate"
-  | "ProductTitle"
-  | "Visibility";
+export type AmiProductSortBy = "EntityId" | "LastModifiedDate" | "ProductTitle" | "Visibility";
 export interface AmiProductSummary {
   ProductTitle?: string;
   Visibility?: AmiProductVisibilityString;
@@ -225,13 +159,8 @@ export type AmiProductTitleString = string;
 export interface AmiProductVisibilityFilter {
   ValueList?: Array<AmiProductVisibilityString>;
 }
-export type AmiProductVisibilityFilterValueList =
-  Array<AmiProductVisibilityString>;
-export type AmiProductVisibilityString =
-  | "Limited"
-  | "Public"
-  | "Restricted"
-  | "Draft";
+export type AmiProductVisibilityFilterValueList = Array<AmiProductVisibilityString>;
+export type AmiProductVisibilityString = "Limited" | "Public" | "Restricted" | "Draft";
 export type ARN = string;
 
 export interface BatchDescribeEntitiesRequest {
@@ -283,12 +212,7 @@ export interface ChangeSetSummaryListItem {
   EntityIdList?: Array<string>;
   FailureCode?: FailureCode;
 }
-export type ChangeStatus =
-  | "PREPARING"
-  | "APPLYING"
-  | "SUCCEEDED"
-  | "CANCELLED"
-  | "FAILED";
+export type ChangeStatus = "PREPARING" | "APPLYING" | "SUCCEEDED" | "CANCELLED" | "FAILED";
 export interface ChangeSummary {
   ChangeType?: string;
   Entity?: Entity;
@@ -324,11 +248,7 @@ export interface ContainerProductSort {
   SortBy?: ContainerProductSortBy;
   SortOrder?: SortOrder;
 }
-export type ContainerProductSortBy =
-  | "EntityId"
-  | "LastModifiedDate"
-  | "ProductTitle"
-  | "Visibility";
+export type ContainerProductSortBy = "EntityId" | "LastModifiedDate" | "ProductTitle" | "Visibility";
 export interface ContainerProductSummary {
   ProductTitle?: string;
   Visibility?: ContainerProductVisibilityString;
@@ -343,13 +263,8 @@ export type ContainerProductTitleString = string;
 export interface ContainerProductVisibilityFilter {
   ValueList?: Array<ContainerProductVisibilityString>;
 }
-export type ContainerProductVisibilityFilterValueList =
-  Array<ContainerProductVisibilityString>;
-export type ContainerProductVisibilityString =
-  | "Limited"
-  | "Public"
-  | "Restricted"
-  | "Draft";
+export type ContainerProductVisibilityFilterValueList = Array<ContainerProductVisibilityString>;
+export type ContainerProductVisibilityString = "Limited" | "Public" | "Restricted" | "Draft";
 export interface DataProductEntityIdFilter {
   ValueList?: Array<string>;
 }
@@ -373,11 +288,7 @@ export interface DataProductSort {
   SortBy?: DataProductSortBy;
   SortOrder?: SortOrder;
 }
-export type DataProductSortBy =
-  | "EntityId"
-  | "ProductTitle"
-  | "Visibility"
-  | "LastModifiedDate";
+export type DataProductSortBy = "EntityId" | "ProductTitle" | "Visibility" | "LastModifiedDate";
 export interface DataProductSummary {
   ProductTitle?: string;
   Visibility?: DataProductVisibilityString;
@@ -392,20 +303,15 @@ export type DataProductTitleString = string;
 export interface DataProductVisibilityFilter {
   ValueList?: Array<DataProductVisibilityString>;
 }
-export type DataProductVisibilityFilterValueList =
-  Array<DataProductVisibilityString>;
-export type DataProductVisibilityString =
-  | "Limited"
-  | "Public"
-  | "Restricted"
-  | "Unavailable"
-  | "Draft";
+export type DataProductVisibilityFilterValueList = Array<DataProductVisibilityString>;
+export type DataProductVisibilityString = "Limited" | "Public" | "Restricted" | "Unavailable" | "Draft";
 export type DateTimeISO8601 = string;
 
 export interface DeleteResourcePolicyRequest {
   ResourceArn: string;
 }
-export interface DeleteResourcePolicyResponse {}
+export interface DeleteResourcePolicyResponse {
+}
 export interface DescribeChangeSetRequest {
   Catalog: string;
   ChangeSetId: string;
@@ -483,18 +389,7 @@ interface _EntityTypeFilters {
   MachineLearningProductFilters?: MachineLearningProductFilters;
 }
 
-export type EntityTypeFilters =
-  | (_EntityTypeFilters & { DataProductFilters: DataProductFilters })
-  | (_EntityTypeFilters & { SaaSProductFilters: SaaSProductFilters })
-  | (_EntityTypeFilters & { AmiProductFilters: AmiProductFilters })
-  | (_EntityTypeFilters & { OfferFilters: OfferFilters })
-  | (_EntityTypeFilters & { ContainerProductFilters: ContainerProductFilters })
-  | (_EntityTypeFilters & {
-      ResaleAuthorizationFilters: ResaleAuthorizationFilters;
-    })
-  | (_EntityTypeFilters & {
-      MachineLearningProductFilters: MachineLearningProductFilters;
-    });
+export type EntityTypeFilters = (_EntityTypeFilters & { DataProductFilters: DataProductFilters }) | (_EntityTypeFilters & { SaaSProductFilters: SaaSProductFilters }) | (_EntityTypeFilters & { AmiProductFilters: AmiProductFilters }) | (_EntityTypeFilters & { OfferFilters: OfferFilters }) | (_EntityTypeFilters & { ContainerProductFilters: ContainerProductFilters }) | (_EntityTypeFilters & { ResaleAuthorizationFilters: ResaleAuthorizationFilters }) | (_EntityTypeFilters & { MachineLearningProductFilters: MachineLearningProductFilters });
 interface _EntityTypeSort {
   DataProductSort?: DataProductSort;
   SaaSProductSort?: SaaSProductSort;
@@ -505,16 +400,7 @@ interface _EntityTypeSort {
   MachineLearningProductSort?: MachineLearningProductSort;
 }
 
-export type EntityTypeSort =
-  | (_EntityTypeSort & { DataProductSort: DataProductSort })
-  | (_EntityTypeSort & { SaaSProductSort: SaaSProductSort })
-  | (_EntityTypeSort & { AmiProductSort: AmiProductSort })
-  | (_EntityTypeSort & { OfferSort: OfferSort })
-  | (_EntityTypeSort & { ContainerProductSort: ContainerProductSort })
-  | (_EntityTypeSort & { ResaleAuthorizationSort: ResaleAuthorizationSort })
-  | (_EntityTypeSort & {
-      MachineLearningProductSort: MachineLearningProductSort;
-    });
+export type EntityTypeSort = (_EntityTypeSort & { DataProductSort: DataProductSort }) | (_EntityTypeSort & { SaaSProductSort: SaaSProductSort }) | (_EntityTypeSort & { AmiProductSort: AmiProductSort }) | (_EntityTypeSort & { OfferSort: OfferSort }) | (_EntityTypeSort & { ContainerProductSort: ContainerProductSort }) | (_EntityTypeSort & { ResaleAuthorizationSort: ResaleAuthorizationSort }) | (_EntityTypeSort & { MachineLearningProductSort: MachineLearningProductSort });
 export type ErrorCodeString = string;
 
 export interface ErrorDetail {
@@ -613,11 +499,7 @@ export interface MachineLearningProductSort {
   SortBy?: MachineLearningProductSortBy;
   SortOrder?: SortOrder;
 }
-export type MachineLearningProductSortBy =
-  | "EntityId"
-  | "LastModifiedDate"
-  | "ProductTitle"
-  | "Visibility";
+export type MachineLearningProductSortBy = "EntityId" | "LastModifiedDate" | "ProductTitle" | "Visibility";
 export interface MachineLearningProductSummary {
   ProductTitle?: string;
   Visibility?: MachineLearningProductVisibilityString;
@@ -632,13 +514,8 @@ export type MachineLearningProductTitleString = string;
 export interface MachineLearningProductVisibilityFilter {
   ValueList?: Array<MachineLearningProductVisibilityString>;
 }
-export type MachineLearningProductVisibilityFilterValueList =
-  Array<MachineLearningProductVisibilityString>;
-export type MachineLearningProductVisibilityString =
-  | "Limited"
-  | "Public"
-  | "Restricted"
-  | "Draft";
+export type MachineLearningProductVisibilityFilterValueList = Array<MachineLearningProductVisibilityString>;
+export type MachineLearningProductVisibilityString = "Limited" | "Public" | "Restricted" | "Draft";
 export type NextToken = string;
 
 export interface OfferAvailabilityEndDateFilter {
@@ -711,17 +588,7 @@ export interface OfferSort {
   SortBy?: OfferSortBy;
   SortOrder?: SortOrder;
 }
-export type OfferSortBy =
-  | "EntityId"
-  | "Name"
-  | "ProductId"
-  | "ResaleAuthorizationId"
-  | "ReleaseDate"
-  | "AvailabilityEndDate"
-  | "BuyerAccounts"
-  | "State"
-  | "Targeting"
-  | "LastModifiedDate";
+export type OfferSortBy = "EntityId" | "Name" | "ProductId" | "ResaleAuthorizationId" | "ReleaseDate" | "AvailabilityEndDate" | "BuyerAccounts" | "State" | "Targeting" | "LastModifiedDate";
 export interface OfferStateFilter {
   ValueList?: Array<OfferStateString>;
 }
@@ -742,17 +609,14 @@ export interface OfferTargetingFilter {
 }
 export type OfferTargetingFilterValueList = Array<OfferTargetingString>;
 export type OfferTargetingList = Array<OfferTargetingString>;
-export type OfferTargetingString =
-  | "BuyerAccounts"
-  | "ParticipatingPrograms"
-  | "CountryCodes"
-  | "None";
+export type OfferTargetingString = "BuyerAccounts" | "ParticipatingPrograms" | "CountryCodes" | "None";
 export type OwnershipType = "SELF" | "SHARED";
 export interface PutResourcePolicyRequest {
   ResourceArn: string;
   Policy: string;
 }
-export interface PutResourcePolicyResponse {}
+export interface PutResourcePolicyResponse {
+}
 export type RequestedChangeList = Array<Change>;
 export interface ResaleAuthorizationAvailabilityEndDateFilter {
   DateRange?: ResaleAuthorizationAvailabilityEndDateFilterDateRange;
@@ -762,8 +626,7 @@ export interface ResaleAuthorizationAvailabilityEndDateFilterDateRange {
   AfterValue?: string;
   BeforeValue?: string;
 }
-export type ResaleAuthorizationAvailabilityEndDateFilterValueList =
-  Array<string>;
+export type ResaleAuthorizationAvailabilityEndDateFilterValueList = Array<string>;
 export interface ResaleAuthorizationCreatedDateFilter {
   DateRange?: ResaleAuthorizationCreatedDateFilterDateRange;
   ValueList?: Array<string>;
@@ -805,8 +668,7 @@ export interface ResaleAuthorizationManufacturerAccountIdFilter {
   ValueList?: Array<string>;
   WildCardValue?: string;
 }
-export type ResaleAuthorizationManufacturerAccountIdFilterValueList =
-  Array<string>;
+export type ResaleAuthorizationManufacturerAccountIdFilterValueList = Array<string>;
 export type ResaleAuthorizationManufacturerAccountIdFilterWildcard = string;
 
 export type ResaleAuthorizationManufacturerAccountIdString = string;
@@ -815,8 +677,7 @@ export interface ResaleAuthorizationManufacturerLegalNameFilter {
   ValueList?: Array<string>;
   WildCardValue?: string;
 }
-export type ResaleAuthorizationManufacturerLegalNameFilterValueList =
-  Array<string>;
+export type ResaleAuthorizationManufacturerLegalNameFilterValueList = Array<string>;
 export type ResaleAuthorizationManufacturerLegalNameFilterWildcard = string;
 
 export type ResaleAuthorizationManufacturerLegalNameString = string;
@@ -833,8 +694,7 @@ export type ResaleAuthorizationNameString = string;
 export interface ResaleAuthorizationOfferExtendedStatusFilter {
   ValueList?: Array<string>;
 }
-export type ResaleAuthorizationOfferExtendedStatusFilterValueList =
-  Array<string>;
+export type ResaleAuthorizationOfferExtendedStatusFilterValueList = Array<string>;
 export type ResaleAuthorizationOfferExtendedStatusString = string;
 
 export interface ResaleAuthorizationProductIdFilter {
@@ -877,25 +737,11 @@ export interface ResaleAuthorizationSort {
   SortBy?: ResaleAuthorizationSortBy;
   SortOrder?: SortOrder;
 }
-export type ResaleAuthorizationSortBy =
-  | "EntityId"
-  | "Name"
-  | "ProductId"
-  | "ProductName"
-  | "ManufacturerAccountId"
-  | "ManufacturerLegalName"
-  | "ResellerAccountID"
-  | "ResellerLegalName"
-  | "Status"
-  | "OfferExtendedStatus"
-  | "CreatedDate"
-  | "AvailabilityEndDate"
-  | "LastModifiedDate";
+export type ResaleAuthorizationSortBy = "EntityId" | "Name" | "ProductId" | "ProductName" | "ManufacturerAccountId" | "ManufacturerLegalName" | "ResellerAccountID" | "ResellerLegalName" | "Status" | "OfferExtendedStatus" | "CreatedDate" | "AvailabilityEndDate" | "LastModifiedDate";
 export interface ResaleAuthorizationStatusFilter {
   ValueList?: Array<ResaleAuthorizationStatusString>;
 }
-export type ResaleAuthorizationStatusFilterValueList =
-  Array<ResaleAuthorizationStatusString>;
+export type ResaleAuthorizationStatusFilterValueList = Array<ResaleAuthorizationStatusString>;
 export type ResaleAuthorizationStatusString = "Draft" | "Active" | "Restricted";
 export interface ResaleAuthorizationSummary {
   Name?: string;
@@ -955,11 +801,7 @@ export interface SaaSProductSort {
   SortBy?: SaaSProductSortBy;
   SortOrder?: SortOrder;
 }
-export type SaaSProductSortBy =
-  | "EntityId"
-  | "ProductTitle"
-  | "Visibility"
-  | "LastModifiedDate";
+export type SaaSProductSortBy = "EntityId" | "ProductTitle" | "Visibility" | "LastModifiedDate";
 export interface SaaSProductSummary {
   ProductTitle?: string;
   Visibility?: SaaSProductVisibilityString;
@@ -974,13 +816,8 @@ export type SaaSProductTitleString = string;
 export interface SaaSProductVisibilityFilter {
   ValueList?: Array<SaaSProductVisibilityString>;
 }
-export type SaaSProductVisibilityFilterValueList =
-  Array<SaaSProductVisibilityString>;
-export type SaaSProductVisibilityString =
-  | "Limited"
-  | "Public"
-  | "Restricted"
-  | "Draft";
+export type SaaSProductVisibilityFilterValueList = Array<SaaSProductVisibilityString>;
+export type SaaSProductVisibilityString = "Limited" | "Public" | "Restricted" | "Draft";
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
@@ -1017,7 +854,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1029,7 +867,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -1195,3 +1034,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

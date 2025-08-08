@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SimSpaceWeaver extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("simspaceweaver", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -15,10 +20,7 @@ export class SimSpaceWeaver extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -62,17 +64,20 @@ export interface CreateSnapshotInput {
   Simulation: string;
   Destination: S3Destination;
 }
-export interface CreateSnapshotOutput {}
+export interface CreateSnapshotOutput {
+}
 export interface DeleteAppInput {
   Simulation: string;
   Domain: string;
   App: string;
 }
-export interface DeleteAppOutput {}
+export interface DeleteAppOutput {
+}
 export interface DeleteSimulationInput {
   Simulation: string;
 }
-export interface DeleteSimulationOutput {}
+export interface DeleteSimulationOutput {
+}
 export interface DescribeAppInput {
   Simulation: string;
   Domain: string;
@@ -254,7 +259,8 @@ export interface StartAppOutput {
 export interface StartClockInput {
   Simulation: string;
 }
-export interface StartClockOutput {}
+export interface StartClockOutput {
+}
 export interface StartSimulationInput {
   ClientToken?: string;
   Name: string;
@@ -275,15 +281,18 @@ export interface StopAppInput {
   Domain: string;
   App: string;
 }
-export interface StopAppOutput {}
+export interface StopAppOutput {
+}
 export interface StopClockInput {
   Simulation: string;
 }
-export interface StopClockOutput {}
+export interface StopClockOutput {
+}
 export interface StopSimulationInput {
   Simulation: string;
 }
-export interface StopSimulationOutput {}
+export interface StopSimulationOutput {
+}
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -292,7 +301,8 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -308,7 +318,8 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export type UUID = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -343,3 +354,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

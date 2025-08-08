@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class finspacedata extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("finspace-data", new RestJson1Protocol(), cfg);
+  }
+
   associateUserToPermissionGroup(
     input: AssociateUserToPermissionGroupRequest,
   ): Effect.Effect<
     AssociateUserToPermissionGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateUserToPermissionGroup", input);
   }
@@ -21,14 +20,7 @@ export class finspacedata extends AWSServiceClient {
     input: CreateChangesetRequest,
   ): Effect.Effect<
     CreateChangesetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateChangeset", input);
   }
@@ -36,14 +28,7 @@ export class finspacedata extends AWSServiceClient {
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDataset", input);
   }
@@ -51,13 +36,7 @@ export class finspacedata extends AWSServiceClient {
     input: CreateDataViewRequest,
   ): Effect.Effect<
     CreateDataViewResponse,
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDataView", input);
   }
@@ -65,13 +44,7 @@ export class finspacedata extends AWSServiceClient {
     input: CreatePermissionGroupRequest,
   ): Effect.Effect<
     CreatePermissionGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePermissionGroup", input);
   }
@@ -79,13 +52,7 @@ export class finspacedata extends AWSServiceClient {
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateUser", input);
   }
@@ -93,14 +60,7 @@ export class finspacedata extends AWSServiceClient {
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     DeleteDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDataset", input);
   }
@@ -108,14 +68,7 @@ export class finspacedata extends AWSServiceClient {
     input: DeletePermissionGroupRequest,
   ): Effect.Effect<
     DeletePermissionGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePermissionGroup", input);
   }
@@ -123,13 +76,7 @@ export class finspacedata extends AWSServiceClient {
     input: DisableUserRequest,
   ): Effect.Effect<
     DisableUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisableUser", input);
   }
@@ -137,13 +84,7 @@ export class finspacedata extends AWSServiceClient {
     input: DisassociateUserFromPermissionGroupRequest,
   ): Effect.Effect<
     DisassociateUserFromPermissionGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateUserFromPermissionGroup", input);
   }
@@ -151,14 +92,7 @@ export class finspacedata extends AWSServiceClient {
     input: EnableUserRequest,
   ): Effect.Effect<
     EnableUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("EnableUser", input);
   }
@@ -166,13 +100,7 @@ export class finspacedata extends AWSServiceClient {
     input: GetChangesetRequest,
   ): Effect.Effect<
     GetChangesetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetChangeset", input);
   }
@@ -180,13 +108,7 @@ export class finspacedata extends AWSServiceClient {
     input: GetDatasetRequest,
   ): Effect.Effect<
     GetDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDataset", input);
   }
@@ -194,12 +116,7 @@ export class finspacedata extends AWSServiceClient {
     input: GetDataViewRequest,
   ): Effect.Effect<
     GetDataViewResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDataView", input);
   }
@@ -207,12 +124,7 @@ export class finspacedata extends AWSServiceClient {
     input: GetExternalDataViewAccessDetailsRequest,
   ): Effect.Effect<
     GetExternalDataViewAccessDetailsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetExternalDataViewAccessDetails", input);
   }
@@ -220,12 +132,7 @@ export class finspacedata extends AWSServiceClient {
     input: GetPermissionGroupRequest,
   ): Effect.Effect<
     GetPermissionGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPermissionGroup", input);
   }
@@ -233,11 +140,7 @@ export class finspacedata extends AWSServiceClient {
     input: GetProgrammaticAccessCredentialsRequest,
   ): Effect.Effect<
     GetProgrammaticAccessCredentialsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetProgrammaticAccessCredentials", input);
   }
@@ -245,12 +148,7 @@ export class finspacedata extends AWSServiceClient {
     input: GetUserRequest,
   ): Effect.Effect<
     GetUserResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetUser", input);
   }
@@ -258,11 +156,7 @@ export class finspacedata extends AWSServiceClient {
     input: GetWorkingLocationRequest,
   ): Effect.Effect<
     GetWorkingLocationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWorkingLocation", input);
   }
@@ -270,13 +164,7 @@ export class finspacedata extends AWSServiceClient {
     input: ListChangesetsRequest,
   ): Effect.Effect<
     ListChangesetsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListChangesets", input);
   }
@@ -284,12 +172,7 @@ export class finspacedata extends AWSServiceClient {
     input: ListDatasetsRequest,
   ): Effect.Effect<
     ListDatasetsResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDatasets", input);
   }
@@ -297,12 +180,7 @@ export class finspacedata extends AWSServiceClient {
     input: ListDataViewsRequest,
   ): Effect.Effect<
     ListDataViewsResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDataViews", input);
   }
@@ -310,11 +188,7 @@ export class finspacedata extends AWSServiceClient {
     input: ListPermissionGroupsRequest,
   ): Effect.Effect<
     ListPermissionGroupsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPermissionGroups", input);
   }
@@ -322,12 +196,7 @@ export class finspacedata extends AWSServiceClient {
     input: ListPermissionGroupsByUserRequest,
   ): Effect.Effect<
     ListPermissionGroupsByUserResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPermissionGroupsByUser", input);
   }
@@ -335,11 +204,7 @@ export class finspacedata extends AWSServiceClient {
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListUsers", input);
   }
@@ -347,12 +212,7 @@ export class finspacedata extends AWSServiceClient {
     input: ListUsersByPermissionGroupRequest,
   ): Effect.Effect<
     ListUsersByPermissionGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListUsersByPermissionGroup", input);
   }
@@ -360,13 +220,7 @@ export class finspacedata extends AWSServiceClient {
     input: ResetUserPasswordRequest,
   ): Effect.Effect<
     ResetUserPasswordResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ResetUserPassword", input);
   }
@@ -374,13 +228,7 @@ export class finspacedata extends AWSServiceClient {
     input: UpdateChangesetRequest,
   ): Effect.Effect<
     UpdateChangesetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateChangeset", input);
   }
@@ -388,13 +236,7 @@ export class finspacedata extends AWSServiceClient {
     input: UpdateDatasetRequest,
   ): Effect.Effect<
     UpdateDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateDataset", input);
   }
@@ -402,13 +244,7 @@ export class finspacedata extends AWSServiceClient {
     input: UpdatePermissionGroupRequest,
   ): Effect.Effect<
     UpdatePermissionGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePermissionGroup", input);
   }
@@ -416,13 +252,7 @@ export class finspacedata extends AWSServiceClient {
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateUser", input);
   }
@@ -442,14 +272,7 @@ export type AccessKeyId = string;
 export type AliasString = string;
 
 export type ApiAccess = "ENABLED" | "DISABLED";
-export type ApplicationPermission =
-  | "CreateDataset"
-  | "ManageClusters"
-  | "ManageUsersAndGroups"
-  | "ManageAttributeSets"
-  | "ViewAuditData"
-  | "AccessNotebooks"
-  | "GetTemporaryCredentials";
+export type ApplicationPermission = "CreateDataset" | "ManageClusters" | "ManageUsersAndGroups" | "ManageAttributeSets" | "ViewAuditData" | "AccessNotebooks" | "GetTemporaryCredentials";
 export type ApplicationPermissionList = Array<ApplicationPermission>;
 export interface AssociateUserToPermissionGroupRequest {
   permissionGroupId: string;
@@ -494,19 +317,7 @@ export interface ChangesetSummary {
 export type ChangeType = "REPLACE" | "APPEND" | "MODIFY";
 export type ClientToken = string;
 
-export type ColumnDataType =
-  | "STRING"
-  | "CHAR"
-  | "INTEGER"
-  | "TINYINT"
-  | "SMALLINT"
-  | "BIGINT"
-  | "FLOAT"
-  | "DOUBLE"
-  | "DATE"
-  | "DATETIME"
-  | "BOOLEAN"
-  | "BINARY";
+export type ColumnDataType = "STRING" | "CHAR" | "INTEGER" | "TINYINT" | "SMALLINT" | "BIGINT" | "FLOAT" | "DOUBLE" | "DATE" | "DATETIME" | "BOOLEAN" | "BINARY";
 export interface ColumnDefinition {
   dataType?: ColumnDataType;
   columnName?: string;
@@ -631,15 +442,7 @@ export interface DataViewErrorInfo {
 export type DataViewId = string;
 
 export type DataViewList = Array<DataViewSummary>;
-export type DataViewStatus =
-  | "RUNNING"
-  | "STARTING"
-  | "FAILED"
-  | "CANCELLED"
-  | "TIMEOUT"
-  | "SUCCESS"
-  | "PENDING"
-  | "FAILED_CLEANUP_FAILED";
+export type DataViewStatus = "RUNNING" | "STARTING" | "FAILED" | "CANCELLED" | "TIMEOUT" | "SUCCESS" | "PENDING" | "FAILED_CLEANUP_FAILED";
 export interface DataViewSummary {
   dataViewId?: string;
   dataViewArn?: string;
@@ -692,15 +495,7 @@ export interface EnableUserRequest {
 export interface EnableUserResponse {
   userId?: string;
 }
-export type ErrorCategory =
-  | "VALIDATION"
-  | "SERVICE_QUOTA_EXCEEDED"
-  | "ACCESS_DENIED"
-  | "RESOURCE_NOT_FOUND"
-  | "THROTTLING"
-  | "INTERNAL_SERVICE_EXCEPTION"
-  | "CANCELLED"
-  | "USER_RECOVERABLE";
+export type ErrorCategory = "VALIDATION" | "SERVICE_QUOTA_EXCEEDED" | "ACCESS_DENIED" | "RESOURCE_NOT_FOUND" | "THROTTLING" | "INTERNAL_SERVICE_EXCEPTION" | "CANCELLED" | "USER_RECOVERABLE";
 export type ErrorMessage = string;
 
 export type ErrorMessage2 = string;
@@ -811,12 +606,7 @@ export interface GetWorkingLocationResponse {
 }
 export type IdType = string;
 
-export type IngestionStatus =
-  | "PENDING"
-  | "FAILED"
-  | "SUCCESS"
-  | "RUNNING"
-  | "STOP_REQUESTED";
+export type IngestionStatus = "PENDING" | "FAILED" | "SUCCESS" | "RUNNING" | "STOP_REQUESTED";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -917,10 +707,7 @@ export type PermissionGroupDescription = string;
 export type PermissionGroupId = string;
 
 export type PermissionGroupList = Array<PermissionGroup>;
-export type PermissionGroupMembershipStatus =
-  | "ADDITION_IN_PROGRESS"
-  | "ADDITION_SUCCESS"
-  | "REMOVAL_IN_PROGRESS";
+export type PermissionGroupMembershipStatus = "ADDITION_IN_PROGRESS" | "ADDITION_SUCCESS" | "REMOVAL_IN_PROGRESS";
 export type PermissionGroupName = string;
 
 export interface PermissionGroupParams {
@@ -995,7 +782,8 @@ export type stringValueMaxLength1000 = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
-)<{}> {}
+)<{
+}> {}
 export type TimestampEpoch = number;
 
 export interface UpdateChangesetRequest {
@@ -1472,3 +1260,4 @@ export declare namespace UpdateUser {
     | ValidationException
     | CommonAwsError;
 }
+

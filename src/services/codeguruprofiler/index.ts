@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class CodeGuruProfiler extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("codeguruprofiler", new RestJson1Protocol(), cfg);
+  }
+
   getFindingsReportAccountSummary(
     input: GetFindingsReportAccountSummaryRequest,
   ): Effect.Effect<
     GetFindingsReportAccountSummaryResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetFindingsReportAccountSummary", input);
   }
@@ -18,10 +20,7 @@ export class CodeGuruProfiler extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -29,10 +28,7 @@ export class CodeGuruProfiler extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -40,10 +36,7 @@ export class CodeGuruProfiler extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -154,7 +147,8 @@ export interface CreateProfilingGroupResponse {
 export interface DeleteProfilingGroupRequest {
   profilingGroupName: string;
 }
-export interface DeleteProfilingGroupResponse {}
+export interface DeleteProfilingGroupResponse {
+}
 export interface DescribeProfilingGroupRequest {
   profilingGroupName: string;
 }
@@ -335,7 +329,8 @@ export interface PostAgentProfileRequest {
   profileToken?: string;
   contentType: string;
 }
-export interface PostAgentProfileResponse {}
+export interface PostAgentProfileResponse {
+}
 export type Principal = string;
 
 export type Principals = Array<string>;
@@ -418,13 +413,15 @@ export interface SubmitFeedbackRequest {
   type: string;
   comment?: string;
 }
-export interface SubmitFeedbackResponse {}
+export interface SubmitFeedbackResponse {
+}
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsMap = Record<string, string>;
 export type TargetFrame = Array<string>;
 export type TargetFrames = Array<Array<string>>;
@@ -444,7 +441,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateProfilingGroupRequest {
   profilingGroupName: string;
   agentOrchestrationConfig: AgentOrchestrationConfig;
@@ -499,3 +497,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

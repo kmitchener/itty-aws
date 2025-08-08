@@ -1,30 +1,26 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class CleanRoomsML extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cleanroomsml", new RestJson1Protocol(), cfg);
+  }
+
   listCollaborationConfiguredModelAlgorithmAssociations(
     input: ListCollaborationConfiguredModelAlgorithmAssociationsRequest,
   ): Effect.Effect<
     ListCollaborationConfiguredModelAlgorithmAssociationsResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   > {
-    return this.call(
-      "ListCollaborationConfiguredModelAlgorithmAssociations",
-      input,
-    );
+    return this.call("ListCollaborationConfiguredModelAlgorithmAssociations", input);
   }
   listCollaborationMLInputChannels(
     input: ListCollaborationMLInputChannelsRequest,
   ): Effect.Effect<
     ListCollaborationMLInputChannelsResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCollaborationMLInputChannels", input);
   }
@@ -32,10 +28,7 @@ export class CleanRoomsML extends AWSServiceClient {
     input: ListCollaborationTrainedModelExportJobsRequest,
   ): Effect.Effect<
     ListCollaborationTrainedModelExportJobsResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCollaborationTrainedModelExportJobs", input);
   }
@@ -43,10 +36,7 @@ export class CleanRoomsML extends AWSServiceClient {
     input: ListCollaborationTrainedModelInferenceJobsRequest,
   ): Effect.Effect<
     ListCollaborationTrainedModelInferenceJobsResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCollaborationTrainedModelInferenceJobs", input);
   }
@@ -54,10 +44,7 @@ export class CleanRoomsML extends AWSServiceClient {
     input: ListCollaborationTrainedModelsRequest,
   ): Effect.Effect<
     ListCollaborationTrainedModelsResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCollaborationTrainedModels", input);
   }
@@ -65,10 +52,7 @@ export class CleanRoomsML extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -76,10 +60,7 @@ export class CleanRoomsML extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -87,10 +68,7 @@ export class CleanRoomsML extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -118,11 +96,7 @@ export interface AudienceDestination {
 export type AudienceExportJobArn = string;
 
 export type AudienceExportJobList = Array<AudienceExportJobSummary>;
-export type AudienceExportJobStatus =
-  | "CREATE_PENDING"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "ACTIVE";
+export type AudienceExportJobStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE";
 export interface AudienceExportJobSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -143,14 +117,7 @@ export interface AudienceGenerationJobDataSource {
   sqlComputeConfiguration?: ComputeConfiguration;
 }
 export type AudienceGenerationJobList = Array<AudienceGenerationJobSummary>;
-export type AudienceGenerationJobStatus =
-  | "CREATE_PENDING"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "ACTIVE"
-  | "DELETE_PENDING"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_FAILED";
+export type AudienceGenerationJobStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE" | "DELETE_PENDING" | "DELETE_IN_PROGRESS" | "DELETE_FAILED";
 export interface AudienceGenerationJobSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -165,14 +132,7 @@ export interface AudienceGenerationJobSummary {
 export type AudienceModelArn = string;
 
 export type AudienceModelList = Array<AudienceModelSummary>;
-export type AudienceModelStatus =
-  | "CREATE_PENDING"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "ACTIVE"
-  | "DELETE_PENDING"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_FAILED";
+export type AudienceModelStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE" | "DELETE_PENDING" | "DELETE_IN_PROGRESS" | "DELETE_FAILED";
 export interface AudienceModelSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -207,8 +167,7 @@ export interface CancelTrainedModelRequest {
   trainedModelArn: string;
   versionIdentifier?: string;
 }
-export type CollaborationConfiguredModelAlgorithmAssociationList =
-  Array<CollaborationConfiguredModelAlgorithmAssociationSummary>;
+export type CollaborationConfiguredModelAlgorithmAssociationList = Array<CollaborationConfiguredModelAlgorithmAssociationSummary>;
 export interface CollaborationConfiguredModelAlgorithmAssociationSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -220,8 +179,7 @@ export interface CollaborationConfiguredModelAlgorithmAssociationSummary {
   configuredModelAlgorithmArn: string;
   creatorAccountId: string;
 }
-export type CollaborationMLInputChannelsList =
-  Array<CollaborationMLInputChannelSummary>;
+export type CollaborationMLInputChannelsList = Array<CollaborationMLInputChannelSummary>;
 export interface CollaborationMLInputChannelSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -234,8 +192,7 @@ export interface CollaborationMLInputChannelSummary {
   creatorAccountId: string;
   description?: string;
 }
-export type CollaborationTrainedModelExportJobList =
-  Array<CollaborationTrainedModelExportJobSummary>;
+export type CollaborationTrainedModelExportJobList = Array<CollaborationTrainedModelExportJobSummary>;
 export interface CollaborationTrainedModelExportJobSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -250,8 +207,7 @@ export interface CollaborationTrainedModelExportJobSummary {
   membershipIdentifier: string;
   collaborationIdentifier: string;
 }
-export type CollaborationTrainedModelInferenceJobList =
-  Array<CollaborationTrainedModelInferenceJobSummary>;
+export type CollaborationTrainedModelInferenceJobList = Array<CollaborationTrainedModelInferenceJobSummary>;
 export interface CollaborationTrainedModelInferenceJobSummary {
   trainedModelInferenceJobArn: string;
   configuredModelAlgorithmAssociationArn?: string;
@@ -271,8 +227,7 @@ export interface CollaborationTrainedModelInferenceJobSummary {
   updateTime: Date | string;
   creatorAccountId: string;
 }
-export type CollaborationTrainedModelList =
-  Array<CollaborationTrainedModelSummary>;
+export type CollaborationTrainedModelList = Array<CollaborationTrainedModelSummary>;
 export interface CollaborationTrainedModelSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -293,20 +248,13 @@ export interface ColumnSchema {
   columnName: string;
   columnTypes: Array<ColumnType>;
 }
-export type ColumnType =
-  | "USER_ID"
-  | "ITEM_ID"
-  | "TIMESTAMP"
-  | "CATEGORICAL_FEATURE"
-  | "NUMERICAL_FEATURE";
+export type ColumnType = "USER_ID" | "ITEM_ID" | "TIMESTAMP" | "CATEGORICAL_FEATURE" | "NUMERICAL_FEATURE";
 export type ColumnTypeList = Array<ColumnType>;
 interface _ComputeConfiguration {
   worker?: WorkerComputeConfiguration;
 }
 
-export type ComputeConfiguration = _ComputeConfiguration & {
-  worker: WorkerComputeConfiguration;
-};
+export type ComputeConfiguration = (_ComputeConfiguration & { worker: WorkerComputeConfiguration });
 export type ConfiguredAudienceModelArn = string;
 
 export type ConfiguredAudienceModelList = Array<ConfiguredAudienceModelSummary>;
@@ -330,8 +278,7 @@ export type ConfiguredModelAlgorithmArn = string;
 export type ConfiguredModelAlgorithmAssociationArn = string;
 
 export type ConfiguredModelAlgorithmAssociationArnList = Array<string>;
-export type ConfiguredModelAlgorithmAssociationList =
-  Array<ConfiguredModelAlgorithmAssociationSummary>;
+export type ConfiguredModelAlgorithmAssociationList = Array<ConfiguredModelAlgorithmAssociationSummary>;
 export interface ConfiguredModelAlgorithmAssociationSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -342,8 +289,7 @@ export interface ConfiguredModelAlgorithmAssociationSummary {
   membershipIdentifier: string;
   collaborationIdentifier: string;
 }
-export type ConfiguredModelAlgorithmList =
-  Array<ConfiguredModelAlgorithmSummary>;
+export type ConfiguredModelAlgorithmList = Array<ConfiguredModelAlgorithmSummary>;
 export interface ConfiguredModelAlgorithmSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -800,10 +746,8 @@ export interface IncrementalTrainingDataChannelOutput {
   versionIdentifier?: string;
   modelName: string;
 }
-export type IncrementalTrainingDataChannels =
-  Array<IncrementalTrainingDataChannel>;
-export type IncrementalTrainingDataChannelsOutput =
-  Array<IncrementalTrainingDataChannelOutput>;
+export type IncrementalTrainingDataChannels = Array<IncrementalTrainingDataChannel>;
+export type IncrementalTrainingDataChannelsOutput = Array<IncrementalTrainingDataChannelOutput>;
 export interface InferenceContainerConfig {
   imageUri: string;
 }
@@ -811,101 +755,7 @@ export interface InferenceContainerExecutionParameters {
   maxPayloadInMB?: number;
 }
 export type InferenceEnvironmentMap = Record<string, string>;
-export type InferenceInstanceType =
-  | "ML_R7I_48XLARGE"
-  | "ML_R6I_16XLARGE"
-  | "ML_M6I_XLARGE"
-  | "ML_M5_4XLARGE"
-  | "ML_P2_XLARGE"
-  | "ML_M4_16XLARGE"
-  | "ML_R7I_16XLARGE"
-  | "ML_M7I_XLARGE"
-  | "ML_M6I_12XLARGE"
-  | "ML_R7I_8XLARGE"
-  | "ML_R7I_LARGE"
-  | "ML_M7I_12XLARGE"
-  | "ML_M6I_24XLARGE"
-  | "ML_M7I_24XLARGE"
-  | "ML_R6I_8XLARGE"
-  | "ML_R6I_LARGE"
-  | "ML_G5_2XLARGE"
-  | "ML_M5_LARGE"
-  | "ML_P3_16XLARGE"
-  | "ML_M7I_48XLARGE"
-  | "ML_M6I_16XLARGE"
-  | "ML_P2_16XLARGE"
-  | "ML_G5_4XLARGE"
-  | "ML_M7I_16XLARGE"
-  | "ML_C4_2XLARGE"
-  | "ML_C5_2XLARGE"
-  | "ML_C6I_32XLARGE"
-  | "ML_C4_4XLARGE"
-  | "ML_G5_8XLARGE"
-  | "ML_C6I_XLARGE"
-  | "ML_C5_4XLARGE"
-  | "ML_G4DN_XLARGE"
-  | "ML_C7I_XLARGE"
-  | "ML_C6I_12XLARGE"
-  | "ML_G4DN_12XLARGE"
-  | "ML_C7I_12XLARGE"
-  | "ML_C6I_24XLARGE"
-  | "ML_G4DN_2XLARGE"
-  | "ML_C7I_24XLARGE"
-  | "ML_C7I_2XLARGE"
-  | "ML_C4_8XLARGE"
-  | "ML_C6I_2XLARGE"
-  | "ML_G4DN_4XLARGE"
-  | "ML_C7I_48XLARGE"
-  | "ML_C7I_4XLARGE"
-  | "ML_C6I_16XLARGE"
-  | "ML_C5_9XLARGE"
-  | "ML_G4DN_16XLARGE"
-  | "ML_C7I_16XLARGE"
-  | "ML_C6I_4XLARGE"
-  | "ML_C5_XLARGE"
-  | "ML_C4_XLARGE"
-  | "ML_G4DN_8XLARGE"
-  | "ML_C7I_8XLARGE"
-  | "ML_C7I_LARGE"
-  | "ML_G5_XLARGE"
-  | "ML_C6I_8XLARGE"
-  | "ML_C6I_LARGE"
-  | "ML_G5_12XLARGE"
-  | "ML_G5_24XLARGE"
-  | "ML_M7I_2XLARGE"
-  | "ML_C5_18XLARGE"
-  | "ML_G5_48XLARGE"
-  | "ML_M6I_2XLARGE"
-  | "ML_G5_16XLARGE"
-  | "ML_M7I_4XLARGE"
-  | "ML_P3_2XLARGE"
-  | "ML_R6I_32XLARGE"
-  | "ML_M6I_4XLARGE"
-  | "ML_M5_XLARGE"
-  | "ML_M4_10XLARGE"
-  | "ML_R6I_XLARGE"
-  | "ML_M5_12XLARGE"
-  | "ML_M4_XLARGE"
-  | "ML_R7I_2XLARGE"
-  | "ML_R7I_XLARGE"
-  | "ML_R6I_12XLARGE"
-  | "ML_M5_24XLARGE"
-  | "ML_R7I_12XLARGE"
-  | "ML_M7I_8XLARGE"
-  | "ML_M7I_LARGE"
-  | "ML_R6I_24XLARGE"
-  | "ML_R6I_2XLARGE"
-  | "ML_M4_2XLARGE"
-  | "ML_R7I_24XLARGE"
-  | "ML_R7I_4XLARGE"
-  | "ML_M6I_8XLARGE"
-  | "ML_M6I_LARGE"
-  | "ML_M5_2XLARGE"
-  | "ML_P2_8XLARGE"
-  | "ML_R6I_4XLARGE"
-  | "ML_M6I_32XLARGE"
-  | "ML_P3_8XLARGE"
-  | "ML_M4_4XLARGE";
+export type InferenceInstanceType = "ML_R7I_48XLARGE" | "ML_R6I_16XLARGE" | "ML_M6I_XLARGE" | "ML_M5_4XLARGE" | "ML_P2_XLARGE" | "ML_M4_16XLARGE" | "ML_R7I_16XLARGE" | "ML_M7I_XLARGE" | "ML_M6I_12XLARGE" | "ML_R7I_8XLARGE" | "ML_R7I_LARGE" | "ML_M7I_12XLARGE" | "ML_M6I_24XLARGE" | "ML_M7I_24XLARGE" | "ML_R6I_8XLARGE" | "ML_R6I_LARGE" | "ML_G5_2XLARGE" | "ML_M5_LARGE" | "ML_P3_16XLARGE" | "ML_M7I_48XLARGE" | "ML_M6I_16XLARGE" | "ML_P2_16XLARGE" | "ML_G5_4XLARGE" | "ML_M7I_16XLARGE" | "ML_C4_2XLARGE" | "ML_C5_2XLARGE" | "ML_C6I_32XLARGE" | "ML_C4_4XLARGE" | "ML_G5_8XLARGE" | "ML_C6I_XLARGE" | "ML_C5_4XLARGE" | "ML_G4DN_XLARGE" | "ML_C7I_XLARGE" | "ML_C6I_12XLARGE" | "ML_G4DN_12XLARGE" | "ML_C7I_12XLARGE" | "ML_C6I_24XLARGE" | "ML_G4DN_2XLARGE" | "ML_C7I_24XLARGE" | "ML_C7I_2XLARGE" | "ML_C4_8XLARGE" | "ML_C6I_2XLARGE" | "ML_G4DN_4XLARGE" | "ML_C7I_48XLARGE" | "ML_C7I_4XLARGE" | "ML_C6I_16XLARGE" | "ML_C5_9XLARGE" | "ML_G4DN_16XLARGE" | "ML_C7I_16XLARGE" | "ML_C6I_4XLARGE" | "ML_C5_XLARGE" | "ML_C4_XLARGE" | "ML_G4DN_8XLARGE" | "ML_C7I_8XLARGE" | "ML_C7I_LARGE" | "ML_G5_XLARGE" | "ML_C6I_8XLARGE" | "ML_C6I_LARGE" | "ML_G5_12XLARGE" | "ML_G5_24XLARGE" | "ML_M7I_2XLARGE" | "ML_C5_18XLARGE" | "ML_G5_48XLARGE" | "ML_M6I_2XLARGE" | "ML_G5_16XLARGE" | "ML_M7I_4XLARGE" | "ML_P3_2XLARGE" | "ML_R6I_32XLARGE" | "ML_M6I_4XLARGE" | "ML_M5_XLARGE" | "ML_M4_10XLARGE" | "ML_R6I_XLARGE" | "ML_M5_12XLARGE" | "ML_M4_XLARGE" | "ML_R7I_2XLARGE" | "ML_R7I_XLARGE" | "ML_R6I_12XLARGE" | "ML_M5_24XLARGE" | "ML_R7I_12XLARGE" | "ML_M7I_8XLARGE" | "ML_M7I_LARGE" | "ML_R6I_24XLARGE" | "ML_R6I_2XLARGE" | "ML_M4_2XLARGE" | "ML_R7I_24XLARGE" | "ML_R7I_4XLARGE" | "ML_M6I_8XLARGE" | "ML_M6I_LARGE" | "ML_M5_2XLARGE" | "ML_P2_8XLARGE" | "ML_R6I_4XLARGE" | "ML_M6I_32XLARGE" | "ML_P3_8XLARGE" | "ML_M4_4XLARGE";
 export interface InferenceOutputConfiguration {
   accept?: string;
   members: Array<InferenceReceiverMember>;
@@ -926,99 +776,8 @@ interface _InputChannelDataSource {
   protectedQueryInputParameters?: ProtectedQueryInputParameters;
 }
 
-export type InputChannelDataSource = _InputChannelDataSource & {
-  protectedQueryInputParameters: ProtectedQueryInputParameters;
-};
-export type InstanceType =
-  | "ML_M4_XLARGE"
-  | "ML_M4_2XLARGE"
-  | "ML_M4_4XLARGE"
-  | "ML_M4_10XLARGE"
-  | "ML_M4_16XLARGE"
-  | "ML_G4DN_XLARGE"
-  | "ML_G4DN_2XLARGE"
-  | "ML_G4DN_4XLARGE"
-  | "ML_G4DN_8XLARGE"
-  | "ML_G4DN_12XLARGE"
-  | "ML_G4DN_16XLARGE"
-  | "ML_M5_LARGE"
-  | "ML_M5_XLARGE"
-  | "ML_M5_2XLARGE"
-  | "ML_M5_4XLARGE"
-  | "ML_M5_12XLARGE"
-  | "ML_M5_24XLARGE"
-  | "ML_C4_XLARGE"
-  | "ML_C4_2XLARGE"
-  | "ML_C4_4XLARGE"
-  | "ML_C4_8XLARGE"
-  | "ML_P2_XLARGE"
-  | "ML_P2_8XLARGE"
-  | "ML_P2_16XLARGE"
-  | "ML_P3_2XLARGE"
-  | "ML_P3_8XLARGE"
-  | "ML_P3_16XLARGE"
-  | "ML_P3DN_24XLARGE"
-  | "ML_P4D_24XLARGE"
-  | "ML_P4DE_24XLARGE"
-  | "ML_P5_48XLARGE"
-  | "ML_C5_XLARGE"
-  | "ML_C5_2XLARGE"
-  | "ML_C5_4XLARGE"
-  | "ML_C5_9XLARGE"
-  | "ML_C5_18XLARGE"
-  | "ML_C5N_XLARGE"
-  | "ML_C5N_2XLARGE"
-  | "ML_C5N_4XLARGE"
-  | "ML_C5N_9XLARGE"
-  | "ML_C5N_18XLARGE"
-  | "ML_G5_XLARGE"
-  | "ML_G5_2XLARGE"
-  | "ML_G5_4XLARGE"
-  | "ML_G5_8XLARGE"
-  | "ML_G5_16XLARGE"
-  | "ML_G5_12XLARGE"
-  | "ML_G5_24XLARGE"
-  | "ML_G5_48XLARGE"
-  | "ML_TRN1_2XLARGE"
-  | "ML_TRN1_32XLARGE"
-  | "ML_TRN1N_32XLARGE"
-  | "ML_M6I_LARGE"
-  | "ML_M6I_XLARGE"
-  | "ML_M6I_2XLARGE"
-  | "ML_M6I_4XLARGE"
-  | "ML_M6I_8XLARGE"
-  | "ML_M6I_12XLARGE"
-  | "ML_M6I_16XLARGE"
-  | "ML_M6I_24XLARGE"
-  | "ML_M6I_32XLARGE"
-  | "ML_C6I_XLARGE"
-  | "ML_C6I_2XLARGE"
-  | "ML_C6I_8XLARGE"
-  | "ML_C6I_4XLARGE"
-  | "ML_C6I_12XLARGE"
-  | "ML_C6I_16XLARGE"
-  | "ML_C6I_24XLARGE"
-  | "ML_C6I_32XLARGE"
-  | "ML_R5D_LARGE"
-  | "ML_R5D_XLARGE"
-  | "ML_R5D_2XLARGE"
-  | "ML_R5D_4XLARGE"
-  | "ML_R5D_8XLARGE"
-  | "ML_R5D_12XLARGE"
-  | "ML_R5D_16XLARGE"
-  | "ML_R5D_24XLARGE"
-  | "ML_T3_MEDIUM"
-  | "ML_T3_LARGE"
-  | "ML_T3_XLARGE"
-  | "ML_T3_2XLARGE"
-  | "ML_R5_LARGE"
-  | "ML_R5_XLARGE"
-  | "ML_R5_2XLARGE"
-  | "ML_R5_4XLARGE"
-  | "ML_R5_8XLARGE"
-  | "ML_R5_12XLARGE"
-  | "ML_R5_16XLARGE"
-  | "ML_R5_24XLARGE";
+export type InputChannelDataSource = (_InputChannelDataSource & { protectedQueryInputParameters: ProtectedQueryInputParameters });
+export type InstanceType = "ML_M4_XLARGE" | "ML_M4_2XLARGE" | "ML_M4_4XLARGE" | "ML_M4_10XLARGE" | "ML_M4_16XLARGE" | "ML_G4DN_XLARGE" | "ML_G4DN_2XLARGE" | "ML_G4DN_4XLARGE" | "ML_G4DN_8XLARGE" | "ML_G4DN_12XLARGE" | "ML_G4DN_16XLARGE" | "ML_M5_LARGE" | "ML_M5_XLARGE" | "ML_M5_2XLARGE" | "ML_M5_4XLARGE" | "ML_M5_12XLARGE" | "ML_M5_24XLARGE" | "ML_C4_XLARGE" | "ML_C4_2XLARGE" | "ML_C4_4XLARGE" | "ML_C4_8XLARGE" | "ML_P2_XLARGE" | "ML_P2_8XLARGE" | "ML_P2_16XLARGE" | "ML_P3_2XLARGE" | "ML_P3_8XLARGE" | "ML_P3_16XLARGE" | "ML_P3DN_24XLARGE" | "ML_P4D_24XLARGE" | "ML_P4DE_24XLARGE" | "ML_P5_48XLARGE" | "ML_C5_XLARGE" | "ML_C5_2XLARGE" | "ML_C5_4XLARGE" | "ML_C5_9XLARGE" | "ML_C5_18XLARGE" | "ML_C5N_XLARGE" | "ML_C5N_2XLARGE" | "ML_C5N_4XLARGE" | "ML_C5N_9XLARGE" | "ML_C5N_18XLARGE" | "ML_G5_XLARGE" | "ML_G5_2XLARGE" | "ML_G5_4XLARGE" | "ML_G5_8XLARGE" | "ML_G5_16XLARGE" | "ML_G5_12XLARGE" | "ML_G5_24XLARGE" | "ML_G5_48XLARGE" | "ML_TRN1_2XLARGE" | "ML_TRN1_32XLARGE" | "ML_TRN1N_32XLARGE" | "ML_M6I_LARGE" | "ML_M6I_XLARGE" | "ML_M6I_2XLARGE" | "ML_M6I_4XLARGE" | "ML_M6I_8XLARGE" | "ML_M6I_12XLARGE" | "ML_M6I_16XLARGE" | "ML_M6I_24XLARGE" | "ML_M6I_32XLARGE" | "ML_C6I_XLARGE" | "ML_C6I_2XLARGE" | "ML_C6I_8XLARGE" | "ML_C6I_4XLARGE" | "ML_C6I_12XLARGE" | "ML_C6I_16XLARGE" | "ML_C6I_24XLARGE" | "ML_C6I_32XLARGE" | "ML_R5D_LARGE" | "ML_R5D_XLARGE" | "ML_R5D_2XLARGE" | "ML_R5D_4XLARGE" | "ML_R5D_8XLARGE" | "ML_R5D_12XLARGE" | "ML_R5D_16XLARGE" | "ML_R5D_24XLARGE" | "ML_T3_MEDIUM" | "ML_T3_LARGE" | "ML_T3_XLARGE" | "ML_T3_2XLARGE" | "ML_R5_LARGE" | "ML_R5_XLARGE" | "ML_R5_2XLARGE" | "ML_R5_4XLARGE" | "ML_R5_8XLARGE" | "ML_R5_12XLARGE" | "ML_R5_16XLARGE" | "ML_R5_24XLARGE";
 export declare class InternalServiceException extends EffectData.TaggedError(
   "InternalServiceException",
 )<{
@@ -1208,15 +967,7 @@ export type MinMatchingSeedSize = number;
 export type MLInputChannelArn = string;
 
 export type MLInputChannelsList = Array<MLInputChannelSummary>;
-export type MLInputChannelStatus =
-  | "CREATE_PENDING"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "ACTIVE"
-  | "DELETE_PENDING"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_FAILED"
-  | "INACTIVE";
+export type MLInputChannelStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE" | "DELETE_PENDING" | "DELETE_IN_PROGRESS" | "DELETE_FAILED" | "INACTIVE";
 export interface MLInputChannelSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -1254,9 +1005,7 @@ export type ParameterKey = string;
 export type ParameterMap = Record<string, string>;
 export type ParameterValue = string;
 
-export type PolicyExistenceCondition =
-  | "POLICY_MUST_EXIST"
-  | "POLICY_MUST_NOT_EXIST";
+export type PolicyExistenceCondition = "POLICY_MUST_EXIST" | "POLICY_MUST_NOT_EXIST";
 export interface PrivacyConfiguration {
   policies: PrivacyConfigurationPolicies;
 }
@@ -1385,7 +1134,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1406,19 +1156,14 @@ export type TrainedModelExportFileType = "MODEL" | "OUTPUT";
 export type TrainedModelExportFileTypeList = Array<TrainedModelExportFileType>;
 export type TrainedModelExportJobArn = string;
 
-export type TrainedModelExportJobStatus =
-  | "CREATE_PENDING"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "ACTIVE";
+export type TrainedModelExportJobStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE";
 export interface TrainedModelExportOutputConfiguration {
   members: Array<TrainedModelExportReceiverMember>;
 }
 export interface TrainedModelExportReceiverMember {
   accountId: string;
 }
-export type TrainedModelExportReceiverMembers =
-  Array<TrainedModelExportReceiverMember>;
+export type TrainedModelExportReceiverMembers = Array<TrainedModelExportReceiverMember>;
 export interface TrainedModelExportsConfigurationPolicy {
   maxSize: TrainedModelExportsMaxSize;
   filesToExport: Array<TrainedModelExportFileType>;
@@ -1432,21 +1177,12 @@ export type TrainedModelExportsMaxSizeValue = number;
 
 export type TrainedModelInferenceJobArn = string;
 
-export type TrainedModelInferenceJobList =
-  Array<TrainedModelInferenceJobSummary>;
+export type TrainedModelInferenceJobList = Array<TrainedModelInferenceJobSummary>;
 export interface TrainedModelInferenceJobsConfigurationPolicy {
   containerLogs?: Array<LogsConfigurationPolicy>;
   maxOutputSize?: TrainedModelInferenceMaxOutputSize;
 }
-export type TrainedModelInferenceJobStatus =
-  | "CREATE_PENDING"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "ACTIVE"
-  | "CANCEL_PENDING"
-  | "CANCEL_IN_PROGRESS"
-  | "CANCEL_FAILED"
-  | "INACTIVE";
+export type TrainedModelInferenceJobStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE" | "CANCEL_PENDING" | "CANCEL_IN_PROGRESS" | "CANCEL_FAILED" | "INACTIVE";
 export interface TrainedModelInferenceJobSummary {
   trainedModelInferenceJobArn: string;
   configuredModelAlgorithmAssociationArn?: string;
@@ -1478,18 +1214,7 @@ export interface TrainedModelsConfigurationPolicy {
   containerMetrics?: MetricsConfigurationPolicy;
   maxArtifactSize?: TrainedModelArtifactMaxSize;
 }
-export type TrainedModelStatus =
-  | "CREATE_PENDING"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "ACTIVE"
-  | "DELETE_PENDING"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_FAILED"
-  | "INACTIVE"
-  | "CANCEL_PENDING"
-  | "CANCEL_IN_PROGRESS"
-  | "CANCEL_FAILED";
+export type TrainedModelStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE" | "DELETE_PENDING" | "DELETE_IN_PROGRESS" | "DELETE_FAILED" | "INACTIVE" | "CANCEL_PENDING" | "CANCEL_IN_PROGRESS" | "CANCEL_FAILED";
 export interface TrainedModelSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -1520,7 +1245,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateConfiguredAudienceModelRequest {
   configuredAudienceModelArn: string;
   outputConfig?: ConfiguredAudienceModelOutputConfig;
@@ -1546,10 +1272,8 @@ export interface WorkerComputeConfiguration {
 }
 export type WorkerComputeType = "CR1X" | "CR4X";
 export declare namespace ListCollaborationConfiguredModelAlgorithmAssociations {
-  export type Input =
-    ListCollaborationConfiguredModelAlgorithmAssociationsRequest;
-  export type Output =
-    ListCollaborationConfiguredModelAlgorithmAssociationsResponse;
+  export type Input = ListCollaborationConfiguredModelAlgorithmAssociationsRequest;
+  export type Output = ListCollaborationConfiguredModelAlgorithmAssociationsResponse;
   export type Error =
     | AccessDeniedException
     | ThrottlingException
@@ -1626,3 +1350,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

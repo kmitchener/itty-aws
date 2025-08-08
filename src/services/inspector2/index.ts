@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Inspector2 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("inspector2", new RestJson1Protocol(), cfg);
+  }
+
   associateMember(
     input: AssociateMemberRequest,
   ): Effect.Effect<
     AssociateMemberResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateMember", input);
   }
@@ -20,13 +20,7 @@ export class Inspector2 extends AWSServiceClient {
     input: BatchAssociateCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
     BatchAssociateCodeSecurityScanConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchAssociateCodeSecurityScanConfiguration", input);
   }
@@ -34,13 +28,7 @@ export class Inspector2 extends AWSServiceClient {
     input: BatchDisassociateCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
     BatchDisassociateCodeSecurityScanConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDisassociateCodeSecurityScanConfiguration", input);
   }
@@ -48,12 +36,7 @@ export class Inspector2 extends AWSServiceClient {
     input: BatchGetAccountStatusRequest,
   ): Effect.Effect<
     BatchGetAccountStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetAccountStatus", input);
   }
@@ -61,11 +44,7 @@ export class Inspector2 extends AWSServiceClient {
     input: BatchGetCodeSnippetRequest,
   ): Effect.Effect<
     BatchGetCodeSnippetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetCodeSnippet", input);
   }
@@ -73,11 +52,7 @@ export class Inspector2 extends AWSServiceClient {
     input: BatchGetFindingDetailsRequest,
   ): Effect.Effect<
     BatchGetFindingDetailsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetFindingDetails", input);
   }
@@ -85,11 +60,7 @@ export class Inspector2 extends AWSServiceClient {
     input: BatchGetFreeTrialInfoRequest,
   ): Effect.Effect<
     BatchGetFreeTrialInfoResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetFreeTrialInfo", input);
   }
@@ -97,11 +68,7 @@ export class Inspector2 extends AWSServiceClient {
     input: BatchGetMemberEc2DeepInspectionStatusRequest,
   ): Effect.Effect<
     BatchGetMemberEc2DeepInspectionStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetMemberEc2DeepInspectionStatus", input);
   }
@@ -109,11 +76,7 @@ export class Inspector2 extends AWSServiceClient {
     input: BatchUpdateMemberEc2DeepInspectionStatusRequest,
   ): Effect.Effect<
     BatchUpdateMemberEc2DeepInspectionStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchUpdateMemberEc2DeepInspectionStatus", input);
   }
@@ -121,12 +84,7 @@ export class Inspector2 extends AWSServiceClient {
     input: CancelFindingsReportRequest,
   ): Effect.Effect<
     CancelFindingsReportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelFindingsReport", input);
   }
@@ -134,12 +92,7 @@ export class Inspector2 extends AWSServiceClient {
     input: CancelSbomExportRequest,
   ): Effect.Effect<
     CancelSbomExportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelSbomExport", input);
   }
@@ -147,11 +100,7 @@ export class Inspector2 extends AWSServiceClient {
     input: CreateCisScanConfigurationRequest,
   ): Effect.Effect<
     CreateCisScanConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCisScanConfiguration", input);
   }
@@ -159,13 +108,7 @@ export class Inspector2 extends AWSServiceClient {
     input: CreateCodeSecurityIntegrationRequest,
   ): Effect.Effect<
     CreateCodeSecurityIntegrationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCodeSecurityIntegration", input);
   }
@@ -173,13 +116,7 @@ export class Inspector2 extends AWSServiceClient {
     input: CreateCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
     CreateCodeSecurityScanConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCodeSecurityScanConfiguration", input);
   }
@@ -187,13 +124,7 @@ export class Inspector2 extends AWSServiceClient {
     input: CreateFilterRequest,
   ): Effect.Effect<
     CreateFilterResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateFilter", input);
   }
@@ -201,12 +132,7 @@ export class Inspector2 extends AWSServiceClient {
     input: CreateFindingsReportRequest,
   ): Effect.Effect<
     CreateFindingsReportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateFindingsReport", input);
   }
@@ -214,12 +140,7 @@ export class Inspector2 extends AWSServiceClient {
     input: CreateSbomExportRequest,
   ): Effect.Effect<
     CreateSbomExportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSbomExport", input);
   }
@@ -227,12 +148,7 @@ export class Inspector2 extends AWSServiceClient {
     input: DeleteCisScanConfigurationRequest,
   ): Effect.Effect<
     DeleteCisScanConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCisScanConfiguration", input);
   }
@@ -240,12 +156,7 @@ export class Inspector2 extends AWSServiceClient {
     input: DeleteCodeSecurityIntegrationRequest,
   ): Effect.Effect<
     DeleteCodeSecurityIntegrationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCodeSecurityIntegration", input);
   }
@@ -253,12 +164,7 @@ export class Inspector2 extends AWSServiceClient {
     input: DeleteCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
     DeleteCodeSecurityScanConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCodeSecurityScanConfiguration", input);
   }
@@ -266,12 +172,7 @@ export class Inspector2 extends AWSServiceClient {
     input: DeleteFilterRequest,
   ): Effect.Effect<
     DeleteFilterResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteFilter", input);
   }
@@ -279,11 +180,7 @@ export class Inspector2 extends AWSServiceClient {
     input: DescribeOrganizationConfigurationRequest,
   ): Effect.Effect<
     DescribeOrganizationConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeOrganizationConfiguration", input);
   }
@@ -291,12 +188,7 @@ export class Inspector2 extends AWSServiceClient {
     input: DisableRequest,
   ): Effect.Effect<
     DisableResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("Disable", input);
   }
@@ -304,13 +196,7 @@ export class Inspector2 extends AWSServiceClient {
     input: DisableDelegatedAdminAccountRequest,
   ): Effect.Effect<
     DisableDelegatedAdminAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisableDelegatedAdminAccount", input);
   }
@@ -318,11 +204,7 @@ export class Inspector2 extends AWSServiceClient {
     input: DisassociateMemberRequest,
   ): Effect.Effect<
     DisassociateMemberResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateMember", input);
   }
@@ -330,12 +212,7 @@ export class Inspector2 extends AWSServiceClient {
     input: EnableRequest,
   ): Effect.Effect<
     EnableResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("Enable", input);
   }
@@ -343,13 +220,7 @@ export class Inspector2 extends AWSServiceClient {
     input: EnableDelegatedAdminAccountRequest,
   ): Effect.Effect<
     EnableDelegatedAdminAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("EnableDelegatedAdminAccount", input);
   }
@@ -357,12 +228,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetCisScanReportRequest,
   ): Effect.Effect<
     GetCisScanReportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCisScanReport", input);
   }
@@ -370,11 +236,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetCisScanResultDetailsRequest,
   ): Effect.Effect<
     GetCisScanResultDetailsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCisScanResultDetails", input);
   }
@@ -382,11 +244,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetClustersForImageRequest,
   ): Effect.Effect<
     GetClustersForImageResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetClustersForImage", input);
   }
@@ -394,12 +252,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetCodeSecurityIntegrationRequest,
   ): Effect.Effect<
     GetCodeSecurityIntegrationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCodeSecurityIntegration", input);
   }
@@ -407,13 +260,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetCodeSecurityScanRequest,
   ): Effect.Effect<
     GetCodeSecurityScanResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCodeSecurityScan", input);
   }
@@ -421,12 +268,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
     GetCodeSecurityScanConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCodeSecurityScanConfiguration", input);
   }
@@ -434,10 +276,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetConfigurationRequest,
   ): Effect.Effect<
     GetConfigurationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetConfiguration", input);
   }
@@ -445,12 +284,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetDelegatedAdminAccountRequest,
   ): Effect.Effect<
     GetDelegatedAdminAccountResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDelegatedAdminAccount", input);
   }
@@ -458,11 +292,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetEc2DeepInspectionConfigurationRequest,
   ): Effect.Effect<
     GetEc2DeepInspectionConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEc2DeepInspectionConfiguration", input);
   }
@@ -470,12 +300,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetEncryptionKeyRequest,
   ): Effect.Effect<
     GetEncryptionKeyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetEncryptionKey", input);
   }
@@ -483,12 +308,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetFindingsReportStatusRequest,
   ): Effect.Effect<
     GetFindingsReportStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetFindingsReportStatus", input);
   }
@@ -496,12 +316,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetMemberRequest,
   ): Effect.Effect<
     GetMemberResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMember", input);
   }
@@ -509,12 +324,7 @@ export class Inspector2 extends AWSServiceClient {
     input: GetSbomExportRequest,
   ): Effect.Effect<
     GetSbomExportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetSbomExport", input);
   }
@@ -522,11 +332,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListAccountPermissionsRequest,
   ): Effect.Effect<
     ListAccountPermissionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAccountPermissions", input);
   }
@@ -534,11 +340,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListCisScanConfigurationsRequest,
   ): Effect.Effect<
     ListCisScanConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCisScanConfigurations", input);
   }
@@ -546,11 +348,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListCisScanResultsAggregatedByChecksRequest,
   ): Effect.Effect<
     ListCisScanResultsAggregatedByChecksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCisScanResultsAggregatedByChecks", input);
   }
@@ -558,11 +356,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListCisScanResultsAggregatedByTargetResourceRequest,
   ): Effect.Effect<
     ListCisScanResultsAggregatedByTargetResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCisScanResultsAggregatedByTargetResource", input);
   }
@@ -570,11 +364,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListCisScansRequest,
   ): Effect.Effect<
     ListCisScansResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCisScans", input);
   }
@@ -582,11 +372,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListCodeSecurityIntegrationsRequest,
   ): Effect.Effect<
     ListCodeSecurityIntegrationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCodeSecurityIntegrations", input);
   }
@@ -594,12 +380,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListCodeSecurityScanConfigurationAssociationsRequest,
   ): Effect.Effect<
     ListCodeSecurityScanConfigurationAssociationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCodeSecurityScanConfigurationAssociations", input);
   }
@@ -607,12 +388,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListCodeSecurityScanConfigurationsRequest,
   ): Effect.Effect<
     ListCodeSecurityScanConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCodeSecurityScanConfigurations", input);
   }
@@ -620,10 +396,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListCoverageRequest,
   ): Effect.Effect<
     ListCoverageResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCoverage", input);
   }
@@ -631,10 +404,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListCoverageStatisticsRequest,
   ): Effect.Effect<
     ListCoverageStatisticsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCoverageStatistics", input);
   }
@@ -642,11 +412,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListDelegatedAdminAccountsRequest,
   ): Effect.Effect<
     ListDelegatedAdminAccountsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDelegatedAdminAccounts", input);
   }
@@ -654,11 +420,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListFiltersRequest,
   ): Effect.Effect<
     ListFiltersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFilters", input);
   }
@@ -666,10 +428,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListFindingAggregationsRequest,
   ): Effect.Effect<
     ListFindingAggregationsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFindingAggregations", input);
   }
@@ -677,10 +436,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListFindingsRequest,
   ): Effect.Effect<
     ListFindingsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListFindings", input);
   }
@@ -688,11 +444,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListMembersRequest,
   ): Effect.Effect<
     ListMembersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListMembers", input);
   }
@@ -700,11 +452,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -712,11 +460,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ListUsageTotalsRequest,
   ): Effect.Effect<
     ListUsageTotalsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListUsageTotals", input);
   }
@@ -724,12 +468,7 @@ export class Inspector2 extends AWSServiceClient {
     input: ResetEncryptionKeyRequest,
   ): Effect.Effect<
     ResetEncryptionKeyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ResetEncryptionKey", input);
   }
@@ -737,11 +476,7 @@ export class Inspector2 extends AWSServiceClient {
     input: SearchVulnerabilitiesRequest,
   ): Effect.Effect<
     SearchVulnerabilitiesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchVulnerabilities", input);
   }
@@ -749,12 +484,7 @@ export class Inspector2 extends AWSServiceClient {
     input: SendCisSessionHealthRequest,
   ): Effect.Effect<
     SendCisSessionHealthResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendCisSessionHealth", input);
   }
@@ -762,12 +492,7 @@ export class Inspector2 extends AWSServiceClient {
     input: SendCisSessionTelemetryRequest,
   ): Effect.Effect<
     SendCisSessionTelemetryResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendCisSessionTelemetry", input);
   }
@@ -775,12 +500,7 @@ export class Inspector2 extends AWSServiceClient {
     input: StartCisSessionRequest,
   ): Effect.Effect<
     StartCisSessionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartCisSession", input);
   }
@@ -788,13 +508,7 @@ export class Inspector2 extends AWSServiceClient {
     input: StartCodeSecurityScanRequest,
   ): Effect.Effect<
     StartCodeSecurityScanResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartCodeSecurityScan", input);
   }
@@ -802,12 +516,7 @@ export class Inspector2 extends AWSServiceClient {
     input: StopCisSessionRequest,
   ): Effect.Effect<
     StopCisSessionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopCisSession", input);
   }
@@ -815,12 +524,7 @@ export class Inspector2 extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -828,11 +532,7 @@ export class Inspector2 extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -840,12 +540,7 @@ export class Inspector2 extends AWSServiceClient {
     input: UpdateCisScanConfigurationRequest,
   ): Effect.Effect<
     UpdateCisScanConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateCisScanConfiguration", input);
   }
@@ -853,13 +548,7 @@ export class Inspector2 extends AWSServiceClient {
     input: UpdateCodeSecurityIntegrationRequest,
   ): Effect.Effect<
     UpdateCodeSecurityIntegrationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateCodeSecurityIntegration", input);
   }
@@ -867,13 +556,7 @@ export class Inspector2 extends AWSServiceClient {
     input: UpdateCodeSecurityScanConfigurationRequest,
   ): Effect.Effect<
     UpdateCodeSecurityScanConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateCodeSecurityScanConfiguration", input);
   }
@@ -881,11 +564,7 @@ export class Inspector2 extends AWSServiceClient {
     input: UpdateConfigurationRequest,
   ): Effect.Effect<
     UpdateConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateConfiguration", input);
   }
@@ -893,11 +572,7 @@ export class Inspector2 extends AWSServiceClient {
     input: UpdateEc2DeepInspectionConfigurationRequest,
   ): Effect.Effect<
     UpdateEc2DeepInspectionConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateEc2DeepInspectionConfiguration", input);
   }
@@ -905,12 +580,7 @@ export class Inspector2 extends AWSServiceClient {
     input: UpdateEncryptionKeyRequest,
   ): Effect.Effect<
     UpdateEncryptionKeyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateEncryptionKey", input);
   }
@@ -918,12 +588,7 @@ export class Inspector2 extends AWSServiceClient {
     input: UpdateFilterRequest,
   ): Effect.Effect<
     UpdateFilterResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateFilter", input);
   }
@@ -931,11 +596,7 @@ export class Inspector2 extends AWSServiceClient {
     input: UpdateOrganizationConfigurationRequest,
   ): Effect.Effect<
     UpdateOrganizationConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateOrganizationConfiguration", input);
   }
@@ -943,11 +604,7 @@ export class Inspector2 extends AWSServiceClient {
     input: UpdateOrgEc2DeepInspectionConfigurationRequest,
   ): Effect.Effect<
     UpdateOrgEc2DeepInspectionConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateOrgEc2DeepInspectionConfiguration", input);
   }
@@ -1009,25 +666,7 @@ interface _AggregationRequest {
   codeRepositoryAggregation?: CodeRepositoryAggregation;
 }
 
-export type AggregationRequest =
-  | (_AggregationRequest & { accountAggregation: AccountAggregation })
-  | (_AggregationRequest & { amiAggregation: AmiAggregation })
-  | (_AggregationRequest & {
-      awsEcrContainerAggregation: AwsEcrContainerAggregation;
-    })
-  | (_AggregationRequest & { ec2InstanceAggregation: Ec2InstanceAggregation })
-  | (_AggregationRequest & { findingTypeAggregation: FindingTypeAggregation })
-  | (_AggregationRequest & { imageLayerAggregation: ImageLayerAggregation })
-  | (_AggregationRequest & { packageAggregation: PackageAggregation })
-  | (_AggregationRequest & { repositoryAggregation: RepositoryAggregation })
-  | (_AggregationRequest & { titleAggregation: TitleAggregation })
-  | (_AggregationRequest & { lambdaLayerAggregation: LambdaLayerAggregation })
-  | (_AggregationRequest & {
-      lambdaFunctionAggregation: LambdaFunctionAggregation;
-    })
-  | (_AggregationRequest & {
-      codeRepositoryAggregation: CodeRepositoryAggregation;
-    });
+export type AggregationRequest = (_AggregationRequest & { accountAggregation: AccountAggregation }) | (_AggregationRequest & { amiAggregation: AmiAggregation }) | (_AggregationRequest & { awsEcrContainerAggregation: AwsEcrContainerAggregation }) | (_AggregationRequest & { ec2InstanceAggregation: Ec2InstanceAggregation }) | (_AggregationRequest & { findingTypeAggregation: FindingTypeAggregation }) | (_AggregationRequest & { imageLayerAggregation: ImageLayerAggregation }) | (_AggregationRequest & { packageAggregation: PackageAggregation }) | (_AggregationRequest & { repositoryAggregation: RepositoryAggregation }) | (_AggregationRequest & { titleAggregation: TitleAggregation }) | (_AggregationRequest & { lambdaLayerAggregation: LambdaLayerAggregation }) | (_AggregationRequest & { lambdaFunctionAggregation: LambdaFunctionAggregation }) | (_AggregationRequest & { codeRepositoryAggregation: CodeRepositoryAggregation });
 export type AggregationResourceType = string;
 
 interface _AggregationResponse {
@@ -1045,35 +684,7 @@ interface _AggregationResponse {
   codeRepositoryAggregation?: CodeRepositoryAggregationResponse;
 }
 
-export type AggregationResponse =
-  | (_AggregationResponse & { accountAggregation: AccountAggregationResponse })
-  | (_AggregationResponse & { amiAggregation: AmiAggregationResponse })
-  | (_AggregationResponse & {
-      awsEcrContainerAggregation: AwsEcrContainerAggregationResponse;
-    })
-  | (_AggregationResponse & {
-      ec2InstanceAggregation: Ec2InstanceAggregationResponse;
-    })
-  | (_AggregationResponse & {
-      findingTypeAggregation: FindingTypeAggregationResponse;
-    })
-  | (_AggregationResponse & {
-      imageLayerAggregation: ImageLayerAggregationResponse;
-    })
-  | (_AggregationResponse & { packageAggregation: PackageAggregationResponse })
-  | (_AggregationResponse & {
-      repositoryAggregation: RepositoryAggregationResponse;
-    })
-  | (_AggregationResponse & { titleAggregation: TitleAggregationResponse })
-  | (_AggregationResponse & {
-      lambdaLayerAggregation: LambdaLayerAggregationResponse;
-    })
-  | (_AggregationResponse & {
-      lambdaFunctionAggregation: LambdaFunctionAggregationResponse;
-    })
-  | (_AggregationResponse & {
-      codeRepositoryAggregation: CodeRepositoryAggregationResponse;
-    });
+export type AggregationResponse = (_AggregationResponse & { accountAggregation: AccountAggregationResponse }) | (_AggregationResponse & { amiAggregation: AmiAggregationResponse }) | (_AggregationResponse & { awsEcrContainerAggregation: AwsEcrContainerAggregationResponse }) | (_AggregationResponse & { ec2InstanceAggregation: Ec2InstanceAggregationResponse }) | (_AggregationResponse & { findingTypeAggregation: FindingTypeAggregationResponse }) | (_AggregationResponse & { imageLayerAggregation: ImageLayerAggregationResponse }) | (_AggregationResponse & { packageAggregation: PackageAggregationResponse }) | (_AggregationResponse & { repositoryAggregation: RepositoryAggregationResponse }) | (_AggregationResponse & { titleAggregation: TitleAggregationResponse }) | (_AggregationResponse & { lambdaLayerAggregation: LambdaLayerAggregationResponse }) | (_AggregationResponse & { lambdaFunctionAggregation: LambdaFunctionAggregationResponse }) | (_AggregationResponse & { codeRepositoryAggregation: CodeRepositoryAggregationResponse });
 export type AggregationResponseList = Array<AggregationResponse>;
 export type AggregationType = string;
 
@@ -1101,21 +712,14 @@ export interface AssociateConfigurationRequest {
   scanConfigurationArn: string;
   resource: CodeSecurityResource;
 }
-export type AssociateConfigurationRequestList =
-  Array<AssociateConfigurationRequest>;
+export type AssociateConfigurationRequestList = Array<AssociateConfigurationRequest>;
 export interface AssociateMemberRequest {
   accountId: string;
 }
 export interface AssociateMemberResponse {
   accountId: string;
 }
-export type AssociationResultStatusCode =
-  | "INTERNAL_ERROR"
-  | "ACCESS_DENIED"
-  | "SCAN_CONFIGURATION_NOT_FOUND"
-  | "INVALID_INPUT"
-  | "RESOURCE_NOT_FOUND"
-  | "QUOTA_EXCEEDED";
+export type AssociationResultStatusCode = "INTERNAL_ERROR" | "ACCESS_DENIED" | "SCAN_CONFIGURATION_NOT_FOUND" | "INVALID_INPUT" | "RESOURCE_NOT_FOUND" | "QUOTA_EXCEEDED";
 export type AssociationResultStatusMessage = string;
 
 export interface AtigData {
@@ -1341,14 +945,7 @@ export interface CisResultStatusFilter {
 export type CisResultStatusFilterList = Array<CisResultStatusFilter>;
 export type CisRuleDetails = Uint8Array | string;
 
-export type CisRuleStatus =
-  | "FAILED"
-  | "PASSED"
-  | "NOT_EVALUATED"
-  | "INFORMATIONAL"
-  | "UNKNOWN"
-  | "NOT_APPLICABLE"
-  | "ERROR";
+export type CisRuleStatus = "FAILED" | "PASSED" | "NOT_EVALUATED" | "INFORMATIONAL" | "UNKNOWN" | "NOT_APPLICABLE" | "ERROR";
 export interface CisScan {
   scanArn: string;
   scanConfigurationArn: string;
@@ -1377,9 +974,7 @@ export type CisScanConfigurationArn = string;
 
 export type CisScanConfigurationArnFilterList = Array<CisStringFilter>;
 export type CisScanConfigurationList = Array<CisScanConfiguration>;
-export type CisScanConfigurationsSortBy =
-  | "SCAN_NAME"
-  | "SCAN_CONFIGURATION_ARN";
+export type CisScanConfigurationsSortBy = "SCAN_NAME" | "SCAN_CONFIGURATION_ARN";
 export type CisScanDateFilterList = Array<CisDateFilter>;
 export type CisScanList = Array<CisScan>;
 export type CisScanName = string;
@@ -1416,12 +1011,7 @@ export interface CisScanResultsAggregatedByChecksFilterCriteria {
   failedResourcesFilters?: Array<CisNumberFilter>;
   securityLevelFilters?: Array<CisSecurityLevelFilter>;
 }
-export type CisScanResultsAggregatedByChecksSortBy =
-  | "CHECK_ID"
-  | "TITLE"
-  | "PLATFORM"
-  | "FAILED_COUNTS"
-  | "SECURITY_LEVEL";
+export type CisScanResultsAggregatedByChecksSortBy = "CHECK_ID" | "TITLE" | "PLATFORM" | "FAILED_COUNTS" | "SECURITY_LEVEL";
 export interface CisScanResultsAggregatedByTargetResourceFilterCriteria {
   accountIdFilters?: Array<CisStringFilter>;
   statusFilters?: Array<CisResultStatusFilter>;
@@ -1433,20 +1023,10 @@ export interface CisScanResultsAggregatedByTargetResourceFilterCriteria {
   targetStatusReasonFilters?: Array<CisTargetStatusReasonFilter>;
   failedChecksFilters?: Array<CisNumberFilter>;
 }
-export type CisScanResultsAggregatedByTargetResourceSortBy =
-  | "RESOURCE_ID"
-  | "FAILED_COUNTS"
-  | "ACCOUNT_ID"
-  | "PLATFORM"
-  | "TARGET_STATUS"
-  | "TARGET_STATUS_REASON";
+export type CisScanResultsAggregatedByTargetResourceSortBy = "RESOURCE_ID" | "FAILED_COUNTS" | "ACCOUNT_ID" | "PLATFORM" | "TARGET_STATUS" | "TARGET_STATUS_REASON";
 export type CisScanResultsMaxResults = number;
 
-export type CisScanStatus =
-  | "FAILED"
-  | "COMPLETED"
-  | "CANCELLED"
-  | "IN_PROGRESS";
+export type CisScanStatus = "FAILED" | "COMPLETED" | "CANCELLED" | "IN_PROGRESS";
 export type CisScanStatusComparison = "EQUALS";
 export interface CisScanStatusFilter {
   comparison: CisScanStatusComparison;
@@ -1484,8 +1064,7 @@ export interface CisTargetResourceAggregation {
   targetStatus?: CisTargetStatus;
   targetStatusReason?: CisTargetStatusReason;
 }
-export type CisTargetResourceAggregationList =
-  Array<CisTargetResourceAggregation>;
+export type CisTargetResourceAggregationList = Array<CisTargetResourceAggregation>;
 export interface CisTargets {
   accountIds?: Array<string>;
   targetResourceTags?: Record<string, Array<string>>;
@@ -1496,10 +1075,7 @@ export interface CisTargetStatusFilter {
   comparison: CisTargetStatusComparison;
   value: CisTargetStatus;
 }
-export type CisTargetStatusReason =
-  | "SCAN_IN_PROGRESS"
-  | "UNSUPPORTED_OS"
-  | "SSM_UNMANAGED";
+export type CisTargetStatusReason = "SCAN_IN_PROGRESS" | "UNSUPPORTED_OS" | "SSM_UNMANAGED";
 export interface CisTargetStatusReasonFilter {
   comparison: CisTargetStatusComparison;
   value: CisTargetStatusReason;
@@ -1526,9 +1102,7 @@ interface _ClusterMetadata {
   awsEksMetadataDetails?: AwsEksMetadataDetails;
 }
 
-export type ClusterMetadata =
-  | (_ClusterMetadata & { awsEcsMetadataDetails: AwsEcsMetadataDetails })
-  | (_ClusterMetadata & { awsEksMetadataDetails: AwsEksMetadataDetails });
+export type ClusterMetadata = (_ClusterMetadata & { awsEcsMetadataDetails: AwsEcsMetadataDetails }) | (_ClusterMetadata & { awsEksMetadataDetails: AwsEksMetadataDetails });
 export interface CodeFilePath {
   fileName: string;
   filePath: string;
@@ -1583,11 +1157,7 @@ export type CodeRepositoryProviderType = string;
 
 export type CodeRepositorySortBy = string;
 
-export type CodeScanStatus =
-  | "IN_PROGRESS"
-  | "SUCCESSFUL"
-  | "FAILED"
-  | "SKIPPED";
+export type CodeScanStatus = "IN_PROGRESS" | "SUCCESSFUL" | "FAILED" | "SKIPPED";
 export type CodeSecurityClientToken = string;
 
 export type CodeSecurityIntegrationArn = string;
@@ -1606,21 +1176,17 @@ interface _CodeSecurityResource {
   projectId?: string;
 }
 
-export type CodeSecurityResource = _CodeSecurityResource & {
-  projectId: string;
-};
+export type CodeSecurityResource = (_CodeSecurityResource & { projectId: string });
 export interface CodeSecurityScanConfiguration {
   periodicScanConfiguration?: PeriodicScanConfiguration;
   continuousIntegrationScanConfiguration?: ContinuousIntegrationScanConfiguration;
   ruleSetCategories: Array<RuleSetCategory>;
 }
-export type CodeSecurityScanConfigurationAssociationSummaries =
-  Array<CodeSecurityScanConfigurationAssociationSummary>;
+export type CodeSecurityScanConfigurationAssociationSummaries = Array<CodeSecurityScanConfigurationAssociationSummary>;
 export interface CodeSecurityScanConfigurationAssociationSummary {
   resource?: CodeSecurityResource;
 }
-export type CodeSecurityScanConfigurationSummaries =
-  Array<CodeSecurityScanConfigurationSummary>;
+export type CodeSecurityScanConfigurationSummaries = Array<CodeSecurityScanConfigurationSummary>;
 export interface CodeSecurityScanConfigurationSummary {
   scanConfigurationArn: string;
   name: string;
@@ -1685,8 +1251,7 @@ export interface ContinuousIntegrationScanConfiguration {
   supportedEvents: Array<ContinuousIntegrationScanEvent>;
 }
 export type ContinuousIntegrationScanEvent = "PULL_REQUEST" | "PUSH";
-export type ContinuousIntegrationScanSupportedEvents =
-  Array<ContinuousIntegrationScanEvent>;
+export type ContinuousIntegrationScanSupportedEvents = Array<ContinuousIntegrationScanEvent>;
 export interface Counts {
   count?: number;
   groupKey?: string;
@@ -1817,9 +1382,7 @@ interface _CreateIntegrationDetail {
   gitlabSelfManaged?: CreateGitLabSelfManagedIntegrationDetail;
 }
 
-export type CreateIntegrationDetail = _CreateIntegrationDetail & {
-  gitlabSelfManaged: CreateGitLabSelfManagedIntegrationDetail;
-};
+export type CreateIntegrationDetail = (_CreateIntegrationDetail & { gitlabSelfManaged: CreateGitLabSelfManagedIntegrationDetail });
 export interface CreateSbomExportRequest {
   resourceFilterCriteria?: ResourceFilterCriteria;
   reportFormat: string;
@@ -1917,7 +1480,8 @@ export interface DeleteFilterRequest {
 export interface DeleteFilterResponse {
   arn: string;
 }
-export interface DescribeOrganizationConfigurationRequest {}
+export interface DescribeOrganizationConfigurationRequest {
+}
 export interface DescribeOrganizationConfigurationResponse {
   autoEnable?: AutoEnable;
   maxAccountLimitReached?: boolean;
@@ -1948,8 +1512,7 @@ export interface DisassociateConfigurationRequest {
   scanConfigurationArn: string;
   resource: CodeSecurityResource;
 }
-export type DisassociateConfigurationRequestList =
-  Array<DisassociateConfigurationRequest>;
+export type DisassociateConfigurationRequestList = Array<DisassociateConfigurationRequest>;
 export interface DisassociateMemberRequest {
   accountId: string;
 }
@@ -2109,8 +1672,7 @@ export interface FailedMemberAccountEc2DeepInspectionStatusState {
   ec2ScanStatus?: string;
   errorMessage?: string;
 }
-export type FailedMemberAccountEc2DeepInspectionStatusStateList =
-  Array<FailedMemberAccountEc2DeepInspectionStatusState>;
+export type FailedMemberAccountEc2DeepInspectionStatusStateList = Array<FailedMemberAccountEc2DeepInspectionStatusState>;
 export type FilePath = string;
 
 export interface Filter {
@@ -2366,16 +1928,19 @@ export interface GetCodeSecurityScanResponse {
   updatedAt?: Date | string;
   lastCommitId?: string;
 }
-export interface GetConfigurationRequest {}
+export interface GetConfigurationRequest {
+}
 export interface GetConfigurationResponse {
   ecrConfiguration?: EcrConfigurationState;
   ec2Configuration?: Ec2ConfigurationState;
 }
-export interface GetDelegatedAdminAccountRequest {}
+export interface GetDelegatedAdminAccountRequest {
+}
 export interface GetDelegatedAdminAccountResponse {
   delegatedAdmin?: DelegatedAdmin;
 }
-export interface GetEc2DeepInspectionConfigurationRequest {}
+export interface GetEc2DeepInspectionConfigurationRequest {
+}
 export interface GetEc2DeepInspectionConfigurationResponse {
   packagePaths?: Array<string>;
   orgPackagePaths?: Array<string>;
@@ -2454,12 +2019,7 @@ export type InstanceUrl = string;
 
 export type IntegrationName = string;
 
-export type IntegrationStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "ACTIVE"
-  | "INACTIVE"
-  | "DISABLING";
+export type IntegrationStatus = "PENDING" | "IN_PROGRESS" | "ACTIVE" | "INACTIVE" | "DISABLING";
 export type IntegrationSummaries = Array<CodeSecurityIntegrationSummary>;
 export type IntegrationType = "GITLAB_SELF_MANAGED" | "GITHUB";
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -2608,11 +2168,7 @@ export interface ListCisScansResponse {
   scans?: Array<CisScan>;
   nextToken?: string;
 }
-export type ListCisScansSortBy =
-  | "STATUS"
-  | "SCHEDULED_BY"
-  | "SCAN_START_DATE"
-  | "FAILED_CHECKS";
+export type ListCisScansSortBy = "STATUS" | "SCHEDULED_BY" | "SCAN_START_DATE" | "FAILED_CHECKS";
 export interface ListCodeSecurityIntegrationsRequest {
   nextToken?: string;
   maxResults?: number;
@@ -2759,15 +2315,13 @@ export interface MemberAccountEc2DeepInspectionStatus {
   accountId: string;
   activateDeepInspection: boolean;
 }
-export type MemberAccountEc2DeepInspectionStatusList =
-  Array<MemberAccountEc2DeepInspectionStatus>;
+export type MemberAccountEc2DeepInspectionStatusList = Array<MemberAccountEc2DeepInspectionStatus>;
 export interface MemberAccountEc2DeepInspectionStatusState {
   accountId: string;
   status?: string;
   errorMessage?: string;
 }
-export type MemberAccountEc2DeepInspectionStatusStateList =
-  Array<MemberAccountEc2DeepInspectionStatusState>;
+export type MemberAccountEc2DeepInspectionStatusStateList = Array<MemberAccountEc2DeepInspectionStatusState>;
 export type MemberList = Array<Member>;
 export type MeteringAccountId = string;
 
@@ -2799,7 +2353,8 @@ export interface NumberFilter {
 }
 export type NumberFilterList = Array<NumberFilter>;
 export type OneAccountIdFilterList = Array<CisStringFilter>;
-export interface OneTimeSchedule {}
+export interface OneTimeSchedule {
+}
 export type Operation = string;
 
 export type OwnerId = string;
@@ -2892,16 +2447,14 @@ export interface ProjectContinuousIntegrationScanConfiguration {
   supportedEvent?: ContinuousIntegrationScanEvent;
   ruleSetCategories?: Array<RuleSetCategory>;
 }
-export type ProjectContinuousIntegrationScanConfigurationList =
-  Array<ProjectContinuousIntegrationScanConfiguration>;
+export type ProjectContinuousIntegrationScanConfigurationList = Array<ProjectContinuousIntegrationScanConfiguration>;
 export type ProjectId = string;
 
 export interface ProjectPeriodicScanConfiguration {
   frequencyExpression?: string;
   ruleSetCategories?: Array<RuleSetCategory>;
 }
-export type ProjectPeriodicScanConfigurationList =
-  Array<ProjectPeriodicScanConfiguration>;
+export type ProjectPeriodicScanConfigurationList = Array<ProjectPeriodicScanConfiguration>;
 export type ProjectSelectionScope = "ALL";
 export type Reason = string;
 
@@ -2942,7 +2495,8 @@ export interface ResetEncryptionKeyRequest {
   scanType: string;
   resourceType: string;
 }
-export interface ResetEncryptionKeyResponse {}
+export interface ResetEncryptionKeyResponse {
+}
 export interface Resource {
   type: string;
   id: string;
@@ -3052,11 +2606,7 @@ interface _Schedule {
   monthly?: MonthlySchedule;
 }
 
-export type Schedule =
-  | (_Schedule & { oneTime: OneTimeSchedule })
-  | (_Schedule & { daily: DailySchedule })
-  | (_Schedule & { weekly: WeeklySchedule })
-  | (_Schedule & { monthly: MonthlySchedule });
+export type Schedule = (_Schedule & { oneTime: OneTimeSchedule }) | (_Schedule & { daily: DailySchedule }) | (_Schedule & { weekly: WeeklySchedule }) | (_Schedule & { monthly: MonthlySchedule });
 export interface ScopeSettings {
   projectSelectionScope?: ProjectSelectionScope;
 }
@@ -3078,13 +2628,15 @@ export interface SendCisSessionHealthRequest {
   scanJobId: string;
   sessionToken: string;
 }
-export interface SendCisSessionHealthResponse {}
+export interface SendCisSessionHealthResponse {
+}
 export interface SendCisSessionTelemetryRequest {
   scanJobId: string;
   sessionToken: string;
   messages: Array<CisSessionMessage>;
 }
-export interface SendCisSessionTelemetryResponse {}
+export interface SendCisSessionTelemetryResponse {
+}
 export type Service = string;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -3118,7 +2670,8 @@ export interface StartCisSessionRequest {
   scanJobId: string;
   message: StartCisSessionMessage;
 }
-export interface StartCisSessionResponse {}
+export interface StartCisSessionResponse {
+}
 export interface StartCodeSecurityScanRequest {
   clientToken?: string;
   resource: CodeSecurityResource;
@@ -3168,12 +2721,9 @@ export interface StopCisSessionRequest {
   sessionToken: string;
   message: StopCisSessionMessage;
 }
-export interface StopCisSessionResponse {}
-export type StopCisSessionStatus =
-  | "SUCCESS"
-  | "FAILED"
-  | "INTERRUPTED"
-  | "UNSUPPORTED_OS";
+export interface StopCisSessionResponse {
+}
+export type StopCisSessionStatus = "SUCCESS" | "FAILED" | "INTERRUPTED" | "UNSUPPORTED_OS";
 export type StringComparison = string;
 
 export interface StringFilter {
@@ -3191,8 +2741,7 @@ export interface SuccessfulAssociationResult {
   scanConfigurationArn?: string;
   resource?: CodeSecurityResource;
 }
-export type SuccessfulAssociationResultList =
-  Array<SuccessfulAssociationResult>;
+export type SuccessfulAssociationResultList = Array<SuccessfulAssociationResult>;
 export interface SuggestedFix {
   description?: string;
   code?: string;
@@ -3213,7 +2762,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValueList = Array<string>;
 export type Target = string;
 
@@ -3269,7 +2819,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateCisScanConfigurationRequest {
   scanConfigurationArn: string;
   scanName?: string;
@@ -3303,7 +2854,8 @@ export interface UpdateConfigurationRequest {
   ecrConfiguration?: EcrConfiguration;
   ec2Configuration?: Ec2Configuration;
 }
-export interface UpdateConfigurationResponse {}
+export interface UpdateConfigurationResponse {
+}
 export interface UpdateEc2DeepInspectionConfigurationRequest {
   activateDeepInspection?: boolean;
   packagePaths?: Array<string>;
@@ -3319,7 +2871,8 @@ export interface UpdateEncryptionKeyRequest {
   scanType: string;
   resourceType: string;
 }
-export interface UpdateEncryptionKeyResponse {}
+export interface UpdateEncryptionKeyResponse {
+}
 export interface UpdateFilterRequest {
   action?: string;
   description?: string;
@@ -3343,11 +2896,7 @@ interface _UpdateIntegrationDetails {
   github?: UpdateGitHubIntegrationDetail;
 }
 
-export type UpdateIntegrationDetails =
-  | (_UpdateIntegrationDetails & {
-      gitlabSelfManaged: UpdateGitLabSelfManagedIntegrationDetail;
-    })
-  | (_UpdateIntegrationDetails & { github: UpdateGitHubIntegrationDetail });
+export type UpdateIntegrationDetails = (_UpdateIntegrationDetails & { gitlabSelfManaged: UpdateGitLabSelfManagedIntegrationDetail }) | (_UpdateIntegrationDetails & { github: UpdateGitHubIntegrationDetail });
 export interface UpdateOrganizationConfigurationRequest {
   autoEnable: AutoEnable;
 }
@@ -3357,7 +2906,8 @@ export interface UpdateOrganizationConfigurationResponse {
 export interface UpdateOrgEc2DeepInspectionConfigurationRequest {
   orgPackagePaths: Array<string>;
 }
-export interface UpdateOrgEc2DeepInspectionConfigurationResponse {}
+export interface UpdateOrgEc2DeepInspectionConfigurationResponse {
+}
 export interface Usage {
   type?: string;
   total?: number;
@@ -4332,3 +3882,4 @@ export declare namespace UpdateOrgEc2DeepInspectionConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+

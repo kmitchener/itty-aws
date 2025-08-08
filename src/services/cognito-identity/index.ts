@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class CognitoIdentity extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cognito-identity", new AwsJson11Protocol(), cfg);
+  }
+
   createIdentityPool(
     input: CreateIdentityPoolInput,
   ): Effect.Effect<
     IdentityPool,
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceConflictException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateIdentityPool", input);
   }
@@ -21,10 +20,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: DeleteIdentitiesInput,
   ): Effect.Effect<
     DeleteIdentitiesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteIdentities", input);
   }
@@ -32,12 +28,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: DeleteIdentityPoolInput,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteIdentityPool", input);
   }
@@ -45,12 +36,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: DescribeIdentityInput,
   ): Effect.Effect<
     IdentityDescription,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeIdentity", input);
   }
@@ -58,12 +44,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: DescribeIdentityPoolInput,
   ): Effect.Effect<
     IdentityPool,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeIdentityPool", input);
   }
@@ -71,15 +52,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: GetCredentialsForIdentityInput,
   ): Effect.Effect<
     GetCredentialsForIdentityResponse,
-    | ExternalServiceException
-    | InternalErrorException
-    | InvalidIdentityPoolConfigurationException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ExternalServiceException | InternalErrorException | InvalidIdentityPoolConfigurationException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetCredentialsForIdentity", input);
   }
@@ -87,15 +60,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: GetIdInput,
   ): Effect.Effect<
     GetIdResponse,
-    | ExternalServiceException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ExternalServiceException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetId", input);
   }
@@ -103,13 +68,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: GetIdentityPoolRolesInput,
   ): Effect.Effect<
     GetIdentityPoolRolesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetIdentityPoolRoles", input);
   }
@@ -117,14 +76,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: GetOpenIdTokenInput,
   ): Effect.Effect<
     GetOpenIdTokenResponse,
-    | ExternalServiceException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ExternalServiceException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetOpenIdToken", input);
   }
@@ -132,14 +84,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: GetOpenIdTokenForDeveloperIdentityInput,
   ): Effect.Effect<
     GetOpenIdTokenForDeveloperIdentityResponse,
-    | DeveloperUserAlreadyRegisteredException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    DeveloperUserAlreadyRegisteredException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetOpenIdTokenForDeveloperIdentity", input);
   }
@@ -147,12 +92,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: GetPrincipalTagAttributeMapInput,
   ): Effect.Effect<
     GetPrincipalTagAttributeMapResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetPrincipalTagAttributeMap", input);
   }
@@ -160,12 +100,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: ListIdentitiesInput,
   ): Effect.Effect<
     ListIdentitiesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListIdentities", input);
   }
@@ -173,12 +108,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: ListIdentityPoolsInput,
   ): Effect.Effect<
     ListIdentityPoolsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListIdentityPools", input);
   }
@@ -186,12 +116,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -199,13 +124,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: LookupDeveloperIdentityInput,
   ): Effect.Effect<
     LookupDeveloperIdentityResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("LookupDeveloperIdentity", input);
   }
@@ -213,13 +132,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: MergeDeveloperIdentitiesInput,
   ): Effect.Effect<
     MergeDeveloperIdentitiesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("MergeDeveloperIdentities", input);
   }
@@ -227,14 +140,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: SetIdentityPoolRolesInput,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("SetIdentityPoolRoles", input);
   }
@@ -242,12 +148,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: SetPrincipalTagAttributeMapInput,
   ): Effect.Effect<
     SetPrincipalTagAttributeMapResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("SetPrincipalTagAttributeMap", input);
   }
@@ -255,12 +156,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -268,13 +164,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: UnlinkDeveloperIdentityInput,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UnlinkDeveloperIdentity", input);
   }
@@ -282,14 +172,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: UnlinkIdentityInput,
   ): Effect.Effect<
     {},
-    | ExternalServiceException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ExternalServiceException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UnlinkIdentity", input);
   }
@@ -297,12 +180,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -310,15 +188,7 @@ export class CognitoIdentity extends AWSServiceClient {
     input: IdentityPool,
   ): Effect.Effect<
     IdentityPool,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateIdentityPool", input);
   }
@@ -569,11 +439,7 @@ export interface MappingRule {
   Value: string;
   RoleARN: string;
 }
-export type MappingRuleMatchType =
-  | "EQUALS"
-  | "CONTAINS"
-  | "STARTS_WITH"
-  | "NOT_EQUAL";
+export type MappingRuleMatchType = "EQUALS" | "CONTAINS" | "STARTS_WITH" | "NOT_EQUAL";
 export type MappingRulesList = Array<MappingRule>;
 export interface MergeDeveloperIdentitiesInput {
   SourceUserIdentifier: string;
@@ -654,7 +520,8 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValueType = string;
 
 export type TokenDuration = number;
@@ -684,7 +551,8 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UseDefaults = boolean;
 
 export declare namespace CreateIdentityPool {
@@ -982,3 +850,4 @@ export declare namespace UpdateIdentityPool {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

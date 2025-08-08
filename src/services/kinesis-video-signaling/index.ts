@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class KinesisVideoSignaling extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("kinesis-video-signaling", new RestJson1Protocol(), cfg);
+  }
+
   getIceServerConfig(
     input: GetIceServerConfigRequest,
   ): Effect.Effect<
     GetIceServerConfigResponse,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | InvalidClientException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | SessionExpiredException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | InvalidClientException | NotAuthorizedException | ResourceNotFoundException | SessionExpiredException | CommonAwsError
   > {
     return this.call("GetIceServerConfig", input);
   }
@@ -21,11 +20,7 @@ export class KinesisVideoSignaling extends AWSServiceClient {
     input: SendAlexaOfferToMasterRequest,
   ): Effect.Effect<
     SendAlexaOfferToMasterResponse,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("SendAlexaOfferToMaster", input);
   }
@@ -130,3 +125,4 @@ export declare namespace SendAlexaOfferToMaster {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class EntityResolution extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("entityresolution", new RestJson1Protocol(), cfg);
+  }
+
   addPolicyStatement(
     input: AddPolicyStatementInput,
   ): Effect.Effect<
     AddPolicyStatementOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AddPolicyStatement", input);
   }
@@ -21,10 +20,7 @@ export class EntityResolution extends AWSServiceClient {
     input: BatchDeleteUniqueIdInput,
   ): Effect.Effect<
     BatchDeleteUniqueIdOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("BatchDeleteUniqueId", input);
   }
@@ -32,13 +28,7 @@ export class EntityResolution extends AWSServiceClient {
     input: CreateIdMappingWorkflowInput,
   ): Effect.Effect<
     CreateIdMappingWorkflowOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateIdMappingWorkflow", input);
   }
@@ -46,13 +36,7 @@ export class EntityResolution extends AWSServiceClient {
     input: CreateIdNamespaceInput,
   ): Effect.Effect<
     CreateIdNamespaceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateIdNamespace", input);
   }
@@ -60,13 +44,7 @@ export class EntityResolution extends AWSServiceClient {
     input: CreateMatchingWorkflowInput,
   ): Effect.Effect<
     CreateMatchingWorkflowOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateMatchingWorkflow", input);
   }
@@ -74,13 +52,7 @@ export class EntityResolution extends AWSServiceClient {
     input: CreateSchemaMappingInput,
   ): Effect.Effect<
     CreateSchemaMappingOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSchemaMapping", input);
   }
@@ -88,12 +60,7 @@ export class EntityResolution extends AWSServiceClient {
     input: DeleteIdMappingWorkflowInput,
   ): Effect.Effect<
     DeleteIdMappingWorkflowOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteIdMappingWorkflow", input);
   }
@@ -101,11 +68,7 @@ export class EntityResolution extends AWSServiceClient {
     input: DeleteIdNamespaceInput,
   ): Effect.Effect<
     DeleteIdNamespaceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteIdNamespace", input);
   }
@@ -113,12 +76,7 @@ export class EntityResolution extends AWSServiceClient {
     input: DeleteMatchingWorkflowInput,
   ): Effect.Effect<
     DeleteMatchingWorkflowOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteMatchingWorkflow", input);
   }
@@ -126,13 +84,7 @@ export class EntityResolution extends AWSServiceClient {
     input: DeletePolicyStatementInput,
   ): Effect.Effect<
     DeletePolicyStatementOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePolicyStatement", input);
   }
@@ -140,12 +92,7 @@ export class EntityResolution extends AWSServiceClient {
     input: DeleteSchemaMappingInput,
   ): Effect.Effect<
     DeleteSchemaMappingOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSchemaMapping", input);
   }
@@ -153,12 +100,7 @@ export class EntityResolution extends AWSServiceClient {
     input: GenerateMatchIdInput,
   ): Effect.Effect<
     GenerateMatchIdOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GenerateMatchId", input);
   }
@@ -166,12 +108,7 @@ export class EntityResolution extends AWSServiceClient {
     input: GetIdMappingJobInput,
   ): Effect.Effect<
     GetIdMappingJobOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetIdMappingJob", input);
   }
@@ -179,12 +116,7 @@ export class EntityResolution extends AWSServiceClient {
     input: GetIdMappingWorkflowInput,
   ): Effect.Effect<
     GetIdMappingWorkflowOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetIdMappingWorkflow", input);
   }
@@ -192,12 +124,7 @@ export class EntityResolution extends AWSServiceClient {
     input: GetIdNamespaceInput,
   ): Effect.Effect<
     GetIdNamespaceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetIdNamespace", input);
   }
@@ -205,12 +132,7 @@ export class EntityResolution extends AWSServiceClient {
     input: GetMatchIdInput,
   ): Effect.Effect<
     GetMatchIdOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMatchId", input);
   }
@@ -218,12 +140,7 @@ export class EntityResolution extends AWSServiceClient {
     input: GetMatchingJobInput,
   ): Effect.Effect<
     GetMatchingJobOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMatchingJob", input);
   }
@@ -231,12 +148,7 @@ export class EntityResolution extends AWSServiceClient {
     input: GetMatchingWorkflowInput,
   ): Effect.Effect<
     GetMatchingWorkflowOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetMatchingWorkflow", input);
   }
@@ -244,12 +156,7 @@ export class EntityResolution extends AWSServiceClient {
     input: GetPolicyInput,
   ): Effect.Effect<
     GetPolicyOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPolicy", input);
   }
@@ -257,12 +164,7 @@ export class EntityResolution extends AWSServiceClient {
     input: GetProviderServiceInput,
   ): Effect.Effect<
     GetProviderServiceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetProviderService", input);
   }
@@ -270,12 +172,7 @@ export class EntityResolution extends AWSServiceClient {
     input: GetSchemaMappingInput,
   ): Effect.Effect<
     GetSchemaMappingOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetSchemaMapping", input);
   }
@@ -283,12 +180,7 @@ export class EntityResolution extends AWSServiceClient {
     input: ListIdMappingJobsInput,
   ): Effect.Effect<
     ListIdMappingJobsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListIdMappingJobs", input);
   }
@@ -296,11 +188,7 @@ export class EntityResolution extends AWSServiceClient {
     input: ListIdMappingWorkflowsInput,
   ): Effect.Effect<
     ListIdMappingWorkflowsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListIdMappingWorkflows", input);
   }
@@ -308,11 +196,7 @@ export class EntityResolution extends AWSServiceClient {
     input: ListIdNamespacesInput,
   ): Effect.Effect<
     ListIdNamespacesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListIdNamespaces", input);
   }
@@ -320,12 +204,7 @@ export class EntityResolution extends AWSServiceClient {
     input: ListMatchingJobsInput,
   ): Effect.Effect<
     ListMatchingJobsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListMatchingJobs", input);
   }
@@ -333,11 +212,7 @@ export class EntityResolution extends AWSServiceClient {
     input: ListMatchingWorkflowsInput,
   ): Effect.Effect<
     ListMatchingWorkflowsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListMatchingWorkflows", input);
   }
@@ -345,11 +220,7 @@ export class EntityResolution extends AWSServiceClient {
     input: ListProviderServicesInput,
   ): Effect.Effect<
     ListProviderServicesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProviderServices", input);
   }
@@ -357,11 +228,7 @@ export class EntityResolution extends AWSServiceClient {
     input: ListSchemaMappingsInput,
   ): Effect.Effect<
     ListSchemaMappingsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSchemaMappings", input);
   }
@@ -369,10 +236,7 @@ export class EntityResolution extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -380,13 +244,7 @@ export class EntityResolution extends AWSServiceClient {
     input: PutPolicyInput,
   ): Effect.Effect<
     PutPolicyOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutPolicy", input);
   }
@@ -394,14 +252,7 @@ export class EntityResolution extends AWSServiceClient {
     input: StartIdMappingJobInput,
   ): Effect.Effect<
     StartIdMappingJobOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartIdMappingJob", input);
   }
@@ -409,14 +260,7 @@ export class EntityResolution extends AWSServiceClient {
     input: StartMatchingJobInput,
   ): Effect.Effect<
     StartMatchingJobOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExceedsLimitException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExceedsLimitException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartMatchingJob", input);
   }
@@ -424,10 +268,7 @@ export class EntityResolution extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -443,12 +284,7 @@ export class EntityResolution extends AWSServiceClient {
     input: UpdateIdMappingWorkflowInput,
   ): Effect.Effect<
     UpdateIdMappingWorkflowOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateIdMappingWorkflow", input);
   }
@@ -456,12 +292,7 @@ export class EntityResolution extends AWSServiceClient {
     input: UpdateIdNamespaceInput,
   ): Effect.Effect<
     UpdateIdNamespaceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateIdNamespace", input);
   }
@@ -469,12 +300,7 @@ export class EntityResolution extends AWSServiceClient {
     input: UpdateMatchingWorkflowInput,
   ): Effect.Effect<
     UpdateMatchingWorkflowOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateMatchingWorkflow", input);
   }
@@ -482,13 +308,7 @@ export class EntityResolution extends AWSServiceClient {
     input: UpdateSchemaMappingInput,
   ): Effect.Effect<
     UpdateSchemaMappingOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSchemaMapping", input);
   }
@@ -848,18 +668,15 @@ export interface IdMappingWorkflowInputSource {
   schemaName?: string;
   type?: IdNamespaceType;
 }
-export type IdMappingWorkflowInputSourceConfig =
-  Array<IdMappingWorkflowInputSource>;
+export type IdMappingWorkflowInputSourceConfig = Array<IdMappingWorkflowInputSource>;
 export type IdMappingWorkflowList = Array<IdMappingWorkflowSummary>;
 export interface IdMappingWorkflowOutputSource {
   outputS3Path: string;
   KMSArn?: string;
 }
-export type IdMappingWorkflowOutputSourceConfig =
-  Array<IdMappingWorkflowOutputSource>;
+export type IdMappingWorkflowOutputSourceConfig = Array<IdMappingWorkflowOutputSource>;
 export type IdMappingWorkflowRuleDefinitionType = "SOURCE" | "TARGET";
-export type IdMappingWorkflowRuleDefinitionTypeList =
-  Array<IdMappingWorkflowRuleDefinitionType>;
+export type IdMappingWorkflowRuleDefinitionTypeList = Array<IdMappingWorkflowRuleDefinitionType>;
 export interface IdMappingWorkflowSummary {
   workflowName: string;
   workflowArn: string;
@@ -871,15 +688,13 @@ export type IdNamespaceArn = string;
 export interface IdNamespaceIdMappingWorkflowMetadata {
   idMappingType: IdMappingType;
 }
-export type IdNamespaceIdMappingWorkflowMetadataList =
-  Array<IdNamespaceIdMappingWorkflowMetadata>;
+export type IdNamespaceIdMappingWorkflowMetadataList = Array<IdNamespaceIdMappingWorkflowMetadata>;
 export interface IdNamespaceIdMappingWorkflowProperties {
   idMappingType: IdMappingType;
   ruleBasedProperties?: NamespaceRuleBasedProperties;
   providerProperties?: NamespaceProviderProperties;
 }
-export type IdNamespaceIdMappingWorkflowPropertiesList =
-  Array<IdNamespaceIdMappingWorkflowProperties>;
+export type IdNamespaceIdMappingWorkflowPropertiesList = Array<IdNamespaceIdMappingWorkflowProperties>;
 export interface IdNamespaceInputSource {
   inputSourceARN: string;
   schemaName?: string;
@@ -1063,9 +878,7 @@ interface _ProviderEndpointConfiguration {
   marketplaceConfiguration?: ProviderMarketplaceConfiguration;
 }
 
-export type ProviderEndpointConfiguration = _ProviderEndpointConfiguration & {
-  marketplaceConfiguration: ProviderMarketplaceConfiguration;
-};
+export type ProviderEndpointConfiguration = (_ProviderEndpointConfiguration & { marketplaceConfiguration: ProviderMarketplaceConfiguration });
 export interface ProviderIdNameSpaceConfiguration {
   description?: string;
   providerTargetConfigurationDefinition?: unknown;
@@ -1123,9 +936,7 @@ export interface EntityresolutionRecord {
 export type RecordAttributeMap = Record<string, string>;
 export type RecordAttributeMapString255 = Record<string, string>;
 export type RecordList = Array<EntityresolutionRecord>;
-export type RecordMatchingModel =
-  | "ONE_SOURCE_TO_ONE_TARGET"
-  | "MANY_SOURCE_TO_ONE_TARGET";
+export type RecordMatchingModel = "ONE_SOURCE_TO_ONE_TARGET" | "MANY_SOURCE_TO_ONE_TARGET";
 export type RecordMatchingModelList = Array<RecordMatchingModel>;
 export type RequiredBucketActionsList = Array<string>;
 export interface ResolutionTechniques {
@@ -1162,30 +973,7 @@ export interface RuleConditionProperties {
 export type RuleList = Array<Rule>;
 export type S3Path = string;
 
-export type SchemaAttributeType =
-  | "NAME"
-  | "NAME_FIRST"
-  | "NAME_MIDDLE"
-  | "NAME_LAST"
-  | "ADDRESS"
-  | "ADDRESS_STREET1"
-  | "ADDRESS_STREET2"
-  | "ADDRESS_STREET3"
-  | "ADDRESS_CITY"
-  | "ADDRESS_STATE"
-  | "ADDRESS_COUNTRY"
-  | "ADDRESS_POSTALCODE"
-  | "PHONE"
-  | "PHONE_NUMBER"
-  | "PHONE_COUNTRYCODE"
-  | "EMAIL_ADDRESS"
-  | "UNIQUE_ID"
-  | "DATE"
-  | "STRING"
-  | "PROVIDER_ID"
-  | "IPV4"
-  | "IPV6"
-  | "MAID";
+export type SchemaAttributeType = "NAME" | "NAME_FIRST" | "NAME_MIDDLE" | "NAME_LAST" | "ADDRESS" | "ADDRESS_STREET1" | "ADDRESS_STREET2" | "ADDRESS_STREET3" | "ADDRESS_CITY" | "ADDRESS_STATE" | "ADDRESS_COUNTRY" | "ADDRESS_POSTALCODE" | "PHONE" | "PHONE_NUMBER" | "PHONE_COUNTRYCODE" | "EMAIL_ADDRESS" | "UNIQUE_ID" | "DATE" | "STRING" | "PROVIDER_ID" | "IPV4" | "IPV6" | "MAID";
 export interface SchemaInputAttribute {
   fieldName: string;
   type: SchemaAttributeType;
@@ -1241,7 +1029,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1256,7 +1045,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateIdMappingWorkflowInput {
   workflowName: string;
   description?: string;
@@ -1780,3 +1570,4 @@ export declare namespace UpdateSchemaMapping {
     | ValidationException
     | CommonAwsError;
 }
+

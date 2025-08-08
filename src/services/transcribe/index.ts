@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class Transcribe extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("transcribe", new AwsJson11Protocol(), cfg);
+  }
+
   createCallAnalyticsCategory(
     input: CreateCallAnalyticsCategoryRequest,
   ): Effect.Effect<
     CreateCallAnalyticsCategoryResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateCallAnalyticsCategory", input);
   }
@@ -19,11 +20,7 @@ export class Transcribe extends AWSServiceClient {
     input: CreateLanguageModelRequest,
   ): Effect.Effect<
     CreateLanguageModelResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateLanguageModel", input);
   }
@@ -31,11 +28,7 @@ export class Transcribe extends AWSServiceClient {
     input: CreateMedicalVocabularyRequest,
   ): Effect.Effect<
     CreateMedicalVocabularyResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateMedicalVocabulary", input);
   }
@@ -43,11 +36,7 @@ export class Transcribe extends AWSServiceClient {
     input: CreateVocabularyRequest,
   ): Effect.Effect<
     CreateVocabularyResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateVocabulary", input);
   }
@@ -55,11 +44,7 @@ export class Transcribe extends AWSServiceClient {
     input: CreateVocabularyFilterRequest,
   ): Effect.Effect<
     CreateVocabularyFilterResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateVocabularyFilter", input);
   }
@@ -67,11 +52,7 @@ export class Transcribe extends AWSServiceClient {
     input: DeleteCallAnalyticsCategoryRequest,
   ): Effect.Effect<
     DeleteCallAnalyticsCategoryResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteCallAnalyticsCategory", input);
   }
@@ -79,10 +60,7 @@ export class Transcribe extends AWSServiceClient {
     input: DeleteCallAnalyticsJobRequest,
   ): Effect.Effect<
     DeleteCallAnalyticsJobResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("DeleteCallAnalyticsJob", input);
   }
@@ -90,10 +68,7 @@ export class Transcribe extends AWSServiceClient {
     input: DeleteLanguageModelRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("DeleteLanguageModel", input);
   }
@@ -101,10 +76,7 @@ export class Transcribe extends AWSServiceClient {
     input: DeleteMedicalScribeJobRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("DeleteMedicalScribeJob", input);
   }
@@ -112,10 +84,7 @@ export class Transcribe extends AWSServiceClient {
     input: DeleteMedicalTranscriptionJobRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("DeleteMedicalTranscriptionJob", input);
   }
@@ -123,11 +92,7 @@ export class Transcribe extends AWSServiceClient {
     input: DeleteMedicalVocabularyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteMedicalVocabulary", input);
   }
@@ -135,10 +100,7 @@ export class Transcribe extends AWSServiceClient {
     input: DeleteTranscriptionJobRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("DeleteTranscriptionJob", input);
   }
@@ -146,11 +108,7 @@ export class Transcribe extends AWSServiceClient {
     input: DeleteVocabularyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteVocabulary", input);
   }
@@ -158,11 +116,7 @@ export class Transcribe extends AWSServiceClient {
     input: DeleteVocabularyFilterRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteVocabularyFilter", input);
   }
@@ -170,11 +124,7 @@ export class Transcribe extends AWSServiceClient {
     input: DescribeLanguageModelRequest,
   ): Effect.Effect<
     DescribeLanguageModelResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("DescribeLanguageModel", input);
   }
@@ -182,11 +132,7 @@ export class Transcribe extends AWSServiceClient {
     input: GetCallAnalyticsCategoryRequest,
   ): Effect.Effect<
     GetCallAnalyticsCategoryResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("GetCallAnalyticsCategory", input);
   }
@@ -194,11 +140,7 @@ export class Transcribe extends AWSServiceClient {
     input: GetCallAnalyticsJobRequest,
   ): Effect.Effect<
     GetCallAnalyticsJobResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("GetCallAnalyticsJob", input);
   }
@@ -206,11 +148,7 @@ export class Transcribe extends AWSServiceClient {
     input: GetMedicalScribeJobRequest,
   ): Effect.Effect<
     GetMedicalScribeJobResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("GetMedicalScribeJob", input);
   }
@@ -218,11 +156,7 @@ export class Transcribe extends AWSServiceClient {
     input: GetMedicalTranscriptionJobRequest,
   ): Effect.Effect<
     GetMedicalTranscriptionJobResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("GetMedicalTranscriptionJob", input);
   }
@@ -230,11 +164,7 @@ export class Transcribe extends AWSServiceClient {
     input: GetMedicalVocabularyRequest,
   ): Effect.Effect<
     GetMedicalVocabularyResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("GetMedicalVocabulary", input);
   }
@@ -242,11 +172,7 @@ export class Transcribe extends AWSServiceClient {
     input: GetTranscriptionJobRequest,
   ): Effect.Effect<
     GetTranscriptionJobResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("GetTranscriptionJob", input);
   }
@@ -254,11 +180,7 @@ export class Transcribe extends AWSServiceClient {
     input: GetVocabularyRequest,
   ): Effect.Effect<
     GetVocabularyResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("GetVocabulary", input);
   }
@@ -266,11 +188,7 @@ export class Transcribe extends AWSServiceClient {
     input: GetVocabularyFilterRequest,
   ): Effect.Effect<
     GetVocabularyFilterResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("GetVocabularyFilter", input);
   }
@@ -278,10 +196,7 @@ export class Transcribe extends AWSServiceClient {
     input: ListCallAnalyticsCategoriesRequest,
   ): Effect.Effect<
     ListCallAnalyticsCategoriesResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListCallAnalyticsCategories", input);
   }
@@ -289,10 +204,7 @@ export class Transcribe extends AWSServiceClient {
     input: ListCallAnalyticsJobsRequest,
   ): Effect.Effect<
     ListCallAnalyticsJobsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListCallAnalyticsJobs", input);
   }
@@ -300,10 +212,7 @@ export class Transcribe extends AWSServiceClient {
     input: ListLanguageModelsRequest,
   ): Effect.Effect<
     ListLanguageModelsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListLanguageModels", input);
   }
@@ -311,10 +220,7 @@ export class Transcribe extends AWSServiceClient {
     input: ListMedicalScribeJobsRequest,
   ): Effect.Effect<
     ListMedicalScribeJobsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListMedicalScribeJobs", input);
   }
@@ -322,10 +228,7 @@ export class Transcribe extends AWSServiceClient {
     input: ListMedicalTranscriptionJobsRequest,
   ): Effect.Effect<
     ListMedicalTranscriptionJobsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListMedicalTranscriptionJobs", input);
   }
@@ -333,10 +236,7 @@ export class Transcribe extends AWSServiceClient {
     input: ListMedicalVocabulariesRequest,
   ): Effect.Effect<
     ListMedicalVocabulariesResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListMedicalVocabularies", input);
   }
@@ -344,11 +244,7 @@ export class Transcribe extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -356,10 +252,7 @@ export class Transcribe extends AWSServiceClient {
     input: ListTranscriptionJobsRequest,
   ): Effect.Effect<
     ListTranscriptionJobsResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListTranscriptionJobs", input);
   }
@@ -367,10 +260,7 @@ export class Transcribe extends AWSServiceClient {
     input: ListVocabulariesRequest,
   ): Effect.Effect<
     ListVocabulariesResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListVocabularies", input);
   }
@@ -378,10 +268,7 @@ export class Transcribe extends AWSServiceClient {
     input: ListVocabularyFiltersRequest,
   ): Effect.Effect<
     ListVocabularyFiltersResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListVocabularyFilters", input);
   }
@@ -389,11 +276,7 @@ export class Transcribe extends AWSServiceClient {
     input: StartCallAnalyticsJobRequest,
   ): Effect.Effect<
     StartCallAnalyticsJobResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("StartCallAnalyticsJob", input);
   }
@@ -401,11 +284,7 @@ export class Transcribe extends AWSServiceClient {
     input: StartMedicalScribeJobRequest,
   ): Effect.Effect<
     StartMedicalScribeJobResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("StartMedicalScribeJob", input);
   }
@@ -413,11 +292,7 @@ export class Transcribe extends AWSServiceClient {
     input: StartMedicalTranscriptionJobRequest,
   ): Effect.Effect<
     StartMedicalTranscriptionJobResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("StartMedicalTranscriptionJob", input);
   }
@@ -425,11 +300,7 @@ export class Transcribe extends AWSServiceClient {
     input: StartTranscriptionJobRequest,
   ): Effect.Effect<
     StartTranscriptionJobResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | CommonAwsError
   > {
     return this.call("StartTranscriptionJob", input);
   }
@@ -437,12 +308,7 @@ export class Transcribe extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -450,12 +316,7 @@ export class Transcribe extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -463,12 +324,7 @@ export class Transcribe extends AWSServiceClient {
     input: UpdateCallAnalyticsCategoryRequest,
   ): Effect.Effect<
     UpdateCallAnalyticsCategoryResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateCallAnalyticsCategory", input);
   }
@@ -476,12 +332,7 @@ export class Transcribe extends AWSServiceClient {
     input: UpdateMedicalVocabularyRequest,
   ): Effect.Effect<
     UpdateMedicalVocabularyResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateMedicalVocabulary", input);
   }
@@ -489,12 +340,7 @@ export class Transcribe extends AWSServiceClient {
     input: UpdateVocabularyRequest,
   ): Effect.Effect<
     UpdateVocabularyResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateVocabulary", input);
   }
@@ -502,11 +348,7 @@ export class Transcribe extends AWSServiceClient {
     input: UpdateVocabularyFilterRequest,
   ): Effect.Effect<
     UpdateVocabularyFilterResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateVocabularyFilter", input);
   }
@@ -563,11 +405,7 @@ export interface CallAnalyticsJobSettings {
   LanguageIdSettings?: Record<LanguageCode, LanguageIdSettings>;
   Summarization?: Summarization;
 }
-export type CallAnalyticsJobStatus =
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED";
+export type CallAnalyticsJobStatus = "QUEUED" | "IN_PROGRESS" | "FAILED" | "COMPLETED";
 export type CallAnalyticsJobSummaries = Array<CallAnalyticsJobSummary>;
 export interface CallAnalyticsJobSummary {
   CallAnalyticsJobName?: string;
@@ -584,11 +422,8 @@ export interface CallAnalyticsSkippedFeature {
   ReasonCode?: CallAnalyticsSkippedReasonCode;
   Message?: string;
 }
-export type CallAnalyticsSkippedFeatureList =
-  Array<CallAnalyticsSkippedFeature>;
-export type CallAnalyticsSkippedReasonCode =
-  | "INSUFFICIENT_CONVERSATION_CONTENT"
-  | "FAILED_SAFETY_GUIDELINES";
+export type CallAnalyticsSkippedFeatureList = Array<CallAnalyticsSkippedFeature>;
+export type CallAnalyticsSkippedReasonCode = "INSUFFICIENT_CONVERSATION_CONTENT" | "FAILED_SAFETY_GUIDELINES";
 export type CategoryName = string;
 
 export interface CategoryProperties {
@@ -610,14 +445,7 @@ export type ChannelId = number;
 export interface ClinicalNoteGenerationSettings {
   NoteTemplate?: MedicalScribeNoteTemplate;
 }
-export type CLMLanguageCode =
-  | "EN_US"
-  | "HI_IN"
-  | "ES_US"
-  | "EN_GB"
-  | "EN_AU"
-  | "DE_DE"
-  | "JA_JP";
+export type CLMLanguageCode = "EN_US" | "HI_IN" | "ES_US" | "EN_GB" | "EN_AU" | "DE_DE" | "JA_JP";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -699,11 +527,13 @@ export type DateTime = Date | string;
 export interface DeleteCallAnalyticsCategoryRequest {
   CategoryName: string;
 }
-export interface DeleteCallAnalyticsCategoryResponse {}
+export interface DeleteCallAnalyticsCategoryResponse {
+}
 export interface DeleteCallAnalyticsJobRequest {
   CallAnalyticsJobName: string;
 }
-export interface DeleteCallAnalyticsJobResponse {}
+export interface DeleteCallAnalyticsJobResponse {
+}
 export interface DeleteLanguageModelRequest {
   ModelName: string;
 }
@@ -823,112 +653,7 @@ export interface JobExecutionSettings {
 export type KMSEncryptionContextMap = Record<string, string>;
 export type KMSKeyId = string;
 
-export type LanguageCode =
-  | "AF_ZA"
-  | "AR_AE"
-  | "AR_SA"
-  | "DA_DK"
-  | "DE_CH"
-  | "DE_DE"
-  | "EN_AB"
-  | "EN_AU"
-  | "EN_GB"
-  | "EN_IE"
-  | "EN_IN"
-  | "EN_US"
-  | "EN_WL"
-  | "ES_ES"
-  | "ES_US"
-  | "FA_IR"
-  | "FR_CA"
-  | "FR_FR"
-  | "HE_IL"
-  | "HI_IN"
-  | "ID_ID"
-  | "IT_IT"
-  | "JA_JP"
-  | "KO_KR"
-  | "MS_MY"
-  | "NL_NL"
-  | "PT_BR"
-  | "PT_PT"
-  | "RU_RU"
-  | "TA_IN"
-  | "TE_IN"
-  | "TR_TR"
-  | "ZH_CN"
-  | "ZH_TW"
-  | "TH_TH"
-  | "EN_ZA"
-  | "EN_NZ"
-  | "VI_VN"
-  | "SV_SE"
-  | "AB_GE"
-  | "AST_ES"
-  | "AZ_AZ"
-  | "BA_RU"
-  | "BE_BY"
-  | "BG_BG"
-  | "BN_IN"
-  | "BS_BA"
-  | "CA_ES"
-  | "CKB_IQ"
-  | "CKB_IR"
-  | "CS_CZ"
-  | "CY_WL"
-  | "EL_GR"
-  | "ET_EE"
-  | "ET_ET"
-  | "EU_ES"
-  | "FI_FI"
-  | "GL_ES"
-  | "GU_IN"
-  | "HA_NG"
-  | "HR_HR"
-  | "HU_HU"
-  | "HY_AM"
-  | "IS_IS"
-  | "KA_GE"
-  | "KAB_DZ"
-  | "KK_KZ"
-  | "KN_IN"
-  | "KY_KG"
-  | "LG_IN"
-  | "LT_LT"
-  | "LV_LV"
-  | "MHR_RU"
-  | "MI_NZ"
-  | "MK_MK"
-  | "ML_IN"
-  | "MN_MN"
-  | "MR_IN"
-  | "MT_MT"
-  | "NO_NO"
-  | "OR_IN"
-  | "PA_IN"
-  | "PL_PL"
-  | "PS_AF"
-  | "RO_RO"
-  | "RW_RW"
-  | "SI_LK"
-  | "SK_SK"
-  | "SL_SI"
-  | "SO_SO"
-  | "SR_RS"
-  | "SU_ID"
-  | "SW_BI"
-  | "SW_KE"
-  | "SW_RW"
-  | "SW_TZ"
-  | "SW_UG"
-  | "TL_PH"
-  | "TT_RU"
-  | "UG_CN"
-  | "UK_UA"
-  | "UZ_UZ"
-  | "WO_SN"
-  | "ZH_HK"
-  | "ZU_ZA";
+export type LanguageCode = "AF_ZA" | "AR_AE" | "AR_SA" | "DA_DK" | "DE_CH" | "DE_DE" | "EN_AB" | "EN_AU" | "EN_GB" | "EN_IE" | "EN_IN" | "EN_US" | "EN_WL" | "ES_ES" | "ES_US" | "FA_IR" | "FR_CA" | "FR_FR" | "HE_IL" | "HI_IN" | "ID_ID" | "IT_IT" | "JA_JP" | "KO_KR" | "MS_MY" | "NL_NL" | "PT_BR" | "PT_PT" | "RU_RU" | "TA_IN" | "TE_IN" | "TR_TR" | "ZH_CN" | "ZH_TW" | "TH_TH" | "EN_ZA" | "EN_NZ" | "VI_VN" | "SV_SE" | "AB_GE" | "AST_ES" | "AZ_AZ" | "BA_RU" | "BE_BY" | "BG_BG" | "BN_IN" | "BS_BA" | "CA_ES" | "CKB_IQ" | "CKB_IR" | "CS_CZ" | "CY_WL" | "EL_GR" | "ET_EE" | "ET_ET" | "EU_ES" | "FI_FI" | "GL_ES" | "GU_IN" | "HA_NG" | "HR_HR" | "HU_HU" | "HY_AM" | "IS_IS" | "KA_GE" | "KAB_DZ" | "KK_KZ" | "KN_IN" | "KY_KG" | "LG_IN" | "LT_LT" | "LV_LV" | "MHR_RU" | "MI_NZ" | "MK_MK" | "ML_IN" | "MN_MN" | "MR_IN" | "MT_MT" | "NO_NO" | "OR_IN" | "PA_IN" | "PL_PL" | "PS_AF" | "RO_RO" | "RW_RW" | "SI_LK" | "SK_SK" | "SL_SI" | "SO_SO" | "SR_RS" | "SU_ID" | "SW_BI" | "SW_KE" | "SW_RW" | "SW_TZ" | "SW_UG" | "TL_PH" | "TT_RU" | "UG_CN" | "UK_UA" | "UZ_UZ" | "WO_SN" | "ZH_HK" | "ZU_ZA";
 export interface LanguageCodeItem {
   LanguageCode?: LanguageCode;
   DurationInSeconds?: number;
@@ -1067,15 +792,7 @@ export interface Media {
   MediaFileUri?: string;
   RedactedMediaFileUri?: string;
 }
-export type MediaFormat =
-  | "MP3"
-  | "MP4"
-  | "WAV"
-  | "FLAC"
-  | "OGG"
-  | "AMR"
-  | "WEBM"
-  | "M4A";
+export type MediaFormat = "MP3" | "MP4" | "WAV" | "FLAC" | "OGG" | "AMR" | "WEBM" | "M4A";
 export type MediaSampleRateHertz = number;
 
 export type MedicalContentIdentificationType = "PHI";
@@ -1085,8 +802,7 @@ export interface MedicalScribeChannelDefinition {
   ChannelId: number;
   ParticipantRole: MedicalScribeParticipantRole;
 }
-export type MedicalScribeChannelDefinitions =
-  Array<MedicalScribeChannelDefinition>;
+export type MedicalScribeChannelDefinitions = Array<MedicalScribeChannelDefinition>;
 export type MedicalScribeChannelId = number;
 
 export interface MedicalScribeJob {
@@ -1104,11 +820,7 @@ export interface MedicalScribeJob {
   ChannelDefinitions?: Array<MedicalScribeChannelDefinition>;
   Tags?: Array<Tag>;
 }
-export type MedicalScribeJobStatus =
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED";
+export type MedicalScribeJobStatus = "QUEUED" | "IN_PROGRESS" | "FAILED" | "COMPLETED";
 export type MedicalScribeJobSummaries = Array<MedicalScribeJobSummary>;
 export interface MedicalScribeJobSummary {
   MedicalScribeJobName?: string;
@@ -1120,14 +832,7 @@ export interface MedicalScribeJobSummary {
   FailureReason?: string;
 }
 export type MedicalScribeLanguageCode = "EN_US";
-export type MedicalScribeNoteTemplate =
-  | "HISTORY_AND_PHYSICAL"
-  | "GIRPP"
-  | "BIRP"
-  | "SIRP"
-  | "DAP"
-  | "BEHAVIORAL_SOAP"
-  | "PHYSICAL_SOAP";
+export type MedicalScribeNoteTemplate = "HISTORY_AND_PHYSICAL" | "GIRPP" | "BIRP" | "SIRP" | "DAP" | "BEHAVIORAL_SOAP" | "PHYSICAL_SOAP";
 export interface MedicalScribeOutput {
   TranscriptFileUri: string;
   ClinicalDocumentUri: string;
@@ -1163,8 +868,7 @@ export interface MedicalTranscriptionJob {
   Type?: Type;
   Tags?: Array<Tag>;
 }
-export type MedicalTranscriptionJobSummaries =
-  Array<MedicalTranscriptionJobSummary>;
+export type MedicalTranscriptionJobSummaries = Array<MedicalTranscriptionJobSummary>;
 export interface MedicalTranscriptionJobSummary {
   MedicalTranscriptionJobName?: string;
   CreationTime?: Date | string;
@@ -1219,19 +923,7 @@ export type Percentage = number;
 export type Phrase = string;
 
 export type Phrases = Array<string>;
-export type PiiEntityType =
-  | "BANK_ACCOUNT_NUMBER"
-  | "BANK_ROUTING"
-  | "CREDIT_DEBIT_NUMBER"
-  | "CREDIT_DEBIT_CVV"
-  | "CREDIT_DEBIT_EXPIRY"
-  | "PIN"
-  | "EMAIL"
-  | "ADDRESS"
-  | "NAME"
-  | "PHONE"
-  | "SSN"
-  | "ALL";
+export type PiiEntityType = "BANK_ACCOUNT_NUMBER" | "BANK_ROUTING" | "CREDIT_DEBIT_NUMBER" | "CREDIT_DEBIT_CVV" | "CREDIT_DEBIT_EXPIRY" | "PIN" | "EMAIL" | "ADDRESS" | "NAME" | "PHONE" | "SSN" | "ALL";
 export type PiiEntityTypes = Array<PiiEntityType>;
 export type RedactionOutput = "REDACTED" | "REDACTED_AND_UNREDACTED";
 export type RedactionType = "PII";
@@ -1248,11 +940,7 @@ interface _Rule {
   SentimentFilter?: SentimentFilter;
 }
 
-export type Rule =
-  | (_Rule & { NonTalkTimeFilter: NonTalkTimeFilter })
-  | (_Rule & { InterruptionFilter: InterruptionFilter })
-  | (_Rule & { TranscriptFilter: TranscriptFilter })
-  | (_Rule & { SentimentFilter: SentimentFilter });
+export type Rule = (_Rule & { NonTalkTimeFilter: NonTalkTimeFilter }) | (_Rule & { InterruptionFilter: InterruptionFilter }) | (_Rule & { TranscriptFilter: TranscriptFilter }) | (_Rule & { SentimentFilter: SentimentFilter });
 export type RuleList = Array<Rule>;
 export interface SentimentFilter {
   Sentiments: Array<SentimentValue>;
@@ -1377,7 +1065,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TimestampMilliseconds = number;
@@ -1431,11 +1120,7 @@ export interface TranscriptionJob {
 }
 export type TranscriptionJobName = string;
 
-export type TranscriptionJobStatus =
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED";
+export type TranscriptionJobStatus = "QUEUED" | "IN_PROGRESS" | "FAILED" | "COMPLETED";
 export type TranscriptionJobSummaries = Array<TranscriptionJobSummary>;
 export interface TranscriptionJobSummary {
   TranscriptionJobName?: string;
@@ -1459,7 +1144,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateCallAnalyticsCategoryRequest {
   CategoryName: string;
   Rules: Array<Rule>;
@@ -1990,3 +1676,4 @@ export declare namespace UpdateVocabularyFilter {
     | NotFoundException
     | CommonAwsError;
 }
+

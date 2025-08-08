@@ -1,36 +1,34 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class CodeConnections extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("codeconnections", new AwsJson10Protocol(), cfg);
+  }
+
   createConnection(
     input: CreateConnectionInput,
   ): Effect.Effect<
     CreateConnectionOutput,
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | CommonAwsError
+    LimitExceededException | ResourceNotFoundException | ResourceUnavailableException | CommonAwsError
   > {
     return this.call("CreateConnection", input);
   }
   createHost(
     input: CreateHostInput,
-  ): Effect.Effect<CreateHostOutput, LimitExceededException | CommonAwsError> {
+  ): Effect.Effect<
+    CreateHostOutput,
+    LimitExceededException | CommonAwsError
+  > {
     return this.call("CreateHost", input);
   }
   createRepositoryLink(
     input: CreateRepositoryLinkInput,
   ): Effect.Effect<
     CreateRepositoryLinkOutput,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | InternalServerException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | InternalServerException | InvalidInputException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateRepositoryLink", input);
   }
@@ -38,14 +36,7 @@ export class CodeConnections extends AWSServiceClient {
     input: CreateSyncConfigurationInput,
   ): Effect.Effect<
     CreateSyncConfigurationOutput,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | InternalServerException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | InternalServerException | InvalidInputException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSyncConfiguration", input);
   }
@@ -69,15 +60,7 @@ export class CodeConnections extends AWSServiceClient {
     input: DeleteRepositoryLinkInput,
   ): Effect.Effect<
     DeleteRepositoryLinkOutput,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | SyncConfigurationStillExistsException
-    | ThrottlingException
-    | UnsupportedProviderTypeException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | InternalServerException | InvalidInputException | ResourceNotFoundException | SyncConfigurationStillExistsException | ThrottlingException | UnsupportedProviderTypeException | CommonAwsError
   > {
     return this.call("DeleteRepositoryLink", input);
   }
@@ -85,13 +68,7 @@ export class CodeConnections extends AWSServiceClient {
     input: DeleteSyncConfigurationInput,
   ): Effect.Effect<
     DeleteSyncConfigurationOutput,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | InternalServerException
-    | InvalidInputException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | InternalServerException | InvalidInputException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteSyncConfiguration", input);
   }
@@ -115,13 +92,7 @@ export class CodeConnections extends AWSServiceClient {
     input: GetRepositoryLinkInput,
   ): Effect.Effect<
     GetRepositoryLinkOutput,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | InternalServerException | InvalidInputException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetRepositoryLink", input);
   }
@@ -129,12 +100,7 @@ export class CodeConnections extends AWSServiceClient {
     input: GetRepositorySyncStatusInput,
   ): Effect.Effect<
     GetRepositorySyncStatusOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidInputException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetRepositorySyncStatus", input);
   }
@@ -142,12 +108,7 @@ export class CodeConnections extends AWSServiceClient {
     input: GetResourceSyncStatusInput,
   ): Effect.Effect<
     GetResourceSyncStatusOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidInputException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetResourceSyncStatus", input);
   }
@@ -155,12 +116,7 @@ export class CodeConnections extends AWSServiceClient {
     input: GetSyncBlockerSummaryInput,
   ): Effect.Effect<
     GetSyncBlockerSummaryOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidInputException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSyncBlockerSummary", input);
   }
@@ -168,12 +124,7 @@ export class CodeConnections extends AWSServiceClient {
     input: GetSyncConfigurationInput,
   ): Effect.Effect<
     GetSyncConfigurationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidInputException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSyncConfiguration", input);
   }
@@ -187,20 +138,17 @@ export class CodeConnections extends AWSServiceClient {
   }
   listHosts(
     input: ListHostsInput,
-  ): Effect.Effect<ListHostsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    ListHostsOutput,
+    CommonAwsError
+  > {
     return this.call("ListHosts", input);
   }
   listRepositoryLinks(
     input: ListRepositoryLinksInput,
   ): Effect.Effect<
     ListRepositoryLinksOutput,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | InternalServerException | InvalidInputException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRepositoryLinks", input);
   }
@@ -208,12 +156,7 @@ export class CodeConnections extends AWSServiceClient {
     input: ListRepositorySyncDefinitionsInput,
   ): Effect.Effect<
     ListRepositorySyncDefinitionsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidInputException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRepositorySyncDefinitions", input);
   }
@@ -221,12 +164,7 @@ export class CodeConnections extends AWSServiceClient {
     input: ListSyncConfigurationsInput,
   ): Effect.Effect<
     ListSyncConfigurationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidInputException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSyncConfigurations", input);
   }
@@ -258,11 +196,7 @@ export class CodeConnections extends AWSServiceClient {
     input: UpdateHostInput,
   ): Effect.Effect<
     UpdateHostOutput,
-    | ConflictException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ResourceUnavailableException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("UpdateHost", input);
   }
@@ -270,14 +204,7 @@ export class CodeConnections extends AWSServiceClient {
     input: UpdateRepositoryLinkInput,
   ): Effect.Effect<
     UpdateRepositoryLinkOutput,
-    | AccessDeniedException
-    | ConditionalCheckFailedException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UpdateOutOfSyncException
-    | CommonAwsError
+    AccessDeniedException | ConditionalCheckFailedException | InternalServerException | InvalidInputException | ResourceNotFoundException | ThrottlingException | UpdateOutOfSyncException | CommonAwsError
   > {
     return this.call("UpdateRepositoryLink", input);
   }
@@ -285,14 +212,7 @@ export class CodeConnections extends AWSServiceClient {
     input: UpdateSyncBlockerInput,
   ): Effect.Effect<
     UpdateSyncBlockerOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | RetryLatestCommitFailedException
-    | SyncBlockerDoesNotExistException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidInputException | ResourceNotFoundException | RetryLatestCommitFailedException | SyncBlockerDoesNotExistException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateSyncBlocker", input);
   }
@@ -300,14 +220,7 @@ export class CodeConnections extends AWSServiceClient {
     input: UpdateSyncConfigurationInput,
   ): Effect.Effect<
     UpdateSyncConfigurationOutput,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UpdateOutOfSyncException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | InternalServerException | InvalidInputException | ResourceNotFoundException | ThrottlingException | UpdateOutOfSyncException | CommonAwsError
   > {
     return this.call("UpdateSyncConfiguration", input);
   }
@@ -409,20 +322,24 @@ export interface CreateSyncConfigurationOutput {
 export interface DeleteConnectionInput {
   ConnectionArn: string;
 }
-export interface DeleteConnectionOutput {}
+export interface DeleteConnectionOutput {
+}
 export interface DeleteHostInput {
   HostArn: string;
 }
-export interface DeleteHostOutput {}
+export interface DeleteHostOutput {
+}
 export interface DeleteRepositoryLinkInput {
   RepositoryLinkId: string;
 }
-export interface DeleteRepositoryLinkOutput {}
+export interface DeleteRepositoryLinkOutput {
+}
 export interface DeleteSyncConfigurationInput {
   SyncType: SyncConfigurationType;
   ResourceName: string;
 }
-export interface DeleteSyncConfigurationOutput {}
+export interface DeleteSyncConfigurationOutput {
+}
 export type DeploymentFilePath = string;
 
 export type Directory = string;
@@ -584,12 +501,7 @@ export type OwnerId = string;
 
 export type Parent = string;
 
-export type ProviderType =
-  | "BITBUCKET"
-  | "GITHUB"
-  | "GITHUB_ENTERPRISE_SERVER"
-  | "GITLAB"
-  | "GITLAB_SELF_MANAGED";
+export type ProviderType = "BITBUCKET" | "GITHUB" | "GITHUB_ENTERPRISE_SERVER" | "GITLAB" | "GITLAB_SELF_MANAGED";
 export type PublishDeploymentStatus = "ENABLED" | "DISABLED";
 export type PullRequestComment = "ENABLED" | "DISABLED";
 export type RepositoryLinkArn = string;
@@ -627,12 +539,7 @@ export interface RepositorySyncEvent {
   Type: string;
 }
 export type RepositorySyncEventList = Array<RepositorySyncEvent>;
-export type RepositorySyncStatus =
-  | "FAILED"
-  | "INITIATED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "QUEUED";
+export type RepositorySyncStatus = "FAILED" | "INITIATED" | "IN_PROGRESS" | "SUCCEEDED" | "QUEUED";
 export type ResolvedReason = string;
 
 export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
@@ -662,11 +569,7 @@ export interface ResourceSyncEvent {
   Type: string;
 }
 export type ResourceSyncEventList = Array<ResourceSyncEvent>;
-export type ResourceSyncStatus =
-  | "FAILED"
-  | "INITIATED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED";
+export type ResourceSyncStatus = "FAILED" | "INITIATED" | "IN_PROGRESS" | "SUCCEEDED";
 export declare class ResourceUnavailableException extends EffectData.TaggedError(
   "ResourceUnavailableException",
 )<{
@@ -757,7 +660,8 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export type Target = string;
@@ -788,13 +692,15 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateHostInput {
   HostArn: string;
   ProviderEndpoint?: string;
   VpcConfiguration?: VpcConfiguration;
 }
-export interface UpdateHostOutput {}
+export interface UpdateHostOutput {
+}
 export declare class UpdateOutOfSyncException extends EffectData.TaggedError(
   "UpdateOutOfSyncException",
 )<{
@@ -856,7 +762,9 @@ export declare namespace CreateConnection {
 export declare namespace CreateHost {
   export type Input = CreateHostInput;
   export type Output = CreateHostOutput;
-  export type Error = LimitExceededException | CommonAwsError;
+  export type Error =
+    | LimitExceededException
+    | CommonAwsError;
 }
 
 export declare namespace CreateRepositoryLink {
@@ -890,7 +798,9 @@ export declare namespace CreateSyncConfiguration {
 export declare namespace DeleteConnection {
   export type Input = DeleteConnectionInput;
   export type Output = DeleteConnectionOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteHost {
@@ -1012,13 +922,16 @@ export declare namespace GetSyncConfiguration {
 export declare namespace ListConnections {
   export type Input = ListConnectionsInput;
   export type Output = ListConnectionsOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace ListHosts {
   export type Input = ListHostsInput;
   export type Output = ListHostsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListRepositoryLinks {
@@ -1061,7 +974,9 @@ export declare namespace ListSyncConfigurations {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
   export type Output = ListTagsForResourceOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -1076,7 +991,9 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = UntagResourceOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace UpdateHost {
@@ -1131,3 +1048,4 @@ export declare namespace UpdateSyncConfiguration {
     | UpdateOutOfSyncException
     | CommonAwsError;
 }
+

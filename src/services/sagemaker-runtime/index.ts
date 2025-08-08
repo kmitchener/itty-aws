@@ -3,19 +3,18 @@ import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SageMakerRuntime extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sagemaker-runtime", new RestJson1Protocol(), cfg);
+  }
+
   invokeEndpoint(
     input: InvokeEndpointInput,
   ): Effect.Effect<
     InvokeEndpointOutput,
-    | InternalDependencyException
-    | InternalFailure
-    | ModelError
-    | ModelNotReadyException
-    | ServiceUnavailable
-    | ValidationError
-    | CommonAwsError
+    InternalDependencyException | InternalFailure | ModelError | ModelNotReadyException | ServiceUnavailable | ValidationError | CommonAwsError
   > {
     return this.call("InvokeEndpoint", input);
   }
@@ -31,13 +30,7 @@ export class SageMakerRuntime extends AWSServiceClient {
     input: InvokeEndpointWithResponseStreamInput,
   ): Effect.Effect<
     InvokeEndpointWithResponseStreamOutput,
-    | InternalFailure
-    | InternalStreamFailure
-    | ModelError
-    | ModelStreamError
-    | ServiceUnavailable
-    | ValidationError
-    | CommonAwsError
+    InternalFailure | InternalStreamFailure | ModelError | ModelStreamError | ServiceUnavailable | ValidationError | CommonAwsError
   > {
     return this.call("InvokeEndpointWithResponseStream", input);
   }
@@ -141,7 +134,9 @@ export type LogStreamArn = string;
 
 export type Message = string;
 
-export declare class ModelError extends EffectData.TaggedError("ModelError")<{
+export declare class ModelError extends EffectData.TaggedError(
+  "ModelError",
+)<{
   readonly Message?: string;
   readonly OriginalStatusCode?: number;
   readonly OriginalMessage?: string;
@@ -173,10 +168,7 @@ interface _ResponseStream {
   InternalStreamFailure?: InternalStreamFailure;
 }
 
-export type ResponseStream =
-  | (_ResponseStream & { PayloadPart: PayloadPart })
-  | (_ResponseStream & { ModelStreamError: ModelStreamError })
-  | (_ResponseStream & { InternalStreamFailure: InternalStreamFailure });
+export type ResponseStream = (_ResponseStream & { PayloadPart: PayloadPart }) | (_ResponseStream & { ModelStreamError: ModelStreamError }) | (_ResponseStream & { InternalStreamFailure: InternalStreamFailure });
 export declare class ServiceUnavailable extends EffectData.TaggedError(
   "ServiceUnavailable",
 )<{
@@ -234,3 +226,4 @@ export declare namespace InvokeEndpointWithResponseStream {
     | ValidationError
     | CommonAwsError;
 }
+

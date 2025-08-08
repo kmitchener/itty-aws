@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class chatbot extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("chatbot", new RestJson1Protocol(), cfg);
+  }
+
   associateToConfiguration(
     input: AssociateToConfigurationRequest,
   ): Effect.Effect<
     AssociateToConfigurationResult,
-    | InternalServiceError
-    | InvalidRequestException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | UnauthorizedException | CommonAwsError
   > {
     return this.call("AssociateToConfiguration", input);
   }
@@ -18,12 +20,7 @@ export class chatbot extends AWSServiceClient {
     input: CreateChimeWebhookConfigurationRequest,
   ): Effect.Effect<
     CreateChimeWebhookConfigurationResult,
-    | ConflictException
-    | CreateChimeWebhookConfigurationException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | CommonAwsError
+    ConflictException | CreateChimeWebhookConfigurationException | InvalidParameterException | InvalidRequestException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateChimeWebhookConfiguration", input);
   }
@@ -31,12 +28,7 @@ export class chatbot extends AWSServiceClient {
     input: CreateTeamsChannelConfigurationRequest,
   ): Effect.Effect<
     CreateTeamsChannelConfigurationResult,
-    | ConflictException
-    | CreateTeamsChannelConfigurationException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | CommonAwsError
+    ConflictException | CreateTeamsChannelConfigurationException | InvalidParameterException | InvalidRequestException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateMicrosoftTeamsChannelConfiguration", input);
   }
@@ -44,12 +36,7 @@ export class chatbot extends AWSServiceClient {
     input: CreateSlackChannelConfigurationRequest,
   ): Effect.Effect<
     CreateSlackChannelConfigurationResult,
-    | ConflictException
-    | CreateSlackChannelConfigurationException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | CommonAwsError
+    ConflictException | CreateSlackChannelConfigurationException | InvalidParameterException | InvalidRequestException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateSlackChannelConfiguration", input);
   }
@@ -57,11 +44,7 @@ export class chatbot extends AWSServiceClient {
     input: DeleteChimeWebhookConfigurationRequest,
   ): Effect.Effect<
     DeleteChimeWebhookConfigurationResult,
-    | DeleteChimeWebhookConfigurationException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DeleteChimeWebhookConfigurationException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteChimeWebhookConfiguration", input);
   }
@@ -69,11 +52,7 @@ export class chatbot extends AWSServiceClient {
     input: DeleteTeamsChannelConfigurationRequest,
   ): Effect.Effect<
     DeleteTeamsChannelConfigurationResult,
-    | DeleteTeamsChannelConfigurationException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DeleteTeamsChannelConfigurationException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteMicrosoftTeamsChannelConfiguration", input);
   }
@@ -81,9 +60,7 @@ export class chatbot extends AWSServiceClient {
     input: DeleteTeamsConfiguredTeamRequest,
   ): Effect.Effect<
     DeleteTeamsConfiguredTeamResult,
-    | DeleteTeamsConfiguredTeamException
-    | InvalidParameterException
-    | CommonAwsError
+    DeleteTeamsConfiguredTeamException | InvalidParameterException | CommonAwsError
   > {
     return this.call("DeleteMicrosoftTeamsConfiguredTeam", input);
   }
@@ -91,10 +68,7 @@ export class chatbot extends AWSServiceClient {
     input: DeleteMicrosoftTeamsUserIdentityRequest,
   ): Effect.Effect<
     DeleteMicrosoftTeamsUserIdentityResult,
-    | DeleteMicrosoftTeamsUserIdentityException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DeleteMicrosoftTeamsUserIdentityException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteMicrosoftTeamsUserIdentity", input);
   }
@@ -102,11 +76,7 @@ export class chatbot extends AWSServiceClient {
     input: DeleteSlackChannelConfigurationRequest,
   ): Effect.Effect<
     DeleteSlackChannelConfigurationResult,
-    | DeleteSlackChannelConfigurationException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DeleteSlackChannelConfigurationException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteSlackChannelConfiguration", input);
   }
@@ -114,10 +84,7 @@ export class chatbot extends AWSServiceClient {
     input: DeleteSlackUserIdentityRequest,
   ): Effect.Effect<
     DeleteSlackUserIdentityResult,
-    | DeleteSlackUserIdentityException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DeleteSlackUserIdentityException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteSlackUserIdentity", input);
   }
@@ -125,9 +92,7 @@ export class chatbot extends AWSServiceClient {
     input: DeleteSlackWorkspaceAuthorizationRequest,
   ): Effect.Effect<
     DeleteSlackWorkspaceAuthorizationResult,
-    | DeleteSlackWorkspaceAuthorizationFault
-    | InvalidParameterException
-    | CommonAwsError
+    DeleteSlackWorkspaceAuthorizationFault | InvalidParameterException | CommonAwsError
   > {
     return this.call("DeleteSlackWorkspaceAuthorization", input);
   }
@@ -135,10 +100,7 @@ export class chatbot extends AWSServiceClient {
     input: DescribeChimeWebhookConfigurationsRequest,
   ): Effect.Effect<
     DescribeChimeWebhookConfigurationsResult,
-    | DescribeChimeWebhookConfigurationsException
-    | InvalidParameterException
-    | InvalidRequestException
-    | CommonAwsError
+    DescribeChimeWebhookConfigurationsException | InvalidParameterException | InvalidRequestException | CommonAwsError
   > {
     return this.call("DescribeChimeWebhookConfigurations", input);
   }
@@ -146,10 +108,7 @@ export class chatbot extends AWSServiceClient {
     input: DescribeSlackChannelConfigurationsRequest,
   ): Effect.Effect<
     DescribeSlackChannelConfigurationsResult,
-    | DescribeSlackChannelConfigurationsException
-    | InvalidParameterException
-    | InvalidRequestException
-    | CommonAwsError
+    DescribeSlackChannelConfigurationsException | InvalidParameterException | InvalidRequestException | CommonAwsError
   > {
     return this.call("DescribeSlackChannelConfigurations", input);
   }
@@ -157,10 +116,7 @@ export class chatbot extends AWSServiceClient {
     input: DescribeSlackUserIdentitiesRequest,
   ): Effect.Effect<
     DescribeSlackUserIdentitiesResult,
-    | DescribeSlackUserIdentitiesException
-    | InvalidParameterException
-    | InvalidRequestException
-    | CommonAwsError
+    DescribeSlackUserIdentitiesException | InvalidParameterException | InvalidRequestException | CommonAwsError
   > {
     return this.call("DescribeSlackUserIdentities", input);
   }
@@ -168,10 +124,7 @@ export class chatbot extends AWSServiceClient {
     input: DescribeSlackWorkspacesRequest,
   ): Effect.Effect<
     DescribeSlackWorkspacesResult,
-    | DescribeSlackWorkspacesException
-    | InvalidParameterException
-    | InvalidRequestException
-    | CommonAwsError
+    DescribeSlackWorkspacesException | InvalidParameterException | InvalidRequestException | CommonAwsError
   > {
     return this.call("DescribeSlackWorkspaces", input);
   }
@@ -179,10 +132,7 @@ export class chatbot extends AWSServiceClient {
     input: DisassociateFromConfigurationRequest,
   ): Effect.Effect<
     DisassociateFromConfigurationResult,
-    | InternalServiceError
-    | InvalidRequestException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DisassociateFromConfiguration", input);
   }
@@ -198,26 +148,23 @@ export class chatbot extends AWSServiceClient {
     input: GetTeamsChannelConfigurationRequest,
   ): Effect.Effect<
     GetTeamsChannelConfigurationResult,
-    | GetTeamsChannelConfigurationException
-    | InvalidParameterException
-    | InvalidRequestException
-    | CommonAwsError
+    GetTeamsChannelConfigurationException | InvalidParameterException | InvalidRequestException | CommonAwsError
   > {
     return this.call("GetMicrosoftTeamsChannelConfiguration", input);
   }
   listAssociations(
     input: ListAssociationsRequest,
-  ): Effect.Effect<ListAssociationsResult, CommonAwsError> {
+  ): Effect.Effect<
+    ListAssociationsResult,
+    CommonAwsError
+  > {
     return this.call("ListAssociations", input);
   }
   listMicrosoftTeamsChannelConfigurations(
     input: ListTeamsChannelConfigurationsRequest,
   ): Effect.Effect<
     ListTeamsChannelConfigurationsResult,
-    | InvalidParameterException
-    | InvalidRequestException
-    | ListTeamsChannelConfigurationsException
-    | CommonAwsError
+    InvalidParameterException | InvalidRequestException | ListTeamsChannelConfigurationsException | CommonAwsError
   > {
     return this.call("ListMicrosoftTeamsChannelConfigurations", input);
   }
@@ -225,10 +172,7 @@ export class chatbot extends AWSServiceClient {
     input: ListMicrosoftTeamsConfiguredTeamsRequest,
   ): Effect.Effect<
     ListMicrosoftTeamsConfiguredTeamsResult,
-    | InvalidParameterException
-    | InvalidRequestException
-    | ListMicrosoftTeamsConfiguredTeamsException
-    | CommonAwsError
+    InvalidParameterException | InvalidRequestException | ListMicrosoftTeamsConfiguredTeamsException | CommonAwsError
   > {
     return this.call("ListMicrosoftTeamsConfiguredTeams", input);
   }
@@ -236,10 +180,7 @@ export class chatbot extends AWSServiceClient {
     input: ListMicrosoftTeamsUserIdentitiesRequest,
   ): Effect.Effect<
     ListMicrosoftTeamsUserIdentitiesResult,
-    | InvalidParameterException
-    | InvalidRequestException
-    | ListMicrosoftTeamsUserIdentitiesException
-    | CommonAwsError
+    InvalidParameterException | InvalidRequestException | ListMicrosoftTeamsUserIdentitiesException | CommonAwsError
   > {
     return this.call("ListMicrosoftTeamsUserIdentities", input);
   }
@@ -247,10 +188,7 @@ export class chatbot extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServiceError
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -258,11 +196,7 @@ export class chatbot extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServiceError
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | TooManyTagsException
-    | CommonAwsError
+    InternalServiceError | ResourceNotFoundException | ServiceUnavailableException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -270,10 +204,7 @@ export class chatbot extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServiceError
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -281,10 +212,7 @@ export class chatbot extends AWSServiceClient {
     input: UpdateAccountPreferencesRequest,
   ): Effect.Effect<
     UpdateAccountPreferencesResult,
-    | InvalidParameterException
-    | InvalidRequestException
-    | UpdateAccountPreferencesException
-    | CommonAwsError
+    InvalidParameterException | InvalidRequestException | UpdateAccountPreferencesException | CommonAwsError
   > {
     return this.call("UpdateAccountPreferences", input);
   }
@@ -292,11 +220,7 @@ export class chatbot extends AWSServiceClient {
     input: UpdateChimeWebhookConfigurationRequest,
   ): Effect.Effect<
     UpdateChimeWebhookConfigurationResult,
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | UpdateChimeWebhookConfigurationException
-    | CommonAwsError
+    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | UpdateChimeWebhookConfigurationException | CommonAwsError
   > {
     return this.call("UpdateChimeWebhookConfiguration", input);
   }
@@ -304,11 +228,7 @@ export class chatbot extends AWSServiceClient {
     input: UpdateTeamsChannelConfigurationRequest,
   ): Effect.Effect<
     UpdateTeamsChannelConfigurationResult,
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | UpdateTeamsChannelConfigurationException
-    | CommonAwsError
+    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | UpdateTeamsChannelConfigurationException | CommonAwsError
   > {
     return this.call("UpdateMicrosoftTeamsChannelConfiguration", input);
   }
@@ -316,11 +236,7 @@ export class chatbot extends AWSServiceClient {
     input: UpdateSlackChannelConfigurationRequest,
   ): Effect.Effect<
     UpdateSlackChannelConfigurationResult,
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | UpdateSlackChannelConfigurationException
-    | CommonAwsError
+    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | UpdateSlackChannelConfigurationException | CommonAwsError
   > {
     return this.call("UpdateSlackChannelConfiguration", input);
   }
@@ -342,7 +258,8 @@ export interface AssociateToConfigurationRequest {
   Resource: string;
   ChatConfiguration: string;
 }
-export interface AssociateToConfigurationResult {}
+export interface AssociateToConfigurationResult {
+}
 export type AssociationList = Array<AssociationListing>;
 export interface AssociationListing {
   Resource: string;
@@ -479,8 +396,7 @@ export interface CustomActionAttachmentCriteria {
   VariableName: string;
   Value?: string;
 }
-export type CustomActionAttachmentCriteriaList =
-  Array<CustomActionAttachmentCriteria>;
+export type CustomActionAttachmentCriteriaList = Array<CustomActionAttachmentCriteria>;
 export type CustomActionAttachmentCriteriaOperator = "HAS_VALUE" | "EQUALS";
 export type CustomActionAttachmentList = Array<CustomActionAttachment>;
 export type CustomActionAttachmentNotificationType = string;
@@ -503,11 +419,13 @@ export declare class DeleteChimeWebhookConfigurationException extends EffectData
 export interface DeleteChimeWebhookConfigurationRequest {
   ChatConfigurationArn: string;
 }
-export interface DeleteChimeWebhookConfigurationResult {}
+export interface DeleteChimeWebhookConfigurationResult {
+}
 export interface DeleteCustomActionRequest {
   CustomActionArn: string;
 }
-export interface DeleteCustomActionResult {}
+export interface DeleteCustomActionResult {
+}
 export declare class DeleteMicrosoftTeamsUserIdentityException extends EffectData.TaggedError(
   "DeleteMicrosoftTeamsUserIdentityException",
 )<{
@@ -517,7 +435,8 @@ export interface DeleteMicrosoftTeamsUserIdentityRequest {
   ChatConfigurationArn: string;
   UserId: string;
 }
-export interface DeleteMicrosoftTeamsUserIdentityResult {}
+export interface DeleteMicrosoftTeamsUserIdentityResult {
+}
 export declare class DeleteSlackChannelConfigurationException extends EffectData.TaggedError(
   "DeleteSlackChannelConfigurationException",
 )<{
@@ -526,7 +445,8 @@ export declare class DeleteSlackChannelConfigurationException extends EffectData
 export interface DeleteSlackChannelConfigurationRequest {
   ChatConfigurationArn: string;
 }
-export interface DeleteSlackChannelConfigurationResult {}
+export interface DeleteSlackChannelConfigurationResult {
+}
 export declare class DeleteSlackUserIdentityException extends EffectData.TaggedError(
   "DeleteSlackUserIdentityException",
 )<{
@@ -537,7 +457,8 @@ export interface DeleteSlackUserIdentityRequest {
   SlackTeamId: string;
   SlackUserId: string;
 }
-export interface DeleteSlackUserIdentityResult {}
+export interface DeleteSlackUserIdentityResult {
+}
 export declare class DeleteSlackWorkspaceAuthorizationFault extends EffectData.TaggedError(
   "DeleteSlackWorkspaceAuthorizationFault",
 )<{
@@ -546,7 +467,8 @@ export declare class DeleteSlackWorkspaceAuthorizationFault extends EffectData.T
 export interface DeleteSlackWorkspaceAuthorizationRequest {
   SlackTeamId: string;
 }
-export interface DeleteSlackWorkspaceAuthorizationResult {}
+export interface DeleteSlackWorkspaceAuthorizationResult {
+}
 export declare class DeleteTeamsChannelConfigurationException extends EffectData.TaggedError(
   "DeleteTeamsChannelConfigurationException",
 )<{
@@ -555,7 +477,8 @@ export declare class DeleteTeamsChannelConfigurationException extends EffectData
 export interface DeleteTeamsChannelConfigurationRequest {
   ChatConfigurationArn: string;
 }
-export interface DeleteTeamsChannelConfigurationResult {}
+export interface DeleteTeamsChannelConfigurationResult {
+}
 export declare class DeleteTeamsConfiguredTeamException extends EffectData.TaggedError(
   "DeleteTeamsConfiguredTeamException",
 )<{
@@ -564,7 +487,8 @@ export declare class DeleteTeamsConfiguredTeamException extends EffectData.Tagge
 export interface DeleteTeamsConfiguredTeamRequest {
   TeamId: string;
 }
-export interface DeleteTeamsConfiguredTeamResult {}
+export interface DeleteTeamsConfiguredTeamResult {
+}
 export declare class DescribeChimeWebhookConfigurationsException extends EffectData.TaggedError(
   "DescribeChimeWebhookConfigurationsException",
 )<{
@@ -624,7 +548,8 @@ export interface DisassociateFromConfigurationRequest {
   Resource: string;
   ChatConfiguration: string;
 }
-export interface DisassociateFromConfigurationResult {}
+export interface DisassociateFromConfigurationResult {
+}
 export type ErrorMessage = string;
 
 export declare class GetAccountPreferencesException extends EffectData.TaggedError(
@@ -632,7 +557,8 @@ export declare class GetAccountPreferencesException extends EffectData.TaggedErr
 )<{
   readonly Message?: string;
 }> {}
-export interface GetAccountPreferencesRequest {}
+export interface GetAccountPreferencesRequest {
+}
 export interface GetAccountPreferencesResult {
   AccountPreferences?: AccountPreferences;
 }
@@ -815,7 +741,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
@@ -867,7 +794,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class UpdateAccountPreferencesException extends EffectData.TaggedError(
   "UpdateAccountPreferencesException",
 )<{
@@ -1132,7 +1060,8 @@ export declare namespace GetMicrosoftTeamsChannelConfiguration {
 export declare namespace ListAssociations {
   export type Input = ListAssociationsRequest;
   export type Output = ListAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListMicrosoftTeamsChannelConfigurations {
@@ -1238,3 +1167,4 @@ export declare namespace UpdateSlackChannelConfiguration {
     | UpdateSlackChannelConfigurationException
     | CommonAwsError;
 }
+

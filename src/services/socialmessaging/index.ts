@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SocialMessaging extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("socialmessaging", new RestJson1Protocol(), cfg);
+  }
+
   createWhatsAppMessageTemplate(
     input: CreateWhatsAppMessageTemplateInput,
   ): Effect.Effect<
     CreateWhatsAppMessageTemplateOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("CreateWhatsAppMessageTemplate", input);
   }
@@ -20,12 +20,7 @@ export class SocialMessaging extends AWSServiceClient {
     input: CreateWhatsAppMessageTemplateFromLibraryInput,
   ): Effect.Effect<
     CreateWhatsAppMessageTemplateFromLibraryOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("CreateWhatsAppMessageTemplateFromLibrary", input);
   }
@@ -33,12 +28,7 @@ export class SocialMessaging extends AWSServiceClient {
     input: CreateWhatsAppMessageTemplateMediaInput,
   ): Effect.Effect<
     CreateWhatsAppMessageTemplateMediaOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("CreateWhatsAppMessageTemplateMedia", input);
   }
@@ -46,12 +36,7 @@ export class SocialMessaging extends AWSServiceClient {
     input: DeleteWhatsAppMessageTemplateInput,
   ): Effect.Effect<
     DeleteWhatsAppMessageTemplateOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("DeleteWhatsAppMessageTemplate", input);
   }
@@ -59,12 +44,7 @@ export class SocialMessaging extends AWSServiceClient {
     input: GetWhatsAppMessageTemplateInput,
   ): Effect.Effect<
     GetWhatsAppMessageTemplateOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("GetWhatsAppMessageTemplate", input);
   }
@@ -72,10 +52,7 @@ export class SocialMessaging extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServiceException
-    | InvalidParametersException
-    | ThrottledRequestException
-    | CommonAwsError
+    InternalServiceException | InvalidParametersException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -83,12 +60,7 @@ export class SocialMessaging extends AWSServiceClient {
     input: ListWhatsAppMessageTemplatesInput,
   ): Effect.Effect<
     ListWhatsAppMessageTemplatesOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("ListWhatsAppMessageTemplates", input);
   }
@@ -96,12 +68,7 @@ export class SocialMessaging extends AWSServiceClient {
     input: ListWhatsAppTemplateLibraryInput,
   ): Effect.Effect<
     ListWhatsAppTemplateLibraryOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("ListWhatsAppTemplateLibrary", input);
   }
@@ -109,10 +76,7 @@ export class SocialMessaging extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | InternalServiceException
-    | InvalidParametersException
-    | ThrottledRequestException
-    | CommonAwsError
+    InternalServiceException | InvalidParametersException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -120,10 +84,7 @@ export class SocialMessaging extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | InternalServiceException
-    | InvalidParametersException
-    | ThrottledRequestException
-    | CommonAwsError
+    InternalServiceException | InvalidParametersException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -131,12 +92,7 @@ export class SocialMessaging extends AWSServiceClient {
     input: UpdateWhatsAppMessageTemplateInput,
   ): Effect.Effect<
     UpdateWhatsAppMessageTemplateOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   > {
     return this.call("UpdateWhatsAppMessageTemplate", input);
   }
@@ -220,7 +176,8 @@ export interface DeleteWhatsAppMessageTemplateInput {
   id: string;
   templateName: string;
 }
-export interface DeleteWhatsAppMessageTemplateOutput {}
+export interface DeleteWhatsAppMessageTemplateOutput {
+}
 export declare class DependencyException extends EffectData.TaggedError(
   "DependencyException",
 )<{
@@ -229,7 +186,8 @@ export declare class DependencyException extends EffectData.TaggedError(
 export interface DisassociateWhatsAppBusinessAccountInput {
   id: string;
 }
-export interface DisassociateWhatsAppBusinessAccountOutput {}
+export interface DisassociateWhatsAppBusinessAccountOutput {
+}
 export type ErrorMessage = string;
 
 export type EventDestinationArn = string;
@@ -308,10 +266,7 @@ export declare class LimitExceededException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type LinkedAccountWithIncompleteSetup = Record<
-  string,
-  LinkedWhatsAppBusinessAccountIdMetaData
->;
+export type LinkedAccountWithIncompleteSetup = Record<string, LinkedWhatsAppBusinessAccountIdMetaData>;
 export interface LinkedWhatsAppBusinessAccount {
   arn: string;
   id: string;
@@ -341,8 +296,7 @@ export interface LinkedWhatsAppBusinessAccountSummary {
   wabaName: string;
   eventDestinations: Array<WhatsAppBusinessAccountEventDestination>;
 }
-export type LinkedWhatsAppBusinessAccountSummaryList =
-  Array<LinkedWhatsAppBusinessAccountSummary>;
+export type LinkedWhatsAppBusinessAccountSummaryList = Array<LinkedWhatsAppBusinessAccountSummary>;
 export type LinkedWhatsAppPhoneNumberArn = string;
 
 export interface ListLinkedWhatsAppBusinessAccountsInput {
@@ -456,7 +410,8 @@ export interface PutWhatsAppBusinessAccountEventDestinationsInput {
   id: string;
   eventDestinations: Array<WhatsAppBusinessAccountEventDestination>;
 }
-export interface PutWhatsAppBusinessAccountEventDestinationsOutput {}
+export interface PutWhatsAppBusinessAccountEventDestinationsOutput {
+}
 export type RegistrationStatus = "COMPLETE" | "INCOMPLETE";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
@@ -525,7 +480,8 @@ export interface UpdateWhatsAppMessageTemplateInput {
   templateCategory?: string;
   templateComponents?: Uint8Array | string;
 }
-export interface UpdateWhatsAppMessageTemplateOutput {}
+export interface UpdateWhatsAppMessageTemplateOutput {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -537,8 +493,7 @@ export interface WabaPhoneNumberSetupFinalization {
   dataLocalizationRegion?: string;
   tags?: Array<Tag>;
 }
-export type WabaPhoneNumberSetupFinalizationList =
-  Array<WabaPhoneNumberSetupFinalization>;
+export type WabaPhoneNumberSetupFinalizationList = Array<WabaPhoneNumberSetupFinalization>;
 export interface WabaSetupFinalization {
   id?: string;
   eventDestinations?: Array<WhatsAppBusinessAccountEventDestination>;
@@ -548,8 +503,7 @@ export interface WhatsAppBusinessAccountEventDestination {
   eventDestinationArn: string;
   roleArn?: string;
 }
-export type WhatsAppBusinessAccountEventDestinations =
-  Array<WhatsAppBusinessAccountEventDestination>;
+export type WhatsAppBusinessAccountEventDestinations = Array<WhatsAppBusinessAccountEventDestination>;
 export type WhatsAppBusinessAccountId = string;
 
 export type WhatsAppBusinessAccountLinkDate = Date | string;
@@ -604,10 +558,7 @@ export interface WhatsAppSignupCallback {
 }
 export interface WhatsAppSignupCallbackResult {
   associateInProgressToken?: string;
-  linkedAccountsWithIncompleteSetup?: Record<
-    string,
-    LinkedWhatsAppBusinessAccountIdMetaData
-  >;
+  linkedAccountsWithIncompleteSetup?: Record<string, LinkedWhatsAppBusinessAccountIdMetaData>;
 }
 export type ZeroTapTermsAccepted = boolean;
 
@@ -736,3 +687,4 @@ export declare namespace UpdateWhatsAppMessageTemplate {
     | ThrottledRequestException
     | CommonAwsError;
 }
+

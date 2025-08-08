@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MedicalImaging extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("medical-imaging", new RestJson1Protocol(), cfg);
+  }
+
   copyImageSet(
     input: CopyImageSetRequest,
   ): Effect.Effect<
     CopyImageSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CopyImageSet", input);
   }
@@ -22,13 +20,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: DeleteImageSetRequest,
   ): Effect.Effect<
     DeleteImageSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteImageSet", input);
   }
@@ -36,13 +28,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: GetDICOMImportJobRequest,
   ): Effect.Effect<
     GetDICOMImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDICOMImportJob", input);
   }
@@ -50,13 +36,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: GetImageFrameRequest,
   ): Effect.Effect<
     GetImageFrameResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetImageFrame", input);
   }
@@ -64,13 +44,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: GetImageSetRequest,
   ): Effect.Effect<
     GetImageSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetImageSet", input);
   }
@@ -78,13 +52,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: GetImageSetMetadataRequest,
   ): Effect.Effect<
     GetImageSetMetadataResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetImageSetMetadata", input);
   }
@@ -92,13 +60,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: ListDICOMImportJobsRequest,
   ): Effect.Effect<
     ListDICOMImportJobsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDICOMImportJobs", input);
   }
@@ -106,13 +68,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: ListImageSetVersionsRequest,
   ): Effect.Effect<
     ListImageSetVersionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListImageSetVersions", input);
   }
@@ -120,12 +76,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -133,13 +84,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: SearchImageSetsRequest,
   ): Effect.Effect<
     SearchImageSetsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchImageSets", input);
   }
@@ -147,14 +92,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: StartDICOMImportJobRequest,
   ): Effect.Effect<
     StartDICOMImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartDICOMImportJob", input);
   }
@@ -162,12 +100,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -175,12 +108,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -188,14 +116,7 @@ export class MedicalImaging extends AWSServiceClient {
     input: UpdateImageSetMetadataRequest,
   ): Effect.Effect<
     UpdateImageSetMetadataResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateImageSetMetadata", input);
   }
@@ -286,12 +207,7 @@ export interface DatastoreProperties {
   createdAt?: Date | string;
   updatedAt?: Date | string;
 }
-export type DatastoreStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "ACTIVE"
-  | "DELETING"
-  | "DELETED";
+export type DatastoreStatus = "CREATING" | "CREATE_FAILED" | "ACTIVE" | "DELETING" | "DELETED";
 export type DatastoreSummaries = Array<DatastoreSummary>;
 export interface DatastoreSummary {
   datastoreId: string;
@@ -488,17 +404,7 @@ export interface ImageSetsMetadataSummary {
   isPrimary?: boolean;
 }
 export type ImageSetState = "ACTIVE" | "LOCKED" | "DELETED";
-export type ImageSetWorkflowStatus =
-  | "CREATED"
-  | "COPIED"
-  | "COPYING"
-  | "COPYING_WITH_READ_ONLY_ACCESS"
-  | "COPY_FAILED"
-  | "UPDATING"
-  | "UPDATED"
-  | "UPDATE_FAILED"
-  | "DELETING"
-  | "DELETED";
+export type ImageSetWorkflowStatus = "CREATED" | "COPIED" | "COPYING" | "COPYING_WITH_READ_ONLY_ACCESS" | "COPY_FAILED" | "UPDATING" | "UPDATED" | "UPDATE_FAILED" | "DELETING" | "DELETED";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -556,9 +462,7 @@ interface _MetadataUpdates {
   revertToVersionId?: string;
 }
 
-export type MetadataUpdates =
-  | (_MetadataUpdates & { DICOMUpdates: DICOMUpdates })
-  | (_MetadataUpdates & { revertToVersionId: string });
+export type MetadataUpdates = (_MetadataUpdates & { DICOMUpdates: DICOMUpdates }) | (_MetadataUpdates & { revertToVersionId: string });
 export type NextToken = string;
 
 export type Operator = "EQUAL" | "BETWEEN";
@@ -588,16 +492,7 @@ interface _SearchByAttributeValue {
   isPrimary?: boolean;
 }
 
-export type SearchByAttributeValue =
-  | (_SearchByAttributeValue & { DICOMPatientId: string })
-  | (_SearchByAttributeValue & { DICOMAccessionNumber: string })
-  | (_SearchByAttributeValue & { DICOMStudyId: string })
-  | (_SearchByAttributeValue & { DICOMStudyInstanceUID: string })
-  | (_SearchByAttributeValue & { DICOMSeriesInstanceUID: string })
-  | (_SearchByAttributeValue & { createdAt: Date | string })
-  | (_SearchByAttributeValue & { updatedAt: Date | string })
-  | (_SearchByAttributeValue & { DICOMStudyDateAndTime: DICOMStudyDateAndTime })
-  | (_SearchByAttributeValue & { isPrimary: boolean });
+export type SearchByAttributeValue = (_SearchByAttributeValue & { DICOMPatientId: string }) | (_SearchByAttributeValue & { DICOMAccessionNumber: string }) | (_SearchByAttributeValue & { DICOMStudyId: string }) | (_SearchByAttributeValue & { DICOMStudyInstanceUID: string }) | (_SearchByAttributeValue & { DICOMSeriesInstanceUID: string }) | (_SearchByAttributeValue & { createdAt: Date | string }) | (_SearchByAttributeValue & { updatedAt: Date | string }) | (_SearchByAttributeValue & { DICOMStudyDateAndTime: DICOMStudyDateAndTime }) | (_SearchByAttributeValue & { isPrimary: boolean });
 export type SearchByAttributeValues = Array<SearchByAttributeValue>;
 export interface SearchCriteria {
   filters?: Array<SearchFilter>;
@@ -653,7 +548,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -665,7 +561,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateImageSetMetadataRequest {
   datastoreId: string;
   imageSetId: string;
@@ -869,3 +766,4 @@ export declare namespace UpdateImageSetMetadata {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,21 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class Translate extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("translate", new AwsJson11Protocol(), cfg);
+  }
+
   createParallelData(
     input: CreateParallelDataRequest,
   ): Effect.Effect<
     CreateParallelDataResponse,
-    | ConcurrentModificationException
-    | ConflictException
-    | InternalServerException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | LimitExceededException
-    | TooManyRequestsException
-    | TooManyTagsException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictException | InternalServerException | InvalidParameterValueException | InvalidRequestException | LimitExceededException | TooManyRequestsException | TooManyTagsException | CommonAwsError
   > {
     return this.call("CreateParallelData", input);
   }
@@ -23,11 +20,7 @@ export class Translate extends AWSServiceClient {
     input: DeleteParallelDataRequest,
   ): Effect.Effect<
     DeleteParallelDataResponse,
-    | ConcurrentModificationException
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalServerException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteParallelData", input);
   }
@@ -35,11 +28,7 @@ export class Translate extends AWSServiceClient {
     input: DeleteTerminologyRequest,
   ): Effect.Effect<
     {},
-    | InternalServerException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidParameterValueException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteTerminology", input);
   }
@@ -47,10 +36,7 @@ export class Translate extends AWSServiceClient {
     input: DescribeTextTranslationJobRequest,
   ): Effect.Effect<
     DescribeTextTranslationJobResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeTextTranslationJob", input);
   }
@@ -58,11 +44,7 @@ export class Translate extends AWSServiceClient {
     input: GetParallelDataRequest,
   ): Effect.Effect<
     GetParallelDataResponse,
-    | InternalServerException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidParameterValueException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetParallelData", input);
   }
@@ -70,11 +52,7 @@ export class Translate extends AWSServiceClient {
     input: GetTerminologyRequest,
   ): Effect.Effect<
     GetTerminologyResponse,
-    | InternalServerException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidParameterValueException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTerminology", input);
   }
@@ -82,13 +60,7 @@ export class Translate extends AWSServiceClient {
     input: ImportTerminologyRequest,
   ): Effect.Effect<
     ImportTerminologyResponse,
-    | ConcurrentModificationException
-    | InternalServerException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | TooManyRequestsException
-    | TooManyTagsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalServerException | InvalidParameterValueException | LimitExceededException | TooManyRequestsException | TooManyTagsException | CommonAwsError
   > {
     return this.call("ImportTerminology", input);
   }
@@ -96,11 +68,7 @@ export class Translate extends AWSServiceClient {
     input: ListLanguagesRequest,
   ): Effect.Effect<
     ListLanguagesResponse,
-    | InternalServerException
-    | InvalidParameterValueException
-    | TooManyRequestsException
-    | UnsupportedDisplayLanguageCodeException
-    | CommonAwsError
+    InternalServerException | InvalidParameterValueException | TooManyRequestsException | UnsupportedDisplayLanguageCodeException | CommonAwsError
   > {
     return this.call("ListLanguages", input);
   }
@@ -108,10 +76,7 @@ export class Translate extends AWSServiceClient {
     input: ListParallelDataRequest,
   ): Effect.Effect<
     ListParallelDataResponse,
-    | InternalServerException
-    | InvalidParameterValueException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidParameterValueException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListParallelData", input);
   }
@@ -119,10 +84,7 @@ export class Translate extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidParameterValueException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -130,10 +92,7 @@ export class Translate extends AWSServiceClient {
     input: ListTerminologiesRequest,
   ): Effect.Effect<
     ListTerminologiesResponse,
-    | InternalServerException
-    | InvalidParameterValueException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidParameterValueException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTerminologies", input);
   }
@@ -141,11 +100,7 @@ export class Translate extends AWSServiceClient {
     input: ListTextTranslationJobsRequest,
   ): Effect.Effect<
     ListTextTranslationJobsResponse,
-    | InternalServerException
-    | InvalidFilterException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidFilterException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTextTranslationJobs", input);
   }
@@ -153,13 +108,7 @@ export class Translate extends AWSServiceClient {
     input: StartTextTranslationJobRequest,
   ): Effect.Effect<
     StartTextTranslationJobResponse,
-    | InternalServerException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnsupportedLanguagePairException
-    | CommonAwsError
+    InternalServerException | InvalidParameterValueException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | UnsupportedLanguagePairException | CommonAwsError
   > {
     return this.call("StartTextTranslationJob", input);
   }
@@ -167,10 +116,7 @@ export class Translate extends AWSServiceClient {
     input: StopTextTranslationJobRequest,
   ): Effect.Effect<
     StopTextTranslationJobResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("StopTextTranslationJob", input);
   }
@@ -178,12 +124,7 @@ export class Translate extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConcurrentModificationException
-    | InternalServerException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalServerException | InvalidParameterValueException | ResourceNotFoundException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -191,14 +132,7 @@ export class Translate extends AWSServiceClient {
     input: TranslateDocumentRequest,
   ): Effect.Effect<
     TranslateDocumentResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnsupportedLanguagePairException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | TooManyRequestsException | UnsupportedLanguagePairException | CommonAwsError
   > {
     return this.call("TranslateDocument", input);
   }
@@ -206,15 +140,7 @@ export class Translate extends AWSServiceClient {
     input: TranslateTextRequest,
   ): Effect.Effect<
     TranslateTextResponse,
-    | DetectedLanguageLowConfidenceException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | TextSizeLimitExceededException
-    | TooManyRequestsException
-    | UnsupportedLanguagePairException
-    | CommonAwsError
+    DetectedLanguageLowConfidenceException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | TextSizeLimitExceededException | TooManyRequestsException | UnsupportedLanguagePairException | CommonAwsError
   > {
     return this.call("TranslateText", input);
   }
@@ -222,11 +148,7 @@ export class Translate extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConcurrentModificationException
-    | InternalServerException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalServerException | InvalidParameterValueException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -234,15 +156,7 @@ export class Translate extends AWSServiceClient {
     input: UpdateParallelDataRequest,
   ): Effect.Effect<
     UpdateParallelDataResponse,
-    | ConcurrentModificationException
-    | ConflictException
-    | InternalServerException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictException | InternalServerException | InvalidParameterValueException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateParallelData", input);
   }
@@ -309,17 +223,7 @@ export declare class DetectedLanguageLowConfidenceException extends EffectData.T
   readonly DetectedLanguageCode?: string;
 }> {}
 export type Directionality = "UNI" | "MULTI";
-export type DisplayLanguageCode =
-  | "DE"
-  | "EN"
-  | "ES"
-  | "FR"
-  | "IT"
-  | "JA"
-  | "KO"
-  | "PT"
-  | "ZH"
-  | "ZH_TW";
+export type DisplayLanguageCode = "DE" | "EN" | "ES" | "FR" | "IT" | "JA" | "KO" | "PT" | "ZH" | "ZH_TW";
 export interface Document {
   Content: Uint8Array | string;
   ContentType: string;
@@ -401,14 +305,7 @@ export type JobId = string;
 
 export type JobName = string;
 
-export type JobStatus =
-  | "SUBMITTED"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "COMPLETED_WITH_ERROR"
-  | "FAILED"
-  | "STOP_REQUESTED"
-  | "STOPPED";
+export type JobStatus = "SUBMITTED" | "IN_PROGRESS" | "COMPLETED" | "COMPLETED_WITH_ERROR" | "FAILED" | "STOP_REQUESTED" | "STOPPED";
 export interface Language {
   LanguageName: string;
   LanguageCode: string;
@@ -507,12 +404,7 @@ export interface ParallelDataProperties {
   LatestUpdateAttemptAt?: Date | string;
 }
 export type ParallelDataPropertiesList = Array<ParallelDataProperties>;
-export type ParallelDataStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "FAILED";
+export type ParallelDataStatus = "CREATING" | "UPDATING" | "ACTIVE" | "DELETING" | "FAILED";
 export type Profanity = "MASK";
 export type ResourceArn = string;
 
@@ -568,7 +460,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TargetLanguageCodeStringList = Array<string>;
@@ -636,8 +529,7 @@ export interface TextTranslationJobProperties {
   DataAccessRoleArn?: string;
   Settings?: TranslationSettings;
 }
-export type TextTranslationJobPropertiesList =
-  Array<TextTranslationJobProperties>;
+export type TextTranslationJobPropertiesList = Array<TextTranslationJobProperties>;
 export type Timestamp = Date | string;
 
 export declare class TooManyRequestsException extends EffectData.TaggedError(
@@ -710,7 +602,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateParallelDataRequest {
   Name: string;
   Description?: string;
@@ -946,3 +839,4 @@ export declare namespace UpdateParallelData {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class LaunchWizard extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("launch-wizard", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -18,10 +20,7 @@ export class LaunchWizard extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -29,10 +28,7 @@ export class LaunchWizard extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -116,27 +112,10 @@ export interface DeploymentSpecificationsField {
   required?: string;
   conditionals?: Array<DeploymentConditionalField>;
 }
-export type DeploymentStatus =
-  | "COMPLETED"
-  | "CREATING"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_INITIATING"
-  | "DELETE_FAILED"
-  | "DELETED"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "VALIDATING";
+export type DeploymentStatus = "COMPLETED" | "CREATING" | "DELETE_IN_PROGRESS" | "DELETE_INITIATING" | "DELETE_FAILED" | "DELETED" | "FAILED" | "IN_PROGRESS" | "VALIDATING";
 export type EventId = string;
 
-export type EventStatus =
-  | "CANCELED"
-  | "CANCELING"
-  | "COMPLETED"
-  | "CREATED"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "PENDING"
-  | "TIMED_OUT";
+export type EventStatus = "CANCELED" | "CANCELING" | "COMPLETED" | "CREATED" | "FAILED" | "IN_PROGRESS" | "PENDING" | "TIMED_OUT";
 export interface GetDeploymentInput {
   deploymentId: string;
 }
@@ -234,7 +213,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -242,7 +222,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -283,13 +264,8 @@ export interface WorkloadDeploymentPatternDataSummary {
   status?: WorkloadDeploymentPatternStatus;
   statusMessage?: string;
 }
-export type WorkloadDeploymentPatternDataSummaryList =
-  Array<WorkloadDeploymentPatternDataSummary>;
-export type WorkloadDeploymentPatternStatus =
-  | "ACTIVE"
-  | "INACTIVE"
-  | "DISABLED"
-  | "DELETED";
+export type WorkloadDeploymentPatternDataSummaryList = Array<WorkloadDeploymentPatternDataSummary>;
+export type WorkloadDeploymentPatternStatus = "ACTIVE" | "INACTIVE" | "DISABLED" | "DELETED";
 export type WorkloadName = string;
 
 export type WorkloadStatus = "ACTIVE" | "INACTIVE" | "DISABLED" | "DELETED";
@@ -324,3 +300,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

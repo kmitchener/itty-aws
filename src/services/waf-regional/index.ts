@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class WAFRegional extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("waf-regional", new AwsJson11Protocol(), cfg);
+  }
+
   associateWebACL(
     input: AssociateWebACLRequest,
   ): Effect.Effect<
     AssociateWebACLResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFUnavailableEntityException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFNonexistentItemException | WAFUnavailableEntityException | CommonAwsError
   > {
     return this.call("AssociateWebACL", input);
   }
@@ -20,13 +20,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateByteMatchSetRequest,
   ): Effect.Effect<
     CreateByteMatchSetResponse,
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFDisallowedNameException | WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFLimitsExceededException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("CreateByteMatchSet", input);
   }
@@ -34,13 +28,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateGeoMatchSetRequest,
   ): Effect.Effect<
     CreateGeoMatchSetResponse,
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFDisallowedNameException | WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFLimitsExceededException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("CreateGeoMatchSet", input);
   }
@@ -48,13 +36,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateIPSetRequest,
   ): Effect.Effect<
     CreateIPSetResponse,
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFDisallowedNameException | WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFLimitsExceededException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("CreateIPSet", input);
   }
@@ -62,15 +44,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateRateBasedRuleRequest,
   ): Effect.Effect<
     CreateRateBasedRuleResponse,
-    | WAFBadRequestException
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFBadRequestException | WAFDisallowedNameException | WAFInternalErrorException | WAFInvalidParameterException | WAFLimitsExceededException | WAFStaleDataException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("CreateRateBasedRule", input);
   }
@@ -78,11 +52,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateRegexMatchSetRequest,
   ): Effect.Effect<
     CreateRegexMatchSetResponse,
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFDisallowedNameException | WAFInternalErrorException | WAFLimitsExceededException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("CreateRegexMatchSet", input);
   }
@@ -90,11 +60,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateRegexPatternSetRequest,
   ): Effect.Effect<
     CreateRegexPatternSetResponse,
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFDisallowedNameException | WAFInternalErrorException | WAFLimitsExceededException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("CreateRegexPatternSet", input);
   }
@@ -102,15 +68,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateRuleRequest,
   ): Effect.Effect<
     CreateRuleResponse,
-    | WAFBadRequestException
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFBadRequestException | WAFDisallowedNameException | WAFInternalErrorException | WAFInvalidParameterException | WAFLimitsExceededException | WAFStaleDataException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("CreateRule", input);
   }
@@ -118,14 +76,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateRuleGroupRequest,
   ): Effect.Effect<
     CreateRuleGroupResponse,
-    | WAFBadRequestException
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFBadRequestException | WAFDisallowedNameException | WAFInternalErrorException | WAFLimitsExceededException | WAFStaleDataException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("CreateRuleGroup", input);
   }
@@ -133,13 +84,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateSizeConstraintSetRequest,
   ): Effect.Effect<
     CreateSizeConstraintSetResponse,
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFDisallowedNameException | WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFLimitsExceededException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("CreateSizeConstraintSet", input);
   }
@@ -147,13 +92,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateSqlInjectionMatchSetRequest,
   ): Effect.Effect<
     CreateSqlInjectionMatchSetResponse,
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFDisallowedNameException | WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFLimitsExceededException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("CreateSqlInjectionMatchSet", input);
   }
@@ -161,16 +100,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateWebACLRequest,
   ): Effect.Effect<
     CreateWebACLResponse,
-    | WAFBadRequestException
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFBadRequestException | WAFDisallowedNameException | WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFLimitsExceededException | WAFStaleDataException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("CreateWebACL", input);
   }
@@ -178,12 +108,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateWebACLMigrationStackRequest,
   ): Effect.Effect<
     CreateWebACLMigrationStackResponse,
-    | WAFEntityMigrationException
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFEntityMigrationException | WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("CreateWebACLMigrationStack", input);
   }
@@ -191,13 +116,7 @@ export class WAFRegional extends AWSServiceClient {
     input: CreateXssMatchSetRequest,
   ): Effect.Effect<
     CreateXssMatchSetResponse,
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFDisallowedNameException | WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFLimitsExceededException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("CreateXssMatchSet", input);
   }
@@ -205,13 +124,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteByteMatchSetRequest,
   ): Effect.Effect<
     DeleteByteMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("DeleteByteMatchSet", input);
   }
@@ -219,13 +132,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteGeoMatchSetRequest,
   ): Effect.Effect<
     DeleteGeoMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("DeleteGeoMatchSet", input);
   }
@@ -233,13 +140,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteIPSetRequest,
   ): Effect.Effect<
     DeleteIPSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("DeleteIPSet", input);
   }
@@ -247,10 +148,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteLoggingConfigurationRequest,
   ): Effect.Effect<
     DeleteLoggingConfigurationResponse,
-    | WAFInternalErrorException
-    | WAFNonexistentItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFNonexistentItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("DeleteLoggingConfiguration", input);
   }
@@ -258,10 +156,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeletePermissionPolicyRequest,
   ): Effect.Effect<
     DeletePermissionPolicyResponse,
-    | WAFInternalErrorException
-    | WAFNonexistentItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFNonexistentItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("DeletePermissionPolicy", input);
   }
@@ -269,15 +164,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteRateBasedRuleRequest,
   ): Effect.Effect<
     DeleteRateBasedRuleResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("DeleteRateBasedRule", input);
   }
@@ -285,13 +172,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteRegexMatchSetRequest,
   ): Effect.Effect<
     DeleteRegexMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("DeleteRegexMatchSet", input);
   }
@@ -299,13 +180,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteRegexPatternSetRequest,
   ): Effect.Effect<
     DeleteRegexPatternSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("DeleteRegexPatternSet", input);
   }
@@ -313,15 +188,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteRuleRequest,
   ): Effect.Effect<
     DeleteRuleResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("DeleteRule", input);
   }
@@ -329,15 +196,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteRuleGroupRequest,
   ): Effect.Effect<
     DeleteRuleGroupResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("DeleteRuleGroup", input);
   }
@@ -345,13 +204,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteSizeConstraintSetRequest,
   ): Effect.Effect<
     DeleteSizeConstraintSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("DeleteSizeConstraintSet", input);
   }
@@ -359,13 +212,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteSqlInjectionMatchSetRequest,
   ): Effect.Effect<
     DeleteSqlInjectionMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("DeleteSqlInjectionMatchSet", input);
   }
@@ -373,15 +220,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteWebACLRequest,
   ): Effect.Effect<
     DeleteWebACLResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("DeleteWebACL", input);
   }
@@ -389,13 +228,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DeleteXssMatchSetRequest,
   ): Effect.Effect<
     DeleteXssMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonEmptyEntityException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonEmptyEntityException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("DeleteXssMatchSet", input);
   }
@@ -403,11 +236,7 @@ export class WAFRegional extends AWSServiceClient {
     input: DisassociateWebACLRequest,
   ): Effect.Effect<
     DisassociateWebACLResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("DisassociateWebACL", input);
   }
@@ -415,10 +244,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetByteMatchSetRequest,
   ): Effect.Effect<
     GetByteMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetByteMatchSet", input);
   }
@@ -442,10 +268,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetGeoMatchSetRequest,
   ): Effect.Effect<
     GetGeoMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetGeoMatchSet", input);
   }
@@ -453,10 +276,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetIPSetRequest,
   ): Effect.Effect<
     GetIPSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetIPSet", input);
   }
@@ -480,10 +300,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetRateBasedRuleRequest,
   ): Effect.Effect<
     GetRateBasedRuleResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetRateBasedRule", input);
   }
@@ -491,11 +308,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetRateBasedRuleManagedKeysRequest,
   ): Effect.Effect<
     GetRateBasedRuleManagedKeysResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetRateBasedRuleManagedKeys", input);
   }
@@ -503,10 +316,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetRegexMatchSetRequest,
   ): Effect.Effect<
     GetRegexMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetRegexMatchSet", input);
   }
@@ -514,10 +324,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetRegexPatternSetRequest,
   ): Effect.Effect<
     GetRegexPatternSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetRegexPatternSet", input);
   }
@@ -525,10 +332,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetRuleRequest,
   ): Effect.Effect<
     GetRuleResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetRule", input);
   }
@@ -552,10 +356,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetSizeConstraintSetRequest,
   ): Effect.Effect<
     GetSizeConstraintSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetSizeConstraintSet", input);
   }
@@ -563,10 +364,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetSqlInjectionMatchSetRequest,
   ): Effect.Effect<
     GetSqlInjectionMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetSqlInjectionMatchSet", input);
   }
@@ -574,10 +372,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetWebACLRequest,
   ): Effect.Effect<
     GetWebACLResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetWebACL", input);
   }
@@ -585,12 +380,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetWebACLForResourceRequest,
   ): Effect.Effect<
     GetWebACLForResourceResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFUnavailableEntityException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFNonexistentItemException | WAFUnavailableEntityException | CommonAwsError
   > {
     return this.call("GetWebACLForResource", input);
   }
@@ -598,10 +388,7 @@ export class WAFRegional extends AWSServiceClient {
     input: GetXssMatchSetRequest,
   ): Effect.Effect<
     GetXssMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("GetXssMatchSet", input);
   }
@@ -609,10 +396,7 @@ export class WAFRegional extends AWSServiceClient {
     input: ListActivatedRulesInRuleGroupRequest,
   ): Effect.Effect<
     ListActivatedRulesInRuleGroupResponse,
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("ListActivatedRulesInRuleGroup", input);
   }
@@ -644,10 +428,7 @@ export class WAFRegional extends AWSServiceClient {
     input: ListLoggingConfigurationsRequest,
   ): Effect.Effect<
     ListLoggingConfigurationsResponse,
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("ListLoggingConfigurations", input);
   }
@@ -679,11 +460,7 @@ export class WAFRegional extends AWSServiceClient {
     input: ListResourcesForWebACLRequest,
   ): Effect.Effect<
     ListResourcesForWebACLResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidParameterException | WAFNonexistentItemException | CommonAwsError
   > {
     return this.call("ListResourcesForWebACL", input);
   }
@@ -731,13 +508,7 @@ export class WAFRegional extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | WAFBadRequestException
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFBadRequestException | WAFInternalErrorException | WAFInvalidParameterException | WAFNonexistentItemException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -761,11 +532,7 @@ export class WAFRegional extends AWSServiceClient {
     input: PutLoggingConfigurationRequest,
   ): Effect.Effect<
     PutLoggingConfigurationResponse,
-    | WAFInternalErrorException
-    | WAFNonexistentItemException
-    | WAFServiceLinkedRoleErrorException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFNonexistentItemException | WAFServiceLinkedRoleErrorException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("PutLoggingConfiguration", input);
   }
@@ -773,11 +540,7 @@ export class WAFRegional extends AWSServiceClient {
     input: PutPermissionPolicyRequest,
   ): Effect.Effect<
     PutPermissionPolicyResponse,
-    | WAFInternalErrorException
-    | WAFInvalidPermissionPolicyException
-    | WAFNonexistentItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidPermissionPolicyException | WAFNonexistentItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("PutPermissionPolicy", input);
   }
@@ -785,14 +548,7 @@ export class WAFRegional extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | WAFBadRequestException
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentItemException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFBadRequestException | WAFInternalErrorException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentItemException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -800,13 +556,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | WAFBadRequestException
-    | WAFInternalErrorException
-    | WAFInvalidParameterException
-    | WAFNonexistentItemException
-    | WAFTagOperationException
-    | WAFTagOperationInternalErrorException
-    | CommonAwsError
+    WAFBadRequestException | WAFInternalErrorException | WAFInvalidParameterException | WAFNonexistentItemException | WAFTagOperationException | WAFTagOperationInternalErrorException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -814,15 +564,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateByteMatchSetRequest,
   ): Effect.Effect<
     UpdateByteMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateByteMatchSet", input);
   }
@@ -830,16 +572,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateGeoMatchSetRequest,
   ): Effect.Effect<
     UpdateGeoMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateGeoMatchSet", input);
   }
@@ -847,16 +580,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateIPSetRequest,
   ): Effect.Effect<
     UpdateIPSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateIPSet", input);
   }
@@ -864,16 +588,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateRateBasedRuleRequest,
   ): Effect.Effect<
     UpdateRateBasedRuleResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateRateBasedRule", input);
   }
@@ -881,15 +596,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateRegexMatchSetRequest,
   ): Effect.Effect<
     UpdateRegexMatchSetResponse,
-    | WAFDisallowedNameException
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFDisallowedNameException | WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateRegexMatchSet", input);
   }
@@ -897,15 +604,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateRegexPatternSetRequest,
   ): Effect.Effect<
     UpdateRegexPatternSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFInvalidRegexPatternException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFInvalidRegexPatternException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateRegexPatternSet", input);
   }
@@ -913,16 +612,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateRuleRequest,
   ): Effect.Effect<
     UpdateRuleResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateRule", input);
   }
@@ -930,14 +620,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateRuleGroupRequest,
   ): Effect.Effect<
     UpdateRuleGroupResponse,
-    | WAFInternalErrorException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateRuleGroup", input);
   }
@@ -945,16 +628,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateSizeConstraintSetRequest,
   ): Effect.Effect<
     UpdateSizeConstraintSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateSizeConstraintSet", input);
   }
@@ -962,15 +636,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateSqlInjectionMatchSetRequest,
   ): Effect.Effect<
     UpdateSqlInjectionMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateSqlInjectionMatchSet", input);
   }
@@ -978,17 +644,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateWebACLRequest,
   ): Effect.Effect<
     UpdateWebACLResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFReferencedItemException
-    | WAFStaleDataException
-    | WAFSubscriptionNotFoundException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFReferencedItemException | WAFStaleDataException | WAFSubscriptionNotFoundException | CommonAwsError
   > {
     return this.call("UpdateWebACL", input);
   }
@@ -996,15 +652,7 @@ export class WAFRegional extends AWSServiceClient {
     input: UpdateXssMatchSetRequest,
   ): Effect.Effect<
     UpdateXssMatchSetResponse,
-    | WAFInternalErrorException
-    | WAFInvalidAccountException
-    | WAFInvalidOperationException
-    | WAFInvalidParameterException
-    | WAFLimitsExceededException
-    | WAFNonexistentContainerException
-    | WAFNonexistentItemException
-    | WAFStaleDataException
-    | CommonAwsError
+    WAFInternalErrorException | WAFInvalidAccountException | WAFInvalidOperationException | WAFInvalidParameterException | WAFLimitsExceededException | WAFNonexistentContainerException | WAFNonexistentItemException | WAFStaleDataException | CommonAwsError
   > {
     return this.call("UpdateXssMatchSet", input);
   }
@@ -1029,7 +677,8 @@ export interface AssociateWebACLRequest {
   WebACLId: string;
   ResourceArn: string;
 }
-export interface AssociateWebACLResponse {}
+export interface AssociateWebACLResponse {
+}
 export interface ByteMatchSet {
   ByteMatchSetId: string;
   Name?: string;
@@ -1200,11 +849,13 @@ export interface DeleteIPSetResponse {
 export interface DeleteLoggingConfigurationRequest {
   ResourceArn: string;
 }
-export interface DeleteLoggingConfigurationResponse {}
+export interface DeleteLoggingConfigurationResponse {
+}
 export interface DeletePermissionPolicyRequest {
   ResourceArn: string;
 }
-export interface DeletePermissionPolicyResponse {}
+export interface DeletePermissionPolicyResponse {
+}
 export interface DeleteRateBasedRuleRequest {
   RuleId: string;
   ChangeToken: string;
@@ -1271,7 +922,8 @@ export interface DeleteXssMatchSetResponse {
 export interface DisassociateWebACLRequest {
   ResourceArn: string;
 }
-export interface DisassociateWebACLResponse {}
+export interface DisassociateWebACLResponse {
+}
 export type errorMessage = string;
 
 export type ErrorReason = string;
@@ -1290,256 +942,7 @@ export interface GeoMatchConstraint {
 }
 export type GeoMatchConstraints = Array<GeoMatchConstraint>;
 export type GeoMatchConstraintType = "Country";
-export type GeoMatchConstraintValue =
-  | "AF"
-  | "AX"
-  | "AL"
-  | "DZ"
-  | "AS"
-  | "AD"
-  | "AO"
-  | "AI"
-  | "AQ"
-  | "AG"
-  | "AR"
-  | "AM"
-  | "AW"
-  | "AU"
-  | "AT"
-  | "AZ"
-  | "BS"
-  | "BH"
-  | "BD"
-  | "BB"
-  | "BY"
-  | "BE"
-  | "BZ"
-  | "BJ"
-  | "BM"
-  | "BT"
-  | "BO"
-  | "BQ"
-  | "BA"
-  | "BW"
-  | "BV"
-  | "BR"
-  | "IO"
-  | "BN"
-  | "BG"
-  | "BF"
-  | "BI"
-  | "KH"
-  | "CM"
-  | "CA"
-  | "CV"
-  | "KY"
-  | "CF"
-  | "TD"
-  | "CL"
-  | "CN"
-  | "CX"
-  | "CC"
-  | "CO"
-  | "KM"
-  | "CG"
-  | "CD"
-  | "CK"
-  | "CR"
-  | "CI"
-  | "HR"
-  | "CU"
-  | "CW"
-  | "CY"
-  | "CZ"
-  | "DK"
-  | "DJ"
-  | "DM"
-  | "DO"
-  | "EC"
-  | "EG"
-  | "SV"
-  | "GQ"
-  | "ER"
-  | "EE"
-  | "ET"
-  | "FK"
-  | "FO"
-  | "FJ"
-  | "FI"
-  | "FR"
-  | "GF"
-  | "PF"
-  | "TF"
-  | "GA"
-  | "GM"
-  | "GE"
-  | "DE"
-  | "GH"
-  | "GI"
-  | "GR"
-  | "GL"
-  | "GD"
-  | "GP"
-  | "GU"
-  | "GT"
-  | "GG"
-  | "GN"
-  | "GW"
-  | "GY"
-  | "HT"
-  | "HM"
-  | "VA"
-  | "HN"
-  | "HK"
-  | "HU"
-  | "IS"
-  | "IN"
-  | "ID"
-  | "IR"
-  | "IQ"
-  | "IE"
-  | "IM"
-  | "IL"
-  | "IT"
-  | "JM"
-  | "JP"
-  | "JE"
-  | "JO"
-  | "KZ"
-  | "KE"
-  | "KI"
-  | "KP"
-  | "KR"
-  | "KW"
-  | "KG"
-  | "LA"
-  | "LV"
-  | "LB"
-  | "LS"
-  | "LR"
-  | "LY"
-  | "LI"
-  | "LT"
-  | "LU"
-  | "MO"
-  | "MK"
-  | "MG"
-  | "MW"
-  | "MY"
-  | "MV"
-  | "ML"
-  | "MT"
-  | "MH"
-  | "MQ"
-  | "MR"
-  | "MU"
-  | "YT"
-  | "MX"
-  | "FM"
-  | "MD"
-  | "MC"
-  | "MN"
-  | "ME"
-  | "MS"
-  | "MA"
-  | "MZ"
-  | "MM"
-  | "NA"
-  | "NR"
-  | "NP"
-  | "NL"
-  | "NC"
-  | "NZ"
-  | "NI"
-  | "NE"
-  | "NG"
-  | "NU"
-  | "NF"
-  | "MP"
-  | "NO"
-  | "OM"
-  | "PK"
-  | "PW"
-  | "PS"
-  | "PA"
-  | "PG"
-  | "PY"
-  | "PE"
-  | "PH"
-  | "PN"
-  | "PL"
-  | "PT"
-  | "PR"
-  | "QA"
-  | "RE"
-  | "RO"
-  | "RU"
-  | "RW"
-  | "BL"
-  | "SH"
-  | "KN"
-  | "LC"
-  | "MF"
-  | "PM"
-  | "VC"
-  | "WS"
-  | "SM"
-  | "ST"
-  | "SA"
-  | "SN"
-  | "RS"
-  | "SC"
-  | "SL"
-  | "SG"
-  | "SX"
-  | "SK"
-  | "SI"
-  | "SB"
-  | "SO"
-  | "ZA"
-  | "GS"
-  | "SS"
-  | "ES"
-  | "LK"
-  | "SD"
-  | "SR"
-  | "SJ"
-  | "SZ"
-  | "SE"
-  | "CH"
-  | "SY"
-  | "TW"
-  | "TJ"
-  | "TZ"
-  | "TH"
-  | "TL"
-  | "TG"
-  | "TK"
-  | "TO"
-  | "TT"
-  | "TN"
-  | "TR"
-  | "TM"
-  | "TC"
-  | "TV"
-  | "UG"
-  | "UA"
-  | "AE"
-  | "GB"
-  | "US"
-  | "UM"
-  | "UY"
-  | "UZ"
-  | "VU"
-  | "VE"
-  | "VN"
-  | "VG"
-  | "VI"
-  | "WF"
-  | "EH"
-  | "YE"
-  | "ZM"
-  | "ZW";
+export type GeoMatchConstraintValue = "AF" | "AX" | "AL" | "DZ" | "AS" | "AD" | "AO" | "AI" | "AQ" | "AG" | "AR" | "AM" | "AW" | "AU" | "AT" | "AZ" | "BS" | "BH" | "BD" | "BB" | "BY" | "BE" | "BZ" | "BJ" | "BM" | "BT" | "BO" | "BQ" | "BA" | "BW" | "BV" | "BR" | "IO" | "BN" | "BG" | "BF" | "BI" | "KH" | "CM" | "CA" | "CV" | "KY" | "CF" | "TD" | "CL" | "CN" | "CX" | "CC" | "CO" | "KM" | "CG" | "CD" | "CK" | "CR" | "CI" | "HR" | "CU" | "CW" | "CY" | "CZ" | "DK" | "DJ" | "DM" | "DO" | "EC" | "EG" | "SV" | "GQ" | "ER" | "EE" | "ET" | "FK" | "FO" | "FJ" | "FI" | "FR" | "GF" | "PF" | "TF" | "GA" | "GM" | "GE" | "DE" | "GH" | "GI" | "GR" | "GL" | "GD" | "GP" | "GU" | "GT" | "GG" | "GN" | "GW" | "GY" | "HT" | "HM" | "VA" | "HN" | "HK" | "HU" | "IS" | "IN" | "ID" | "IR" | "IQ" | "IE" | "IM" | "IL" | "IT" | "JM" | "JP" | "JE" | "JO" | "KZ" | "KE" | "KI" | "KP" | "KR" | "KW" | "KG" | "LA" | "LV" | "LB" | "LS" | "LR" | "LY" | "LI" | "LT" | "LU" | "MO" | "MK" | "MG" | "MW" | "MY" | "MV" | "ML" | "MT" | "MH" | "MQ" | "MR" | "MU" | "YT" | "MX" | "FM" | "MD" | "MC" | "MN" | "ME" | "MS" | "MA" | "MZ" | "MM" | "NA" | "NR" | "NP" | "NL" | "NC" | "NZ" | "NI" | "NE" | "NG" | "NU" | "NF" | "MP" | "NO" | "OM" | "PK" | "PW" | "PS" | "PA" | "PG" | "PY" | "PE" | "PH" | "PN" | "PL" | "PT" | "PR" | "QA" | "RE" | "RO" | "RU" | "RW" | "BL" | "SH" | "KN" | "LC" | "MF" | "PM" | "VC" | "WS" | "SM" | "ST" | "SA" | "SN" | "RS" | "SC" | "SL" | "SG" | "SX" | "SK" | "SI" | "SB" | "SO" | "ZA" | "GS" | "SS" | "ES" | "LK" | "SD" | "SR" | "SJ" | "SZ" | "SE" | "CH" | "SY" | "TW" | "TJ" | "TZ" | "TH" | "TL" | "TG" | "TK" | "TO" | "TT" | "TN" | "TR" | "TM" | "TC" | "TV" | "UG" | "UA" | "AE" | "GB" | "US" | "UM" | "UY" | "UZ" | "VU" | "VE" | "VN" | "VG" | "VI" | "WF" | "EH" | "YE" | "ZM" | "ZW";
 export interface GeoMatchSet {
   GeoMatchSetId: string;
   Name?: string;
@@ -1561,7 +964,8 @@ export interface GetByteMatchSetRequest {
 export interface GetByteMatchSetResponse {
   ByteMatchSet?: ByteMatchSet;
 }
-export interface GetChangeTokenRequest {}
+export interface GetChangeTokenRequest {
+}
 export interface GetChangeTokenResponse {
   ChangeToken?: string;
 }
@@ -1873,80 +1277,32 @@ export type ManagedKey = string;
 export type ManagedKeys = Array<string>;
 export type MatchFieldData = string;
 
-export type MatchFieldType =
-  | "URI"
-  | "QUERY_STRING"
-  | "HEADER"
-  | "METHOD"
-  | "BODY"
-  | "SINGLE_QUERY_ARG"
-  | "ALL_QUERY_ARGS";
+export type MatchFieldType = "URI" | "QUERY_STRING" | "HEADER" | "METHOD" | "BODY" | "SINGLE_QUERY_ARG" | "ALL_QUERY_ARGS";
 export type MetricName = string;
 
-export type MigrationErrorType =
-  | "ENTITY_NOT_SUPPORTED"
-  | "ENTITY_NOT_FOUND"
-  | "S3_BUCKET_NO_PERMISSION"
-  | "S3_BUCKET_NOT_ACCESSIBLE"
-  | "S3_BUCKET_NOT_FOUND"
-  | "S3_BUCKET_INVALID_REGION"
-  | "S3_INTERNAL_ERROR";
+export type MigrationErrorType = "ENTITY_NOT_SUPPORTED" | "ENTITY_NOT_FOUND" | "S3_BUCKET_NO_PERMISSION" | "S3_BUCKET_NOT_ACCESSIBLE" | "S3_BUCKET_NOT_FOUND" | "S3_BUCKET_INVALID_REGION" | "S3_INTERNAL_ERROR";
 export type Negated = boolean;
 
 export type NextMarker = string;
 
 export type PaginationLimit = number;
 
-export type ParameterExceptionField =
-  | "CHANGE_ACTION"
-  | "WAF_ACTION"
-  | "WAF_OVERRIDE_ACTION"
-  | "PREDICATE_TYPE"
-  | "IPSET_TYPE"
-  | "BYTE_MATCH_FIELD_TYPE"
-  | "SQL_INJECTION_MATCH_FIELD_TYPE"
-  | "BYTE_MATCH_TEXT_TRANSFORMATION"
-  | "BYTE_MATCH_POSITIONAL_CONSTRAINT"
-  | "SIZE_CONSTRAINT_COMPARISON_OPERATOR"
-  | "GEO_MATCH_LOCATION_TYPE"
-  | "GEO_MATCH_LOCATION_VALUE"
-  | "RATE_KEY"
-  | "RULE_TYPE"
-  | "NEXT_MARKER"
-  | "RESOURCE_ARN"
-  | "TAGS"
-  | "TAG_KEYS";
+export type ParameterExceptionField = "CHANGE_ACTION" | "WAF_ACTION" | "WAF_OVERRIDE_ACTION" | "PREDICATE_TYPE" | "IPSET_TYPE" | "BYTE_MATCH_FIELD_TYPE" | "SQL_INJECTION_MATCH_FIELD_TYPE" | "BYTE_MATCH_TEXT_TRANSFORMATION" | "BYTE_MATCH_POSITIONAL_CONSTRAINT" | "SIZE_CONSTRAINT_COMPARISON_OPERATOR" | "GEO_MATCH_LOCATION_TYPE" | "GEO_MATCH_LOCATION_VALUE" | "RATE_KEY" | "RULE_TYPE" | "NEXT_MARKER" | "RESOURCE_ARN" | "TAGS" | "TAG_KEYS";
 export type ParameterExceptionParameter = string;
 
-export type ParameterExceptionReason =
-  | "INVALID_OPTION"
-  | "ILLEGAL_COMBINATION"
-  | "ILLEGAL_ARGUMENT"
-  | "INVALID_TAG_KEY";
+export type ParameterExceptionReason = "INVALID_OPTION" | "ILLEGAL_COMBINATION" | "ILLEGAL_ARGUMENT" | "INVALID_TAG_KEY";
 export type PolicyString = string;
 
 export type PopulationSize = number;
 
-export type PositionalConstraint =
-  | "EXACTLY"
-  | "STARTS_WITH"
-  | "ENDS_WITH"
-  | "CONTAINS"
-  | "CONTAINS_WORD";
+export type PositionalConstraint = "EXACTLY" | "STARTS_WITH" | "ENDS_WITH" | "CONTAINS" | "CONTAINS_WORD";
 export interface Predicate {
   Negated: boolean;
   Type: PredicateType;
   DataId: string;
 }
 export type Predicates = Array<Predicate>;
-export type PredicateType =
-  | "IP_MATCH"
-  | "BYTE_MATCH"
-  | "SQL_INJECTION_MATCH"
-  | "GEO_MATCH"
-  | "SIZE_CONSTRAINT"
-  | "XSS_MATCH"
-  | "REGEX_MATCH";
+export type PredicateType = "IP_MATCH" | "BYTE_MATCH" | "SQL_INJECTION_MATCH" | "GEO_MATCH" | "SIZE_CONSTRAINT" | "XSS_MATCH" | "REGEX_MATCH";
 export interface PutLoggingConfigurationRequest {
   LoggingConfiguration: LoggingConfiguration;
 }
@@ -1957,7 +1313,8 @@ export interface PutPermissionPolicyRequest {
   ResourceArn: string;
   Policy: string;
 }
-export interface PutPermissionPolicyResponse {}
+export interface PutPermissionPolicyResponse {
+}
 export interface RateBasedRule {
   RuleId: string;
   Name?: string;
@@ -2130,16 +1487,11 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
-export type TextTransformation =
-  | "NONE"
-  | "COMPRESS_WHITE_SPACE"
-  | "HTML_ENTITY_DECODE"
-  | "LOWERCASE"
-  | "CMD_LINE"
-  | "URL_DECODE";
+export type TextTransformation = "NONE" | "COMPRESS_WHITE_SPACE" | "HTML_ENTITY_DECODE" | "LOWERCASE" | "CMD_LINE" | "URL_DECODE";
 export type Timestamp = Date | string;
 
 export interface TimeWindow {
@@ -2150,7 +1502,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateByteMatchSetRequest {
   ByteMatchSetId: string;
   ChangeToken: string;
@@ -2279,7 +1632,8 @@ export declare class WAFInternalErrorException extends EffectData.TaggedError(
 }> {}
 export declare class WAFInvalidAccountException extends EffectData.TaggedError(
   "WAFInvalidAccountException",
-)<{}> {}
+)<{
+}> {}
 export declare class WAFInvalidOperationException extends EffectData.TaggedError(
   "WAFInvalidOperationException",
 )<{
@@ -2792,7 +2146,9 @@ export declare namespace GetByteMatchSet {
 export declare namespace GetChangeToken {
   export type Input = GetChangeTokenRequest;
   export type Output = GetChangeTokenResponse;
-  export type Error = WAFInternalErrorException | CommonAwsError;
+  export type Error =
+    | WAFInternalErrorException
+    | CommonAwsError;
 }
 
 export declare namespace GetChangeTokenStatus {
@@ -3051,7 +2407,9 @@ export declare namespace ListResourcesForWebACL {
 export declare namespace ListRuleGroups {
   export type Input = ListRuleGroupsRequest;
   export type Output = ListRuleGroupsResponse;
-  export type Error = WAFInternalErrorException | CommonAwsError;
+  export type Error =
+    | WAFInternalErrorException
+    | CommonAwsError;
 }
 
 export declare namespace ListRules {
@@ -3355,3 +2713,4 @@ export declare namespace UpdateXssMatchSet {
     | WAFStaleDataException
     | CommonAwsError;
 }
+

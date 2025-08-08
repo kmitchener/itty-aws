@@ -1,22 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class KinesisVideoArchivedMedia extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("kinesis-video-archived-media", new RestJson1Protocol(), cfg);
+  }
+
   getClip(
     input: GetClipInput,
   ): Effect.Effect<
     GetClipOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | InvalidCodecPrivateDataException
-    | InvalidMediaFrameException
-    | MissingCodecPrivateDataException
-    | NoDataRetentionException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | UnsupportedStreamMediaTypeException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | InvalidCodecPrivateDataException | InvalidMediaFrameException | MissingCodecPrivateDataException | NoDataRetentionException | NotAuthorizedException | ResourceNotFoundException | UnsupportedStreamMediaTypeException | CommonAwsError
   > {
     return this.call("GetClip", input);
   }
@@ -24,15 +20,7 @@ export class KinesisVideoArchivedMedia extends AWSServiceClient {
     input: GetDASHStreamingSessionURLInput,
   ): Effect.Effect<
     GetDASHStreamingSessionURLOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | InvalidCodecPrivateDataException
-    | MissingCodecPrivateDataException
-    | NoDataRetentionException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | UnsupportedStreamMediaTypeException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | InvalidCodecPrivateDataException | MissingCodecPrivateDataException | NoDataRetentionException | NotAuthorizedException | ResourceNotFoundException | UnsupportedStreamMediaTypeException | CommonAwsError
   > {
     return this.call("GetDASHStreamingSessionURL", input);
   }
@@ -40,15 +28,7 @@ export class KinesisVideoArchivedMedia extends AWSServiceClient {
     input: GetHLSStreamingSessionURLInput,
   ): Effect.Effect<
     GetHLSStreamingSessionURLOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | InvalidCodecPrivateDataException
-    | MissingCodecPrivateDataException
-    | NoDataRetentionException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | UnsupportedStreamMediaTypeException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | InvalidCodecPrivateDataException | MissingCodecPrivateDataException | NoDataRetentionException | NotAuthorizedException | ResourceNotFoundException | UnsupportedStreamMediaTypeException | CommonAwsError
   > {
     return this.call("GetHLSStreamingSessionURL", input);
   }
@@ -56,12 +36,7 @@ export class KinesisVideoArchivedMedia extends AWSServiceClient {
     input: GetImagesInput,
   ): Effect.Effect<
     GetImagesOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NoDataRetentionException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NoDataRetentionException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetImages", input);
   }
@@ -69,11 +44,7 @@ export class KinesisVideoArchivedMedia extends AWSServiceClient {
     input: GetMediaForFragmentListInput,
   ): Effect.Effect<
     GetMediaForFragmentListOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetMediaForFragmentList", input);
   }
@@ -81,11 +52,7 @@ export class KinesisVideoArchivedMedia extends AWSServiceClient {
     input: ListFragmentsInput,
   ): Effect.Effect<
     ListFragmentsOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListFragments", input);
   }
@@ -102,9 +69,7 @@ export interface ClipFragmentSelector {
   FragmentSelectorType: ClipFragmentSelectorType;
   TimestampRange: ClipTimestampRange;
 }
-export type ClipFragmentSelectorType =
-  | "PRODUCER_TIMESTAMP"
-  | "SERVER_TIMESTAMP";
+export type ClipFragmentSelectorType = "PRODUCER_TIMESTAMP" | "SERVER_TIMESTAMP";
 export interface ClipTimestampRange {
   StartTimestamp: Date | string;
   EndTimestamp: Date | string;
@@ -118,9 +83,7 @@ export interface DASHFragmentSelector {
   FragmentSelectorType?: DASHFragmentSelectorType;
   TimestampRange?: DASHTimestampRange;
 }
-export type DASHFragmentSelectorType =
-  | "PRODUCER_TIMESTAMP"
-  | "SERVER_TIMESTAMP";
+export type DASHFragmentSelectorType = "PRODUCER_TIMESTAMP" | "SERVER_TIMESTAMP";
 export type DASHMaxResults = number;
 
 export type DASHPlaybackMode = "LIVE" | "LIVE_REPLAY" | "ON_DEMAND";
@@ -400,3 +363,4 @@ export declare namespace ListFragments {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

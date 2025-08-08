@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class EFS extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("efs", new RestJson1Protocol(), cfg);
+  }
+
   createAccessPoint(
     input: CreateAccessPointRequest,
   ): Effect.Effect<
     AccessPointDescription,
-    | AccessPointAlreadyExists
-    | AccessPointLimitExceeded
-    | BadRequest
-    | FileSystemNotFound
-    | IncorrectFileSystemLifeCycleState
-    | InternalServerError
-    | ThrottlingException
-    | CommonAwsError
+    AccessPointAlreadyExists | AccessPointLimitExceeded | BadRequest | FileSystemNotFound | IncorrectFileSystemLifeCycleState | InternalServerError | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateAccessPoint", input);
   }
@@ -22,14 +20,7 @@ export class EFS extends AWSServiceClient {
     input: CreateFileSystemRequest,
   ): Effect.Effect<
     FileSystemDescription,
-    | BadRequest
-    | FileSystemAlreadyExists
-    | FileSystemLimitExceeded
-    | InsufficientThroughputCapacity
-    | InternalServerError
-    | ThroughputLimitExceeded
-    | UnsupportedAvailabilityZone
-    | CommonAwsError
+    BadRequest | FileSystemAlreadyExists | FileSystemLimitExceeded | InsufficientThroughputCapacity | InternalServerError | ThroughputLimitExceeded | UnsupportedAvailabilityZone | CommonAwsError
   > {
     return this.call("CreateFileSystem", input);
   }
@@ -37,20 +28,7 @@ export class EFS extends AWSServiceClient {
     input: CreateMountTargetRequest,
   ): Effect.Effect<
     MountTargetDescription,
-    | AvailabilityZonesMismatch
-    | BadRequest
-    | FileSystemNotFound
-    | IncorrectFileSystemLifeCycleState
-    | InternalServerError
-    | IpAddressInUse
-    | MountTargetConflict
-    | NetworkInterfaceLimitExceeded
-    | NoFreeAddressesInSubnet
-    | SecurityGroupLimitExceeded
-    | SecurityGroupNotFound
-    | SubnetNotFound
-    | UnsupportedAvailabilityZone
-    | CommonAwsError
+    AvailabilityZonesMismatch | BadRequest | FileSystemNotFound | IncorrectFileSystemLifeCycleState | InternalServerError | IpAddressInUse | MountTargetConflict | NetworkInterfaceLimitExceeded | NoFreeAddressesInSubnet | SecurityGroupLimitExceeded | SecurityGroupNotFound | SubnetNotFound | UnsupportedAvailabilityZone | CommonAwsError
   > {
     return this.call("CreateMountTarget", input);
   }
@@ -58,18 +36,7 @@ export class EFS extends AWSServiceClient {
     input: CreateReplicationConfigurationRequest,
   ): Effect.Effect<
     ReplicationConfigurationDescription,
-    | BadRequest
-    | ConflictException
-    | FileSystemLimitExceeded
-    | FileSystemNotFound
-    | IncorrectFileSystemLifeCycleState
-    | InsufficientThroughputCapacity
-    | InternalServerError
-    | ReplicationNotFound
-    | ThroughputLimitExceeded
-    | UnsupportedAvailabilityZone
-    | ValidationException
-    | CommonAwsError
+    BadRequest | ConflictException | FileSystemLimitExceeded | FileSystemNotFound | IncorrectFileSystemLifeCycleState | InsufficientThroughputCapacity | InternalServerError | ReplicationNotFound | ThroughputLimitExceeded | UnsupportedAvailabilityZone | ValidationException | CommonAwsError
   > {
     return this.call("CreateReplicationConfiguration", input);
   }
@@ -93,11 +60,7 @@ export class EFS extends AWSServiceClient {
     input: DeleteFileSystemRequest,
   ): Effect.Effect<
     {},
-    | BadRequest
-    | FileSystemInUse
-    | FileSystemNotFound
-    | InternalServerError
-    | CommonAwsError
+    BadRequest | FileSystemInUse | FileSystemNotFound | InternalServerError | CommonAwsError
   > {
     return this.call("DeleteFileSystem", input);
   }
@@ -105,11 +68,7 @@ export class EFS extends AWSServiceClient {
     input: DeleteFileSystemPolicyRequest,
   ): Effect.Effect<
     {},
-    | BadRequest
-    | FileSystemNotFound
-    | IncorrectFileSystemLifeCycleState
-    | InternalServerError
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncorrectFileSystemLifeCycleState | InternalServerError | CommonAwsError
   > {
     return this.call("DeleteFileSystemPolicy", input);
   }
@@ -117,11 +76,7 @@ export class EFS extends AWSServiceClient {
     input: DeleteMountTargetRequest,
   ): Effect.Effect<
     {},
-    | BadRequest
-    | DependencyTimeout
-    | InternalServerError
-    | MountTargetNotFound
-    | CommonAwsError
+    BadRequest | DependencyTimeout | InternalServerError | MountTargetNotFound | CommonAwsError
   > {
     return this.call("DeleteMountTarget", input);
   }
@@ -129,11 +84,7 @@ export class EFS extends AWSServiceClient {
     input: DeleteReplicationConfigurationRequest,
   ): Effect.Effect<
     {},
-    | BadRequest
-    | FileSystemNotFound
-    | InternalServerError
-    | ReplicationNotFound
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | InternalServerError | ReplicationNotFound | CommonAwsError
   > {
     return this.call("DeleteReplicationConfiguration", input);
   }
@@ -149,11 +100,7 @@ export class EFS extends AWSServiceClient {
     input: DescribeAccessPointsRequest,
   ): Effect.Effect<
     DescribeAccessPointsResponse,
-    | AccessPointNotFound
-    | BadRequest
-    | FileSystemNotFound
-    | InternalServerError
-    | CommonAwsError
+    AccessPointNotFound | BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
   > {
     return this.call("DescribeAccessPoints", input);
   }
@@ -169,12 +116,7 @@ export class EFS extends AWSServiceClient {
     input: DescribeBackupPolicyRequest,
   ): Effect.Effect<
     BackupPolicyDescription,
-    | BadRequest
-    | FileSystemNotFound
-    | InternalServerError
-    | PolicyNotFound
-    | ValidationException
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | InternalServerError | PolicyNotFound | ValidationException | CommonAwsError
   > {
     return this.call("DescribeBackupPolicy", input);
   }
@@ -182,11 +124,7 @@ export class EFS extends AWSServiceClient {
     input: DescribeFileSystemPolicyRequest,
   ): Effect.Effect<
     FileSystemPolicyDescription,
-    | BadRequest
-    | FileSystemNotFound
-    | InternalServerError
-    | PolicyNotFound
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | InternalServerError | PolicyNotFound | CommonAwsError
   > {
     return this.call("DescribeFileSystemPolicy", input);
   }
@@ -210,12 +148,7 @@ export class EFS extends AWSServiceClient {
     input: DescribeMountTargetsRequest,
   ): Effect.Effect<
     DescribeMountTargetsResponse,
-    | AccessPointNotFound
-    | BadRequest
-    | FileSystemNotFound
-    | InternalServerError
-    | MountTargetNotFound
-    | CommonAwsError
+    AccessPointNotFound | BadRequest | FileSystemNotFound | InternalServerError | MountTargetNotFound | CommonAwsError
   > {
     return this.call("DescribeMountTargets", input);
   }
@@ -223,11 +156,7 @@ export class EFS extends AWSServiceClient {
     input: DescribeMountTargetSecurityGroupsRequest,
   ): Effect.Effect<
     DescribeMountTargetSecurityGroupsResponse,
-    | BadRequest
-    | IncorrectMountTargetState
-    | InternalServerError
-    | MountTargetNotFound
-    | CommonAwsError
+    BadRequest | IncorrectMountTargetState | InternalServerError | MountTargetNotFound | CommonAwsError
   > {
     return this.call("DescribeMountTargetSecurityGroups", input);
   }
@@ -235,12 +164,7 @@ export class EFS extends AWSServiceClient {
     input: DescribeReplicationConfigurationsRequest,
   ): Effect.Effect<
     DescribeReplicationConfigurationsResponse,
-    | BadRequest
-    | FileSystemNotFound
-    | InternalServerError
-    | ReplicationNotFound
-    | ValidationException
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | InternalServerError | ReplicationNotFound | ValidationException | CommonAwsError
   > {
     return this.call("DescribeReplicationConfigurations", input);
   }
@@ -256,11 +180,7 @@ export class EFS extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessPointNotFound
-    | BadRequest
-    | FileSystemNotFound
-    | InternalServerError
-    | CommonAwsError
+    AccessPointNotFound | BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -268,13 +188,7 @@ export class EFS extends AWSServiceClient {
     input: ModifyMountTargetSecurityGroupsRequest,
   ): Effect.Effect<
     {},
-    | BadRequest
-    | IncorrectMountTargetState
-    | InternalServerError
-    | MountTargetNotFound
-    | SecurityGroupLimitExceeded
-    | SecurityGroupNotFound
-    | CommonAwsError
+    BadRequest | IncorrectMountTargetState | InternalServerError | MountTargetNotFound | SecurityGroupLimitExceeded | SecurityGroupNotFound | CommonAwsError
   > {
     return this.call("ModifyMountTargetSecurityGroups", input);
   }
@@ -290,12 +204,7 @@ export class EFS extends AWSServiceClient {
     input: PutBackupPolicyRequest,
   ): Effect.Effect<
     BackupPolicyDescription,
-    | BadRequest
-    | FileSystemNotFound
-    | IncorrectFileSystemLifeCycleState
-    | InternalServerError
-    | ValidationException
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncorrectFileSystemLifeCycleState | InternalServerError | ValidationException | CommonAwsError
   > {
     return this.call("PutBackupPolicy", input);
   }
@@ -303,12 +212,7 @@ export class EFS extends AWSServiceClient {
     input: PutFileSystemPolicyRequest,
   ): Effect.Effect<
     FileSystemPolicyDescription,
-    | BadRequest
-    | FileSystemNotFound
-    | IncorrectFileSystemLifeCycleState
-    | InternalServerError
-    | InvalidPolicyException
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncorrectFileSystemLifeCycleState | InternalServerError | InvalidPolicyException | CommonAwsError
   > {
     return this.call("PutFileSystemPolicy", input);
   }
@@ -316,11 +220,7 @@ export class EFS extends AWSServiceClient {
     input: PutLifecycleConfigurationRequest,
   ): Effect.Effect<
     LifecycleConfigurationDescription,
-    | BadRequest
-    | FileSystemNotFound
-    | IncorrectFileSystemLifeCycleState
-    | InternalServerError
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncorrectFileSystemLifeCycleState | InternalServerError | CommonAwsError
   > {
     return this.call("PutLifecycleConfiguration", input);
   }
@@ -328,11 +228,7 @@ export class EFS extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessPointNotFound
-    | BadRequest
-    | FileSystemNotFound
-    | InternalServerError
-    | CommonAwsError
+    AccessPointNotFound | BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -340,11 +236,7 @@ export class EFS extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessPointNotFound
-    | BadRequest
-    | FileSystemNotFound
-    | InternalServerError
-    | CommonAwsError
+    AccessPointNotFound | BadRequest | FileSystemNotFound | InternalServerError | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -352,14 +244,7 @@ export class EFS extends AWSServiceClient {
     input: UpdateFileSystemRequest,
   ): Effect.Effect<
     FileSystemDescription,
-    | BadRequest
-    | FileSystemNotFound
-    | IncorrectFileSystemLifeCycleState
-    | InsufficientThroughputCapacity
-    | InternalServerError
-    | ThroughputLimitExceeded
-    | TooManyRequests
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncorrectFileSystemLifeCycleState | InsufficientThroughputCapacity | InternalServerError | ThroughputLimitExceeded | TooManyRequests | CommonAwsError
   > {
     return this.call("UpdateFileSystem", input);
   }
@@ -367,15 +252,7 @@ export class EFS extends AWSServiceClient {
     input: UpdateFileSystemProtectionRequest,
   ): Effect.Effect<
     FileSystemProtectionDescription,
-    | BadRequest
-    | FileSystemNotFound
-    | IncorrectFileSystemLifeCycleState
-    | InsufficientThroughputCapacity
-    | InternalServerError
-    | ReplicationAlreadyExists
-    | ThroughputLimitExceeded
-    | TooManyRequests
-    | CommonAwsError
+    BadRequest | FileSystemNotFound | IncorrectFileSystemLifeCycleState | InsufficientThroughputCapacity | InternalServerError | ReplicationAlreadyExists | ThroughputLimitExceeded | TooManyRequests | CommonAwsError
   > {
     return this.call("UpdateFileSystemProtection", input);
   }
@@ -441,7 +318,9 @@ export interface BackupPolicy {
 export interface BackupPolicyDescription {
   BackupPolicy?: BackupPolicy;
 }
-export declare class BadRequest extends EffectData.TaggedError("BadRequest")<{
+export declare class BadRequest extends EffectData.TaggedError(
+  "BadRequest",
+)<{
   readonly ErrorCode: string;
   readonly Message?: string;
 }> {}
@@ -744,13 +623,7 @@ export interface LifecyclePolicy {
   TransitionToPrimaryStorageClass?: TransitionToPrimaryStorageClassRules;
   TransitionToArchive?: TransitionToArchiveRules;
 }
-export type LifeCycleState =
-  | "CREATING"
-  | "AVAILABLE"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "ERROR";
+export type LifeCycleState = "CREATING" | "AVAILABLE" | "UPDATING" | "DELETING" | "DELETED" | "ERROR";
 export interface ListTagsForResourceRequest {
   ResourceId: string;
   MaxResults?: number;
@@ -876,25 +749,15 @@ export interface ReplicationConfigurationDescription {
   Destinations: Array<Destination>;
   SourceFileSystemOwnerId?: string;
 }
-export type ReplicationConfigurationDescriptions =
-  Array<ReplicationConfigurationDescription>;
+export type ReplicationConfigurationDescriptions = Array<ReplicationConfigurationDescription>;
 export declare class ReplicationNotFound extends EffectData.TaggedError(
   "ReplicationNotFound",
 )<{
   readonly ErrorCode?: string;
   readonly Message?: string;
 }> {}
-export type ReplicationOverwriteProtection =
-  | "ENABLED"
-  | "DISABLED"
-  | "REPLICATING";
-export type ReplicationStatus =
-  | "ENABLED"
-  | "ENABLING"
-  | "DELETING"
-  | "ERROR"
-  | "PAUSED"
-  | "PAUSING";
+export type ReplicationOverwriteProtection = "ENABLED" | "DISABLED" | "REPLICATING";
+export type ReplicationStatus = "ENABLED" | "ENABLING" | "DELETING" | "ERROR" | "PAUSED" | "PAUSING";
 export type Resource = "FileSystem" | "MountTarget";
 export type ResourceId = string;
 
@@ -974,26 +837,8 @@ export declare class TooManyRequests extends EffectData.TaggedError(
   readonly ErrorCode: string;
   readonly Message?: string;
 }> {}
-export type TransitionToArchiveRules =
-  | "AFTER_1_DAY"
-  | "AFTER_7_DAYS"
-  | "AFTER_14_DAYS"
-  | "AFTER_30_DAYS"
-  | "AFTER_60_DAYS"
-  | "AFTER_90_DAYS"
-  | "AFTER_180_DAYS"
-  | "AFTER_270_DAYS"
-  | "AFTER_365_DAYS";
-export type TransitionToIARules =
-  | "AFTER_7_DAYS"
-  | "AFTER_14_DAYS"
-  | "AFTER_30_DAYS"
-  | "AFTER_60_DAYS"
-  | "AFTER_90_DAYS"
-  | "AFTER_1_DAY"
-  | "AFTER_180_DAYS"
-  | "AFTER_270_DAYS"
-  | "AFTER_365_DAYS";
+export type TransitionToArchiveRules = "AFTER_1_DAY" | "AFTER_7_DAYS" | "AFTER_14_DAYS" | "AFTER_30_DAYS" | "AFTER_60_DAYS" | "AFTER_90_DAYS" | "AFTER_180_DAYS" | "AFTER_270_DAYS" | "AFTER_365_DAYS";
+export type TransitionToIARules = "AFTER_7_DAYS" | "AFTER_14_DAYS" | "AFTER_30_DAYS" | "AFTER_60_DAYS" | "AFTER_90_DAYS" | "AFTER_1_DAY" | "AFTER_180_DAYS" | "AFTER_270_DAYS" | "AFTER_365_DAYS";
 export type TransitionToPrimaryStorageClassRules = "AFTER_1_ACCESS";
 export type Uid = number;
 
@@ -1178,7 +1023,9 @@ export declare namespace DescribeAccessPoints {
 export declare namespace DescribeAccountPreferences {
   export type Input = DescribeAccountPreferencesRequest;
   export type Output = DescribeAccountPreferencesResponse;
-  export type Error = InternalServerError | CommonAwsError;
+  export type Error =
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeBackupPolicy {
@@ -1296,7 +1143,10 @@ export declare namespace ModifyMountTargetSecurityGroups {
 export declare namespace PutAccountPreferences {
   export type Input = PutAccountPreferencesRequest;
   export type Output = PutAccountPreferencesResponse;
-  export type Error = BadRequest | InternalServerError | CommonAwsError;
+  export type Error =
+    | BadRequest
+    | InternalServerError
+    | CommonAwsError;
 }
 
 export declare namespace PutBackupPolicy {
@@ -1384,3 +1234,4 @@ export declare namespace UpdateFileSystemProtection {
     | TooManyRequests
     | CommonAwsError;
 }
+

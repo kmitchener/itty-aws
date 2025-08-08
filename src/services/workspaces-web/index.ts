@@ -1,18 +1,19 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class WorkSpacesWeb extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("workspaces-web", new RestJson1Protocol(), cfg);
+  }
+
   expireSession(
     input: ExpireSessionRequest,
   ): Effect.Effect<
     ExpireSessionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ExpireSession", input);
   }
@@ -20,12 +21,7 @@ export class WorkSpacesWeb extends AWSServiceClient {
     input: GetSessionRequest,
   ): Effect.Effect<
     GetSessionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetSession", input);
   }
@@ -33,12 +29,7 @@ export class WorkSpacesWeb extends AWSServiceClient {
     input: ListSessionsRequest,
   ): Effect.Effect<
     ListSessionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSessions", input);
   }
@@ -46,12 +37,7 @@ export class WorkSpacesWeb extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -59,13 +45,7 @@ export class WorkSpacesWeb extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -73,12 +53,7 @@ export class WorkSpacesWeb extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -372,43 +347,53 @@ export interface DataProtectionSettingsSummary {
 export interface DeleteBrowserSettingsRequest {
   browserSettingsArn: string;
 }
-export interface DeleteBrowserSettingsResponse {}
+export interface DeleteBrowserSettingsResponse {
+}
 export interface DeleteDataProtectionSettingsRequest {
   dataProtectionSettingsArn: string;
 }
-export interface DeleteDataProtectionSettingsResponse {}
+export interface DeleteDataProtectionSettingsResponse {
+}
 export interface DeleteIdentityProviderRequest {
   identityProviderArn: string;
 }
-export interface DeleteIdentityProviderResponse {}
+export interface DeleteIdentityProviderResponse {
+}
 export interface DeleteIpAccessSettingsRequest {
   ipAccessSettingsArn: string;
 }
-export interface DeleteIpAccessSettingsResponse {}
+export interface DeleteIpAccessSettingsResponse {
+}
 export interface DeleteNetworkSettingsRequest {
   networkSettingsArn: string;
 }
-export interface DeleteNetworkSettingsResponse {}
+export interface DeleteNetworkSettingsResponse {
+}
 export interface DeletePortalRequest {
   portalArn: string;
 }
-export interface DeletePortalResponse {}
+export interface DeletePortalResponse {
+}
 export interface DeleteSessionLoggerRequest {
   sessionLoggerArn: string;
 }
-export interface DeleteSessionLoggerResponse {}
+export interface DeleteSessionLoggerResponse {
+}
 export interface DeleteTrustStoreRequest {
   trustStoreArn: string;
 }
-export interface DeleteTrustStoreResponse {}
+export interface DeleteTrustStoreResponse {
+}
 export interface DeleteUserAccessLoggingSettingsRequest {
   userAccessLoggingSettingsArn: string;
 }
-export interface DeleteUserAccessLoggingSettingsResponse {}
+export interface DeleteUserAccessLoggingSettingsResponse {
+}
 export interface DeleteUserSettingsRequest {
   userSettingsArn: string;
 }
-export interface DeleteUserSettingsResponse {}
+export interface DeleteUserSettingsResponse {
+}
 export type Description = string;
 
 export type DescriptionSafe = string;
@@ -416,35 +401,43 @@ export type DescriptionSafe = string;
 export interface DisassociateBrowserSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateBrowserSettingsResponse {}
+export interface DisassociateBrowserSettingsResponse {
+}
 export interface DisassociateDataProtectionSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateDataProtectionSettingsResponse {}
+export interface DisassociateDataProtectionSettingsResponse {
+}
 export interface DisassociateIpAccessSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateIpAccessSettingsResponse {}
+export interface DisassociateIpAccessSettingsResponse {
+}
 export interface DisassociateNetworkSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateNetworkSettingsResponse {}
+export interface DisassociateNetworkSettingsResponse {
+}
 export interface DisassociateSessionLoggerRequest {
   portalArn: string;
 }
-export interface DisassociateSessionLoggerResponse {}
+export interface DisassociateSessionLoggerResponse {
+}
 export interface DisassociateTrustStoreRequest {
   portalArn: string;
 }
-export interface DisassociateTrustStoreResponse {}
+export interface DisassociateTrustStoreResponse {
+}
 export interface DisassociateUserAccessLoggingSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateUserAccessLoggingSettingsResponse {}
+export interface DisassociateUserAccessLoggingSettingsResponse {
+}
 export interface DisassociateUserSettingsRequest {
   portalArn: string;
 }
-export interface DisassociateUserSettingsResponse {}
+export interface DisassociateUserSettingsResponse {
+}
 export type DisconnectTimeoutInMinutes = number;
 
 export type DisplayName = string;
@@ -454,31 +447,13 @@ export type DisplayNameSafe = string;
 export type EnabledType = string;
 
 export type EncryptionContextMap = Record<string, string>;
-export type Event =
-  | "WEBSITE_INTERACT"
-  | "FILE_DOWNLOAD_FROM_SECURE_BROWSER_TO_REMOTE_DISK"
-  | "FILE_TRANSFER_FROM_REMOTE_TO_LOCAL_DISK"
-  | "FILE_TRANSFER_FROM_LOCAL_TO_REMOTE_DISK"
-  | "FILE_UPLOAD_FROM_REMOTE_DISK_TO_SECURE_BROWSER"
-  | "CONTENT_PASTE_TO_WEBSITE"
-  | "CONTENT_TRANSFER_FROM_LOCAL_TO_REMOTE_CLIPBOARD"
-  | "CONTENT_COPY_FROM_WEBSITE"
-  | "URL_LOAD"
-  | "TAB_OPEN"
-  | "TAB_CLOSE"
-  | "PRINT_JOB_SUBMIT"
-  | "SESSION_CONNECT"
-  | "SESSION_START"
-  | "SESSION_DISCONNECT"
-  | "SESSION_END";
+export type Event = "WEBSITE_INTERACT" | "FILE_DOWNLOAD_FROM_SECURE_BROWSER_TO_REMOTE_DISK" | "FILE_TRANSFER_FROM_REMOTE_TO_LOCAL_DISK" | "FILE_TRANSFER_FROM_LOCAL_TO_REMOTE_DISK" | "FILE_UPLOAD_FROM_REMOTE_DISK_TO_SECURE_BROWSER" | "CONTENT_PASTE_TO_WEBSITE" | "CONTENT_TRANSFER_FROM_LOCAL_TO_REMOTE_CLIPBOARD" | "CONTENT_COPY_FROM_WEBSITE" | "URL_LOAD" | "TAB_OPEN" | "TAB_CLOSE" | "PRINT_JOB_SUBMIT" | "SESSION_CONNECT" | "SESSION_START" | "SESSION_DISCONNECT" | "SESSION_END";
 interface _EventFilter {
   all?: {};
   include?: Array<Event>;
 }
 
-export type EventFilter =
-  | (_EventFilter & { all: {} })
-  | (_EventFilter & { include: Array<Event> });
+export type EventFilter = (_EventFilter & { all: {} }) | (_EventFilter & { include: Array<Event> });
 export type Events = Array<Event>;
 export type ExceptionMessage = string;
 
@@ -486,7 +461,8 @@ export interface ExpireSessionRequest {
   portalId: string;
   sessionId: string;
 }
-export interface ExpireSessionResponse {}
+export interface ExpireSessionResponse {
+}
 export type FieldName = string;
 
 export type FolderStructure = "FLAT" | "NESTED_BY_DATE";
@@ -955,7 +931,8 @@ export interface TagResourceRequest {
   tags: Array<Tag>;
   clientToken?: string;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -996,7 +973,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateBrowserSettingsRequest {
   browserSettingsArn: string;
   browserPolicy?: string;
@@ -1103,8 +1081,7 @@ export interface UserAccessLoggingSettings {
   associatedPortalArns?: Array<string>;
   kinesisStreamArn?: string;
 }
-export type UserAccessLoggingSettingsList =
-  Array<UserAccessLoggingSettingsSummary>;
+export type UserAccessLoggingSettingsList = Array<UserAccessLoggingSettingsSummary>;
 export interface UserAccessLoggingSettingsSummary {
   userAccessLoggingSettingsArn: string;
   kinesisStreamArn?: string;
@@ -1231,3 +1208,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

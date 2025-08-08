@@ -1,17 +1,19 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IoTEventsData extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iot-events-data", new RestJson1Protocol(), cfg);
+  }
+
   batchAcknowledgeAlarm(
     input: BatchAcknowledgeAlarmRequest,
   ): Effect.Effect<
     BatchAcknowledgeAlarmResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchAcknowledgeAlarm", input);
   }
@@ -19,11 +21,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: BatchDeleteDetectorRequest,
   ): Effect.Effect<
     BatchDeleteDetectorResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchDeleteDetector", input);
   }
@@ -31,11 +29,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: BatchDisableAlarmRequest,
   ): Effect.Effect<
     BatchDisableAlarmResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchDisableAlarm", input);
   }
@@ -43,11 +37,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: BatchEnableAlarmRequest,
   ): Effect.Effect<
     BatchEnableAlarmResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchEnableAlarm", input);
   }
@@ -55,11 +45,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: BatchPutMessageRequest,
   ): Effect.Effect<
     BatchPutMessageResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchPutMessage", input);
   }
@@ -67,11 +53,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: BatchResetAlarmRequest,
   ): Effect.Effect<
     BatchResetAlarmResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchResetAlarm", input);
   }
@@ -79,11 +61,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: BatchSnoozeAlarmRequest,
   ): Effect.Effect<
     BatchSnoozeAlarmResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchSnoozeAlarm", input);
   }
@@ -91,11 +69,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: BatchUpdateDetectorRequest,
   ): Effect.Effect<
     BatchUpdateDetectorResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchUpdateDetector", input);
   }
@@ -103,12 +77,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: DescribeAlarmRequest,
   ): Effect.Effect<
     DescribeAlarmResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAlarm", input);
   }
@@ -116,12 +85,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: DescribeDetectorRequest,
   ): Effect.Effect<
     DescribeDetectorResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDetector", input);
   }
@@ -129,12 +93,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: ListAlarmsRequest,
   ): Effect.Effect<
     ListAlarmsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAlarms", input);
   }
@@ -142,12 +101,7 @@ export class IoTEventsData extends AWSServiceClient {
     input: ListDetectorsRequest,
   ): Effect.Effect<
     ListDetectorsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDetectors", input);
   }
@@ -166,8 +120,7 @@ export interface AcknowledgeAlarmActionRequest {
   keyValue?: string;
   note?: string;
 }
-export type AcknowledgeAlarmActionRequests =
-  Array<AcknowledgeAlarmActionRequest>;
+export type AcknowledgeAlarmActionRequests = Array<AcknowledgeAlarmActionRequest>;
 export interface Alarm {
   alarmModelName?: string;
   alarmModelVersion?: string;
@@ -187,13 +140,7 @@ export interface AlarmState {
   customerAction?: CustomerAction;
   systemEvent?: SystemEvent;
 }
-export type AlarmStateName =
-  | "DISABLED"
-  | "NORMAL"
-  | "ACTIVE"
-  | "ACKNOWLEDGED"
-  | "SNOOZE_DISABLED"
-  | "LATCHED";
+export type AlarmStateName = "DISABLED" | "NORMAL" | "ACTIVE" | "ACKNOWLEDGED" | "SNOOZE_DISABLED" | "LATCHED";
 export type AlarmSummaries = Array<AlarmSummary>;
 export interface AlarmSummary {
   alarmModelName?: string;
@@ -215,8 +162,7 @@ export interface BatchAlarmActionErrorEntry {
   errorCode?: ErrorCode;
   errorMessage?: string;
 }
-export type BatchDeleteDetectorErrorEntries =
-  Array<BatchDeleteDetectorErrorEntry>;
+export type BatchDeleteDetectorErrorEntries = Array<BatchDeleteDetectorErrorEntry>;
 export interface BatchDeleteDetectorErrorEntry {
   messageId?: string;
   errorCode?: ErrorCode;
@@ -264,8 +210,7 @@ export interface BatchSnoozeAlarmRequest {
 export interface BatchSnoozeAlarmResponse {
   errorEntries?: Array<BatchAlarmActionErrorEntry>;
 }
-export type BatchUpdateDetectorErrorEntries =
-  Array<BatchUpdateDetectorErrorEntry>;
+export type BatchUpdateDetectorErrorEntries = Array<BatchUpdateDetectorErrorEntry>;
 export interface BatchUpdateDetectorErrorEntry {
   messageId?: string;
   errorCode?: ErrorCode;
@@ -277,13 +222,7 @@ export interface BatchUpdateDetectorRequest {
 export interface BatchUpdateDetectorResponse {
   batchUpdateDetectorErrorEntries?: Array<BatchUpdateDetectorErrorEntry>;
 }
-export type ComparisonOperator =
-  | "GREATER"
-  | "GREATER_OR_EQUAL"
-  | "LESS"
-  | "LESS_OR_EQUAL"
-  | "EQUAL"
-  | "NOT_EQUAL";
+export type ComparisonOperator = "GREATER" | "GREATER_OR_EQUAL" | "LESS" | "LESS_OR_EQUAL" | "EQUAL" | "NOT_EQUAL";
 export interface CustomerAction {
   actionName?: CustomerActionName;
   snoozeActionConfiguration?: SnoozeActionConfiguration;
@@ -292,12 +231,7 @@ export interface CustomerAction {
   acknowledgeActionConfiguration?: AcknowledgeActionConfiguration;
   resetActionConfiguration?: ResetActionConfiguration;
 }
-export type CustomerActionName =
-  | "SNOOZE"
-  | "ENABLE"
-  | "DISABLE"
-  | "ACKNOWLEDGE"
-  | "RESET";
+export type CustomerActionName = "SNOOZE" | "ENABLE" | "DISABLE" | "ACKNOWLEDGE" | "RESET";
 export interface DeleteDetectorRequest {
   messageId: string;
   detectorModelName: string;
@@ -376,12 +310,7 @@ export type EphemeralInputName = string;
 
 export type EpochMilliTimestamp = number;
 
-export type ErrorCode =
-  | "ResourceNotFoundException"
-  | "InvalidRequestException"
-  | "InternalFailureException"
-  | "ServiceUnavailableException"
-  | "ThrottlingException";
+export type ErrorCode = "ResourceNotFoundException" | "InvalidRequestException" | "InternalFailureException" | "ServiceUnavailableException" | "ThrottlingException";
 export type ErrorMessage = string;
 
 export type EventType = "STATE_CHANGE";
@@ -673,3 +602,4 @@ export declare namespace ListDetectors {
     | ThrottlingException
     | CommonAwsError;
 }
+

@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class SFN extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sfn", new AwsJson10Protocol(), cfg);
+  }
+
   createActivity(
     input: CreateActivityInput,
   ): Effect.Effect<
     CreateActivityOutput,
-    | ActivityAlreadyExists
-    | ActivityLimitExceeded
-    | InvalidEncryptionConfiguration
-    | InvalidName
-    | KmsAccessDeniedException
-    | KmsThrottlingException
-    | TooManyTags
-    | CommonAwsError
+    ActivityAlreadyExists | ActivityLimitExceeded | InvalidEncryptionConfiguration | InvalidName | KmsAccessDeniedException | KmsThrottlingException | TooManyTags | CommonAwsError
   > {
     return this.call("CreateActivity", input);
   }
@@ -22,22 +20,7 @@ export class SFN extends AWSServiceClient {
     input: CreateStateMachineInput,
   ): Effect.Effect<
     CreateStateMachineOutput,
-    | ConflictException
-    | InvalidArn
-    | InvalidDefinition
-    | InvalidEncryptionConfiguration
-    | InvalidLoggingConfiguration
-    | InvalidName
-    | InvalidTracingConfiguration
-    | KmsAccessDeniedException
-    | KmsThrottlingException
-    | StateMachineAlreadyExists
-    | StateMachineDeleting
-    | StateMachineLimitExceeded
-    | StateMachineTypeNotSupported
-    | TooManyTags
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InvalidArn | InvalidDefinition | InvalidEncryptionConfiguration | InvalidLoggingConfiguration | InvalidName | InvalidTracingConfiguration | KmsAccessDeniedException | KmsThrottlingException | StateMachineAlreadyExists | StateMachineDeleting | StateMachineLimitExceeded | StateMachineTypeNotSupported | TooManyTags | ValidationException | CommonAwsError
   > {
     return this.call("CreateStateMachine", input);
   }
@@ -45,20 +28,16 @@ export class SFN extends AWSServiceClient {
     input: CreateStateMachineAliasInput,
   ): Effect.Effect<
     CreateStateMachineAliasOutput,
-    | ConflictException
-    | InvalidArn
-    | InvalidName
-    | ResourceNotFound
-    | ServiceQuotaExceededException
-    | StateMachineDeleting
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InvalidArn | InvalidName | ResourceNotFound | ServiceQuotaExceededException | StateMachineDeleting | ValidationException | CommonAwsError
   > {
     return this.call("CreateStateMachineAlias", input);
   }
   deleteActivity(
     input: DeleteActivityInput,
-  ): Effect.Effect<DeleteActivityOutput, InvalidArn | CommonAwsError> {
+  ): Effect.Effect<
+    DeleteActivityOutput,
+    InvalidArn | CommonAwsError
+  > {
     return this.call("DeleteActivity", input);
   }
   deleteStateMachine(
@@ -73,11 +52,7 @@ export class SFN extends AWSServiceClient {
     input: DeleteStateMachineAliasInput,
   ): Effect.Effect<
     DeleteStateMachineAliasOutput,
-    | ConflictException
-    | InvalidArn
-    | ResourceNotFound
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InvalidArn | ResourceNotFound | ValidationException | CommonAwsError
   > {
     return this.call("DeleteStateMachineAlias", input);
   }
@@ -101,12 +76,7 @@ export class SFN extends AWSServiceClient {
     input: DescribeExecutionInput,
   ): Effect.Effect<
     DescribeExecutionOutput,
-    | ExecutionDoesNotExist
-    | InvalidArn
-    | KmsAccessDeniedException
-    | KmsInvalidStateException
-    | KmsThrottlingException
-    | CommonAwsError
+    ExecutionDoesNotExist | InvalidArn | KmsAccessDeniedException | KmsInvalidStateException | KmsThrottlingException | CommonAwsError
   > {
     return this.call("DescribeExecution", input);
   }
@@ -122,12 +92,7 @@ export class SFN extends AWSServiceClient {
     input: DescribeStateMachineInput,
   ): Effect.Effect<
     DescribeStateMachineOutput,
-    | InvalidArn
-    | KmsAccessDeniedException
-    | KmsInvalidStateException
-    | KmsThrottlingException
-    | StateMachineDoesNotExist
-    | CommonAwsError
+    InvalidArn | KmsAccessDeniedException | KmsInvalidStateException | KmsThrottlingException | StateMachineDoesNotExist | CommonAwsError
   > {
     return this.call("DescribeStateMachine", input);
   }
@@ -143,12 +108,7 @@ export class SFN extends AWSServiceClient {
     input: DescribeStateMachineForExecutionInput,
   ): Effect.Effect<
     DescribeStateMachineForExecutionOutput,
-    | ExecutionDoesNotExist
-    | InvalidArn
-    | KmsAccessDeniedException
-    | KmsInvalidStateException
-    | KmsThrottlingException
-    | CommonAwsError
+    ExecutionDoesNotExist | InvalidArn | KmsAccessDeniedException | KmsInvalidStateException | KmsThrottlingException | CommonAwsError
   > {
     return this.call("DescribeStateMachineForExecution", input);
   }
@@ -156,13 +116,7 @@ export class SFN extends AWSServiceClient {
     input: GetActivityTaskInput,
   ): Effect.Effect<
     GetActivityTaskOutput,
-    | ActivityDoesNotExist
-    | ActivityWorkerLimitExceeded
-    | InvalidArn
-    | KmsAccessDeniedException
-    | KmsInvalidStateException
-    | KmsThrottlingException
-    | CommonAwsError
+    ActivityDoesNotExist | ActivityWorkerLimitExceeded | InvalidArn | KmsAccessDeniedException | KmsInvalidStateException | KmsThrottlingException | CommonAwsError
   > {
     return this.call("GetActivityTask", input);
   }
@@ -170,32 +124,23 @@ export class SFN extends AWSServiceClient {
     input: GetExecutionHistoryInput,
   ): Effect.Effect<
     GetExecutionHistoryOutput,
-    | ExecutionDoesNotExist
-    | InvalidArn
-    | InvalidToken
-    | KmsAccessDeniedException
-    | KmsInvalidStateException
-    | KmsThrottlingException
-    | CommonAwsError
+    ExecutionDoesNotExist | InvalidArn | InvalidToken | KmsAccessDeniedException | KmsInvalidStateException | KmsThrottlingException | CommonAwsError
   > {
     return this.call("GetExecutionHistory", input);
   }
   listActivities(
     input: ListActivitiesInput,
-  ): Effect.Effect<ListActivitiesOutput, InvalidToken | CommonAwsError> {
+  ): Effect.Effect<
+    ListActivitiesOutput,
+    InvalidToken | CommonAwsError
+  > {
     return this.call("ListActivities", input);
   }
   listExecutions(
     input: ListExecutionsInput,
   ): Effect.Effect<
     ListExecutionsOutput,
-    | InvalidArn
-    | InvalidToken
-    | ResourceNotFound
-    | StateMachineDoesNotExist
-    | StateMachineTypeNotSupported
-    | ValidationException
-    | CommonAwsError
+    InvalidArn | InvalidToken | ResourceNotFound | StateMachineDoesNotExist | StateMachineTypeNotSupported | ValidationException | CommonAwsError
   > {
     return this.call("ListExecutions", input);
   }
@@ -211,18 +156,16 @@ export class SFN extends AWSServiceClient {
     input: ListStateMachineAliasesInput,
   ): Effect.Effect<
     ListStateMachineAliasesOutput,
-    | InvalidArn
-    | InvalidToken
-    | ResourceNotFound
-    | StateMachineDeleting
-    | StateMachineDoesNotExist
-    | CommonAwsError
+    InvalidArn | InvalidToken | ResourceNotFound | StateMachineDeleting | StateMachineDoesNotExist | CommonAwsError
   > {
     return this.call("ListStateMachineAliases", input);
   }
   listStateMachines(
     input: ListStateMachinesInput,
-  ): Effect.Effect<ListStateMachinesOutput, InvalidToken | CommonAwsError> {
+  ): Effect.Effect<
+    ListStateMachinesOutput,
+    InvalidToken | CommonAwsError
+  > {
     return this.call("ListStateMachines", input);
   }
   listStateMachineVersions(
@@ -245,13 +188,7 @@ export class SFN extends AWSServiceClient {
     input: PublishStateMachineVersionInput,
   ): Effect.Effect<
     PublishStateMachineVersionOutput,
-    | ConflictException
-    | InvalidArn
-    | ServiceQuotaExceededException
-    | StateMachineDeleting
-    | StateMachineDoesNotExist
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InvalidArn | ServiceQuotaExceededException | StateMachineDeleting | StateMachineDoesNotExist | ValidationException | CommonAwsError
   > {
     return this.call("PublishStateMachineVersion", input);
   }
@@ -259,12 +196,7 @@ export class SFN extends AWSServiceClient {
     input: RedriveExecutionInput,
   ): Effect.Effect<
     RedriveExecutionOutput,
-    | ExecutionDoesNotExist
-    | ExecutionLimitExceeded
-    | ExecutionNotRedrivable
-    | InvalidArn
-    | ValidationException
-    | CommonAwsError
+    ExecutionDoesNotExist | ExecutionLimitExceeded | ExecutionNotRedrivable | InvalidArn | ValidationException | CommonAwsError
   > {
     return this.call("RedriveExecution", input);
   }
@@ -272,13 +204,7 @@ export class SFN extends AWSServiceClient {
     input: SendTaskFailureInput,
   ): Effect.Effect<
     SendTaskFailureOutput,
-    | InvalidToken
-    | KmsAccessDeniedException
-    | KmsInvalidStateException
-    | KmsThrottlingException
-    | TaskDoesNotExist
-    | TaskTimedOut
-    | CommonAwsError
+    InvalidToken | KmsAccessDeniedException | KmsInvalidStateException | KmsThrottlingException | TaskDoesNotExist | TaskTimedOut | CommonAwsError
   > {
     return this.call("SendTaskFailure", input);
   }
@@ -294,14 +220,7 @@ export class SFN extends AWSServiceClient {
     input: SendTaskSuccessInput,
   ): Effect.Effect<
     SendTaskSuccessOutput,
-    | InvalidOutput
-    | InvalidToken
-    | KmsAccessDeniedException
-    | KmsInvalidStateException
-    | KmsThrottlingException
-    | TaskDoesNotExist
-    | TaskTimedOut
-    | CommonAwsError
+    InvalidOutput | InvalidToken | KmsAccessDeniedException | KmsInvalidStateException | KmsThrottlingException | TaskDoesNotExist | TaskTimedOut | CommonAwsError
   > {
     return this.call("SendTaskSuccess", input);
   }
@@ -309,18 +228,7 @@ export class SFN extends AWSServiceClient {
     input: StartExecutionInput,
   ): Effect.Effect<
     StartExecutionOutput,
-    | ExecutionAlreadyExists
-    | ExecutionLimitExceeded
-    | InvalidArn
-    | InvalidExecutionInput
-    | InvalidName
-    | KmsAccessDeniedException
-    | KmsInvalidStateException
-    | KmsThrottlingException
-    | StateMachineDeleting
-    | StateMachineDoesNotExist
-    | ValidationException
-    | CommonAwsError
+    ExecutionAlreadyExists | ExecutionLimitExceeded | InvalidArn | InvalidExecutionInput | InvalidName | KmsAccessDeniedException | KmsInvalidStateException | KmsThrottlingException | StateMachineDeleting | StateMachineDoesNotExist | ValidationException | CommonAwsError
   > {
     return this.call("StartExecution", input);
   }
@@ -328,16 +236,7 @@ export class SFN extends AWSServiceClient {
     input: StartSyncExecutionInput,
   ): Effect.Effect<
     StartSyncExecutionOutput,
-    | InvalidArn
-    | InvalidExecutionInput
-    | InvalidName
-    | KmsAccessDeniedException
-    | KmsInvalidStateException
-    | KmsThrottlingException
-    | StateMachineDeleting
-    | StateMachineDoesNotExist
-    | StateMachineTypeNotSupported
-    | CommonAwsError
+    InvalidArn | InvalidExecutionInput | InvalidName | KmsAccessDeniedException | KmsInvalidStateException | KmsThrottlingException | StateMachineDeleting | StateMachineDoesNotExist | StateMachineTypeNotSupported | CommonAwsError
   > {
     return this.call("StartSyncExecution", input);
   }
@@ -345,13 +244,7 @@ export class SFN extends AWSServiceClient {
     input: StopExecutionInput,
   ): Effect.Effect<
     StopExecutionOutput,
-    | ExecutionDoesNotExist
-    | InvalidArn
-    | KmsAccessDeniedException
-    | KmsInvalidStateException
-    | KmsThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ExecutionDoesNotExist | InvalidArn | KmsAccessDeniedException | KmsInvalidStateException | KmsThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopExecution", input);
   }
@@ -367,11 +260,7 @@ export class SFN extends AWSServiceClient {
     input: TestStateInput,
   ): Effect.Effect<
     TestStateOutput,
-    | InvalidArn
-    | InvalidDefinition
-    | InvalidExecutionInput
-    | ValidationException
-    | CommonAwsError
+    InvalidArn | InvalidDefinition | InvalidExecutionInput | ValidationException | CommonAwsError
   > {
     return this.call("TestState", input);
   }
@@ -395,20 +284,7 @@ export class SFN extends AWSServiceClient {
     input: UpdateStateMachineInput,
   ): Effect.Effect<
     UpdateStateMachineOutput,
-    | ConflictException
-    | InvalidArn
-    | InvalidDefinition
-    | InvalidEncryptionConfiguration
-    | InvalidLoggingConfiguration
-    | InvalidTracingConfiguration
-    | KmsAccessDeniedException
-    | KmsThrottlingException
-    | MissingRequiredParameter
-    | ServiceQuotaExceededException
-    | StateMachineDeleting
-    | StateMachineDoesNotExist
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InvalidArn | InvalidDefinition | InvalidEncryptionConfiguration | InvalidLoggingConfiguration | InvalidTracingConfiguration | KmsAccessDeniedException | KmsThrottlingException | MissingRequiredParameter | ServiceQuotaExceededException | StateMachineDeleting | StateMachineDoesNotExist | ValidationException | CommonAwsError
   > {
     return this.call("UpdateStateMachine", input);
   }
@@ -416,12 +292,7 @@ export class SFN extends AWSServiceClient {
     input: UpdateStateMachineAliasInput,
   ): Effect.Effect<
     UpdateStateMachineAliasOutput,
-    | ConflictException
-    | InvalidArn
-    | ResourceNotFound
-    | StateMachineDeleting
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InvalidArn | ResourceNotFound | StateMachineDeleting | ValidationException | CommonAwsError
   > {
     return this.call("UpdateStateMachineAlias", input);
   }
@@ -564,19 +435,23 @@ export type Definition = string;
 export interface DeleteActivityInput {
   activityArn: string;
 }
-export interface DeleteActivityOutput {}
+export interface DeleteActivityOutput {
+}
 export interface DeleteStateMachineAliasInput {
   stateMachineAliasArn: string;
 }
-export interface DeleteStateMachineAliasOutput {}
+export interface DeleteStateMachineAliasOutput {
+}
 export interface DeleteStateMachineInput {
   stateMachineArn: string;
 }
-export interface DeleteStateMachineOutput {}
+export interface DeleteStateMachineOutput {
+}
 export interface DeleteStateMachineVersionInput {
   stateMachineVersionArn: string;
 }
-export interface DeleteStateMachineVersionOutput {}
+export interface DeleteStateMachineVersionOutput {
+}
 export interface DescribeActivityInput {
   activityArn: string;
 }
@@ -745,10 +620,7 @@ export type ExecutionRedriveFilter = "REDRIVEN" | "NOT_REDRIVEN";
 export interface ExecutionRedrivenEventDetails {
   redriveCount?: number;
 }
-export type ExecutionRedriveStatus =
-  | "REDRIVABLE"
-  | "NOT_REDRIVABLE"
-  | "REDRIVABLE_BY_MAP_RUN";
+export type ExecutionRedriveStatus = "REDRIVABLE" | "NOT_REDRIVABLE" | "REDRIVABLE_BY_MAP_RUN";
 export interface ExecutionStartedEventDetails {
   input?: string;
   inputDetails?: HistoryEventExecutionDataDetails;
@@ -756,13 +628,7 @@ export interface ExecutionStartedEventDetails {
   stateMachineAliasArn?: string;
   stateMachineVersionArn?: string;
 }
-export type ExecutionStatus =
-  | "RUNNING"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "TIMED_OUT"
-  | "ABORTED"
-  | "PENDING_REDRIVE";
+export type ExecutionStatus = "RUNNING" | "SUCCEEDED" | "FAILED" | "TIMED_OUT" | "ABORTED" | "PENDING_REDRIVE";
 export interface ExecutionSucceededEventDetails {
   output?: string;
   outputDetails?: HistoryEventExecutionDataDetails;
@@ -837,69 +703,7 @@ export interface HistoryEventExecutionDataDetails {
   truncated?: boolean;
 }
 export type HistoryEventList = Array<HistoryEvent>;
-export type HistoryEventType =
-  | "ActivityFailed"
-  | "ActivityScheduled"
-  | "ActivityScheduleFailed"
-  | "ActivityStarted"
-  | "ActivitySucceeded"
-  | "ActivityTimedOut"
-  | "ChoiceStateEntered"
-  | "ChoiceStateExited"
-  | "ExecutionAborted"
-  | "ExecutionFailed"
-  | "ExecutionStarted"
-  | "ExecutionSucceeded"
-  | "ExecutionTimedOut"
-  | "FailStateEntered"
-  | "LambdaFunctionFailed"
-  | "LambdaFunctionScheduled"
-  | "LambdaFunctionScheduleFailed"
-  | "LambdaFunctionStarted"
-  | "LambdaFunctionStartFailed"
-  | "LambdaFunctionSucceeded"
-  | "LambdaFunctionTimedOut"
-  | "MapIterationAborted"
-  | "MapIterationFailed"
-  | "MapIterationStarted"
-  | "MapIterationSucceeded"
-  | "MapStateAborted"
-  | "MapStateEntered"
-  | "MapStateExited"
-  | "MapStateFailed"
-  | "MapStateStarted"
-  | "MapStateSucceeded"
-  | "ParallelStateAborted"
-  | "ParallelStateEntered"
-  | "ParallelStateExited"
-  | "ParallelStateFailed"
-  | "ParallelStateStarted"
-  | "ParallelStateSucceeded"
-  | "PassStateEntered"
-  | "PassStateExited"
-  | "SucceedStateEntered"
-  | "SucceedStateExited"
-  | "TaskFailed"
-  | "TaskScheduled"
-  | "TaskStarted"
-  | "TaskStartFailed"
-  | "TaskStateAborted"
-  | "TaskStateEntered"
-  | "TaskStateExited"
-  | "TaskSubmitFailed"
-  | "TaskSubmitted"
-  | "TaskSucceeded"
-  | "TaskTimedOut"
-  | "WaitStateAborted"
-  | "WaitStateEntered"
-  | "WaitStateExited"
-  | "MapRunAborted"
-  | "MapRunFailed"
-  | "MapRunStarted"
-  | "MapRunSucceeded"
-  | "ExecutionRedriven"
-  | "MapRunRedriven"
-  | "EvaluationFailed";
+export type HistoryEventType = "ActivityFailed" | "ActivityScheduled" | "ActivityScheduleFailed" | "ActivityStarted" | "ActivitySucceeded" | "ActivityTimedOut" | "ChoiceStateEntered" | "ChoiceStateExited" | "ExecutionAborted" | "ExecutionFailed" | "ExecutionStarted" | "ExecutionSucceeded" | "ExecutionTimedOut" | "FailStateEntered" | "LambdaFunctionFailed" | "LambdaFunctionScheduled" | "LambdaFunctionScheduleFailed" | "LambdaFunctionStarted" | "LambdaFunctionStartFailed" | "LambdaFunctionSucceeded" | "LambdaFunctionTimedOut" | "MapIterationAborted" | "MapIterationFailed" | "MapIterationStarted" | "MapIterationSucceeded" | "MapStateAborted" | "MapStateEntered" | "MapStateExited" | "MapStateFailed" | "MapStateStarted" | "MapStateSucceeded" | "ParallelStateAborted" | "ParallelStateEntered" | "ParallelStateExited" | "ParallelStateFailed" | "ParallelStateStarted" | "ParallelStateSucceeded" | "PassStateEntered" | "PassStateExited" | "SucceedStateEntered" | "SucceedStateExited" | "TaskFailed" | "TaskScheduled" | "TaskStarted" | "TaskStartFailed" | "TaskStateAborted" | "TaskStateEntered" | "TaskStateExited" | "TaskSubmitFailed" | "TaskSubmitted" | "TaskSucceeded" | "TaskTimedOut" | "WaitStateAborted" | "WaitStateEntered" | "WaitStateExited" | "MapRunAborted" | "MapRunFailed" | "MapRunStarted" | "MapRunSucceeded" | "ExecutionRedriven" | "MapRunRedriven" | "EvaluationFailed";
 export type HTTPBody = string;
 
 export type HTTPHeaders = string;
@@ -948,7 +752,9 @@ export interface InspectionDataResponse {
   body?: string;
 }
 export type InspectionLevel = "INFO" | "DEBUG" | "TRACE";
-export declare class InvalidArn extends EffectData.TaggedError("InvalidArn")<{
+export declare class InvalidArn extends EffectData.TaggedError(
+  "InvalidArn",
+)<{
   readonly message?: string;
 }> {}
 export declare class InvalidDefinition extends EffectData.TaggedError(
@@ -971,7 +777,9 @@ export declare class InvalidLoggingConfiguration extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidName extends EffectData.TaggedError("InvalidName")<{
+export declare class InvalidName extends EffectData.TaggedError(
+  "InvalidName",
+)<{
   readonly message?: string;
 }> {}
 export declare class InvalidOutput extends EffectData.TaggedError(
@@ -1004,12 +812,7 @@ export declare class KmsInvalidStateException extends EffectData.TaggedError(
 }> {}
 export type KmsKeyId = string;
 
-export type KmsKeyState =
-  | "DISABLED"
-  | "PENDING_DELETION"
-  | "PENDING_IMPORT"
-  | "UNAVAILABLE"
-  | "CREATING";
+export type KmsKeyState = "DISABLED" | "PENDING_DELETION" | "PENDING_IMPORT" | "UNAVAILABLE" | "CREATING";
 export declare class KmsThrottlingException extends EffectData.TaggedError(
   "KmsThrottlingException",
 )<{
@@ -1227,16 +1030,19 @@ export interface SendTaskFailureInput {
   error?: string;
   cause?: string;
 }
-export interface SendTaskFailureOutput {}
+export interface SendTaskFailureOutput {
+}
 export interface SendTaskHeartbeatInput {
   taskToken: string;
 }
-export interface SendTaskHeartbeatOutput {}
+export interface SendTaskHeartbeatOutput {
+}
 export interface SendTaskSuccessInput {
   taskToken: string;
   output: string;
 }
-export interface SendTaskSuccessOutput {}
+export interface SendTaskSuccessOutput {
+}
 export type SensitiveCause = string;
 
 export type SensitiveData = string;
@@ -1362,7 +1168,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export interface TaskCredentials {
@@ -1429,11 +1236,7 @@ export interface TaskTimedOutEventDetails {
 }
 export type TaskToken = string;
 
-export type TestExecutionStatus =
-  | "SUCCEEDED"
-  | "FAILED"
-  | "RETRIABLE"
-  | "CAUGHT_ERROR";
+export type TestExecutionStatus = "SUCCEEDED" | "FAILED" | "RETRIABLE" | "CAUGHT_ERROR";
 export interface TestStateInput {
   definition: string;
   roleArn?: string;
@@ -1458,7 +1261,9 @@ export type ToleratedFailureCount = number;
 
 export type ToleratedFailurePercentage = number;
 
-export declare class TooManyTags extends EffectData.TaggedError("TooManyTags")<{
+export declare class TooManyTags extends EffectData.TaggedError(
+  "TooManyTags",
+)<{
   readonly message?: string;
   readonly resourceName?: string;
 }> {}
@@ -1477,14 +1282,16 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateMapRunInput {
   mapRunArn: string;
   maxConcurrency?: number;
   toleratedFailurePercentage?: number;
   toleratedFailureCount?: number;
 }
-export interface UpdateMapRunOutput {}
+export interface UpdateMapRunOutput {
+}
 export interface UpdateStateMachineAliasInput {
   stateMachineAliasArn: string;
   description?: string;
@@ -1518,8 +1325,7 @@ export interface ValidateStateMachineDefinitionDiagnostic {
   message: string;
   location?: string;
 }
-export type ValidateStateMachineDefinitionDiagnosticList =
-  Array<ValidateStateMachineDefinitionDiagnostic>;
+export type ValidateStateMachineDefinitionDiagnosticList = Array<ValidateStateMachineDefinitionDiagnostic>;
 export interface ValidateStateMachineDefinitionInput {
   definition: string;
   type?: StateMachineType;
@@ -1547,11 +1353,7 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly message?: string;
   readonly reason?: ValidationExceptionReason;
 }> {}
-export type ValidationExceptionReason =
-  | "API_DOES_NOT_SUPPORT_LABELED_ARNS"
-  | "MISSING_REQUIRED_PARAMETER"
-  | "CANNOT_UPDATE_COMPLETED_MAP_RUN"
-  | "INVALID_ROUTING_CONFIGURATION";
+export type ValidationExceptionReason = "API_DOES_NOT_SUPPORT_LABELED_ARNS" | "MISSING_REQUIRED_PARAMETER" | "CANNOT_UPDATE_COMPLETED_MAP_RUN" | "INVALID_ROUTING_CONFIGURATION";
 export type VariableName = string;
 
 export type VariableNameList = Array<string>;
@@ -1615,13 +1417,18 @@ export declare namespace CreateStateMachineAlias {
 export declare namespace DeleteActivity {
   export type Input = DeleteActivityInput;
   export type Output = DeleteActivityOutput;
-  export type Error = InvalidArn | CommonAwsError;
+  export type Error =
+    | InvalidArn
+    | CommonAwsError;
 }
 
 export declare namespace DeleteStateMachine {
   export type Input = DeleteStateMachineInput;
   export type Output = DeleteStateMachineOutput;
-  export type Error = InvalidArn | ValidationException | CommonAwsError;
+  export type Error =
+    | InvalidArn
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteStateMachineAlias {
@@ -1648,7 +1455,10 @@ export declare namespace DeleteStateMachineVersion {
 export declare namespace DescribeActivity {
   export type Input = DescribeActivityInput;
   export type Output = DescribeActivityOutput;
-  export type Error = ActivityDoesNotExist | InvalidArn | CommonAwsError;
+  export type Error =
+    | ActivityDoesNotExist
+    | InvalidArn
+    | CommonAwsError;
 }
 
 export declare namespace DescribeExecution {
@@ -1666,7 +1476,10 @@ export declare namespace DescribeExecution {
 export declare namespace DescribeMapRun {
   export type Input = DescribeMapRunInput;
   export type Output = DescribeMapRunOutput;
-  export type Error = InvalidArn | ResourceNotFound | CommonAwsError;
+  export type Error =
+    | InvalidArn
+    | ResourceNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeStateMachine {
@@ -1732,7 +1545,9 @@ export declare namespace GetExecutionHistory {
 export declare namespace ListActivities {
   export type Input = ListActivitiesInput;
   export type Output = ListActivitiesOutput;
-  export type Error = InvalidToken | CommonAwsError;
+  export type Error =
+    | InvalidToken
+    | CommonAwsError;
 }
 
 export declare namespace ListExecutions {
@@ -1773,7 +1588,9 @@ export declare namespace ListStateMachineAliases {
 export declare namespace ListStateMachines {
   export type Input = ListStateMachinesInput;
   export type Output = ListStateMachinesOutput;
-  export type Error = InvalidToken | CommonAwsError;
+  export type Error =
+    | InvalidToken
+    | CommonAwsError;
 }
 
 export declare namespace ListStateMachineVersions {
@@ -1789,7 +1606,10 @@ export declare namespace ListStateMachineVersions {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
   export type Output = ListTagsForResourceOutput;
-  export type Error = InvalidArn | ResourceNotFound | CommonAwsError;
+  export type Error =
+    | InvalidArn
+    | ResourceNotFound
+    | CommonAwsError;
 }
 
 export declare namespace PublishStateMachineVersion {
@@ -1925,7 +1745,10 @@ export declare namespace TestState {
 export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = UntagResourceOutput;
-  export type Error = InvalidArn | ResourceNotFound | CommonAwsError;
+  export type Error =
+    | InvalidArn
+    | ResourceNotFound
+    | CommonAwsError;
 }
 
 export declare namespace UpdateMapRun {
@@ -1973,5 +1796,8 @@ export declare namespace UpdateStateMachineAlias {
 export declare namespace ValidateStateMachineDefinition {
   export type Input = ValidateStateMachineDefinitionInput;
   export type Output = ValidateStateMachineDefinitionOutput;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
+

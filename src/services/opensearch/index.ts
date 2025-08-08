@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class OpenSearch extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("opensearch", new RestJson1Protocol(), cfg);
+  }
+
   acceptInboundConnection(
     input: AcceptInboundConnectionRequest,
   ): Effect.Effect<
     AcceptInboundConnectionResponse,
-    | DisabledOperationException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DisabledOperationException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("AcceptInboundConnection", input);
   }
@@ -18,14 +20,7 @@ export class OpenSearch extends AWSServiceClient {
     input: AddDataSourceRequest,
   ): Effect.Effect<
     AddDataSourceResponse,
-    | BaseException
-    | DependencyFailureException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DependencyFailureException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("AddDataSource", input);
   }
@@ -33,13 +28,7 @@ export class OpenSearch extends AWSServiceClient {
     input: AddDirectQueryDataSourceRequest,
   ): Effect.Effect<
     AddDirectQueryDataSourceResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("AddDirectQueryDataSource", input);
   }
@@ -47,11 +36,7 @@ export class OpenSearch extends AWSServiceClient {
     input: AddTagsRequest,
   ): Effect.Effect<
     {},
-    | BaseException
-    | InternalException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | LimitExceededException | ValidationException | CommonAwsError
   > {
     return this.call("AddTags", input);
   }
@@ -59,13 +44,7 @@ export class OpenSearch extends AWSServiceClient {
     input: AssociatePackageRequest,
   ): Effect.Effect<
     AssociatePackageResponse,
-    | AccessDeniedException
-    | BaseException
-    | ConflictException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | ConflictException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("AssociatePackage", input);
   }
@@ -73,13 +52,7 @@ export class OpenSearch extends AWSServiceClient {
     input: AssociatePackagesRequest,
   ): Effect.Effect<
     AssociatePackagesResponse,
-    | BaseException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("AssociatePackages", input);
   }
@@ -87,13 +60,7 @@ export class OpenSearch extends AWSServiceClient {
     input: AuthorizeVpcEndpointAccessRequest,
   ): Effect.Effect<
     AuthorizeVpcEndpointAccessResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("AuthorizeVpcEndpointAccess", input);
   }
@@ -101,12 +68,7 @@ export class OpenSearch extends AWSServiceClient {
     input: CancelDomainConfigChangeRequest,
   ): Effect.Effect<
     CancelDomainConfigChangeResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CancelDomainConfigChange", input);
   }
@@ -114,11 +76,7 @@ export class OpenSearch extends AWSServiceClient {
     input: CancelServiceSoftwareUpdateRequest,
   ): Effect.Effect<
     CancelServiceSoftwareUpdateResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CancelServiceSoftwareUpdate", input);
   }
@@ -126,13 +84,7 @@ export class OpenSearch extends AWSServiceClient {
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | AccessDeniedException
-    | BaseException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | ConflictException | DisabledOperationException | InternalException | ValidationException | CommonAwsError
   > {
     return this.call("CreateApplication", input);
   }
@@ -140,14 +92,7 @@ export class OpenSearch extends AWSServiceClient {
     input: CreateDomainRequest,
   ): Effect.Effect<
     CreateDomainResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | InvalidTypeException | LimitExceededException | ResourceAlreadyExistsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDomain", input);
   }
@@ -155,11 +100,7 @@ export class OpenSearch extends AWSServiceClient {
     input: CreateOutboundConnectionRequest,
   ): Effect.Effect<
     CreateOutboundConnectionResponse,
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | CommonAwsError
+    DisabledOperationException | InternalException | LimitExceededException | ResourceAlreadyExistsException | CommonAwsError
   > {
     return this.call("CreateOutboundConnection", input);
   }
@@ -167,14 +108,7 @@ export class OpenSearch extends AWSServiceClient {
     input: CreatePackageRequest,
   ): Effect.Effect<
     CreatePackageResponse,
-    | AccessDeniedException
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceAlreadyExistsException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePackage", input);
   }
@@ -182,13 +116,7 @@ export class OpenSearch extends AWSServiceClient {
     input: CreateVpcEndpointRequest,
   ): Effect.Effect<
     CreateVpcEndpointResponse,
-    | BaseException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
+    BaseException | ConflictException | DisabledOperationException | InternalException | LimitExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateVpcEndpoint", input);
   }
@@ -196,14 +124,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    | AccessDeniedException
-    | BaseException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteApplication", input);
   }
@@ -211,13 +132,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DeleteDataSourceRequest,
   ): Effect.Effect<
     DeleteDataSourceResponse,
-    | BaseException
-    | DependencyFailureException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DependencyFailureException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDataSource", input);
   }
@@ -225,12 +140,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DeleteDirectQueryDataSourceRequest,
   ): Effect.Effect<
     {},
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDirectQueryDataSource", input);
   }
@@ -238,11 +148,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DeleteDomainRequest,
   ): Effect.Effect<
     DeleteDomainResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDomain", input);
   }
@@ -266,13 +172,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DeletePackageRequest,
   ): Effect.Effect<
     DeletePackageResponse,
-    | AccessDeniedException
-    | BaseException
-    | ConflictException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | ConflictException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePackage", input);
   }
@@ -280,11 +180,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DeleteVpcEndpointRequest,
   ): Effect.Effect<
     DeleteVpcEndpointResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteVpcEndpoint", input);
   }
@@ -292,11 +188,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeDomainRequest,
   ): Effect.Effect<
     DescribeDomainResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDomain", input);
   }
@@ -304,11 +196,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeDomainAutoTunesRequest,
   ): Effect.Effect<
     DescribeDomainAutoTunesResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDomainAutoTunes", input);
   }
@@ -316,11 +204,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeDomainChangeProgressRequest,
   ): Effect.Effect<
     DescribeDomainChangeProgressResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDomainChangeProgress", input);
   }
@@ -328,11 +212,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeDomainConfigRequest,
   ): Effect.Effect<
     DescribeDomainConfigResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDomainConfig", input);
   }
@@ -340,12 +220,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeDomainHealthRequest,
   ): Effect.Effect<
     DescribeDomainHealthResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDomainHealth", input);
   }
@@ -353,13 +228,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeDomainNodesRequest,
   ): Effect.Effect<
     DescribeDomainNodesResponse,
-    | BaseException
-    | DependencyFailureException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DependencyFailureException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDomainNodes", input);
   }
@@ -375,12 +244,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeDryRunProgressRequest,
   ): Effect.Effect<
     DescribeDryRunProgressResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDryRunProgress", input);
   }
@@ -388,9 +252,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeInboundConnectionsRequest,
   ): Effect.Effect<
     DescribeInboundConnectionsResponse,
-    | DisabledOperationException
-    | InvalidPaginationTokenException
-    | CommonAwsError
+    DisabledOperationException | InvalidPaginationTokenException | CommonAwsError
   > {
     return this.call("DescribeInboundConnections", input);
   }
@@ -398,13 +260,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeInstanceTypeLimitsRequest,
   ): Effect.Effect<
     DescribeInstanceTypeLimitsResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeInstanceTypeLimits", input);
   }
@@ -412,9 +268,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeOutboundConnectionsRequest,
   ): Effect.Effect<
     DescribeOutboundConnectionsResponse,
-    | DisabledOperationException
-    | InvalidPaginationTokenException
-    | CommonAwsError
+    DisabledOperationException | InvalidPaginationTokenException | CommonAwsError
   > {
     return this.call("DescribeOutboundConnections", input);
   }
@@ -422,12 +276,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribePackagesRequest,
   ): Effect.Effect<
     DescribePackagesResponse,
-    | AccessDeniedException
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePackages", input);
   }
@@ -435,11 +284,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeReservedInstanceOfferingsRequest,
   ): Effect.Effect<
     DescribeReservedInstanceOfferingsResponse,
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeReservedInstanceOfferings", input);
   }
@@ -447,11 +292,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeReservedInstancesRequest,
   ): Effect.Effect<
     DescribeReservedInstancesResponse,
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeReservedInstances", input);
   }
@@ -459,11 +300,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DescribeVpcEndpointsRequest,
   ): Effect.Effect<
     DescribeVpcEndpointsResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeVpcEndpoints", input);
   }
@@ -471,13 +308,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DissociatePackageRequest,
   ): Effect.Effect<
     DissociatePackageResponse,
-    | AccessDeniedException
-    | BaseException
-    | ConflictException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | ConflictException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DissociatePackage", input);
   }
@@ -485,13 +316,7 @@ export class OpenSearch extends AWSServiceClient {
     input: DissociatePackagesRequest,
   ): Effect.Effect<
     DissociatePackagesResponse,
-    | BaseException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DissociatePackages", input);
   }
@@ -499,13 +324,7 @@ export class OpenSearch extends AWSServiceClient {
     input: GetApplicationRequest,
   ): Effect.Effect<
     GetApplicationResponse,
-    | AccessDeniedException
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetApplication", input);
   }
@@ -513,12 +332,7 @@ export class OpenSearch extends AWSServiceClient {
     input: GetCompatibleVersionsRequest,
   ): Effect.Effect<
     GetCompatibleVersionsResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetCompatibleVersions", input);
   }
@@ -526,13 +340,7 @@ export class OpenSearch extends AWSServiceClient {
     input: GetDataSourceRequest,
   ): Effect.Effect<
     GetDataSourceResponse,
-    | BaseException
-    | DependencyFailureException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DependencyFailureException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetDataSource", input);
   }
@@ -540,12 +348,7 @@ export class OpenSearch extends AWSServiceClient {
     input: GetDirectQueryDataSourceRequest,
   ): Effect.Effect<
     GetDirectQueryDataSourceResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetDirectQueryDataSource", input);
   }
@@ -553,12 +356,7 @@ export class OpenSearch extends AWSServiceClient {
     input: GetDomainMaintenanceStatusRequest,
   ): Effect.Effect<
     GetDomainMaintenanceStatusResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetDomainMaintenanceStatus", input);
   }
@@ -566,12 +364,7 @@ export class OpenSearch extends AWSServiceClient {
     input: GetPackageVersionHistoryRequest,
   ): Effect.Effect<
     GetPackageVersionHistoryResponse,
-    | AccessDeniedException
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetPackageVersionHistory", input);
   }
@@ -579,12 +372,7 @@ export class OpenSearch extends AWSServiceClient {
     input: GetUpgradeHistoryRequest,
   ): Effect.Effect<
     GetUpgradeHistoryResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetUpgradeHistory", input);
   }
@@ -592,12 +380,7 @@ export class OpenSearch extends AWSServiceClient {
     input: GetUpgradeStatusRequest,
   ): Effect.Effect<
     GetUpgradeStatusResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetUpgradeStatus", input);
   }
@@ -605,13 +388,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
-    | AccessDeniedException
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListApplications", input);
   }
@@ -619,13 +396,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListDataSourcesRequest,
   ): Effect.Effect<
     ListDataSourcesResponse,
-    | BaseException
-    | DependencyFailureException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DependencyFailureException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListDataSources", input);
   }
@@ -633,12 +404,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListDirectQueryDataSourcesRequest,
   ): Effect.Effect<
     ListDirectQueryDataSourcesResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListDirectQueryDataSources", input);
   }
@@ -646,12 +412,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListDomainMaintenancesRequest,
   ): Effect.Effect<
     ListDomainMaintenancesResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListDomainMaintenances", input);
   }
@@ -667,12 +428,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListDomainsForPackageRequest,
   ): Effect.Effect<
     ListDomainsForPackageResponse,
-    | AccessDeniedException
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListDomainsForPackage", input);
   }
@@ -680,11 +436,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListInstanceTypeDetailsRequest,
   ): Effect.Effect<
     ListInstanceTypeDetailsResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListInstanceTypeDetails", input);
   }
@@ -692,12 +444,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListPackagesForDomainRequest,
   ): Effect.Effect<
     ListPackagesForDomainResponse,
-    | AccessDeniedException
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListPackagesForDomain", input);
   }
@@ -705,12 +452,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListScheduledActionsRequest,
   ): Effect.Effect<
     ListScheduledActionsResponse,
-    | BaseException
-    | InternalException
-    | InvalidPaginationTokenException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidPaginationTokenException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListScheduledActions", input);
   }
@@ -718,11 +460,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTags", input);
   }
@@ -730,11 +468,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListVersionsRequest,
   ): Effect.Effect<
     ListVersionsResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListVersions", input);
   }
@@ -742,11 +476,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListVpcEndpointAccessRequest,
   ): Effect.Effect<
     ListVpcEndpointAccessResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListVpcEndpointAccess", input);
   }
@@ -754,10 +484,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListVpcEndpointsRequest,
   ): Effect.Effect<
     ListVpcEndpointsResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | CommonAwsError
   > {
     return this.call("ListVpcEndpoints", input);
   }
@@ -765,11 +492,7 @@ export class OpenSearch extends AWSServiceClient {
     input: ListVpcEndpointsForDomainRequest,
   ): Effect.Effect<
     ListVpcEndpointsForDomainResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListVpcEndpointsForDomain", input);
   }
@@ -777,13 +500,7 @@ export class OpenSearch extends AWSServiceClient {
     input: PurchaseReservedInstanceOfferingRequest,
   ): Effect.Effect<
     PurchaseReservedInstanceOfferingResponse,
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    DisabledOperationException | InternalException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("PurchaseReservedInstanceOffering", input);
   }
@@ -807,12 +524,7 @@ export class OpenSearch extends AWSServiceClient {
     input: RevokeVpcEndpointAccessRequest,
   ): Effect.Effect<
     RevokeVpcEndpointAccessResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("RevokeVpcEndpointAccess", input);
   }
@@ -820,12 +532,7 @@ export class OpenSearch extends AWSServiceClient {
     input: StartDomainMaintenanceRequest,
   ): Effect.Effect<
     StartDomainMaintenanceResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartDomainMaintenance", input);
   }
@@ -833,11 +540,7 @@ export class OpenSearch extends AWSServiceClient {
     input: StartServiceSoftwareUpdateRequest,
   ): Effect.Effect<
     StartServiceSoftwareUpdateResponse,
-    | BaseException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartServiceSoftwareUpdate", input);
   }
@@ -845,14 +548,7 @@ export class OpenSearch extends AWSServiceClient {
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    | AccessDeniedException
-    | BaseException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateApplication", input);
   }
@@ -860,13 +556,7 @@ export class OpenSearch extends AWSServiceClient {
     input: UpdateDataSourceRequest,
   ): Effect.Effect<
     UpdateDataSourceResponse,
-    | BaseException
-    | DependencyFailureException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DependencyFailureException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateDataSource", input);
   }
@@ -874,12 +564,7 @@ export class OpenSearch extends AWSServiceClient {
     input: UpdateDirectQueryDataSourceRequest,
   ): Effect.Effect<
     UpdateDirectQueryDataSourceResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateDirectQueryDataSource", input);
   }
@@ -887,13 +572,7 @@ export class OpenSearch extends AWSServiceClient {
     input: UpdateDomainConfigRequest,
   ): Effect.Effect<
     UpdateDomainConfigResponse,
-    | BaseException
-    | InternalException
-    | InvalidTypeException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateDomainConfig", input);
   }
@@ -901,13 +580,7 @@ export class OpenSearch extends AWSServiceClient {
     input: UpdatePackageRequest,
   ): Effect.Effect<
     UpdatePackageResponse,
-    | AccessDeniedException
-    | BaseException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BaseException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePackage", input);
   }
@@ -915,12 +588,7 @@ export class OpenSearch extends AWSServiceClient {
     input: UpdatePackageScopeRequest,
   ): Effect.Effect<
     UpdatePackageScopeResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePackageScope", input);
   }
@@ -928,14 +596,7 @@ export class OpenSearch extends AWSServiceClient {
     input: UpdateScheduledActionRequest,
   ): Effect.Effect<
     UpdateScheduledActionResponse,
-    | BaseException
-    | ConflictException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | SlotNotAvailableException
-    | ValidationException
-    | CommonAwsError
+    BaseException | ConflictException | InternalException | LimitExceededException | ResourceNotFoundException | SlotNotAvailableException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateScheduledAction", input);
   }
@@ -943,13 +604,7 @@ export class OpenSearch extends AWSServiceClient {
     input: UpdateVpcEndpointRequest,
   ): Effect.Effect<
     UpdateVpcEndpointResponse,
-    | BaseException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateVpcEndpoint", input);
   }
@@ -957,13 +612,7 @@ export class OpenSearch extends AWSServiceClient {
     input: UpgradeDomainRequest,
   ): Effect.Effect<
     UpgradeDomainResponse,
-    | BaseException
-    | DisabledOperationException
-    | InternalException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    BaseException | DisabledOperationException | InternalException | ResourceAlreadyExistsException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpgradeDomain", input);
   }
@@ -989,17 +638,8 @@ export interface AccessPoliciesStatus {
   Status: OptionStatus;
 }
 export type ActionSeverity = "HIGH" | "MEDIUM" | "LOW";
-export type ActionStatus =
-  | "PENDING_UPDATE"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED"
-  | "NOT_ELIGIBLE"
-  | "ELIGIBLE";
-export type ActionType =
-  | "SERVICE_SOFTWARE_UPDATE"
-  | "JVM_HEAP_SIZE_TUNING"
-  | "JVM_YOUNG_GEN_TUNING";
+export type ActionStatus = "PENDING_UPDATE" | "IN_PROGRESS" | "FAILED" | "COMPLETED" | "NOT_ELIGIBLE" | "ELIGIBLE";
+export type ActionType = "SERVICE_SOFTWARE_UPDATE" | "JVM_HEAP_SIZE_TUNING" | "JVM_YOUNG_GEN_TUNING";
 export interface AddDataSourceRequest {
   DomainName: string;
   Name: string;
@@ -1072,19 +712,12 @@ export interface AppConfig {
   value?: string;
 }
 export type AppConfigs = Array<AppConfig>;
-export type AppConfigType =
-  | "OpensearchDashboardAdminUsers"
-  | "OpensearchDashboardAdminGroups";
+export type AppConfigType = "OpensearchDashboardAdminUsers" | "OpensearchDashboardAdminGroups";
 export type AppConfigValue = string;
 
 export type ApplicationName = string;
 
-export type ApplicationStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "DELETING"
-  | "ACTIVE"
-  | "FAILED";
+export type ApplicationStatus = "CREATING" | "UPDATING" | "DELETING" | "ACTIVE" | "FAILED";
 export type ApplicationStatuses = Array<ApplicationStatus>;
 export type ApplicationSummaries = Array<ApplicationSummary>;
 export interface ApplicationSummary {
@@ -1143,8 +776,7 @@ export interface AutoTuneMaintenanceSchedule {
   Duration?: Duration;
   CronExpressionForRecurrence?: string;
 }
-export type AutoTuneMaintenanceScheduleList =
-  Array<AutoTuneMaintenanceSchedule>;
+export type AutoTuneMaintenanceScheduleList = Array<AutoTuneMaintenanceSchedule>;
 export interface AutoTuneOptions {
   DesiredState?: AutoTuneDesiredState;
   RollbackOnDisable?: RollbackOnDisable;
@@ -1165,16 +797,7 @@ export interface AutoTuneOptionsStatus {
   Options?: AutoTuneOptions;
   Status?: AutoTuneStatus;
 }
-export type AutoTuneState =
-  | "ENABLED"
-  | "DISABLED"
-  | "ENABLE_IN_PROGRESS"
-  | "DISABLE_IN_PROGRESS"
-  | "DISABLED_AND_ROLLBACK_SCHEDULED"
-  | "DISABLED_AND_ROLLBACK_IN_PROGRESS"
-  | "DISABLED_AND_ROLLBACK_COMPLETE"
-  | "DISABLED_AND_ROLLBACK_ERROR"
-  | "ERROR";
+export type AutoTuneState = "ENABLED" | "DISABLED" | "ENABLE_IN_PROGRESS" | "DISABLE_IN_PROGRESS" | "DISABLED_AND_ROLLBACK_SCHEDULED" | "DISABLED_AND_ROLLBACK_IN_PROGRESS" | "DISABLED_AND_ROLLBACK_COMPLETE" | "DISABLED_AND_ROLLBACK_ERROR" | "ERROR";
 export interface AutoTuneStatus {
   CreationDate: Date | string;
   UpdateDate: Date | string;
@@ -1311,15 +934,7 @@ export interface CompatibleVersionsMap {
   SourceVersion?: string;
   TargetVersions?: Array<string>;
 }
-export type ConfigChangeStatus =
-  | "PENDING"
-  | "INITIALIZING"
-  | "VALIDATING"
-  | "VALIDATION_FAILED"
-  | "APPLYING_CHANGES"
-  | "COMPLETED"
-  | "PENDING_USER_INPUT"
-  | "CANCELLED";
+export type ConfigChangeStatus = "PENDING" | "INITIALIZING" | "VALIDATING" | "VALIDATION_FAILED" | "APPLYING_CHANGES" | "COMPLETED" | "PENDING_USER_INPUT" | "CANCELLED";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -1443,13 +1058,12 @@ interface _DataSourceType {
   S3GlueDataCatalog?: S3GlueDataCatalog;
 }
 
-export type DataSourceType = _DataSourceType & {
-  S3GlueDataCatalog: S3GlueDataCatalog;
-};
+export type DataSourceType = (_DataSourceType & { S3GlueDataCatalog: S3GlueDataCatalog });
 export interface DeleteApplicationRequest {
   id: string;
 }
-export interface DeleteApplicationResponse {}
+export interface DeleteApplicationResponse {
+}
 export interface DeleteDataSourceRequest {
   DomainName: string;
   Name: string;
@@ -1497,12 +1111,7 @@ export declare class DependencyFailureException extends EffectData.TaggedError(
 }> {}
 export type DeploymentCloseDateTimeStamp = Date | string;
 
-export type DeploymentStatus =
-  | "PENDING_UPDATE"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "NOT_ELIGIBLE"
-  | "ELIGIBLE";
+export type DeploymentStatus = "PENDING_UPDATE" | "IN_PROGRESS" | "COMPLETED" | "NOT_ELIGIBLE" | "ELIGIBLE";
 export type DeploymentType = string;
 
 export interface DescribeDomainAutoTunesRequest {
@@ -1604,13 +1213,7 @@ export interface DescribePackagesFilter {
   Value?: Array<string>;
 }
 export type DescribePackagesFilterList = Array<DescribePackagesFilter>;
-export type DescribePackagesFilterName =
-  | "PackageID"
-  | "PackageName"
-  | "PackageStatus"
-  | "PackageType"
-  | "EngineVersion"
-  | "PackageOwner";
+export type DescribePackagesFilterName = "PackageID" | "PackageName" | "PackageStatus" | "PackageType" | "EngineVersion" | "PackageOwner";
 export type DescribePackagesFilterValue = string;
 
 export type DescribePackagesFilterValues = Array<string>;
@@ -1670,13 +1273,7 @@ interface _DirectQueryDataSourceType {
   SecurityLake?: SecurityLakeDirectQueryDataSource;
 }
 
-export type DirectQueryDataSourceType =
-  | (_DirectQueryDataSourceType & {
-      CloudWatchLog: CloudWatchDirectQueryDataSource;
-    })
-  | (_DirectQueryDataSourceType & {
-      SecurityLake: SecurityLakeDirectQueryDataSource;
-    });
+export type DirectQueryDataSourceType = (_DirectQueryDataSourceType & { CloudWatchLog: CloudWatchDirectQueryDataSource }) | (_DirectQueryDataSourceType & { SecurityLake: SecurityLakeDirectQueryDataSource });
 export type DirectQueryOpenSearchARNList = Array<string>;
 export declare class DisabledOperationException extends EffectData.TaggedError(
   "DisabledOperationException",
@@ -1787,20 +1384,8 @@ export interface DomainPackageDetails {
   AssociationConfiguration?: PackageAssociationConfiguration;
 }
 export type DomainPackageDetailsList = Array<DomainPackageDetails>;
-export type DomainPackageStatus =
-  | "ASSOCIATING"
-  | "ASSOCIATION_FAILED"
-  | "ACTIVE"
-  | "DISSOCIATING"
-  | "DISSOCIATION_FAILED";
-export type DomainProcessingStatusType =
-  | "CREATING"
-  | "ACTIVE"
-  | "MODIFYING"
-  | "UPGRADING"
-  | "UPDATING"
-  | "ISOLATED"
-  | "DELETING";
+export type DomainPackageStatus = "ASSOCIATING" | "ASSOCIATION_FAILED" | "ACTIVE" | "DISSOCIATING" | "DISSOCIATION_FAILED";
+export type DomainProcessingStatusType = "CREATING" | "ACTIVE" | "MODIFYING" | "UPGRADING" | "UPDATING" | "ISOLATED" | "DELETING";
 export type DomainState = "Active" | "Processing" | "NotAvailable";
 export interface DomainStatus {
   DomainId: string;
@@ -2053,15 +1638,7 @@ export interface InboundConnectionStatus {
   StatusCode?: InboundConnectionStatusCode;
   Message?: string;
 }
-export type InboundConnectionStatusCode =
-  | "PENDING_ACCEPTANCE"
-  | "APPROVED"
-  | "PROVISIONING"
-  | "ACTIVE"
-  | "REJECTING"
-  | "REJECTED"
-  | "DELETING"
-  | "DELETED";
+export type InboundConnectionStatusCode = "PENDING_ACCEPTANCE" | "APPROVED" | "PROVISIONING" | "ACTIVE" | "REJECTING" | "REJECTED" | "DELETING" | "DELETED";
 export type InitiatedBy = "CUSTOMER" | "SERVICE";
 export type InstanceCount = number;
 
@@ -2277,25 +1854,13 @@ export interface LogPublishingOptionsStatus {
   Options?: Record<LogType, LogPublishingOption>;
   Status?: OptionStatus;
 }
-export type LogType =
-  | "INDEX_SLOW_LOGS"
-  | "SEARCH_SLOW_LOGS"
-  | "ES_APPLICATION_LOGS"
-  | "AUDIT_LOGS";
+export type LogType = "INDEX_SLOW_LOGS" | "SEARCH_SLOW_LOGS" | "ES_APPLICATION_LOGS" | "AUDIT_LOGS";
 export type Long = number;
 
-export type MaintenanceStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "TIMED_OUT";
+export type MaintenanceStatus = "PENDING" | "IN_PROGRESS" | "COMPLETED" | "FAILED" | "TIMED_OUT";
 export type MaintenanceStatusMessage = string;
 
-export type MaintenanceType =
-  | "REBOOT_NODE"
-  | "RESTART_SEARCH_PROCESS"
-  | "RESTART_DASHBOARD";
+export type MaintenanceType = "REBOOT_NODE" | "RESTART_SEARCH_PROCESS" | "RESTART_DASHBOARD";
 export type MasterNodeStatus = "Available" | "UnAvailable";
 export interface MasterUserOptions {
   MasterUserARN?: string;
@@ -2317,14 +1882,7 @@ export interface ModifyingProperties {
   ValueType?: PropertyValueType;
 }
 export type ModifyingPropertiesList = Array<ModifyingProperties>;
-export type NaturalLanguageQueryGenerationCurrentState =
-  | "NotEnabled"
-  | "EnableComplete"
-  | "EnableInProgress"
-  | "EnableFailed"
-  | "DisableComplete"
-  | "DisableInProgress"
-  | "DisableFailed";
+export type NaturalLanguageQueryGenerationCurrentState = "NotEnabled" | "EnableComplete" | "EnableInProgress" | "EnableFailed" | "DisableComplete" | "DisableInProgress" | "DisableFailed";
 export type NaturalLanguageQueryGenerationDesiredState = "Enabled" | "Disabled";
 export interface NaturalLanguageQueryGenerationOptionsInput {
   DesiredState?: NaturalLanguageQueryGenerationDesiredState;
@@ -2376,114 +1934,8 @@ export interface OffPeakWindowOptionsStatus {
   Options?: OffPeakWindowOptions;
   Status?: OptionStatus;
 }
-export type OpenSearchPartitionInstanceType =
-  | "m3_medium_search"
-  | "m3_large_search"
-  | "m3_xlarge_search"
-  | "m3_2xlarge_search"
-  | "m4_large_search"
-  | "m4_xlarge_search"
-  | "m4_2xlarge_search"
-  | "m4_4xlarge_search"
-  | "m4_10xlarge_search"
-  | "m5_large_search"
-  | "m5_xlarge_search"
-  | "m5_2xlarge_search"
-  | "m5_4xlarge_search"
-  | "m5_12xlarge_search"
-  | "m5_24xlarge_search"
-  | "r5_large_search"
-  | "r5_xlarge_search"
-  | "r5_2xlarge_search"
-  | "r5_4xlarge_search"
-  | "r5_12xlarge_search"
-  | "r5_24xlarge_search"
-  | "c5_large_search"
-  | "c5_xlarge_search"
-  | "c5_2xlarge_search"
-  | "c5_4xlarge_search"
-  | "c5_9xlarge_search"
-  | "c5_18xlarge_search"
-  | "t3_nano_search"
-  | "t3_micro_search"
-  | "t3_small_search"
-  | "t3_medium_search"
-  | "t3_large_search"
-  | "t3_xlarge_search"
-  | "t3_2xlarge_search"
-  | "or1_medium_search"
-  | "or1_large_search"
-  | "or1_xlarge_search"
-  | "or1_2xlarge_search"
-  | "or1_4xlarge_search"
-  | "or1_8xlarge_search"
-  | "or1_12xlarge_search"
-  | "or1_16xlarge_search"
-  | "ultrawarm1_medium_search"
-  | "ultrawarm1_large_search"
-  | "ultrawarm1_xlarge_search"
-  | "t2_micro_search"
-  | "t2_small_search"
-  | "t2_medium_search"
-  | "r3_large_search"
-  | "r3_xlarge_search"
-  | "r3_2xlarge_search"
-  | "r3_4xlarge_search"
-  | "r3_8xlarge_search"
-  | "i2_xlarge_search"
-  | "i2_2xlarge_search"
-  | "d2_xlarge_search"
-  | "d2_2xlarge_search"
-  | "d2_4xlarge_search"
-  | "d2_8xlarge_search"
-  | "c4_large_search"
-  | "c4_xlarge_search"
-  | "c4_2xlarge_search"
-  | "c4_4xlarge_search"
-  | "c4_8xlarge_search"
-  | "r4_large_search"
-  | "r4_xlarge_search"
-  | "r4_2xlarge_search"
-  | "r4_4xlarge_search"
-  | "r4_8xlarge_search"
-  | "r4_16xlarge_search"
-  | "i3_large_search"
-  | "i3_xlarge_search"
-  | "i3_2xlarge_search"
-  | "i3_4xlarge_search"
-  | "i3_8xlarge_search"
-  | "i3_16xlarge_search"
-  | "r6g_large_search"
-  | "r6g_xlarge_search"
-  | "r6g_2xlarge_search"
-  | "r6g_4xlarge_search"
-  | "r6g_8xlarge_search"
-  | "r6g_12xlarge_search"
-  | "m6g_large_search"
-  | "m6g_xlarge_search"
-  | "m6g_2xlarge_search"
-  | "m6g_4xlarge_search"
-  | "m6g_8xlarge_search"
-  | "m6g_12xlarge_search"
-  | "c6g_large_search"
-  | "c6g_xlarge_search"
-  | "c6g_2xlarge_search"
-  | "c6g_4xlarge_search"
-  | "c6g_8xlarge_search"
-  | "c6g_12xlarge_search"
-  | "r6gd_large_search"
-  | "r6gd_xlarge_search"
-  | "r6gd_2xlarge_search"
-  | "r6gd_4xlarge_search"
-  | "r6gd_8xlarge_search"
-  | "r6gd_12xlarge_search"
-  | "r6gd_16xlarge_search"
-  | "t4g_small_search"
-  | "t4g_medium_search";
-export type OpenSearchWarmPartitionInstanceType =
-  | "ultrawarm1_medium_search"
-  | "ultrawarm1_large_search"
-  | "ultrawarm1_xlarge_search";
+export type OpenSearchPartitionInstanceType = "m3_medium_search" | "m3_large_search" | "m3_xlarge_search" | "m3_2xlarge_search" | "m4_large_search" | "m4_xlarge_search" | "m4_2xlarge_search" | "m4_4xlarge_search" | "m4_10xlarge_search" | "m5_large_search" | "m5_xlarge_search" | "m5_2xlarge_search" | "m5_4xlarge_search" | "m5_12xlarge_search" | "m5_24xlarge_search" | "r5_large_search" | "r5_xlarge_search" | "r5_2xlarge_search" | "r5_4xlarge_search" | "r5_12xlarge_search" | "r5_24xlarge_search" | "c5_large_search" | "c5_xlarge_search" | "c5_2xlarge_search" | "c5_4xlarge_search" | "c5_9xlarge_search" | "c5_18xlarge_search" | "t3_nano_search" | "t3_micro_search" | "t3_small_search" | "t3_medium_search" | "t3_large_search" | "t3_xlarge_search" | "t3_2xlarge_search" | "or1_medium_search" | "or1_large_search" | "or1_xlarge_search" | "or1_2xlarge_search" | "or1_4xlarge_search" | "or1_8xlarge_search" | "or1_12xlarge_search" | "or1_16xlarge_search" | "ultrawarm1_medium_search" | "ultrawarm1_large_search" | "ultrawarm1_xlarge_search" | "t2_micro_search" | "t2_small_search" | "t2_medium_search" | "r3_large_search" | "r3_xlarge_search" | "r3_2xlarge_search" | "r3_4xlarge_search" | "r3_8xlarge_search" | "i2_xlarge_search" | "i2_2xlarge_search" | "d2_xlarge_search" | "d2_2xlarge_search" | "d2_4xlarge_search" | "d2_8xlarge_search" | "c4_large_search" | "c4_xlarge_search" | "c4_2xlarge_search" | "c4_4xlarge_search" | "c4_8xlarge_search" | "r4_large_search" | "r4_xlarge_search" | "r4_2xlarge_search" | "r4_4xlarge_search" | "r4_8xlarge_search" | "r4_16xlarge_search" | "i3_large_search" | "i3_xlarge_search" | "i3_2xlarge_search" | "i3_4xlarge_search" | "i3_8xlarge_search" | "i3_16xlarge_search" | "r6g_large_search" | "r6g_xlarge_search" | "r6g_2xlarge_search" | "r6g_4xlarge_search" | "r6g_8xlarge_search" | "r6g_12xlarge_search" | "m6g_large_search" | "m6g_xlarge_search" | "m6g_2xlarge_search" | "m6g_4xlarge_search" | "m6g_8xlarge_search" | "m6g_12xlarge_search" | "c6g_large_search" | "c6g_xlarge_search" | "c6g_2xlarge_search" | "c6g_4xlarge_search" | "c6g_8xlarge_search" | "c6g_12xlarge_search" | "r6gd_large_search" | "r6gd_xlarge_search" | "r6gd_2xlarge_search" | "r6gd_4xlarge_search" | "r6gd_8xlarge_search" | "r6gd_12xlarge_search" | "r6gd_16xlarge_search" | "t4g_small_search" | "t4g_medium_search";
+export type OpenSearchWarmPartitionInstanceType = "ultrawarm1_medium_search" | "ultrawarm1_large_search" | "ultrawarm1_xlarge_search";
 export type OptionState = "RequiresIndexDocuments" | "Processing" | "Active";
 export interface OptionStatus {
   CreationDate: Date | string;
@@ -2506,22 +1958,8 @@ export interface OutboundConnectionStatus {
   StatusCode?: OutboundConnectionStatusCode;
   Message?: string;
 }
-export type OutboundConnectionStatusCode =
-  | "VALIDATING"
-  | "VALIDATION_FAILED"
-  | "PENDING_ACCEPTANCE"
-  | "APPROVED"
-  | "PROVISIONING"
-  | "ACTIVE"
-  | "REJECTING"
-  | "REJECTED"
-  | "DELETING"
-  | "DELETED";
-export type OverallChangeStatus =
-  | "PENDING"
-  | "PROCESSING"
-  | "COMPLETED"
-  | "FAILED";
+export type OutboundConnectionStatusCode = "VALIDATING" | "VALIDATION_FAILED" | "PENDING_ACCEPTANCE" | "APPROVED" | "PROVISIONING" | "ACTIVE" | "REJECTING" | "REJECTED" | "DELETING" | "DELETED";
+export type OverallChangeStatus = "PENDING" | "PROCESSING" | "COMPLETED" | "FAILED";
 export type OwnerId = string;
 
 export interface PackageAssociationConfiguration {
@@ -2558,8 +1996,7 @@ export interface PackageDetailsForAssociation {
   PrerequisitePackageIDList?: Array<string>;
   AssociationConfiguration?: PackageAssociationConfiguration;
 }
-export type PackageDetailsForAssociationList =
-  Array<PackageDetailsForAssociation>;
+export type PackageDetailsForAssociationList = Array<PackageDetailsForAssociation>;
 export type PackageDetailsList = Array<PackageDetails>;
 export interface PackageEncryptionOptions {
   KmsKeyIdentifier?: string;
@@ -2577,20 +2014,8 @@ export interface PackageSource {
   S3BucketName?: string;
   S3Key?: string;
 }
-export type PackageStatus =
-  | "COPYING"
-  | "COPY_FAILED"
-  | "VALIDATING"
-  | "VALIDATION_FAILED"
-  | "AVAILABLE"
-  | "DELETING"
-  | "DELETED"
-  | "DELETE_FAILED";
-export type PackageType =
-  | "TXT_DICTIONARY"
-  | "ZIP_PLUGIN"
-  | "PACKAGE_LICENSE"
-  | "PACKAGE_CONFIG";
+export type PackageStatus = "COPYING" | "COPY_FAILED" | "VALIDATING" | "VALIDATION_FAILED" | "AVAILABLE" | "DELETING" | "DELETED" | "DELETE_FAILED";
+export type PackageType = "TXT_DICTIONARY" | "ZIP_PLUGIN" | "PACKAGE_LICENSE" | "PACKAGE_CONFIG";
 export type PackageUser = string;
 
 export type PackageUserList = Array<string>;
@@ -2689,10 +2114,7 @@ export interface ReservedInstanceOffering {
   RecurringCharges?: Array<RecurringCharge>;
 }
 export type ReservedInstanceOfferingList = Array<ReservedInstanceOffering>;
-export type ReservedInstancePaymentOption =
-  | "ALL_UPFRONT"
-  | "PARTIAL_UPFRONT"
-  | "NO_UPFRONT";
+export type ReservedInstancePaymentOption = "ALL_UPFRONT" | "PARTIAL_UPFRONT" | "NO_UPFRONT";
 export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
@@ -2708,7 +2130,8 @@ export interface RevokeVpcEndpointAccessRequest {
   Account?: string;
   Service?: AWSServicePrincipal;
 }
-export interface RevokeVpcEndpointAccessResponse {}
+export interface RevokeVpcEndpointAccessResponse {
+}
 export type RoleArn = string;
 
 export type RolesKey = string;
@@ -2762,9 +2185,7 @@ export interface ScheduledAction {
   Cancellable?: boolean;
 }
 export type ScheduledActionsList = Array<ScheduledAction>;
-export type ScheduledAutoTuneActionType =
-  | "JVM_HEAP_SIZE_TUNING"
-  | "JVM_YOUNG_GEN_TUNING";
+export type ScheduledAutoTuneActionType = "JVM_HEAP_SIZE_TUNING" | "JVM_YOUNG_GEN_TUNING";
 export type ScheduledAutoTuneDescription = string;
 
 export interface ScheduledAutoTuneDetails {
@@ -2869,10 +2290,7 @@ export type TagValue = string;
 export type Timestamp = Date | string;
 
 export type TimeUnit = "HOURS";
-export type TLSSecurityPolicy =
-  | "POLICY_MIN_TLS_1_0_2019_07"
-  | "POLICY_MIN_TLS_1_2_2019_07"
-  | "POLICY_MIN_TLS_1_2_PFS_2023_10";
+export type TLSSecurityPolicy = "POLICY_MIN_TLS_1_0_2019_07" | "POLICY_MIN_TLS_1_2_2019_07" | "POLICY_MIN_TLS_1_2_PFS_2023_10";
 export type TotalNumberOfStages = number;
 
 export type UIntValue = number;
@@ -3004,11 +2422,7 @@ export interface UpgradeHistory {
 export type UpgradeHistoryList = Array<UpgradeHistory>;
 export type UpgradeName = string;
 
-export type UpgradeStatus =
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "SUCCEEDED_WITH_ISSUES"
-  | "FAILED";
+export type UpgradeStatus = "IN_PROGRESS" | "SUCCEEDED" | "SUCCEEDED_WITH_ISSUES" | "FAILED";
 export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
 export interface UpgradeStepItem {
   UpgradeStep?: UpgradeStep;
@@ -3071,14 +2485,7 @@ export type VpcEndpointId = string;
 
 export type VpcEndpointIdList = Array<string>;
 export type VpcEndpoints = Array<VpcEndpoint>;
-export type VpcEndpointStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "ACTIVE"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "DELETING"
-  | "DELETE_FAILED";
+export type VpcEndpointStatus = "CREATING" | "CREATE_FAILED" | "ACTIVE" | "UPDATING" | "UPDATE_FAILED" | "DELETING" | "DELETE_FAILED";
 export interface VpcEndpointSummary {
   VpcEndpointId?: string;
   VpcEndpointOwner?: string;
@@ -3709,7 +3116,10 @@ export declare namespace ListDomainMaintenances {
 export declare namespace ListDomainNames {
   export type Input = ListDomainNamesRequest;
   export type Output = ListDomainNamesResponse;
-  export type Error = BaseException | ValidationException | CommonAwsError;
+  export type Error =
+    | BaseException
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace ListDomainsForPackage {
@@ -3996,3 +3406,4 @@ export declare namespace UpgradeDomain {
     | ValidationException
     | CommonAwsError;
 }
+

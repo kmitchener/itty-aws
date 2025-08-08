@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class evs extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("evs", new AwsJson10Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -15,10 +20,7 @@ export class evs extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ResourceNotFoundException
-    | TagPolicyException
-    | TooManyTagsException
-    | CommonAwsError
+    ResourceNotFoundException | TagPolicyException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -45,11 +47,7 @@ export interface Check {
 }
 export type CheckResult = "PASSED" | "FAILED" | "UNKNOWN";
 export type ChecksList = Array<Check>;
-export type CheckType =
-  | "KEY_REUSE"
-  | "KEY_COVERAGE"
-  | "REACHABILITY"
-  | "HOST_COUNT";
+export type CheckType = "KEY_REUSE" | "KEY_COVERAGE" | "REACHABILITY" | "HOST_COUNT";
 export type Cidr = string;
 
 export type ClientToken = string;
@@ -130,12 +128,7 @@ export type EnvironmentId = string;
 
 export type EnvironmentName = string;
 
-export type EnvironmentState =
-  | "CREATING"
-  | "CREATED"
-  | "DELETING"
-  | "DELETED"
-  | "CREATE_FAILED";
+export type EnvironmentState = "CREATING" | "CREATED" | "DELETING" | "DELETED" | "CREATE_FAILED";
 export type EnvironmentStateList = Array<EnvironmentState>;
 export interface EnvironmentSummary {
   environmentId?: string;
@@ -179,14 +172,7 @@ export type HostInfoForCreateList = Array<HostInfoForCreate>;
 export type HostList = Array<Host>;
 export type HostName = string;
 
-export type HostState =
-  | "CREATING"
-  | "CREATED"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "CREATE_FAILED"
-  | "UPDATE_FAILED";
+export type HostState = "CREATING" | "CREATED" | "UPDATING" | "DELETING" | "DELETED" | "CREATE_FAILED" | "UPDATE_FAILED";
 export interface InitialVlanInfo {
   cidr: string;
 }
@@ -297,7 +283,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -315,7 +302,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -328,11 +316,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export interface VcfHostnames {
   vCenter: string;
   nsx: string;
@@ -359,12 +343,7 @@ export interface Vlan {
 export type VlanId = number;
 
 export type VlanList = Array<Vlan>;
-export type VlanState =
-  | "CREATING"
-  | "CREATED"
-  | "DELETING"
-  | "DELETED"
-  | "CREATE_FAILED";
+export type VlanState = "CREATING" | "CREATED" | "DELETING" | "DELETED" | "CREATE_FAILED";
 export type VpcId = string;
 
 export type VSanLicenseKey = string;
@@ -372,7 +351,9 @@ export type VSanLicenseKey = string;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -393,3 +374,4 @@ export declare namespace UntagResource {
     | TagPolicyException
     | CommonAwsError;
 }
+

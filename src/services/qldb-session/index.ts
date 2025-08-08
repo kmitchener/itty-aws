@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class QLDBSession extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("qldb-session", new AwsJson10Protocol(), cfg);
+  }
+
   sendCommand(
     input: SendCommandRequest,
   ): Effect.Effect<
     SendCommandResult,
-    | BadRequestException
-    | CapacityExceededException
-    | InvalidSessionException
-    | LimitExceededException
-    | OccConflictException
-    | RateExceededException
-    | CommonAwsError
+    BadRequestException | CapacityExceededException | InvalidSessionException | LimitExceededException | OccConflictException | RateExceededException | CommonAwsError
   > {
     return this.call("SendCommand", input);
   }
@@ -23,7 +22,8 @@ export class QldbSession extends QLDBSession {}
 
 export default QLDBSession;
 
-export interface AbortTransactionRequest {}
+export interface AbortTransactionRequest {
+}
 export interface AbortTransactionResult {
   TimingInformation?: TimingInformation;
 }
@@ -50,7 +50,8 @@ export interface CommitTransactionResult {
   TimingInformation?: TimingInformation;
   ConsumedIOs?: IOUsage;
 }
-export interface EndSessionRequest {}
+export interface EndSessionRequest {
+}
 export interface EndSessionResult {
   TimingInformation?: TimingInformation;
 }
@@ -146,7 +147,8 @@ export interface StartSessionResult {
   SessionToken?: string;
   TimingInformation?: TimingInformation;
 }
-export interface StartTransactionRequest {}
+export interface StartTransactionRequest {
+}
 export interface StartTransactionResult {
   TransactionId?: string;
   TimingInformation?: TimingInformation;
@@ -178,3 +180,4 @@ export declare namespace SendCommand {
     | RateExceededException
     | CommonAwsError;
 }
+

@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class ResourceGroupsTaggingAPI extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("resource-groups-tagging-api", new AwsJson11Protocol(), cfg);
+  }
+
   describeReportCreation(
     input: DescribeReportCreationInput,
   ): Effect.Effect<
     DescribeReportCreationOutput,
-    | ConstraintViolationException
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    ConstraintViolationException | InternalServiceException | InvalidParameterException | ThrottledException | CommonAwsError
   > {
     return this.call("DescribeReportCreation", input);
   }
@@ -19,11 +20,7 @@ export class ResourceGroupsTaggingAPI extends AWSServiceClient {
     input: GetComplianceSummaryInput,
   ): Effect.Effect<
     GetComplianceSummaryOutput,
-    | ConstraintViolationException
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    ConstraintViolationException | InternalServiceException | InvalidParameterException | ThrottledException | CommonAwsError
   > {
     return this.call("GetComplianceSummary", input);
   }
@@ -31,11 +28,7 @@ export class ResourceGroupsTaggingAPI extends AWSServiceClient {
     input: GetResourcesInput,
   ): Effect.Effect<
     GetResourcesOutput,
-    | InternalServiceException
-    | InvalidParameterException
-    | PaginationTokenExpiredException
-    | ThrottledException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | PaginationTokenExpiredException | ThrottledException | CommonAwsError
   > {
     return this.call("GetResources", input);
   }
@@ -43,11 +36,7 @@ export class ResourceGroupsTaggingAPI extends AWSServiceClient {
     input: GetTagKeysInput,
   ): Effect.Effect<
     GetTagKeysOutput,
-    | InternalServiceException
-    | InvalidParameterException
-    | PaginationTokenExpiredException
-    | ThrottledException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | PaginationTokenExpiredException | ThrottledException | CommonAwsError
   > {
     return this.call("GetTagKeys", input);
   }
@@ -55,11 +44,7 @@ export class ResourceGroupsTaggingAPI extends AWSServiceClient {
     input: GetTagValuesInput,
   ): Effect.Effect<
     GetTagValuesOutput,
-    | InternalServiceException
-    | InvalidParameterException
-    | PaginationTokenExpiredException
-    | ThrottledException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | PaginationTokenExpiredException | ThrottledException | CommonAwsError
   > {
     return this.call("GetTagValues", input);
   }
@@ -67,12 +52,7 @@ export class ResourceGroupsTaggingAPI extends AWSServiceClient {
     input: StartReportCreationInput,
   ): Effect.Effect<
     StartReportCreationOutput,
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    ConcurrentModificationException | ConstraintViolationException | InternalServiceException | InvalidParameterException | ThrottledException | CommonAwsError
   > {
     return this.call("StartReportCreation", input);
   }
@@ -80,10 +60,7 @@ export class ResourceGroupsTaggingAPI extends AWSServiceClient {
     input: TagResourcesInput,
   ): Effect.Effect<
     TagResourcesOutput,
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ThrottledException | CommonAwsError
   > {
     return this.call("TagResources", input);
   }
@@ -91,10 +68,7 @@ export class ResourceGroupsTaggingAPI extends AWSServiceClient {
     input: UntagResourcesInput,
   ): Effect.Effect<
     UntagResourcesOutput,
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ThrottledException | CommonAwsError
   > {
     return this.call("UntagResources", input);
   }
@@ -123,16 +97,15 @@ export declare class ConstraintViolationException extends EffectData.TaggedError
 )<{
   readonly Message?: string;
 }> {}
-export interface DescribeReportCreationInput {}
+export interface DescribeReportCreationInput {
+}
 export interface DescribeReportCreationOutput {
   Status?: string;
   S3Location?: string;
   StartDate?: string;
   ErrorMessage?: string;
 }
-export type ErrorCode =
-  | "INTERNAL_SERVICE_EXCEPTION"
-  | "INVALID_PARAMETER_EXCEPTION";
+export type ErrorCode = "INTERNAL_SERVICE_EXCEPTION" | "INVALID_PARAMETER_EXCEPTION";
 export type ErrorMessage = string;
 
 export type ExceptionMessage = string;
@@ -239,7 +212,8 @@ export type StartDate = string;
 export interface StartReportCreationInput {
   S3Bucket: string;
 }
-export interface StartReportCreationOutput {}
+export interface StartReportCreationOutput {
+}
 export type Status = string;
 
 export type StatusCode = number;
@@ -384,3 +358,4 @@ export declare namespace UntagResources {
     | ThrottledException
     | CommonAwsError;
 }
+

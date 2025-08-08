@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class WorkspacesInstances extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("workspaces-instances", new AwsJson10Protocol(), cfg);
+  }
+
   associateVolume(
     input: AssociateVolumeRequest,
   ): Effect.Effect<
     AssociateVolumeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateVolume", input);
   }
@@ -21,13 +20,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: CreateVolumeRequest,
   ): Effect.Effect<
     CreateVolumeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateVolume", input);
   }
@@ -35,13 +28,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: CreateWorkspaceInstanceRequest,
   ): Effect.Effect<
     CreateWorkspaceInstanceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateWorkspaceInstance", input);
   }
@@ -49,13 +36,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: DeleteVolumeRequest,
   ): Effect.Effect<
     DeleteVolumeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteVolume", input);
   }
@@ -63,13 +44,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: DeleteWorkspaceInstanceRequest,
   ): Effect.Effect<
     DeleteWorkspaceInstanceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteWorkspaceInstance", input);
   }
@@ -77,13 +52,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: DisassociateVolumeRequest,
   ): Effect.Effect<
     DisassociateVolumeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateVolume", input);
   }
@@ -91,12 +60,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: GetWorkspaceInstanceRequest,
   ): Effect.Effect<
     GetWorkspaceInstanceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetWorkspaceInstance", input);
   }
@@ -104,11 +68,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: ListInstanceTypesRequest,
   ): Effect.Effect<
     ListInstanceTypesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListInstanceTypes", input);
   }
@@ -116,11 +76,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: ListRegionsRequest,
   ): Effect.Effect<
     ListRegionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRegions", input);
   }
@@ -128,12 +84,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -141,11 +92,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: ListWorkspaceInstancesRequest,
   ): Effect.Effect<
     ListWorkspaceInstancesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListWorkspaceInstances", input);
   }
@@ -153,12 +100,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -166,12 +108,7 @@ export class WorkspacesInstances extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -192,7 +129,8 @@ export interface AssociateVolumeRequest {
   VolumeId: string;
   Device: string;
 }
-export interface AssociateVolumeResponse {}
+export interface AssociateVolumeResponse {
+}
 export type AutoRecoveryEnum = "DISABLED" | "DEFAULT";
 export type AvailabilityZone = string;
 
@@ -204,10 +142,7 @@ export interface BlockDeviceMappingRequest {
   VirtualName?: string;
 }
 export type BlockDeviceMappings = Array<BlockDeviceMappingRequest>;
-export type CapacityReservationPreferenceEnum =
-  | "CAPACITY_RESERVATIONS_ONLY"
-  | "OPEN"
-  | "NONE";
+export type CapacityReservationPreferenceEnum = "CAPACITY_RESERVATIONS_ONLY" | "OPEN" | "NONE";
 export interface CapacityReservationSpecification {
   CapacityReservationPreference?: CapacityReservationPreferenceEnum;
   CapacityReservationTarget?: CapacityReservationTarget;
@@ -265,11 +200,13 @@ export interface CreditSpecificationRequest {
 export interface DeleteVolumeRequest {
   VolumeId: string;
 }
-export interface DeleteVolumeResponse {}
+export interface DeleteVolumeResponse {
+}
 export interface DeleteWorkspaceInstanceRequest {
   WorkspaceInstanceId: string;
 }
-export interface DeleteWorkspaceInstanceResponse {}
+export interface DeleteWorkspaceInstanceResponse {
+}
 export type Description = string;
 
 export type DeviceName = string;
@@ -281,7 +218,8 @@ export interface DisassociateVolumeRequest {
   Device?: string;
   DisassociateMode?: DisassociateModeEnum;
 }
-export interface DisassociateVolumeResponse {}
+export interface DisassociateVolumeResponse {
+}
 export interface EbsBlockDevice {
   VolumeType?: VolumeTypeEnum;
   Encrypted?: boolean;
@@ -515,13 +453,7 @@ export interface PrivateIpAddressSpecification {
   Primary?: boolean;
   PrivateIpAddress?: string;
 }
-export type ProvisionStateEnum =
-  | "ALLOCATING"
-  | "ALLOCATED"
-  | "DEALLOCATING"
-  | "DEALLOCATED"
-  | "ERROR_ALLOCATING"
-  | "ERROR_DEALLOCATING";
+export type ProvisionStateEnum = "ALLOCATING" | "ALLOCATED" | "DEALLOCATING" | "DEALLOCATED" | "ERROR_ALLOCATING" | "ERROR_DEALLOCATING";
 export type ProvisionStates = Array<ProvisionStateEnum>;
 export interface Region {
   RegionName?: string;
@@ -536,11 +468,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly ResourceId: string;
   readonly ResourceType: string;
 }> {}
-export type ResourceTypeEnum =
-  | "INSTANCE"
-  | "VOLUME"
-  | "SPOT_INSTANCES_REQUEST"
-  | "NETWORK_INTERFACE";
+export type ResourceTypeEnum = "INSTANCE" | "VOLUME" | "SPOT_INSTANCES_REQUEST" | "NETWORK_INTERFACE";
 export interface RunInstancesMonitoringEnabled {
   Enabled?: boolean;
 }
@@ -587,7 +515,8 @@ export interface TagResourceRequest {
   WorkspaceInstanceId: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export interface TagSpecification {
   ResourceType?: ResourceTypeEnum;
   Tags?: Array<Tag>;
@@ -608,7 +537,8 @@ export interface UntagResourceRequest {
   WorkspaceInstanceId: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UserData = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -624,25 +554,12 @@ export interface ValidationExceptionField {
   Message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "UNSUPPORTED_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "DEPENDENCY_FAILURE"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "UNSUPPORTED_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "DEPENDENCY_FAILURE" | "OTHER";
 export type VirtualName = string;
 
 export type VolumeId = string;
 
-export type VolumeTypeEnum =
-  | "STANDARD"
-  | "IO1"
-  | "IO2"
-  | "GP2"
-  | "SC1"
-  | "ST1"
-  | "GP3";
+export type VolumeTypeEnum = "STANDARD" | "IO1" | "IO2" | "GP2" | "SC1" | "ST1" | "GP3";
 export interface WorkspaceInstance {
   ProvisionState?: ProvisionStateEnum;
   WorkspaceInstanceId?: string;
@@ -814,3 +731,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

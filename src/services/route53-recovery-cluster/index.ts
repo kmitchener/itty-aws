@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class Route53RecoveryCluster extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("route53-recovery-cluster", new AwsJson10Protocol(), cfg);
+  }
+
   getRoutingControlState(
     input: GetRoutingControlStateRequest,
   ): Effect.Effect<
     GetRoutingControlStateResponse,
-    | AccessDeniedException
-    | EndpointTemporarilyUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | EndpointTemporarilyUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRoutingControlState", input);
   }
@@ -21,13 +20,7 @@ export class Route53RecoveryCluster extends AWSServiceClient {
     input: ListRoutingControlsRequest,
   ): Effect.Effect<
     ListRoutingControlsResponse,
-    | AccessDeniedException
-    | EndpointTemporarilyUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | EndpointTemporarilyUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRoutingControls", input);
   }
@@ -35,14 +28,7 @@ export class Route53RecoveryCluster extends AWSServiceClient {
     input: UpdateRoutingControlStateRequest,
   ): Effect.Effect<
     UpdateRoutingControlStateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | EndpointTemporarilyUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | EndpointTemporarilyUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRoutingControlState", input);
   }
@@ -50,15 +36,7 @@ export class Route53RecoveryCluster extends AWSServiceClient {
     input: UpdateRoutingControlStatesRequest,
   ): Effect.Effect<
     UpdateRoutingControlStatesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | EndpointTemporarilyUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | EndpointTemporarilyUnavailableException | InternalServerException | ResourceNotFoundException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRoutingControlStates", input);
   }
@@ -155,8 +133,7 @@ export declare class ThrottlingException extends EffectData.TaggedError(
   readonly message: string;
   readonly retryAfterSeconds?: number;
 }> {}
-export type UpdateRoutingControlStateEntries =
-  Array<UpdateRoutingControlStateEntry>;
+export type UpdateRoutingControlStateEntries = Array<UpdateRoutingControlStateEntry>;
 export interface UpdateRoutingControlStateEntry {
   RoutingControlArn: string;
   RoutingControlState: RoutingControlState;
@@ -166,12 +143,14 @@ export interface UpdateRoutingControlStateRequest {
   RoutingControlState: RoutingControlState;
   SafetyRulesToOverride?: Array<string>;
 }
-export interface UpdateRoutingControlStateResponse {}
+export interface UpdateRoutingControlStateResponse {
+}
 export interface UpdateRoutingControlStatesRequest {
   UpdateRoutingControlStateEntries: Array<UpdateRoutingControlStateEntry>;
   SafetyRulesToOverride?: Array<string>;
 }
-export interface UpdateRoutingControlStatesResponse {}
+export interface UpdateRoutingControlStatesResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -184,11 +163,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export declare namespace GetRoutingControlState {
   export type Input = GetRoutingControlStateRequest;
   export type Output = GetRoutingControlStateResponse;
@@ -243,3 +218,4 @@ export declare namespace UpdateRoutingControlStates {
     | ValidationException
     | CommonAwsError;
 }
+

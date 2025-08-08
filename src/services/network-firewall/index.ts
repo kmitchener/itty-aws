@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class NetworkFirewall extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("network-firewall", new AwsJson10Protocol(), cfg);
+  }
+
   acceptNetworkFirewallTransitGatewayAttachment(
     input: AcceptNetworkFirewallTransitGatewayAttachmentRequest,
   ): Effect.Effect<
     AcceptNetworkFirewallTransitGatewayAttachmentResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AcceptNetworkFirewallTransitGatewayAttachment", input);
   }
@@ -19,14 +20,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: AssociateAvailabilityZonesRequest,
   ): Effect.Effect<
     AssociateAvailabilityZonesResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidOperationException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateAvailabilityZones", input);
   }
@@ -34,13 +28,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: AssociateFirewallPolicyRequest,
   ): Effect.Effect<
     AssociateFirewallPolicyResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateFirewallPolicy", input);
   }
@@ -48,14 +36,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: AssociateSubnetsRequest,
   ): Effect.Effect<
     AssociateSubnetsResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidOperationException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateSubnets", input);
   }
@@ -63,13 +44,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: CreateFirewallRequest,
   ): Effect.Effect<
     CreateFirewallResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidOperationException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateFirewall", input);
   }
@@ -77,12 +52,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: CreateFirewallPolicyRequest,
   ): Effect.Effect<
     CreateFirewallPolicyResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateFirewallPolicy", input);
   }
@@ -90,12 +60,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: CreateRuleGroupRequest,
   ): Effect.Effect<
     CreateRuleGroupResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateRuleGroup", input);
   }
@@ -103,12 +68,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: CreateTLSInspectionConfigurationRequest,
   ): Effect.Effect<
     CreateTLSInspectionConfigurationResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateTLSInspectionConfiguration", input);
   }
@@ -116,14 +76,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: CreateVpcEndpointAssociationRequest,
   ): Effect.Effect<
     CreateVpcEndpointAssociationResponse,
-    | InsufficientCapacityException
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InsufficientCapacityException | InternalServerError | InvalidOperationException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateVpcEndpointAssociation", input);
   }
@@ -131,13 +84,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DeleteFirewallRequest,
   ): Effect.Effect<
     DeleteFirewallResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteFirewall", input);
   }
@@ -145,13 +92,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DeleteFirewallPolicyRequest,
   ): Effect.Effect<
     DeleteFirewallPolicyResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteFirewallPolicy", input);
   }
@@ -159,11 +100,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DeleteNetworkFirewallTransitGatewayAttachmentRequest,
   ): Effect.Effect<
     DeleteNetworkFirewallTransitGatewayAttachmentResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteNetworkFirewallTransitGatewayAttachment", input);
   }
@@ -171,12 +108,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidResourcePolicyException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidResourcePolicyException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -184,13 +116,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DeleteRuleGroupRequest,
   ): Effect.Effect<
     DeleteRuleGroupResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteRuleGroup", input);
   }
@@ -198,12 +124,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DeleteTLSInspectionConfigurationRequest,
   ): Effect.Effect<
     DeleteTLSInspectionConfigurationResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteTLSInspectionConfiguration", input);
   }
@@ -211,12 +132,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DeleteVpcEndpointAssociationRequest,
   ): Effect.Effect<
     DeleteVpcEndpointAssociationResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteVpcEndpointAssociation", input);
   }
@@ -224,11 +140,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeFirewallRequest,
   ): Effect.Effect<
     DescribeFirewallResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeFirewall", input);
   }
@@ -236,11 +148,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeFirewallMetadataRequest,
   ): Effect.Effect<
     DescribeFirewallMetadataResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeFirewallMetadata", input);
   }
@@ -248,11 +156,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeFirewallPolicyRequest,
   ): Effect.Effect<
     DescribeFirewallPolicyResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeFirewallPolicy", input);
   }
@@ -260,11 +164,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeFlowOperationRequest,
   ): Effect.Effect<
     DescribeFlowOperationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeFlowOperation", input);
   }
@@ -272,11 +172,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeLoggingConfigurationRequest,
   ): Effect.Effect<
     DescribeLoggingConfigurationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeLoggingConfiguration", input);
   }
@@ -284,11 +180,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeResourcePolicyRequest,
   ): Effect.Effect<
     DescribeResourcePolicyResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeResourcePolicy", input);
   }
@@ -296,11 +188,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeRuleGroupRequest,
   ): Effect.Effect<
     DescribeRuleGroupResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeRuleGroup", input);
   }
@@ -308,11 +196,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeRuleGroupMetadataRequest,
   ): Effect.Effect<
     DescribeRuleGroupMetadataResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeRuleGroupMetadata", input);
   }
@@ -320,11 +204,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeRuleGroupSummaryRequest,
   ): Effect.Effect<
     DescribeRuleGroupSummaryResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeRuleGroupSummary", input);
   }
@@ -332,11 +212,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeTLSInspectionConfigurationRequest,
   ): Effect.Effect<
     DescribeTLSInspectionConfigurationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeTLSInspectionConfiguration", input);
   }
@@ -344,11 +220,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DescribeVpcEndpointAssociationRequest,
   ): Effect.Effect<
     DescribeVpcEndpointAssociationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeVpcEndpointAssociation", input);
   }
@@ -356,13 +228,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DisassociateAvailabilityZonesRequest,
   ): Effect.Effect<
     DisassociateAvailabilityZonesResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateAvailabilityZones", input);
   }
@@ -370,13 +236,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: DisassociateSubnetsRequest,
   ): Effect.Effect<
     DisassociateSubnetsResponse,
-    | InternalServerError
-    | InvalidOperationException
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidOperationException | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateSubnets", input);
   }
@@ -384,11 +244,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: GetAnalysisReportResultsRequest,
   ): Effect.Effect<
     GetAnalysisReportResultsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetAnalysisReportResults", input);
   }
@@ -396,11 +252,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: ListAnalysisReportsRequest,
   ): Effect.Effect<
     ListAnalysisReportsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAnalysisReports", input);
   }
@@ -408,10 +260,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: ListFirewallPoliciesRequest,
   ): Effect.Effect<
     ListFirewallPoliciesResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListFirewallPolicies", input);
   }
@@ -419,10 +268,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: ListFirewallsRequest,
   ): Effect.Effect<
     ListFirewallsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListFirewalls", input);
   }
@@ -430,11 +276,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: ListFlowOperationResultsRequest,
   ): Effect.Effect<
     ListFlowOperationResultsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListFlowOperationResults", input);
   }
@@ -442,11 +284,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: ListFlowOperationsRequest,
   ): Effect.Effect<
     ListFlowOperationsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListFlowOperations", input);
   }
@@ -454,10 +292,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: ListRuleGroupsRequest,
   ): Effect.Effect<
     ListRuleGroupsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRuleGroups", input);
   }
@@ -465,11 +300,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -477,10 +308,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: ListTLSInspectionConfigurationsRequest,
   ): Effect.Effect<
     ListTLSInspectionConfigurationsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTLSInspectionConfigurations", input);
   }
@@ -488,10 +316,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: ListVpcEndpointAssociationsRequest,
   ): Effect.Effect<
     ListVpcEndpointAssociationsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListVpcEndpointAssociations", input);
   }
@@ -499,12 +324,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidResourcePolicyException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidResourcePolicyException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -512,11 +332,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: RejectNetworkFirewallTransitGatewayAttachmentRequest,
   ): Effect.Effect<
     RejectNetworkFirewallTransitGatewayAttachmentResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("RejectNetworkFirewallTransitGatewayAttachment", input);
   }
@@ -524,11 +340,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: StartAnalysisReportRequest,
   ): Effect.Effect<
     StartAnalysisReportResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartAnalysisReport", input);
   }
@@ -536,11 +348,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: StartFlowCaptureRequest,
   ): Effect.Effect<
     StartFlowCaptureResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartFlowCapture", input);
   }
@@ -548,11 +356,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: StartFlowFlushRequest,
   ): Effect.Effect<
     StartFlowFlushResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartFlowFlush", input);
   }
@@ -560,11 +364,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -572,11 +372,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -584,13 +380,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateAvailabilityZoneChangeProtectionRequest,
   ): Effect.Effect<
     UpdateAvailabilityZoneChangeProtectionResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ResourceOwnerCheckException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ResourceOwnerCheckException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAvailabilityZoneChangeProtection", input);
   }
@@ -598,11 +388,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateFirewallAnalysisSettingsRequest,
   ): Effect.Effect<
     UpdateFirewallAnalysisSettingsResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateFirewallAnalysisSettings", input);
   }
@@ -610,13 +396,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateFirewallDeleteProtectionRequest,
   ): Effect.Effect<
     UpdateFirewallDeleteProtectionResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ResourceOwnerCheckException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ResourceOwnerCheckException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateFirewallDeleteProtection", input);
   }
@@ -624,12 +404,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateFirewallDescriptionRequest,
   ): Effect.Effect<
     UpdateFirewallDescriptionResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateFirewallDescription", input);
   }
@@ -637,13 +412,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateFirewallEncryptionConfigurationRequest,
   ): Effect.Effect<
     UpdateFirewallEncryptionConfigurationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ResourceOwnerCheckException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ResourceOwnerCheckException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateFirewallEncryptionConfiguration", input);
   }
@@ -651,12 +420,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateFirewallPolicyRequest,
   ): Effect.Effect<
     UpdateFirewallPolicyResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateFirewallPolicy", input);
   }
@@ -664,13 +428,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateFirewallPolicyChangeProtectionRequest,
   ): Effect.Effect<
     UpdateFirewallPolicyChangeProtectionResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ResourceOwnerCheckException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ResourceOwnerCheckException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateFirewallPolicyChangeProtection", input);
   }
@@ -678,13 +436,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateLoggingConfigurationRequest,
   ): Effect.Effect<
     UpdateLoggingConfigurationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | LogDestinationPermissionException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | LogDestinationPermissionException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateLoggingConfiguration", input);
   }
@@ -692,12 +444,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateRuleGroupRequest,
   ): Effect.Effect<
     UpdateRuleGroupResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateRuleGroup", input);
   }
@@ -705,13 +452,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateSubnetChangeProtectionRequest,
   ): Effect.Effect<
     UpdateSubnetChangeProtectionResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ResourceOwnerCheckException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ResourceOwnerCheckException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateSubnetChangeProtection", input);
   }
@@ -719,12 +460,7 @@ export class NetworkFirewall extends AWSServiceClient {
     input: UpdateTLSInspectionConfigurationRequest,
   ): Effect.Effect<
     UpdateTLSInspectionConfigurationResponse,
-    | InternalServerError
-    | InvalidRequestException
-    | InvalidTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerError | InvalidRequestException | InvalidTokenException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateTLSInspectionConfiguration", input);
   }
@@ -823,13 +559,7 @@ export interface Attachment {
 }
 export type AttachmentId = string;
 
-export type AttachmentStatus =
-  | "CREATING"
-  | "DELETING"
-  | "FAILED"
-  | "ERROR"
-  | "SCALING"
-  | "READY";
+export type AttachmentStatus = "CREATING" | "DELETING" | "FAILED" | "ERROR" | "SCALING" | "READY";
 export type AvailabilityZone = string;
 
 export interface AvailabilityZoneMapping {
@@ -870,10 +600,7 @@ export interface CIDRSummary {
 }
 export type CollectionMember_String = string;
 
-export type ConfigurationSyncState =
-  | "PENDING"
-  | "IN_SYNC"
-  | "CAPACITY_CONSTRAINED";
+export type ConfigurationSyncState = "PENDING" | "IN_SYNC" | "CAPACITY_CONSTRAINED";
 export type Count = number;
 
 export interface CreateFirewallPolicyRequest {
@@ -980,7 +707,8 @@ export interface DeleteNetworkFirewallTransitGatewayAttachmentResponse {
 export interface DeleteResourcePolicyRequest {
   ResourceArn: string;
 }
-export interface DeleteResourcePolicyResponse {}
+export interface DeleteResourcePolicyResponse {
+}
 export interface DeleteRuleGroupRequest {
   RuleGroupName?: string;
   RuleGroupArn?: string;
@@ -1265,11 +993,7 @@ export interface FlowOperationMetadata {
   FlowOperationStatus?: FlowOperationStatus;
 }
 export type FlowOperations = Array<FlowOperationMetadata>;
-export type FlowOperationStatus =
-  | "COMPLETED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED_WITH_ERRORS";
+export type FlowOperationStatus = "COMPLETED" | "IN_PROGRESS" | "FAILED" | "COMPLETED_WITH_ERRORS";
 export type FlowOperationType = "FLOW_FLUSH" | "FLOW_CAPTURE";
 export type FlowRequestTimestamp = Date | string;
 
@@ -1309,9 +1033,7 @@ export interface Header {
 export interface Hits {
   Count?: number;
 }
-export type IdentifiedType =
-  | "STATELESS_RULE_FORWARDING_ASYMMETRICALLY"
-  | "STATELESS_RULE_CONTAINS_TCP_FLAGS";
+export type IdentifiedType = "STATELESS_RULE_FORWARDING_ASYMMETRICALLY" | "STATELESS_RULE_CONTAINS_TCP_FLAGS";
 export declare class InsufficientCapacityException extends EffectData.TaggedError(
   "InsufficientCapacityException",
 )<{
@@ -1482,10 +1204,7 @@ export declare class LogDestinationPermissionException extends EffectData.Tagged
 )<{
   readonly Message?: string;
 }> {}
-export type LogDestinationType =
-  | "S3"
-  | "CLOUDWATCH_LOGS"
-  | "KINESIS_DATA_FIREHOSE";
+export type LogDestinationType = "S3" | "CLOUDWATCH_LOGS" | "KINESIS_DATA_FIREHOSE";
 export interface LoggingConfiguration {
   LogDestinationConfigs: Array<LogDestinationConfig>;
 }
@@ -1511,10 +1230,7 @@ export interface PerObjectStatus {
   SyncStatus?: PerObjectSyncStatus;
   UpdateToken?: string;
 }
-export type PerObjectSyncStatus =
-  | "PENDING"
-  | "IN_SYNC"
-  | "CAPACITY_CONSTRAINED";
+export type PerObjectSyncStatus = "PENDING" | "IN_SYNC" | "CAPACITY_CONSTRAINED";
 export type PolicyString = string;
 
 export interface PolicyVariables {
@@ -1548,7 +1264,8 @@ export interface PutResourcePolicyRequest {
   ResourceArn: string;
   Policy: string;
 }
-export interface PutResourcePolicyResponse {}
+export interface PutResourcePolicyResponse {
+}
 export interface ReferenceSets {
   IPSetReferences?: Record<string, IPSetReference>;
 }
@@ -1566,10 +1283,7 @@ export type ResourceArn = string;
 export type ResourceId = string;
 
 export type ResourceManagedStatus = "MANAGED" | "ACCOUNT";
-export type ResourceManagedType =
-  | "AWS_MANAGED_THREAT_SIGNATURES"
-  | "AWS_MANAGED_DOMAIN_LISTS"
-  | "ACTIVE_THREAT_DEFENSE";
+export type ResourceManagedType = "AWS_MANAGED_THREAT_SIGNATURES" | "AWS_MANAGED_DOMAIN_LISTS" | "ACTIVE_THREAT_DEFENSE";
 export type ResourceName = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -1662,8 +1376,7 @@ export interface ServerCertificateConfiguration {
   CertificateAuthorityArn?: string;
   CheckCertificateRevocationStatus?: CheckCertificateRevocationStatusActions;
 }
-export type ServerCertificateConfigurations =
-  Array<ServerCertificateConfiguration>;
+export type ServerCertificateConfigurations = Array<ServerCertificateConfiguration>;
 export type ServerCertificates = Array<ServerCertificate>;
 export interface ServerCertificateScope {
   Sources?: Array<Address>;
@@ -1744,28 +1457,7 @@ export type StatefulRuleGroupReferences = Array<StatefulRuleGroupReference>;
 export interface StatefulRuleOptions {
   RuleOrder?: RuleOrder;
 }
-export type StatefulRuleProtocol =
-  | "ANY"
-  | "TCP"
-  | "UDP"
-  | "ICMP"
-  | "HTTP"
-  | "FTP"
-  | "TLS"
-  | "SMB"
-  | "DNS"
-  | "DCERPC"
-  | "SSH"
-  | "SMTP"
-  | "IMAP"
-  | "MSN"
-  | "KRB5"
-  | "IKEV2"
-  | "TFTP"
-  | "NTP"
-  | "DHCP"
-  | "HTTP2"
-  | "QUIC";
+export type StatefulRuleProtocol = "ANY" | "TCP" | "UDP" | "ICMP" | "HTTP" | "FTP" | "TLS" | "SMB" | "DNS" | "DCERPC" | "SSH" | "SMTP" | "IMAP" | "MSN" | "KRB5" | "IKEV2" | "TFTP" | "NTP" | "DHCP" | "HTTP2" | "QUIC";
 export type StatefulRules = Array<StatefulRule>;
 export type StatelessActions = Array<string>;
 export interface StatelessRule {
@@ -1802,10 +1494,7 @@ export interface SummaryConfiguration {
 }
 export type SummaryRuleOption = "SID" | "MSG" | "METADATA";
 export type SummaryRuleOptions = Array<SummaryRuleOption>;
-export type SupportedAvailabilityZones = Record<
-  string,
-  AvailabilityZoneMetadata
->;
+export type SupportedAvailabilityZones = Record<string, AvailabilityZoneMetadata>;
 export interface SyncState {
   Attachment?: Attachment;
   Config?: Record<string, PerObjectStatus>;
@@ -1824,22 +1513,15 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsPaginationMaxResults = number;
 
 export type TagValue = string;
 
 export type TargetType = "TLS_SNI" | "HTTP_HOST";
 export type TargetTypes = Array<TargetType>;
-export type TCPFlag =
-  | "FIN"
-  | "SYN"
-  | "RST"
-  | "PSH"
-  | "ACK"
-  | "URG"
-  | "ECE"
-  | "CWR";
+export type TCPFlag = "FIN" | "SYN" | "RST" | "PSH" | "ACK" | "URG" | "ECE" | "CWR";
 export interface TCPFlagField {
   Flags: Array<TCPFlag>;
   Masks?: Array<TCPFlag>;
@@ -1878,20 +1560,10 @@ export interface TLSInspectionConfigurationResponse {
   Certificates?: Array<TlsCertificateData>;
   CertificateAuthority?: TlsCertificateData;
 }
-export type TLSInspectionConfigurations =
-  Array<TLSInspectionConfigurationMetadata>;
+export type TLSInspectionConfigurations = Array<TLSInspectionConfigurationMetadata>;
 export type TransitGatewayAttachmentId = string;
 
-export type TransitGatewayAttachmentStatus =
-  | "CREATING"
-  | "DELETING"
-  | "DELETED"
-  | "FAILED"
-  | "ERROR"
-  | "READY"
-  | "PENDING_ACCEPTANCE"
-  | "REJECTING"
-  | "REJECTED";
+export type TransitGatewayAttachmentStatus = "CREATING" | "DELETING" | "DELETED" | "FAILED" | "ERROR" | "READY" | "PENDING_ACCEPTANCE" | "REJECTING" | "REJECTED";
 export interface TransitGatewayAttachmentSyncState {
   AttachmentId?: string;
   TransitGatewayAttachmentStatus?: TransitGatewayAttachmentStatus;
@@ -1913,7 +1585,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAvailabilityZoneChangeProtectionRequest {
   UpdateToken?: string;
   FirewallArn?: string;
@@ -2747,3 +2420,4 @@ export declare namespace UpdateTLSInspectionConfiguration {
     | ThrottlingException
     | CommonAwsError;
 }
+

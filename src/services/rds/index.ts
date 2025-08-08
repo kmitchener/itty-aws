@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsQueryProtocol } from "../../protocols/awsquery.js";
 
 export class RDS extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("rds", new AwsQueryProtocol(), cfg);
+  }
+
   addRoleToDBCluster(
     input: AddRoleToDBClusterMessage,
   ): Effect.Effect<
     {},
-    | DBClusterNotFoundFault
-    | DBClusterRoleAlreadyExistsFault
-    | DBClusterRoleQuotaExceededFault
-    | InvalidDBClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBClusterRoleAlreadyExistsFault | DBClusterRoleQuotaExceededFault | InvalidDBClusterStateFault | CommonAwsError
   > {
     return this.call("AddRoleToDBCluster", input);
   }
@@ -19,11 +20,7 @@ export class RDS extends AWSServiceClient {
     input: AddRoleToDBInstanceMessage,
   ): Effect.Effect<
     {},
-    | DBInstanceNotFoundFault
-    | DBInstanceRoleAlreadyExistsFault
-    | DBInstanceRoleQuotaExceededFault
-    | InvalidDBInstanceStateFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | DBInstanceRoleAlreadyExistsFault | DBInstanceRoleQuotaExceededFault | InvalidDBInstanceStateFault | CommonAwsError
   > {
     return this.call("AddRoleToDBInstance", input);
   }
@@ -39,16 +36,7 @@ export class RDS extends AWSServiceClient {
     input: AddTagsToResourceMessage,
   ): Effect.Effect<
     {},
-    | BlueGreenDeploymentNotFoundFault
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | DBProxyNotFoundFault
-    | DBProxyTargetGroupNotFoundFault
-    | DBSnapshotNotFoundFault
-    | DBSnapshotTenantDatabaseNotFoundFault
-    | IntegrationNotFoundFault
-    | TenantDatabaseNotFoundFault
-    | CommonAwsError
+    BlueGreenDeploymentNotFoundFault | DBClusterNotFoundFault | DBInstanceNotFoundFault | DBProxyNotFoundFault | DBProxyTargetGroupNotFoundFault | DBSnapshotNotFoundFault | DBSnapshotTenantDatabaseNotFoundFault | IntegrationNotFoundFault | TenantDatabaseNotFoundFault | CommonAwsError
   > {
     return this.call("AddTagsToResource", input);
   }
@@ -56,10 +44,7 @@ export class RDS extends AWSServiceClient {
     input: ApplyPendingMaintenanceActionMessage,
   ): Effect.Effect<
     ApplyPendingMaintenanceActionResult,
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    InvalidDBClusterStateFault | InvalidDBInstanceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("ApplyPendingMaintenanceAction", input);
   }
@@ -67,11 +52,7 @@ export class RDS extends AWSServiceClient {
     input: AuthorizeDBSecurityGroupIngressMessage,
   ): Effect.Effect<
     AuthorizeDBSecurityGroupIngressResult,
-    | AuthorizationAlreadyExistsFault
-    | AuthorizationQuotaExceededFault
-    | DBSecurityGroupNotFoundFault
-    | InvalidDBSecurityGroupStateFault
-    | CommonAwsError
+    AuthorizationAlreadyExistsFault | AuthorizationQuotaExceededFault | DBSecurityGroupNotFoundFault | InvalidDBSecurityGroupStateFault | CommonAwsError
   > {
     return this.call("AuthorizeDBSecurityGroupIngress", input);
   }
@@ -95,10 +76,7 @@ export class RDS extends AWSServiceClient {
     input: CopyDBClusterParameterGroupMessage,
   ): Effect.Effect<
     CopyDBClusterParameterGroupResult,
-    | DBParameterGroupAlreadyExistsFault
-    | DBParameterGroupNotFoundFault
-    | DBParameterGroupQuotaExceededFault
-    | CommonAwsError
+    DBParameterGroupAlreadyExistsFault | DBParameterGroupNotFoundFault | DBParameterGroupQuotaExceededFault | CommonAwsError
   > {
     return this.call("CopyDBClusterParameterGroup", input);
   }
@@ -106,13 +84,7 @@ export class RDS extends AWSServiceClient {
     input: CopyDBClusterSnapshotMessage,
   ): Effect.Effect<
     CopyDBClusterSnapshotResult,
-    | DBClusterSnapshotAlreadyExistsFault
-    | DBClusterSnapshotNotFoundFault
-    | InvalidDBClusterSnapshotStateFault
-    | InvalidDBClusterStateFault
-    | KMSKeyNotAccessibleFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    DBClusterSnapshotAlreadyExistsFault | DBClusterSnapshotNotFoundFault | InvalidDBClusterSnapshotStateFault | InvalidDBClusterStateFault | KMSKeyNotAccessibleFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("CopyDBClusterSnapshot", input);
   }
@@ -120,10 +92,7 @@ export class RDS extends AWSServiceClient {
     input: CopyDBParameterGroupMessage,
   ): Effect.Effect<
     CopyDBParameterGroupResult,
-    | DBParameterGroupAlreadyExistsFault
-    | DBParameterGroupNotFoundFault
-    | DBParameterGroupQuotaExceededFault
-    | CommonAwsError
+    DBParameterGroupAlreadyExistsFault | DBParameterGroupNotFoundFault | DBParameterGroupQuotaExceededFault | CommonAwsError
   > {
     return this.call("CopyDBParameterGroup", input);
   }
@@ -131,13 +100,7 @@ export class RDS extends AWSServiceClient {
     input: CopyDBSnapshotMessage,
   ): Effect.Effect<
     CopyDBSnapshotResult,
-    | CustomAvailabilityZoneNotFoundFault
-    | DBSnapshotAlreadyExistsFault
-    | DBSnapshotNotFoundFault
-    | InvalidDBSnapshotStateFault
-    | KMSKeyNotAccessibleFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    CustomAvailabilityZoneNotFoundFault | DBSnapshotAlreadyExistsFault | DBSnapshotNotFoundFault | InvalidDBSnapshotStateFault | KMSKeyNotAccessibleFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("CopyDBSnapshot", input);
   }
@@ -145,10 +108,7 @@ export class RDS extends AWSServiceClient {
     input: CopyOptionGroupMessage,
   ): Effect.Effect<
     CopyOptionGroupResult,
-    | OptionGroupAlreadyExistsFault
-    | OptionGroupNotFoundFault
-    | OptionGroupQuotaExceededFault
-    | CommonAwsError
+    OptionGroupAlreadyExistsFault | OptionGroupNotFoundFault | OptionGroupQuotaExceededFault | CommonAwsError
   > {
     return this.call("CopyOptionGroup", input);
   }
@@ -156,18 +116,7 @@ export class RDS extends AWSServiceClient {
     input: CreateBlueGreenDeploymentRequest,
   ): Effect.Effect<
     CreateBlueGreenDeploymentResponse,
-    | BlueGreenDeploymentAlreadyExistsFault
-    | DBClusterNotFoundFault
-    | DBClusterParameterGroupNotFoundFault
-    | DBClusterQuotaExceededFault
-    | DBInstanceNotFoundFault
-    | DBParameterGroupNotFoundFault
-    | InstanceQuotaExceededFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | SourceClusterNotSupportedFault
-    | SourceDatabaseNotSupportedFault
-    | CommonAwsError
+    BlueGreenDeploymentAlreadyExistsFault | DBClusterNotFoundFault | DBClusterParameterGroupNotFoundFault | DBClusterQuotaExceededFault | DBInstanceNotFoundFault | DBParameterGroupNotFoundFault | InstanceQuotaExceededFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | SourceClusterNotSupportedFault | SourceDatabaseNotSupportedFault | CommonAwsError
   > {
     return this.call("CreateBlueGreenDeployment", input);
   }
@@ -175,12 +124,7 @@ export class RDS extends AWSServiceClient {
     input: CreateCustomDBEngineVersionMessage,
   ): Effect.Effect<
     DBEngineVersion,
-    | CreateCustomDBEngineVersionFault
-    | CustomDBEngineVersionAlreadyExistsFault
-    | CustomDBEngineVersionQuotaExceededFault
-    | Ec2ImagePropertiesNotSupportedFault
-    | KMSKeyNotAccessibleFault
-    | CommonAwsError
+    CreateCustomDBEngineVersionFault | CustomDBEngineVersionAlreadyExistsFault | CustomDBEngineVersionQuotaExceededFault | Ec2ImagePropertiesNotSupportedFault | KMSKeyNotAccessibleFault | CommonAwsError
   > {
     return this.call("CreateCustomDBEngineVersion", input);
   }
@@ -188,28 +132,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBClusterMessage,
   ): Effect.Effect<
     CreateDBClusterResult,
-    | DBClusterAlreadyExistsFault
-    | DBClusterNotFoundFault
-    | DBClusterParameterGroupNotFoundFault
-    | DBClusterQuotaExceededFault
-    | DBInstanceNotFoundFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | DomainNotFoundFault
-    | GlobalClusterNotFoundFault
-    | InsufficientDBInstanceCapacityFault
-    | InsufficientStorageClusterCapacityFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBSubnetGroupFault
-    | InvalidDBSubnetGroupStateFault
-    | InvalidGlobalClusterStateFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | OptionGroupNotFoundFault
-    | StorageQuotaExceededFault
-    | CommonAwsError
+    DBClusterAlreadyExistsFault | DBClusterNotFoundFault | DBClusterParameterGroupNotFoundFault | DBClusterQuotaExceededFault | DBInstanceNotFoundFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | DomainNotFoundFault | GlobalClusterNotFoundFault | InsufficientDBInstanceCapacityFault | InsufficientStorageClusterCapacityFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidDBSubnetGroupFault | InvalidDBSubnetGroupStateFault | InvalidGlobalClusterStateFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | OptionGroupNotFoundFault | StorageQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBCluster", input);
   }
@@ -217,13 +140,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBClusterEndpointMessage,
   ): Effect.Effect<
     DBClusterEndpoint,
-    | DBClusterEndpointAlreadyExistsFault
-    | DBClusterEndpointQuotaExceededFault
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | CommonAwsError
+    DBClusterEndpointAlreadyExistsFault | DBClusterEndpointQuotaExceededFault | DBClusterNotFoundFault | DBInstanceNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | CommonAwsError
   > {
     return this.call("CreateDBClusterEndpoint", input);
   }
@@ -231,9 +148,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBClusterParameterGroupMessage,
   ): Effect.Effect<
     CreateDBClusterParameterGroupResult,
-    | DBParameterGroupAlreadyExistsFault
-    | DBParameterGroupQuotaExceededFault
-    | CommonAwsError
+    DBParameterGroupAlreadyExistsFault | DBParameterGroupQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBClusterParameterGroup", input);
   }
@@ -241,12 +156,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBClusterSnapshotMessage,
   ): Effect.Effect<
     CreateDBClusterSnapshotResult,
-    | DBClusterNotFoundFault
-    | DBClusterSnapshotAlreadyExistsFault
-    | InvalidDBClusterSnapshotStateFault
-    | InvalidDBClusterStateFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBClusterSnapshotAlreadyExistsFault | InvalidDBClusterSnapshotStateFault | InvalidDBClusterStateFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBClusterSnapshot", input);
   }
@@ -254,29 +164,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBInstanceMessage,
   ): Effect.Effect<
     CreateDBInstanceResult,
-    | AuthorizationNotFoundFault
-    | BackupPolicyNotFoundFault
-    | CertificateNotFoundFault
-    | DBClusterNotFoundFault
-    | DBInstanceAlreadyExistsFault
-    | DBParameterGroupNotFoundFault
-    | DBSecurityGroupNotFoundFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | DomainNotFoundFault
-    | InstanceQuotaExceededFault
-    | InsufficientDBInstanceCapacityFault
-    | InvalidDBClusterStateFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
-    | OptionGroupNotFoundFault
-    | ProvisionedIopsNotAvailableInAZFault
-    | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
-    | TenantDatabaseQuotaExceededFault
-    | CommonAwsError
+    AuthorizationNotFoundFault | BackupPolicyNotFoundFault | CertificateNotFoundFault | DBClusterNotFoundFault | DBInstanceAlreadyExistsFault | DBParameterGroupNotFoundFault | DBSecurityGroupNotFoundFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | DomainNotFoundFault | InstanceQuotaExceededFault | InsufficientDBInstanceCapacityFault | InvalidDBClusterStateFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | NetworkTypeNotSupported | OptionGroupNotFoundFault | ProvisionedIopsNotAvailableInAZFault | StorageQuotaExceededFault | StorageTypeNotSupportedFault | TenantDatabaseQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBInstance", input);
   }
@@ -284,31 +172,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBInstanceReadReplicaMessage,
   ): Effect.Effect<
     CreateDBInstanceReadReplicaResult,
-    | CertificateNotFoundFault
-    | DBClusterNotFoundFault
-    | DBInstanceAlreadyExistsFault
-    | DBInstanceNotFoundFault
-    | DBParameterGroupNotFoundFault
-    | DBSecurityGroupNotFoundFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotAllowedFault
-    | DBSubnetGroupNotFoundFault
-    | DomainNotFoundFault
-    | InstanceQuotaExceededFault
-    | InsufficientDBInstanceCapacityFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBSubnetGroupFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
-    | OptionGroupNotFoundFault
-    | ProvisionedIopsNotAvailableInAZFault
-    | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
-    | TenantDatabaseQuotaExceededFault
-    | CommonAwsError
+    CertificateNotFoundFault | DBClusterNotFoundFault | DBInstanceAlreadyExistsFault | DBInstanceNotFoundFault | DBParameterGroupNotFoundFault | DBSecurityGroupNotFoundFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotAllowedFault | DBSubnetGroupNotFoundFault | DomainNotFoundFault | InstanceQuotaExceededFault | InsufficientDBInstanceCapacityFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidDBSubnetGroupFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | NetworkTypeNotSupported | OptionGroupNotFoundFault | ProvisionedIopsNotAvailableInAZFault | StorageQuotaExceededFault | StorageTypeNotSupportedFault | TenantDatabaseQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBInstanceReadReplica", input);
   }
@@ -316,9 +180,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBParameterGroupMessage,
   ): Effect.Effect<
     CreateDBParameterGroupResult,
-    | DBParameterGroupAlreadyExistsFault
-    | DBParameterGroupQuotaExceededFault
-    | CommonAwsError
+    DBParameterGroupAlreadyExistsFault | DBParameterGroupQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBParameterGroup", input);
   }
@@ -326,10 +188,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBProxyRequest,
   ): Effect.Effect<
     CreateDBProxyResponse,
-    | DBProxyAlreadyExistsFault
-    | DBProxyQuotaExceededFault
-    | InvalidSubnet
-    | CommonAwsError
+    DBProxyAlreadyExistsFault | DBProxyQuotaExceededFault | InvalidSubnet | CommonAwsError
   > {
     return this.call("CreateDBProxy", input);
   }
@@ -337,12 +196,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBProxyEndpointRequest,
   ): Effect.Effect<
     CreateDBProxyEndpointResponse,
-    | DBProxyEndpointAlreadyExistsFault
-    | DBProxyEndpointQuotaExceededFault
-    | DBProxyNotFoundFault
-    | InvalidDBProxyStateFault
-    | InvalidSubnet
-    | CommonAwsError
+    DBProxyEndpointAlreadyExistsFault | DBProxyEndpointQuotaExceededFault | DBProxyNotFoundFault | InvalidDBProxyStateFault | InvalidSubnet | CommonAwsError
   > {
     return this.call("CreateDBProxyEndpoint", input);
   }
@@ -350,10 +204,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBSecurityGroupMessage,
   ): Effect.Effect<
     CreateDBSecurityGroupResult,
-    | DBSecurityGroupAlreadyExistsFault
-    | DBSecurityGroupNotSupportedFault
-    | DBSecurityGroupQuotaExceededFault
-    | CommonAwsError
+    DBSecurityGroupAlreadyExistsFault | DBSecurityGroupNotSupportedFault | DBSecurityGroupQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBSecurityGroup", input);
   }
@@ -361,14 +212,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBShardGroupMessage,
   ): Effect.Effect<
     DBShardGroup,
-    | DBClusterNotFoundFault
-    | DBShardGroupAlreadyExistsFault
-    | InvalidDBClusterStateFault
-    | InvalidVPCNetworkStateFault
-    | MaxDBShardGroupLimitReached
-    | NetworkTypeNotSupported
-    | UnsupportedDBEngineVersionFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBShardGroupAlreadyExistsFault | InvalidDBClusterStateFault | InvalidVPCNetworkStateFault | MaxDBShardGroupLimitReached | NetworkTypeNotSupported | UnsupportedDBEngineVersionFault | CommonAwsError
   > {
     return this.call("CreateDBShardGroup", input);
   }
@@ -376,11 +220,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBSnapshotMessage,
   ): Effect.Effect<
     CreateDBSnapshotResult,
-    | DBInstanceNotFoundFault
-    | DBSnapshotAlreadyExistsFault
-    | InvalidDBInstanceStateFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | DBSnapshotAlreadyExistsFault | InvalidDBInstanceStateFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDBSnapshot", input);
   }
@@ -388,12 +228,7 @@ export class RDS extends AWSServiceClient {
     input: CreateDBSubnetGroupMessage,
   ): Effect.Effect<
     CreateDBSubnetGroupResult,
-    | DBSubnetGroupAlreadyExistsFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupQuotaExceededFault
-    | DBSubnetQuotaExceededFault
-    | InvalidSubnet
-    | CommonAwsError
+    DBSubnetGroupAlreadyExistsFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupQuotaExceededFault | DBSubnetQuotaExceededFault | InvalidSubnet | CommonAwsError
   > {
     return this.call("CreateDBSubnetGroup", input);
   }
@@ -401,14 +236,7 @@ export class RDS extends AWSServiceClient {
     input: CreateEventSubscriptionMessage,
   ): Effect.Effect<
     CreateEventSubscriptionResult,
-    | EventSubscriptionQuotaExceededFault
-    | SNSInvalidTopicFault
-    | SNSNoAuthorizationFault
-    | SNSTopicArnNotFoundFault
-    | SourceNotFoundFault
-    | SubscriptionAlreadyExistFault
-    | SubscriptionCategoryNotFoundFault
-    | CommonAwsError
+    EventSubscriptionQuotaExceededFault | SNSInvalidTopicFault | SNSNoAuthorizationFault | SNSTopicArnNotFoundFault | SourceNotFoundFault | SubscriptionAlreadyExistFault | SubscriptionCategoryNotFoundFault | CommonAwsError
   > {
     return this.call("CreateEventSubscription", input);
   }
@@ -416,11 +244,7 @@ export class RDS extends AWSServiceClient {
     input: CreateGlobalClusterMessage,
   ): Effect.Effect<
     CreateGlobalClusterResult,
-    | DBClusterNotFoundFault
-    | GlobalClusterAlreadyExistsFault
-    | GlobalClusterQuotaExceededFault
-    | InvalidDBClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | GlobalClusterAlreadyExistsFault | GlobalClusterQuotaExceededFault | InvalidDBClusterStateFault | CommonAwsError
   > {
     return this.call("CreateGlobalCluster", input);
   }
@@ -428,13 +252,7 @@ export class RDS extends AWSServiceClient {
     input: CreateIntegrationMessage,
   ): Effect.Effect<
     Integration,
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | IntegrationAlreadyExistsFault
-    | IntegrationConflictOperationFault
-    | IntegrationQuotaExceededFault
-    | KMSKeyNotAccessibleFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBInstanceNotFoundFault | IntegrationAlreadyExistsFault | IntegrationConflictOperationFault | IntegrationQuotaExceededFault | KMSKeyNotAccessibleFault | CommonAwsError
   > {
     return this.call("CreateIntegration", input);
   }
@@ -442,9 +260,7 @@ export class RDS extends AWSServiceClient {
     input: CreateOptionGroupMessage,
   ): Effect.Effect<
     CreateOptionGroupResult,
-    | OptionGroupAlreadyExistsFault
-    | OptionGroupQuotaExceededFault
-    | CommonAwsError
+    OptionGroupAlreadyExistsFault | OptionGroupQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateOptionGroup", input);
   }
@@ -452,12 +268,7 @@ export class RDS extends AWSServiceClient {
     input: CreateTenantDatabaseMessage,
   ): Effect.Effect<
     CreateTenantDatabaseResult,
-    | DBInstanceNotFoundFault
-    | InvalidDBInstanceStateFault
-    | KMSKeyNotAccessibleFault
-    | TenantDatabaseAlreadyExistsFault
-    | TenantDatabaseQuotaExceededFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | InvalidDBInstanceStateFault | KMSKeyNotAccessibleFault | TenantDatabaseAlreadyExistsFault | TenantDatabaseQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateTenantDatabase", input);
   }
@@ -465,9 +276,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteBlueGreenDeploymentRequest,
   ): Effect.Effect<
     DeleteBlueGreenDeploymentResponse,
-    | BlueGreenDeploymentNotFoundFault
-    | InvalidBlueGreenDeploymentStateFault
-    | CommonAwsError
+    BlueGreenDeploymentNotFoundFault | InvalidBlueGreenDeploymentStateFault | CommonAwsError
   > {
     return this.call("DeleteBlueGreenDeployment", input);
   }
@@ -475,9 +284,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteCustomDBEngineVersionMessage,
   ): Effect.Effect<
     DBEngineVersion,
-    | CustomDBEngineVersionNotFoundFault
-    | InvalidCustomDBEngineVersionStateFault
-    | CommonAwsError
+    CustomDBEngineVersionNotFoundFault | InvalidCustomDBEngineVersionStateFault | CommonAwsError
   > {
     return this.call("DeleteCustomDBEngineVersion", input);
   }
@@ -485,13 +292,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBClusterMessage,
   ): Effect.Effect<
     DeleteDBClusterResult,
-    | DBClusterAutomatedBackupQuotaExceededFault
-    | DBClusterNotFoundFault
-    | DBClusterSnapshotAlreadyExistsFault
-    | InvalidDBClusterSnapshotStateFault
-    | InvalidDBClusterStateFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    DBClusterAutomatedBackupQuotaExceededFault | DBClusterNotFoundFault | DBClusterSnapshotAlreadyExistsFault | InvalidDBClusterSnapshotStateFault | InvalidDBClusterStateFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("DeleteDBCluster", input);
   }
@@ -499,9 +300,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBClusterAutomatedBackupMessage,
   ): Effect.Effect<
     DeleteDBClusterAutomatedBackupResult,
-    | DBClusterAutomatedBackupNotFoundFault
-    | InvalidDBClusterAutomatedBackupStateFault
-    | CommonAwsError
+    DBClusterAutomatedBackupNotFoundFault | InvalidDBClusterAutomatedBackupStateFault | CommonAwsError
   > {
     return this.call("DeleteDBClusterAutomatedBackup", input);
   }
@@ -509,10 +308,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBClusterEndpointMessage,
   ): Effect.Effect<
     DBClusterEndpoint,
-    | DBClusterEndpointNotFoundFault
-    | InvalidDBClusterEndpointStateFault
-    | InvalidDBClusterStateFault
-    | CommonAwsError
+    DBClusterEndpointNotFoundFault | InvalidDBClusterEndpointStateFault | InvalidDBClusterStateFault | CommonAwsError
   > {
     return this.call("DeleteDBClusterEndpoint", input);
   }
@@ -520,9 +316,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBClusterParameterGroupMessage,
   ): Effect.Effect<
     {},
-    | DBParameterGroupNotFoundFault
-    | InvalidDBParameterGroupStateFault
-    | CommonAwsError
+    DBParameterGroupNotFoundFault | InvalidDBParameterGroupStateFault | CommonAwsError
   > {
     return this.call("DeleteDBClusterParameterGroup", input);
   }
@@ -530,9 +324,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBClusterSnapshotMessage,
   ): Effect.Effect<
     DeleteDBClusterSnapshotResult,
-    | DBClusterSnapshotNotFoundFault
-    | InvalidDBClusterSnapshotStateFault
-    | CommonAwsError
+    DBClusterSnapshotNotFoundFault | InvalidDBClusterSnapshotStateFault | CommonAwsError
   > {
     return this.call("DeleteDBClusterSnapshot", input);
   }
@@ -540,13 +332,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBInstanceMessage,
   ): Effect.Effect<
     DeleteDBInstanceResult,
-    | DBInstanceAutomatedBackupQuotaExceededFault
-    | DBInstanceNotFoundFault
-    | DBSnapshotAlreadyExistsFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    DBInstanceAutomatedBackupQuotaExceededFault | DBInstanceNotFoundFault | DBSnapshotAlreadyExistsFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("DeleteDBInstance", input);
   }
@@ -554,9 +340,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBInstanceAutomatedBackupMessage,
   ): Effect.Effect<
     DeleteDBInstanceAutomatedBackupResult,
-    | DBInstanceAutomatedBackupNotFoundFault
-    | InvalidDBInstanceAutomatedBackupStateFault
-    | CommonAwsError
+    DBInstanceAutomatedBackupNotFoundFault | InvalidDBInstanceAutomatedBackupStateFault | CommonAwsError
   > {
     return this.call("DeleteDBInstanceAutomatedBackup", input);
   }
@@ -564,9 +348,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBParameterGroupMessage,
   ): Effect.Effect<
     {},
-    | DBParameterGroupNotFoundFault
-    | InvalidDBParameterGroupStateFault
-    | CommonAwsError
+    DBParameterGroupNotFoundFault | InvalidDBParameterGroupStateFault | CommonAwsError
   > {
     return this.call("DeleteDBParameterGroup", input);
   }
@@ -582,9 +364,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBProxyEndpointRequest,
   ): Effect.Effect<
     DeleteDBProxyEndpointResponse,
-    | DBProxyEndpointNotFoundFault
-    | InvalidDBProxyEndpointStateFault
-    | CommonAwsError
+    DBProxyEndpointNotFoundFault | InvalidDBProxyEndpointStateFault | CommonAwsError
   > {
     return this.call("DeleteDBProxyEndpoint", input);
   }
@@ -592,9 +372,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBSecurityGroupMessage,
   ): Effect.Effect<
     {},
-    | DBSecurityGroupNotFoundFault
-    | InvalidDBSecurityGroupStateFault
-    | CommonAwsError
+    DBSecurityGroupNotFoundFault | InvalidDBSecurityGroupStateFault | CommonAwsError
   > {
     return this.call("DeleteDBSecurityGroup", input);
   }
@@ -602,10 +380,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBShardGroupMessage,
   ): Effect.Effect<
     DBShardGroup,
-    | DBShardGroupNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBShardGroupStateFault
-    | CommonAwsError
+    DBShardGroupNotFoundFault | InvalidDBClusterStateFault | InvalidDBShardGroupStateFault | CommonAwsError
   > {
     return this.call("DeleteDBShardGroup", input);
   }
@@ -621,10 +396,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteDBSubnetGroupMessage,
   ): Effect.Effect<
     {},
-    | DBSubnetGroupNotFoundFault
-    | InvalidDBSubnetGroupStateFault
-    | InvalidDBSubnetStateFault
-    | CommonAwsError
+    DBSubnetGroupNotFoundFault | InvalidDBSubnetGroupStateFault | InvalidDBSubnetStateFault | CommonAwsError
   > {
     return this.call("DeleteDBSubnetGroup", input);
   }
@@ -632,9 +404,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteEventSubscriptionMessage,
   ): Effect.Effect<
     DeleteEventSubscriptionResult,
-    | InvalidEventSubscriptionStateFault
-    | SubscriptionNotFoundFault
-    | CommonAwsError
+    InvalidEventSubscriptionStateFault | SubscriptionNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteEventSubscription", input);
   }
@@ -650,10 +420,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteIntegrationMessage,
   ): Effect.Effect<
     Integration,
-    | IntegrationConflictOperationFault
-    | IntegrationNotFoundFault
-    | InvalidIntegrationStateFault
-    | CommonAwsError
+    IntegrationConflictOperationFault | IntegrationNotFoundFault | InvalidIntegrationStateFault | CommonAwsError
   > {
     return this.call("DeleteIntegration", input);
   }
@@ -669,10 +436,7 @@ export class RDS extends AWSServiceClient {
     input: DeleteTenantDatabaseMessage,
   ): Effect.Effect<
     DeleteTenantDatabaseResult,
-    | DBInstanceNotFoundFault
-    | InvalidDBInstanceStateFault
-    | TenantDatabaseNotFoundFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | InvalidDBInstanceStateFault | TenantDatabaseNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteTenantDatabase", input);
   }
@@ -680,17 +444,16 @@ export class RDS extends AWSServiceClient {
     input: DeregisterDBProxyTargetsRequest,
   ): Effect.Effect<
     DeregisterDBProxyTargetsResponse,
-    | DBProxyNotFoundFault
-    | DBProxyTargetGroupNotFoundFault
-    | DBProxyTargetNotFoundFault
-    | InvalidDBProxyStateFault
-    | CommonAwsError
+    DBProxyNotFoundFault | DBProxyTargetGroupNotFoundFault | DBProxyTargetNotFoundFault | InvalidDBProxyStateFault | CommonAwsError
   > {
     return this.call("DeregisterDBProxyTargets", input);
   }
   describeAccountAttributes(
     input: DescribeAccountAttributesMessage,
-  ): Effect.Effect<AccountAttributesMessage, CommonAwsError> {
+  ): Effect.Effect<
+    AccountAttributesMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeAccountAttributes", input);
   }
   describeBlueGreenDeployments(
@@ -751,7 +514,10 @@ export class RDS extends AWSServiceClient {
   }
   describeDBClusters(
     input: DescribeDBClustersMessage,
-  ): Effect.Effect<DBClusterMessage, DBClusterNotFoundFault | CommonAwsError> {
+  ): Effect.Effect<
+    DBClusterMessage,
+    DBClusterNotFoundFault | CommonAwsError
+  > {
     return this.call("DescribeDBClusters", input);
   }
   describeDBClusterSnapshotAttributes(
@@ -772,7 +538,10 @@ export class RDS extends AWSServiceClient {
   }
   describeDBEngineVersions(
     input: DescribeDBEngineVersionsMessage,
-  ): Effect.Effect<DBEngineVersionMessage, CommonAwsError> {
+  ): Effect.Effect<
+    DBEngineVersionMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeDBEngineVersions", input);
   }
   describeDBInstanceAutomatedBackups(
@@ -801,7 +570,10 @@ export class RDS extends AWSServiceClient {
   }
   describeDBMajorEngineVersions(
     input: DescribeDBMajorEngineVersionsRequest,
-  ): Effect.Effect<DescribeDBMajorEngineVersionsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeDBMajorEngineVersionsResponse,
+    CommonAwsError
+  > {
     return this.call("DescribeDBMajorEngineVersions", input);
   }
   describeDBParameterGroups(
@@ -840,10 +612,7 @@ export class RDS extends AWSServiceClient {
     input: DescribeDBProxyTargetGroupsRequest,
   ): Effect.Effect<
     DescribeDBProxyTargetGroupsResponse,
-    | DBProxyNotFoundFault
-    | DBProxyTargetGroupNotFoundFault
-    | InvalidDBProxyStateFault
-    | CommonAwsError
+    DBProxyNotFoundFault | DBProxyTargetGroupNotFoundFault | InvalidDBProxyStateFault | CommonAwsError
   > {
     return this.call("DescribeDBProxyTargetGroups", input);
   }
@@ -851,17 +620,16 @@ export class RDS extends AWSServiceClient {
     input: DescribeDBProxyTargetsRequest,
   ): Effect.Effect<
     DescribeDBProxyTargetsResponse,
-    | DBProxyNotFoundFault
-    | DBProxyTargetGroupNotFoundFault
-    | DBProxyTargetNotFoundFault
-    | InvalidDBProxyStateFault
-    | CommonAwsError
+    DBProxyNotFoundFault | DBProxyTargetGroupNotFoundFault | DBProxyTargetNotFoundFault | InvalidDBProxyStateFault | CommonAwsError
   > {
     return this.call("DescribeDBProxyTargets", input);
   }
   describeDBRecommendations(
     input: DescribeDBRecommendationsMessage,
-  ): Effect.Effect<DBRecommendationsMessage, CommonAwsError> {
+  ): Effect.Effect<
+    DBRecommendationsMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeDBRecommendations", input);
   }
   describeDBSecurityGroups(
@@ -922,17 +690,26 @@ export class RDS extends AWSServiceClient {
   }
   describeEngineDefaultParameters(
     input: DescribeEngineDefaultParametersMessage,
-  ): Effect.Effect<DescribeEngineDefaultParametersResult, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeEngineDefaultParametersResult,
+    CommonAwsError
+  > {
     return this.call("DescribeEngineDefaultParameters", input);
   }
   describeEventCategories(
     input: DescribeEventCategoriesMessage,
-  ): Effect.Effect<EventCategoriesMessage, CommonAwsError> {
+  ): Effect.Effect<
+    EventCategoriesMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeEventCategories", input);
   }
   describeEvents(
     input: DescribeEventsMessage,
-  ): Effect.Effect<EventsMessage, CommonAwsError> {
+  ): Effect.Effect<
+    EventsMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeEvents", input);
   }
   describeEventSubscriptions(
@@ -969,17 +746,26 @@ export class RDS extends AWSServiceClient {
   }
   describeOptionGroupOptions(
     input: DescribeOptionGroupOptionsMessage,
-  ): Effect.Effect<OptionGroupOptionsMessage, CommonAwsError> {
+  ): Effect.Effect<
+    OptionGroupOptionsMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeOptionGroupOptions", input);
   }
   describeOptionGroups(
     input: DescribeOptionGroupsMessage,
-  ): Effect.Effect<OptionGroups, OptionGroupNotFoundFault | CommonAwsError> {
+  ): Effect.Effect<
+    OptionGroups,
+    OptionGroupNotFoundFault | CommonAwsError
+  > {
     return this.call("DescribeOptionGroups", input);
   }
   describeOrderableDBInstanceOptions(
     input: DescribeOrderableDBInstanceOptionsMessage,
-  ): Effect.Effect<OrderableDBInstanceOptionsMessage, CommonAwsError> {
+  ): Effect.Effect<
+    OrderableDBInstanceOptionsMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeOrderableDBInstanceOptions", input);
   }
   describePendingMaintenanceActions(
@@ -1008,7 +794,10 @@ export class RDS extends AWSServiceClient {
   }
   describeSourceRegions(
     input: DescribeSourceRegionsMessage,
-  ): Effect.Effect<SourceRegionMessage, CommonAwsError> {
+  ): Effect.Effect<
+    SourceRegionMessage,
+    CommonAwsError
+  > {
     return this.call("DescribeSourceRegions", input);
   }
   describeTenantDatabases(
@@ -1039,10 +828,7 @@ export class RDS extends AWSServiceClient {
     input: DownloadDBLogFilePortionMessage,
   ): Effect.Effect<
     DownloadDBLogFilePortionDetails,
-    | DBInstanceNotFoundFault
-    | DBInstanceNotReadyFault
-    | DBLogFileNotFoundFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | DBInstanceNotReadyFault | DBLogFileNotFoundFault | CommonAwsError
   > {
     return this.call("DownloadDBLogFilePortion", input);
   }
@@ -1058,10 +844,7 @@ export class RDS extends AWSServiceClient {
     input: FailoverDBClusterMessage,
   ): Effect.Effect<
     FailoverDBClusterResult,
-    | DBClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | CommonAwsError
   > {
     return this.call("FailoverDBCluster", input);
   }
@@ -1069,11 +852,7 @@ export class RDS extends AWSServiceClient {
     input: FailoverGlobalClusterMessage,
   ): Effect.Effect<
     FailoverGlobalClusterResult,
-    | DBClusterNotFoundFault
-    | GlobalClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidGlobalClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | GlobalClusterNotFoundFault | InvalidDBClusterStateFault | InvalidGlobalClusterStateFault | CommonAwsError
   > {
     return this.call("FailoverGlobalCluster", input);
   }
@@ -1081,16 +860,7 @@ export class RDS extends AWSServiceClient {
     input: ListTagsForResourceMessage,
   ): Effect.Effect<
     TagListMessage,
-    | BlueGreenDeploymentNotFoundFault
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | DBProxyNotFoundFault
-    | DBProxyTargetGroupNotFoundFault
-    | DBSnapshotNotFoundFault
-    | DBSnapshotTenantDatabaseNotFoundFault
-    | IntegrationNotFoundFault
-    | TenantDatabaseNotFoundFault
-    | CommonAwsError
+    BlueGreenDeploymentNotFoundFault | DBClusterNotFoundFault | DBInstanceNotFoundFault | DBProxyNotFoundFault | DBProxyTargetGroupNotFoundFault | DBSnapshotNotFoundFault | DBSnapshotTenantDatabaseNotFoundFault | IntegrationNotFoundFault | TenantDatabaseNotFoundFault | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -1098,10 +868,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyActivityStreamRequest,
   ): Effect.Effect<
     ModifyActivityStreamResponse,
-    | DBInstanceNotFoundFault
-    | InvalidDBInstanceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | InvalidDBInstanceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyActivityStream", input);
   }
@@ -1117,10 +884,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyCurrentDBClusterCapacityMessage,
   ): Effect.Effect<
     DBClusterCapacityInfo,
-    | DBClusterNotFoundFault
-    | InvalidDBClusterCapacityFault
-    | InvalidDBClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | InvalidDBClusterCapacityFault | InvalidDBClusterStateFault | CommonAwsError
   > {
     return this.call("ModifyCurrentDBClusterCapacity", input);
   }
@@ -1128,9 +892,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyCustomDBEngineVersionMessage,
   ): Effect.Effect<
     DBEngineVersion,
-    | CustomDBEngineVersionNotFoundFault
-    | InvalidCustomDBEngineVersionStateFault
-    | CommonAwsError
+    CustomDBEngineVersionNotFoundFault | InvalidCustomDBEngineVersionStateFault | CommonAwsError
   > {
     return this.call("ModifyCustomDBEngineVersion", input);
   }
@@ -1138,22 +900,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBClusterMessage,
   ): Effect.Effect<
     ModifyDBClusterResult,
-    | DBClusterAlreadyExistsFault
-    | DBClusterNotFoundFault
-    | DBClusterParameterGroupNotFoundFault
-    | DBInstanceAlreadyExistsFault
-    | DBSubnetGroupNotFoundFault
-    | DomainNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBSecurityGroupStateFault
-    | InvalidDBSubnetGroupStateFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | OptionGroupNotFoundFault
-    | StorageQuotaExceededFault
-    | StorageTypeNotAvailableFault
-    | CommonAwsError
+    DBClusterAlreadyExistsFault | DBClusterNotFoundFault | DBClusterParameterGroupNotFoundFault | DBInstanceAlreadyExistsFault | DBSubnetGroupNotFoundFault | DomainNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidDBSecurityGroupStateFault | InvalidDBSubnetGroupStateFault | InvalidSubnet | InvalidVPCNetworkStateFault | OptionGroupNotFoundFault | StorageQuotaExceededFault | StorageTypeNotAvailableFault | CommonAwsError
   > {
     return this.call("ModifyDBCluster", input);
   }
@@ -1161,12 +908,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBClusterEndpointMessage,
   ): Effect.Effect<
     DBClusterEndpoint,
-    | DBClusterEndpointNotFoundFault
-    | DBInstanceNotFoundFault
-    | InvalidDBClusterEndpointStateFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | CommonAwsError
+    DBClusterEndpointNotFoundFault | DBInstanceNotFoundFault | InvalidDBClusterEndpointStateFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | CommonAwsError
   > {
     return this.call("ModifyDBClusterEndpoint", input);
   }
@@ -1174,9 +916,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBClusterParameterGroupMessage,
   ): Effect.Effect<
     DBClusterParameterGroupNameMessage,
-    | DBParameterGroupNotFoundFault
-    | InvalidDBParameterGroupStateFault
-    | CommonAwsError
+    DBParameterGroupNotFoundFault | InvalidDBParameterGroupStateFault | CommonAwsError
   > {
     return this.call("ModifyDBClusterParameterGroup", input);
   }
@@ -1184,10 +924,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBClusterSnapshotAttributeMessage,
   ): Effect.Effect<
     ModifyDBClusterSnapshotAttributeResult,
-    | DBClusterSnapshotNotFoundFault
-    | InvalidDBClusterSnapshotStateFault
-    | SharedSnapshotQuotaExceededFault
-    | CommonAwsError
+    DBClusterSnapshotNotFoundFault | InvalidDBClusterSnapshotStateFault | SharedSnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("ModifyDBClusterSnapshotAttribute", input);
   }
@@ -1195,28 +932,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBInstanceMessage,
   ): Effect.Effect<
     ModifyDBInstanceResult,
-    | AuthorizationNotFoundFault
-    | BackupPolicyNotFoundFault
-    | CertificateNotFoundFault
-    | DBInstanceAlreadyExistsFault
-    | DBInstanceNotFoundFault
-    | DBParameterGroupNotFoundFault
-    | DBSecurityGroupNotFoundFault
-    | DBUpgradeDependencyFailureFault
-    | DomainNotFoundFault
-    | InsufficientDBInstanceCapacityFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBSecurityGroupStateFault
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
-    | OptionGroupNotFoundFault
-    | ProvisionedIopsNotAvailableInAZFault
-    | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
-    | TenantDatabaseQuotaExceededFault
-    | CommonAwsError
+    AuthorizationNotFoundFault | BackupPolicyNotFoundFault | CertificateNotFoundFault | DBInstanceAlreadyExistsFault | DBInstanceNotFoundFault | DBParameterGroupNotFoundFault | DBSecurityGroupNotFoundFault | DBUpgradeDependencyFailureFault | DomainNotFoundFault | InsufficientDBInstanceCapacityFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidDBSecurityGroupStateFault | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | NetworkTypeNotSupported | OptionGroupNotFoundFault | ProvisionedIopsNotAvailableInAZFault | StorageQuotaExceededFault | StorageTypeNotSupportedFault | TenantDatabaseQuotaExceededFault | CommonAwsError
   > {
     return this.call("ModifyDBInstance", input);
   }
@@ -1224,9 +940,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBParameterGroupMessage,
   ): Effect.Effect<
     DBParameterGroupNameMessage,
-    | DBParameterGroupNotFoundFault
-    | InvalidDBParameterGroupStateFault
-    | CommonAwsError
+    DBParameterGroupNotFoundFault | InvalidDBParameterGroupStateFault | CommonAwsError
   > {
     return this.call("ModifyDBParameterGroup", input);
   }
@@ -1234,10 +948,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBProxyRequest,
   ): Effect.Effect<
     ModifyDBProxyResponse,
-    | DBProxyAlreadyExistsFault
-    | DBProxyNotFoundFault
-    | InvalidDBProxyStateFault
-    | CommonAwsError
+    DBProxyAlreadyExistsFault | DBProxyNotFoundFault | InvalidDBProxyStateFault | CommonAwsError
   > {
     return this.call("ModifyDBProxy", input);
   }
@@ -1245,11 +956,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBProxyEndpointRequest,
   ): Effect.Effect<
     ModifyDBProxyEndpointResponse,
-    | DBProxyEndpointAlreadyExistsFault
-    | DBProxyEndpointNotFoundFault
-    | InvalidDBProxyEndpointStateFault
-    | InvalidDBProxyStateFault
-    | CommonAwsError
+    DBProxyEndpointAlreadyExistsFault | DBProxyEndpointNotFoundFault | InvalidDBProxyEndpointStateFault | InvalidDBProxyStateFault | CommonAwsError
   > {
     return this.call("ModifyDBProxyEndpoint", input);
   }
@@ -1257,26 +964,23 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBProxyTargetGroupRequest,
   ): Effect.Effect<
     ModifyDBProxyTargetGroupResponse,
-    | DBProxyNotFoundFault
-    | DBProxyTargetGroupNotFoundFault
-    | InvalidDBProxyStateFault
-    | CommonAwsError
+    DBProxyNotFoundFault | DBProxyTargetGroupNotFoundFault | InvalidDBProxyStateFault | CommonAwsError
   > {
     return this.call("ModifyDBProxyTargetGroup", input);
   }
   modifyDBRecommendation(
     input: ModifyDBRecommendationMessage,
-  ): Effect.Effect<DBRecommendationMessage, CommonAwsError> {
+  ): Effect.Effect<
+    DBRecommendationMessage,
+    CommonAwsError
+  > {
     return this.call("ModifyDBRecommendation", input);
   }
   modifyDBShardGroup(
     input: ModifyDBShardGroupMessage,
   ): Effect.Effect<
     DBShardGroup,
-    | DBShardGroupAlreadyExistsFault
-    | DBShardGroupNotFoundFault
-    | InvalidDBClusterStateFault
-    | CommonAwsError
+    DBShardGroupAlreadyExistsFault | DBShardGroupNotFoundFault | InvalidDBClusterStateFault | CommonAwsError
   > {
     return this.call("ModifyDBShardGroup", input);
   }
@@ -1292,10 +996,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBSnapshotAttributeMessage,
   ): Effect.Effect<
     ModifyDBSnapshotAttributeResult,
-    | DBSnapshotNotFoundFault
-    | InvalidDBSnapshotStateFault
-    | SharedSnapshotQuotaExceededFault
-    | CommonAwsError
+    DBSnapshotNotFoundFault | InvalidDBSnapshotStateFault | SharedSnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("ModifyDBSnapshotAttribute", input);
   }
@@ -1303,12 +1004,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyDBSubnetGroupMessage,
   ): Effect.Effect<
     ModifyDBSubnetGroupResult,
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | DBSubnetQuotaExceededFault
-    | InvalidSubnet
-    | SubnetAlreadyInUse
-    | CommonAwsError
+    DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | DBSubnetQuotaExceededFault | InvalidSubnet | SubnetAlreadyInUse | CommonAwsError
   > {
     return this.call("ModifyDBSubnetGroup", input);
   }
@@ -1316,13 +1012,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyEventSubscriptionMessage,
   ): Effect.Effect<
     ModifyEventSubscriptionResult,
-    | EventSubscriptionQuotaExceededFault
-    | SNSInvalidTopicFault
-    | SNSNoAuthorizationFault
-    | SNSTopicArnNotFoundFault
-    | SubscriptionCategoryNotFoundFault
-    | SubscriptionNotFoundFault
-    | CommonAwsError
+    EventSubscriptionQuotaExceededFault | SNSInvalidTopicFault | SNSNoAuthorizationFault | SNSTopicArnNotFoundFault | SubscriptionCategoryNotFoundFault | SubscriptionNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyEventSubscription", input);
   }
@@ -1330,12 +1020,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyGlobalClusterMessage,
   ): Effect.Effect<
     ModifyGlobalClusterResult,
-    | GlobalClusterAlreadyExistsFault
-    | GlobalClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidGlobalClusterStateFault
-    | CommonAwsError
+    GlobalClusterAlreadyExistsFault | GlobalClusterNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidGlobalClusterStateFault | CommonAwsError
   > {
     return this.call("ModifyGlobalCluster", input);
   }
@@ -1343,10 +1028,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyIntegrationMessage,
   ): Effect.Effect<
     Integration,
-    | IntegrationConflictOperationFault
-    | IntegrationNotFoundFault
-    | InvalidIntegrationStateFault
-    | CommonAwsError
+    IntegrationConflictOperationFault | IntegrationNotFoundFault | InvalidIntegrationStateFault | CommonAwsError
   > {
     return this.call("ModifyIntegration", input);
   }
@@ -1362,12 +1044,7 @@ export class RDS extends AWSServiceClient {
     input: ModifyTenantDatabaseMessage,
   ): Effect.Effect<
     ModifyTenantDatabaseResult,
-    | DBInstanceNotFoundFault
-    | InvalidDBInstanceStateFault
-    | KMSKeyNotAccessibleFault
-    | TenantDatabaseAlreadyExistsFault
-    | TenantDatabaseNotFoundFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | InvalidDBInstanceStateFault | KMSKeyNotAccessibleFault | TenantDatabaseAlreadyExistsFault | TenantDatabaseNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyTenantDatabase", input);
   }
@@ -1391,10 +1068,7 @@ export class RDS extends AWSServiceClient {
     input: PurchaseReservedDBInstancesOfferingMessage,
   ): Effect.Effect<
     PurchaseReservedDBInstancesOfferingResult,
-    | ReservedDBInstanceAlreadyExistsFault
-    | ReservedDBInstanceQuotaExceededFault
-    | ReservedDBInstancesOfferingNotFoundFault
-    | CommonAwsError
+    ReservedDBInstanceAlreadyExistsFault | ReservedDBInstanceQuotaExceededFault | ReservedDBInstancesOfferingNotFoundFault | CommonAwsError
   > {
     return this.call("PurchaseReservedDBInstancesOffering", input);
   }
@@ -1402,10 +1076,7 @@ export class RDS extends AWSServiceClient {
     input: RebootDBClusterMessage,
   ): Effect.Effect<
     RebootDBClusterResult,
-    | DBClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | CommonAwsError
   > {
     return this.call("RebootDBCluster", input);
   }
@@ -1429,16 +1100,7 @@ export class RDS extends AWSServiceClient {
     input: RegisterDBProxyTargetsRequest,
   ): Effect.Effect<
     RegisterDBProxyTargetsResponse,
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | DBProxyNotFoundFault
-    | DBProxyTargetAlreadyRegisteredFault
-    | DBProxyTargetGroupNotFoundFault
-    | InsufficientAvailableIPsInSubnetFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBProxyStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBInstanceNotFoundFault | DBProxyNotFoundFault | DBProxyTargetAlreadyRegisteredFault | DBProxyTargetGroupNotFoundFault | InsufficientAvailableIPsInSubnetFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidDBProxyStateFault | CommonAwsError
   > {
     return this.call("RegisterDBProxyTargets", input);
   }
@@ -1446,10 +1108,7 @@ export class RDS extends AWSServiceClient {
     input: RemoveFromGlobalClusterMessage,
   ): Effect.Effect<
     RemoveFromGlobalClusterResult,
-    | DBClusterNotFoundFault
-    | GlobalClusterNotFoundFault
-    | InvalidGlobalClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | GlobalClusterNotFoundFault | InvalidGlobalClusterStateFault | CommonAwsError
   > {
     return this.call("RemoveFromGlobalCluster", input);
   }
@@ -1457,10 +1116,7 @@ export class RDS extends AWSServiceClient {
     input: RemoveRoleFromDBClusterMessage,
   ): Effect.Effect<
     {},
-    | DBClusterNotFoundFault
-    | DBClusterRoleNotFoundFault
-    | InvalidDBClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBClusterRoleNotFoundFault | InvalidDBClusterStateFault | CommonAwsError
   > {
     return this.call("RemoveRoleFromDBCluster", input);
   }
@@ -1468,10 +1124,7 @@ export class RDS extends AWSServiceClient {
     input: RemoveRoleFromDBInstanceMessage,
   ): Effect.Effect<
     {},
-    | DBInstanceNotFoundFault
-    | DBInstanceRoleNotFoundFault
-    | InvalidDBInstanceStateFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | DBInstanceRoleNotFoundFault | InvalidDBInstanceStateFault | CommonAwsError
   > {
     return this.call("RemoveRoleFromDBInstance", input);
   }
@@ -1487,16 +1140,7 @@ export class RDS extends AWSServiceClient {
     input: RemoveTagsFromResourceMessage,
   ): Effect.Effect<
     {},
-    | BlueGreenDeploymentNotFoundFault
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | DBProxyNotFoundFault
-    | DBProxyTargetGroupNotFoundFault
-    | DBSnapshotNotFoundFault
-    | DBSnapshotTenantDatabaseNotFoundFault
-    | IntegrationNotFoundFault
-    | TenantDatabaseNotFoundFault
-    | CommonAwsError
+    BlueGreenDeploymentNotFoundFault | DBClusterNotFoundFault | DBInstanceNotFoundFault | DBProxyNotFoundFault | DBProxyTargetGroupNotFoundFault | DBSnapshotNotFoundFault | DBSnapshotTenantDatabaseNotFoundFault | IntegrationNotFoundFault | TenantDatabaseNotFoundFault | CommonAwsError
   > {
     return this.call("RemoveTagsFromResource", input);
   }
@@ -1504,9 +1148,7 @@ export class RDS extends AWSServiceClient {
     input: ResetDBClusterParameterGroupMessage,
   ): Effect.Effect<
     DBClusterParameterGroupNameMessage,
-    | DBParameterGroupNotFoundFault
-    | InvalidDBParameterGroupStateFault
-    | CommonAwsError
+    DBParameterGroupNotFoundFault | InvalidDBParameterGroupStateFault | CommonAwsError
   > {
     return this.call("ResetDBClusterParameterGroup", input);
   }
@@ -1514,9 +1156,7 @@ export class RDS extends AWSServiceClient {
     input: ResetDBParameterGroupMessage,
   ): Effect.Effect<
     DBParameterGroupNameMessage,
-    | DBParameterGroupNotFoundFault
-    | InvalidDBParameterGroupStateFault
-    | CommonAwsError
+    DBParameterGroupNotFoundFault | InvalidDBParameterGroupStateFault | CommonAwsError
   > {
     return this.call("ResetDBParameterGroup", input);
   }
@@ -1524,22 +1164,7 @@ export class RDS extends AWSServiceClient {
     input: RestoreDBClusterFromS3Message,
   ): Effect.Effect<
     RestoreDBClusterFromS3Result,
-    | DBClusterAlreadyExistsFault
-    | DBClusterNotFoundFault
-    | DBClusterParameterGroupNotFoundFault
-    | DBClusterQuotaExceededFault
-    | DBSubnetGroupNotFoundFault
-    | DomainNotFoundFault
-    | InsufficientStorageClusterCapacityFault
-    | InvalidDBClusterStateFault
-    | InvalidDBSubnetGroupStateFault
-    | InvalidS3BucketFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
-    | CommonAwsError
+    DBClusterAlreadyExistsFault | DBClusterNotFoundFault | DBClusterParameterGroupNotFoundFault | DBClusterQuotaExceededFault | DBSubnetGroupNotFoundFault | DomainNotFoundFault | InsufficientStorageClusterCapacityFault | InvalidDBClusterStateFault | InvalidDBSubnetGroupStateFault | InvalidS3BucketFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | StorageQuotaExceededFault | StorageTypeNotSupportedFault | CommonAwsError
   > {
     return this.call("RestoreDBClusterFromS3", input);
   }
@@ -1547,27 +1172,7 @@ export class RDS extends AWSServiceClient {
     input: RestoreDBClusterFromSnapshotMessage,
   ): Effect.Effect<
     RestoreDBClusterFromSnapshotResult,
-    | DBClusterAlreadyExistsFault
-    | DBClusterParameterGroupNotFoundFault
-    | DBClusterQuotaExceededFault
-    | DBClusterSnapshotNotFoundFault
-    | DBSnapshotNotFoundFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | DomainNotFoundFault
-    | InsufficientDBClusterCapacityFault
-    | InsufficientDBInstanceCapacityFault
-    | InsufficientStorageClusterCapacityFault
-    | InvalidDBClusterSnapshotStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBSnapshotStateFault
-    | InvalidRestoreFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | OptionGroupNotFoundFault
-    | StorageQuotaExceededFault
-    | CommonAwsError
+    DBClusterAlreadyExistsFault | DBClusterParameterGroupNotFoundFault | DBClusterQuotaExceededFault | DBClusterSnapshotNotFoundFault | DBSnapshotNotFoundFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | DomainNotFoundFault | InsufficientDBClusterCapacityFault | InsufficientDBInstanceCapacityFault | InsufficientStorageClusterCapacityFault | InvalidDBClusterSnapshotStateFault | InvalidDBInstanceStateFault | InvalidDBSnapshotStateFault | InvalidRestoreFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | OptionGroupNotFoundFault | StorageQuotaExceededFault | CommonAwsError
   > {
     return this.call("RestoreDBClusterFromSnapshot", input);
   }
@@ -1575,27 +1180,7 @@ export class RDS extends AWSServiceClient {
     input: RestoreDBClusterToPointInTimeMessage,
   ): Effect.Effect<
     RestoreDBClusterToPointInTimeResult,
-    | DBClusterAlreadyExistsFault
-    | DBClusterAutomatedBackupNotFoundFault
-    | DBClusterNotFoundFault
-    | DBClusterParameterGroupNotFoundFault
-    | DBClusterQuotaExceededFault
-    | DBClusterSnapshotNotFoundFault
-    | DBSubnetGroupNotFoundFault
-    | DomainNotFoundFault
-    | InsufficientDBClusterCapacityFault
-    | InsufficientDBInstanceCapacityFault
-    | InsufficientStorageClusterCapacityFault
-    | InvalidDBClusterSnapshotStateFault
-    | InvalidDBClusterStateFault
-    | InvalidDBSnapshotStateFault
-    | InvalidRestoreFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | OptionGroupNotFoundFault
-    | StorageQuotaExceededFault
-    | CommonAwsError
+    DBClusterAlreadyExistsFault | DBClusterAutomatedBackupNotFoundFault | DBClusterNotFoundFault | DBClusterParameterGroupNotFoundFault | DBClusterQuotaExceededFault | DBClusterSnapshotNotFoundFault | DBSubnetGroupNotFoundFault | DomainNotFoundFault | InsufficientDBClusterCapacityFault | InsufficientDBInstanceCapacityFault | InsufficientStorageClusterCapacityFault | InvalidDBClusterSnapshotStateFault | InvalidDBClusterStateFault | InvalidDBSnapshotStateFault | InvalidRestoreFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | OptionGroupNotFoundFault | StorageQuotaExceededFault | CommonAwsError
   > {
     return this.call("RestoreDBClusterToPointInTime", input);
   }
@@ -1603,31 +1188,7 @@ export class RDS extends AWSServiceClient {
     input: RestoreDBInstanceFromDBSnapshotMessage,
   ): Effect.Effect<
     RestoreDBInstanceFromDBSnapshotResult,
-    | AuthorizationNotFoundFault
-    | BackupPolicyNotFoundFault
-    | CertificateNotFoundFault
-    | DBClusterSnapshotNotFoundFault
-    | DBInstanceAlreadyExistsFault
-    | DBParameterGroupNotFoundFault
-    | DBSecurityGroupNotFoundFault
-    | DBSnapshotNotFoundFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | DomainNotFoundFault
-    | InstanceQuotaExceededFault
-    | InsufficientDBInstanceCapacityFault
-    | InvalidDBSnapshotStateFault
-    | InvalidRestoreFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
-    | OptionGroupNotFoundFault
-    | ProvisionedIopsNotAvailableInAZFault
-    | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
-    | TenantDatabaseQuotaExceededFault
-    | CommonAwsError
+    AuthorizationNotFoundFault | BackupPolicyNotFoundFault | CertificateNotFoundFault | DBClusterSnapshotNotFoundFault | DBInstanceAlreadyExistsFault | DBParameterGroupNotFoundFault | DBSecurityGroupNotFoundFault | DBSnapshotNotFoundFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | DomainNotFoundFault | InstanceQuotaExceededFault | InsufficientDBInstanceCapacityFault | InvalidDBSnapshotStateFault | InvalidRestoreFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | NetworkTypeNotSupported | OptionGroupNotFoundFault | ProvisionedIopsNotAvailableInAZFault | StorageQuotaExceededFault | StorageTypeNotSupportedFault | TenantDatabaseQuotaExceededFault | CommonAwsError
   > {
     return this.call("RestoreDBInstanceFromDBSnapshot", input);
   }
@@ -1635,26 +1196,7 @@ export class RDS extends AWSServiceClient {
     input: RestoreDBInstanceFromS3Message,
   ): Effect.Effect<
     RestoreDBInstanceFromS3Result,
-    | AuthorizationNotFoundFault
-    | BackupPolicyNotFoundFault
-    | CertificateNotFoundFault
-    | DBInstanceAlreadyExistsFault
-    | DBParameterGroupNotFoundFault
-    | DBSecurityGroupNotFoundFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | InstanceQuotaExceededFault
-    | InsufficientDBInstanceCapacityFault
-    | InvalidS3BucketFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
-    | OptionGroupNotFoundFault
-    | ProvisionedIopsNotAvailableInAZFault
-    | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
-    | CommonAwsError
+    AuthorizationNotFoundFault | BackupPolicyNotFoundFault | CertificateNotFoundFault | DBInstanceAlreadyExistsFault | DBParameterGroupNotFoundFault | DBSecurityGroupNotFoundFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | InstanceQuotaExceededFault | InsufficientDBInstanceCapacityFault | InvalidS3BucketFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | NetworkTypeNotSupported | OptionGroupNotFoundFault | ProvisionedIopsNotAvailableInAZFault | StorageQuotaExceededFault | StorageTypeNotSupportedFault | CommonAwsError
   > {
     return this.call("RestoreDBInstanceFromS3", input);
   }
@@ -1662,32 +1204,7 @@ export class RDS extends AWSServiceClient {
     input: RestoreDBInstanceToPointInTimeMessage,
   ): Effect.Effect<
     RestoreDBInstanceToPointInTimeResult,
-    | AuthorizationNotFoundFault
-    | BackupPolicyNotFoundFault
-    | CertificateNotFoundFault
-    | DBInstanceAlreadyExistsFault
-    | DBInstanceAutomatedBackupNotFoundFault
-    | DBInstanceNotFoundFault
-    | DBParameterGroupNotFoundFault
-    | DBSecurityGroupNotFoundFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | DomainNotFoundFault
-    | InstanceQuotaExceededFault
-    | InsufficientDBInstanceCapacityFault
-    | InvalidDBInstanceStateFault
-    | InvalidRestoreFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | NetworkTypeNotSupported
-    | OptionGroupNotFoundFault
-    | PointInTimeRestoreNotEnabledFault
-    | ProvisionedIopsNotAvailableInAZFault
-    | StorageQuotaExceededFault
-    | StorageTypeNotSupportedFault
-    | TenantDatabaseQuotaExceededFault
-    | CommonAwsError
+    AuthorizationNotFoundFault | BackupPolicyNotFoundFault | CertificateNotFoundFault | DBInstanceAlreadyExistsFault | DBInstanceAutomatedBackupNotFoundFault | DBInstanceNotFoundFault | DBParameterGroupNotFoundFault | DBSecurityGroupNotFoundFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | DomainNotFoundFault | InstanceQuotaExceededFault | InsufficientDBInstanceCapacityFault | InvalidDBInstanceStateFault | InvalidRestoreFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | NetworkTypeNotSupported | OptionGroupNotFoundFault | PointInTimeRestoreNotEnabledFault | ProvisionedIopsNotAvailableInAZFault | StorageQuotaExceededFault | StorageTypeNotSupportedFault | TenantDatabaseQuotaExceededFault | CommonAwsError
   > {
     return this.call("RestoreDBInstanceToPointInTime", input);
   }
@@ -1695,10 +1212,7 @@ export class RDS extends AWSServiceClient {
     input: RevokeDBSecurityGroupIngressMessage,
   ): Effect.Effect<
     RevokeDBSecurityGroupIngressResult,
-    | AuthorizationNotFoundFault
-    | DBSecurityGroupNotFoundFault
-    | InvalidDBSecurityGroupStateFault
-    | CommonAwsError
+    AuthorizationNotFoundFault | DBSecurityGroupNotFoundFault | InvalidDBSecurityGroupStateFault | CommonAwsError
   > {
     return this.call("RevokeDBSecurityGroupIngress", input);
   }
@@ -1706,13 +1220,7 @@ export class RDS extends AWSServiceClient {
     input: StartActivityStreamRequest,
   ): Effect.Effect<
     StartActivityStreamResponse,
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBInstanceNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | KMSKeyNotAccessibleFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartActivityStream", input);
   }
@@ -1720,11 +1228,7 @@ export class RDS extends AWSServiceClient {
     input: StartDBClusterMessage,
   ): Effect.Effect<
     StartDBClusterResult,
-    | DBClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBShardGroupStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidDBShardGroupStateFault | CommonAwsError
   > {
     return this.call("StartDBCluster", input);
   }
@@ -1732,18 +1236,7 @@ export class RDS extends AWSServiceClient {
     input: StartDBInstanceMessage,
   ): Effect.Effect<
     StartDBInstanceResult,
-    | AuthorizationNotFoundFault
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | DBSubnetGroupDoesNotCoverEnoughAZs
-    | DBSubnetGroupNotFoundFault
-    | InsufficientDBInstanceCapacityFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidSubnet
-    | InvalidVPCNetworkStateFault
-    | KMSKeyNotAccessibleFault
-    | CommonAwsError
+    AuthorizationNotFoundFault | DBClusterNotFoundFault | DBInstanceNotFoundFault | DBSubnetGroupDoesNotCoverEnoughAZs | DBSubnetGroupNotFoundFault | InsufficientDBInstanceCapacityFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidSubnet | InvalidVPCNetworkStateFault | KMSKeyNotAccessibleFault | CommonAwsError
   > {
     return this.call("StartDBInstance", input);
   }
@@ -1751,12 +1244,7 @@ export class RDS extends AWSServiceClient {
     input: StartDBInstanceAutomatedBackupsReplicationMessage,
   ): Effect.Effect<
     StartDBInstanceAutomatedBackupsReplicationResult,
-    | DBInstanceAutomatedBackupQuotaExceededFault
-    | DBInstanceNotFoundFault
-    | InvalidDBInstanceStateFault
-    | KMSKeyNotAccessibleFault
-    | StorageTypeNotSupportedFault
-    | CommonAwsError
+    DBInstanceAutomatedBackupQuotaExceededFault | DBInstanceNotFoundFault | InvalidDBInstanceStateFault | KMSKeyNotAccessibleFault | StorageTypeNotSupportedFault | CommonAwsError
   > {
     return this.call("StartDBInstanceAutomatedBackupsReplication", input);
   }
@@ -1764,17 +1252,7 @@ export class RDS extends AWSServiceClient {
     input: StartExportTaskMessage,
   ): Effect.Effect<
     ExportTask,
-    | DBClusterNotFoundFault
-    | DBClusterSnapshotNotFoundFault
-    | DBSnapshotNotFoundFault
-    | ExportTaskAlreadyExistsFault
-    | IamRoleMissingPermissionsFault
-    | IamRoleNotFoundFault
-    | InvalidExportOnlyFault
-    | InvalidExportSourceStateFault
-    | InvalidS3BucketFault
-    | KMSKeyNotAccessibleFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBClusterSnapshotNotFoundFault | DBSnapshotNotFoundFault | ExportTaskAlreadyExistsFault | IamRoleMissingPermissionsFault | IamRoleNotFoundFault | InvalidExportOnlyFault | InvalidExportSourceStateFault | InvalidS3BucketFault | KMSKeyNotAccessibleFault | CommonAwsError
   > {
     return this.call("StartExportTask", input);
   }
@@ -1782,12 +1260,7 @@ export class RDS extends AWSServiceClient {
     input: StopActivityStreamRequest,
   ): Effect.Effect<
     StopActivityStreamResponse,
-    | DBClusterNotFoundFault
-    | DBInstanceNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    DBClusterNotFoundFault | DBInstanceNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StopActivityStream", input);
   }
@@ -1795,11 +1268,7 @@ export class RDS extends AWSServiceClient {
     input: StopDBClusterMessage,
   ): Effect.Effect<
     StopDBClusterResult,
-    | DBClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | InvalidDBShardGroupStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | InvalidDBShardGroupStateFault | CommonAwsError
   > {
     return this.call("StopDBCluster", input);
   }
@@ -1807,12 +1276,7 @@ export class RDS extends AWSServiceClient {
     input: StopDBInstanceMessage,
   ): Effect.Effect<
     StopDBInstanceResult,
-    | DBInstanceNotFoundFault
-    | DBSnapshotAlreadyExistsFault
-    | InvalidDBClusterStateFault
-    | InvalidDBInstanceStateFault
-    | SnapshotQuotaExceededFault
-    | CommonAwsError
+    DBInstanceNotFoundFault | DBSnapshotAlreadyExistsFault | InvalidDBClusterStateFault | InvalidDBInstanceStateFault | SnapshotQuotaExceededFault | CommonAwsError
   > {
     return this.call("StopDBInstance", input);
   }
@@ -1828,9 +1292,7 @@ export class RDS extends AWSServiceClient {
     input: SwitchoverBlueGreenDeploymentRequest,
   ): Effect.Effect<
     SwitchoverBlueGreenDeploymentResponse,
-    | BlueGreenDeploymentNotFoundFault
-    | InvalidBlueGreenDeploymentStateFault
-    | CommonAwsError
+    BlueGreenDeploymentNotFoundFault | InvalidBlueGreenDeploymentStateFault | CommonAwsError
   > {
     return this.call("SwitchoverBlueGreenDeployment", input);
   }
@@ -1838,11 +1300,7 @@ export class RDS extends AWSServiceClient {
     input: SwitchoverGlobalClusterMessage,
   ): Effect.Effect<
     SwitchoverGlobalClusterResult,
-    | DBClusterNotFoundFault
-    | GlobalClusterNotFoundFault
-    | InvalidDBClusterStateFault
-    | InvalidGlobalClusterStateFault
-    | CommonAwsError
+    DBClusterNotFoundFault | GlobalClusterNotFoundFault | InvalidDBClusterStateFault | InvalidGlobalClusterStateFault | CommonAwsError
   > {
     return this.call("SwitchoverGlobalCluster", input);
   }
@@ -1871,16 +1329,8 @@ export interface AccountQuota {
 export type AccountQuotaList = Array<AccountQuota>;
 export type ActivityStreamMode = "sync" | "async";
 export type ActivityStreamModeList = Array<string>;
-export type ActivityStreamPolicyStatus =
-  | "locked"
-  | "unlocked"
-  | "locking_policy"
-  | "unlocking_policy";
-export type ActivityStreamStatus =
-  | "stopped"
-  | "starting"
-  | "started"
-  | "stopping";
+export type ActivityStreamPolicyStatus = "locked" | "unlocked" | "locking_policy" | "unlocking_policy";
+export type ActivityStreamStatus = "stopped" | "starting" | "started" | "stopping";
 export interface AddRoleToDBClusterMessage {
   DBClusterIdentifier: string;
   RoleArn: string;
@@ -2046,12 +1496,7 @@ export interface CharacterSet {
   CharacterSetName?: string;
   CharacterSetDescription?: string;
 }
-export type ClientPasswordAuthType =
-  | "MYSQL_NATIVE_PASSWORD"
-  | "MYSQL_CACHING_SHA2_PASSWORD"
-  | "POSTGRES_SCRAM_SHA_256"
-  | "POSTGRES_MD5"
-  | "SQL_SERVER_AUTHENTICATION";
+export type ClientPasswordAuthType = "MYSQL_NATIVE_PASSWORD" | "MYSQL_CACHING_SHA2_PASSWORD" | "POSTGRES_SCRAM_SHA_256" | "POSTGRES_MD5" | "SQL_SERVER_AUTHENTICATION";
 export interface CloudwatchLogsExportConfiguration {
   EnableLogTypes?: Array<string>;
   DisableLogTypes?: Array<string>;
@@ -2544,10 +1989,7 @@ export type CustomEngineName = string;
 
 export type CustomEngineVersion = string;
 
-export type CustomEngineVersionStatus =
-  | "available"
-  | "inactive"
-  | "inactive_except_restore";
+export type CustomEngineVersionStatus = "available" | "inactive" | "inactive_except_restore";
 export type DatabaseArn = string;
 
 export type DatabaseInsightsMode = "STANDARD" | "ADVANCED";
@@ -3061,8 +2503,7 @@ export declare class DBInstanceAutomatedBackupQuotaExceededFault extends EffectD
 export interface DBInstanceAutomatedBackupsReplication {
   DBInstanceAutomatedBackupsArn?: string;
 }
-export type DBInstanceAutomatedBackupsReplicationList =
-  Array<DBInstanceAutomatedBackupsReplication>;
+export type DBInstanceAutomatedBackupsReplicationList = Array<DBInstanceAutomatedBackupsReplication>;
 export type DBInstanceList = Array<DBInstance>;
 export interface DBInstanceMessage {
   Marker?: string;
@@ -3208,13 +2649,7 @@ export declare class DBProxyEndpointQuotaExceededFault extends EffectData.Tagged
 )<{
   readonly message?: string;
 }> {}
-export type DBProxyEndpointStatus =
-  | "AVAILABLE"
-  | "MODIFYING"
-  | "INCOMPATIBLE_NETWORK"
-  | "INSUFFICIENT_RESOURCE_LIMITS"
-  | "CREATING"
-  | "DELETING";
+export type DBProxyEndpointStatus = "AVAILABLE" | "MODIFYING" | "INCOMPATIBLE_NETWORK" | "INSUFFICIENT_RESOURCE_LIMITS" | "CREATING" | "DELETING";
 export type DBProxyEndpointTargetRole = "READ_WRITE" | "READ_ONLY";
 export type DBProxyList = Array<DBProxy>;
 export type DBProxyName = string;
@@ -3229,16 +2664,7 @@ export declare class DBProxyQuotaExceededFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type DBProxyStatus =
-  | "AVAILABLE"
-  | "MODIFYING"
-  | "INCOMPATIBLE_NETWORK"
-  | "INSUFFICIENT_RESOURCE_LIMITS"
-  | "CREATING"
-  | "DELETING"
-  | "SUSPENDED"
-  | "SUSPENDING"
-  | "REACTIVATING";
+export type DBProxyStatus = "AVAILABLE" | "MODIFYING" | "INCOMPATIBLE_NETWORK" | "INSUFFICIENT_RESOURCE_LIMITS" | "CREATING" | "DELETING" | "SUSPENDED" | "SUSPENDING" | "REACTIVATING";
 export interface DBProxyTarget {
   TargetArn?: string;
   Endpoint?: string;
@@ -3624,8 +3050,10 @@ export interface DeregisterDBProxyTargetsRequest {
   DBInstanceIdentifiers?: Array<string>;
   DBClusterIdentifiers?: Array<string>;
 }
-export interface DeregisterDBProxyTargetsResponse {}
-export interface DescribeAccountAttributesMessage {}
+export interface DeregisterDBProxyTargetsResponse {
+}
+export interface DescribeAccountAttributesMessage {
+}
 export interface DescribeBlueGreenDeploymentsRequest {
   BlueGreenDeploymentIdentifier?: string;
   Filters?: Array<Filter>;
@@ -4230,9 +3658,7 @@ export interface GlobalClusterMember {
   SynchronizationStatus?: GlobalClusterMemberSynchronizationStatus;
 }
 export type GlobalClusterMemberList = Array<GlobalClusterMember>;
-export type GlobalClusterMemberSynchronizationStatus =
-  | "CONNECTED"
-  | "PENDING_RESYNC";
+export type GlobalClusterMemberSynchronizationStatus = "CONNECTED" | "PENDING_RESYNC";
 export declare class GlobalClusterNotFoundFault extends EffectData.TaggedError(
   "GlobalClusterNotFoundFault",
 )<{
@@ -4335,14 +3761,7 @@ export declare class IntegrationQuotaExceededFault extends EffectData.TaggedErro
 )<{
   readonly message?: string;
 }> {}
-export type IntegrationStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "MODIFYING"
-  | "FAILED"
-  | "DELETING"
-  | "SYNCING"
-  | "NEEDS_ATTENTION";
+export type IntegrationStatus = "CREATING" | "ACTIVE" | "MODIFYING" | "FAILED" | "DELETING" | "SYNCING" | "NEEDS_ATTENTION";
 export declare class InvalidBlueGreenDeploymentStateFault extends EffectData.TaggedError(
   "InvalidBlueGreenDeploymentStateFault",
 )<{
@@ -4509,32 +3928,17 @@ export declare class KMSKeyNotAccessibleFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type LifecycleSupportName =
-  | "OPEN_SOURCE_RDS_STANDARD_SUPPORT"
-  | "OPEN_SOURCE_RDS_EXTENDED_SUPPORT";
+export type LifecycleSupportName = "OPEN_SOURCE_RDS_STANDARD_SUPPORT" | "OPEN_SOURCE_RDS_EXTENDED_SUPPORT";
 export interface LimitlessDatabase {
   Status?: LimitlessDatabaseStatus;
   MinRequiredACU?: number;
 }
-export type LimitlessDatabaseStatus =
-  | "ACTIVE"
-  | "NOT_IN_USE"
-  | "ENABLED"
-  | "DISABLED"
-  | "ENABLING"
-  | "DISABLING"
-  | "MODIFYING_MAX_CAPACITY"
-  | "ERROR";
+export type LimitlessDatabaseStatus = "ACTIVE" | "NOT_IN_USE" | "ENABLED" | "DISABLED" | "ENABLING" | "DISABLING" | "MODIFYING_MAX_CAPACITY" | "ERROR";
 export interface ListTagsForResourceMessage {
   ResourceName: string;
   Filters?: Array<Filter>;
 }
-export type LocalWriteForwardingStatus =
-  | "ENABLED"
-  | "DISABLED"
-  | "ENABLING"
-  | "DISABLING"
-  | "REQUESTED";
+export type LocalWriteForwardingStatus = "ENABLED" | "DISABLED" | "ENABLING" | "DISABLING" | "REQUESTED";
 export type LogTypeList = Array<string>;
 export type Long = number;
 
@@ -4575,8 +3979,7 @@ export interface MinimumEngineVersionPerAllowedValue {
   AllowedValue?: string;
   MinimumEngineVersion?: string;
 }
-export type MinimumEngineVersionPerAllowedValueList =
-  Array<MinimumEngineVersionPerAllowedValue>;
+export type MinimumEngineVersionPerAllowedValueList = Array<MinimumEngineVersionPerAllowedValue>;
 export interface ModifyActivityStreamRequest {
   ResourceArn?: string;
   AuditPolicyState?: AuditPolicyState;
@@ -5055,8 +4458,7 @@ export interface PendingMaintenanceAction {
   Description?: string;
 }
 export type PendingMaintenanceActionDetails = Array<PendingMaintenanceAction>;
-export type PendingMaintenanceActions =
-  Array<ResourcePendingMaintenanceActions>;
+export type PendingMaintenanceActions = Array<ResourcePendingMaintenanceActions>;
 export interface PendingMaintenanceActionsMessage {
   PendingMaintenanceActions?: Array<ResourcePendingMaintenanceActions>;
   Marker?: string;
@@ -5287,8 +4689,7 @@ export interface ReservedDBInstancesOffering {
   MultiAZ?: boolean;
   RecurringCharges?: Array<RecurringCharge>;
 }
-export type ReservedDBInstancesOfferingList =
-  Array<ReservedDBInstancesOffering>;
+export type ReservedDBInstancesOfferingList = Array<ReservedDBInstancesOffering>;
 export interface ReservedDBInstancesOfferingMessage {
   Marker?: string;
   ReservedDBInstancesOfferings?: Array<ReservedDBInstancesOffering>;
@@ -5701,16 +5102,7 @@ export interface SourceRegionMessage {
   Marker?: string;
   SourceRegions?: Array<SourceRegion>;
 }
-export type SourceType =
-  | "db_instance"
-  | "db_parameter_group"
-  | "db_security_group"
-  | "db_snapshot"
-  | "db_cluster"
-  | "db_cluster_snapshot"
-  | "custom_engine_version"
-  | "db_proxy"
-  | "blue_green_deployment";
+export type SourceType = "db_instance" | "db_parameter_group" | "db_security_group" | "db_snapshot" | "db_cluster" | "db_cluster_snapshot" | "custom_engine_version" | "db_proxy" | "blue_green_deployment";
 export interface StartActivityStreamRequest {
   ResourceArn: string;
   Mode: ActivityStreamMode;
@@ -5892,21 +5284,13 @@ export interface TargetHealth {
   Reason?: TargetHealthReason;
   Description?: string;
 }
-export type TargetHealthReason =
-  | "UNREACHABLE"
-  | "CONNECTION_FAILED"
-  | "AUTH_FAILURE"
-  | "PENDING_PROXY_CAPACITY"
-  | "INVALID_REPLICATION_STATE";
+export type TargetHealthReason = "UNREACHABLE" | "CONNECTION_FAILED" | "AUTH_FAILURE" | "PENDING_PROXY_CAPACITY" | "INVALID_REPLICATION_STATE";
 export type TargetList = Array<DBProxyTarget>;
 export type TargetRole = "READ_WRITE" | "READ_ONLY" | "UNKNOWN";
 export type TargetState = "registering" | "available" | "unavailable";
 export type TargetStorageType = string;
 
-export type TargetType =
-  | "RDS_INSTANCE"
-  | "RDS_SERVERLESS_ENDPOINT"
-  | "TRACKED_CLUSTER";
+export type TargetType = "RDS_INSTANCE" | "RDS_SERVERLESS_ENDPOINT" | "TRACKED_CLUSTER";
 export interface TenantDatabase {
   TenantDatabaseCreateTime?: Date | string;
   DBInstanceIdentifier?: string;
@@ -6011,12 +5395,7 @@ export interface VpcSecurityGroupMembership {
   Status?: string;
 }
 export type VpcSecurityGroupMembershipList = Array<VpcSecurityGroupMembership>;
-export type WriteForwardingStatus =
-  | "ENABLED"
-  | "DISABLED"
-  | "ENABLING"
-  | "DISABLING"
-  | "UNKNOWN";
+export type WriteForwardingStatus = "ENABLED" | "DISABLED" | "ENABLING" | "DISABLING" | "UNKNOWN";
 export declare namespace AddRoleToDBCluster {
   export type Input = AddRoleToDBClusterMessage;
   export type Output = {};
@@ -6664,25 +6043,32 @@ export declare namespace DeregisterDBProxyTargets {
 export declare namespace DescribeAccountAttributes {
   export type Input = DescribeAccountAttributesMessage;
   export type Output = AccountAttributesMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeBlueGreenDeployments {
   export type Input = DescribeBlueGreenDeploymentsRequest;
   export type Output = DescribeBlueGreenDeploymentsResponse;
-  export type Error = BlueGreenDeploymentNotFoundFault | CommonAwsError;
+  export type Error =
+    | BlueGreenDeploymentNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCertificates {
   export type Input = DescribeCertificatesMessage;
   export type Output = CertificateMessage;
-  export type Error = CertificateNotFoundFault | CommonAwsError;
+  export type Error =
+    | CertificateNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusterAutomatedBackups {
   export type Input = DescribeDBClusterAutomatedBackupsMessage;
   export type Output = DBClusterAutomatedBackupMessage;
-  export type Error = DBClusterAutomatedBackupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBClusterAutomatedBackupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusterBacktracks {
@@ -6697,55 +6083,72 @@ export declare namespace DescribeDBClusterBacktracks {
 export declare namespace DescribeDBClusterEndpoints {
   export type Input = DescribeDBClusterEndpointsMessage;
   export type Output = DBClusterEndpointMessage;
-  export type Error = DBClusterNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBClusterNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusterParameterGroups {
   export type Input = DescribeDBClusterParameterGroupsMessage;
   export type Output = DBClusterParameterGroupsMessage;
-  export type Error = DBParameterGroupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBParameterGroupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusterParameters {
   export type Input = DescribeDBClusterParametersMessage;
   export type Output = DBClusterParameterGroupDetails;
-  export type Error = DBParameterGroupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBParameterGroupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusters {
   export type Input = DescribeDBClustersMessage;
   export type Output = DBClusterMessage;
-  export type Error = DBClusterNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBClusterNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusterSnapshotAttributes {
   export type Input = DescribeDBClusterSnapshotAttributesMessage;
   export type Output = DescribeDBClusterSnapshotAttributesResult;
-  export type Error = DBClusterSnapshotNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBClusterSnapshotNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBClusterSnapshots {
   export type Input = DescribeDBClusterSnapshotsMessage;
   export type Output = DBClusterSnapshotMessage;
-  export type Error = DBClusterSnapshotNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBClusterSnapshotNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBEngineVersions {
   export type Input = DescribeDBEngineVersionsMessage;
   export type Output = DBEngineVersionMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBInstanceAutomatedBackups {
   export type Input = DescribeDBInstanceAutomatedBackupsMessage;
   export type Output = DBInstanceAutomatedBackupMessage;
-  export type Error = DBInstanceAutomatedBackupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBInstanceAutomatedBackupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBInstances {
   export type Input = DescribeDBInstancesMessage;
   export type Output = DBInstanceMessage;
-  export type Error = DBInstanceNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBInstanceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBLogFiles {
@@ -6760,25 +6163,32 @@ export declare namespace DescribeDBLogFiles {
 export declare namespace DescribeDBMajorEngineVersions {
   export type Input = DescribeDBMajorEngineVersionsRequest;
   export type Output = DescribeDBMajorEngineVersionsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBParameterGroups {
   export type Input = DescribeDBParameterGroupsMessage;
   export type Output = DBParameterGroupsMessage;
-  export type Error = DBParameterGroupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBParameterGroupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBParameters {
   export type Input = DescribeDBParametersMessage;
   export type Output = DBParameterGroupDetails;
-  export type Error = DBParameterGroupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBParameterGroupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBProxies {
   export type Input = DescribeDBProxiesRequest;
   export type Output = DescribeDBProxiesResponse;
-  export type Error = DBProxyNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBProxyNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBProxyEndpoints {
@@ -6814,13 +6224,16 @@ export declare namespace DescribeDBProxyTargets {
 export declare namespace DescribeDBRecommendations {
   export type Input = DescribeDBRecommendationsMessage;
   export type Output = DBRecommendationsMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBSecurityGroups {
   export type Input = DescribeDBSecurityGroupsMessage;
   export type Output = DBSecurityGroupMessage;
-  export type Error = DBSecurityGroupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBSecurityGroupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBShardGroups {
@@ -6835,121 +6248,154 @@ export declare namespace DescribeDBShardGroups {
 export declare namespace DescribeDBSnapshotAttributes {
   export type Input = DescribeDBSnapshotAttributesMessage;
   export type Output = DescribeDBSnapshotAttributesResult;
-  export type Error = DBSnapshotNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBSnapshotNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBSnapshots {
   export type Input = DescribeDBSnapshotsMessage;
   export type Output = DBSnapshotMessage;
-  export type Error = DBSnapshotNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBSnapshotNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBSnapshotTenantDatabases {
   export type Input = DescribeDBSnapshotTenantDatabasesMessage;
   export type Output = DBSnapshotTenantDatabasesMessage;
-  export type Error = DBSnapshotNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBSnapshotNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBSubnetGroups {
   export type Input = DescribeDBSubnetGroupsMessage;
   export type Output = DBSubnetGroupMessage;
-  export type Error = DBSubnetGroupNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBSubnetGroupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEngineDefaultClusterParameters {
   export type Input = DescribeEngineDefaultClusterParametersMessage;
   export type Output = DescribeEngineDefaultClusterParametersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEngineDefaultParameters {
   export type Input = DescribeEngineDefaultParametersMessage;
   export type Output = DescribeEngineDefaultParametersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEventCategories {
   export type Input = DescribeEventCategoriesMessage;
   export type Output = EventCategoriesMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEvents {
   export type Input = DescribeEventsMessage;
   export type Output = EventsMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEventSubscriptions {
   export type Input = DescribeEventSubscriptionsMessage;
   export type Output = EventSubscriptionsMessage;
-  export type Error = SubscriptionNotFoundFault | CommonAwsError;
+  export type Error =
+    | SubscriptionNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeExportTasks {
   export type Input = DescribeExportTasksMessage;
   export type Output = ExportTasksMessage;
-  export type Error = ExportTaskNotFoundFault | CommonAwsError;
+  export type Error =
+    | ExportTaskNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeGlobalClusters {
   export type Input = DescribeGlobalClustersMessage;
   export type Output = GlobalClustersMessage;
-  export type Error = GlobalClusterNotFoundFault | CommonAwsError;
+  export type Error =
+    | GlobalClusterNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIntegrations {
   export type Input = DescribeIntegrationsMessage;
   export type Output = DescribeIntegrationsResponse;
-  export type Error = IntegrationNotFoundFault | CommonAwsError;
+  export type Error =
+    | IntegrationNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeOptionGroupOptions {
   export type Input = DescribeOptionGroupOptionsMessage;
   export type Output = OptionGroupOptionsMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeOptionGroups {
   export type Input = DescribeOptionGroupsMessage;
   export type Output = OptionGroups;
-  export type Error = OptionGroupNotFoundFault | CommonAwsError;
+  export type Error =
+    | OptionGroupNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeOrderableDBInstanceOptions {
   export type Input = DescribeOrderableDBInstanceOptionsMessage;
   export type Output = OrderableDBInstanceOptionsMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribePendingMaintenanceActions {
   export type Input = DescribePendingMaintenanceActionsMessage;
   export type Output = PendingMaintenanceActionsMessage;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReservedDBInstances {
   export type Input = DescribeReservedDBInstancesMessage;
   export type Output = ReservedDBInstanceMessage;
-  export type Error = ReservedDBInstanceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ReservedDBInstanceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReservedDBInstancesOfferings {
   export type Input = DescribeReservedDBInstancesOfferingsMessage;
   export type Output = ReservedDBInstancesOfferingMessage;
-  export type Error = ReservedDBInstancesOfferingNotFoundFault | CommonAwsError;
+  export type Error =
+    | ReservedDBInstancesOfferingNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSourceRegions {
   export type Input = DescribeSourceRegionsMessage;
   export type Output = SourceRegionMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTenantDatabases {
   export type Input = DescribeTenantDatabasesMessage;
   export type Output = TenantDatabasesMessage;
-  export type Error = DBInstanceNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBInstanceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeValidDBInstanceModifications {
@@ -7039,7 +6485,9 @@ export declare namespace ModifyActivityStream {
 export declare namespace ModifyCertificates {
   export type Input = ModifyCertificatesMessage;
   export type Output = ModifyCertificatesResult;
-  export type Error = CertificateNotFoundFault | CommonAwsError;
+  export type Error =
+    | CertificateNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace ModifyCurrentDBClusterCapacity {
@@ -7185,7 +6633,8 @@ export declare namespace ModifyDBProxyTargetGroup {
 export declare namespace ModifyDBRecommendation {
   export type Input = ModifyDBRecommendationMessage;
   export type Output = DBRecommendationMessage;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyDBShardGroup {
@@ -7201,7 +6650,9 @@ export declare namespace ModifyDBShardGroup {
 export declare namespace ModifyDBSnapshot {
   export type Input = ModifyDBSnapshotMessage;
   export type Output = ModifyDBSnapshotResult;
-  export type Error = DBSnapshotNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBSnapshotNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace ModifyDBSnapshotAttribute {
@@ -7745,3 +7196,4 @@ export declare namespace SwitchoverReadReplica {
     | InvalidDBInstanceStateFault
     | CommonAwsError;
 }
+

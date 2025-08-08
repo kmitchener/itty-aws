@@ -1,61 +1,50 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ResourceExplorer2 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("resource-explorer-2", new RestJson1Protocol(), cfg);
+  }
+
   batchGetView(
     input: BatchGetViewInput,
   ): Effect.Effect<
     BatchGetViewOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("BatchGetView", input);
   }
-  disassociateDefaultView(input: {}): Effect.Effect<
+  disassociateDefaultView(
+    input: {},
+  ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateDefaultView", input);
   }
-  getAccountLevelServiceConfiguration(input: {}): Effect.Effect<
+  getAccountLevelServiceConfiguration(
+    input: {},
+  ): Effect.Effect<
     GetAccountLevelServiceConfigurationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetAccountLevelServiceConfiguration", input);
   }
-  getDefaultView(input: {}): Effect.Effect<
+  getDefaultView(
+    input: {},
+  ): Effect.Effect<
     GetDefaultViewOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDefaultView", input);
   }
-  getIndex(input: {}): Effect.Effect<
+  getIndex(
+    input: {},
+  ): Effect.Effect<
     GetIndexOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetIndex", input);
   }
@@ -63,13 +52,7 @@ export class ResourceExplorer2 extends AWSServiceClient {
     input: GetManagedViewInput,
   ): Effect.Effect<
     GetManagedViewOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("GetManagedView", input);
   }
@@ -77,11 +60,7 @@ export class ResourceExplorer2 extends AWSServiceClient {
     input: ListIndexesForMembersInput,
   ): Effect.Effect<
     ListIndexesForMembersOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListIndexesForMembers", input);
   }
@@ -89,12 +68,7 @@ export class ResourceExplorer2 extends AWSServiceClient {
     input: ListManagedViewsInput,
   ): Effect.Effect<
     ListManagedViewsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("ListManagedViews", input);
   }
@@ -102,13 +76,7 @@ export class ResourceExplorer2 extends AWSServiceClient {
     input: ListResourcesInput,
   ): Effect.Effect<
     ListResourcesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("ListResources", input);
   }
@@ -116,11 +84,7 @@ export class ResourceExplorer2 extends AWSServiceClient {
     input: ListSupportedResourceTypesInput,
   ): Effect.Effect<
     ListSupportedResourceTypesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSupportedResourceTypes", input);
   }
@@ -128,13 +92,7 @@ export class ResourceExplorer2 extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -142,13 +100,7 @@ export class ResourceExplorer2 extends AWSServiceClient {
     input: SearchInput,
   ): Effect.Effect<
     SearchOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("Search", input);
   }
@@ -156,13 +108,7 @@ export class ResourceExplorer2 extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -170,13 +116,7 @@ export class ResourceExplorer2 extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -445,7 +385,8 @@ export interface TagResourceInput {
   resourceArn: string;
   Tags?: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -460,7 +401,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateIndexTypeInput {
   Arn: string;
   Type: string;
@@ -672,3 +614,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

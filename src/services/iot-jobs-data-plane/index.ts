@@ -1,19 +1,19 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IoTJobsDataPlane extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iot-jobs-data-plane", new RestJson1Protocol(), cfg);
+  }
+
   describeJobExecution(
     input: DescribeJobExecutionRequest,
   ): Effect.Effect<
     DescribeJobExecutionResponse,
-    | CertificateValidationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | TerminalStateException
-    | ThrottlingException
-    | CommonAwsError
+    CertificateValidationException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | TerminalStateException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeJobExecution", input);
   }
@@ -21,12 +21,7 @@ export class IoTJobsDataPlane extends AWSServiceClient {
     input: GetPendingJobExecutionsRequest,
   ): Effect.Effect<
     GetPendingJobExecutionsResponse,
-    | CertificateValidationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    CertificateValidationException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetPendingJobExecutions", input);
   }
@@ -34,13 +29,7 @@ export class IoTJobsDataPlane extends AWSServiceClient {
     input: StartCommandExecutionRequest,
   ): Effect.Effect<
     StartCommandExecutionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartCommandExecution", input);
   }
@@ -48,12 +37,7 @@ export class IoTJobsDataPlane extends AWSServiceClient {
     input: StartNextPendingJobExecutionRequest,
   ): Effect.Effect<
     StartNextPendingJobExecutionResponse,
-    | CertificateValidationException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    CertificateValidationException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartNextPendingJobExecution", input);
   }
@@ -61,13 +45,7 @@ export class IoTJobsDataPlane extends AWSServiceClient {
     input: UpdateJobExecutionRequest,
   ): Effect.Effect<
     UpdateJobExecutionResponse,
-    | CertificateValidationException
-    | InvalidRequestException
-    | InvalidStateTransitionException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    CertificateValidationException | InvalidRequestException | InvalidStateTransitionException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateJobExecution", input);
   }
@@ -96,10 +74,7 @@ export type CommandArn = string;
 
 export type CommandExecutionId = string;
 
-export type CommandExecutionParameterMap = Record<
-  string,
-  CommandParameterValue
->;
+export type CommandExecutionParameterMap = Record<string, CommandParameterValue>;
 export type CommandExecutionTimeoutInSeconds = number;
 
 export type CommandParameterName = string;
@@ -191,15 +166,7 @@ export interface JobExecutionState {
   statusDetails?: Record<string, string>;
   versionNumber?: number;
 }
-export type JobExecutionStatus =
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "TIMED_OUT"
-  | "REJECTED"
-  | "REMOVED"
-  | "CANCELED";
+export type JobExecutionStatus = "QUEUED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "TIMED_OUT" | "REJECTED" | "REMOVED" | "CANCELED";
 export interface JobExecutionSummary {
   jobId?: string;
   queuedAt?: number;
@@ -359,3 +326,4 @@ export declare namespace UpdateJobExecution {
     | ThrottlingException
     | CommonAwsError;
 }
+

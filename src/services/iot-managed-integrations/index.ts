@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IoTManagedIntegrations extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iot-managed-integrations", new RestJson1Protocol(), cfg);
+  }
+
   getCustomEndpoint(
     input: GetCustomEndpointRequest,
   ): Effect.Effect<
     GetCustomEndpointResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("GetCustomEndpoint", input);
   }
@@ -22,11 +20,7 @@ export class IoTManagedIntegrations extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -34,14 +28,7 @@ export class IoTManagedIntegrations extends AWSServiceClient {
     input: RegisterCustomEndpointRequest,
   ): Effect.Effect<
     RegisterCustomEndpointResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("RegisterCustomEndpoint", input);
   }
@@ -49,13 +36,7 @@ export class IoTManagedIntegrations extends AWSServiceClient {
     input: SendConnectorEventRequest,
   ): Effect.Effect<
     SendConnectorEventResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendConnectorEvent", input);
   }
@@ -63,12 +44,7 @@ export class IoTManagedIntegrations extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConflictException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -76,12 +52,7 @@ export class IoTManagedIntegrations extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConflictException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -97,11 +68,7 @@ export interface AbortConfigCriteria {
 }
 export type AbortConfigCriteriaList = Array<AbortConfigCriteria>;
 export type AbortCriteriaAction = "CANCEL";
-export type AbortCriteriaFailureType =
-  | "FAILED"
-  | "REJECTED"
-  | "TIMED_OUT"
-  | "ALL";
+export type AbortCriteriaFailureType = "FAILED" | "REJECTED" | "TIMED_OUT" | "ALL";
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
@@ -135,12 +102,7 @@ export type ActionTraceId = string;
 
 export type AdvertisedProductId = string;
 
-export type AssociationState =
-  | "ASSOCIATION_IN_PROGRESS"
-  | "ASSOCIATION_FAILED"
-  | "ASSOCIATION_SUCCEEDED"
-  | "ASSOCIATION_DELETING"
-  | "REFRESH_TOKEN_EXPIRED";
+export type AssociationState = "ASSOCIATION_IN_PROGRESS" | "ASSOCIATION_FAILED" | "ASSOCIATION_SUCCEEDED" | "ASSOCIATION_DELETING" | "REFRESH_TOKEN_EXPIRED";
 export type AttributeName = string;
 
 export type AttributeValue = string;
@@ -153,12 +115,7 @@ export interface AuthConfigUpdate {
 }
 export type AuthMaterialString = string;
 
-export type AuthMaterialType =
-  | "CUSTOM_PROTOCOL_QR_BAR_CODE"
-  | "WIFI_SETUP_QR_BAR_CODE"
-  | "ZWAVE_QR_BAR_CODE"
-  | "ZIGBEE_QR_BAR_CODE"
-  | "DISCOVERED_DEVICE";
+export type AuthMaterialType = "CUSTOM_PROTOCOL_QR_BAR_CODE" | "WIFI_SETUP_QR_BAR_CODE" | "ZWAVE_QR_BAR_CODE" | "ZIGBEE_QR_BAR_CODE" | "DISCOVERED_DEVICE";
 export type AuthType = "OAUTH";
 export type AuthUrl = string;
 
@@ -255,10 +212,7 @@ export type ConfigurationErrorCode = string;
 
 export type ConfigurationErrorMessage = string;
 
-export type ConfigurationState =
-  | "ENABLED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_FAILED";
+export type ConfigurationState = "ENABLED" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED";
 export interface ConfigurationStatus {
   error?: ConfigurationError;
   state: ConfigurationState;
@@ -278,8 +232,7 @@ export type ConnectorDestinationDescription = string;
 
 export type ConnectorDestinationId = string;
 
-export type ConnectorDestinationListDefinition =
-  Array<ConnectorDestinationSummary>;
+export type ConnectorDestinationListDefinition = Array<ConnectorDestinationSummary>;
 export type ConnectorDestinationName = string;
 
 export interface ConnectorDestinationSummary {
@@ -294,11 +247,7 @@ export type ConnectorDeviceName = string;
 
 export type ConnectorEventMessage = string;
 
-export type ConnectorEventOperation =
-  | "DEVICE_COMMAND_RESPONSE"
-  | "DEVICE_DISCOVERY"
-  | "DEVICE_EVENT"
-  | "DEVICE_COMMAND_REQUEST";
+export type ConnectorEventOperation = "DEVICE_COMMAND_RESPONSE" | "DEVICE_DISCOVERY" | "DEVICE_EVENT" | "DEVICE_COMMAND_REQUEST";
 export type ConnectorEventOperationVersion = string;
 
 export type ConnectorEventStatusCode = number;
@@ -552,11 +501,7 @@ export type DeviceDiscoveryArn = string;
 export type DeviceDiscoveryId = string;
 
 export type DeviceDiscoveryListDefinition = Array<DeviceDiscoverySummary>;
-export type DeviceDiscoveryStatus =
-  | "RUNNING"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "TIMED_OUT";
+export type DeviceDiscoveryStatus = "RUNNING" | "SUCCEEDED" | "FAILED" | "TIMED_OUT";
 export interface DeviceDiscoverySummary {
   Id?: string;
   DiscoveryType?: DiscoveryType;
@@ -571,21 +516,7 @@ export type DeviceType = string;
 
 export type DeviceTypeList = Array<string>;
 export type DeviceTypes = Array<string>;
-export type DisconnectReasonValue =
-  | "AUTH_ERROR"
-  | "CLIENT_INITIATED_DISCONNECT"
-  | "CLIENT_ERROR"
-  | "CONNECTION_LOST"
-  | "DUPLICATE_CLIENTID"
-  | "FORBIDDEN_ACCESS"
-  | "MQTT_KEEP_ALIVE_TIMEOUT"
-  | "SERVER_ERROR"
-  | "SERVER_INITIATED_DISCONNECT"
-  | "THROTTLED"
-  | "WEBSOCKET_TTL_EXPIRATION"
-  | "CUSTOMAUTH_TTL_EXPIRATION"
-  | "UNKNOWN"
-  | "NONE";
+export type DisconnectReasonValue = "AUTH_ERROR" | "CLIENT_INITIATED_DISCONNECT" | "CLIENT_ERROR" | "CONNECTION_LOST" | "DUPLICATE_CLIENTID" | "FORBIDDEN_ACCESS" | "MQTT_KEEP_ALIVE_TIMEOUT" | "SERVER_ERROR" | "SERVER_INITIATED_DISCONNECT" | "THROTTLED" | "WEBSOCKET_TTL_EXPIRATION" | "CUSTOMAUTH_TTL_EXPIRATION" | "UNKNOWN" | "NONE";
 export type DiscoveredAt = Date | string;
 
 export type DiscoveredDeviceListDefinition = Array<DiscoveredDeviceSummary>;
@@ -613,9 +544,7 @@ export type DisplayName = string;
 
 export type DurationInMinutes = number;
 
-export type EncryptionType =
-  | "MANAGED_INTEGRATIONS_DEFAULT_ENCRYPTION"
-  | "CUSTOMER_KEY_ENCRYPTION";
+export type EncryptionType = "MANAGED_INTEGRATIONS_DEFAULT_ENCRYPTION" | "CUSTOMER_KEY_ENCRYPTION";
 export type EndpointAddress = string;
 
 export interface EndpointConfig {
@@ -634,8 +563,7 @@ export type ErrorResourceId = string;
 
 export type ErrorResourceType = string;
 
-export type EventLogConfigurationListDefinition =
-  Array<EventLogConfigurationSummary>;
+export type EventLogConfigurationListDefinition = Array<EventLogConfigurationSummary>;
 export interface EventLogConfigurationSummary {
   Id?: string;
   ResourceType?: string;
@@ -644,17 +572,7 @@ export interface EventLogConfigurationSummary {
 }
 export type EventName = string;
 
-export type EventType =
-  | "DEVICE_COMMAND"
-  | "DEVICE_COMMAND_REQUEST"
-  | "DEVICE_DISCOVERY_STATUS"
-  | "DEVICE_EVENT"
-  | "DEVICE_LIFE_CYCLE"
-  | "DEVICE_STATE"
-  | "DEVICE_OTA"
-  | "CONNECTOR_ASSOCIATION"
-  | "ACCOUNT_ASSOCIATION"
-  | "CONNECTOR_ERROR_REPORT";
+export type EventType = "DEVICE_COMMAND" | "DEVICE_COMMAND_REQUEST" | "DEVICE_DISCOVERY_STATUS" | "DEVICE_EVENT" | "DEVICE_LIFE_CYCLE" | "DEVICE_STATE" | "DEVICE_OTA" | "CONNECTOR_ASSOCIATION" | "ACCOUNT_ASSOCIATION" | "CONNECTOR_ERROR_REPORT";
 export type ExecutionNumber = number;
 
 export interface ExponentialRolloutRate {
@@ -712,11 +630,13 @@ export interface GetCredentialLockerResponse {
   CreatedAt?: Date | string;
   Tags?: Record<string, string>;
 }
-export interface GetCustomEndpointRequest {}
+export interface GetCustomEndpointRequest {
+}
 export interface GetCustomEndpointResponse {
   EndpointAddress: string;
 }
-export interface GetDefaultEncryptionConfigurationRequest {}
+export interface GetDefaultEncryptionConfigurationRequest {
+}
 export interface GetDefaultEncryptionConfigurationResponse {
   configurationStatus: ConfigurationStatus;
   encryptionType: EncryptionType;
@@ -759,7 +679,8 @@ export interface GetEventLogConfigurationResponse {
   ResourceId?: string;
   EventLogLevel?: LogLevel;
 }
-export interface GetHubConfigurationRequest {}
+export interface GetHubConfigurationRequest {
+}
 export interface GetHubConfigurationResponse {
   HubTokenTimerExpirySettingInSeconds?: number;
   UpdatedAt?: Date | string;
@@ -1131,8 +1052,7 @@ export type ManagedThingAssociationList = Array<ManagedThingAssociation>;
 export type ManagedThingId = string;
 
 export type ManagedThingListDefinition = Array<ManagedThingSummary>;
-export type ManagedThingSchemaListDefinition =
-  Array<ManagedThingSchemaListItem>;
+export type ManagedThingSchemaListDefinition = Array<ManagedThingSchemaListItem>;
 export interface ManagedThingSchemaListItem {
   EndpointId?: string;
   CapabilityId?: string;
@@ -1173,8 +1093,7 @@ export interface MatterCapabilityReportAttribute {
   name?: string;
   value?: unknown;
 }
-export type MatterCapabilityReportAttributes =
-  Array<MatterCapabilityReportAttribute>;
+export type MatterCapabilityReportAttributes = Array<MatterCapabilityReportAttribute>;
 export type MatterCapabilityReportAttributeValue = unknown;
 
 export interface MatterCapabilityReportCluster {
@@ -1192,8 +1111,7 @@ export interface MatterCapabilityReportCluster {
 }
 export type MatterCapabilityReportClusterRevisionId = number;
 
-export type MatterCapabilityReportClusters =
-  Array<MatterCapabilityReportCluster>;
+export type MatterCapabilityReportClusters = Array<MatterCapabilityReportCluster>;
 export type MatterCapabilityReportCommands = Array<string>;
 export interface MatterCapabilityReportEndpoint {
   id: string;
@@ -1205,8 +1123,7 @@ export interface MatterCapabilityReportEndpoint {
 }
 export type MatterCapabilityReportEndpointClientClusters = Array<string>;
 export type MatterCapabilityReportEndpointParts = Array<string>;
-export type MatterCapabilityReportEndpoints =
-  Array<MatterCapabilityReportEndpoint>;
+export type MatterCapabilityReportEndpoints = Array<MatterCapabilityReportEndpoint>;
 export type MatterCapabilityReportEndpointSemanticTags = Array<string>;
 export type MatterCapabilityReportEvents = Array<string>;
 export type MatterCapabilityReportFabricIndex = number;
@@ -1252,8 +1169,7 @@ export type NodeId = string;
 
 export type NotificationConfigurationCreatedAt = Date | string;
 
-export type NotificationConfigurationListDefinition =
-  Array<NotificationConfigurationSummary>;
+export type NotificationConfigurationListDefinition = Array<NotificationConfigurationSummary>;
 export interface NotificationConfigurationSummary {
   EventType?: EventType;
   DestinationName?: string;
@@ -1286,12 +1202,7 @@ export type OtaMechanism = "PUSH";
 export type OtaNextToken = string;
 
 export type OtaProtocol = "HTTP";
-export type OtaStatus =
-  | "IN_PROGRESS"
-  | "CANCELED"
-  | "COMPLETED"
-  | "DELETION_IN_PROGRESS"
-  | "SCHEDULED";
+export type OtaStatus = "IN_PROGRESS" | "CANCELED" | "COMPLETED" | "DELETION_IN_PROGRESS" | "SCHEDULED";
 export type OtaTargetQueryString = string;
 
 export interface OtaTaskAbortConfig {
@@ -1301,8 +1212,7 @@ export type OtaTaskArn = string;
 
 export type OtaTaskConfigurationId = string;
 
-export type OtaTaskConfigurationListDefinition =
-  Array<OtaTaskConfigurationSummary>;
+export type OtaTaskConfigurationListDefinition = Array<OtaTaskConfigurationSummary>;
 export type OtaTaskConfigurationName = string;
 
 export interface OtaTaskConfigurationSummary {
@@ -1317,21 +1227,12 @@ export interface OtaTaskExecutionRolloutConfig {
   ExponentialRolloutRate?: ExponentialRolloutRate;
   MaximumPerMinute?: number;
 }
-export type OtaTaskExecutionStatus =
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "TIMED_OUT"
-  | "REJECTED"
-  | "REMOVED"
-  | "CANCELED";
+export type OtaTaskExecutionStatus = "QUEUED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "TIMED_OUT" | "REJECTED" | "REMOVED" | "CANCELED";
 export interface OtaTaskExecutionSummaries {
   TaskExecutionSummary?: OtaTaskExecutionSummary;
   ManagedThingId?: string;
 }
-export type OtaTaskExecutionSummariesListDefinition =
-  Array<OtaTaskExecutionSummaries>;
+export type OtaTaskExecutionSummariesListDefinition = Array<OtaTaskExecutionSummaries>;
 export interface OtaTaskExecutionSummary {
   ExecutionNumber?: number;
   LastUpdatedAt?: Date | string;
@@ -1375,8 +1276,7 @@ export type ProvisioningProfileArn = string;
 
 export type ProvisioningProfileId = string;
 
-export type ProvisioningProfileListDefinition =
-  Array<ProvisioningProfileSummary>;
+export type ProvisioningProfileListDefinition = Array<ProvisioningProfileSummary>;
 export type ProvisioningProfileName = string;
 
 export interface ProvisioningProfileSummary {
@@ -1385,15 +1285,7 @@ export interface ProvisioningProfileSummary {
   Arn?: string;
   ProvisioningType?: ProvisioningType;
 }
-export type ProvisioningStatus =
-  | "UNASSOCIATED"
-  | "PRE_ASSOCIATED"
-  | "DISCOVERED"
-  | "ACTIVATED"
-  | "DELETION_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "ISOLATED"
-  | "DELETED";
+export type ProvisioningStatus = "UNASSOCIATED" | "PRE_ASSOCIATED" | "DISCOVERED" | "ACTIVATED" | "DELETION_FAILED" | "DELETE_IN_PROGRESS" | "ISOLATED" | "DELETED";
 export type ProvisioningType = "FLEET_PROVISIONING" | "JITR";
 export interface PushConfig {
   AbortConfig?: OtaTaskAbortConfig;
@@ -1431,7 +1323,8 @@ export interface RegisterAccountAssociationResponse {
   DeviceDiscoveryId?: string;
   ManagedThingId?: string;
 }
-export interface RegisterCustomEndpointRequest {}
+export interface RegisterCustomEndpointRequest {
+}
 export interface RegisterCustomEndpointResponse {
   EndpointAddress: string;
 }
@@ -1477,10 +1370,7 @@ export interface ScheduleMaintenanceWindow {
 export type ScheduleMaintenanceWindowList = Array<ScheduleMaintenanceWindow>;
 export type ScheduleStartTime = string;
 
-export type SchedulingConfigEndBehavior =
-  | "STOP_ROLLOUT"
-  | "CANCEL"
-  | "FORCE_CANCEL";
+export type SchedulingConfigEndBehavior = "STOP_ROLLOUT" | "CANCEL" | "FORCE_CANCEL";
 export type SchemaId = string;
 
 export type SchemaVersionDescription = string;
@@ -1602,7 +1492,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsMap = Record<string, string>;
 export type TagValue = string;
 
@@ -1627,9 +1518,7 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type TokenEndpointAuthenticationScheme =
-  | "HTTP_BASIC"
-  | "REQUEST_BODY_CREDENTIALS";
+export type TokenEndpointAuthenticationScheme = "HTTP_BASIC" | "REQUEST_BODY_CREDENTIALS";
 export type TokenUrl = string;
 
 export type TraceId = string;
@@ -1645,7 +1534,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAccountAssociationRequest {
   AccountAssociationId: string;
   Name?: string;
@@ -1787,3 +1677,4 @@ export declare namespace UntagResource {
     | UnauthorizedException
     | CommonAwsError;
 }
+

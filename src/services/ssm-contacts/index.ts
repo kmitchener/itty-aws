@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class SSMContacts extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("ssm-contacts", new AwsJson11Protocol(), cfg);
+  }
+
   acceptPage(
     input: AcceptPageRequest,
   ): Effect.Effect<
     AcceptPageResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AcceptPage", input);
   }
@@ -20,12 +20,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ActivateContactChannelRequest,
   ): Effect.Effect<
     ActivateContactChannelResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ActivateContactChannel", input);
   }
@@ -33,14 +28,7 @@ export class SSMContacts extends AWSServiceClient {
     input: CreateContactRequest,
   ): Effect.Effect<
     CreateContactResult,
-    | AccessDeniedException
-    | ConflictException
-    | DataEncryptionException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DataEncryptionException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateContact", input);
   }
@@ -48,13 +36,7 @@ export class SSMContacts extends AWSServiceClient {
     input: CreateContactChannelRequest,
   ): Effect.Effect<
     CreateContactChannelResult,
-    | AccessDeniedException
-    | ConflictException
-    | DataEncryptionException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DataEncryptionException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateContactChannel", input);
   }
@@ -62,13 +44,7 @@ export class SSMContacts extends AWSServiceClient {
     input: CreateRotationRequest,
   ): Effect.Effect<
     CreateRotationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRotation", input);
   }
@@ -76,13 +52,7 @@ export class SSMContacts extends AWSServiceClient {
     input: CreateRotationOverrideRequest,
   ): Effect.Effect<
     CreateRotationOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRotationOverride", input);
   }
@@ -90,12 +60,7 @@ export class SSMContacts extends AWSServiceClient {
     input: DeactivateContactChannelRequest,
   ): Effect.Effect<
     DeactivateContactChannelResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeactivateContactChannel", input);
   }
@@ -103,13 +68,7 @@ export class SSMContacts extends AWSServiceClient {
     input: DeleteContactRequest,
   ): Effect.Effect<
     DeleteContactResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteContact", input);
   }
@@ -117,12 +76,7 @@ export class SSMContacts extends AWSServiceClient {
     input: DeleteContactChannelRequest,
   ): Effect.Effect<
     DeleteContactChannelResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteContactChannel", input);
   }
@@ -130,13 +84,7 @@ export class SSMContacts extends AWSServiceClient {
     input: DeleteRotationRequest,
   ): Effect.Effect<
     DeleteRotationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRotation", input);
   }
@@ -144,12 +92,7 @@ export class SSMContacts extends AWSServiceClient {
     input: DeleteRotationOverrideRequest,
   ): Effect.Effect<
     DeleteRotationOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRotationOverride", input);
   }
@@ -157,13 +100,7 @@ export class SSMContacts extends AWSServiceClient {
     input: DescribeEngagementRequest,
   ): Effect.Effect<
     DescribeEngagementResult,
-    | AccessDeniedException
-    | DataEncryptionException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeEngagement", input);
   }
@@ -171,13 +108,7 @@ export class SSMContacts extends AWSServiceClient {
     input: DescribePageRequest,
   ): Effect.Effect<
     DescribePageResult,
-    | AccessDeniedException
-    | DataEncryptionException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePage", input);
   }
@@ -185,13 +116,7 @@ export class SSMContacts extends AWSServiceClient {
     input: GetContactRequest,
   ): Effect.Effect<
     GetContactResult,
-    | AccessDeniedException
-    | DataEncryptionException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetContact", input);
   }
@@ -199,13 +124,7 @@ export class SSMContacts extends AWSServiceClient {
     input: GetContactChannelRequest,
   ): Effect.Effect<
     GetContactChannelResult,
-    | AccessDeniedException
-    | DataEncryptionException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetContactChannel", input);
   }
@@ -213,12 +132,7 @@ export class SSMContacts extends AWSServiceClient {
     input: GetContactPolicyRequest,
   ): Effect.Effect<
     GetContactPolicyResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetContactPolicy", input);
   }
@@ -226,12 +140,7 @@ export class SSMContacts extends AWSServiceClient {
     input: GetRotationRequest,
   ): Effect.Effect<
     GetRotationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRotation", input);
   }
@@ -239,12 +148,7 @@ export class SSMContacts extends AWSServiceClient {
     input: GetRotationOverrideRequest,
   ): Effect.Effect<
     GetRotationOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRotationOverride", input);
   }
@@ -252,13 +156,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListContactChannelsRequest,
   ): Effect.Effect<
     ListContactChannelsResult,
-    | AccessDeniedException
-    | DataEncryptionException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListContactChannels", input);
   }
@@ -266,11 +164,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListContactsRequest,
   ): Effect.Effect<
     ListContactsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListContacts", input);
   }
@@ -278,11 +172,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListEngagementsRequest,
   ): Effect.Effect<
     ListEngagementsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEngagements", input);
   }
@@ -290,12 +180,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListPageReceiptsRequest,
   ): Effect.Effect<
     ListPageReceiptsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPageReceipts", input);
   }
@@ -303,12 +188,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListPageResolutionsRequest,
   ): Effect.Effect<
     ListPageResolutionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPageResolutions", input);
   }
@@ -316,12 +196,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListPagesByContactRequest,
   ): Effect.Effect<
     ListPagesByContactResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPagesByContact", input);
   }
@@ -329,12 +204,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListPagesByEngagementRequest,
   ): Effect.Effect<
     ListPagesByEngagementResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPagesByEngagement", input);
   }
@@ -342,11 +212,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListPreviewRotationShiftsRequest,
   ): Effect.Effect<
     ListPreviewRotationShiftsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPreviewRotationShifts", input);
   }
@@ -354,12 +220,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListRotationOverridesRequest,
   ): Effect.Effect<
     ListRotationOverridesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRotationOverrides", input);
   }
@@ -367,12 +228,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListRotationsRequest,
   ): Effect.Effect<
     ListRotationsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRotations", input);
   }
@@ -380,13 +236,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListRotationShiftsRequest,
   ): Effect.Effect<
     ListRotationShiftsResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRotationShifts", input);
   }
@@ -394,12 +244,7 @@ export class SSMContacts extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -407,13 +252,7 @@ export class SSMContacts extends AWSServiceClient {
     input: PutContactPolicyRequest,
   ): Effect.Effect<
     PutContactPolicyResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutContactPolicy", input);
   }
@@ -421,14 +260,7 @@ export class SSMContacts extends AWSServiceClient {
     input: SendActivationCodeRequest,
   ): Effect.Effect<
     SendActivationCodeResult,
-    | AccessDeniedException
-    | DataEncryptionException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendActivationCode", input);
   }
@@ -436,13 +268,7 @@ export class SSMContacts extends AWSServiceClient {
     input: StartEngagementRequest,
   ): Effect.Effect<
     StartEngagementResult,
-    | AccessDeniedException
-    | DataEncryptionException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartEngagement", input);
   }
@@ -450,12 +276,7 @@ export class SSMContacts extends AWSServiceClient {
     input: StopEngagementRequest,
   ): Effect.Effect<
     StopEngagementResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopEngagement", input);
   }
@@ -463,13 +284,7 @@ export class SSMContacts extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -477,12 +292,7 @@ export class SSMContacts extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -490,14 +300,7 @@ export class SSMContacts extends AWSServiceClient {
     input: UpdateContactRequest,
   ): Effect.Effect<
     UpdateContactResult,
-    | AccessDeniedException
-    | DataEncryptionException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateContact", input);
   }
@@ -505,14 +308,7 @@ export class SSMContacts extends AWSServiceClient {
     input: UpdateContactChannelRequest,
   ): Effect.Effect<
     UpdateContactChannelResult,
-    | AccessDeniedException
-    | ConflictException
-    | DataEncryptionException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DataEncryptionException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateContactChannel", input);
   }
@@ -520,13 +316,7 @@ export class SSMContacts extends AWSServiceClient {
     input: UpdateRotationRequest,
   ): Effect.Effect<
     UpdateRotationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRotation", input);
   }
@@ -547,7 +337,8 @@ export interface AcceptPageRequest {
   AcceptCode: string;
   AcceptCodeValidation?: AcceptCodeValidation;
 }
-export interface AcceptPageResult {}
+export interface AcceptPageResult {
+}
 export type AcceptType = "DELIVERED" | "READ";
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
@@ -558,7 +349,8 @@ export interface ActivateContactChannelRequest {
   ContactChannelId: string;
   ActivationCode: string;
 }
-export interface ActivateContactChannelResult {}
+export interface ActivateContactChannelResult {
+}
 export type ActivationCode = string;
 
 export type ActivationStatus = "ACTIVATED" | "NOT_ACTIVATED";
@@ -672,26 +464,31 @@ export type DayOfWeek = "MON" | "TUE" | "WED" | "THU" | "FRI" | "SAT" | "SUN";
 export interface DeactivateContactChannelRequest {
   ContactChannelId: string;
 }
-export interface DeactivateContactChannelResult {}
+export interface DeactivateContactChannelResult {
+}
 export type DeferActivation = boolean;
 
 export interface DeleteContactChannelRequest {
   ContactChannelId: string;
 }
-export interface DeleteContactChannelResult {}
+export interface DeleteContactChannelResult {
+}
 export interface DeleteContactRequest {
   ContactId: string;
 }
-export interface DeleteContactResult {}
+export interface DeleteContactResult {
+}
 export interface DeleteRotationOverrideRequest {
   RotationId: string;
   RotationOverrideId: string;
 }
-export interface DeleteRotationOverrideResult {}
+export interface DeleteRotationOverrideResult {
+}
 export interface DeleteRotationRequest {
   RotationId: string;
 }
-export interface DeleteRotationResult {}
+export interface DeleteRotationResult {
+}
 export interface DependentEntity {
   RelationType: string;
   DependentResourceIds: Array<string>;
@@ -969,7 +766,8 @@ export interface PutContactPolicyRequest {
   ContactArn: string;
   Policy: string;
 }
-export interface PutContactPolicyResult {}
+export interface PutContactPolicyResult {
+}
 export interface Receipt {
   ContactChannelArn?: string;
   ReceiptType: ReceiptType;
@@ -1041,7 +839,8 @@ export type RotationShifts = Array<RotationShift>;
 export interface SendActivationCodeRequest {
   ContactChannelId: string;
 }
-export interface SendActivationCodeResult {}
+export interface SendActivationCodeResult {
+}
 export type Sender = string;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -1089,7 +888,8 @@ export interface StopEngagementRequest {
   EngagementId: string;
   Reason?: string;
 }
-export interface StopEngagementResult {}
+export interface StopEngagementResult {
+}
 export type StopReason = string;
 
 export type SsmContactsString = string;
@@ -1107,7 +907,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResult {}
+export interface TagResourceResult {
+}
 export type TagsList = Array<Tag>;
 export type TagValue = string;
 
@@ -1134,19 +935,22 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResult {}
+export interface UntagResourceResult {
+}
 export interface UpdateContactChannelRequest {
   ContactChannelId: string;
   Name?: string;
   DeliveryAddress?: ContactChannelAddress;
 }
-export interface UpdateContactChannelResult {}
+export interface UpdateContactChannelResult {
+}
 export interface UpdateContactRequest {
   ContactId: string;
   DisplayName?: string;
   Plan?: Plan;
 }
-export interface UpdateContactResult {}
+export interface UpdateContactResult {
+}
 export interface UpdateRotationRequest {
   RotationId: string;
   ContactIds?: Array<string>;
@@ -1154,7 +958,8 @@ export interface UpdateRotationRequest {
   TimeZoneId?: string;
   Recurrence: RecurrenceSettings;
 }
-export interface UpdateRotationResult {}
+export interface UpdateRotationResult {
+}
 export type Uuid = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -1169,11 +974,7 @@ export interface ValidationExceptionField {
   Message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export interface WeeklySetting {
   DayOfWeek: DayOfWeek;
   HandOffTime: HandOffTime;
@@ -1666,3 +1467,4 @@ export declare namespace UpdateRotation {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Connect extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("connect", new RestJson1Protocol(), cfg);
+  }
+
   activateEvaluationForm(
     input: ActivateEvaluationFormRequest,
   ): Effect.Effect<
     ActivateEvaluationFormResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ActivateEvaluationForm", input);
   }
@@ -20,12 +20,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateAnalyticsDataSetRequest,
   ): Effect.Effect<
     AssociateAnalyticsDataSetResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateAnalyticsDataSet", input);
   }
@@ -33,14 +28,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateApprovedOriginRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateApprovedOrigin", input);
   }
@@ -48,14 +36,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateBotRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | LimitExceededException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateBot", input);
   }
@@ -63,12 +44,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateDefaultVocabularyRequest,
   ): Effect.Effect<
     AssociateDefaultVocabularyResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateDefaultVocabulary", input);
   }
@@ -76,13 +52,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateFlowRequest,
   ): Effect.Effect<
     AssociateFlowResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateFlow", input);
   }
@@ -90,13 +60,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateInstanceStorageConfigRequest,
   ): Effect.Effect<
     AssociateInstanceStorageConfigResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateInstanceStorageConfig", input);
   }
@@ -104,14 +68,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateLambdaFunctionRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateLambdaFunction", input);
   }
@@ -119,14 +76,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateLexBotRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateLexBot", input);
   }
@@ -134,12 +84,7 @@ export class Connect extends AWSServiceClient {
     input: AssociatePhoneNumberContactFlowRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociatePhoneNumberContactFlow", input);
   }
@@ -147,13 +92,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateQueueQuickConnectsRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateQueueQuickConnects", input);
   }
@@ -161,12 +100,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateRoutingProfileQueuesRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateRoutingProfileQueues", input);
   }
@@ -174,14 +108,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateSecurityKeyRequest,
   ): Effect.Effect<
     AssociateSecurityKeyResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateSecurityKey", input);
   }
@@ -189,13 +116,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateTrafficDistributionGroupUserRequest,
   ): Effect.Effect<
     AssociateTrafficDistributionGroupUserResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateTrafficDistributionGroupUser", input);
   }
@@ -203,12 +124,7 @@ export class Connect extends AWSServiceClient {
     input: AssociateUserProficienciesRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateUserProficiencies", input);
   }
@@ -216,12 +132,7 @@ export class Connect extends AWSServiceClient {
     input: BatchAssociateAnalyticsDataSetRequest,
   ): Effect.Effect<
     BatchAssociateAnalyticsDataSetResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchAssociateAnalyticsDataSet", input);
   }
@@ -229,12 +140,7 @@ export class Connect extends AWSServiceClient {
     input: BatchDisassociateAnalyticsDataSetRequest,
   ): Effect.Effect<
     BatchDisassociateAnalyticsDataSetResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchDisassociateAnalyticsDataSet", input);
   }
@@ -242,12 +148,7 @@ export class Connect extends AWSServiceClient {
     input: BatchGetAttachedFileMetadataRequest,
   ): Effect.Effect<
     BatchGetAttachedFileMetadataResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchGetAttachedFileMetadata", input);
   }
@@ -255,13 +156,7 @@ export class Connect extends AWSServiceClient {
     input: BatchGetFlowAssociationRequest,
   ): Effect.Effect<
     BatchGetFlowAssociationResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchGetFlowAssociation", input);
   }
@@ -269,13 +164,7 @@ export class Connect extends AWSServiceClient {
     input: BatchPutContactRequest,
   ): Effect.Effect<
     BatchPutContactResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("BatchPutContact", input);
   }
@@ -283,13 +172,7 @@ export class Connect extends AWSServiceClient {
     input: ClaimPhoneNumberRequest,
   ): Effect.Effect<
     ClaimPhoneNumberResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ClaimPhoneNumber", input);
   }
@@ -297,12 +180,7 @@ export class Connect extends AWSServiceClient {
     input: CompleteAttachedFileUploadRequest,
   ): Effect.Effect<
     CompleteAttachedFileUploadResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CompleteAttachedFileUpload", input);
   }
@@ -310,14 +188,7 @@ export class Connect extends AWSServiceClient {
     input: CreateAgentStatusRequest,
   ): Effect.Effect<
     CreateAgentStatusResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateAgentStatus", input);
   }
@@ -325,16 +196,7 @@ export class Connect extends AWSServiceClient {
     input: CreateContactRequest,
   ): Effect.Effect<
     CreateContactResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotencyException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateContact", input);
   }
@@ -342,15 +204,7 @@ export class Connect extends AWSServiceClient {
     input: CreateContactFlowRequest,
   ): Effect.Effect<
     CreateContactFlowResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidContactFlowException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidContactFlowException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateContactFlow", input);
   }
@@ -358,17 +212,7 @@ export class Connect extends AWSServiceClient {
     input: CreateContactFlowModuleRequest,
   ): Effect.Effect<
     CreateContactFlowModuleResponse,
-    | AccessDeniedException
-    | DuplicateResourceException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidContactFlowModuleException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | DuplicateResourceException | IdempotencyException | InternalServiceException | InvalidContactFlowModuleException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateContactFlowModule", input);
   }
@@ -376,14 +220,7 @@ export class Connect extends AWSServiceClient {
     input: CreateContactFlowVersionRequest,
   ): Effect.Effect<
     CreateContactFlowVersionResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateContactFlowVersion", input);
   }
@@ -391,17 +228,7 @@ export class Connect extends AWSServiceClient {
     input: CreateEmailAddressRequest,
   ): Effect.Effect<
     CreateEmailAddressResponse,
-    | AccessDeniedException
-    | DuplicateResourceException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | DuplicateResourceException | IdempotencyException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateEmailAddress", input);
   }
@@ -409,13 +236,7 @@ export class Connect extends AWSServiceClient {
     input: CreateEvaluationFormRequest,
   ): Effect.Effect<
     CreateEvaluationFormResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateEvaluationForm", input);
   }
@@ -423,14 +244,7 @@ export class Connect extends AWSServiceClient {
     input: CreateHoursOfOperationRequest,
   ): Effect.Effect<
     CreateHoursOfOperationResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateHoursOfOperation", input);
   }
@@ -438,14 +252,7 @@ export class Connect extends AWSServiceClient {
     input: CreateHoursOfOperationOverrideRequest,
   ): Effect.Effect<
     CreateHoursOfOperationOverrideResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateHoursOfOperationOverride", input);
   }
@@ -453,12 +260,7 @@ export class Connect extends AWSServiceClient {
     input: CreateInstanceRequest,
   ): Effect.Effect<
     CreateInstanceResponse,
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateInstance", input);
   }
@@ -466,12 +268,7 @@ export class Connect extends AWSServiceClient {
     input: CreateIntegrationAssociationRequest,
   ): Effect.Effect<
     CreateIntegrationAssociationResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateIntegrationAssociation", input);
   }
@@ -479,12 +276,7 @@ export class Connect extends AWSServiceClient {
     input: CreateParticipantRequest,
   ): Effect.Effect<
     CreateParticipantResponse,
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateParticipant", input);
   }
@@ -492,13 +284,7 @@ export class Connect extends AWSServiceClient {
     input: CreatePersistentContactAssociationRequest,
   ): Effect.Effect<
     CreatePersistentContactAssociationResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreatePersistentContactAssociation", input);
   }
@@ -506,14 +292,7 @@ export class Connect extends AWSServiceClient {
     input: CreatePredefinedAttributeRequest,
   ): Effect.Effect<
     {},
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreatePredefinedAttribute", input);
   }
@@ -521,13 +300,7 @@ export class Connect extends AWSServiceClient {
     input: CreatePromptRequest,
   ): Effect.Effect<
     CreatePromptResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreatePrompt", input);
   }
@@ -535,13 +308,7 @@ export class Connect extends AWSServiceClient {
     input: CreatePushNotificationRegistrationRequest,
   ): Effect.Effect<
     CreatePushNotificationRegistrationResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreatePushNotificationRegistration", input);
   }
@@ -549,14 +316,7 @@ export class Connect extends AWSServiceClient {
     input: CreateQueueRequest,
   ): Effect.Effect<
     CreateQueueResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateQueue", input);
   }
@@ -564,14 +324,7 @@ export class Connect extends AWSServiceClient {
     input: CreateQuickConnectRequest,
   ): Effect.Effect<
     CreateQuickConnectResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateQuickConnect", input);
   }
@@ -579,14 +332,7 @@ export class Connect extends AWSServiceClient {
     input: CreateRoutingProfileRequest,
   ): Effect.Effect<
     CreateRoutingProfileResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateRoutingProfile", input);
   }
@@ -594,14 +340,7 @@ export class Connect extends AWSServiceClient {
     input: CreateRuleRequest,
   ): Effect.Effect<
     CreateRuleResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateRule", input);
   }
@@ -609,14 +348,7 @@ export class Connect extends AWSServiceClient {
     input: CreateSecurityProfileRequest,
   ): Effect.Effect<
     CreateSecurityProfileResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSecurityProfile", input);
   }
@@ -624,13 +356,7 @@ export class Connect extends AWSServiceClient {
     input: CreateTaskTemplateRequest,
   ): Effect.Effect<
     CreateTaskTemplateResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | PropertyValidationException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | PropertyValidationException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateTaskTemplate", input);
   }
@@ -638,15 +364,7 @@ export class Connect extends AWSServiceClient {
     input: CreateTrafficDistributionGroupRequest,
   ): Effect.Effect<
     CreateTrafficDistributionGroupResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ResourceNotReadyException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateTrafficDistributionGroup", input);
   }
@@ -654,12 +372,7 @@ export class Connect extends AWSServiceClient {
     input: CreateUseCaseRequest,
   ): Effect.Effect<
     CreateUseCaseResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateUseCase", input);
   }
@@ -667,14 +380,7 @@ export class Connect extends AWSServiceClient {
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateUser", input);
   }
@@ -682,14 +388,7 @@ export class Connect extends AWSServiceClient {
     input: CreateUserHierarchyGroupRequest,
   ): Effect.Effect<
     CreateUserHierarchyGroupResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateUserHierarchyGroup", input);
   }
@@ -697,16 +396,7 @@ export class Connect extends AWSServiceClient {
     input: CreateViewRequest,
   ): Effect.Effect<
     CreateViewResponse,
-    | AccessDeniedException
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateView", input);
   }
@@ -714,15 +404,7 @@ export class Connect extends AWSServiceClient {
     input: CreateViewVersionRequest,
   ): Effect.Effect<
     CreateViewVersionResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServiceQuotaExceededException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateViewVersion", input);
   }
@@ -730,14 +412,7 @@ export class Connect extends AWSServiceClient {
     input: CreateVocabularyRequest,
   ): Effect.Effect<
     CreateVocabularyResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateVocabulary", input);
   }
@@ -745,12 +420,7 @@ export class Connect extends AWSServiceClient {
     input: DeactivateEvaluationFormRequest,
   ): Effect.Effect<
     DeactivateEvaluationFormResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeactivateEvaluationForm", input);
   }
@@ -758,12 +428,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteAttachedFileRequest,
   ): Effect.Effect<
     DeleteAttachedFileResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAttachedFile", input);
   }
@@ -771,12 +436,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteContactEvaluationRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteContactEvaluation", input);
   }
@@ -784,13 +444,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteContactFlowRequest,
   ): Effect.Effect<
     DeleteContactFlowResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteContactFlow", input);
   }
@@ -798,13 +452,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteContactFlowModuleRequest,
   ): Effect.Effect<
     DeleteContactFlowModuleResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteContactFlowModule", input);
   }
@@ -812,13 +460,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteContactFlowVersionRequest,
   ): Effect.Effect<
     DeleteContactFlowVersionResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteContactFlowVersion", input);
   }
@@ -826,14 +468,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteEmailAddressRequest,
   ): Effect.Effect<
     DeleteEmailAddressResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteEmailAddress", input);
   }
@@ -841,12 +476,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteEvaluationFormRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteEvaluationForm", input);
   }
@@ -854,12 +484,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteHoursOfOperationRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteHoursOfOperation", input);
   }
@@ -867,12 +492,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteHoursOfOperationOverrideRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteHoursOfOperationOverride", input);
   }
@@ -880,10 +500,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteInstanceRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteInstance", input);
   }
@@ -891,11 +508,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteIntegrationAssociationRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteIntegrationAssociation", input);
   }
@@ -903,13 +516,7 @@ export class Connect extends AWSServiceClient {
     input: DeletePredefinedAttributeRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeletePredefinedAttribute", input);
   }
@@ -917,12 +524,7 @@ export class Connect extends AWSServiceClient {
     input: DeletePromptRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeletePrompt", input);
   }
@@ -930,12 +532,7 @@ export class Connect extends AWSServiceClient {
     input: DeletePushNotificationRegistrationRequest,
   ): Effect.Effect<
     DeletePushNotificationRegistrationResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeletePushNotificationRegistration", input);
   }
@@ -943,13 +540,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteQueueRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteQueue", input);
   }
@@ -957,12 +548,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteQuickConnectRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteQuickConnect", input);
   }
@@ -970,13 +556,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteRoutingProfileRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteRoutingProfile", input);
   }
@@ -984,12 +564,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteRuleRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteRule", input);
   }
@@ -997,14 +572,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteSecurityProfileRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteSecurityProfile", input);
   }
@@ -1012,12 +580,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteTaskTemplateRequest,
   ): Effect.Effect<
     DeleteTaskTemplateResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteTaskTemplate", input);
   }
@@ -1025,12 +588,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteTrafficDistributionGroupRequest,
   ): Effect.Effect<
     DeleteTrafficDistributionGroupResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceInUseException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteTrafficDistributionGroup", input);
   }
@@ -1038,11 +596,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteUseCaseRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteUseCase", input);
   }
@@ -1050,12 +604,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteUserRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteUser", input);
   }
@@ -1063,13 +612,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteUserHierarchyGroupRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteUserHierarchyGroup", input);
   }
@@ -1077,14 +620,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteViewRequest,
   ): Effect.Effect<
     DeleteViewResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteView", input);
   }
@@ -1092,14 +628,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteViewVersionRequest,
   ): Effect.Effect<
     DeleteViewVersionResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteViewVersion", input);
   }
@@ -1107,13 +636,7 @@ export class Connect extends AWSServiceClient {
     input: DeleteVocabularyRequest,
   ): Effect.Effect<
     DeleteVocabularyResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteVocabulary", input);
   }
@@ -1121,12 +644,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeAgentStatusRequest,
   ): Effect.Effect<
     DescribeAgentStatusResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAgentStatus", input);
   }
@@ -1134,12 +652,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeAuthenticationProfileRequest,
   ): Effect.Effect<
     DescribeAuthenticationProfileResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAuthenticationProfile", input);
   }
@@ -1147,12 +660,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeContactRequest,
   ): Effect.Effect<
     DescribeContactResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeContact", input);
   }
@@ -1160,11 +668,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeContactEvaluationRequest,
   ): Effect.Effect<
     DescribeContactEvaluationResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeContactEvaluation", input);
   }
@@ -1172,13 +676,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeContactFlowRequest,
   ): Effect.Effect<
     DescribeContactFlowResponse,
-    | ContactFlowNotPublishedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ContactFlowNotPublishedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeContactFlow", input);
   }
@@ -1186,13 +684,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeContactFlowModuleRequest,
   ): Effect.Effect<
     DescribeContactFlowModuleResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeContactFlowModule", input);
   }
@@ -1200,13 +692,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeEmailAddressRequest,
   ): Effect.Effect<
     DescribeEmailAddressResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeEmailAddress", input);
   }
@@ -1214,11 +700,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeEvaluationFormRequest,
   ): Effect.Effect<
     DescribeEvaluationFormResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeEvaluationForm", input);
   }
@@ -1226,12 +708,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeHoursOfOperationRequest,
   ): Effect.Effect<
     DescribeHoursOfOperationResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeHoursOfOperation", input);
   }
@@ -1239,12 +716,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeHoursOfOperationOverrideRequest,
   ): Effect.Effect<
     DescribeHoursOfOperationOverrideResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeHoursOfOperationOverride", input);
   }
@@ -1252,10 +724,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeInstanceRequest,
   ): Effect.Effect<
     DescribeInstanceResponse,
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeInstance", input);
   }
@@ -1263,12 +732,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeInstanceAttributeRequest,
   ): Effect.Effect<
     DescribeInstanceAttributeResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeInstanceAttribute", input);
   }
@@ -1276,12 +740,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeInstanceStorageConfigRequest,
   ): Effect.Effect<
     DescribeInstanceStorageConfigResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeInstanceStorageConfig", input);
   }
@@ -1289,12 +748,7 @@ export class Connect extends AWSServiceClient {
     input: DescribePhoneNumberRequest,
   ): Effect.Effect<
     DescribePhoneNumberResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribePhoneNumber", input);
   }
@@ -1302,12 +756,7 @@ export class Connect extends AWSServiceClient {
     input: DescribePredefinedAttributeRequest,
   ): Effect.Effect<
     DescribePredefinedAttributeResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribePredefinedAttribute", input);
   }
@@ -1315,12 +764,7 @@ export class Connect extends AWSServiceClient {
     input: DescribePromptRequest,
   ): Effect.Effect<
     DescribePromptResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribePrompt", input);
   }
@@ -1328,12 +772,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeQueueRequest,
   ): Effect.Effect<
     DescribeQueueResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeQueue", input);
   }
@@ -1341,12 +780,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeQuickConnectRequest,
   ): Effect.Effect<
     DescribeQuickConnectResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeQuickConnect", input);
   }
@@ -1354,12 +788,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeRoutingProfileRequest,
   ): Effect.Effect<
     DescribeRoutingProfileResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeRoutingProfile", input);
   }
@@ -1367,12 +796,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeRuleRequest,
   ): Effect.Effect<
     DescribeRuleResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeRule", input);
   }
@@ -1380,12 +804,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeSecurityProfileRequest,
   ): Effect.Effect<
     DescribeSecurityProfileResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeSecurityProfile", input);
   }
@@ -1393,12 +812,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeTrafficDistributionGroupRequest,
   ): Effect.Effect<
     DescribeTrafficDistributionGroupResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeTrafficDistributionGroup", input);
   }
@@ -1406,12 +820,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeUserRequest,
   ): Effect.Effect<
     DescribeUserResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeUser", input);
   }
@@ -1419,12 +828,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeUserHierarchyGroupRequest,
   ): Effect.Effect<
     DescribeUserHierarchyGroupResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeUserHierarchyGroup", input);
   }
@@ -1432,12 +836,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeUserHierarchyStructureRequest,
   ): Effect.Effect<
     DescribeUserHierarchyStructureResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeUserHierarchyStructure", input);
   }
@@ -1445,13 +844,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeViewRequest,
   ): Effect.Effect<
     DescribeViewResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeView", input);
   }
@@ -1459,12 +852,7 @@ export class Connect extends AWSServiceClient {
     input: DescribeVocabularyRequest,
   ): Effect.Effect<
     DescribeVocabularyResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeVocabulary", input);
   }
@@ -1472,12 +860,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateAnalyticsDataSetRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateAnalyticsDataSet", input);
   }
@@ -1485,12 +868,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateApprovedOriginRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateApprovedOrigin", input);
   }
@@ -1498,11 +876,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateBotRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateBot", input);
   }
@@ -1510,13 +884,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateFlowRequest,
   ): Effect.Effect<
     DisassociateFlowResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateFlow", input);
   }
@@ -1524,12 +892,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateInstanceStorageConfigRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateInstanceStorageConfig", input);
   }
@@ -1537,12 +900,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateLambdaFunctionRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateLambdaFunction", input);
   }
@@ -1550,12 +908,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateLexBotRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateLexBot", input);
   }
@@ -1563,12 +916,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociatePhoneNumberContactFlowRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociatePhoneNumberContactFlow", input);
   }
@@ -1576,12 +924,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateQueueQuickConnectsRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateQueueQuickConnects", input);
   }
@@ -1589,12 +932,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateRoutingProfileQueuesRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateRoutingProfileQueues", input);
   }
@@ -1602,12 +940,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateSecurityKeyRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateSecurityKey", input);
   }
@@ -1615,13 +948,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateTrafficDistributionGroupUserRequest,
   ): Effect.Effect<
     DisassociateTrafficDistributionGroupUserResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateTrafficDistributionGroupUser", input);
   }
@@ -1629,12 +956,7 @@ export class Connect extends AWSServiceClient {
     input: DisassociateUserProficienciesRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateUserProficiencies", input);
   }
@@ -1642,13 +964,7 @@ export class Connect extends AWSServiceClient {
     input: DismissUserContactRequest,
   ): Effect.Effect<
     DismissUserContactResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DismissUserContact", input);
   }
@@ -1656,12 +972,7 @@ export class Connect extends AWSServiceClient {
     input: GetAttachedFileRequest,
   ): Effect.Effect<
     GetAttachedFileResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetAttachedFile", input);
   }
@@ -1669,10 +980,7 @@ export class Connect extends AWSServiceClient {
     input: GetContactAttributesRequest,
   ): Effect.Effect<
     GetContactAttributesResponse,
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetContactAttributes", input);
   }
@@ -1680,12 +988,7 @@ export class Connect extends AWSServiceClient {
     input: GetCurrentMetricDataRequest,
   ): Effect.Effect<
     GetCurrentMetricDataResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetCurrentMetricData", input);
   }
@@ -1693,12 +996,7 @@ export class Connect extends AWSServiceClient {
     input: GetCurrentUserDataRequest,
   ): Effect.Effect<
     GetCurrentUserDataResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetCurrentUserData", input);
   }
@@ -1706,12 +1004,7 @@ export class Connect extends AWSServiceClient {
     input: GetEffectiveHoursOfOperationsRequest,
   ): Effect.Effect<
     GetEffectiveHoursOfOperationsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEffectiveHoursOfOperations", input);
   }
@@ -1719,13 +1012,7 @@ export class Connect extends AWSServiceClient {
     input: GetFederationTokenRequest,
   ): Effect.Effect<
     GetFederationTokenResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | UserNotFoundException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | UserNotFoundException | CommonAwsError
   > {
     return this.call("GetFederationToken", input);
   }
@@ -1733,13 +1020,7 @@ export class Connect extends AWSServiceClient {
     input: GetFlowAssociationRequest,
   ): Effect.Effect<
     GetFlowAssociationResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetFlowAssociation", input);
   }
@@ -1747,12 +1028,7 @@ export class Connect extends AWSServiceClient {
     input: GetMetricDataRequest,
   ): Effect.Effect<
     GetMetricDataResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetMetricData", input);
   }
@@ -1760,12 +1036,7 @@ export class Connect extends AWSServiceClient {
     input: GetMetricDataV2Request,
   ): Effect.Effect<
     GetMetricDataV2Response,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetMetricDataV2", input);
   }
@@ -1773,12 +1044,7 @@ export class Connect extends AWSServiceClient {
     input: GetPromptFileRequest,
   ): Effect.Effect<
     GetPromptFileResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetPromptFile", input);
   }
@@ -1786,12 +1052,7 @@ export class Connect extends AWSServiceClient {
     input: GetTaskTemplateRequest,
   ): Effect.Effect<
     GetTaskTemplateResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetTaskTemplate", input);
   }
@@ -1799,12 +1060,7 @@ export class Connect extends AWSServiceClient {
     input: GetTrafficDistributionRequest,
   ): Effect.Effect<
     GetTrafficDistributionResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetTrafficDistribution", input);
   }
@@ -1812,13 +1068,7 @@ export class Connect extends AWSServiceClient {
     input: ImportPhoneNumberRequest,
   ): Effect.Effect<
     ImportPhoneNumberResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ImportPhoneNumber", input);
   }
@@ -1826,12 +1076,7 @@ export class Connect extends AWSServiceClient {
     input: ListAgentStatusRequest,
   ): Effect.Effect<
     ListAgentStatusResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAgentStatuses", input);
   }
@@ -1839,12 +1084,7 @@ export class Connect extends AWSServiceClient {
     input: ListAnalyticsDataAssociationsRequest,
   ): Effect.Effect<
     ListAnalyticsDataAssociationsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAnalyticsDataAssociations", input);
   }
@@ -1852,12 +1092,7 @@ export class Connect extends AWSServiceClient {
     input: ListAnalyticsDataLakeDataSetsRequest,
   ): Effect.Effect<
     ListAnalyticsDataLakeDataSetsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAnalyticsDataLakeDataSets", input);
   }
@@ -1865,12 +1100,7 @@ export class Connect extends AWSServiceClient {
     input: ListApprovedOriginsRequest,
   ): Effect.Effect<
     ListApprovedOriginsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListApprovedOrigins", input);
   }
@@ -1878,12 +1108,7 @@ export class Connect extends AWSServiceClient {
     input: ListAssociatedContactsRequest,
   ): Effect.Effect<
     ListAssociatedContactsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAssociatedContacts", input);
   }
@@ -1891,12 +1116,7 @@ export class Connect extends AWSServiceClient {
     input: ListAuthenticationProfilesRequest,
   ): Effect.Effect<
     ListAuthenticationProfilesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAuthenticationProfiles", input);
   }
@@ -1904,11 +1124,7 @@ export class Connect extends AWSServiceClient {
     input: ListBotsRequest,
   ): Effect.Effect<
     ListBotsResponse,
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListBots", input);
   }
@@ -1916,11 +1132,7 @@ export class Connect extends AWSServiceClient {
     input: ListContactEvaluationsRequest,
   ): Effect.Effect<
     ListContactEvaluationsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListContactEvaluations", input);
   }
@@ -1928,13 +1140,7 @@ export class Connect extends AWSServiceClient {
     input: ListContactFlowModulesRequest,
   ): Effect.Effect<
     ListContactFlowModulesResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListContactFlowModules", input);
   }
@@ -1942,12 +1148,7 @@ export class Connect extends AWSServiceClient {
     input: ListContactFlowsRequest,
   ): Effect.Effect<
     ListContactFlowsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListContactFlows", input);
   }
@@ -1955,13 +1156,7 @@ export class Connect extends AWSServiceClient {
     input: ListContactFlowVersionsRequest,
   ): Effect.Effect<
     ListContactFlowVersionsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListContactFlowVersions", input);
   }
@@ -1969,12 +1164,7 @@ export class Connect extends AWSServiceClient {
     input: ListContactReferencesRequest,
   ): Effect.Effect<
     ListContactReferencesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListContactReferences", input);
   }
@@ -1982,11 +1172,7 @@ export class Connect extends AWSServiceClient {
     input: ListDefaultVocabulariesRequest,
   ): Effect.Effect<
     ListDefaultVocabulariesResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDefaultVocabularies", input);
   }
@@ -1994,11 +1180,7 @@ export class Connect extends AWSServiceClient {
     input: ListEvaluationFormsRequest,
   ): Effect.Effect<
     ListEvaluationFormsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListEvaluationForms", input);
   }
@@ -2006,11 +1188,7 @@ export class Connect extends AWSServiceClient {
     input: ListEvaluationFormVersionsRequest,
   ): Effect.Effect<
     ListEvaluationFormVersionsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListEvaluationFormVersions", input);
   }
@@ -2018,13 +1196,7 @@ export class Connect extends AWSServiceClient {
     input: ListFlowAssociationsRequest,
   ): Effect.Effect<
     ListFlowAssociationsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListFlowAssociations", input);
   }
@@ -2032,12 +1204,7 @@ export class Connect extends AWSServiceClient {
     input: ListHoursOfOperationOverridesRequest,
   ): Effect.Effect<
     ListHoursOfOperationOverridesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListHoursOfOperationOverrides", input);
   }
@@ -2045,12 +1212,7 @@ export class Connect extends AWSServiceClient {
     input: ListHoursOfOperationsRequest,
   ): Effect.Effect<
     ListHoursOfOperationsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListHoursOfOperations", input);
   }
@@ -2058,12 +1220,7 @@ export class Connect extends AWSServiceClient {
     input: ListInstanceAttributesRequest,
   ): Effect.Effect<
     ListInstanceAttributesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListInstanceAttributes", input);
   }
@@ -2079,12 +1236,7 @@ export class Connect extends AWSServiceClient {
     input: ListInstanceStorageConfigsRequest,
   ): Effect.Effect<
     ListInstanceStorageConfigsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListInstanceStorageConfigs", input);
   }
@@ -2092,11 +1244,7 @@ export class Connect extends AWSServiceClient {
     input: ListIntegrationAssociationsRequest,
   ): Effect.Effect<
     ListIntegrationAssociationsResponse,
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListIntegrationAssociations", input);
   }
@@ -2104,12 +1252,7 @@ export class Connect extends AWSServiceClient {
     input: ListLambdaFunctionsRequest,
   ): Effect.Effect<
     ListLambdaFunctionsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListLambdaFunctions", input);
   }
@@ -2117,12 +1260,7 @@ export class Connect extends AWSServiceClient {
     input: ListLexBotsRequest,
   ): Effect.Effect<
     ListLexBotsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListLexBots", input);
   }
@@ -2130,12 +1268,7 @@ export class Connect extends AWSServiceClient {
     input: ListPhoneNumbersRequest,
   ): Effect.Effect<
     ListPhoneNumbersResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListPhoneNumbers", input);
   }
@@ -2143,12 +1276,7 @@ export class Connect extends AWSServiceClient {
     input: ListPhoneNumbersV2Request,
   ): Effect.Effect<
     ListPhoneNumbersV2Response,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListPhoneNumbersV2", input);
   }
@@ -2156,12 +1284,7 @@ export class Connect extends AWSServiceClient {
     input: ListPredefinedAttributesRequest,
   ): Effect.Effect<
     ListPredefinedAttributesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListPredefinedAttributes", input);
   }
@@ -2169,12 +1292,7 @@ export class Connect extends AWSServiceClient {
     input: ListPromptsRequest,
   ): Effect.Effect<
     ListPromptsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListPrompts", input);
   }
@@ -2182,12 +1300,7 @@ export class Connect extends AWSServiceClient {
     input: ListQueueQuickConnectsRequest,
   ): Effect.Effect<
     ListQueueQuickConnectsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListQueueQuickConnects", input);
   }
@@ -2195,12 +1308,7 @@ export class Connect extends AWSServiceClient {
     input: ListQueuesRequest,
   ): Effect.Effect<
     ListQueuesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListQueues", input);
   }
@@ -2208,12 +1316,7 @@ export class Connect extends AWSServiceClient {
     input: ListQuickConnectsRequest,
   ): Effect.Effect<
     ListQuickConnectsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListQuickConnects", input);
   }
@@ -2221,13 +1324,7 @@ export class Connect extends AWSServiceClient {
     input: ListRealtimeContactAnalysisSegmentsV2Request,
   ): Effect.Effect<
     ListRealtimeContactAnalysisSegmentsV2Response,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | OutputTypeNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | OutputTypeNotFoundException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRealtimeContactAnalysisSegmentsV2", input);
   }
@@ -2235,12 +1332,7 @@ export class Connect extends AWSServiceClient {
     input: ListRoutingProfileQueuesRequest,
   ): Effect.Effect<
     ListRoutingProfileQueuesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRoutingProfileQueues", input);
   }
@@ -2248,12 +1340,7 @@ export class Connect extends AWSServiceClient {
     input: ListRoutingProfilesRequest,
   ): Effect.Effect<
     ListRoutingProfilesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRoutingProfiles", input);
   }
@@ -2261,12 +1348,7 @@ export class Connect extends AWSServiceClient {
     input: ListRulesRequest,
   ): Effect.Effect<
     ListRulesResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRules", input);
   }
@@ -2274,12 +1356,7 @@ export class Connect extends AWSServiceClient {
     input: ListSecurityKeysRequest,
   ): Effect.Effect<
     ListSecurityKeysResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSecurityKeys", input);
   }
@@ -2287,12 +1364,7 @@ export class Connect extends AWSServiceClient {
     input: ListSecurityProfileApplicationsRequest,
   ): Effect.Effect<
     ListSecurityProfileApplicationsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSecurityProfileApplications", input);
   }
@@ -2300,12 +1372,7 @@ export class Connect extends AWSServiceClient {
     input: ListSecurityProfilePermissionsRequest,
   ): Effect.Effect<
     ListSecurityProfilePermissionsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSecurityProfilePermissions", input);
   }
@@ -2313,12 +1380,7 @@ export class Connect extends AWSServiceClient {
     input: ListSecurityProfilesRequest,
   ): Effect.Effect<
     ListSecurityProfilesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSecurityProfiles", input);
   }
@@ -2326,12 +1388,7 @@ export class Connect extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -2339,12 +1396,7 @@ export class Connect extends AWSServiceClient {
     input: ListTaskTemplatesRequest,
   ): Effect.Effect<
     ListTaskTemplatesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTaskTemplates", input);
   }
@@ -2352,11 +1404,7 @@ export class Connect extends AWSServiceClient {
     input: ListTrafficDistributionGroupsRequest,
   ): Effect.Effect<
     ListTrafficDistributionGroupsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTrafficDistributionGroups", input);
   }
@@ -2364,12 +1412,7 @@ export class Connect extends AWSServiceClient {
     input: ListTrafficDistributionGroupUsersRequest,
   ): Effect.Effect<
     ListTrafficDistributionGroupUsersResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTrafficDistributionGroupUsers", input);
   }
@@ -2377,11 +1420,7 @@ export class Connect extends AWSServiceClient {
     input: ListUseCasesRequest,
   ): Effect.Effect<
     ListUseCasesResponse,
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListUseCases", input);
   }
@@ -2389,12 +1428,7 @@ export class Connect extends AWSServiceClient {
     input: ListUserHierarchyGroupsRequest,
   ): Effect.Effect<
     ListUserHierarchyGroupsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListUserHierarchyGroups", input);
   }
@@ -2402,12 +1436,7 @@ export class Connect extends AWSServiceClient {
     input: ListUserProficienciesRequest,
   ): Effect.Effect<
     ListUserProficienciesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListUserProficiencies", input);
   }
@@ -2415,12 +1444,7 @@ export class Connect extends AWSServiceClient {
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListUsers", input);
   }
@@ -2428,13 +1452,7 @@ export class Connect extends AWSServiceClient {
     input: ListViewsRequest,
   ): Effect.Effect<
     ListViewsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListViews", input);
   }
@@ -2442,13 +1460,7 @@ export class Connect extends AWSServiceClient {
     input: ListViewVersionsRequest,
   ): Effect.Effect<
     ListViewVersionsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListViewVersions", input);
   }
@@ -2456,14 +1468,7 @@ export class Connect extends AWSServiceClient {
     input: MonitorContactRequest,
   ): Effect.Effect<
     MonitorContactResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("MonitorContact", input);
   }
@@ -2471,15 +1476,7 @@ export class Connect extends AWSServiceClient {
     input: PauseContactRequest,
   ): Effect.Effect<
     PauseContactResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("PauseContact", input);
   }
@@ -2487,13 +1484,7 @@ export class Connect extends AWSServiceClient {
     input: PutUserStatusRequest,
   ): Effect.Effect<
     PutUserStatusResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutUserStatus", input);
   }
@@ -2501,14 +1492,7 @@ export class Connect extends AWSServiceClient {
     input: ReleasePhoneNumberRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidParameterException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ReleasePhoneNumber", input);
   }
@@ -2516,15 +1500,7 @@ export class Connect extends AWSServiceClient {
     input: ReplicateInstanceRequest,
   ): Effect.Effect<
     ReplicateInstanceResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ResourceNotReadyException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("ReplicateInstance", input);
   }
@@ -2532,14 +1508,7 @@ export class Connect extends AWSServiceClient {
     input: ResumeContactRequest,
   ): Effect.Effect<
     ResumeContactResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ResumeContact", input);
   }
@@ -2547,10 +1516,7 @@ export class Connect extends AWSServiceClient {
     input: ResumeContactRecordingRequest,
   ): Effect.Effect<
     ResumeContactRecordingResponse,
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ResumeContactRecording", input);
   }
@@ -2558,12 +1524,7 @@ export class Connect extends AWSServiceClient {
     input: SearchAgentStatusesRequest,
   ): Effect.Effect<
     SearchAgentStatusesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchAgentStatuses", input);
   }
@@ -2571,11 +1532,7 @@ export class Connect extends AWSServiceClient {
     input: SearchAvailablePhoneNumbersRequest,
   ): Effect.Effect<
     SearchAvailablePhoneNumbersResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchAvailablePhoneNumbers", input);
   }
@@ -2583,12 +1540,7 @@ export class Connect extends AWSServiceClient {
     input: SearchContactFlowModulesRequest,
   ): Effect.Effect<
     SearchContactFlowModulesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchContactFlowModules", input);
   }
@@ -2596,12 +1548,7 @@ export class Connect extends AWSServiceClient {
     input: SearchContactFlowsRequest,
   ): Effect.Effect<
     SearchContactFlowsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchContactFlows", input);
   }
@@ -2609,12 +1556,7 @@ export class Connect extends AWSServiceClient {
     input: SearchContactsRequest,
   ): Effect.Effect<
     SearchContactsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchContacts", input);
   }
@@ -2622,13 +1564,7 @@ export class Connect extends AWSServiceClient {
     input: SearchEmailAddressesRequest,
   ): Effect.Effect<
     SearchEmailAddressesResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchEmailAddresses", input);
   }
@@ -2636,12 +1572,7 @@ export class Connect extends AWSServiceClient {
     input: SearchHoursOfOperationOverridesRequest,
   ): Effect.Effect<
     SearchHoursOfOperationOverridesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchHoursOfOperationOverrides", input);
   }
@@ -2649,12 +1580,7 @@ export class Connect extends AWSServiceClient {
     input: SearchHoursOfOperationsRequest,
   ): Effect.Effect<
     SearchHoursOfOperationsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchHoursOfOperations", input);
   }
@@ -2662,12 +1588,7 @@ export class Connect extends AWSServiceClient {
     input: SearchPredefinedAttributesRequest,
   ): Effect.Effect<
     SearchPredefinedAttributesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchPredefinedAttributes", input);
   }
@@ -2675,12 +1596,7 @@ export class Connect extends AWSServiceClient {
     input: SearchPromptsRequest,
   ): Effect.Effect<
     SearchPromptsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchPrompts", input);
   }
@@ -2688,12 +1604,7 @@ export class Connect extends AWSServiceClient {
     input: SearchQueuesRequest,
   ): Effect.Effect<
     SearchQueuesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchQueues", input);
   }
@@ -2701,12 +1612,7 @@ export class Connect extends AWSServiceClient {
     input: SearchQuickConnectsRequest,
   ): Effect.Effect<
     SearchQuickConnectsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchQuickConnects", input);
   }
@@ -2714,13 +1620,7 @@ export class Connect extends AWSServiceClient {
     input: SearchResourceTagsRequest,
   ): Effect.Effect<
     SearchResourceTagsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | MaximumResultReturnedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | MaximumResultReturnedException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchResourceTags", input);
   }
@@ -2728,12 +1628,7 @@ export class Connect extends AWSServiceClient {
     input: SearchRoutingProfilesRequest,
   ): Effect.Effect<
     SearchRoutingProfilesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchRoutingProfiles", input);
   }
@@ -2741,12 +1636,7 @@ export class Connect extends AWSServiceClient {
     input: SearchSecurityProfilesRequest,
   ): Effect.Effect<
     SearchSecurityProfilesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchSecurityProfiles", input);
   }
@@ -2754,12 +1644,7 @@ export class Connect extends AWSServiceClient {
     input: SearchUserHierarchyGroupsRequest,
   ): Effect.Effect<
     SearchUserHierarchyGroupsResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchUserHierarchyGroups", input);
   }
@@ -2767,12 +1652,7 @@ export class Connect extends AWSServiceClient {
     input: SearchUsersRequest,
   ): Effect.Effect<
     SearchUsersResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchUsers", input);
   }
@@ -2780,11 +1660,7 @@ export class Connect extends AWSServiceClient {
     input: SearchVocabulariesRequest,
   ): Effect.Effect<
     SearchVocabulariesResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchVocabularies", input);
   }
@@ -2792,12 +1668,7 @@ export class Connect extends AWSServiceClient {
     input: SendChatIntegrationEventRequest,
   ): Effect.Effect<
     SendChatIntegrationEventResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SendChatIntegrationEvent", input);
   }
@@ -2805,14 +1676,7 @@ export class Connect extends AWSServiceClient {
     input: SendOutboundEmailRequest,
   ): Effect.Effect<
     SendOutboundEmailResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("SendOutboundEmail", input);
   }
@@ -2820,13 +1684,7 @@ export class Connect extends AWSServiceClient {
     input: StartAttachedFileUploadRequest,
   ): Effect.Effect<
     StartAttachedFileUploadResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceConflictException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartAttachedFileUpload", input);
   }
@@ -2834,12 +1692,7 @@ export class Connect extends AWSServiceClient {
     input: StartChatContactRequest,
   ): Effect.Effect<
     StartChatContactResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartChatContact", input);
   }
@@ -2847,13 +1700,7 @@ export class Connect extends AWSServiceClient {
     input: StartContactEvaluationRequest,
   ): Effect.Effect<
     StartContactEvaluationResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartContactEvaluation", input);
   }
@@ -2861,11 +1708,7 @@ export class Connect extends AWSServiceClient {
     input: StartContactRecordingRequest,
   ): Effect.Effect<
     StartContactRecordingResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartContactRecording", input);
   }
@@ -2873,12 +1716,7 @@ export class Connect extends AWSServiceClient {
     input: StartContactStreamingRequest,
   ): Effect.Effect<
     StartContactStreamingResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartContactStreaming", input);
   }
@@ -2886,14 +1724,7 @@ export class Connect extends AWSServiceClient {
     input: StartEmailContactRequest,
   ): Effect.Effect<
     StartEmailContactResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartEmailContact", input);
   }
@@ -2901,14 +1732,7 @@ export class Connect extends AWSServiceClient {
     input: StartOutboundChatContactRequest,
   ): Effect.Effect<
     StartOutboundChatContactResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartOutboundChatContact", input);
   }
@@ -2916,14 +1740,7 @@ export class Connect extends AWSServiceClient {
     input: StartOutboundEmailContactRequest,
   ): Effect.Effect<
     StartOutboundEmailContactResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartOutboundEmailContact", input);
   }
@@ -2931,14 +1748,7 @@ export class Connect extends AWSServiceClient {
     input: StartOutboundVoiceContactRequest,
   ): Effect.Effect<
     StartOutboundVoiceContactResponse,
-    | DestinationNotAllowedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | OutboundContactNotPermittedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    DestinationNotAllowedException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | OutboundContactNotPermittedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartOutboundVoiceContact", input);
   }
@@ -2946,13 +1756,7 @@ export class Connect extends AWSServiceClient {
     input: StartScreenSharingRequest,
   ): Effect.Effect<
     StartScreenSharingResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartScreenSharing", input);
   }
@@ -2960,13 +1764,7 @@ export class Connect extends AWSServiceClient {
     input: StartTaskContactRequest,
   ): Effect.Effect<
     StartTaskContactResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartTaskContact", input);
   }
@@ -2974,12 +1772,7 @@ export class Connect extends AWSServiceClient {
     input: StartWebRTCContactRequest,
   ): Effect.Effect<
     StartWebRTCContactResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartWebRTCContact", input);
   }
@@ -2987,12 +1780,7 @@ export class Connect extends AWSServiceClient {
     input: StopContactRequest,
   ): Effect.Effect<
     StopContactResponse,
-    | ContactNotFoundException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ContactNotFoundException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StopContact", input);
   }
@@ -3000,10 +1788,7 @@ export class Connect extends AWSServiceClient {
     input: StopContactRecordingRequest,
   ): Effect.Effect<
     StopContactRecordingResponse,
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StopContactRecording", input);
   }
@@ -3011,11 +1796,7 @@ export class Connect extends AWSServiceClient {
     input: StopContactStreamingRequest,
   ): Effect.Effect<
     StopContactStreamingResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StopContactStreaming", input);
   }
@@ -3023,12 +1804,7 @@ export class Connect extends AWSServiceClient {
     input: SubmitContactEvaluationRequest,
   ): Effect.Effect<
     SubmitContactEvaluationResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SubmitContactEvaluation", input);
   }
@@ -3036,10 +1812,7 @@ export class Connect extends AWSServiceClient {
     input: SuspendContactRecordingRequest,
   ): Effect.Effect<
     SuspendContactRecordingResponse,
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("SuspendContactRecording", input);
   }
@@ -3047,12 +1820,7 @@ export class Connect extends AWSServiceClient {
     input: TagContactRequest,
   ): Effect.Effect<
     TagContactResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagContact", input);
   }
@@ -3060,12 +1828,7 @@ export class Connect extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -3073,14 +1836,7 @@ export class Connect extends AWSServiceClient {
     input: TransferContactRequest,
   ): Effect.Effect<
     TransferContactResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidRequestException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("TransferContact", input);
   }
@@ -3088,12 +1844,7 @@ export class Connect extends AWSServiceClient {
     input: UntagContactRequest,
   ): Effect.Effect<
     UntagContactResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagContact", input);
   }
@@ -3101,12 +1852,7 @@ export class Connect extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -3114,14 +1860,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateAgentStatusRequest,
   ): Effect.Effect<
     {},
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAgentStatus", input);
   }
@@ -3129,12 +1868,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateAuthenticationProfileRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAuthenticationProfile", input);
   }
@@ -3142,14 +1876,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateContactRequest,
   ): Effect.Effect<
     UpdateContactResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateContact", input);
   }
@@ -3157,11 +1884,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateContactAttributesRequest,
   ): Effect.Effect<
     UpdateContactAttributesResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateContactAttributes", input);
   }
@@ -3169,12 +1892,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateContactEvaluationRequest,
   ): Effect.Effect<
     UpdateContactEvaluationResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateContactEvaluation", input);
   }
@@ -3182,13 +1900,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateContactFlowContentRequest,
   ): Effect.Effect<
     UpdateContactFlowContentResponse,
-    | InternalServiceException
-    | InvalidContactFlowException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidContactFlowException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateContactFlowContent", input);
   }
@@ -3196,13 +1908,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateContactFlowMetadataRequest,
   ): Effect.Effect<
     UpdateContactFlowMetadataResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateContactFlowMetadata", input);
   }
@@ -3210,13 +1916,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateContactFlowModuleContentRequest,
   ): Effect.Effect<
     UpdateContactFlowModuleContentResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidContactFlowModuleException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidContactFlowModuleException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateContactFlowModuleContent", input);
   }
@@ -3224,14 +1924,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateContactFlowModuleMetadataRequest,
   ): Effect.Effect<
     UpdateContactFlowModuleMetadataResponse,
-    | AccessDeniedException
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateContactFlowModuleMetadata", input);
   }
@@ -3239,13 +1932,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateContactFlowNameRequest,
   ): Effect.Effect<
     UpdateContactFlowNameResponse,
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateContactFlowName", input);
   }
@@ -3253,13 +1940,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateContactRoutingDataRequest,
   ): Effect.Effect<
     UpdateContactRoutingDataResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateContactRoutingData", input);
   }
@@ -3267,13 +1948,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateContactScheduleRequest,
   ): Effect.Effect<
     UpdateContactScheduleResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateContactSchedule", input);
   }
@@ -3281,14 +1956,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateEmailAddressMetadataRequest,
   ): Effect.Effect<
     UpdateEmailAddressMetadataResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateEmailAddressMetadata", input);
   }
@@ -3296,13 +1964,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateEvaluationFormRequest,
   ): Effect.Effect<
     UpdateEvaluationFormResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateEvaluationForm", input);
   }
@@ -3310,13 +1972,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateHoursOfOperationRequest,
   ): Effect.Effect<
     {},
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateHoursOfOperation", input);
   }
@@ -3324,14 +1980,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateHoursOfOperationOverrideRequest,
   ): Effect.Effect<
     {},
-    | ConditionalOperationFailedException
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConditionalOperationFailedException | DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateHoursOfOperationOverride", input);
   }
@@ -3339,12 +1988,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateInstanceAttributeRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateInstanceAttribute", input);
   }
@@ -3352,12 +1996,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateInstanceStorageConfigRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateInstanceStorageConfig", input);
   }
@@ -3365,13 +2004,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateParticipantAuthenticationRequest,
   ): Effect.Effect<
     UpdateParticipantAuthenticationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceException | InvalidParameterException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateParticipantAuthentication", input);
   }
@@ -3379,13 +2012,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateParticipantRoleConfigRequest,
   ): Effect.Effect<
     UpdateParticipantRoleConfigResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateParticipantRoleConfig", input);
   }
@@ -3393,14 +2020,7 @@ export class Connect extends AWSServiceClient {
     input: UpdatePhoneNumberRequest,
   ): Effect.Effect<
     UpdatePhoneNumberResponse,
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidParameterException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidParameterException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdatePhoneNumber", input);
   }
@@ -3408,15 +2028,7 @@ export class Connect extends AWSServiceClient {
     input: UpdatePhoneNumberMetadataRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | IdempotencyException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotencyException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdatePhoneNumberMetadata", input);
   }
@@ -3424,12 +2036,7 @@ export class Connect extends AWSServiceClient {
     input: UpdatePredefinedAttributeRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdatePredefinedAttribute", input);
   }
@@ -3437,12 +2044,7 @@ export class Connect extends AWSServiceClient {
     input: UpdatePromptRequest,
   ): Effect.Effect<
     UpdatePromptResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdatePrompt", input);
   }
@@ -3450,12 +2052,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateQueueHoursOfOperationRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateQueueHoursOfOperation", input);
   }
@@ -3463,12 +2060,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateQueueMaxContactsRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateQueueMaxContacts", input);
   }
@@ -3476,13 +2068,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateQueueNameRequest,
   ): Effect.Effect<
     {},
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateQueueName", input);
   }
@@ -3490,12 +2076,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateQueueOutboundCallerConfigRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateQueueOutboundCallerConfig", input);
   }
@@ -3503,14 +2084,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateQueueOutboundEmailConfigRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConditionalOperationFailedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConditionalOperationFailedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateQueueOutboundEmailConfig", input);
   }
@@ -3518,12 +2092,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateQueueStatusRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateQueueStatus", input);
   }
@@ -3531,12 +2100,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateQuickConnectConfigRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateQuickConnectConfig", input);
   }
@@ -3544,12 +2108,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateQuickConnectNameRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateQuickConnectName", input);
   }
@@ -3557,12 +2116,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateRoutingProfileAgentAvailabilityTimerRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateRoutingProfileAgentAvailabilityTimer", input);
   }
@@ -3570,12 +2124,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateRoutingProfileConcurrencyRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateRoutingProfileConcurrency", input);
   }
@@ -3583,12 +2132,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateRoutingProfileDefaultOutboundQueueRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateRoutingProfileDefaultOutboundQueue", input);
   }
@@ -3596,13 +2140,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateRoutingProfileNameRequest,
   ): Effect.Effect<
     {},
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateRoutingProfileName", input);
   }
@@ -3610,12 +2148,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateRoutingProfileQueuesRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateRoutingProfileQueues", input);
   }
@@ -3623,13 +2156,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateRuleRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateRule", input);
   }
@@ -3637,12 +2164,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateSecurityProfileRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateSecurityProfile", input);
   }
@@ -3650,13 +2172,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateTaskTemplateRequest,
   ): Effect.Effect<
     UpdateTaskTemplateResponse,
-    | InternalServiceException
-    | InvalidParameterException
-    | PropertyValidationException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | PropertyValidationException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateTaskTemplate", input);
   }
@@ -3664,13 +2180,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateTrafficDistributionRequest,
   ): Effect.Effect<
     UpdateTrafficDistributionResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidRequestException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidRequestException | ResourceConflictException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateTrafficDistribution", input);
   }
@@ -3678,12 +2188,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateUserHierarchyRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateUserHierarchy", input);
   }
@@ -3691,13 +2196,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateUserHierarchyGroupNameRequest,
   ): Effect.Effect<
     {},
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateUserHierarchyGroupName", input);
   }
@@ -3705,13 +2204,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateUserHierarchyStructureRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateUserHierarchyStructure", input);
   }
@@ -3719,12 +2212,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateUserIdentityInfoRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateUserIdentityInfo", input);
   }
@@ -3732,12 +2220,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateUserPhoneConfigRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateUserPhoneConfig", input);
   }
@@ -3745,12 +2228,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateUserProficienciesRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateUserProficiencies", input);
   }
@@ -3758,12 +2236,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateUserRoutingProfileRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateUserRoutingProfile", input);
   }
@@ -3771,12 +2244,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateUserSecurityProfilesRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateUserSecurityProfiles", input);
   }
@@ -3784,14 +2252,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateViewContentRequest,
   ): Effect.Effect<
     UpdateViewContentResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateViewContent", input);
   }
@@ -3799,15 +2260,7 @@ export class Connect extends AWSServiceClient {
     input: UpdateViewMetadataRequest,
   ): Effect.Effect<
     UpdateViewMetadataResponse,
-    | AccessDeniedException
-    | DuplicateResourceException
-    | InternalServiceException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | DuplicateResourceException | InternalServiceException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateViewMetadata", input);
   }
@@ -3826,16 +2279,7 @@ export type ActionSummaries = Array<ActionSummary>;
 export interface ActionSummary {
   ActionType: ActionType;
 }
-export type ActionType =
-  | "CREATE_TASK"
-  | "ASSIGN_CONTACT_CATEGORY"
-  | "GENERATE_EVENTBRIDGE_EVENT"
-  | "SEND_NOTIFICATION"
-  | "CREATE_CASE"
-  | "UPDATE_CASE"
-  | "ASSIGN_SLA"
-  | "END_ASSOCIATED_TASKS"
-  | "SUBMIT_AUTO_EVALUATION";
+export type ActionType = "CREATE_TASK" | "ASSIGN_CONTACT_CATEGORY" | "GENERATE_EVENTBRIDGE_EVENT" | "SEND_NOTIFICATION" | "CREATE_CASE" | "UPDATE_CASE" | "ASSIGN_SLA" | "END_ASSOCIATED_TASKS" | "SUBMIT_AUTO_EVALUATION";
 export interface ActivateEvaluationFormRequest {
   InstanceId: string;
   EvaluationFormId: string;
@@ -3852,9 +2296,7 @@ export interface AdditionalEmailRecipients {
 }
 export type AfterContactWorkTimeLimit = number;
 
-export type AgentAvailabilityTimer =
-  | "TIME_SINCE_LAST_ACTIVITY"
-  | "TIME_SINCE_LAST_INBOUND";
+export type AgentAvailabilityTimer = "TIME_SINCE_LAST_ACTIVITY" | "TIME_SINCE_LAST_INBOUND";
 export interface AgentConfig {
   Distributions: Array<Distribution>;
 }
@@ -3974,28 +2416,13 @@ export interface AnalyticsDataAssociationResult {
   ResourceShareArn?: string;
   ResourceShareStatus?: string;
 }
-export type AnalyticsDataAssociationResults =
-  Array<AnalyticsDataAssociationResult>;
+export type AnalyticsDataAssociationResults = Array<AnalyticsDataAssociationResult>;
 export interface AnalyticsDataSetsResult {
   DataSetId?: string;
   DataSetName?: string;
 }
 export type AnalyticsDataSetsResults = Array<AnalyticsDataSetsResult>;
-export type AnsweringMachineDetectionStatus =
-  | "ANSWERED"
-  | "UNDETECTED"
-  | "ERROR"
-  | "HUMAN_ANSWERED"
-  | "SIT_TONE_DETECTED"
-  | "SIT_TONE_BUSY"
-  | "SIT_TONE_INVALID_NUMBER"
-  | "FAX_MACHINE_DETECTED"
-  | "VOICEMAIL_BEEP"
-  | "VOICEMAIL_NO_BEEP"
-  | "AMD_UNRESOLVED"
-  | "AMD_UNANSWERED"
-  | "AMD_ERROR"
-  | "AMD_NOT_APPLICABLE";
+export type AnsweringMachineDetectionStatus = "ANSWERED" | "UNDETECTED" | "ERROR" | "HUMAN_ANSWERED" | "SIT_TONE_DETECTED" | "SIT_TONE_BUSY" | "SIT_TONE_INVALID_NUMBER" | "FAX_MACHINE_DETECTED" | "VOICEMAIL_BEEP" | "VOICEMAIL_NO_BEEP" | "AMD_UNRESOLVED" | "AMD_UNANSWERED" | "AMD_ERROR" | "AMD_NOT_APPLICABLE";
 export interface AnswerMachineDetectionConfig {
   EnableAnswerMachineDetection?: boolean;
   AwaitAnswerMachinePrompt?: boolean;
@@ -4013,7 +2440,8 @@ export type ARN = string;
 export type ArtifactId = string;
 
 export type ArtifactStatus = "APPROVED" | "REJECTED" | "IN_PROGRESS";
-export interface AssignContactCategoryActionDefinition {}
+export interface AssignContactCategoryActionDefinition {
+}
 export interface AssignSlaActionDefinition {
   SlaAssignmentType: SlaAssignmentType;
   CaseSlaConfiguration?: CaseSlaConfiguration;
@@ -4057,7 +2485,8 @@ export interface AssociateDefaultVocabularyRequest {
   LanguageCode: VocabularyLanguageCode;
   VocabularyId?: string;
 }
-export interface AssociateDefaultVocabularyResponse {}
+export interface AssociateDefaultVocabularyResponse {
+}
 export type AssociatedQueueIdList = Array<string>;
 export interface AssociateFlowRequest {
   InstanceId: string;
@@ -4065,7 +2494,8 @@ export interface AssociateFlowRequest {
   FlowId: string;
   ResourceType: FlowAssociationResourceType;
 }
-export interface AssociateFlowResponse {}
+export interface AssociateFlowResponse {
+}
 export interface AssociateInstanceStorageConfigRequest {
   InstanceId: string;
   ResourceType: InstanceStorageResourceType;
@@ -4113,7 +2543,8 @@ export interface AssociateTrafficDistributionGroupUserRequest {
   UserId: string;
   InstanceId: string;
 }
-export interface AssociateTrafficDistributionGroupUserResponse {}
+export interface AssociateTrafficDistributionGroupUserResponse {
+}
 export interface AssociateUserProficienciesRequest {
   InstanceId: string;
   UserId: string;
@@ -4139,13 +2570,8 @@ export interface AttachedFileError {
   FileId?: string;
 }
 export type AttachedFileErrorsList = Array<AttachedFileError>;
-export type AttachedFileInvalidRequestExceptionReason =
-  | "INVALID_FILE_SIZE"
-  | "INVALID_FILE_TYPE"
-  | "INVALID_FILE_NAME";
-export type AttachedFileServiceQuotaExceededExceptionReason =
-  | "TOTAL_FILE_SIZE_EXCEEDED"
-  | "TOTAL_FILE_COUNT_EXCEEDED";
+export type AttachedFileInvalidRequestExceptionReason = "INVALID_FILE_SIZE" | "INVALID_FILE_TYPE" | "INVALID_FILE_NAME";
+export type AttachedFileServiceQuotaExceededExceptionReason = "TOTAL_FILE_SIZE_EXCEEDED" | "TOTAL_FILE_COUNT_EXCEEDED";
 export type AttachedFilesList = Array<AttachedFile>;
 export type AttachmentName = string;
 
@@ -4225,8 +2651,7 @@ export interface AuthenticationProfileSummary {
   LastModifiedTime?: Date | string;
   LastModifiedRegion?: string;
 }
-export type AuthenticationProfileSummaryList =
-  Array<AuthenticationProfileSummary>;
+export type AuthenticationProfileSummaryList = Array<AuthenticationProfileSummary>;
 export type AuthorizationCode = string;
 
 export type AutoAccept = boolean;
@@ -4396,7 +2821,8 @@ export interface CompleteAttachedFileUploadRequest {
   FileId: string;
   AssociatedResourceArn: string;
 }
-export interface CompleteAttachedFileUploadResponse {}
+export interface CompleteAttachedFileUploadResponse {
+}
 export type Concurrency = number;
 
 export interface Condition {
@@ -4541,8 +2967,7 @@ export type ContactFlowModuleId = string;
 
 export type ContactFlowModuleName = string;
 
-export type ContactFlowModuleSearchConditionList =
-  Array<ContactFlowModuleSearchCriteria>;
+export type ContactFlowModuleSearchConditionList = Array<ContactFlowModuleSearchCriteria>;
 export interface ContactFlowModuleSearchCriteria {
   OrConditions?: Array<ContactFlowModuleSearchCriteria>;
   AndConditions?: Array<ContactFlowModuleSearchCriteria>;
@@ -4594,17 +3019,7 @@ export interface ContactFlowSummary {
   ContactFlowStatus?: ContactFlowStatus;
 }
 export type ContactFlowSummaryList = Array<ContactFlowSummary>;
-export type ContactFlowType =
-  | "CONTACT_FLOW"
-  | "CUSTOMER_QUEUE"
-  | "CUSTOMER_HOLD"
-  | "CUSTOMER_WHISPER"
-  | "AGENT_HOLD"
-  | "AGENT_WHISPER"
-  | "OUTBOUND_WHISPER"
-  | "AGENT_TRANSFER"
-  | "QUEUE_TRANSFER"
-  | "CAMPAIGN";
+export type ContactFlowType = "CONTACT_FLOW" | "CUSTOMER_QUEUE" | "CUSTOMER_HOLD" | "CUSTOMER_WHISPER" | "AGENT_HOLD" | "AGENT_WHISPER" | "OUTBOUND_WHISPER" | "AGENT_TRANSFER" | "QUEUE_TRANSFER" | "CAMPAIGN";
 export type ContactFlowTypes = Array<ContactFlowType>;
 export interface ContactFlowVersionSummary {
   Arn?: string;
@@ -4614,19 +3029,7 @@ export interface ContactFlowVersionSummary {
 export type ContactFlowVersionSummaryList = Array<ContactFlowVersionSummary>;
 export type ContactId = string;
 
-export type ContactInitiationMethod =
-  | "INBOUND"
-  | "OUTBOUND"
-  | "TRANSFER"
-  | "QUEUE_TRANSFER"
-  | "CALLBACK"
-  | "API"
-  | "DISCONNECT"
-  | "MONITOR"
-  | "EXTERNAL_OUTBOUND"
-  | "WEBRTC_API"
-  | "AGENT_REPLY"
-  | "FLOW";
+export type ContactInitiationMethod = "INBOUND" | "OUTBOUND" | "TRANSFER" | "QUEUE_TRANSFER" | "CALLBACK" | "API" | "DISCONNECT" | "MONITOR" | "EXTERNAL_OUTBOUND" | "WEBRTC_API" | "AGENT_REPLY" | "FLOW";
 export declare class ContactNotFoundException extends EffectData.TaggedError(
   "ContactNotFoundException",
 )<{
@@ -4657,23 +3060,11 @@ export interface ContactSearchSummaryQueueInfo {
   Id?: string;
   EnqueueTimestamp?: Date | string;
 }
-export type ContactSearchSummarySegmentAttributes = Record<
-  string,
-  ContactSearchSummarySegmentAttributeValue
->;
+export type ContactSearchSummarySegmentAttributes = Record<string, ContactSearchSummarySegmentAttributeValue>;
 export interface ContactSearchSummarySegmentAttributeValue {
   ValueString?: string;
 }
-export type ContactState =
-  | "INCOMING"
-  | "PENDING"
-  | "CONNECTING"
-  | "CONNECTED"
-  | "CONNECTED_ONHOLD"
-  | "MISSED"
-  | "ERROR"
-  | "ENDED"
-  | "REJECTED";
+export type ContactState = "INCOMING" | "PENDING" | "CONNECTING" | "CONNECTED" | "CONNECTED_ONHOLD" | "MISSED" | "ERROR" | "ENDED" | "REJECTED";
 export type ContactStates = Array<ContactState>;
 export type ContactTagKey = string;
 
@@ -4783,9 +3174,7 @@ interface _CreatedByInfo {
   AWSIdentityArn?: string;
 }
 
-export type CreatedByInfo =
-  | (_CreatedByInfo & { ConnectUserArn: string })
-  | (_CreatedByInfo & { AWSIdentityArn: string });
+export type CreatedByInfo = (_CreatedByInfo & { ConnectUserArn: string }) | (_CreatedByInfo & { AWSIdentityArn: string });
 export interface CreateEmailAddressRequest {
   Description?: string;
   InstanceId: string;
@@ -5093,20 +3482,7 @@ export interface CurrentMetricData {
   Value?: number;
 }
 export type CurrentMetricDataCollections = Array<CurrentMetricData>;
-export type CurrentMetricName =
-  | "AGENTS_ONLINE"
-  | "AGENTS_AVAILABLE"
-  | "AGENTS_ON_CALL"
-  | "AGENTS_NON_PRODUCTIVE"
-  | "AGENTS_AFTER_CONTACT_WORK"
-  | "AGENTS_ERROR"
-  | "AGENTS_STAFFED"
-  | "CONTACTS_IN_QUEUE"
-  | "OLDEST_CONTACT_AGE"
-  | "CONTACTS_SCHEDULED"
-  | "AGENTS_ON_CONTACT"
-  | "SLOTS_ACTIVE"
-  | "SLOTS_AVAILABLE";
+export type CurrentMetricName = "AGENTS_ONLINE" | "AGENTS_AVAILABLE" | "AGENTS_ON_CALL" | "AGENTS_NON_PRODUCTIVE" | "AGENTS_AFTER_CONTACT_WORK" | "AGENTS_ERROR" | "AGENTS_STAFFED" | "CONTACTS_IN_QUEUE" | "OLDEST_CONTACT_AGE" | "CONTACTS_SCHEDULED" | "AGENTS_ON_CONTACT" | "SLOTS_ACTIVE" | "SLOTS_AVAILABLE";
 export interface CurrentMetricResult {
   Dimensions?: Dimensions;
   Collections?: Array<CurrentMetricData>;
@@ -5138,12 +3514,7 @@ export interface CustomerVoiceActivity {
 export type DataSetId = string;
 
 export type DataSetIds = Array<string>;
-export type DateComparisonType =
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO";
+export type DateComparisonType = "GREATER_THAN" | "LESS_THAN" | "GREATER_THAN_OR_EQUAL_TO" | "LESS_THAN_OR_EQUAL_TO" | "EQUAL_TO";
 export interface DateCondition {
   FieldName?: string;
   Value?: string;
@@ -5179,7 +3550,8 @@ export interface DeleteAttachedFileRequest {
   FileId: string;
   AssociatedResourceArn: string;
 }
-export interface DeleteAttachedFileResponse {}
+export interface DeleteAttachedFileResponse {
+}
 export interface DeleteContactEvaluationRequest {
   InstanceId: string;
   EvaluationId: string;
@@ -5188,23 +3560,27 @@ export interface DeleteContactFlowModuleRequest {
   InstanceId: string;
   ContactFlowModuleId: string;
 }
-export interface DeleteContactFlowModuleResponse {}
+export interface DeleteContactFlowModuleResponse {
+}
 export interface DeleteContactFlowRequest {
   InstanceId: string;
   ContactFlowId: string;
 }
-export interface DeleteContactFlowResponse {}
+export interface DeleteContactFlowResponse {
+}
 export interface DeleteContactFlowVersionRequest {
   InstanceId: string;
   ContactFlowId: string;
   ContactFlowVersion: number;
 }
-export interface DeleteContactFlowVersionResponse {}
+export interface DeleteContactFlowVersionResponse {
+}
 export interface DeleteEmailAddressRequest {
   InstanceId: string;
   EmailAddressId: string;
 }
-export interface DeleteEmailAddressResponse {}
+export interface DeleteEmailAddressResponse {
+}
 export interface DeleteEvaluationFormRequest {
   InstanceId: string;
   EvaluationFormId: string;
@@ -5240,7 +3616,8 @@ export interface DeletePushNotificationRegistrationRequest {
   RegistrationId: string;
   ContactId: string;
 }
-export interface DeletePushNotificationRegistrationResponse {}
+export interface DeletePushNotificationRegistrationResponse {
+}
 export interface DeleteQueueRequest {
   InstanceId: string;
   QueueId: string;
@@ -5265,11 +3642,13 @@ export interface DeleteTaskTemplateRequest {
   InstanceId: string;
   TaskTemplateId: string;
 }
-export interface DeleteTaskTemplateResponse {}
+export interface DeleteTaskTemplateResponse {
+}
 export interface DeleteTrafficDistributionGroupRequest {
   TrafficDistributionGroupId: string;
 }
-export interface DeleteTrafficDistributionGroupResponse {}
+export interface DeleteTrafficDistributionGroupResponse {
+}
 export interface DeleteUseCaseRequest {
   InstanceId: string;
   IntegrationAssociationId: string;
@@ -5287,13 +3666,15 @@ export interface DeleteViewRequest {
   InstanceId: string;
   ViewId: string;
 }
-export interface DeleteViewResponse {}
+export interface DeleteViewResponse {
+}
 export interface DeleteViewVersionRequest {
   InstanceId: string;
   ViewId: string;
   ViewVersion: number;
 }
-export interface DeleteViewVersionResponse {}
+export interface DeleteViewVersionResponse {
+}
 export interface DeleteVocabularyRequest {
   InstanceId: string;
   VocabularyId: string;
@@ -5558,7 +3939,8 @@ export interface DisassociateFlowRequest {
   ResourceId: string;
   ResourceType: FlowAssociationResourceType;
 }
-export interface DisassociateFlowResponse {}
+export interface DisassociateFlowResponse {
+}
 export interface DisassociateInstanceStorageConfigRequest {
   InstanceId: string;
   AssociationId: string;
@@ -5600,7 +3982,8 @@ export interface DisassociateTrafficDistributionGroupUserRequest {
   UserId: string;
   InstanceId: string;
 }
-export interface DisassociateTrafficDistributionGroupUserResponse {}
+export interface DisassociateTrafficDistributionGroupUserResponse {
+}
 export interface DisassociateUserProficienciesRequest {
   InstanceId: string;
   UserId: string;
@@ -5619,7 +4002,8 @@ export interface DismissUserContactRequest {
   InstanceId: string;
   ContactId: string;
 }
-export interface DismissUserContactResponse {}
+export interface DismissUserContactResponse {
+}
 export type DisplayName = string;
 
 export interface Distribution {
@@ -5687,12 +4071,7 @@ export interface EmailAttachment {
 }
 export type EmailAttachments = Array<EmailAttachment>;
 export type EmailHeaders = Record<EmailHeaderType, string>;
-export type EmailHeaderType =
-  | "REFERENCES"
-  | "MESSAGE_ID"
-  | "IN_REPLY_TO"
-  | "X_SES_SPAM_VERDICT"
-  | "X_SES_VIRUS_VERDICT";
+export type EmailHeaderType = "REFERENCES" | "MESSAGE_ID" | "IN_REPLY_TO" | "X_SES_SPAM_VERDICT" | "X_SES_VIRUS_VERDICT";
 export type EmailHeaderValue = string;
 
 export type EmailMessageContentType = string;
@@ -5710,13 +4089,15 @@ export interface EmailReference {
   Name?: string;
   Value?: string;
 }
-export interface EmptyFieldValue {}
+export interface EmptyFieldValue {
+}
 export interface EncryptionConfig {
   EncryptionType: EncryptionType;
   KeyId: string;
 }
 export type EncryptionType = "KMS";
-export interface EndAssociatedTasksActionDefinition {}
+export interface EndAssociatedTasksActionDefinition {
+}
 export interface Endpoint {
   Type?: EndpointType;
   Address?: string;
@@ -5730,12 +4111,7 @@ export interface EndpointInfo {
   Address?: string;
   DisplayName?: string;
 }
-export type EndpointType =
-  | "TELEPHONE_NUMBER"
-  | "VOIP"
-  | "CONTACT_FLOW"
-  | "CONNECT_PHONENUMBER_ARN"
-  | "EMAIL_ADDRESS";
+export type EndpointType = "TELEPHONE_NUMBER" | "VOIP" | "CONTACT_FLOW" | "CONNECT_PHONENUMBER_ARN" | "EMAIL_ADDRESS";
 export type ErrorCode = string;
 
 export type ErrorMessage = string;
@@ -5763,10 +4139,7 @@ interface _EvaluationAnswerData {
   NotApplicable?: boolean;
 }
 
-export type EvaluationAnswerData =
-  | (_EvaluationAnswerData & { StringValue: string })
-  | (_EvaluationAnswerData & { NumericValue: number })
-  | (_EvaluationAnswerData & { NotApplicable: boolean });
+export type EvaluationAnswerData = (_EvaluationAnswerData & { StringValue: string }) | (_EvaluationAnswerData & { NumericValue: number }) | (_EvaluationAnswerData & { NotApplicable: boolean });
 export type EvaluationAnswerDataNumericValue = number;
 
 export type EvaluationAnswerDataStringValue = string;
@@ -5816,9 +4189,7 @@ interface _EvaluationFormItem {
   Question?: EvaluationFormQuestion;
 }
 
-export type EvaluationFormItem =
-  | (_EvaluationFormItem & { Section: EvaluationFormSection })
-  | (_EvaluationFormItem & { Question: EvaluationFormQuestion });
+export type EvaluationFormItem = (_EvaluationFormItem & { Section: EvaluationFormSection }) | (_EvaluationFormItem & { Question: EvaluationFormQuestion });
 export type EvaluationFormItemsList = Array<EvaluationFormItem>;
 export type EvaluationFormItemWeight = number;
 
@@ -5826,18 +4197,14 @@ interface _EvaluationFormNumericQuestionAutomation {
   PropertyValue?: NumericQuestionPropertyValueAutomation;
 }
 
-export type EvaluationFormNumericQuestionAutomation =
-  _EvaluationFormNumericQuestionAutomation & {
-    PropertyValue: NumericQuestionPropertyValueAutomation;
-  };
+export type EvaluationFormNumericQuestionAutomation = (_EvaluationFormNumericQuestionAutomation & { PropertyValue: NumericQuestionPropertyValueAutomation });
 export interface EvaluationFormNumericQuestionOption {
   MinValue: number;
   MaxValue: number;
   Score?: number;
   AutomaticFail?: boolean;
 }
-export type EvaluationFormNumericQuestionOptionList =
-  Array<EvaluationFormNumericQuestionOption>;
+export type EvaluationFormNumericQuestionOptionList = Array<EvaluationFormNumericQuestionOption>;
 export interface EvaluationFormNumericQuestionProperties {
   MinValue: number;
   MaxValue: number;
@@ -5865,13 +4232,7 @@ interface _EvaluationFormQuestionTypeProperties {
   SingleSelect?: EvaluationFormSingleSelectQuestionProperties;
 }
 
-export type EvaluationFormQuestionTypeProperties =
-  | (_EvaluationFormQuestionTypeProperties & {
-      Numeric: EvaluationFormNumericQuestionProperties;
-    })
-  | (_EvaluationFormQuestionTypeProperties & {
-      SingleSelect: EvaluationFormSingleSelectQuestionProperties;
-    });
+export type EvaluationFormQuestionTypeProperties = (_EvaluationFormQuestionTypeProperties & { Numeric: EvaluationFormNumericQuestionProperties }) | (_EvaluationFormQuestionTypeProperties & { SingleSelect: EvaluationFormSingleSelectQuestionProperties });
 export type EvaluationFormScoringMode = "QUESTION_ONLY" | "SECTION_ONLY";
 export type EvaluationFormScoringStatus = "ENABLED" | "DISABLED";
 export interface EvaluationFormScoringStrategy {
@@ -5895,23 +4256,16 @@ interface _EvaluationFormSingleSelectQuestionAutomationOption {
   RuleCategory?: SingleSelectQuestionRuleCategoryAutomation;
 }
 
-export type EvaluationFormSingleSelectQuestionAutomationOption =
-  _EvaluationFormSingleSelectQuestionAutomationOption & {
-    RuleCategory: SingleSelectQuestionRuleCategoryAutomation;
-  };
-export type EvaluationFormSingleSelectQuestionAutomationOptionList =
-  Array<EvaluationFormSingleSelectQuestionAutomationOption>;
-export type EvaluationFormSingleSelectQuestionDisplayMode =
-  | "DROPDOWN"
-  | "RADIO";
+export type EvaluationFormSingleSelectQuestionAutomationOption = (_EvaluationFormSingleSelectQuestionAutomationOption & { RuleCategory: SingleSelectQuestionRuleCategoryAutomation });
+export type EvaluationFormSingleSelectQuestionAutomationOptionList = Array<EvaluationFormSingleSelectQuestionAutomationOption>;
+export type EvaluationFormSingleSelectQuestionDisplayMode = "DROPDOWN" | "RADIO";
 export interface EvaluationFormSingleSelectQuestionOption {
   RefId: string;
   Text: string;
   Score?: number;
   AutomaticFail?: boolean;
 }
-export type EvaluationFormSingleSelectQuestionOptionList =
-  Array<EvaluationFormSingleSelectQuestionOption>;
+export type EvaluationFormSingleSelectQuestionOptionList = Array<EvaluationFormSingleSelectQuestionOption>;
 export type EvaluationFormSingleSelectQuestionOptionText = string;
 
 export interface EvaluationFormSingleSelectQuestionProperties {
@@ -5949,8 +4303,7 @@ export interface EvaluationFormVersionSummary {
   LastModifiedTime: Date | string;
   LastModifiedBy: string;
 }
-export type EvaluationFormVersionSummaryList =
-  Array<EvaluationFormVersionSummary>;
+export type EvaluationFormVersionSummaryList = Array<EvaluationFormVersionSummary>;
 export type EvaluationId = string;
 
 export interface EvaluationMetadata {
@@ -5991,19 +4344,7 @@ export interface EventBridgeActionDefinition {
 }
 export type EventBridgeActionName = string;
 
-export type EventSourceName =
-  | "OnPostCallAnalysisAvailable"
-  | "OnRealTimeCallAnalysisAvailable"
-  | "OnRealTimeChatAnalysisAvailable"
-  | "OnPostChatAnalysisAvailable"
-  | "OnZendeskTicketCreate"
-  | "OnZendeskTicketStatusUpdate"
-  | "OnSalesforceCaseCreate"
-  | "OnContactEvaluationSubmit"
-  | "OnMetricDataUpdate"
-  | "OnCaseCreate"
-  | "OnCaseUpdate"
-  | "OnSlaBreach";
+export type EventSourceName = "OnPostCallAnalysisAvailable" | "OnRealTimeCallAnalysisAvailable" | "OnRealTimeChatAnalysisAvailable" | "OnPostChatAnalysisAvailable" | "OnZendeskTicketCreate" | "OnZendeskTicketStatusUpdate" | "OnSalesforceCaseCreate" | "OnContactEvaluationSubmit" | "OnMetricDataUpdate" | "OnCaseCreate" | "OnCaseUpdate" | "OnSlaBreach";
 export interface Expiry {
   DurationInSeconds?: number;
   ExpiryTimestamp?: Date | string;
@@ -6025,17 +4366,7 @@ export interface FailedRequest {
   FailureReasonMessage?: string;
 }
 export type FailedRequestList = Array<FailedRequest>;
-export type FailureReasonCode =
-  | "INVALID_ATTRIBUTE_KEY"
-  | "INVALID_CUSTOMER_ENDPOINT"
-  | "INVALID_SYSTEM_ENDPOINT"
-  | "INVALID_QUEUE"
-  | "MISSING_CAMPAIGN"
-  | "MISSING_CUSTOMER_ENDPOINT"
-  | "MISSING_QUEUE_ID_AND_SYSTEM_ENDPOINT"
-  | "REQUEST_THROTTLED"
-  | "IDEMPOTENCY_EXCEPTION"
-  | "INTERNAL_ERROR";
+export type FailureReasonCode = "INVALID_ATTRIBUTE_KEY" | "INVALID_CUSTOMER_ENDPOINT" | "INVALID_SYSTEM_ENDPOINT" | "INVALID_QUEUE" | "MISSING_CAMPAIGN" | "MISSING_CUSTOMER_ENDPOINT" | "MISSING_QUEUE_ID_AND_SYSTEM_ENDPOINT" | "REQUEST_THROTTLED" | "IDEMPOTENCY_EXCEPTION" | "INTERNAL_ERROR";
 export type FieldStringValue = string;
 
 export interface FieldValue {
@@ -6072,12 +4403,7 @@ export interface FilterV2 {
   FilterValues?: Array<string>;
 }
 export type FilterValueList = Array<string>;
-export type FlowAssociationResourceType =
-  | "SMS_PHONE_NUMBER"
-  | "INBOUND_EMAIL"
-  | "OUTBOUND_EMAIL"
-  | "ANALYTICS_CONNECTOR"
-  | "WHATSAPP_MESSAGING_PHONE_NUMBER";
+export type FlowAssociationResourceType = "SMS_PHONE_NUMBER" | "INBOUND_EMAIL" | "OUTBOUND_EMAIL" | "ANALYTICS_CONNECTOR" | "WHATSAPP_MESSAGING_PHONE_NUMBER";
 export interface FlowAssociationSummary {
   ResourceId?: string;
   FlowId?: string;
@@ -6245,11 +4571,7 @@ export interface GetTrafficDistributionResponse {
 }
 export type GlobalSignInEndpoint = string;
 
-export type Grouping =
-  | "QUEUE"
-  | "CHANNEL"
-  | "ROUTING_PROFILE"
-  | "ROUTING_STEP_EXPRESSION";
+export type Grouping = "QUEUE" | "CHANNEL" | "ROUTING_PROFILE" | "ROUTING_STEP_EXPRESSION";
 export type Groupings = Array<Grouping>;
 export type GroupingsV2 = Array<string>;
 export type GroupingV2 = string;
@@ -6349,32 +4671,7 @@ export interface HistoricalMetricData {
   Value?: number;
 }
 export type HistoricalMetricDataCollections = Array<HistoricalMetricData>;
-export type HistoricalMetricName =
-  | "CONTACTS_QUEUED"
-  | "CONTACTS_HANDLED"
-  | "CONTACTS_ABANDONED"
-  | "CONTACTS_CONSULTED"
-  | "CONTACTS_AGENT_HUNG_UP_FIRST"
-  | "CONTACTS_HANDLED_INCOMING"
-  | "CONTACTS_HANDLED_OUTBOUND"
-  | "CONTACTS_HOLD_ABANDONS"
-  | "CONTACTS_TRANSFERRED_IN"
-  | "CONTACTS_TRANSFERRED_OUT"
-  | "CONTACTS_TRANSFERRED_IN_FROM_QUEUE"
-  | "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE"
-  | "CONTACTS_MISSED"
-  | "CALLBACK_CONTACTS_HANDLED"
-  | "API_CONTACTS_HANDLED"
-  | "OCCUPANCY"
-  | "HANDLE_TIME"
-  | "AFTER_CONTACT_WORK_TIME"
-  | "QUEUED_TIME"
-  | "ABANDON_TIME"
-  | "QUEUE_ANSWER_TIME"
-  | "HOLD_TIME"
-  | "INTERACTION_TIME"
-  | "INTERACTION_AND_HOLD_TIME"
-  | "SERVICE_LEVEL";
+export type HistoricalMetricName = "CONTACTS_QUEUED" | "CONTACTS_HANDLED" | "CONTACTS_ABANDONED" | "CONTACTS_CONSULTED" | "CONTACTS_AGENT_HUNG_UP_FIRST" | "CONTACTS_HANDLED_INCOMING" | "CONTACTS_HANDLED_OUTBOUND" | "CONTACTS_HOLD_ABANDONS" | "CONTACTS_TRANSFERRED_IN" | "CONTACTS_TRANSFERRED_OUT" | "CONTACTS_TRANSFERRED_IN_FROM_QUEUE" | "CONTACTS_TRANSFERRED_OUT_FROM_QUEUE" | "CONTACTS_MISSED" | "CALLBACK_CONTACTS_HANDLED" | "API_CONTACTS_HANDLED" | "OCCUPANCY" | "HANDLE_TIME" | "AFTER_CONTACT_WORK_TIME" | "QUEUED_TIME" | "ABANDON_TIME" | "QUEUE_ANSWER_TIME" | "HOLD_TIME" | "INTERACTION_TIME" | "INTERACTION_AND_HOLD_TIME" | "SERVICE_LEVEL";
 export interface HistoricalMetricResult {
   Dimensions?: Dimensions;
   Collections?: Array<HistoricalMetricData>;
@@ -6402,14 +4699,7 @@ export interface HoursOfOperationConfig {
   EndTime: HoursOfOperationTimeSlice;
 }
 export type HoursOfOperationConfigList = Array<HoursOfOperationConfig>;
-export type HoursOfOperationDays =
-  | "SUNDAY"
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY";
+export type HoursOfOperationDays = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";
 export type HoursOfOperationDescription = string;
 
 export type HoursOfOperationId = string;
@@ -6432,13 +4722,11 @@ export interface HoursOfOperationOverrideConfig {
   StartTime?: OverrideTimeSlice;
   EndTime?: OverrideTimeSlice;
 }
-export type HoursOfOperationOverrideConfigList =
-  Array<HoursOfOperationOverrideConfig>;
+export type HoursOfOperationOverrideConfigList = Array<HoursOfOperationOverrideConfig>;
 export type HoursOfOperationOverrideId = string;
 
 export type HoursOfOperationOverrideList = Array<HoursOfOperationOverride>;
-export type HoursOfOperationOverrideSearchConditionList =
-  Array<HoursOfOperationOverrideSearchCriteria>;
+export type HoursOfOperationOverrideSearchConditionList = Array<HoursOfOperationOverrideSearchCriteria>;
 export interface HoursOfOperationOverrideSearchCriteria {
   OrConditions?: Array<HoursOfOperationOverrideSearchCriteria>;
   AndConditions?: Array<HoursOfOperationOverrideSearchCriteria>;
@@ -6447,8 +4735,7 @@ export interface HoursOfOperationOverrideSearchCriteria {
 }
 export type HoursOfOperationOverrideYearMonthDayDateFormat = string;
 
-export type HoursOfOperationSearchConditionList =
-  Array<HoursOfOperationSearchCriteria>;
+export type HoursOfOperationSearchConditionList = Array<HoursOfOperationSearchCriteria>;
 export interface HoursOfOperationSearchCriteria {
   OrConditions?: Array<HoursOfOperationSearchCriteria>;
   AndConditions?: Array<HoursOfOperationSearchCriteria>;
@@ -6526,36 +4813,15 @@ export interface Instance {
 }
 export type InstanceArn = string;
 
-export type InstanceAttributeType =
-  | "INBOUND_CALLS"
-  | "OUTBOUND_CALLS"
-  | "CONTACTFLOW_LOGS"
-  | "CONTACT_LENS"
-  | "AUTO_RESOLVE_BEST_VOICES"
-  | "USE_CUSTOM_TTS_VOICES"
-  | "EARLY_MEDIA"
-  | "MULTI_PARTY_CONFERENCE"
-  | "HIGH_VOLUME_OUTBOUND"
-  | "ENHANCED_CONTACT_MONITORING"
-  | "ENHANCED_CHAT_MONITORING"
-  | "MULTI_PARTY_CHAT_CONFERENCE";
+export type InstanceAttributeType = "INBOUND_CALLS" | "OUTBOUND_CALLS" | "CONTACTFLOW_LOGS" | "CONTACT_LENS" | "AUTO_RESOLVE_BEST_VOICES" | "USE_CUSTOM_TTS_VOICES" | "EARLY_MEDIA" | "MULTI_PARTY_CONFERENCE" | "HIGH_VOLUME_OUTBOUND" | "ENHANCED_CONTACT_MONITORING" | "ENHANCED_CHAT_MONITORING" | "MULTI_PARTY_CHAT_CONFERENCE";
 export type InstanceAttributeValue = string;
 
 export type InstanceId = string;
 
 export type InstanceIdOrArn = string;
 
-export type InstanceReplicationStatus =
-  | "INSTANCE_REPLICATION_COMPLETE"
-  | "INSTANCE_REPLICATION_IN_PROGRESS"
-  | "INSTANCE_REPLICATION_FAILED"
-  | "INSTANCE_REPLICA_DELETING"
-  | "INSTANCE_REPLICATION_DELETION_FAILED"
-  | "RESOURCE_REPLICATION_NOT_STARTED";
-export type InstanceStatus =
-  | "CREATION_IN_PROGRESS"
-  | "ACTIVE"
-  | "CREATION_FAILED";
+export type InstanceReplicationStatus = "INSTANCE_REPLICATION_COMPLETE" | "INSTANCE_REPLICATION_IN_PROGRESS" | "INSTANCE_REPLICATION_FAILED" | "INSTANCE_REPLICA_DELETING" | "INSTANCE_REPLICATION_DELETION_FAILED" | "RESOURCE_REPLICATION_NOT_STARTED";
+export type InstanceStatus = "CREATION_IN_PROGRESS" | "ACTIVE" | "CREATION_FAILED";
 export interface InstanceStatusReason {
   Message?: string;
 }
@@ -6568,20 +4834,7 @@ export interface InstanceStorageConfig {
   KinesisFirehoseConfig?: KinesisFirehoseConfig;
 }
 export type InstanceStorageConfigs = Array<InstanceStorageConfig>;
-export type InstanceStorageResourceType =
-  | "CHAT_TRANSCRIPTS"
-  | "CALL_RECORDINGS"
-  | "SCHEDULED_REPORTS"
-  | "MEDIA_STREAMS"
-  | "CONTACT_TRACE_RECORDS"
-  | "AGENT_EVENTS"
-  | "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS"
-  | "ATTACHMENTS"
-  | "CONTACT_EVALUATIONS"
-  | "SCREEN_RECORDINGS"
-  | "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS"
-  | "REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS"
-  | "EMAIL_MESSAGES";
+export type InstanceStorageResourceType = "CHAT_TRANSCRIPTS" | "CALL_RECORDINGS" | "SCHEDULED_REPORTS" | "MEDIA_STREAMS" | "CONTACT_TRACE_RECORDS" | "AGENT_EVENTS" | "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" | "ATTACHMENTS" | "CONTACT_EVALUATIONS" | "SCREEN_RECORDINGS" | "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS" | "REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS" | "EMAIL_MESSAGES";
 export interface InstanceSummary {
   Id?: string;
   Arn?: string;
@@ -6611,23 +4864,8 @@ export interface IntegrationAssociationSummary {
   SourceApplicationName?: string;
   SourceType?: SourceType;
 }
-export type IntegrationAssociationSummaryList =
-  Array<IntegrationAssociationSummary>;
-export type IntegrationType =
-  | "EVENT"
-  | "VOICE_ID"
-  | "PINPOINT_APP"
-  | "WISDOM_ASSISTANT"
-  | "WISDOM_KNOWLEDGE_BASE"
-  | "WISDOM_QUICK_RESPONSES"
-  | "Q_MESSAGE_TEMPLATES"
-  | "CASES_DOMAIN"
-  | "APPLICATION"
-  | "FILE_SCANNER"
-  | "SES_IDENTITY"
-  | "ANALYTICS_CONNECTOR"
-  | "CALL_TRANSFER_CONNECTOR"
-  | "COGNITO_USER_POOL";
+export type IntegrationAssociationSummaryList = Array<IntegrationAssociationSummary>;
+export type IntegrationType = "EVENT" | "VOICE_ID" | "PINPOINT_APP" | "WISDOM_ASSISTANT" | "WISDOM_KNOWLEDGE_BASE" | "WISDOM_QUICK_RESPONSES" | "Q_MESSAGE_TEMPLATES" | "CASES_DOMAIN" | "APPLICATION" | "FILE_SCANNER" | "SES_IDENTITY" | "ANALYTICS_CONNECTOR" | "CALL_TRANSFER_CONNECTOR" | "COGNITO_USER_POOL";
 export declare class InternalServiceException extends EffectData.TaggedError(
   "InternalServiceException",
 )<{
@@ -6637,13 +4875,7 @@ export interface IntervalDetails {
   TimeZone?: string;
   IntervalPeriod?: IntervalPeriod;
 }
-export type IntervalPeriod =
-  | "FIFTEEN_MIN"
-  | "THIRTY_MIN"
-  | "HOUR"
-  | "DAY"
-  | "WEEK"
-  | "TOTAL";
+export type IntervalPeriod = "FIFTEEN_MIN" | "THIRTY_MIN" | "HOUR" | "DAY" | "WEEK" | "TOTAL";
 export declare class InvalidContactFlowException extends EffectData.TaggedError(
   "InvalidContactFlowException",
 )<{
@@ -6669,9 +4901,7 @@ interface _InvalidRequestExceptionReason {
   AttachedFileInvalidRequestExceptionReason?: AttachedFileInvalidRequestExceptionReason;
 }
 
-export type InvalidRequestExceptionReason = _InvalidRequestExceptionReason & {
-  AttachedFileInvalidRequestExceptionReason: AttachedFileInvalidRequestExceptionReason;
-};
+export type InvalidRequestExceptionReason = (_InvalidRequestExceptionReason & { AttachedFileInvalidRequestExceptionReason: AttachedFileInvalidRequestExceptionReason });
 export interface InvisibleFieldInfo {
   Id?: TaskTemplateFieldIdentifier;
 }
@@ -6871,12 +5101,7 @@ export interface ListEvaluationFormVersionsResponse {
   EvaluationFormVersionSummaryList: Array<EvaluationFormVersionSummary>;
   NextToken?: string;
 }
-export type ListFlowAssociationResourceType =
-  | "WHATSAPP_MESSAGING_PHONE_NUMBER"
-  | "VOICE_PHONE_NUMBER"
-  | "INBOUND_EMAIL"
-  | "OUTBOUND_EMAIL"
-  | "ANALYTICS_CONNECTOR";
+export type ListFlowAssociationResourceType = "WHATSAPP_MESSAGING_PHONE_NUMBER" | "VOICE_PHONE_NUMBER" | "INBOUND_EMAIL" | "OUTBOUND_EMAIL" | "ANALYTICS_CONNECTOR";
 export interface ListFlowAssociationsRequest {
   InstanceId: string;
   ResourceType?: ListFlowAssociationResourceType;
@@ -7372,14 +5597,7 @@ export type NullableProficiencyLevel = number;
 
 export type NullableProficiencyLimitValue = number;
 
-export type NumberComparisonType =
-  | "GREATER_OR_EQUAL"
-  | "GREATER"
-  | "LESSER_OR_EQUAL"
-  | "LESSER"
-  | "EQUAL"
-  | "NOT_EQUAL"
-  | "RANGE";
+export type NumberComparisonType = "GREATER_OR_EQUAL" | "GREATER" | "LESSER_OR_EQUAL" | "LESSER" | "EQUAL" | "NOT_EQUAL" | "RANGE";
 export interface NumberCondition {
   FieldName?: string;
   MinValue?: number;
@@ -7390,15 +5608,7 @@ export interface NumberReference {
   Name?: string;
   Value?: string;
 }
-export type NumericQuestionPropertyAutomationLabel =
-  | "OVERALL_CUSTOMER_SENTIMENT_SCORE"
-  | "OVERALL_AGENT_SENTIMENT_SCORE"
-  | "NON_TALK_TIME"
-  | "NON_TALK_TIME_PERCENTAGE"
-  | "NUMBER_OF_INTERRUPTIONS"
-  | "CONTACT_DURATION"
-  | "AGENT_INTERACTION_DURATION"
-  | "CUSTOMER_HOLD_TIME";
+export type NumericQuestionPropertyAutomationLabel = "OVERALL_CUSTOMER_SENTIMENT_SCORE" | "OVERALL_AGENT_SENTIMENT_SCORE" | "NON_TALK_TIME" | "NON_TALK_TIME_PERCENTAGE" | "NUMBER_OF_INTERRUPTIONS" | "CONTACT_DURATION" | "AGENT_INTERACTION_DURATION" | "CUSTOMER_HOLD_TIME";
 export interface NumericQuestionPropertyValueAutomation {
   Label: NumericQuestionPropertyAutomationLabel;
 }
@@ -7452,14 +5662,7 @@ export declare class OutputTypeNotFoundException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type OverrideDays =
-  | "SUNDAY"
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY";
+export type OverrideDays = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";
 export interface OverrideTimeSlice {
   Hours: number;
   Minutes: number;
@@ -7488,17 +5691,8 @@ export interface ParticipantMetrics {
   MaxResponseTimeInMillis?: number;
   LastMessageTimestamp?: Date | string;
 }
-export type ParticipantRole =
-  | "AGENT"
-  | "CUSTOMER"
-  | "SYSTEM"
-  | "CUSTOM_BOT"
-  | "SUPERVISOR";
-export type ParticipantState =
-  | "INITIAL"
-  | "CONNECTED"
-  | "DISCONNECTED"
-  | "MISSED";
+export type ParticipantRole = "AGENT" | "CUSTOMER" | "SYSTEM" | "CUSTOM_BOT" | "SUPERVISOR";
+export type ParticipantState = "INITIAL" | "CONNECTED" | "DISCONNECTED" | "MISSED";
 export type ParticipantTimerAction = "Unset";
 export type ParticipantTimerConfigList = Array<ParticipantTimerConfiguration>;
 export interface ParticipantTimerConfiguration {
@@ -7514,23 +5708,14 @@ interface _ParticipantTimerValue {
   ParticipantTimerDurationInMinutes?: number;
 }
 
-export type ParticipantTimerValue =
-  | (_ParticipantTimerValue & {
-      ParticipantTimerAction: ParticipantTimerAction;
-    })
-  | (_ParticipantTimerValue & { ParticipantTimerDurationInMinutes: number });
+export type ParticipantTimerValue = (_ParticipantTimerValue & { ParticipantTimerAction: ParticipantTimerAction }) | (_ParticipantTimerValue & { ParticipantTimerDurationInMinutes: number });
 export type ParticipantToken = string;
 
 export interface ParticipantTokenCredentials {
   ParticipantToken?: string;
   Expiry?: string;
 }
-export type ParticipantType =
-  | "ALL"
-  | "MANAGER"
-  | "AGENT"
-  | "CUSTOMER"
-  | "THIRDPARTY";
+export type ParticipantType = "ALL" | "MANAGER" | "AGENT" | "CUSTOMER" | "THIRDPARTY";
 export type Password = string;
 
 export interface PauseContactRequest {
@@ -7538,7 +5723,8 @@ export interface PauseContactRequest {
   InstanceId: string;
   ContactFlowId?: string;
 }
-export interface PauseContactResponse {}
+export interface PauseContactResponse {
+}
 export type PEM = string;
 
 export type Percentage = number;
@@ -7552,244 +5738,7 @@ export interface PersistentChat {
 }
 export type PhoneNumber = string;
 
-export type PhoneNumberCountryCode =
-  | "AF"
-  | "AL"
-  | "DZ"
-  | "AS"
-  | "AD"
-  | "AO"
-  | "AI"
-  | "AQ"
-  | "AG"
-  | "AR"
-  | "AM"
-  | "AW"
-  | "AU"
-  | "AT"
-  | "AZ"
-  | "BS"
-  | "BH"
-  | "BD"
-  | "BB"
-  | "BY"
-  | "BE"
-  | "BZ"
-  | "BJ"
-  | "BM"
-  | "BT"
-  | "BO"
-  | "BA"
-  | "BW"
-  | "BR"
-  | "IO"
-  | "VG"
-  | "BN"
-  | "BG"
-  | "BF"
-  | "BI"
-  | "KH"
-  | "CM"
-  | "CA"
-  | "CV"
-  | "KY"
-  | "CF"
-  | "TD"
-  | "CL"
-  | "CN"
-  | "CX"
-  | "CC"
-  | "CO"
-  | "KM"
-  | "CK"
-  | "CR"
-  | "HR"
-  | "CU"
-  | "CW"
-  | "CY"
-  | "CZ"
-  | "CD"
-  | "DK"
-  | "DJ"
-  | "DM"
-  | "DO"
-  | "TL"
-  | "EC"
-  | "EG"
-  | "SV"
-  | "GQ"
-  | "ER"
-  | "EE"
-  | "ET"
-  | "FK"
-  | "FO"
-  | "FJ"
-  | "FI"
-  | "FR"
-  | "PF"
-  | "GA"
-  | "GM"
-  | "GE"
-  | "DE"
-  | "GH"
-  | "GI"
-  | "GR"
-  | "GL"
-  | "GD"
-  | "GU"
-  | "GT"
-  | "GG"
-  | "GN"
-  | "GW"
-  | "GY"
-  | "HT"
-  | "HN"
-  | "HK"
-  | "HU"
-  | "IS"
-  | "IN"
-  | "ID"
-  | "IR"
-  | "IQ"
-  | "IE"
-  | "IM"
-  | "IL"
-  | "IT"
-  | "CI"
-  | "JM"
-  | "JP"
-  | "JE"
-  | "JO"
-  | "KZ"
-  | "KE"
-  | "KI"
-  | "KW"
-  | "KG"
-  | "LA"
-  | "LV"
-  | "LB"
-  | "LS"
-  | "LR"
-  | "LY"
-  | "LI"
-  | "LT"
-  | "LU"
-  | "MO"
-  | "MK"
-  | "MG"
-  | "MW"
-  | "MY"
-  | "MV"
-  | "ML"
-  | "MT"
-  | "MH"
-  | "MR"
-  | "MU"
-  | "YT"
-  | "MX"
-  | "FM"
-  | "MD"
-  | "MC"
-  | "MN"
-  | "ME"
-  | "MS"
-  | "MA"
-  | "MZ"
-  | "MM"
-  | "NA"
-  | "NR"
-  | "NP"
-  | "NL"
-  | "AN"
-  | "NC"
-  | "NZ"
-  | "NI"
-  | "NE"
-  | "NG"
-  | "NU"
-  | "KP"
-  | "MP"
-  | "NO"
-  | "OM"
-  | "PK"
-  | "PW"
-  | "PA"
-  | "PG"
-  | "PY"
-  | "PE"
-  | "PH"
-  | "PN"
-  | "PL"
-  | "PT"
-  | "PR"
-  | "QA"
-  | "CG"
-  | "RE"
-  | "RO"
-  | "RU"
-  | "RW"
-  | "BL"
-  | "SH"
-  | "KN"
-  | "LC"
-  | "MF"
-  | "PM"
-  | "VC"
-  | "WS"
-  | "SM"
-  | "ST"
-  | "SA"
-  | "SN"
-  | "RS"
-  | "SC"
-  | "SL"
-  | "SG"
-  | "SX"
-  | "SK"
-  | "SI"
-  | "SB"
-  | "SO"
-  | "ZA"
-  | "KR"
-  | "ES"
-  | "LK"
-  | "SD"
-  | "SR"
-  | "SJ"
-  | "SZ"
-  | "SE"
-  | "CH"
-  | "SY"
-  | "TW"
-  | "TJ"
-  | "TZ"
-  | "TH"
-  | "TG"
-  | "TK"
-  | "TO"
-  | "TT"
-  | "TN"
-  | "TR"
-  | "TM"
-  | "TC"
-  | "TV"
-  | "VI"
-  | "UG"
-  | "UA"
-  | "AE"
-  | "GB"
-  | "US"
-  | "UY"
-  | "UZ"
-  | "VU"
-  | "VA"
-  | "VE"
-  | "VN"
-  | "WF"
-  | "EH"
-  | "YE"
-  | "ZM"
-  | "ZW";
+export type PhoneNumberCountryCode = "AF" | "AL" | "DZ" | "AS" | "AD" | "AO" | "AI" | "AQ" | "AG" | "AR" | "AM" | "AW" | "AU" | "AT" | "AZ" | "BS" | "BH" | "BD" | "BB" | "BY" | "BE" | "BZ" | "BJ" | "BM" | "BT" | "BO" | "BA" | "BW" | "BR" | "IO" | "VG" | "BN" | "BG" | "BF" | "BI" | "KH" | "CM" | "CA" | "CV" | "KY" | "CF" | "TD" | "CL" | "CN" | "CX" | "CC" | "CO" | "KM" | "CK" | "CR" | "HR" | "CU" | "CW" | "CY" | "CZ" | "CD" | "DK" | "DJ" | "DM" | "DO" | "TL" | "EC" | "EG" | "SV" | "GQ" | "ER" | "EE" | "ET" | "FK" | "FO" | "FJ" | "FI" | "FR" | "PF" | "GA" | "GM" | "GE" | "DE" | "GH" | "GI" | "GR" | "GL" | "GD" | "GU" | "GT" | "GG" | "GN" | "GW" | "GY" | "HT" | "HN" | "HK" | "HU" | "IS" | "IN" | "ID" | "IR" | "IQ" | "IE" | "IM" | "IL" | "IT" | "CI" | "JM" | "JP" | "JE" | "JO" | "KZ" | "KE" | "KI" | "KW" | "KG" | "LA" | "LV" | "LB" | "LS" | "LR" | "LY" | "LI" | "LT" | "LU" | "MO" | "MK" | "MG" | "MW" | "MY" | "MV" | "ML" | "MT" | "MH" | "MR" | "MU" | "YT" | "MX" | "FM" | "MD" | "MC" | "MN" | "ME" | "MS" | "MA" | "MZ" | "MM" | "NA" | "NR" | "NP" | "NL" | "AN" | "NC" | "NZ" | "NI" | "NE" | "NG" | "NU" | "KP" | "MP" | "NO" | "OM" | "PK" | "PW" | "PA" | "PG" | "PY" | "PE" | "PH" | "PN" | "PL" | "PT" | "PR" | "QA" | "CG" | "RE" | "RO" | "RU" | "RW" | "BL" | "SH" | "KN" | "LC" | "MF" | "PM" | "VC" | "WS" | "SM" | "ST" | "SA" | "SN" | "RS" | "SC" | "SL" | "SG" | "SX" | "SK" | "SI" | "SB" | "SO" | "ZA" | "KR" | "ES" | "LK" | "SD" | "SR" | "SJ" | "SZ" | "SE" | "CH" | "SY" | "TW" | "TJ" | "TZ" | "TH" | "TG" | "TK" | "TO" | "TT" | "TN" | "TR" | "TM" | "TC" | "TV" | "VI" | "UG" | "UA" | "AE" | "GB" | "US" | "UY" | "UZ" | "VU" | "VA" | "VE" | "VN" | "WF" | "EH" | "YE" | "ZM" | "ZW";
 export type PhoneNumberCountryCodes = Array<PhoneNumberCountryCode>;
 export type PhoneNumberDescription = string;
 
@@ -7812,14 +5761,7 @@ export interface PhoneNumberSummary {
   PhoneNumberCountryCode?: PhoneNumberCountryCode;
 }
 export type PhoneNumberSummaryList = Array<PhoneNumberSummary>;
-export type PhoneNumberType =
-  | "TOLL_FREE"
-  | "DID"
-  | "UIFN"
-  | "SHARED"
-  | "THIRD_PARTY_TF"
-  | "THIRD_PARTY_DID"
-  | "SHORT_CODE";
+export type PhoneNumberType = "TOLL_FREE" | "DID" | "UIFN" | "SHARED" | "THIRD_PARTY_TF" | "THIRD_PARTY_DID" | "SHORT_CODE";
 export type PhoneNumberTypes = Array<PhoneNumberType>;
 export type PhoneNumberWorkflowMessage = string;
 
@@ -7842,8 +5784,7 @@ export interface PredefinedAttribute {
 }
 export type PredefinedAttributeName = string;
 
-export type PredefinedAttributeSearchConditionList =
-  Array<PredefinedAttributeSearchCriteria>;
+export type PredefinedAttributeSearchConditionList = Array<PredefinedAttributeSearchCriteria>;
 export interface PredefinedAttributeSearchCriteria {
   OrConditions?: Array<PredefinedAttributeSearchCriteria>;
   AndConditions?: Array<PredefinedAttributeSearchCriteria>;
@@ -7863,9 +5804,7 @@ interface _PredefinedAttributeValues {
   StringList?: Array<string>;
 }
 
-export type PredefinedAttributeValues = _PredefinedAttributeValues & {
-  StringList: Array<string>;
-};
+export type PredefinedAttributeValues = (_PredefinedAttributeValues & { StringList: Array<string> });
 export type Prefix = string;
 
 export type PreSignedAttachmentUrl = string;
@@ -7928,21 +5867,15 @@ export interface PropertyValidationExceptionProperty {
   Reason: PropertyValidationExceptionReason;
   Message: string;
 }
-export type PropertyValidationExceptionPropertyList =
-  Array<PropertyValidationExceptionProperty>;
-export type PropertyValidationExceptionReason =
-  | "INVALID_FORMAT"
-  | "UNIQUE_CONSTRAINT_VIOLATED"
-  | "REFERENCED_RESOURCE_NOT_FOUND"
-  | "RESOURCE_NAME_ALREADY_EXISTS"
-  | "REQUIRED_PROPERTY_MISSING"
-  | "NOT_SUPPORTED";
+export type PropertyValidationExceptionPropertyList = Array<PropertyValidationExceptionProperty>;
+export type PropertyValidationExceptionReason = "INVALID_FORMAT" | "UNIQUE_CONSTRAINT_VIOLATED" | "REFERENCED_RESOURCE_NOT_FOUND" | "RESOURCE_NAME_ALREADY_EXISTS" | "REQUIRED_PROPERTY_MISSING" | "NOT_SUPPORTED";
 export interface PutUserStatusRequest {
   UserId: string;
   InstanceId: string;
   AgentStatusId: string;
 }
-export interface PutUserStatusResponse {}
+export interface PutUserStatusResponse {
+}
 export interface QualityMetrics {
   Agent?: AgentQualityMetrics;
   Customer?: CustomerQualityMetrics;
@@ -8071,8 +6004,7 @@ export interface RealTimeContactAnalysisAttachment {
   AttachmentId: string;
   Status?: ArtifactStatus;
 }
-export type RealTimeContactAnalysisAttachments =
-  Array<RealTimeContactAnalysisAttachment>;
+export type RealTimeContactAnalysisAttachments = Array<RealTimeContactAnalysisAttachment>;
 export interface RealTimeContactAnalysisCategoryDetails {
   PointsOfInterest: Array<RealTimeContactAnalysisPointOfInterest>;
 }
@@ -8082,8 +6014,7 @@ export interface RealTimeContactAnalysisCharacterInterval {
   BeginOffsetChar: number;
   EndOffsetChar: number;
 }
-export type RealTimeContactAnalysisCharacterIntervals =
-  Array<RealTimeContactAnalysisCharacterInterval>;
+export type RealTimeContactAnalysisCharacterIntervals = Array<RealTimeContactAnalysisCharacterInterval>;
 export type RealTimeContactAnalysisContentType = string;
 
 export type RealTimeContactAnalysisEventType = string;
@@ -8093,31 +6024,19 @@ export type RealTimeContactAnalysisId256 = string;
 export interface RealTimeContactAnalysisIssueDetected {
   TranscriptItems: Array<RealTimeContactAnalysisTranscriptItemWithContent>;
 }
-export type RealTimeContactAnalysisIssuesDetected =
-  Array<RealTimeContactAnalysisIssueDetected>;
-export type RealTimeContactAnalysisMatchedDetails = Record<
-  string,
-  RealTimeContactAnalysisCategoryDetails
->;
+export type RealTimeContactAnalysisIssuesDetected = Array<RealTimeContactAnalysisIssueDetected>;
+export type RealTimeContactAnalysisMatchedDetails = Record<string, RealTimeContactAnalysisCategoryDetails>;
 export type RealTimeContactAnalysisOffset = number;
 
 export type RealTimeContactAnalysisOutputType = "Raw" | "Redacted";
 export interface RealTimeContactAnalysisPointOfInterest {
   TranscriptItems?: Array<RealTimeContactAnalysisTranscriptItemWithCharacterOffsets>;
 }
-export type RealTimeContactAnalysisPointsOfInterest =
-  Array<RealTimeContactAnalysisPointOfInterest>;
+export type RealTimeContactAnalysisPointsOfInterest = Array<RealTimeContactAnalysisPointOfInterest>;
 export type RealTimeContactAnalysisPostContactSummaryContent = string;
 
-export type RealTimeContactAnalysisPostContactSummaryFailureCode =
-  | "QUOTA_EXCEEDED"
-  | "INSUFFICIENT_CONVERSATION_CONTENT"
-  | "FAILED_SAFETY_GUIDELINES"
-  | "INVALID_ANALYSIS_CONFIGURATION"
-  | "INTERNAL_ERROR";
-export type RealTimeContactAnalysisPostContactSummaryStatus =
-  | "FAILED"
-  | "COMPLETED";
+export type RealTimeContactAnalysisPostContactSummaryFailureCode = "QUOTA_EXCEEDED" | "INSUFFICIENT_CONVERSATION_CONTENT" | "FAILED_SAFETY_GUIDELINES" | "INVALID_ANALYSIS_CONFIGURATION" | "INTERNAL_ERROR";
+export type RealTimeContactAnalysisPostContactSummaryStatus = "FAILED" | "COMPLETED";
 interface _RealtimeContactAnalysisSegment {
   Transcript?: RealTimeContactAnalysisSegmentTranscript;
   Categories?: RealTimeContactAnalysisSegmentCategories;
@@ -8127,25 +6046,7 @@ interface _RealtimeContactAnalysisSegment {
   PostContactSummary?: RealTimeContactAnalysisSegmentPostContactSummary;
 }
 
-export type RealtimeContactAnalysisSegment =
-  | (_RealtimeContactAnalysisSegment & {
-      Transcript: RealTimeContactAnalysisSegmentTranscript;
-    })
-  | (_RealtimeContactAnalysisSegment & {
-      Categories: RealTimeContactAnalysisSegmentCategories;
-    })
-  | (_RealtimeContactAnalysisSegment & {
-      Issues: RealTimeContactAnalysisSegmentIssues;
-    })
-  | (_RealtimeContactAnalysisSegment & {
-      Event: RealTimeContactAnalysisSegmentEvent;
-    })
-  | (_RealtimeContactAnalysisSegment & {
-      Attachments: RealTimeContactAnalysisSegmentAttachments;
-    })
-  | (_RealtimeContactAnalysisSegment & {
-      PostContactSummary: RealTimeContactAnalysisSegmentPostContactSummary;
-    });
+export type RealtimeContactAnalysisSegment = (_RealtimeContactAnalysisSegment & { Transcript: RealTimeContactAnalysisSegmentTranscript }) | (_RealtimeContactAnalysisSegment & { Categories: RealTimeContactAnalysisSegmentCategories }) | (_RealtimeContactAnalysisSegment & { Issues: RealTimeContactAnalysisSegmentIssues }) | (_RealtimeContactAnalysisSegment & { Event: RealTimeContactAnalysisSegmentEvent }) | (_RealtimeContactAnalysisSegment & { Attachments: RealTimeContactAnalysisSegmentAttachments }) | (_RealtimeContactAnalysisSegment & { PostContactSummary: RealTimeContactAnalysisSegmentPostContactSummary });
 export interface RealTimeContactAnalysisSegmentAttachments {
   Id: string;
   ParticipantId: string;
@@ -8173,8 +6074,7 @@ export interface RealTimeContactAnalysisSegmentPostContactSummary {
   Status: RealTimeContactAnalysisPostContactSummaryStatus;
   FailureCode?: RealTimeContactAnalysisPostContactSummaryFailureCode;
 }
-export type RealtimeContactAnalysisSegments =
-  Array<RealtimeContactAnalysisSegment>;
+export type RealtimeContactAnalysisSegments = Array<RealtimeContactAnalysisSegment>;
 export interface RealTimeContactAnalysisSegmentTranscript {
   Id: string;
   ParticipantId: string;
@@ -8186,30 +6086,16 @@ export interface RealTimeContactAnalysisSegmentTranscript {
   Redaction?: RealTimeContactAnalysisTranscriptItemRedaction;
   Sentiment?: RealTimeContactAnalysisSentimentLabel;
 }
-export type RealTimeContactAnalysisSegmentType =
-  | "Transcript"
-  | "Categories"
-  | "Issues"
-  | "Event"
-  | "Attachments"
-  | "PostContactSummary";
-export type RealTimeContactAnalysisSegmentTypes =
-  Array<RealTimeContactAnalysisSegmentType>;
-export type RealTimeContactAnalysisSentimentLabel =
-  | "POSITIVE"
-  | "NEGATIVE"
-  | "NEUTRAL";
-export type RealTimeContactAnalysisStatus =
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED";
+export type RealTimeContactAnalysisSegmentType = "Transcript" | "Categories" | "Issues" | "Event" | "Attachments" | "PostContactSummary";
+export type RealTimeContactAnalysisSegmentTypes = Array<RealTimeContactAnalysisSegmentType>;
+export type RealTimeContactAnalysisSentimentLabel = "POSITIVE" | "NEGATIVE" | "NEUTRAL";
+export type RealTimeContactAnalysisStatus = "IN_PROGRESS" | "FAILED" | "COMPLETED";
 export type RealTimeContactAnalysisSupportedChannel = "VOICE" | "CHAT";
 interface _RealTimeContactAnalysisTimeData {
   AbsoluteTime?: Date | string;
 }
 
-export type RealTimeContactAnalysisTimeData =
-  _RealTimeContactAnalysisTimeData & { AbsoluteTime: Date | string };
+export type RealTimeContactAnalysisTimeData = (_RealTimeContactAnalysisTimeData & { AbsoluteTime: Date | string });
 export type RealTimeContactAnalysisTimeInstant = Date | string;
 
 export type RealTimeContactAnalysisTranscriptContent = string;
@@ -8217,10 +6103,8 @@ export type RealTimeContactAnalysisTranscriptContent = string;
 export interface RealTimeContactAnalysisTranscriptItemRedaction {
   CharacterOffsets?: Array<RealTimeContactAnalysisCharacterInterval>;
 }
-export type RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets =
-  Array<RealTimeContactAnalysisTranscriptItemWithCharacterOffsets>;
-export type RealTimeContactAnalysisTranscriptItemsWithContent =
-  Array<RealTimeContactAnalysisTranscriptItemWithContent>;
+export type RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets = Array<RealTimeContactAnalysisTranscriptItemWithCharacterOffsets>;
+export type RealTimeContactAnalysisTranscriptItemsWithContent = Array<RealTimeContactAnalysisTranscriptItemWithContent>;
 export interface RealTimeContactAnalysisTranscriptItemWithCharacterOffsets {
   Id: string;
   CharacterOffsets?: RealTimeContactAnalysisCharacterInterval;
@@ -8261,13 +6145,7 @@ export type ReferenceId = string;
 
 export type ReferenceKey = string;
 
-export type ReferenceStatus =
-  | "AVAILABLE"
-  | "DELETED"
-  | "APPROVED"
-  | "REJECTED"
-  | "PROCESSING"
-  | "FAILED";
+export type ReferenceStatus = "AVAILABLE" | "DELETED" | "APPROVED" | "REJECTED" | "PROCESSING" | "FAILED";
 export type ReferenceStatusReason = string;
 
 interface _ReferenceSummary {
@@ -8280,24 +6158,9 @@ interface _ReferenceSummary {
   Email?: EmailReference;
 }
 
-export type ReferenceSummary =
-  | (_ReferenceSummary & { Url: UrlReference })
-  | (_ReferenceSummary & { Attachment: AttachmentReference })
-  | (_ReferenceSummary & { EmailMessage: EmailMessageReference })
-  | (_ReferenceSummary & { String: StringReference })
-  | (_ReferenceSummary & { Number: NumberReference })
-  | (_ReferenceSummary & { Date: DateReference })
-  | (_ReferenceSummary & { Email: EmailReference });
+export type ReferenceSummary = (_ReferenceSummary & { Url: UrlReference }) | (_ReferenceSummary & { Attachment: AttachmentReference }) | (_ReferenceSummary & { EmailMessage: EmailMessageReference }) | (_ReferenceSummary & { String: StringReference }) | (_ReferenceSummary & { Number: NumberReference }) | (_ReferenceSummary & { Date: DateReference }) | (_ReferenceSummary & { Email: EmailReference });
 export type ReferenceSummaryList = Array<ReferenceSummary>;
-export type ReferenceType =
-  | "URL"
-  | "ATTACHMENT"
-  | "CONTACT_ANALYSIS"
-  | "NUMBER"
-  | "STRING"
-  | "DATE"
-  | "EMAIL"
-  | "EMAIL_MESSAGE";
+export type ReferenceType = "URL" | "ATTACHMENT" | "CONTACT_ANALYSIS" | "NUMBER" | "STRING" | "DATE" | "EMAIL" | "EMAIL_MESSAGE";
 export type ReferenceTypes = Array<ReferenceType>;
 export type ReferenceValue = string;
 
@@ -8371,15 +6234,7 @@ export declare class ResourceNotReadyException extends EffectData.TaggedError(
 export interface ResourceTagsSearchCriteria {
   TagSearchCondition?: TagSearchCondition;
 }
-export type ResourceType =
-  | "CONTACT"
-  | "CONTACT_FLOW"
-  | "INSTANCE"
-  | "PARTICIPANT"
-  | "HIERARCHY_LEVEL"
-  | "HIERARCHY_GROUP"
-  | "USER"
-  | "PHONE_NUMBER";
+export type ResourceType = "CONTACT" | "CONTACT_FLOW" | "INSTANCE" | "PARTICIPANT" | "HIERARCHY_LEVEL" | "HIERARCHY_GROUP" | "USER" | "PHONE_NUMBER";
 export type ResourceTypeList = Array<string>;
 export type ResourceVersion = number;
 
@@ -8389,13 +6244,15 @@ export interface ResumeContactRecordingRequest {
   InitialContactId: string;
   ContactRecordingType?: ContactRecordingType;
 }
-export interface ResumeContactRecordingResponse {}
+export interface ResumeContactRecordingResponse {
+}
 export interface ResumeContactRequest {
   ContactId: string;
   InstanceId: string;
   ContactFlowId?: string;
 }
-export interface ResumeContactResponse {}
+export interface ResumeContactResponse {
+}
 export interface RoutingCriteria {
   Steps?: Array<Step>;
   ActivationTimestamp?: Date | string;
@@ -8412,11 +6269,7 @@ export interface RoutingCriteriaInputStepExpiry {
   DurationInSeconds?: number;
 }
 export type RoutingCriteriaInputSteps = Array<RoutingCriteriaInputStep>;
-export type RoutingCriteriaStepStatus =
-  | "ACTIVE"
-  | "INACTIVE"
-  | "JOINED"
-  | "EXPIRED";
+export type RoutingCriteriaStepStatus = "ACTIVE" | "INACTIVE" | "JOINED" | "EXPIRED";
 export type RoutingExpression = string;
 
 export type RoutingExpressions = Array<string>;
@@ -8458,21 +6311,18 @@ export interface RoutingProfileQueueConfigSummary {
   Delay: number;
   Channel: Channel;
 }
-export type RoutingProfileQueueConfigSummaryList =
-  Array<RoutingProfileQueueConfigSummary>;
+export type RoutingProfileQueueConfigSummaryList = Array<RoutingProfileQueueConfigSummary>;
 export interface RoutingProfileQueueReference {
   QueueId: string;
   Channel: Channel;
 }
-export type RoutingProfileQueueReferenceList =
-  Array<RoutingProfileQueueReference>;
+export type RoutingProfileQueueReferenceList = Array<RoutingProfileQueueReference>;
 export interface RoutingProfileReference {
   Id?: string;
   Arn?: string;
 }
 export type RoutingProfiles = Array<string>;
-export type RoutingProfileSearchConditionList =
-  Array<RoutingProfileSearchCriteria>;
+export type RoutingProfileSearchConditionList = Array<RoutingProfileSearchCriteria>;
 export interface RoutingProfileSearchCriteria {
   OrConditions?: Array<RoutingProfileSearchCriteria>;
   AndConditions?: Array<RoutingProfileSearchCriteria>;
@@ -8555,8 +6405,7 @@ export interface SearchableContactAttributesCriteria {
   Key: string;
   Values: Array<string>;
 }
-export type SearchableContactAttributesCriteriaList =
-  Array<SearchableContactAttributesCriteria>;
+export type SearchableContactAttributesCriteriaList = Array<SearchableContactAttributesCriteria>;
 export type SearchableContactAttributeValue = string;
 
 export type SearchableContactAttributeValueList = Array<string>;
@@ -8571,8 +6420,7 @@ export interface SearchableSegmentAttributesCriteria {
   Key: string;
   Values: Array<string>;
 }
-export type SearchableSegmentAttributesCriteriaList =
-  Array<SearchableSegmentAttributesCriteria>;
+export type SearchableSegmentAttributesCriteriaList = Array<SearchableSegmentAttributesCriteria>;
 export type SearchableSegmentAttributeValue = string;
 
 export type SearchableSegmentAttributeValueList = Array<string>;
@@ -8644,11 +6492,7 @@ export interface SearchContactsTimeRange {
   StartTime: Date | string;
   EndTime: Date | string;
 }
-export type SearchContactsTimeRangeType =
-  | "INITIATION_TIMESTAMP"
-  | "SCHEDULED_TIMESTAMP"
-  | "CONNECTED_TO_AGENT_TIMESTAMP"
-  | "DISCONNECT_TIMESTAMP";
+export type SearchContactsTimeRangeType = "INITIATION_TIMESTAMP" | "SCHEDULED_TIMESTAMP" | "CONNECTED_TO_AGENT_TIMESTAMP" | "DISCONNECT_TIMESTAMP";
 export interface SearchCriteria {
   AgentIds?: Array<string>;
   AgentHierarchyGroups?: AgentHierarchyGroups;
@@ -8849,8 +6693,7 @@ export type SecurityProfilePolicyKey = string;
 
 export type SecurityProfilePolicyValue = string;
 
-export type SecurityProfileSearchConditionList =
-  Array<SecurityProfileSearchCriteria>;
+export type SecurityProfileSearchConditionList = Array<SecurityProfileSearchCriteria>;
 export interface SecurityProfileSearchCriteria {
   OrConditions?: Array<SecurityProfileSearchCriteria>;
   AndConditions?: Array<SecurityProfileSearchCriteria>;
@@ -8867,8 +6710,7 @@ export interface SecurityProfileSearchSummary {
 export interface SecurityProfilesSearchFilter {
   TagFilter?: ControlPlaneTagFilter;
 }
-export type SecurityProfilesSearchSummaryList =
-  Array<SecurityProfileSearchSummary>;
+export type SecurityProfilesSearchSummaryList = Array<SecurityProfileSearchSummary>;
 export interface SecurityProfileSummary {
   Id?: string;
   Arn?: string;
@@ -8920,7 +6762,8 @@ export interface SendOutboundEmailRequest {
   SourceCampaign?: SourceCampaign;
   ClientToken?: string;
 }
-export interface SendOutboundEmailResponse {}
+export interface SendOutboundEmailResponse {
+}
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
@@ -8931,10 +6774,7 @@ interface _ServiceQuotaExceededExceptionReason {
   AttachedFileServiceQuotaExceededExceptionReason?: AttachedFileServiceQuotaExceededExceptionReason;
 }
 
-export type ServiceQuotaExceededExceptionReason =
-  _ServiceQuotaExceededExceptionReason & {
-    AttachedFileServiceQuotaExceededExceptionReason: AttachedFileServiceQuotaExceededExceptionReason;
-  };
+export type ServiceQuotaExceededExceptionReason = (_ServiceQuotaExceededExceptionReason & { AttachedFileServiceQuotaExceededExceptionReason: AttachedFileServiceQuotaExceededExceptionReason });
 export interface SignInConfig {
   Distributions: Array<SignInDistribution>;
 }
@@ -8949,9 +6789,7 @@ export interface SingleSelectQuestionRuleCategoryAutomation {
   Condition: SingleSelectQuestionRuleCategoryAutomationCondition;
   OptionRefId: string;
 }
-export type SingleSelectQuestionRuleCategoryAutomationCondition =
-  | "PRESENT"
-  | "NOT_PRESENT";
+export type SingleSelectQuestionRuleCategoryAutomationCondition = "PRESENT" | "NOT_PRESENT";
 export type SingleSelectQuestionRuleCategoryAutomationLabel = string;
 
 export type SlaAssignmentType = "CASES";
@@ -8965,13 +6803,7 @@ export interface Sort {
   FieldName: SortableFieldName;
   Order: SortOrder;
 }
-export type SortableFieldName =
-  | "INITIATION_TIMESTAMP"
-  | "SCHEDULED_TIMESTAMP"
-  | "CONNECTED_TO_AGENT_TIMESTAMP"
-  | "DISCONNECT_TIMESTAMP"
-  | "INITIATION_METHOD"
-  | "CHANNEL";
+export type SortableFieldName = "INITIATION_TIMESTAMP" | "SCHEDULED_TIMESTAMP" | "CONNECTED_TO_AGENT_TIMESTAMP" | "DISCONNECT_TIMESTAMP" | "INITIATION_METHOD" | "CHANNEL";
 export type SortOrder = "ASCENDING" | "DESCENDING";
 export type SourceApplicationName = string;
 
@@ -9037,7 +6869,8 @@ export interface StartContactRecordingRequest {
   InitialContactId: string;
   VoiceRecordingConfiguration: VoiceRecordingConfiguration;
 }
-export interface StartContactRecordingResponse {}
+export interface StartContactRecordingResponse {
+}
 export interface StartContactStreamingRequest {
   InstanceId: string;
   ContactId: string;
@@ -9119,7 +6952,8 @@ export interface StartScreenSharingRequest {
   InstanceId: string;
   ContactId: string;
 }
-export interface StartScreenSharingResponse {}
+export interface StartScreenSharingResponse {
+}
 export interface StartTaskContactRequest {
   InstanceId: string;
   PreviousContactId?: string;
@@ -9175,24 +7009,23 @@ export interface StopContactRecordingRequest {
   InitialContactId: string;
   ContactRecordingType?: ContactRecordingType;
 }
-export interface StopContactRecordingResponse {}
+export interface StopContactRecordingResponse {
+}
 export interface StopContactRequest {
   ContactId: string;
   InstanceId: string;
   DisconnectReason?: DisconnectReason;
 }
-export interface StopContactResponse {}
+export interface StopContactResponse {
+}
 export interface StopContactStreamingRequest {
   InstanceId: string;
   ContactId: string;
   StreamingId: string;
 }
-export interface StopContactStreamingResponse {}
-export type StorageType =
-  | "S3"
-  | "KINESIS_VIDEO_STREAM"
-  | "KINESIS_STREAM"
-  | "KINESIS_FIREHOSE";
+export interface StopContactStreamingResponse {
+}
+export type StorageType = "S3" | "KINESIS_VIDEO_STREAM" | "KINESIS_STREAM" | "KINESIS_FIREHOSE";
 export type StreamingId = string;
 
 export type ConnectString = string;
@@ -9238,7 +7071,8 @@ export interface SuspendContactRecordingRequest {
   InitialContactId: string;
   ContactRecordingType?: ContactRecordingType;
 }
-export interface SuspendContactRecordingResponse {}
+export interface SuspendContactRecordingResponse {
+}
 export type TagAndConditionList = Array<TagCondition>;
 export interface TagCondition {
   TagKey?: string;
@@ -9249,7 +7083,8 @@ export interface TagContactRequest {
   InstanceId: string;
   Tags: Record<string, string>;
 }
-export interface TagContactResponse {}
+export interface TagContactResponse {
+}
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -9303,8 +7138,7 @@ export interface TaskTemplateDefaultFieldValue {
   Id?: TaskTemplateFieldIdentifier;
   DefaultValue?: string;
 }
-export type TaskTemplateDefaultFieldValueList =
-  Array<TaskTemplateDefaultFieldValue>;
+export type TaskTemplateDefaultFieldValueList = Array<TaskTemplateDefaultFieldValue>;
 export interface TaskTemplateDefaults {
   DefaultFieldValues?: Array<TaskTemplateDefaultFieldValue>;
 }
@@ -9324,21 +7158,7 @@ export interface TaskTemplateFieldIdentifier {
 export type TaskTemplateFieldName = string;
 
 export type TaskTemplateFields = Array<TaskTemplateField>;
-export type TaskTemplateFieldType =
-  | "NAME"
-  | "DESCRIPTION"
-  | "SCHEDULED_TIME"
-  | "QUICK_CONNECT"
-  | "URL"
-  | "NUMBER"
-  | "TEXT"
-  | "TEXT_AREA"
-  | "DATE_TIME"
-  | "BOOLEAN"
-  | "SINGLE_SELECT"
-  | "EMAIL"
-  | "SELF_ASSIGN"
-  | "EXPIRY_DURATION";
+export type TaskTemplateFieldType = "NAME" | "DESCRIPTION" | "SCHEDULED_TIME" | "QUICK_CONNECT" | "URL" | "NUMBER" | "TEXT" | "TEXT_AREA" | "DATE_TIME" | "BOOLEAN" | "SINGLE_SELECT" | "EMAIL" | "SELF_ASSIGN" | "EXPIRY_DURATION";
 export type TaskTemplateFieldValue = string;
 
 export type TaskTemplateId = string;
@@ -9420,13 +7240,7 @@ export type TrafficDistributionGroupId = string;
 
 export type TrafficDistributionGroupIdOrArn = string;
 
-export type TrafficDistributionGroupStatus =
-  | "CREATION_IN_PROGRESS"
-  | "ACTIVE"
-  | "CREATION_FAILED"
-  | "PENDING_DELETION"
-  | "DELETION_FAILED"
-  | "UPDATE_IN_PROGRESS";
+export type TrafficDistributionGroupStatus = "CREATION_IN_PROGRESS" | "ACTIVE" | "CREATION_FAILED" | "PENDING_DELETION" | "DELETION_FAILED" | "UPDATE_IN_PROGRESS";
 export interface TrafficDistributionGroupSummary {
   Id?: string;
   Arn?: string;
@@ -9435,13 +7249,11 @@ export interface TrafficDistributionGroupSummary {
   Status?: TrafficDistributionGroupStatus;
   IsDefault?: boolean;
 }
-export type TrafficDistributionGroupSummaryList =
-  Array<TrafficDistributionGroupSummary>;
+export type TrafficDistributionGroupSummaryList = Array<TrafficDistributionGroupSummary>;
 export interface TrafficDistributionGroupUserSummary {
   UserId?: string;
 }
-export type TrafficDistributionGroupUserSummaryList =
-  Array<TrafficDistributionGroupUserSummary>;
+export type TrafficDistributionGroupUserSummaryList = Array<TrafficDistributionGroupUserSummary>;
 export type TrafficType = "GENERAL" | "CAMPAIGN";
 export interface Transcript {
   Criteria: Array<TranscriptCriteria>;
@@ -9471,7 +7283,8 @@ export interface UntagContactRequest {
   InstanceId: string;
   TagKeys: Array<string>;
 }
-export interface UntagContactResponse {}
+export interface UntagContactResponse {
+}
 export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
@@ -9504,7 +7317,8 @@ export interface UpdateContactAttributesRequest {
   InstanceId: string;
   Attributes: Record<string, string>;
 }
-export interface UpdateContactAttributesResponse {}
+export interface UpdateContactAttributesResponse {
+}
 export interface UpdateContactEvaluationRequest {
   InstanceId: string;
   EvaluationId: string;
@@ -9520,7 +7334,8 @@ export interface UpdateContactFlowContentRequest {
   ContactFlowId: string;
   Content: string;
 }
-export interface UpdateContactFlowContentResponse {}
+export interface UpdateContactFlowContentResponse {
+}
 export interface UpdateContactFlowMetadataRequest {
   InstanceId: string;
   ContactFlowId: string;
@@ -9528,13 +7343,15 @@ export interface UpdateContactFlowMetadataRequest {
   Description?: string;
   ContactFlowState?: ContactFlowState;
 }
-export interface UpdateContactFlowMetadataResponse {}
+export interface UpdateContactFlowMetadataResponse {
+}
 export interface UpdateContactFlowModuleContentRequest {
   InstanceId: string;
   ContactFlowModuleId: string;
   Content: string;
 }
-export interface UpdateContactFlowModuleContentResponse {}
+export interface UpdateContactFlowModuleContentResponse {
+}
 export interface UpdateContactFlowModuleMetadataRequest {
   InstanceId: string;
   ContactFlowModuleId: string;
@@ -9542,14 +7359,16 @@ export interface UpdateContactFlowModuleMetadataRequest {
   Description?: string;
   State?: ContactFlowModuleState;
 }
-export interface UpdateContactFlowModuleMetadataResponse {}
+export interface UpdateContactFlowModuleMetadataResponse {
+}
 export interface UpdateContactFlowNameRequest {
   InstanceId: string;
   ContactFlowId: string;
   Name?: string;
   Description?: string;
 }
-export interface UpdateContactFlowNameResponse {}
+export interface UpdateContactFlowNameResponse {
+}
 export interface UpdateContactRequest {
   InstanceId: string;
   ContactId: string;
@@ -9562,7 +7381,8 @@ export interface UpdateContactRequest {
   CustomerEndpoint?: Endpoint;
   SystemEndpoint?: Endpoint;
 }
-export interface UpdateContactResponse {}
+export interface UpdateContactResponse {
+}
 export interface UpdateContactRoutingDataRequest {
   InstanceId: string;
   ContactId: string;
@@ -9570,13 +7390,15 @@ export interface UpdateContactRoutingDataRequest {
   QueuePriority?: number;
   RoutingCriteria?: RoutingCriteriaInput;
 }
-export interface UpdateContactRoutingDataResponse {}
+export interface UpdateContactRoutingDataResponse {
+}
 export interface UpdateContactScheduleRequest {
   InstanceId: string;
   ContactId: string;
   ScheduledTime: Date | string;
 }
-export interface UpdateContactScheduleResponse {}
+export interface UpdateContactScheduleResponse {
+}
 export interface UpdateEmailAddressMetadataRequest {
   InstanceId: string;
   EmailAddressId: string;
@@ -9644,19 +7466,20 @@ export interface UpdateParticipantAuthenticationRequest {
   Error?: string;
   ErrorDescription?: string;
 }
-export interface UpdateParticipantAuthenticationResponse {}
+export interface UpdateParticipantAuthenticationResponse {
+}
 interface _UpdateParticipantRoleConfigChannelInfo {
   Chat?: ChatParticipantRoleConfig;
 }
 
-export type UpdateParticipantRoleConfigChannelInfo =
-  _UpdateParticipantRoleConfigChannelInfo & { Chat: ChatParticipantRoleConfig };
+export type UpdateParticipantRoleConfigChannelInfo = (_UpdateParticipantRoleConfigChannelInfo & { Chat: ChatParticipantRoleConfig });
 export interface UpdateParticipantRoleConfigRequest {
   InstanceId: string;
   ContactId: string;
   ChannelConfiguration: UpdateParticipantRoleConfigChannelInfo;
 }
-export interface UpdateParticipantRoleConfigResponse {}
+export interface UpdateParticipantRoleConfigResponse {
+}
 export interface UpdatePhoneNumberMetadataRequest {
   PhoneNumberId: string;
   PhoneNumberDescription?: string;
@@ -9810,7 +7633,8 @@ export interface UpdateTrafficDistributionRequest {
   SignInConfig?: SignInConfig;
   AgentConfig?: AgentConfig;
 }
-export interface UpdateTrafficDistributionResponse {}
+export interface UpdateTrafficDistributionResponse {
+}
 export interface UpdateUserHierarchyGroupNameRequest {
   Name: string;
   HierarchyGroupId: string;
@@ -9865,7 +7689,8 @@ export interface UpdateViewMetadataRequest {
   Name?: string;
   Description?: string;
 }
-export interface UpdateViewMetadataResponse {}
+export interface UpdateViewMetadataResponse {
+}
 export interface UploadUrlMetadata {
   Url?: string;
   UrlExpiry?: string;
@@ -9930,8 +7755,7 @@ export interface UserDataFilters {
 export type UserDataHierarchyGroups = Array<string>;
 export type UserDataList = Array<UserData>;
 export type UserHierarchyGroupList = Array<HierarchyGroup>;
-export type UserHierarchyGroupSearchConditionList =
-  Array<UserHierarchyGroupSearchCriteria>;
+export type UserHierarchyGroupSearchConditionList = Array<UserHierarchyGroupSearchCriteria>;
 export interface UserHierarchyGroupSearchCriteria {
   OrConditions?: Array<UserHierarchyGroupSearchCriteria>;
   AndConditions?: Array<UserHierarchyGroupSearchCriteria>;
@@ -9977,8 +7801,7 @@ export interface UserProficiencyDisassociate {
   AttributeName: string;
   AttributeValue: string;
 }
-export type UserProficiencyDisassociateList =
-  Array<UserProficiencyDisassociate>;
+export type UserProficiencyDisassociateList = Array<UserProficiencyDisassociate>;
 export type UserProficiencyList = Array<UserProficiency>;
 export interface UserQuickConnectConfig {
   UserId: string;
@@ -10112,51 +7935,14 @@ export type VocabularyFailureReason = string;
 
 export type VocabularyId = string;
 
-export type VocabularyLanguageCode =
-  | "AR_AE"
-  | "DE_CH"
-  | "DE_DE"
-  | "EN_AB"
-  | "EN_AU"
-  | "EN_GB"
-  | "EN_IE"
-  | "EN_IN"
-  | "EN_US"
-  | "EN_WL"
-  | "ES_ES"
-  | "ES_US"
-  | "FR_CA"
-  | "FR_FR"
-  | "HI_IN"
-  | "IT_IT"
-  | "JA_JP"
-  | "KO_KR"
-  | "PT_BR"
-  | "PT_PT"
-  | "ZH_CN"
-  | "EN_NZ"
-  | "EN_ZA"
-  | "CA_ES"
-  | "DA_DK"
-  | "FI_FI"
-  | "ID_ID"
-  | "MS_MY"
-  | "NL_NL"
-  | "NO_NO"
-  | "PL_PL"
-  | "SV_SE"
-  | "TL_PH";
+export type VocabularyLanguageCode = "AR_AE" | "DE_CH" | "DE_DE" | "EN_AB" | "EN_AU" | "EN_GB" | "EN_IE" | "EN_IN" | "EN_US" | "EN_WL" | "ES_ES" | "ES_US" | "FR_CA" | "FR_FR" | "HI_IN" | "IT_IT" | "JA_JP" | "KO_KR" | "PT_BR" | "PT_PT" | "ZH_CN" | "EN_NZ" | "EN_ZA" | "CA_ES" | "DA_DK" | "FI_FI" | "ID_ID" | "MS_MY" | "NL_NL" | "NO_NO" | "PL_PL" | "SV_SE" | "TL_PH";
 export type VocabularyLastModifiedTime = Date | string;
 
 export type VocabularyName = string;
 
 export type VocabularyNextToken = string;
 
-export type VocabularyState =
-  | "CREATION_IN_PROGRESS"
-  | "ACTIVE"
-  | "CREATION_FAILED"
-  | "DELETE_IN_PROGRESS";
+export type VocabularyState = "CREATION_IN_PROGRESS" | "ACTIVE" | "CREATION_FAILED" | "DELETE_IN_PROGRESS";
 export interface VocabularySummary {
   Name: string;
   Id: string;
@@ -13702,3 +11488,4 @@ export declare namespace UpdateViewMetadata {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

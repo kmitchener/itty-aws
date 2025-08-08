@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class RUM extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("rum", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -18,12 +20,7 @@ export class RUM extends AWSServiceClient {
     input: PutRumEventsRequest,
   ): Effect.Effect<
     PutRumEventsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutRumEvents", input);
   }
@@ -31,10 +28,7 @@ export class RUM extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -42,10 +36,7 @@ export class RUM extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -114,8 +105,7 @@ export interface BatchCreateRumMetricDefinitionsError {
   ErrorCode: string;
   ErrorMessage: string;
 }
-export type BatchCreateRumMetricDefinitionsErrors =
-  Array<BatchCreateRumMetricDefinitionsError>;
+export type BatchCreateRumMetricDefinitionsErrors = Array<BatchCreateRumMetricDefinitionsError>;
 export interface BatchCreateRumMetricDefinitionsRequest {
   AppMonitorName: string;
   Destination: string;
@@ -131,8 +121,7 @@ export interface BatchDeleteRumMetricDefinitionsError {
   ErrorCode: string;
   ErrorMessage: string;
 }
-export type BatchDeleteRumMetricDefinitionsErrors =
-  Array<BatchDeleteRumMetricDefinitionsError>;
+export type BatchDeleteRumMetricDefinitionsErrors = Array<BatchDeleteRumMetricDefinitionsError>;
 export interface BatchDeleteRumMetricDefinitionsRequest {
   AppMonitorName: string;
   Destination: string;
@@ -189,7 +178,8 @@ export interface DataStorage {
 export interface DeleteAppMonitorRequest {
   Name: string;
 }
-export interface DeleteAppMonitorResponse {}
+export interface DeleteAppMonitorResponse {
+}
 export interface DeleteResourcePolicyRequest {
   Name: string;
   PolicyRevisionId?: string;
@@ -202,7 +192,8 @@ export interface DeleteRumMetricsDestinationRequest {
   Destination: string;
   DestinationArn?: string;
 }
-export interface DeleteRumMetricsDestinationResponse {}
+export interface DeleteRumMetricsDestinationResponse {
+}
 export interface DeobfuscationConfiguration {
   JavaScriptSourceMaps?: JavaScriptSourceMaps;
 }
@@ -367,14 +358,16 @@ export interface PutRumEventsRequest {
   RumEvents: Array<RumEvent>;
   Alias?: string;
 }
-export interface PutRumEventsResponse {}
+export interface PutRumEventsResponse {
+}
 export interface PutRumMetricsDestinationRequest {
   AppMonitorName: string;
   Destination: string;
   DestinationArn?: string;
   IamRoleArn?: string;
 }
-export interface PutRumMetricsDestinationResponse {}
+export interface PutRumMetricsDestinationResponse {
+}
 export interface QueryFilter {
   Name?: string;
   Values?: Array<string>;
@@ -419,7 +412,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type Telemetries = Array<string>;
@@ -445,7 +439,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAppMonitorRequest {
   Name: string;
   Domain?: string;
@@ -455,7 +450,8 @@ export interface UpdateAppMonitorRequest {
   CustomEvents?: CustomEvents;
   DeobfuscationConfiguration?: DeobfuscationConfiguration;
 }
-export interface UpdateAppMonitorResponse {}
+export interface UpdateAppMonitorResponse {
+}
 export interface UpdateRumMetricDefinitionRequest {
   AppMonitorName: string;
   Destination: string;
@@ -463,7 +459,8 @@ export interface UpdateRumMetricDefinitionRequest {
   MetricDefinition: MetricDefinitionRequest;
   MetricDefinitionId: string;
 }
-export interface UpdateRumMetricDefinitionResponse {}
+export interface UpdateRumMetricDefinitionResponse {
+}
 export type Url = string;
 
 export interface UserDetails {
@@ -518,3 +515,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

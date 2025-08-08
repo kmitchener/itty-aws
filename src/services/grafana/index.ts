@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class grafana extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("grafana", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -20,12 +20,7 @@ export class grafana extends AWSServiceClient {
     input: ListVersionsRequest,
   ): Effect.Effect<
     ListVersionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListVersions", input);
   }
@@ -33,12 +28,7 @@ export class grafana extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -46,12 +36,7 @@ export class grafana extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -249,9 +234,7 @@ interface _IdpMetadata {
   xml?: string;
 }
 
-export type IdpMetadata =
-  | (_IdpMetadata & { url: string })
-  | (_IdpMetadata & { xml: string });
+export type IdpMetadata = (_IdpMetadata & { url: string }) | (_IdpMetadata & { xml: string });
 export type IdpMetadataUrl = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -431,7 +414,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -446,7 +430,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UpdateAction = string;
 
 export interface UpdateError {
@@ -481,7 +466,8 @@ export interface UpdateWorkspaceConfigurationRequest {
   workspaceId: string;
   grafanaVersion?: string;
 }
-export interface UpdateWorkspaceConfigurationResponse {}
+export interface UpdateWorkspaceConfigurationResponse {
+}
 export interface UpdateWorkspaceRequest {
   accountAccessType?: string;
   organizationRoleName?: string;
@@ -626,3 +612,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

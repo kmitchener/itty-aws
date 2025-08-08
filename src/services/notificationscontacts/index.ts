@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class NotificationsContacts extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("notificationscontacts", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -20,12 +20,7 @@ export class NotificationsContacts extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -33,12 +28,7 @@ export class NotificationsContacts extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -57,7 +47,8 @@ export interface ActivateEmailContactRequest {
   arn: string;
   code: string;
 }
-export interface ActivateEmailContactResponse {}
+export interface ActivateEmailContactResponse {
+}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -78,7 +69,8 @@ export type CreationTime = Date | string;
 export interface DeleteEmailContactRequest {
   arn: string;
 }
-export interface DeleteEmailContactResponse {}
+export interface DeleteEmailContactResponse {
+}
 export interface EmailContact {
   arn: string;
   name: string;
@@ -139,7 +131,8 @@ export type ResourceType = string;
 export interface SendActivationCodeRequest {
   arn: string;
 }
-export interface SendActivationCodeResponse {}
+export interface SendActivationCodeResponse {
+}
 export type SensitiveEmailContactAddress = string;
 
 export type ServiceCode = string;
@@ -161,7 +154,8 @@ export interface TagResourceRequest {
   arn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -178,7 +172,8 @@ export interface UntagResourceRequest {
   arn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UpdateTime = Date | string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -229,3 +224,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

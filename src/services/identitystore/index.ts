@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class identitystore extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("identitystore", new AwsJson11Protocol(), cfg);
+  }
+
   getGroupId(
     input: GetGroupIdRequest,
   ): Effect.Effect<
@@ -71,9 +76,7 @@ interface _AlternateIdentifier {
   UniqueAttribute?: UniqueAttribute;
 }
 
-export type AlternateIdentifier =
-  | (_AlternateIdentifier & { ExternalId: ExternalId })
-  | (_AlternateIdentifier & { UniqueAttribute: UniqueAttribute });
+export type AlternateIdentifier = (_AlternateIdentifier & { ExternalId: ExternalId }) | (_AlternateIdentifier & { UniqueAttribute: UniqueAttribute });
 export interface AttributeOperation {
   AttributePath: string;
   AttributeValue?: unknown;
@@ -134,17 +137,20 @@ export interface DeleteGroupMembershipRequest {
   IdentityStoreId: string;
   MembershipId: string;
 }
-export interface DeleteGroupMembershipResponse {}
+export interface DeleteGroupMembershipResponse {
+}
 export interface DeleteGroupRequest {
   IdentityStoreId: string;
   GroupId: string;
 }
-export interface DeleteGroupResponse {}
+export interface DeleteGroupResponse {
+}
 export interface DeleteUserRequest {
   IdentityStoreId: string;
   UserId: string;
 }
-export interface DeleteUserResponse {}
+export interface DeleteUserResponse {
+}
 export interface DescribeGroupMembershipRequest {
   IdentityStoreId: string;
   MembershipId: string;
@@ -256,8 +262,7 @@ export interface GroupMembershipExistenceResult {
   MemberId?: MemberId;
   MembershipExists?: boolean;
 }
-export type GroupMembershipExistenceResults =
-  Array<GroupMembershipExistenceResult>;
+export type GroupMembershipExistenceResults = Array<GroupMembershipExistenceResult>;
 export type GroupMemberships = Array<GroupMembership>;
 export type Groups = Array<Group>;
 export type IdentityStoreId = string;
@@ -323,7 +328,7 @@ interface _MemberId {
   UserId?: string;
 }
 
-export type MemberId = _MemberId & { UserId: string };
+export type MemberId = (_MemberId & { UserId: string });
 export interface Name {
   Formatted?: string;
   FamilyName?: string;
@@ -382,13 +387,15 @@ export interface UpdateGroupRequest {
   GroupId: string;
   Operations: Array<AttributeOperation>;
 }
-export interface UpdateGroupResponse {}
+export interface UpdateGroupResponse {
+}
 export interface UpdateUserRequest {
   IdentityStoreId: string;
   UserId: string;
   Operations: Array<AttributeOperation>;
 }
-export interface UpdateUserResponse {}
+export interface UpdateUserResponse {
+}
 export interface User {
   UserName?: string;
   UserId: string;
@@ -460,3 +467,4 @@ export declare namespace ListGroupMembershipsForMember {
     | ValidationException
     | CommonAwsError;
 }
+

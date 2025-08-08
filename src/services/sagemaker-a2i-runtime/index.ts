@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SageMakerA2IRuntime extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sagemaker-a2i-runtime", new RestJson1Protocol(), cfg);
+  }
+
   deleteHumanLoop(
     input: DeleteHumanLoopRequest,
   ): Effect.Effect<
     DeleteHumanLoopResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteHumanLoop", input);
   }
@@ -19,11 +20,7 @@ export class SageMakerA2IRuntime extends AWSServiceClient {
     input: DescribeHumanLoopRequest,
   ): Effect.Effect<
     DescribeHumanLoopResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeHumanLoop", input);
   }
@@ -31,11 +28,7 @@ export class SageMakerA2IRuntime extends AWSServiceClient {
     input: ListHumanLoopsRequest,
   ): Effect.Effect<
     ListHumanLoopsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListHumanLoops", input);
   }
@@ -43,12 +36,7 @@ export class SageMakerA2IRuntime extends AWSServiceClient {
     input: StartHumanLoopRequest,
   ): Effect.Effect<
     StartHumanLoopResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartHumanLoop", input);
   }
@@ -56,11 +44,7 @@ export class SageMakerA2IRuntime extends AWSServiceClient {
     input: StopHumanLoopRequest,
   ): Effect.Effect<
     StopHumanLoopResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopHumanLoop", input);
   }
@@ -75,14 +59,13 @@ export declare class ConflictException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ContentClassifier =
-  | "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
-  | "FREE_OF_ADULT_CONTENT";
+export type ContentClassifier = "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION" | "FREE_OF_ADULT_CONTENT";
 export type ContentClassifiers = Array<ContentClassifier>;
 export interface DeleteHumanLoopRequest {
   HumanLoopName: string;
 }
-export interface DeleteHumanLoopResponse {}
+export interface DeleteHumanLoopResponse {
+}
 export interface DescribeHumanLoopRequest {
   HumanLoopName: string;
 }
@@ -113,12 +96,7 @@ export type HumanLoopName = string;
 export interface HumanLoopOutput {
   OutputS3Uri: string;
 }
-export type HumanLoopStatus =
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED"
-  | "STOPPED"
-  | "STOPPING";
+export type HumanLoopStatus = "IN_PROGRESS" | "FAILED" | "COMPLETED" | "STOPPED" | "STOPPING";
 export type HumanLoopSummaries = Array<HumanLoopSummary>;
 export interface HumanLoopSummary {
   HumanLoopName?: string;
@@ -173,7 +151,8 @@ export interface StartHumanLoopResponse {
 export interface StopHumanLoopRequest {
   HumanLoopName: string;
 }
-export interface StopHumanLoopResponse {}
+export interface StopHumanLoopResponse {
+}
 export type SagemakerA2iRuntimeString = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -243,3 +222,4 @@ export declare namespace StopHumanLoop {
     | ValidationException
     | CommonAwsError;
 }
+

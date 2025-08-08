@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class RedshiftServerless extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("redshift-serverless", new AwsJson11Protocol(), cfg);
+  }
+
   createCustomDomainAssociation(
     input: CreateCustomDomainAssociationRequest,
   ): Effect.Effect<
     CreateCustomDomainAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCustomDomainAssociation", input);
   }
@@ -21,13 +20,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: DeleteCustomDomainAssociationRequest,
   ): Effect.Effect<
     DeleteCustomDomainAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCustomDomainAssociation", input);
   }
@@ -35,10 +28,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -46,10 +36,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: GetCredentialsRequest,
   ): Effect.Effect<
     GetCredentialsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetCredentials", input);
   }
@@ -57,13 +44,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: GetCustomDomainAssociationRequest,
   ): Effect.Effect<
     GetCustomDomainAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCustomDomainAssociation", input);
   }
@@ -71,10 +52,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -82,13 +60,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: GetTrackRequest,
   ): Effect.Effect<
     GetTrackResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetTrack", input);
   }
@@ -96,12 +68,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: ListCustomDomainAssociationsRequest,
   ): Effect.Effect<
     ListCustomDomainAssociationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidPaginationException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidPaginationException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCustomDomainAssociations", input);
   }
@@ -109,11 +76,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -121,12 +84,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: ListTracksRequest,
   ): Effect.Effect<
     ListTracksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidPaginationException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidPaginationException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTracks", input);
   }
@@ -134,12 +92,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -147,12 +100,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -160,11 +108,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -172,13 +116,7 @@ export class RedshiftServerless extends AWSServiceClient {
     input: UpdateCustomDomainAssociationRequest,
   ): Effect.Effect<
     UpdateCustomDomainAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateCustomDomainAssociation", input);
   }
@@ -354,7 +292,8 @@ export interface DeleteCustomDomainAssociationRequest {
   workgroupName: string;
   customDomainName: string;
 }
-export interface DeleteCustomDomainAssociationResponse {}
+export interface DeleteCustomDomainAssociationResponse {
+}
 export interface DeleteEndpointAccessRequest {
   endpointName: string;
 }
@@ -372,7 +311,8 @@ export interface DeleteNamespaceResponse {
 export interface DeleteResourcePolicyRequest {
   resourceArn: string;
 }
-export interface DeleteResourcePolicyResponse {}
+export interface DeleteResourcePolicyResponse {
+}
 export interface DeleteScheduledActionRequest {
   scheduledActionName: string;
 }
@@ -699,12 +639,7 @@ export interface ManagedWorkgroupListItem {
 export type ManagedWorkgroupName = string;
 
 export type ManagedWorkgroups = Array<ManagedWorkgroupListItem>;
-export type ManagedWorkgroupStatus =
-  | "CREATING"
-  | "DELETING"
-  | "MODIFYING"
-  | "AVAILABLE"
-  | "NOT_AVAILABLE";
+export type ManagedWorkgroupStatus = "CREATING" | "DELETING" | "MODIFYING" | "AVAILABLE" | "NOT_AVAILABLE";
 export interface Namespace {
   namespaceArn?: string;
   namespaceId?: string;
@@ -861,9 +796,7 @@ interface _Schedule {
   cron?: string;
 }
 
-export type Schedule =
-  | (_Schedule & { at: Date | string })
-  | (_Schedule & { cron: string });
+export type Schedule = (_Schedule & { at: Date | string }) | (_Schedule & { cron: string });
 export interface ScheduledActionAssociation {
   namespaceName?: string;
   scheduledActionName?: string;
@@ -975,16 +908,15 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 interface _TargetAction {
   createSnapshot?: CreateSnapshotScheduleActionParameters;
 }
 
-export type TargetAction = _TargetAction & {
-  createSnapshot: CreateSnapshotScheduleActionParameters;
-};
+export type TargetAction = (_TargetAction & { createSnapshot: CreateSnapshotScheduleActionParameters });
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -1004,7 +936,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateCustomDomainAssociationRequest {
   workgroupName: string;
   customDomainName: string;
@@ -1326,3 +1259,4 @@ export declare namespace UpdateCustomDomainAssociation {
     | ValidationException
     | CommonAwsError;
 }
+

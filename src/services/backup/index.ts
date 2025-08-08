@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Backup extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("backup", new RestJson1Protocol(), cfg);
+  }
+
   associateBackupVaultMpaApprovalTeam(
     input: AssociateBackupVaultMpaApprovalTeamInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("AssociateBackupVaultMpaApprovalTeam", input);
   }
@@ -20,12 +20,7 @@ export class Backup extends AWSServiceClient {
     input: CancelLegalHoldInput,
   ): Effect.Effect<
     CancelLegalHoldOutput,
-    | InvalidParameterValueException
-    | InvalidResourceStateException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidResourceStateException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CancelLegalHold", input);
   }
@@ -33,12 +28,7 @@ export class Backup extends AWSServiceClient {
     input: CreateBackupPlanInput,
   ): Effect.Effect<
     CreateBackupPlanOutput,
-    | AlreadyExistsException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AlreadyExistsException | InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateBackupPlan", input);
   }
@@ -46,12 +36,7 @@ export class Backup extends AWSServiceClient {
     input: CreateBackupSelectionInput,
   ): Effect.Effect<
     CreateBackupSelectionOutput,
-    | AlreadyExistsException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AlreadyExistsException | InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateBackupSelection", input);
   }
@@ -59,12 +44,7 @@ export class Backup extends AWSServiceClient {
     input: CreateBackupVaultInput,
   ): Effect.Effect<
     CreateBackupVaultOutput,
-    | AlreadyExistsException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AlreadyExistsException | InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateBackupVault", input);
   }
@@ -72,12 +52,7 @@ export class Backup extends AWSServiceClient {
     input: CreateFrameworkInput,
   ): Effect.Effect<
     CreateFrameworkOutput,
-    | AlreadyExistsException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AlreadyExistsException | InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateFramework", input);
   }
@@ -85,11 +60,7 @@ export class Backup extends AWSServiceClient {
     input: CreateLegalHoldInput,
   ): Effect.Effect<
     CreateLegalHoldOutput,
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateLegalHold", input);
   }
@@ -97,13 +68,7 @@ export class Backup extends AWSServiceClient {
     input: CreateLogicallyAirGappedBackupVaultInput,
   ): Effect.Effect<
     CreateLogicallyAirGappedBackupVaultOutput,
-    | AlreadyExistsException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AlreadyExistsException | InvalidParameterValueException | InvalidRequestException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateLogicallyAirGappedBackupVault", input);
   }
@@ -111,12 +76,7 @@ export class Backup extends AWSServiceClient {
     input: CreateReportPlanInput,
   ): Effect.Effect<
     CreateReportPlanOutput,
-    | AlreadyExistsException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AlreadyExistsException | InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateReportPlan", input);
   }
@@ -124,14 +84,7 @@ export class Backup extends AWSServiceClient {
     input: CreateRestoreAccessBackupVaultInput,
   ): Effect.Effect<
     CreateRestoreAccessBackupVaultOutput,
-    | AlreadyExistsException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AlreadyExistsException | InvalidParameterValueException | InvalidRequestException | LimitExceededException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateRestoreAccessBackupVault", input);
   }
@@ -139,13 +92,7 @@ export class Backup extends AWSServiceClient {
     input: CreateRestoreTestingPlanInput,
   ): Effect.Effect<
     CreateRestoreTestingPlanOutput,
-    | AlreadyExistsException
-    | ConflictException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AlreadyExistsException | ConflictException | InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateRestoreTestingPlan", input);
   }
@@ -153,13 +100,7 @@ export class Backup extends AWSServiceClient {
     input: CreateRestoreTestingSelectionInput,
   ): Effect.Effect<
     CreateRestoreTestingSelectionOutput,
-    | AlreadyExistsException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AlreadyExistsException | InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateRestoreTestingSelection", input);
   }
@@ -167,12 +108,7 @@ export class Backup extends AWSServiceClient {
     input: DeleteBackupPlanInput,
   ): Effect.Effect<
     DeleteBackupPlanOutput,
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteBackupPlan", input);
   }
@@ -180,11 +116,7 @@ export class Backup extends AWSServiceClient {
     input: DeleteBackupSelectionInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteBackupSelection", input);
   }
@@ -192,12 +124,7 @@ export class Backup extends AWSServiceClient {
     input: DeleteBackupVaultInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteBackupVault", input);
   }
@@ -205,11 +132,7 @@ export class Backup extends AWSServiceClient {
     input: DeleteBackupVaultAccessPolicyInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteBackupVaultAccessPolicy", input);
   }
@@ -217,12 +140,7 @@ export class Backup extends AWSServiceClient {
     input: DeleteBackupVaultLockConfigurationInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteBackupVaultLockConfiguration", input);
   }
@@ -230,11 +148,7 @@ export class Backup extends AWSServiceClient {
     input: DeleteBackupVaultNotificationsInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteBackupVaultNotifications", input);
   }
@@ -242,12 +156,7 @@ export class Backup extends AWSServiceClient {
     input: DeleteFrameworkInput,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    ConflictException | InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteFramework", input);
   }
@@ -255,13 +164,7 @@ export class Backup extends AWSServiceClient {
     input: DeleteRecoveryPointInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | InvalidResourceStateException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | InvalidResourceStateException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteRecoveryPoint", input);
   }
@@ -269,12 +172,7 @@ export class Backup extends AWSServiceClient {
     input: DeleteReportPlanInput,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    ConflictException | InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteReportPlan", input);
   }
@@ -298,12 +196,7 @@ export class Backup extends AWSServiceClient {
     input: DescribeBackupJobInput,
   ): Effect.Effect<
     DescribeBackupJobOutput,
-    | DependencyFailureException
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    DependencyFailureException | InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeBackupJob", input);
   }
@@ -311,11 +204,7 @@ export class Backup extends AWSServiceClient {
     input: DescribeBackupVaultInput,
   ): Effect.Effect<
     DescribeBackupVaultOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeBackupVault", input);
   }
@@ -323,11 +212,7 @@ export class Backup extends AWSServiceClient {
     input: DescribeCopyJobInput,
   ): Effect.Effect<
     DescribeCopyJobOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeCopyJob", input);
   }
@@ -335,11 +220,7 @@ export class Backup extends AWSServiceClient {
     input: DescribeFrameworkInput,
   ): Effect.Effect<
     DescribeFrameworkOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeFramework", input);
   }
@@ -355,11 +236,7 @@ export class Backup extends AWSServiceClient {
     input: DescribeProtectedResourceInput,
   ): Effect.Effect<
     DescribeProtectedResourceOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeProtectedResource", input);
   }
@@ -367,11 +244,7 @@ export class Backup extends AWSServiceClient {
     input: DescribeRecoveryPointInput,
   ): Effect.Effect<
     DescribeRecoveryPointOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeRecoveryPoint", input);
   }
@@ -387,10 +260,7 @@ export class Backup extends AWSServiceClient {
     input: DescribeReportJobInput,
   ): Effect.Effect<
     DescribeReportJobOutput,
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeReportJob", input);
   }
@@ -398,11 +268,7 @@ export class Backup extends AWSServiceClient {
     input: DescribeReportPlanInput,
   ): Effect.Effect<
     DescribeReportPlanOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeReportPlan", input);
   }
@@ -410,12 +276,7 @@ export class Backup extends AWSServiceClient {
     input: DescribeRestoreJobInput,
   ): Effect.Effect<
     DescribeRestoreJobOutput,
-    | DependencyFailureException
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    DependencyFailureException | InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeRestoreJob", input);
   }
@@ -423,12 +284,7 @@ export class Backup extends AWSServiceClient {
     input: DisassociateBackupVaultMpaApprovalTeamInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DisassociateBackupVaultMpaApprovalTeam", input);
   }
@@ -436,13 +292,7 @@ export class Backup extends AWSServiceClient {
     input: DisassociateRecoveryPointInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | InvalidResourceStateException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | InvalidResourceStateException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DisassociateRecoveryPoint", input);
   }
@@ -450,12 +300,7 @@ export class Backup extends AWSServiceClient {
     input: DisassociateRecoveryPointFromParentInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DisassociateRecoveryPointFromParent", input);
   }
@@ -463,11 +308,7 @@ export class Backup extends AWSServiceClient {
     input: ExportBackupPlanTemplateInput,
   ): Effect.Effect<
     ExportBackupPlanTemplateOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ExportBackupPlanTemplate", input);
   }
@@ -475,11 +316,7 @@ export class Backup extends AWSServiceClient {
     input: GetBackupPlanInput,
   ): Effect.Effect<
     GetBackupPlanOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetBackupPlan", input);
   }
@@ -487,12 +324,7 @@ export class Backup extends AWSServiceClient {
     input: GetBackupPlanFromJSONInput,
   ): Effect.Effect<
     GetBackupPlanFromJSONOutput,
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetBackupPlanFromJSON", input);
   }
@@ -500,11 +332,7 @@ export class Backup extends AWSServiceClient {
     input: GetBackupPlanFromTemplateInput,
   ): Effect.Effect<
     GetBackupPlanFromTemplateOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetBackupPlanFromTemplate", input);
   }
@@ -512,11 +340,7 @@ export class Backup extends AWSServiceClient {
     input: GetBackupSelectionInput,
   ): Effect.Effect<
     GetBackupSelectionOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetBackupSelection", input);
   }
@@ -524,11 +348,7 @@ export class Backup extends AWSServiceClient {
     input: GetBackupVaultAccessPolicyInput,
   ): Effect.Effect<
     GetBackupVaultAccessPolicyOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetBackupVaultAccessPolicy", input);
   }
@@ -536,11 +356,7 @@ export class Backup extends AWSServiceClient {
     input: GetBackupVaultNotificationsInput,
   ): Effect.Effect<
     GetBackupVaultNotificationsOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetBackupVaultNotifications", input);
   }
@@ -548,11 +364,7 @@ export class Backup extends AWSServiceClient {
     input: GetLegalHoldInput,
   ): Effect.Effect<
     GetLegalHoldOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetLegalHold", input);
   }
@@ -560,11 +372,7 @@ export class Backup extends AWSServiceClient {
     input: GetRecoveryPointIndexDetailsInput,
   ): Effect.Effect<
     GetRecoveryPointIndexDetailsOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetRecoveryPointIndexDetails", input);
   }
@@ -572,11 +380,7 @@ export class Backup extends AWSServiceClient {
     input: GetRecoveryPointRestoreMetadataInput,
   ): Effect.Effect<
     GetRecoveryPointRestoreMetadataOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetRecoveryPointRestoreMetadata", input);
   }
@@ -584,11 +388,7 @@ export class Backup extends AWSServiceClient {
     input: GetRestoreJobMetadataInput,
   ): Effect.Effect<
     GetRestoreJobMetadataOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetRestoreJobMetadata", input);
   }
@@ -596,11 +396,7 @@ export class Backup extends AWSServiceClient {
     input: GetRestoreTestingInferredMetadataInput,
   ): Effect.Effect<
     GetRestoreTestingInferredMetadataOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetRestoreTestingInferredMetadata", input);
   }
@@ -620,7 +416,9 @@ export class Backup extends AWSServiceClient {
   > {
     return this.call("GetRestoreTestingSelection", input);
   }
-  getSupportedResourceTypes(input: {}): Effect.Effect<
+  getSupportedResourceTypes(
+    input: {},
+  ): Effect.Effect<
     GetSupportedResourceTypesOutput,
     ServiceUnavailableException | CommonAwsError
   > {
@@ -630,9 +428,7 @@ export class Backup extends AWSServiceClient {
     input: ListBackupJobsInput,
   ): Effect.Effect<
     ListBackupJobsOutput,
-    | InvalidParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListBackupJobs", input);
   }
@@ -640,9 +436,7 @@ export class Backup extends AWSServiceClient {
     input: ListBackupJobSummariesInput,
   ): Effect.Effect<
     ListBackupJobSummariesOutput,
-    | InvalidParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListBackupJobSummaries", input);
   }
@@ -650,11 +444,7 @@ export class Backup extends AWSServiceClient {
     input: ListBackupPlansInput,
   ): Effect.Effect<
     ListBackupPlansOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListBackupPlans", input);
   }
@@ -662,11 +452,7 @@ export class Backup extends AWSServiceClient {
     input: ListBackupPlanTemplatesInput,
   ): Effect.Effect<
     ListBackupPlanTemplatesOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListBackupPlanTemplates", input);
   }
@@ -674,11 +460,7 @@ export class Backup extends AWSServiceClient {
     input: ListBackupPlanVersionsInput,
   ): Effect.Effect<
     ListBackupPlanVersionsOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListBackupPlanVersions", input);
   }
@@ -686,11 +468,7 @@ export class Backup extends AWSServiceClient {
     input: ListBackupSelectionsInput,
   ): Effect.Effect<
     ListBackupSelectionsOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListBackupSelections", input);
   }
@@ -698,11 +476,7 @@ export class Backup extends AWSServiceClient {
     input: ListBackupVaultsInput,
   ): Effect.Effect<
     ListBackupVaultsOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListBackupVaults", input);
   }
@@ -710,9 +484,7 @@ export class Backup extends AWSServiceClient {
     input: ListCopyJobsInput,
   ): Effect.Effect<
     ListCopyJobsOutput,
-    | InvalidParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListCopyJobs", input);
   }
@@ -720,9 +492,7 @@ export class Backup extends AWSServiceClient {
     input: ListCopyJobSummariesInput,
   ): Effect.Effect<
     ListCopyJobSummariesOutput,
-    | InvalidParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListCopyJobSummaries", input);
   }
@@ -730,9 +500,7 @@ export class Backup extends AWSServiceClient {
     input: ListFrameworksInput,
   ): Effect.Effect<
     ListFrameworksOutput,
-    | InvalidParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListFrameworks", input);
   }
@@ -740,10 +508,7 @@ export class Backup extends AWSServiceClient {
     input: ListIndexedRecoveryPointsInput,
   ): Effect.Effect<
     ListIndexedRecoveryPointsOutput,
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListIndexedRecoveryPoints", input);
   }
@@ -751,9 +516,7 @@ export class Backup extends AWSServiceClient {
     input: ListLegalHoldsInput,
   ): Effect.Effect<
     ListLegalHoldsOutput,
-    | InvalidParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListLegalHolds", input);
   }
@@ -761,9 +524,7 @@ export class Backup extends AWSServiceClient {
     input: ListProtectedResourcesInput,
   ): Effect.Effect<
     ListProtectedResourcesOutput,
-    | InvalidParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListProtectedResources", input);
   }
@@ -771,10 +532,7 @@ export class Backup extends AWSServiceClient {
     input: ListProtectedResourcesByBackupVaultInput,
   ): Effect.Effect<
     ListProtectedResourcesByBackupVaultOutput,
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListProtectedResourcesByBackupVault", input);
   }
@@ -782,11 +540,7 @@ export class Backup extends AWSServiceClient {
     input: ListRecoveryPointsByBackupVaultInput,
   ): Effect.Effect<
     ListRecoveryPointsByBackupVaultOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListRecoveryPointsByBackupVault", input);
   }
@@ -794,10 +548,7 @@ export class Backup extends AWSServiceClient {
     input: ListRecoveryPointsByLegalHoldInput,
   ): Effect.Effect<
     ListRecoveryPointsByLegalHoldOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListRecoveryPointsByLegalHold", input);
   }
@@ -805,11 +556,7 @@ export class Backup extends AWSServiceClient {
     input: ListRecoveryPointsByResourceInput,
   ): Effect.Effect<
     ListRecoveryPointsByResourceOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListRecoveryPointsByResource", input);
   }
@@ -817,10 +564,7 @@ export class Backup extends AWSServiceClient {
     input: ListReportJobsInput,
   ): Effect.Effect<
     ListReportJobsOutput,
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListReportJobs", input);
   }
@@ -828,9 +572,7 @@ export class Backup extends AWSServiceClient {
     input: ListReportPlansInput,
   ): Effect.Effect<
     ListReportPlansOutput,
-    | InvalidParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListReportPlans", input);
   }
@@ -838,11 +580,7 @@ export class Backup extends AWSServiceClient {
     input: ListRestoreAccessBackupVaultsInput,
   ): Effect.Effect<
     ListRestoreAccessBackupVaultsOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListRestoreAccessBackupVaults", input);
   }
@@ -850,11 +588,7 @@ export class Backup extends AWSServiceClient {
     input: ListRestoreJobsInput,
   ): Effect.Effect<
     ListRestoreJobsOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListRestoreJobs", input);
   }
@@ -862,11 +596,7 @@ export class Backup extends AWSServiceClient {
     input: ListRestoreJobsByProtectedResourceInput,
   ): Effect.Effect<
     ListRestoreJobsByProtectedResourceOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListRestoreJobsByProtectedResource", input);
   }
@@ -874,9 +604,7 @@ export class Backup extends AWSServiceClient {
     input: ListRestoreJobSummariesInput,
   ): Effect.Effect<
     ListRestoreJobSummariesOutput,
-    | InvalidParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListRestoreJobSummaries", input);
   }
@@ -884,9 +612,7 @@ export class Backup extends AWSServiceClient {
     input: ListRestoreTestingPlansInput,
   ): Effect.Effect<
     ListRestoreTestingPlansOutput,
-    | InvalidParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListRestoreTestingPlans", input);
   }
@@ -894,10 +620,7 @@ export class Backup extends AWSServiceClient {
     input: ListRestoreTestingSelectionsInput,
   ): Effect.Effect<
     ListRestoreTestingSelectionsOutput,
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListRestoreTestingSelections", input);
   }
@@ -905,11 +628,7 @@ export class Backup extends AWSServiceClient {
     input: ListTagsInput,
   ): Effect.Effect<
     ListTagsOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListTags", input);
   }
@@ -917,11 +636,7 @@ export class Backup extends AWSServiceClient {
     input: PutBackupVaultAccessPolicyInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutBackupVaultAccessPolicy", input);
   }
@@ -929,12 +644,7 @@ export class Backup extends AWSServiceClient {
     input: PutBackupVaultLockConfigurationInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutBackupVaultLockConfiguration", input);
   }
@@ -942,11 +652,7 @@ export class Backup extends AWSServiceClient {
     input: PutBackupVaultNotificationsInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutBackupVaultNotifications", input);
   }
@@ -954,12 +660,7 @@ export class Backup extends AWSServiceClient {
     input: PutRestoreValidationResultInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutRestoreValidationResult", input);
   }
@@ -967,12 +668,7 @@ export class Backup extends AWSServiceClient {
     input: RevokeRestoreAccessBackupVaultInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("RevokeRestoreAccessBackupVault", input);
   }
@@ -980,13 +676,7 @@ export class Backup extends AWSServiceClient {
     input: StartBackupJobInput,
   ): Effect.Effect<
     StartBackupJobOutput,
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | LimitExceededException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("StartBackupJob", input);
   }
@@ -994,13 +684,7 @@ export class Backup extends AWSServiceClient {
     input: StartCopyJobInput,
   ): Effect.Effect<
     StartCopyJobOutput,
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | LimitExceededException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("StartCopyJob", input);
   }
@@ -1008,11 +692,7 @@ export class Backup extends AWSServiceClient {
     input: StartReportJobInput,
   ): Effect.Effect<
     StartReportJobOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("StartReportJob", input);
   }
@@ -1020,12 +700,7 @@ export class Backup extends AWSServiceClient {
     input: StartRestoreJobInput,
   ): Effect.Effect<
     StartRestoreJobOutput,
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("StartRestoreJob", input);
   }
@@ -1033,12 +708,7 @@ export class Backup extends AWSServiceClient {
     input: StopBackupJobInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("StopBackupJob", input);
   }
@@ -1046,12 +716,7 @@ export class Backup extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1059,11 +724,7 @@ export class Backup extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1071,11 +732,7 @@ export class Backup extends AWSServiceClient {
     input: UpdateBackupPlanInput,
   ): Effect.Effect<
     UpdateBackupPlanOutput,
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateBackupPlan", input);
   }
@@ -1083,14 +740,7 @@ export class Backup extends AWSServiceClient {
     input: UpdateFrameworkInput,
   ): Effect.Effect<
     UpdateFrameworkOutput,
-    | AlreadyExistsException
-    | ConflictException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AlreadyExistsException | ConflictException | InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateFramework", input);
   }
@@ -1098,11 +748,7 @@ export class Backup extends AWSServiceClient {
     input: UpdateGlobalSettingsInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateGlobalSettings", input);
   }
@@ -1110,12 +756,7 @@ export class Backup extends AWSServiceClient {
     input: UpdateRecoveryPointIndexSettingsInput,
   ): Effect.Effect<
     UpdateRecoveryPointIndexSettingsOutput,
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateRecoveryPointIndexSettings", input);
   }
@@ -1123,12 +764,7 @@ export class Backup extends AWSServiceClient {
     input: UpdateRecoveryPointLifecycleInput,
   ): Effect.Effect<
     UpdateRecoveryPointLifecycleOutput,
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | InvalidRequestException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateRecoveryPointLifecycle", input);
   }
@@ -1136,10 +772,7 @@ export class Backup extends AWSServiceClient {
     input: UpdateRegionSettingsInput,
   ): Effect.Effect<
     {},
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterValueException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateRegionSettings", input);
   }
@@ -1147,12 +780,7 @@ export class Backup extends AWSServiceClient {
     input: UpdateReportPlanInput,
   ): Effect.Effect<
     UpdateReportPlanOutput,
-    | ConflictException
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    ConflictException | InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateReportPlan", input);
   }
@@ -1160,12 +788,7 @@ export class Backup extends AWSServiceClient {
     input: UpdateRestoreTestingPlanInput,
   ): Effect.Effect<
     UpdateRestoreTestingPlanOutput,
-    | ConflictException
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    ConflictException | InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateRestoreTestingPlan", input);
   }
@@ -1173,12 +796,7 @@ export class Backup extends AWSServiceClient {
     input: UpdateRestoreTestingSelectionInput,
   ): Effect.Effect<
     UpdateRestoreTestingSelectionOutput,
-    | ConflictException
-    | InvalidParameterValueException
-    | MissingParameterValueException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    ConflictException | InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateRestoreTestingSelection", input);
   }
@@ -1240,28 +858,8 @@ export interface BackupJob {
 }
 export type BackupJobChildJobsInState = Record<BackupJobState, number>;
 export type BackupJobsList = Array<BackupJob>;
-export type BackupJobState =
-  | "CREATED"
-  | "PENDING"
-  | "RUNNING"
-  | "ABORTING"
-  | "ABORTED"
-  | "COMPLETED"
-  | "FAILED"
-  | "EXPIRED"
-  | "PARTIAL";
-export type BackupJobStatus =
-  | "CREATED"
-  | "PENDING"
-  | "RUNNING"
-  | "ABORTING"
-  | "ABORTED"
-  | "COMPLETED"
-  | "FAILED"
-  | "EXPIRED"
-  | "PARTIAL"
-  | "AGGREGATE_ALL"
-  | "ANY";
+export type BackupJobState = "CREATED" | "PENDING" | "RUNNING" | "ABORTING" | "ABORTED" | "COMPLETED" | "FAILED" | "EXPIRED" | "PARTIAL";
+export type BackupJobStatus = "CREATED" | "PENDING" | "RUNNING" | "ABORTING" | "ABORTED" | "COMPLETED" | "FAILED" | "EXPIRED" | "PARTIAL" | "AGGREGATE_ALL" | "ANY";
 export interface BackupJobSummary {
   Region?: string;
   AccountId?: string;
@@ -1358,28 +956,7 @@ export interface BackupSelectionsListMember {
   CreatorRequestId?: string;
   IamRoleArn?: string;
 }
-export type BackupVaultEvent =
-  | "BACKUP_JOB_STARTED"
-  | "BACKUP_JOB_COMPLETED"
-  | "BACKUP_JOB_SUCCESSFUL"
-  | "BACKUP_JOB_FAILED"
-  | "BACKUP_JOB_EXPIRED"
-  | "RESTORE_JOB_STARTED"
-  | "RESTORE_JOB_COMPLETED"
-  | "RESTORE_JOB_SUCCESSFUL"
-  | "RESTORE_JOB_FAILED"
-  | "COPY_JOB_STARTED"
-  | "COPY_JOB_SUCCESSFUL"
-  | "COPY_JOB_FAILED"
-  | "RECOVERY_POINT_MODIFIED"
-  | "BACKUP_PLAN_CREATED"
-  | "BACKUP_PLAN_MODIFIED"
-  | "S3_BACKUP_OBJECT_FAILED"
-  | "S3_RESTORE_OBJECT_FAILED"
-  | "CONTINUOUS_BACKUP_INTERRUPTED"
-  | "RECOVERY_POINT_INDEX_COMPLETED"
-  | "RECOVERY_POINT_INDEX_DELETED"
-  | "RECOVERY_POINT_INDEXING_FAILED";
+export type BackupVaultEvent = "BACKUP_JOB_STARTED" | "BACKUP_JOB_COMPLETED" | "BACKUP_JOB_SUCCESSFUL" | "BACKUP_JOB_FAILED" | "BACKUP_JOB_EXPIRED" | "RESTORE_JOB_STARTED" | "RESTORE_JOB_COMPLETED" | "RESTORE_JOB_SUCCESSFUL" | "RESTORE_JOB_FAILED" | "COPY_JOB_STARTED" | "COPY_JOB_SUCCESSFUL" | "COPY_JOB_FAILED" | "RECOVERY_POINT_MODIFIED" | "BACKUP_PLAN_CREATED" | "BACKUP_PLAN_MODIFIED" | "S3_BACKUP_OBJECT_FAILED" | "S3_RESTORE_OBJECT_FAILED" | "CONTINUOUS_BACKUP_INTERRUPTED" | "RECOVERY_POINT_INDEX_COMPLETED" | "RECOVERY_POINT_INDEX_DELETED" | "RECOVERY_POINT_INDEXING_FAILED";
 export type BackupVaultEvents = Array<BackupVaultEvent>;
 export type BackupVaultList = Array<BackupVaultListMember>;
 export interface BackupVaultListMember {
@@ -1411,7 +988,8 @@ export interface CancelLegalHoldInput {
   CancelDescription: string;
   RetainRecordInDays?: number;
 }
-export interface CancelLegalHoldOutput {}
+export interface CancelLegalHoldOutput {
+}
 export type ComplianceResourceIdList = Array<string>;
 export interface Condition {
   ConditionType: ConditionType;
@@ -1485,24 +1063,8 @@ export interface CopyJob {
 }
 export type CopyJobChildJobsInState = Record<CopyJobState, number>;
 export type CopyJobsList = Array<CopyJob>;
-export type CopyJobState =
-  | "CREATED"
-  | "RUNNING"
-  | "COMPLETED"
-  | "FAILED"
-  | "PARTIAL";
-export type CopyJobStatus =
-  | "CREATED"
-  | "RUNNING"
-  | "ABORTING"
-  | "ABORTED"
-  | "COMPLETING"
-  | "COMPLETED"
-  | "FAILING"
-  | "FAILED"
-  | "PARTIAL"
-  | "AGGREGATE_ALL"
-  | "ANY";
+export type CopyJobState = "CREATED" | "RUNNING" | "COMPLETED" | "FAILED" | "PARTIAL";
+export type CopyJobStatus = "CREATED" | "RUNNING" | "ABORTING" | "ABORTED" | "COMPLETING" | "COMPLETED" | "FAILING" | "FAILED" | "PARTIAL" | "AGGREGATE_ALL" | "ANY";
 export interface CopyJobSummary {
   Region?: string;
   AccountId?: string;
@@ -1763,7 +1325,8 @@ export interface DescribeFrameworkOutput {
   FrameworkStatus?: string;
   IdempotencyToken?: string;
 }
-export interface DescribeGlobalSettingsInput {}
+export interface DescribeGlobalSettingsInput {
+}
 export interface DescribeGlobalSettingsOutput {
   GlobalSettings?: Record<string, string>;
   LastUpdateTime?: Date | string;
@@ -1816,7 +1379,8 @@ export interface DescribeRecoveryPointOutput {
   IndexStatus?: IndexStatus;
   IndexStatusMessage?: string;
 }
-export interface DescribeRegionSettingsInput {}
+export interface DescribeRegionSettingsInput {
+}
 export interface DescribeRegionSettingsOutput {
   ResourceTypeOptInPreference?: Record<string, boolean>;
   ResourceTypeManagementPreference?: Record<string, boolean>;
@@ -2539,14 +2103,7 @@ export interface RecoveryPointSelection {
   DateRange?: DateRange;
 }
 export type RecoveryPointsList = Array<RecoveryPointMember>;
-export type RecoveryPointStatus =
-  | "COMPLETED"
-  | "PARTIAL"
-  | "DELETING"
-  | "EXPIRED"
-  | "AVAILABLE"
-  | "STOPPED"
-  | "CREATING";
+export type RecoveryPointStatus = "COMPLETED" | "PARTIAL" | "DELETING" | "EXPIRED" | "AVAILABLE" | "STOPPED" | "CREATING";
 export type Region = string;
 
 export interface ReportDeliveryChannel {
@@ -2613,8 +2170,7 @@ export type ResourceTypeList = Array<string>;
 export type ResourceTypeManagementPreference = Record<string, boolean>;
 export type ResourceTypeOptInPreference = Record<string, boolean>;
 export type ResourceTypes = Array<string>;
-export type RestoreAccessBackupVaultList =
-  Array<RestoreAccessBackupVaultListMember>;
+export type RestoreAccessBackupVaultList = Array<RestoreAccessBackupVaultListMember>;
 export interface RestoreAccessBackupVaultListMember {
   RestoreAccessBackupVaultArn?: string;
   CreationDate?: Date | string;
@@ -2650,21 +2206,8 @@ export interface RestoreJobsListMember {
   DeletionStatus?: RestoreDeletionStatus;
   DeletionStatusMessage?: string;
 }
-export type RestoreJobState =
-  | "CREATED"
-  | "PENDING"
-  | "RUNNING"
-  | "ABORTED"
-  | "COMPLETED"
-  | "FAILED"
-  | "AGGREGATE_ALL"
-  | "ANY";
-export type RestoreJobStatus =
-  | "PENDING"
-  | "RUNNING"
-  | "COMPLETED"
-  | "ABORTED"
-  | "FAILED";
+export type RestoreJobState = "CREATED" | "PENDING" | "RUNNING" | "ABORTED" | "COMPLETED" | "FAILED" | "AGGREGATE_ALL" | "ANY";
+export type RestoreJobStatus = "PENDING" | "RUNNING" | "COMPLETED" | "ABORTED" | "FAILED";
 export interface RestoreJobSummary {
   Region?: string;
   AccountId?: string;
@@ -2718,12 +2261,9 @@ export interface RestoreTestingRecoveryPointSelection {
   RecoveryPointTypes?: Array<RestoreTestingRecoveryPointType>;
   SelectionWindowDays?: number;
 }
-export type RestoreTestingRecoveryPointSelectionAlgorithm =
-  | "LATEST_WITHIN_WINDOW"
-  | "RANDOM_WITHIN_WINDOW";
+export type RestoreTestingRecoveryPointSelectionAlgorithm = "LATEST_WITHIN_WINDOW" | "RANDOM_WITHIN_WINDOW";
 export type RestoreTestingRecoveryPointType = "CONTINUOUS" | "SNAPSHOT";
-export type RestoreTestingRecoveryPointTypeList =
-  Array<RestoreTestingRecoveryPointType>;
+export type RestoreTestingRecoveryPointTypeList = Array<RestoreTestingRecoveryPointType>;
 export interface RestoreTestingSelectionForCreate {
   IamRoleArn: string;
   ProtectedResourceArns?: Array<string>;
@@ -2761,11 +2301,7 @@ export interface RestoreTestingSelectionForUpdate {
   ValidationWindowHours?: number;
 }
 export type RestoreTestingSelections = Array<RestoreTestingSelectionForList>;
-export type RestoreValidationStatus =
-  | "FAILED"
-  | "SUCCESSFUL"
-  | "TIMED_OUT"
-  | "VALIDATING";
+export type RestoreValidationStatus = "FAILED" | "SUCCESSFUL" | "TIMED_OUT" | "VALIDATING";
 export interface RevokeRestoreAccessBackupVaultInput {
   BackupVaultName: string;
   RestoreAccessBackupVaultArn: string;
@@ -2943,10 +2479,7 @@ export interface UpdateRestoreTestingSelectionOutput {
 }
 export type VaultNames = Array<string>;
 export type VaultState = "CREATING" | "AVAILABLE" | "FAILED";
-export type VaultType =
-  | "BACKUP_VAULT"
-  | "LOGICALLY_AIR_GAPPED_BACKUP_VAULT"
-  | "RESTORE_ACCESS_BACKUP_VAULT";
+export type VaultType = "BACKUP_VAULT" | "LOGICALLY_AIR_GAPPED_BACKUP_VAULT" | "RESTORE_ACCESS_BACKUP_VAULT";
 export type WindowMinutes = number;
 
 export declare namespace AssociateBackupVaultMpaApprovalTeam {
@@ -3300,7 +2833,9 @@ export declare namespace DescribeRecoveryPoint {
 export declare namespace DescribeRegionSettings {
   export type Input = DescribeRegionSettingsInput;
   export type Output = DescribeRegionSettingsOutput;
-  export type Error = ServiceUnavailableException | CommonAwsError;
+  export type Error =
+    | ServiceUnavailableException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReportJob {
@@ -3527,7 +3062,9 @@ export declare namespace GetRestoreTestingSelection {
 export declare namespace GetSupportedResourceTypes {
   export type Input = {};
   export type Output = GetSupportedResourceTypesOutput;
-  export type Error = ServiceUnavailableException | CommonAwsError;
+  export type Error =
+    | ServiceUnavailableException
+    | CommonAwsError;
 }
 
 export declare namespace ListBackupJobs {
@@ -4038,3 +3575,4 @@ export declare namespace UpdateRestoreTestingSelection {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+

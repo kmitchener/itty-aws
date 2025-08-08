@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class S3Tables extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("s3tables", new RestJson1Protocol(), cfg);
+  }
+
   createNamespace(
     input: CreateNamespaceRequest,
   ): Effect.Effect<
     CreateNamespaceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateNamespace", input);
   }
@@ -21,13 +20,7 @@ export class S3Tables extends AWSServiceClient {
     input: CreateTableRequest,
   ): Effect.Effect<
     CreateTableResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateTable", input);
   }
@@ -35,13 +28,7 @@ export class S3Tables extends AWSServiceClient {
     input: CreateTableBucketRequest,
   ): Effect.Effect<
     CreateTableBucketResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateTableBucket", input);
   }
@@ -49,13 +36,7 @@ export class S3Tables extends AWSServiceClient {
     input: DeleteNamespaceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteNamespace", input);
   }
@@ -63,13 +44,7 @@ export class S3Tables extends AWSServiceClient {
     input: DeleteTableRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteTable", input);
   }
@@ -77,13 +52,7 @@ export class S3Tables extends AWSServiceClient {
     input: DeleteTableBucketRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteTableBucket", input);
   }
@@ -91,13 +60,7 @@ export class S3Tables extends AWSServiceClient {
     input: DeleteTableBucketEncryptionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteTableBucketEncryption", input);
   }
@@ -105,13 +68,7 @@ export class S3Tables extends AWSServiceClient {
     input: DeleteTableBucketPolicyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteTableBucketPolicy", input);
   }
@@ -119,13 +76,7 @@ export class S3Tables extends AWSServiceClient {
     input: DeleteTablePolicyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteTablePolicy", input);
   }
@@ -133,14 +84,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetNamespaceRequest,
   ): Effect.Effect<
     GetNamespaceResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetNamespace", input);
   }
@@ -148,14 +92,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetTableRequest,
   ): Effect.Effect<
     GetTableResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTable", input);
   }
@@ -163,14 +100,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetTableBucketRequest,
   ): Effect.Effect<
     GetTableBucketResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTableBucket", input);
   }
@@ -178,13 +108,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetTableBucketEncryptionRequest,
   ): Effect.Effect<
     GetTableBucketEncryptionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTableBucketEncryption", input);
   }
@@ -192,13 +116,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetTableBucketMaintenanceConfigurationRequest,
   ): Effect.Effect<
     GetTableBucketMaintenanceConfigurationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTableBucketMaintenanceConfiguration", input);
   }
@@ -206,13 +124,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetTableBucketPolicyRequest,
   ): Effect.Effect<
     GetTableBucketPolicyResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTableBucketPolicy", input);
   }
@@ -220,13 +132,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetTableEncryptionRequest,
   ): Effect.Effect<
     GetTableEncryptionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTableEncryption", input);
   }
@@ -234,13 +140,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetTableMaintenanceConfigurationRequest,
   ): Effect.Effect<
     GetTableMaintenanceConfigurationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTableMaintenanceConfiguration", input);
   }
@@ -248,13 +148,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetTableMaintenanceJobStatusRequest,
   ): Effect.Effect<
     GetTableMaintenanceJobStatusResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTableMaintenanceJobStatus", input);
   }
@@ -262,13 +156,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetTableMetadataLocationRequest,
   ): Effect.Effect<
     GetTableMetadataLocationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTableMetadataLocation", input);
   }
@@ -276,13 +164,7 @@ export class S3Tables extends AWSServiceClient {
     input: GetTablePolicyRequest,
   ): Effect.Effect<
     GetTablePolicyResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTablePolicy", input);
   }
@@ -290,14 +172,7 @@ export class S3Tables extends AWSServiceClient {
     input: ListNamespacesRequest,
   ): Effect.Effect<
     ListNamespacesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListNamespaces", input);
   }
@@ -305,14 +180,7 @@ export class S3Tables extends AWSServiceClient {
     input: ListTableBucketsRequest,
   ): Effect.Effect<
     ListTableBucketsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTableBuckets", input);
   }
@@ -320,13 +188,7 @@ export class S3Tables extends AWSServiceClient {
     input: ListTablesRequest,
   ): Effect.Effect<
     ListTablesResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTables", input);
   }
@@ -334,13 +196,7 @@ export class S3Tables extends AWSServiceClient {
     input: PutTableBucketEncryptionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutTableBucketEncryption", input);
   }
@@ -348,13 +204,7 @@ export class S3Tables extends AWSServiceClient {
     input: PutTableBucketMaintenanceConfigurationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutTableBucketMaintenanceConfiguration", input);
   }
@@ -362,13 +212,7 @@ export class S3Tables extends AWSServiceClient {
     input: PutTableBucketPolicyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutTableBucketPolicy", input);
   }
@@ -376,13 +220,7 @@ export class S3Tables extends AWSServiceClient {
     input: PutTableMaintenanceConfigurationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutTableMaintenanceConfiguration", input);
   }
@@ -390,13 +228,7 @@ export class S3Tables extends AWSServiceClient {
     input: PutTablePolicyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutTablePolicy", input);
   }
@@ -404,13 +236,7 @@ export class S3Tables extends AWSServiceClient {
     input: RenameTableRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("RenameTable", input);
   }
@@ -418,13 +244,7 @@ export class S3Tables extends AWSServiceClient {
     input: UpdateTableMetadataLocationRequest,
   ): Effect.Effect<
     UpdateTableMetadataLocationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateTableMetadataLocation", input);
   }
@@ -536,10 +356,7 @@ export interface GetTableBucketMaintenanceConfigurationRequest {
 }
 export interface GetTableBucketMaintenanceConfigurationResponse {
   tableBucketARN: string;
-  configuration: Record<
-    TableBucketMaintenanceType,
-    TableBucketMaintenanceConfigurationValue
-  >;
+  configuration: Record<TableBucketMaintenanceType, TableBucketMaintenanceConfigurationValue>;
 }
 export interface GetTableBucketPolicyRequest {
   tableBucketARN: string;
@@ -573,10 +390,7 @@ export interface GetTableMaintenanceConfigurationRequest {
 }
 export interface GetTableMaintenanceConfigurationResponse {
   tableARN: string;
-  configuration: Record<
-    TableMaintenanceType,
-    TableMaintenanceConfigurationValue
-  >;
+  configuration: Record<TableMaintenanceType, TableMaintenanceConfigurationValue>;
 }
 export interface GetTableMaintenanceJobStatusRequest {
   tableBucketARN: string;
@@ -767,10 +581,7 @@ export type TableBucketARN = string;
 
 export type TableBucketId = string;
 
-export type TableBucketMaintenanceConfiguration = Record<
-  TableBucketMaintenanceType,
-  TableBucketMaintenanceConfigurationValue
->;
+export type TableBucketMaintenanceConfiguration = Record<TableBucketMaintenanceType, TableBucketMaintenanceConfigurationValue>;
 export interface TableBucketMaintenanceConfigurationValue {
   status?: MaintenanceStatus;
   settings?: TableBucketMaintenanceSettings;
@@ -779,9 +590,7 @@ interface _TableBucketMaintenanceSettings {
   icebergUnreferencedFileRemoval?: IcebergUnreferencedFileRemovalSettings;
 }
 
-export type TableBucketMaintenanceSettings = _TableBucketMaintenanceSettings & {
-  icebergUnreferencedFileRemoval: IcebergUnreferencedFileRemovalSettings;
-};
+export type TableBucketMaintenanceSettings = (_TableBucketMaintenanceSettings & { icebergUnreferencedFileRemoval: IcebergUnreferencedFileRemovalSettings });
 export type TableBucketMaintenanceType = "ICEBERG_UNREFERENCED_FILE_REMOVAL";
 export type TableBucketName = string;
 
@@ -795,47 +604,30 @@ export interface TableBucketSummary {
 }
 export type TableBucketSummaryList = Array<TableBucketSummary>;
 export type TableBucketType = "CUSTOMER" | "AWS";
-export type TableMaintenanceConfiguration = Record<
-  TableMaintenanceType,
-  TableMaintenanceConfigurationValue
->;
+export type TableMaintenanceConfiguration = Record<TableMaintenanceType, TableMaintenanceConfigurationValue>;
 export interface TableMaintenanceConfigurationValue {
   status?: MaintenanceStatus;
   settings?: TableMaintenanceSettings;
 }
-export type TableMaintenanceJobStatus = Record<
-  TableMaintenanceJobType,
-  TableMaintenanceJobStatusValue
->;
+export type TableMaintenanceJobStatus = Record<TableMaintenanceJobType, TableMaintenanceJobStatusValue>;
 export interface TableMaintenanceJobStatusValue {
   status: JobStatus;
   lastRunTimestamp?: Date | string;
   failureMessage?: string;
 }
-export type TableMaintenanceJobType =
-  | "ICEBERG_COMPACTION"
-  | "ICEBERG_SNAPSHOT_MANAGEMENT"
-  | "ICEBERG_UNREFERENCED_FILE_REMOVAL";
+export type TableMaintenanceJobType = "ICEBERG_COMPACTION" | "ICEBERG_SNAPSHOT_MANAGEMENT" | "ICEBERG_UNREFERENCED_FILE_REMOVAL";
 interface _TableMaintenanceSettings {
   icebergCompaction?: IcebergCompactionSettings;
   icebergSnapshotManagement?: IcebergSnapshotManagementSettings;
 }
 
-export type TableMaintenanceSettings =
-  | (_TableMaintenanceSettings & {
-      icebergCompaction: IcebergCompactionSettings;
-    })
-  | (_TableMaintenanceSettings & {
-      icebergSnapshotManagement: IcebergSnapshotManagementSettings;
-    });
-export type TableMaintenanceType =
-  | "ICEBERG_COMPACTION"
-  | "ICEBERG_SNAPSHOT_MANAGEMENT";
+export type TableMaintenanceSettings = (_TableMaintenanceSettings & { icebergCompaction: IcebergCompactionSettings }) | (_TableMaintenanceSettings & { icebergSnapshotManagement: IcebergSnapshotManagementSettings });
+export type TableMaintenanceType = "ICEBERG_COMPACTION" | "ICEBERG_SNAPSHOT_MANAGEMENT";
 interface _TableMetadata {
   iceberg?: IcebergMetadata;
 }
 
-export type TableMetadata = _TableMetadata & { iceberg: IcebergMetadata };
+export type TableMetadata = (_TableMetadata & { iceberg: IcebergMetadata });
 export type TableName = string;
 
 export interface TableSummary {
@@ -1267,3 +1059,4 @@ export declare namespace UpdateTableMetadataLocation {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

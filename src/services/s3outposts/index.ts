@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class S3Outposts extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("s3outposts", new RestJson1Protocol(), cfg);
+  }
+
   createEndpoint(
     input: CreateEndpointRequest,
   ): Effect.Effect<
     CreateEndpointResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | OutpostOfflineException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | OutpostOfflineException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateEndpoint", input);
   }
@@ -22,13 +20,7 @@ export class S3Outposts extends AWSServiceClient {
     input: DeleteEndpointRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | OutpostOfflineException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | OutpostOfflineException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteEndpoint", input);
   }
@@ -36,12 +28,7 @@ export class S3Outposts extends AWSServiceClient {
     input: ListEndpointsRequest,
   ): Effect.Effect<
     ListEndpointsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEndpoints", input);
   }
@@ -49,11 +36,7 @@ export class S3Outposts extends AWSServiceClient {
     input: ListOutpostsWithS3Request,
   ): Effect.Effect<
     ListOutpostsWithS3Result,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListOutpostsWithS3", input);
   }
@@ -61,12 +44,7 @@ export class S3Outposts extends AWSServiceClient {
     input: ListSharedEndpointsRequest,
   ): Effect.Effect<
     ListSharedEndpointsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSharedEndpoints", input);
   }
@@ -130,12 +108,7 @@ export type EndpointArn = string;
 export type EndpointId = string;
 
 export type Endpoints = Array<Endpoint>;
-export type EndpointStatus =
-  | "PENDING"
-  | "AVAILABLE"
-  | "DELETING"
-  | "CREATE_FAILED"
-  | "DELETE_FAILED";
+export type EndpointStatus = "PENDING" | "AVAILABLE" | "DELETING" | "CREATE_FAILED" | "DELETE_FAILED";
 export type ErrorCode = string;
 
 export type ErrorMessage = string;
@@ -287,3 +260,4 @@ export declare namespace ListSharedEndpoints {
     | ValidationException
     | CommonAwsError;
 }
+

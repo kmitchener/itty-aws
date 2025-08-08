@@ -1,21 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ChimeSDKMessaging extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("chime-sdk-messaging", new RestJson1Protocol(), cfg);
+  }
+
   associateChannelFlow(
     input: AssociateChannelFlowRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("AssociateChannelFlow", input);
   }
@@ -23,15 +20,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: BatchCreateChannelMembershipRequest,
   ): Effect.Effect<
     BatchCreateChannelMembershipResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("BatchCreateChannelMembership", input);
   }
@@ -39,14 +28,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ChannelFlowCallbackRequest,
   ): Effect.Effect<
     ChannelFlowCallbackResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ChannelFlowCallback", input);
   }
@@ -54,15 +36,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: CreateChannelRequest,
   ): Effect.Effect<
     CreateChannelResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateChannel", input);
   }
@@ -70,15 +44,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: CreateChannelBanRequest,
   ): Effect.Effect<
     CreateChannelBanResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateChannelBan", input);
   }
@@ -86,15 +52,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: CreateChannelFlowRequest,
   ): Effect.Effect<
     CreateChannelFlowResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateChannelFlow", input);
   }
@@ -102,16 +60,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: CreateChannelMembershipRequest,
   ): Effect.Effect<
     CreateChannelMembershipResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateChannelMembership", input);
   }
@@ -119,15 +68,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: CreateChannelModeratorRequest,
   ): Effect.Effect<
     CreateChannelModeratorResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateChannelModerator", input);
   }
@@ -135,14 +76,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DeleteChannelRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteChannel", input);
   }
@@ -150,13 +84,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DeleteChannelBanRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteChannelBan", input);
   }
@@ -164,14 +92,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DeleteChannelFlowRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteChannelFlow", input);
   }
@@ -179,14 +100,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DeleteChannelMembershipRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteChannelMembership", input);
   }
@@ -194,13 +108,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DeleteChannelMessageRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteChannelMessage", input);
   }
@@ -208,13 +116,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DeleteChannelModeratorRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteChannelModerator", input);
   }
@@ -222,13 +124,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DeleteMessagingStreamingConfigurationsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteMessagingStreamingConfigurations", input);
   }
@@ -236,13 +132,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DescribeChannelRequest,
   ): Effect.Effect<
     DescribeChannelResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeChannel", input);
   }
@@ -250,14 +140,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DescribeChannelBanRequest,
   ): Effect.Effect<
     DescribeChannelBanResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeChannelBan", input);
   }
@@ -265,13 +148,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DescribeChannelFlowRequest,
   ): Effect.Effect<
     DescribeChannelFlowResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeChannelFlow", input);
   }
@@ -279,14 +156,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DescribeChannelMembershipRequest,
   ): Effect.Effect<
     DescribeChannelMembershipResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeChannelMembership", input);
   }
@@ -294,13 +164,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DescribeChannelMembershipForAppInstanceUserRequest,
   ): Effect.Effect<
     DescribeChannelMembershipForAppInstanceUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeChannelMembershipForAppInstanceUser", input);
   }
@@ -308,13 +172,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DescribeChannelModeratedByAppInstanceUserRequest,
   ): Effect.Effect<
     DescribeChannelModeratedByAppInstanceUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeChannelModeratedByAppInstanceUser", input);
   }
@@ -322,14 +180,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DescribeChannelModeratorRequest,
   ): Effect.Effect<
     DescribeChannelModeratorResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeChannelModerator", input);
   }
@@ -337,15 +188,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: DisassociateChannelFlowRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DisassociateChannelFlow", input);
   }
@@ -353,13 +196,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: GetChannelMembershipPreferencesRequest,
   ): Effect.Effect<
     GetChannelMembershipPreferencesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetChannelMembershipPreferences", input);
   }
@@ -367,14 +204,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: GetChannelMessageRequest,
   ): Effect.Effect<
     GetChannelMessageResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetChannelMessage", input);
   }
@@ -382,13 +212,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: GetChannelMessageStatusRequest,
   ): Effect.Effect<
     GetChannelMessageStatusResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetChannelMessageStatus", input);
   }
@@ -396,12 +220,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: GetMessagingSessionEndpointRequest,
   ): Effect.Effect<
     GetMessagingSessionEndpointResponse,
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetMessagingSessionEndpoint", input);
   }
@@ -409,14 +228,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: GetMessagingStreamingConfigurationsRequest,
   ): Effect.Effect<
     GetMessagingStreamingConfigurationsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetMessagingStreamingConfigurations", input);
   }
@@ -424,13 +236,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListChannelBansRequest,
   ): Effect.Effect<
     ListChannelBansResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListChannelBans", input);
   }
@@ -438,13 +244,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListChannelFlowsRequest,
   ): Effect.Effect<
     ListChannelFlowsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListChannelFlows", input);
   }
@@ -452,13 +252,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListChannelMembershipsRequest,
   ): Effect.Effect<
     ListChannelMembershipsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListChannelMemberships", input);
   }
@@ -466,13 +260,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListChannelMembershipsForAppInstanceUserRequest,
   ): Effect.Effect<
     ListChannelMembershipsForAppInstanceUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListChannelMembershipsForAppInstanceUser", input);
   }
@@ -480,13 +268,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListChannelMessagesRequest,
   ): Effect.Effect<
     ListChannelMessagesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListChannelMessages", input);
   }
@@ -494,13 +276,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListChannelModeratorsRequest,
   ): Effect.Effect<
     ListChannelModeratorsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListChannelModerators", input);
   }
@@ -508,13 +284,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListChannelsRequest,
   ): Effect.Effect<
     ListChannelsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListChannels", input);
   }
@@ -522,13 +292,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListChannelsAssociatedWithChannelFlowRequest,
   ): Effect.Effect<
     ListChannelsAssociatedWithChannelFlowResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListChannelsAssociatedWithChannelFlow", input);
   }
@@ -536,13 +300,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListChannelsModeratedByAppInstanceUserRequest,
   ): Effect.Effect<
     ListChannelsModeratedByAppInstanceUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListChannelsModeratedByAppInstanceUser", input);
   }
@@ -550,13 +308,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListSubChannelsRequest,
   ): Effect.Effect<
     ListSubChannelsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListSubChannels", input);
   }
@@ -564,13 +316,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -578,14 +324,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: PutChannelExpirationSettingsRequest,
   ): Effect.Effect<
     PutChannelExpirationSettingsResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutChannelExpirationSettings", input);
   }
@@ -593,14 +332,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: PutChannelMembershipPreferencesRequest,
   ): Effect.Effect<
     PutChannelMembershipPreferencesResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutChannelMembershipPreferences", input);
   }
@@ -608,15 +340,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: PutMessagingStreamingConfigurationsRequest,
   ): Effect.Effect<
     PutMessagingStreamingConfigurationsResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutMessagingStreamingConfigurations", input);
   }
@@ -624,14 +348,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: RedactChannelMessageRequest,
   ): Effect.Effect<
     RedactChannelMessageResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("RedactChannelMessage", input);
   }
@@ -639,13 +356,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: SearchChannelsRequest,
   ): Effect.Effect<
     SearchChannelsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("SearchChannels", input);
   }
@@ -653,14 +364,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: SendChannelMessageRequest,
   ): Effect.Effect<
     SendChannelMessageResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("SendChannelMessage", input);
   }
@@ -668,14 +372,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -683,13 +380,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -697,14 +388,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: UpdateChannelRequest,
   ): Effect.Effect<
     UpdateChannelResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateChannel", input);
   }
@@ -712,14 +396,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: UpdateChannelFlowRequest,
   ): Effect.Effect<
     UpdateChannelFlowResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateChannelFlow", input);
   }
@@ -727,14 +404,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: UpdateChannelMessageRequest,
   ): Effect.Effect<
     UpdateChannelMessageResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateChannelMessage", input);
   }
@@ -742,14 +412,7 @@ export class ChimeSDKMessaging extends AWSServiceClient {
     input: UpdateChannelReadMarkerRequest,
   ): Effect.Effect<
     UpdateChannelReadMarkerResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateChannelReadMarker", input);
   }
@@ -788,8 +451,7 @@ export interface BatchCreateChannelMembershipError {
   ErrorCode?: ErrorCode;
   ErrorMessage?: string;
 }
-export type BatchCreateChannelMembershipErrors =
-  Array<BatchCreateChannelMembershipError>;
+export type BatchCreateChannelMembershipErrors = Array<BatchCreateChannelMembershipError>;
 export interface BatchCreateChannelMembershipRequest {
   ChannelArn: string;
   Type?: ChannelMembershipType;
@@ -824,8 +486,7 @@ export interface ChannelAssociatedWithFlowSummary {
   Privacy?: ChannelPrivacy;
   Metadata?: string;
 }
-export type ChannelAssociatedWithFlowSummaryList =
-  Array<ChannelAssociatedWithFlowSummary>;
+export type ChannelAssociatedWithFlowSummaryList = Array<ChannelAssociatedWithFlowSummary>;
 export interface ChannelBan {
   Member?: Identity;
   ChannelArn?: string;
@@ -877,8 +538,7 @@ export interface ChannelMembershipForAppInstanceUserSummary {
   ChannelSummary?: ChannelSummary;
   AppInstanceUserMembershipSummary?: AppInstanceUserMembershipSummary;
 }
-export type ChannelMembershipForAppInstanceUserSummaryList =
-  Array<ChannelMembershipForAppInstanceUserSummary>;
+export type ChannelMembershipForAppInstanceUserSummaryList = Array<ChannelMembershipForAppInstanceUserSummary>;
 export interface ChannelMembershipPreferences {
   PushNotifications?: PushNotificationPreferences;
 }
@@ -941,8 +601,7 @@ export type ChannelMode = "UNRESTRICTED" | "RESTRICTED";
 export interface ChannelModeratedByAppInstanceUserSummary {
   ChannelSummary?: ChannelSummary;
 }
-export type ChannelModeratedByAppInstanceUserSummaryList =
-  Array<ChannelModeratedByAppInstanceUserSummary>;
+export type ChannelModeratedByAppInstanceUserSummaryList = Array<ChannelModeratedByAppInstanceUserSummary>;
 export interface ChannelModerator {
   Moderator?: Identity;
   ChannelArn?: string;
@@ -1132,25 +791,8 @@ export interface ElasticChannelConfiguration {
   TargetMembershipsPerSubChannel: number;
   MinimumMembershipPercentage: number;
 }
-export type ErrorCode =
-  | "BadRequest"
-  | "Conflict"
-  | "Forbidden"
-  | "NotFound"
-  | "PreconditionFailed"
-  | "ResourceLimitExceeded"
-  | "ServiceFailure"
-  | "AccessDenied"
-  | "ServiceUnavailable"
-  | "Throttled"
-  | "Throttling"
-  | "Unauthorized"
-  | "Unprocessable"
-  | "VoiceConnectorGroupAssociationsExist"
-  | "PhoneNumberAssociationsExist";
-export type ExpirationCriterion =
-  | "CREATED_TIMESTAMP"
-  | "LAST_MESSAGE_TIMESTAMP";
+export type ErrorCode = "BadRequest" | "Conflict" | "Forbidden" | "NotFound" | "PreconditionFailed" | "ResourceLimitExceeded" | "ServiceFailure" | "AccessDenied" | "ServiceUnavailable" | "Throttled" | "Throttling" | "Unauthorized" | "Unprocessable" | "VoiceConnectorGroupAssociationsExist" | "PhoneNumberAssociationsExist";
+export type ExpirationCriterion = "CREATED_TIMESTAMP" | "LAST_MESSAGE_TIMESTAMP";
 export type ExpirationDays = number;
 
 export interface ExpirationSettings {
@@ -1194,7 +836,8 @@ export interface GetChannelMessageStatusRequest {
 export interface GetChannelMessageStatusResponse {
   Status?: ChannelMessageStatusStructure;
 }
-export interface GetMessagingSessionEndpointRequest {}
+export interface GetMessagingSessionEndpointRequest {
+}
 export interface GetMessagingSessionEndpointResponse {
   Endpoint?: MessagingSessionEndpoint;
 }
@@ -2291,3 +1934,4 @@ export declare namespace UpdateChannelReadMarker {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+

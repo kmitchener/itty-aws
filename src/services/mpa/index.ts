@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MPA extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("mpa", new RestJson1Protocol(), cfg);
+  }
+
   getPolicyVersion(
     input: GetPolicyVersionRequest,
   ): Effect.Effect<
     GetPolicyVersionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPolicyVersion", input);
   }
@@ -20,12 +20,7 @@ export class MPA extends AWSServiceClient {
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | AccessDeniedException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -33,11 +28,7 @@ export class MPA extends AWSServiceClient {
     input: ListPoliciesRequest,
   ): Effect.Effect<
     ListPoliciesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPolicies", input);
   }
@@ -45,12 +36,7 @@ export class MPA extends AWSServiceClient {
     input: ListPolicyVersionsRequest,
   ): Effect.Effect<
     ListPolicyVersionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPolicyVersions", input);
   }
@@ -58,12 +44,7 @@ export class MPA extends AWSServiceClient {
     input: ListResourcePoliciesRequest,
   ): Effect.Effect<
     ListResourcePoliciesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListResourcePolicies", input);
   }
@@ -71,12 +52,7 @@ export class MPA extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -84,13 +60,7 @@ export class MPA extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -98,12 +68,7 @@ export class MPA extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -127,16 +92,12 @@ interface _ApprovalStrategy {
   MofN?: MofNApprovalStrategy;
 }
 
-export type ApprovalStrategy = _ApprovalStrategy & {
-  MofN: MofNApprovalStrategy;
-};
+export type ApprovalStrategy = (_ApprovalStrategy & { MofN: MofNApprovalStrategy });
 interface _ApprovalStrategyResponse {
   MofN?: MofNApprovalStrategy;
 }
 
-export type ApprovalStrategyResponse = _ApprovalStrategyResponse & {
-  MofN: MofNApprovalStrategy;
-};
+export type ApprovalStrategyResponse = (_ApprovalStrategyResponse & { MofN: MofNApprovalStrategy });
 export type ApprovalTeamArn = string;
 
 export type ApprovalTeamName = string;
@@ -147,23 +108,12 @@ export interface ApprovalTeamRequestApprover {
 }
 export type ApprovalTeamRequestApprovers = Array<ApprovalTeamRequestApprover>;
 export type ApprovalTeamStatus = "ACTIVE" | "INACTIVE" | "DELETING" | "PENDING";
-export type ApprovalTeamStatusCode =
-  | "VALIDATING"
-  | "PENDING_ACTIVATION"
-  | "FAILED_VALIDATION"
-  | "FAILED_ACTIVATION"
-  | "UPDATE_PENDING_APPROVAL"
-  | "UPDATE_PENDING_ACTIVATION"
-  | "UPDATE_FAILED_APPROVAL"
-  | "UPDATE_FAILED_ACTIVATION"
-  | "UPDATE_FAILED_VALIDATION"
-  | "DELETE_PENDING_APPROVAL"
-  | "DELETE_FAILED_APPROVAL"
-  | "DELETE_FAILED_VALIDATION";
+export type ApprovalTeamStatusCode = "VALIDATING" | "PENDING_ACTIVATION" | "FAILED_VALIDATION" | "FAILED_ACTIVATION" | "UPDATE_PENDING_APPROVAL" | "UPDATE_PENDING_ACTIVATION" | "UPDATE_FAILED_APPROVAL" | "UPDATE_FAILED_ACTIVATION" | "UPDATE_FAILED_VALIDATION" | "DELETE_PENDING_APPROVAL" | "DELETE_FAILED_APPROVAL" | "DELETE_FAILED_VALIDATION";
 export interface CancelSessionRequest {
   SessionArn: string;
 }
-export interface CancelSessionResponse {}
+export interface CancelSessionResponse {
+}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -201,7 +151,8 @@ export interface DeleteInactiveApprovalTeamVersionRequest {
   Arn: string;
   VersionId: string;
 }
-export interface DeleteInactiveApprovalTeamVersionResponse {}
+export interface DeleteInactiveApprovalTeamVersionResponse {
+}
 export type Description = string;
 
 export interface Filter {
@@ -209,13 +160,7 @@ export interface Filter {
   Operator?: Operator;
   Value?: string;
 }
-export type FilterField =
-  | "ACTION_NAME"
-  | "APPROVAL_TEAM_NAME"
-  | "VOTING_TIME"
-  | "VOTE"
-  | "SESSION_STATUS"
-  | "INITIATION_TIME";
+export type FilterField = "ACTION_NAME" | "APPROVAL_TEAM_NAME" | "VOTING_TIME" | "VOTE" | "SESSION_STATUS" | "INITIATION_TIME";
 export type Filters = Array<Filter>;
 export interface GetApprovalTeamRequest {
   Arn: string;
@@ -244,8 +189,7 @@ export interface GetApprovalTeamResponseApprover {
   PrimaryIdentitySourceArn?: string;
   PrimaryIdentityStatus?: IdentityStatus;
 }
-export type GetApprovalTeamResponseApprovers =
-  Array<GetApprovalTeamResponseApprover>;
+export type GetApprovalTeamResponseApprovers = Array<GetApprovalTeamResponseApprover>;
 export interface GetIdentitySourceRequest {
   IdentitySourceArn: string;
 }
@@ -311,8 +255,7 @@ export interface GetSessionResponseApproverResponse {
   Response?: SessionResponse;
   ResponseTime?: Date | string;
 }
-export type GetSessionResponseApproverResponses =
-  Array<GetSessionResponseApproverResponse>;
+export type GetSessionResponseApproverResponses = Array<GetSessionResponseApproverResponse>;
 export interface IamIdentityCenter {
   InstanceArn: string;
   Region: string;
@@ -347,24 +290,15 @@ interface _IdentitySourceParametersForGet {
   IamIdentityCenter?: IamIdentityCenterForGet;
 }
 
-export type IdentitySourceParametersForGet = _IdentitySourceParametersForGet & {
-  IamIdentityCenter: IamIdentityCenterForGet;
-};
+export type IdentitySourceParametersForGet = (_IdentitySourceParametersForGet & { IamIdentityCenter: IamIdentityCenterForGet });
 interface _IdentitySourceParametersForList {
   IamIdentityCenter?: IamIdentityCenterForList;
 }
 
-export type IdentitySourceParametersForList =
-  _IdentitySourceParametersForList & {
-    IamIdentityCenter: IamIdentityCenterForList;
-  };
+export type IdentitySourceParametersForList = (_IdentitySourceParametersForList & { IamIdentityCenter: IamIdentityCenterForList });
 export type IdentitySources = Array<IdentitySourceForList>;
 export type IdentitySourceStatus = "CREATING" | "ACTIVE" | "DELETING" | "ERROR";
-export type IdentitySourceStatusCode =
-  | "ACCESS_DENIED"
-  | "DELETION_FAILED"
-  | "IDC_INSTANCE_NOT_FOUND"
-  | "IDC_INSTANCE_NOT_VALID";
+export type IdentitySourceStatusCode = "ACCESS_DENIED" | "DELETION_FAILED" | "IDC_INSTANCE_NOT_FOUND" | "IDC_INSTANCE_NOT_VALID";
 export type IdentitySourceType = "IAM_IDENTITY_CENTER";
 export type IdentityStatus = "PENDING" | "ACCEPTED" | "REJECTED" | "INVALID";
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -398,8 +332,7 @@ export interface ListApprovalTeamsResponseApprovalTeam {
   StatusCode?: ApprovalTeamStatusCode;
   StatusMessage?: string;
 }
-export type ListApprovalTeamsResponseApprovalTeams =
-  Array<ListApprovalTeamsResponseApprovalTeam>;
+export type ListApprovalTeamsResponseApprovalTeams = Array<ListApprovalTeamsResponseApprovalTeam>;
 export interface ListIdentitySourcesRequest {
   MaxResults?: number;
   NextToken?: string;
@@ -434,8 +367,7 @@ export interface ListResourcePoliciesResponse {
   NextToken?: string;
   ResourcePolicies?: Array<ListResourcePoliciesResponseResourcePolicy>;
 }
-export type ListResourcePoliciesResponseResourcePolicies =
-  Array<ListResourcePoliciesResponseResourcePolicy>;
+export type ListResourcePoliciesResponseResourcePolicies = Array<ListResourcePoliciesResponseResourcePolicy>;
 export interface ListResourcePoliciesResponseResourcePolicy {
   PolicyArn?: string;
   PolicyType?: PolicyType;
@@ -484,16 +416,7 @@ export type Message = string;
 export interface MofNApprovalStrategy {
   MinApprovalsRequired: number;
 }
-export type Operator =
-  | "EQUALS"
-  | "NOT_EQUALS"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "CONTAINS"
-  | "DOES_NOT_CONTAIN"
-  | "BETWEEN";
+export type Operator = "EQUALS" | "NOT_EQUALS" | "GREATER_THAN" | "LESS_THAN" | "GREATER_THAN_OR_EQUAL_TO" | "LESS_THAN_OR_EQUAL_TO" | "CONTAINS" | "DOES_NOT_CONTAIN" | "BETWEEN";
 export type ParticipantId = string;
 
 export interface PendingUpdate {
@@ -575,16 +498,8 @@ export type SessionKey = string;
 
 export type SessionMetadata = Record<string, string>;
 export type SessionResponse = "APPROVED" | "REJECTED" | "NO_RESPONSE";
-export type SessionStatus =
-  | "PENDING"
-  | "CANCELLED"
-  | "APPROVED"
-  | "FAILED"
-  | "CREATING";
-export type SessionStatusCode =
-  | "REJECTED"
-  | "EXPIRED"
-  | "CONFIGURATION_CHANGED";
+export type SessionStatus = "PENDING" | "CANCELLED" | "APPROVED" | "FAILED" | "CREATING";
+export type SessionStatusCode = "REJECTED" | "EXPIRED" | "CONFIGURATION_CHANGED";
 export type SessionValue = string;
 
 export interface StartActiveApprovalTeamDeletionRequest {
@@ -604,7 +519,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -627,7 +543,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApprovalTeamRequest {
   ApprovalStrategy?: ApprovalStrategy;
   Approvers?: Array<ApprovalTeamRequestApprover>;
@@ -737,3 +654,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

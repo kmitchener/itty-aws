@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Evidently extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("evidently", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -18,10 +20,7 @@ export class Evidently extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -29,10 +28,7 @@ export class Evidently extends AWSServiceClient {
     input: TestSegmentPatternRequest,
   ): Effect.Effect<
     TestSegmentPatternResponse,
-    | AccessDeniedException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TestSegmentPattern", input);
   }
@@ -40,10 +36,7 @@ export class Evidently extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -150,25 +143,30 @@ export interface DeleteExperimentRequest {
   project: string;
   experiment: string;
 }
-export interface DeleteExperimentResponse {}
+export interface DeleteExperimentResponse {
+}
 export interface DeleteFeatureRequest {
   project: string;
   feature: string;
 }
-export interface DeleteFeatureResponse {}
+export interface DeleteFeatureResponse {
+}
 export interface DeleteLaunchRequest {
   project: string;
   launch: string;
 }
-export interface DeleteLaunchResponse {}
+export interface DeleteLaunchResponse {
+}
 export interface DeleteProjectRequest {
   project: string;
 }
-export interface DeleteProjectResponse {}
+export interface DeleteProjectResponse {
+}
 export interface DeleteSegmentRequest {
   segment: string;
 }
-export interface DeleteSegmentResponse {}
+export interface DeleteSegmentResponse {
+}
 export type Description = string;
 
 export type DoubleValueList = Array<number>;
@@ -615,8 +613,7 @@ export interface PutProjectEventsResultEntry {
   errorCode?: string;
   errorMessage?: string;
 }
-export type PutProjectEventsResultEntryList =
-  Array<PutProjectEventsResultEntry>;
+export type PutProjectEventsResultEntryList = Array<PutProjectEventsResultEntry>;
 export type RandomizationSalt = string;
 
 export interface RefResource {
@@ -757,7 +754,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TestSegmentPatternRequest {
@@ -796,7 +794,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateExperimentRequest {
   project: string;
   experiment: string;
@@ -876,11 +875,7 @@ interface _VariableValue {
   doubleValue?: number;
 }
 
-export type VariableValue =
-  | (_VariableValue & { boolValue: boolean })
-  | (_VariableValue & { stringValue: string })
-  | (_VariableValue & { longValue: number })
-  | (_VariableValue & { doubleValue: number });
+export type VariableValue = (_VariableValue & { boolValue: boolean }) | (_VariableValue & { stringValue: string }) | (_VariableValue & { longValue: number }) | (_VariableValue & { doubleValue: number });
 export interface Variation {
   name?: string;
   value?: VariableValue;
@@ -935,3 +930,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

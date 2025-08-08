@@ -1,22 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class Rekognition extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("rekognition", new AwsJson11Protocol(), cfg);
+  }
+
   associateFaces(
     input: AssociateFacesRequest,
   ): Effect.Effect<
     AssociateFacesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateFaces", input);
   }
@@ -24,15 +20,7 @@ export class Rekognition extends AWSServiceClient {
     input: CompareFacesRequest,
   ): Effect.Effect<
     CompareFacesResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CompareFaces", input);
   }
@@ -40,16 +28,7 @@ export class Rekognition extends AWSServiceClient {
     input: CopyProjectVersionRequest,
   ): Effect.Effect<
     CopyProjectVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CopyProjectVersion", input);
   }
@@ -57,14 +36,7 @@ export class Rekognition extends AWSServiceClient {
     input: CreateCollectionRequest,
   ): Effect.Effect<
     CreateCollectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceAlreadyExistsException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceAlreadyExistsException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateCollection", input);
   }
@@ -72,16 +44,7 @@ export class Rekognition extends AWSServiceClient {
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDataset", input);
   }
@@ -89,12 +52,7 @@ export class Rekognition extends AWSServiceClient {
     input: CreateFaceLivenessSessionRequest,
   ): Effect.Effect<
     CreateFaceLivenessSessionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateFaceLivenessSession", input);
   }
@@ -102,14 +60,7 @@ export class Rekognition extends AWSServiceClient {
     input: CreateProjectRequest,
   ): Effect.Effect<
     CreateProjectResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateProject", input);
   }
@@ -117,16 +68,7 @@ export class Rekognition extends AWSServiceClient {
     input: CreateProjectVersionRequest,
   ): Effect.Effect<
     CreateProjectVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateProjectVersion", input);
   }
@@ -134,15 +76,7 @@ export class Rekognition extends AWSServiceClient {
     input: CreateStreamProcessorRequest,
   ): Effect.Effect<
     CreateStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateStreamProcessor", input);
   }
@@ -150,16 +84,7 @@ export class Rekognition extends AWSServiceClient {
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateUser", input);
   }
@@ -167,13 +92,7 @@ export class Rekognition extends AWSServiceClient {
     input: DeleteCollectionRequest,
   ): Effect.Effect<
     DeleteCollectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteCollection", input);
   }
@@ -181,15 +100,7 @@ export class Rekognition extends AWSServiceClient {
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     DeleteDatasetResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDataset", input);
   }
@@ -197,13 +108,7 @@ export class Rekognition extends AWSServiceClient {
     input: DeleteFacesRequest,
   ): Effect.Effect<
     DeleteFacesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteFaces", input);
   }
@@ -211,14 +116,7 @@ export class Rekognition extends AWSServiceClient {
     input: DeleteProjectRequest,
   ): Effect.Effect<
     DeleteProjectResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteProject", input);
   }
@@ -226,14 +124,7 @@ export class Rekognition extends AWSServiceClient {
     input: DeleteProjectPolicyRequest,
   ): Effect.Effect<
     DeleteProjectPolicyResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidPolicyRevisionIdException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | InvalidPolicyRevisionIdException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteProjectPolicy", input);
   }
@@ -241,14 +132,7 @@ export class Rekognition extends AWSServiceClient {
     input: DeleteProjectVersionRequest,
   ): Effect.Effect<
     DeleteProjectVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteProjectVersion", input);
   }
@@ -256,14 +140,7 @@ export class Rekognition extends AWSServiceClient {
     input: DeleteStreamProcessorRequest,
   ): Effect.Effect<
     DeleteStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteStreamProcessor", input);
   }
@@ -271,15 +148,7 @@ export class Rekognition extends AWSServiceClient {
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteUser", input);
   }
@@ -287,13 +156,7 @@ export class Rekognition extends AWSServiceClient {
     input: DescribeCollectionRequest,
   ): Effect.Effect<
     DescribeCollectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeCollection", input);
   }
@@ -301,13 +164,7 @@ export class Rekognition extends AWSServiceClient {
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDataset", input);
   }
@@ -315,13 +172,7 @@ export class Rekognition extends AWSServiceClient {
     input: DescribeProjectsRequest,
   ): Effect.Effect<
     DescribeProjectsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeProjects", input);
   }
@@ -329,14 +180,7 @@ export class Rekognition extends AWSServiceClient {
     input: DescribeProjectVersionsRequest,
   ): Effect.Effect<
     DescribeProjectVersionsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeProjectVersions", input);
   }
@@ -344,13 +188,7 @@ export class Rekognition extends AWSServiceClient {
     input: DescribeStreamProcessorRequest,
   ): Effect.Effect<
     DescribeStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeStreamProcessor", input);
   }
@@ -358,18 +196,7 @@ export class Rekognition extends AWSServiceClient {
     input: DetectCustomLabelsRequest,
   ): Effect.Effect<
     DetectCustomLabelsResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   > {
     return this.call("DetectCustomLabels", input);
   }
@@ -377,15 +204,7 @@ export class Rekognition extends AWSServiceClient {
     input: DetectFacesRequest,
   ): Effect.Effect<
     DetectFacesResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("DetectFaces", input);
   }
@@ -393,15 +212,7 @@ export class Rekognition extends AWSServiceClient {
     input: DetectLabelsRequest,
   ): Effect.Effect<
     DetectLabelsResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("DetectLabels", input);
   }
@@ -409,18 +220,7 @@ export class Rekognition extends AWSServiceClient {
     input: DetectModerationLabelsRequest,
   ): Effect.Effect<
     DetectModerationLabelsResponse,
-    | AccessDeniedException
-    | HumanLoopQuotaExceededException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | HumanLoopQuotaExceededException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   > {
     return this.call("DetectModerationLabels", input);
   }
@@ -428,15 +228,7 @@ export class Rekognition extends AWSServiceClient {
     input: DetectProtectiveEquipmentRequest,
   ): Effect.Effect<
     DetectProtectiveEquipmentResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("DetectProtectiveEquipment", input);
   }
@@ -444,15 +236,7 @@ export class Rekognition extends AWSServiceClient {
     input: DetectTextRequest,
   ): Effect.Effect<
     DetectTextResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("DetectText", input);
   }
@@ -460,15 +244,7 @@ export class Rekognition extends AWSServiceClient {
     input: DisassociateFacesRequest,
   ): Effect.Effect<
     DisassociateFacesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DisassociateFaces", input);
   }
@@ -476,14 +252,7 @@ export class Rekognition extends AWSServiceClient {
     input: DistributeDatasetEntriesRequest,
   ): Effect.Effect<
     DistributeDatasetEntriesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   > {
     return this.call("DistributeDatasetEntries", input);
   }
@@ -491,13 +260,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetCelebrityInfoRequest,
   ): Effect.Effect<
     GetCelebrityInfoResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetCelebrityInfo", input);
   }
@@ -505,14 +268,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetCelebrityRecognitionRequest,
   ): Effect.Effect<
     GetCelebrityRecognitionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetCelebrityRecognition", input);
   }
@@ -520,14 +276,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetContentModerationRequest,
   ): Effect.Effect<
     GetContentModerationResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetContentModeration", input);
   }
@@ -535,14 +284,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetFaceDetectionRequest,
   ): Effect.Effect<
     GetFaceDetectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetFaceDetection", input);
   }
@@ -550,13 +292,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetFaceLivenessSessionResultsRequest,
   ): Effect.Effect<
     GetFaceLivenessSessionResultsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | SessionNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | SessionNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetFaceLivenessSessionResults", input);
   }
@@ -564,14 +300,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetFaceSearchRequest,
   ): Effect.Effect<
     GetFaceSearchResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetFaceSearch", input);
   }
@@ -579,14 +308,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetLabelDetectionRequest,
   ): Effect.Effect<
     GetLabelDetectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetLabelDetection", input);
   }
@@ -594,13 +316,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetMediaAnalysisJobRequest,
   ): Effect.Effect<
     GetMediaAnalysisJobResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetMediaAnalysisJob", input);
   }
@@ -608,14 +324,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetPersonTrackingRequest,
   ): Effect.Effect<
     GetPersonTrackingResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetPersonTracking", input);
   }
@@ -623,14 +332,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetSegmentDetectionRequest,
   ): Effect.Effect<
     GetSegmentDetectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSegmentDetection", input);
   }
@@ -638,14 +340,7 @@ export class Rekognition extends AWSServiceClient {
     input: GetTextDetectionRequest,
   ): Effect.Effect<
     GetTextDetectionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetTextDetection", input);
   }
@@ -653,17 +348,7 @@ export class Rekognition extends AWSServiceClient {
     input: IndexFacesRequest,
   ): Effect.Effect<
     IndexFacesResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("IndexFaces", input);
   }
@@ -671,14 +356,7 @@ export class Rekognition extends AWSServiceClient {
     input: ListCollectionsRequest,
   ): Effect.Effect<
     ListCollectionsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListCollections", input);
   }
@@ -686,16 +364,7 @@ export class Rekognition extends AWSServiceClient {
     input: ListDatasetEntriesRequest,
   ): Effect.Effect<
     ListDatasetEntriesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDatasetEntries", input);
   }
@@ -703,16 +372,7 @@ export class Rekognition extends AWSServiceClient {
     input: ListDatasetLabelsRequest,
   ): Effect.Effect<
     ListDatasetLabelsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDatasetLabels", input);
   }
@@ -720,14 +380,7 @@ export class Rekognition extends AWSServiceClient {
     input: ListFacesRequest,
   ): Effect.Effect<
     ListFacesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListFaces", input);
   }
@@ -735,13 +388,7 @@ export class Rekognition extends AWSServiceClient {
     input: ListMediaAnalysisJobsRequest,
   ): Effect.Effect<
     ListMediaAnalysisJobsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListMediaAnalysisJobs", input);
   }
@@ -749,14 +396,7 @@ export class Rekognition extends AWSServiceClient {
     input: ListProjectPoliciesRequest,
   ): Effect.Effect<
     ListProjectPoliciesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListProjectPolicies", input);
   }
@@ -764,13 +404,7 @@ export class Rekognition extends AWSServiceClient {
     input: ListStreamProcessorsRequest,
   ): Effect.Effect<
     ListStreamProcessorsResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListStreamProcessors", input);
   }
@@ -778,13 +412,7 @@ export class Rekognition extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -792,14 +420,7 @@ export class Rekognition extends AWSServiceClient {
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidPaginationTokenException
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidPaginationTokenException | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListUsers", input);
   }
@@ -807,18 +428,7 @@ export class Rekognition extends AWSServiceClient {
     input: PutProjectPolicyRequest,
   ): Effect.Effect<
     PutProjectPolicyResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidPolicyRevisionIdException
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | ProvisionedThroughputExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | InvalidPolicyRevisionIdException | LimitExceededException | MalformedPolicyDocumentException | ProvisionedThroughputExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutProjectPolicy", input);
   }
@@ -826,15 +436,7 @@ export class Rekognition extends AWSServiceClient {
     input: RecognizeCelebritiesRequest,
   ): Effect.Effect<
     RecognizeCelebritiesResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("RecognizeCelebrities", input);
   }
@@ -842,13 +444,7 @@ export class Rekognition extends AWSServiceClient {
     input: SearchFacesRequest,
   ): Effect.Effect<
     SearchFacesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchFaces", input);
   }
@@ -856,16 +452,7 @@ export class Rekognition extends AWSServiceClient {
     input: SearchFacesByImageRequest,
   ): Effect.Effect<
     SearchFacesByImageResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchFacesByImage", input);
   }
@@ -873,13 +460,7 @@ export class Rekognition extends AWSServiceClient {
     input: SearchUsersRequest,
   ): Effect.Effect<
     SearchUsersResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchUsers", input);
   }
@@ -887,16 +468,7 @@ export class Rekognition extends AWSServiceClient {
     input: SearchUsersByImageRequest,
   ): Effect.Effect<
     SearchUsersByImageResponse,
-    | AccessDeniedException
-    | ImageTooLargeException
-    | InternalServerError
-    | InvalidImageFormatException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ImageTooLargeException | InternalServerError | InvalidImageFormatException | InvalidParameterException | InvalidS3ObjectException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchUsersByImage", input);
   }
@@ -904,16 +476,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartCelebrityRecognitionRequest,
   ): Effect.Effect<
     StartCelebrityRecognitionResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   > {
     return this.call("StartCelebrityRecognition", input);
   }
@@ -921,16 +484,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartContentModerationRequest,
   ): Effect.Effect<
     StartContentModerationResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   > {
     return this.call("StartContentModeration", input);
   }
@@ -938,16 +492,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartFaceDetectionRequest,
   ): Effect.Effect<
     StartFaceDetectionResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   > {
     return this.call("StartFaceDetection", input);
   }
@@ -955,17 +500,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartFaceSearchRequest,
   ): Effect.Effect<
     StartFaceSearchResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | VideoTooLargeException | CommonAwsError
   > {
     return this.call("StartFaceSearch", input);
   }
@@ -973,16 +508,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartLabelDetectionRequest,
   ): Effect.Effect<
     StartLabelDetectionResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   > {
     return this.call("StartLabelDetection", input);
   }
@@ -990,18 +516,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartMediaAnalysisJobRequest,
   ): Effect.Effect<
     StartMediaAnalysisJobResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidManifestException
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidManifestException | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartMediaAnalysisJob", input);
   }
@@ -1009,16 +524,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartPersonTrackingRequest,
   ): Effect.Effect<
     StartPersonTrackingResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   > {
     return this.call("StartPersonTracking", input);
   }
@@ -1026,15 +532,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartProjectVersionRequest,
   ): Effect.Effect<
     StartProjectVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartProjectVersion", input);
   }
@@ -1042,16 +540,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartSegmentDetectionRequest,
   ): Effect.Effect<
     StartSegmentDetectionResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   > {
     return this.call("StartSegmentDetection", input);
   }
@@ -1059,14 +548,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartStreamProcessorRequest,
   ): Effect.Effect<
     StartStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartStreamProcessor", input);
   }
@@ -1074,16 +556,7 @@ export class Rekognition extends AWSServiceClient {
     input: StartTextDetectionRequest,
   ): Effect.Effect<
     StartTextDetectionResponse,
-    | AccessDeniedException
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidParameterException
-    | InvalidS3ObjectException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ThrottlingException
-    | VideoTooLargeException
-    | CommonAwsError
+    AccessDeniedException | IdempotentParameterMismatchException | InternalServerError | InvalidParameterException | InvalidS3ObjectException | LimitExceededException | ProvisionedThroughputExceededException | ThrottlingException | VideoTooLargeException | CommonAwsError
   > {
     return this.call("StartTextDetection", input);
   }
@@ -1091,14 +564,7 @@ export class Rekognition extends AWSServiceClient {
     input: StopProjectVersionRequest,
   ): Effect.Effect<
     StopProjectVersionResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StopProjectVersion", input);
   }
@@ -1106,14 +572,7 @@ export class Rekognition extends AWSServiceClient {
     input: StopStreamProcessorRequest,
   ): Effect.Effect<
     StopStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StopStreamProcessor", input);
   }
@@ -1121,14 +580,7 @@ export class Rekognition extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1136,13 +588,7 @@ export class Rekognition extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1150,15 +596,7 @@ export class Rekognition extends AWSServiceClient {
     input: UpdateDatasetEntriesRequest,
   ): Effect.Effect<
     UpdateDatasetEntriesResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | LimitExceededException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDatasetEntries", input);
   }
@@ -1166,14 +604,7 @@ export class Rekognition extends AWSServiceClient {
     input: UpdateStreamProcessorRequest,
   ): Effect.Effect<
     UpdateStreamProcessorResponse,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidParameterException
-    | ProvisionedThroughputExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidParameterException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateStreamProcessor", input);
   }
@@ -1212,21 +643,7 @@ export interface AssociateFacesResponse {
   UnsuccessfulFaceAssociations?: Array<UnsuccessfulFaceAssociation>;
   UserStatus?: UserStatus;
 }
-export type Attribute =
-  | "DEFAULT"
-  | "ALL"
-  | "AGE_RANGE"
-  | "BEARD"
-  | "EMOTIONS"
-  | "EYE_DIRECTION"
-  | "EYEGLASSES"
-  | "EYES_OPEN"
-  | "GENDER"
-  | "MOUTH_OPEN"
-  | "MUSTACHE"
-  | "FACE_OCCLUDED"
-  | "SMILE"
-  | "SUNGLASSES";
+export type Attribute = "DEFAULT" | "ALL" | "AGE_RANGE" | "BEARD" | "EMOTIONS" | "EYE_DIRECTION" | "EYEGLASSES" | "EYES_OPEN" | "GENDER" | "MOUTH_OPEN" | "MUSTACHE" | "FACE_OCCLUDED" | "SMILE" | "SUNGLASSES";
 export type Attributes = Array<Attribute>;
 export interface AudioMetadata {
   Codec?: string;
@@ -1298,9 +715,7 @@ export interface ChallengePreference {
   Versions?: Versions;
 }
 export type ChallengePreferences = Array<ChallengePreference>;
-export type ChallengeType =
-  | "FACE_MOVEMENT_AND_LIGHT_CHALLENGE"
-  | "FACE_MOVEMENT_CHALLENGE";
+export type ChallengeType = "FACE_MOVEMENT_AND_LIGHT_CHALLENGE" | "FACE_MOVEMENT_CHALLENGE";
 export type ClientRequestToken = string;
 
 export type CollectionId = string;
@@ -1357,9 +772,7 @@ export interface ConnectedHomeSettingsForUpdate {
   Labels?: Array<string>;
   MinConfidence?: number;
 }
-export type ContentClassifier =
-  | "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
-  | "FREE_OF_ADULT_CONTENT";
+export type ContentClassifier = "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION" | "FREE_OF_ADULT_CONTENT";
 export type ContentClassifiers = Array<ContentClassifier>;
 export type ContentModerationAggregateBy = "TIMESTAMPS" | "SEGMENTS";
 export interface ContentModerationDetection {
@@ -1467,7 +880,8 @@ export interface CreateUserRequest {
   UserId: string;
   ClientRequestToken?: string;
 }
-export interface CreateUserResponse {}
+export interface CreateUserResponse {
+}
 export type CustomizationFeature = "CONTENT_MODERATION" | "CUSTOM_LABELS";
 export interface CustomizationFeatureConfig {
   ContentModeration?: CustomizationFeatureContentModerationConfig;
@@ -1529,18 +943,8 @@ export interface DatasetStats {
   TotalLabels?: number;
   ErrorEntries?: number;
 }
-export type DatasetStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_COMPLETE"
-  | "UPDATE_FAILED"
-  | "DELETE_IN_PROGRESS";
-export type DatasetStatusMessageCode =
-  | "SUCCESS"
-  | "SERVICE_ERROR"
-  | "CLIENT_ERROR";
+export type DatasetStatus = "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_COMPLETE" | "UPDATE_FAILED" | "DELETE_IN_PROGRESS";
+export type DatasetStatusMessageCode = "SUCCESS" | "SERVICE_ERROR" | "CLIENT_ERROR";
 export type DatasetType = "TRAIN" | "TEST";
 export type DateTime = Date | string;
 
@@ -1555,7 +959,8 @@ export interface DeleteCollectionResponse {
 export interface DeleteDatasetRequest {
   DatasetArn: string;
 }
-export interface DeleteDatasetResponse {}
+export interface DeleteDatasetResponse {
+}
 export interface DeleteFacesRequest {
   CollectionId: string;
   FaceIds: Array<string>;
@@ -1569,7 +974,8 @@ export interface DeleteProjectPolicyRequest {
   PolicyName: string;
   PolicyRevisionId?: string;
 }
-export interface DeleteProjectPolicyResponse {}
+export interface DeleteProjectPolicyResponse {
+}
 export interface DeleteProjectRequest {
   ProjectArn: string;
 }
@@ -1585,13 +991,15 @@ export interface DeleteProjectVersionResponse {
 export interface DeleteStreamProcessorRequest {
   Name: string;
 }
-export interface DeleteStreamProcessorResponse {}
+export interface DeleteStreamProcessorResponse {
+}
 export interface DeleteUserRequest {
   CollectionId: string;
   UserId: string;
   ClientRequestToken?: string;
 }
-export interface DeleteUserResponse {}
+export interface DeleteUserResponse {
+}
 export interface DescribeCollectionRequest {
   CollectionId: string;
 }
@@ -1767,7 +1175,8 @@ export interface DistributeDataset {
 export interface DistributeDatasetEntriesRequest {
   Datasets: Array<DistributeDataset>;
 }
-export interface DistributeDatasetEntriesResponse {}
+export interface DistributeDatasetEntriesResponse {
+}
 export type DistributeDatasetMetadataList = Array<DistributeDataset>;
 export interface DominantColor {
   Red?: number;
@@ -1783,16 +1192,7 @@ export interface Emotion {
   Type?: EmotionName;
   Confidence?: number;
 }
-export type EmotionName =
-  | "HAPPY"
-  | "SAD"
-  | "ANGRY"
-  | "CONFUSED"
-  | "DISGUSTED"
-  | "SURPRISED"
-  | "CALM"
-  | "UNKNOWN"
-  | "FEAR";
+export type EmotionName = "HAPPY" | "SAD" | "ANGRY" | "CONFUSED" | "DISGUSTED" | "SURPRISED" | "CALM" | "UNKNOWN" | "FEAR";
 export type Emotions = Array<Emotion>;
 export interface EquipmentDetection {
   BoundingBox?: BoundingBox;
@@ -2283,37 +1683,7 @@ export interface Landmark {
   Y?: number;
 }
 export type Landmarks = Array<Landmark>;
-export type LandmarkType =
-  | "eyeLeft"
-  | "eyeRight"
-  | "nose"
-  | "mouthLeft"
-  | "mouthRight"
-  | "leftEyeBrowLeft"
-  | "leftEyeBrowRight"
-  | "leftEyeBrowUp"
-  | "rightEyeBrowLeft"
-  | "rightEyeBrowRight"
-  | "rightEyeBrowUp"
-  | "leftEyeLeft"
-  | "leftEyeRight"
-  | "leftEyeUp"
-  | "leftEyeDown"
-  | "rightEyeLeft"
-  | "rightEyeRight"
-  | "rightEyeUp"
-  | "rightEyeDown"
-  | "noseLeft"
-  | "noseRight"
-  | "mouthUp"
-  | "mouthDown"
-  | "leftPupil"
-  | "rightPupil"
-  | "upperJawlineLeft"
-  | "midJawlineLeft"
-  | "chinBottom"
-  | "midJawlineRight"
-  | "upperJawlineRight";
+export type LandmarkType = "eyeLeft" | "eyeRight" | "nose" | "mouthLeft" | "mouthRight" | "leftEyeBrowLeft" | "leftEyeBrowRight" | "leftEyeBrowUp" | "rightEyeBrowLeft" | "rightEyeBrowRight" | "rightEyeBrowUp" | "leftEyeLeft" | "leftEyeRight" | "leftEyeUp" | "leftEyeDown" | "rightEyeLeft" | "rightEyeRight" | "rightEyeUp" | "rightEyeDown" | "noseLeft" | "noseRight" | "mouthUp" | "mouthDown" | "leftPupil" | "rightPupil" | "upperJawlineLeft" | "midJawlineLeft" | "chinBottom" | "midJawlineRight" | "upperJawlineRight";
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
 )<{
@@ -2422,12 +1792,7 @@ export type LivenessS3KeyPrefix = string;
 
 export type LivenessSessionId = string;
 
-export type LivenessSessionStatus =
-  | "CREATED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "EXPIRED";
+export type LivenessSessionStatus = "CREATED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "EXPIRED";
 export declare class MalformedPolicyDocumentException extends EffectData.TaggedError(
   "MalformedPolicyDocumentException",
 )<{
@@ -2473,16 +1838,7 @@ export interface MediaAnalysisJobDescription {
   ManifestSummary?: MediaAnalysisManifestSummary;
 }
 export type MediaAnalysisJobDescriptions = Array<MediaAnalysisJobDescription>;
-export type MediaAnalysisJobFailureCode =
-  | "INTERNAL_ERROR"
-  | "INVALID_S3_OBJECT"
-  | "INVALID_MANIFEST"
-  | "INVALID_OUTPUT_CONFIG"
-  | "INVALID_KMS_KEY"
-  | "ACCESS_DENIED"
-  | "RESOURCE_NOT_FOUND"
-  | "RESOURCE_NOT_READY"
-  | "THROTTLED";
+export type MediaAnalysisJobFailureCode = "INTERNAL_ERROR" | "INVALID_S3_OBJECT" | "INVALID_MANIFEST" | "INVALID_OUTPUT_CONFIG" | "INVALID_KMS_KEY" | "ACCESS_DENIED" | "RESOURCE_NOT_FOUND" | "RESOURCE_NOT_READY" | "THROTTLED";
 export interface MediaAnalysisJobFailureDetails {
   Code?: MediaAnalysisJobFailureCode;
   Message?: string;
@@ -2491,12 +1847,7 @@ export type MediaAnalysisJobId = string;
 
 export type MediaAnalysisJobName = string;
 
-export type MediaAnalysisJobStatus =
-  | "CREATED"
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED";
+export type MediaAnalysisJobStatus = "CREATED" | "QUEUED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED";
 export interface MediaAnalysisManifestSummary {
   S3Object?: S3Object;
 }
@@ -2537,11 +1888,7 @@ export interface NotificationChannel {
   SNSTopicArn: string;
   RoleArn: string;
 }
-export type OrientationCorrection =
-  | "ROTATE_0"
-  | "ROTATE_90"
-  | "ROTATE_180"
-  | "ROTATE_270";
+export type OrientationCorrection = "ROTATE_0" | "ROTATE_90" | "ROTATE_180" | "ROTATE_270";
 export interface OutputConfig {
   S3Bucket?: string;
   S3KeyPrefix?: string;
@@ -2646,21 +1993,7 @@ export type ProjectVersionId = string;
 
 export type ProjectVersionsPageSize = number;
 
-export type ProjectVersionStatus =
-  | "TRAINING_IN_PROGRESS"
-  | "TRAINING_COMPLETED"
-  | "TRAINING_FAILED"
-  | "STARTING"
-  | "RUNNING"
-  | "FAILED"
-  | "STOPPING"
-  | "STOPPED"
-  | "DELETING"
-  | "COPYING_IN_PROGRESS"
-  | "COPYING_COMPLETED"
-  | "COPYING_FAILED"
-  | "DEPRECATED"
-  | "EXPIRED";
+export type ProjectVersionStatus = "TRAINING_IN_PROGRESS" | "TRAINING_COMPLETED" | "TRAINING_FAILED" | "STARTING" | "RUNNING" | "FAILED" | "STOPPING" | "STOPPED" | "DELETING" | "COPYING_IN_PROGRESS" | "COPYING_COMPLETED" | "COPYING_FAILED" | "DEPRECATED" | "EXPIRED";
 export interface ProtectiveEquipmentBodyPart {
   Name?: BodyPart;
   Confidence?: number;
@@ -2683,10 +2016,7 @@ export interface ProtectiveEquipmentSummary {
   PersonsWithoutRequiredEquipment?: Array<number>;
   PersonsIndeterminate?: Array<number>;
 }
-export type ProtectiveEquipmentType =
-  | "FACE_COVER"
-  | "HAND_COVER"
-  | "HEAD_COVER";
+export type ProtectiveEquipmentType = "FACE_COVER" | "HAND_COVER" | "HEAD_COVER";
 export type ProtectiveEquipmentTypes = Array<ProtectiveEquipmentType>;
 export declare class ProvisionedThroughputExceededException extends EffectData.TaggedError(
   "ProvisionedThroughputExceededException",
@@ -2707,14 +2037,7 @@ export interface PutProjectPolicyResponse {
 export type QualityFilter = "NONE" | "AUTO" | "LOW" | "MEDIUM" | "HIGH";
 export type QueryString = string;
 
-export type Reason =
-  | "EXCEEDS_MAX_FACES"
-  | "EXTREME_POSE"
-  | "LOW_BRIGHTNESS"
-  | "LOW_SHARPNESS"
-  | "LOW_CONFIDENCE"
-  | "SMALL_BOUNDING_BOX"
-  | "LOW_FACE_QUALITY";
+export type Reason = "EXCEEDS_MAX_FACES" | "EXTREME_POSE" | "LOW_BRIGHTNESS" | "LOW_SHARPNESS" | "LOW_CONFIDENCE" | "SMALL_BOUNDING_BOX" | "LOW_FACE_QUALITY";
 export type Reasons = Array<Reason>;
 export interface RecognizeCelebritiesRequest {
   Image: Image;
@@ -3024,7 +2347,8 @@ export interface StopProjectVersionResponse {
 export interface StopStreamProcessorRequest {
   Name: string;
 }
-export interface StopStreamProcessorResponse {}
+export interface StopStreamProcessorResponse {
+}
 export interface StreamProcessingStartSelector {
   KVSStreamStartSelector?: KinesisVideoStreamStartSelector;
 }
@@ -3053,11 +2377,8 @@ export interface StreamProcessorOutput {
   KinesisDataStream?: KinesisDataStream;
   S3Destination?: S3Destination;
 }
-export type StreamProcessorParametersToDelete =
-  Array<StreamProcessorParameterToDelete>;
-export type StreamProcessorParameterToDelete =
-  | "ConnectedHomeMinConfidence"
-  | "RegionsOfInterest";
+export type StreamProcessorParametersToDelete = Array<StreamProcessorParameterToDelete>;
+export type StreamProcessorParameterToDelete = "ConnectedHomeMinConfidence" | "RegionsOfInterest";
 export interface StreamProcessorSettings {
   FaceSearch?: FaceSearchSettings;
   ConnectedHome?: ConnectedHomeSettings;
@@ -3065,13 +2386,7 @@ export interface StreamProcessorSettings {
 export interface StreamProcessorSettingsForUpdate {
   ConnectedHomeForUpdate?: ConnectedHomeSettingsForUpdate;
 }
-export type StreamProcessorStatus =
-  | "STOPPED"
-  | "STARTING"
-  | "RUNNING"
-  | "FAILED"
-  | "STOPPING"
-  | "UPDATING";
+export type StreamProcessorStatus = "STOPPED" | "STARTING" | "RUNNING" | "FAILED" | "STOPPING" | "UPDATING";
 export type RekognitionString = string;
 
 export interface Summary {
@@ -3081,8 +2396,7 @@ export interface Sunglasses {
   Value?: boolean;
   Confidence?: number;
 }
-export type SynthesizedJsonHumanLoopActivationConditionsEvaluationResults =
-  string;
+export type SynthesizedJsonHumanLoopActivationConditionsEvaluationResults = string;
 
 export type TagKey = string;
 
@@ -3092,21 +2406,15 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TechnicalCueSegment {
   Type?: TechnicalCueType;
   Confidence?: number;
 }
-export type TechnicalCueType =
-  | "COLOR_BARS"
-  | "END_CREDITS"
-  | "BLACK_FRAMES"
-  | "OPENING_CREDITS"
-  | "STUDIO_LOGO"
-  | "SLATE"
-  | "CONTENT";
+export type TechnicalCueType = "COLOR_BARS" | "END_CREDITS" | "BLACK_FRAMES" | "OPENING_CREDITS" | "STUDIO_LOGO" | "SLATE" | "CONTENT";
 export interface TestingData {
   Assets?: Array<Asset>;
   AutoCreate?: boolean;
@@ -3163,15 +2471,7 @@ export interface UnsearchedFace {
   FaceDetails?: FaceDetail;
   Reasons?: Array<UnsearchedFaceReason>;
 }
-export type UnsearchedFaceReason =
-  | "FACE_NOT_LARGEST"
-  | "EXCEEDS_MAX_FACES"
-  | "EXTREME_POSE"
-  | "LOW_BRIGHTNESS"
-  | "LOW_SHARPNESS"
-  | "LOW_CONFIDENCE"
-  | "SMALL_BOUNDING_BOX"
-  | "LOW_FACE_QUALITY";
+export type UnsearchedFaceReason = "FACE_NOT_LARGEST" | "EXCEEDS_MAX_FACES" | "EXTREME_POSE" | "LOW_BRIGHTNESS" | "LOW_SHARPNESS" | "LOW_CONFIDENCE" | "SMALL_BOUNDING_BOX" | "LOW_FACE_QUALITY";
 export type UnsearchedFaceReasons = Array<UnsearchedFaceReason>;
 export type UnsearchedFacesList = Array<UnsearchedFace>;
 export interface UnsuccessfulFaceAssociation {
@@ -3180,47 +2480,37 @@ export interface UnsuccessfulFaceAssociation {
   Confidence?: number;
   Reasons?: Array<UnsuccessfulFaceAssociationReason>;
 }
-export type UnsuccessfulFaceAssociationList =
-  Array<UnsuccessfulFaceAssociation>;
-export type UnsuccessfulFaceAssociationReason =
-  | "FACE_NOT_FOUND"
-  | "ASSOCIATED_TO_A_DIFFERENT_USER"
-  | "LOW_MATCH_CONFIDENCE";
-export type UnsuccessfulFaceAssociationReasons =
-  Array<UnsuccessfulFaceAssociationReason>;
+export type UnsuccessfulFaceAssociationList = Array<UnsuccessfulFaceAssociation>;
+export type UnsuccessfulFaceAssociationReason = "FACE_NOT_FOUND" | "ASSOCIATED_TO_A_DIFFERENT_USER" | "LOW_MATCH_CONFIDENCE";
+export type UnsuccessfulFaceAssociationReasons = Array<UnsuccessfulFaceAssociationReason>;
 export interface UnsuccessfulFaceDeletion {
   FaceId?: string;
   UserId?: string;
   Reasons?: Array<UnsuccessfulFaceDeletionReason>;
 }
-export type UnsuccessfulFaceDeletionReason =
-  | "ASSOCIATED_TO_AN_EXISTING_USER"
-  | "FACE_NOT_FOUND";
-export type UnsuccessfulFaceDeletionReasons =
-  Array<UnsuccessfulFaceDeletionReason>;
+export type UnsuccessfulFaceDeletionReason = "ASSOCIATED_TO_AN_EXISTING_USER" | "FACE_NOT_FOUND";
+export type UnsuccessfulFaceDeletionReasons = Array<UnsuccessfulFaceDeletionReason>;
 export type UnsuccessfulFaceDeletionsList = Array<UnsuccessfulFaceDeletion>;
 export interface UnsuccessfulFaceDisassociation {
   FaceId?: string;
   UserId?: string;
   Reasons?: Array<UnsuccessfulFaceDisassociationReason>;
 }
-export type UnsuccessfulFaceDisassociationList =
-  Array<UnsuccessfulFaceDisassociation>;
-export type UnsuccessfulFaceDisassociationReason =
-  | "FACE_NOT_FOUND"
-  | "ASSOCIATED_TO_A_DIFFERENT_USER";
-export type UnsuccessfulFaceDisassociationReasons =
-  Array<UnsuccessfulFaceDisassociationReason>;
+export type UnsuccessfulFaceDisassociationList = Array<UnsuccessfulFaceDisassociation>;
+export type UnsuccessfulFaceDisassociationReason = "FACE_NOT_FOUND" | "ASSOCIATED_TO_A_DIFFERENT_USER";
+export type UnsuccessfulFaceDisassociationReasons = Array<UnsuccessfulFaceDisassociationReason>;
 export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateDatasetEntriesRequest {
   DatasetArn: string;
   Changes: DatasetChanges;
 }
-export interface UpdateDatasetEntriesResponse {}
+export interface UpdateDatasetEntriesResponse {
+}
 export interface UpdateStreamProcessorRequest {
   Name: string;
   SettingsForUpdate?: StreamProcessorSettingsForUpdate;
@@ -3228,7 +2518,8 @@ export interface UpdateStreamProcessorRequest {
   DataSharingPreferenceForUpdate?: StreamProcessorDataSharingPreference;
   ParametersToDelete?: Array<StreamProcessorParameterToDelete>;
 }
-export interface UpdateStreamProcessorResponse {}
+export interface UpdateStreamProcessorResponse {
+}
 export type Url = string;
 
 export type Urls = Array<string>;
@@ -4380,3 +3671,4 @@ export declare namespace UpdateStreamProcessor {
     | ThrottlingException
     | CommonAwsError;
 }
+

@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SageMakerGeospatial extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sagemaker-geospatial", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -20,12 +20,7 @@ export class SageMakerGeospatial extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -33,12 +28,7 @@ export class SageMakerGeospatial extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -63,19 +53,13 @@ interface _AreaOfInterest {
   AreaOfInterestGeometry?: AreaOfInterestGeometry;
 }
 
-export type AreaOfInterest = _AreaOfInterest & {
-  AreaOfInterestGeometry: AreaOfInterestGeometry;
-};
+export type AreaOfInterest = (_AreaOfInterest & { AreaOfInterestGeometry: AreaOfInterestGeometry });
 interface _AreaOfInterestGeometry {
   PolygonGeometry?: PolygonGeometryInput;
   MultiPolygonGeometry?: MultiPolygonGeometryInput;
 }
 
-export type AreaOfInterestGeometry =
-  | (_AreaOfInterestGeometry & { PolygonGeometry: PolygonGeometryInput })
-  | (_AreaOfInterestGeometry & {
-      MultiPolygonGeometry: MultiPolygonGeometryInput;
-    });
+export type AreaOfInterestGeometry = (_AreaOfInterestGeometry & { PolygonGeometry: PolygonGeometryInput }) | (_AreaOfInterestGeometry & { MultiPolygonGeometry: MultiPolygonGeometryInput });
 export type Arn = string;
 
 export type AssetsMap = Record<string, AssetValue>;
@@ -88,7 +72,8 @@ export interface BandMathConfigInput {
 }
 export type BinaryFile = Uint8Array | string;
 
-export interface CloudMaskingConfigInput {}
+export interface CloudMaskingConfigInput {
+}
 export interface CloudRemovalConfigInput {
   AlgorithmName?: string;
   InterpolationValue?: string;
@@ -113,11 +98,13 @@ export type DataCollectionType = string;
 export interface DeleteEarthObservationJobInput {
   Arn: string;
 }
-export interface DeleteEarthObservationJobOutput {}
+export interface DeleteEarthObservationJobOutput {
+}
 export interface DeleteVectorEnrichmentJobInput {
   Arn: string;
 }
-export interface DeleteVectorEnrichmentJobOutput {}
+export interface DeleteVectorEnrichmentJobOutput {
+}
 export type EarthObservationJobArn = string;
 
 export interface EarthObservationJobErrorDetails {
@@ -128,8 +115,7 @@ export type EarthObservationJobErrorType = string;
 
 export type EarthObservationJobExportStatus = string;
 
-export type EarthObservationJobList =
-  Array<ListEarthObservationJobOutputConfig>;
+export type EarthObservationJobList = Array<ListEarthObservationJobOutputConfig>;
 export type EarthObservationJobOutputBands = Array<OutputBand>;
 export type EarthObservationJobStatus = string;
 
@@ -304,23 +290,11 @@ interface _JobConfigInput {
   LandCoverSegmentationConfig?: LandCoverSegmentationConfigInput;
 }
 
-export type JobConfigInput =
-  | (_JobConfigInput & { BandMathConfig: BandMathConfigInput })
-  | (_JobConfigInput & { ResamplingConfig: ResamplingConfigInput })
-  | (_JobConfigInput & {
-      TemporalStatisticsConfig: TemporalStatisticsConfigInput;
-    })
-  | (_JobConfigInput & { CloudRemovalConfig: CloudRemovalConfigInput })
-  | (_JobConfigInput & { ZonalStatisticsConfig: ZonalStatisticsConfigInput })
-  | (_JobConfigInput & { GeoMosaicConfig: GeoMosaicConfigInput })
-  | (_JobConfigInput & { StackConfig: StackConfigInput })
-  | (_JobConfigInput & { CloudMaskingConfig: CloudMaskingConfigInput })
-  | (_JobConfigInput & {
-      LandCoverSegmentationConfig: LandCoverSegmentationConfigInput;
-    });
+export type JobConfigInput = (_JobConfigInput & { BandMathConfig: BandMathConfigInput }) | (_JobConfigInput & { ResamplingConfig: ResamplingConfigInput }) | (_JobConfigInput & { TemporalStatisticsConfig: TemporalStatisticsConfigInput }) | (_JobConfigInput & { CloudRemovalConfig: CloudRemovalConfigInput }) | (_JobConfigInput & { ZonalStatisticsConfig: ZonalStatisticsConfigInput }) | (_JobConfigInput & { GeoMosaicConfig: GeoMosaicConfigInput }) | (_JobConfigInput & { StackConfig: StackConfigInput }) | (_JobConfigInput & { CloudMaskingConfig: CloudMaskingConfigInput }) | (_JobConfigInput & { LandCoverSegmentationConfig: LandCoverSegmentationConfigInput });
 export type KmsKey = string;
 
-export interface LandCoverSegmentationConfigInput {}
+export interface LandCoverSegmentationConfigInput {
+}
 export interface LandsatCloudCoverLandInput {
   LowerBound: number;
   UpperBound: number;
@@ -444,13 +418,7 @@ interface _Property {
   LandsatCloudCoverLand?: LandsatCloudCoverLandInput;
 }
 
-export type Property =
-  | (_Property & { EoCloudCover: EoCloudCoverInput })
-  | (_Property & { ViewOffNadir: ViewOffNadirInput })
-  | (_Property & { ViewSunAzimuth: ViewSunAzimuthInput })
-  | (_Property & { ViewSunElevation: ViewSunElevationInput })
-  | (_Property & { Platform: PlatformInput })
-  | (_Property & { LandsatCloudCoverLand: LandsatCloudCoverLandInput });
+export type Property = (_Property & { EoCloudCover: EoCloudCoverInput }) | (_Property & { ViewOffNadir: ViewOffNadirInput }) | (_Property & { ViewSunAzimuth: ViewSunAzimuthInput }) | (_Property & { ViewSunElevation: ViewSunElevationInput }) | (_Property & { Platform: PlatformInput }) | (_Property & { LandsatCloudCoverLand: LandsatCloudCoverLandInput });
 export interface PropertyFilter {
   Property: Property;
 }
@@ -572,18 +540,21 @@ export interface StartVectorEnrichmentJobOutput {
 export interface StopEarthObservationJobInput {
   Arn: string;
 }
-export interface StopEarthObservationJobOutput {}
+export interface StopEarthObservationJobOutput {
+}
 export interface StopVectorEnrichmentJobInput {
   Arn: string;
 }
-export interface StopVectorEnrichmentJobOutput {}
+export interface StopVectorEnrichmentJobOutput {
+}
 export type StringListInput = Array<string>;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TargetOptions = string;
 
@@ -615,7 +586,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UserDefined {
   Value: number;
   Unit: string;
@@ -633,19 +605,12 @@ interface _VectorEnrichmentJobConfig {
   MapMatchingConfig?: MapMatchingConfig;
 }
 
-export type VectorEnrichmentJobConfig =
-  | (_VectorEnrichmentJobConfig & {
-      ReverseGeocodingConfig: ReverseGeocodingConfig;
-    })
-  | (_VectorEnrichmentJobConfig & { MapMatchingConfig: MapMatchingConfig });
+export type VectorEnrichmentJobConfig = (_VectorEnrichmentJobConfig & { ReverseGeocodingConfig: ReverseGeocodingConfig }) | (_VectorEnrichmentJobConfig & { MapMatchingConfig: MapMatchingConfig });
 interface _VectorEnrichmentJobDataSourceConfigInput {
   S3Data?: VectorEnrichmentJobS3Data;
 }
 
-export type VectorEnrichmentJobDataSourceConfigInput =
-  _VectorEnrichmentJobDataSourceConfigInput & {
-    S3Data: VectorEnrichmentJobS3Data;
-  };
+export type VectorEnrichmentJobDataSourceConfigInput = (_VectorEnrichmentJobDataSourceConfigInput & { S3Data: VectorEnrichmentJobS3Data });
 export type VectorEnrichmentJobDocumentType = string;
 
 export interface VectorEnrichmentJobErrorDetails {
@@ -666,8 +631,7 @@ export interface VectorEnrichmentJobInputConfig {
   DocumentType: string;
   DataSourceConfig: VectorEnrichmentJobDataSourceConfigInput;
 }
-export type VectorEnrichmentJobList =
-  Array<ListVectorEnrichmentJobOutputConfig>;
+export type VectorEnrichmentJobList = Array<ListVectorEnrichmentJobOutputConfig>;
 export interface VectorEnrichmentJobS3Data {
   S3Uri: string;
   KmsKeyId?: string;
@@ -732,3 +696,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

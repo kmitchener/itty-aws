@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Wisdom extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("wisdom", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -55,16 +60,12 @@ interface _AssistantAssociationInputData {
   knowledgeBaseId?: string;
 }
 
-export type AssistantAssociationInputData = _AssistantAssociationInputData & {
-  knowledgeBaseId: string;
-};
+export type AssistantAssociationInputData = (_AssistantAssociationInputData & { knowledgeBaseId: string });
 interface _AssistantAssociationOutputData {
   knowledgeBaseAssociation?: KnowledgeBaseAssociationData;
 }
 
-export type AssistantAssociationOutputData = _AssistantAssociationOutputData & {
-  knowledgeBaseAssociation: KnowledgeBaseAssociationData;
-};
+export type AssistantAssociationOutputData = (_AssistantAssociationOutputData & { knowledgeBaseAssociation: KnowledgeBaseAssociationData });
 export interface AssistantAssociationSummary {
   assistantAssociationId: string;
   assistantAssociationArn: string;
@@ -74,8 +75,7 @@ export interface AssistantAssociationSummary {
   associationData: AssistantAssociationOutputData;
   tags?: Record<string, string>;
 }
-export type AssistantAssociationSummaryList =
-  Array<AssistantAssociationSummary>;
+export type AssistantAssociationSummaryList = Array<AssistantAssociationSummary>;
 export interface AssistantData {
   assistantId: string;
   assistantArn: string;
@@ -117,9 +117,7 @@ interface _Configuration {
   connectConfiguration?: ConnectConfiguration;
 }
 
-export type Configuration = _Configuration & {
-  connectConfiguration: ConnectConfiguration;
-};
+export type Configuration = (_Configuration & { connectConfiguration: ConnectConfiguration });
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -255,30 +253,36 @@ export interface DeleteAssistantAssociationRequest {
   assistantAssociationId: string;
   assistantId: string;
 }
-export interface DeleteAssistantAssociationResponse {}
+export interface DeleteAssistantAssociationResponse {
+}
 export interface DeleteAssistantRequest {
   assistantId: string;
 }
-export interface DeleteAssistantResponse {}
+export interface DeleteAssistantResponse {
+}
 export interface DeleteContentRequest {
   knowledgeBaseId: string;
   contentId: string;
 }
-export interface DeleteContentResponse {}
+export interface DeleteContentResponse {
+}
 export interface DeleteImportJobRequest {
   knowledgeBaseId: string;
   importJobId: string;
 }
-export interface DeleteImportJobResponse {}
+export interface DeleteImportJobResponse {
+}
 export interface DeleteKnowledgeBaseRequest {
   knowledgeBaseId: string;
 }
-export interface DeleteKnowledgeBaseResponse {}
+export interface DeleteKnowledgeBaseResponse {
+}
 export interface DeleteQuickResponseRequest {
   knowledgeBaseId: string;
   quickResponseId: string;
 }
-export interface DeleteQuickResponseResponse {}
+export interface DeleteQuickResponseResponse {
+}
 export type Description = string;
 
 export interface Document {
@@ -527,8 +531,7 @@ export interface NotifyRecommendationsReceivedError {
   recommendationId?: string;
   message?: string;
 }
-export type NotifyRecommendationsReceivedErrorList =
-  Array<NotifyRecommendationsReceivedError>;
+export type NotifyRecommendationsReceivedErrorList = Array<NotifyRecommendationsReceivedError>;
 export type NotifyRecommendationsReceivedErrorMessage = string;
 
 export interface NotifyRecommendationsReceivedRequest {
@@ -572,9 +575,7 @@ interface _QuickResponseContentProvider {
   content?: string;
 }
 
-export type QuickResponseContentProvider = _QuickResponseContentProvider & {
-  content: string;
-};
+export type QuickResponseContentProvider = (_QuickResponseContentProvider & { content: string });
 export interface QuickResponseContents {
   plainText?: QuickResponseContentProvider;
   markdown?: QuickResponseContentProvider;
@@ -603,9 +604,7 @@ interface _QuickResponseDataProvider {
   content?: string;
 }
 
-export type QuickResponseDataProvider = _QuickResponseDataProvider & {
-  content: string;
-};
+export type QuickResponseDataProvider = (_QuickResponseDataProvider & { content: string });
 export type QuickResponseDescription = string;
 
 export interface QuickResponseFilterField {
@@ -666,8 +665,7 @@ export interface QuickResponseSearchResultData {
   attributesInterpolated?: Array<string>;
   tags?: Record<string, string>;
 }
-export type QuickResponseSearchResultsList =
-  Array<QuickResponseSearchResultData>;
+export type QuickResponseSearchResultsList = Array<QuickResponseSearchResultData>;
 export type QuickResponseStatus = string;
 
 export interface QuickResponseSummary {
@@ -711,9 +709,7 @@ interface _RecommendationTriggerData {
   query?: QueryRecommendationTriggerData;
 }
 
-export type RecommendationTriggerData = _RecommendationTriggerData & {
-  query: QueryRecommendationTriggerData;
-};
+export type RecommendationTriggerData = (_RecommendationTriggerData & { query: QueryRecommendationTriggerData });
 export type RecommendationTriggerList = Array<RecommendationTrigger>;
 export type RecommendationTriggerType = string;
 
@@ -726,7 +722,8 @@ export type RelevanceScore = number;
 export interface RemoveKnowledgeBaseTemplateUriRequest {
   knowledgeBaseId: string;
 }
-export interface RemoveKnowledgeBaseTemplateUriResponse {}
+export interface RemoveKnowledgeBaseTemplateUriResponse {
+}
 export interface RenderingConfiguration {
   templateUri?: string;
 }
@@ -814,9 +811,7 @@ interface _SourceConfiguration {
   appIntegrations?: AppIntegrationsConfiguration;
 }
 
-export type SourceConfiguration = _SourceConfiguration & {
-  appIntegrations: AppIntegrationsConfiguration;
-};
+export type SourceConfiguration = (_SourceConfiguration & { appIntegrations: AppIntegrationsConfiguration });
 export interface StartContentUploadRequest {
   knowledgeBaseId: string;
   contentType: string;
@@ -846,7 +841,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -862,7 +858,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateContentRequest {
   knowledgeBaseId: string;
   contentId: string;
@@ -922,7 +919,9 @@ export type WaitTimeSeconds = number;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -937,5 +936,8 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
+

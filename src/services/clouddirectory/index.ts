@@ -1,22 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class CloudDirectory extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("clouddirectory", new RestJson1Protocol(), cfg);
+  }
+
   addFacetToObject(
     input: AddFacetToObjectRequest,
   ): Effect.Effect<
     AddFacetToObjectResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("AddFacetToObject", input);
   }
@@ -24,16 +20,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ApplySchemaRequest,
   ): Effect.Effect<
     ApplySchemaResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidAttachmentException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | SchemaAlreadyExistsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidAttachmentException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | SchemaAlreadyExistsException | ValidationException | CommonAwsError
   > {
     return this.call("ApplySchema", input);
   }
@@ -41,18 +28,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: AttachObjectRequest,
   ): Effect.Effect<
     AttachObjectResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidAttachmentException
-    | LimitExceededException
-    | LinkNameAlreadyInUseException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | InvalidAttachmentException | LimitExceededException | LinkNameAlreadyInUseException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("AttachObject", input);
   }
@@ -60,16 +36,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: AttachPolicyRequest,
   ): Effect.Effect<
     AttachPolicyResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | NotPolicyException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | LimitExceededException | NotPolicyException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("AttachPolicy", input);
   }
@@ -77,19 +44,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: AttachToIndexRequest,
   ): Effect.Effect<
     AttachToIndexResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | IndexedAttributeMissingException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidAttachmentException
-    | LimitExceededException
-    | LinkNameAlreadyInUseException
-    | NotIndexException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | IndexedAttributeMissingException | InternalServiceException | InvalidArnException | InvalidAttachmentException | LimitExceededException | LinkNameAlreadyInUseException | NotIndexException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("AttachToIndex", input);
   }
@@ -97,17 +52,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: AttachTypedLinkRequest,
   ): Effect.Effect<
     AttachTypedLinkResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidAttachmentException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | InvalidAttachmentException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("AttachTypedLink", input);
   }
@@ -115,14 +60,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: BatchReadRequest,
   ): Effect.Effect<
     BatchReadResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | LimitExceededException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("BatchRead", input);
   }
@@ -130,15 +68,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: BatchWriteRequest,
   ): Effect.Effect<
     BatchWriteResponse,
-    | AccessDeniedException
-    | BatchWriteException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | BatchWriteException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | LimitExceededException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("BatchWrite", input);
   }
@@ -146,15 +76,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: CreateDirectoryRequest,
   ): Effect.Effect<
     CreateDirectoryResponse,
-    | AccessDeniedException
-    | DirectoryAlreadyExistsException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryAlreadyExistsException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDirectory", input);
   }
@@ -162,17 +84,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: CreateFacetRequest,
   ): Effect.Effect<
     CreateFacetResponse,
-    | AccessDeniedException
-    | FacetAlreadyExistsException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidRuleException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | FacetAlreadyExistsException | FacetValidationException | InternalServiceException | InvalidArnException | InvalidRuleException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("CreateFacet", input);
   }
@@ -180,18 +92,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: CreateIndexRequest,
   ): Effect.Effect<
     CreateIndexResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | LinkNameAlreadyInUseException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | UnsupportedIndexTypeException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | LimitExceededException | LinkNameAlreadyInUseException | ResourceNotFoundException | RetryableConflictException | UnsupportedIndexTypeException | ValidationException | CommonAwsError
   > {
     return this.call("CreateIndex", input);
   }
@@ -199,18 +100,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: CreateObjectRequest,
   ): Effect.Effect<
     CreateObjectResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | LinkNameAlreadyInUseException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | UnsupportedIndexTypeException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | LimitExceededException | LinkNameAlreadyInUseException | ResourceNotFoundException | RetryableConflictException | UnsupportedIndexTypeException | ValidationException | CommonAwsError
   > {
     return this.call("CreateObject", input);
   }
@@ -218,14 +108,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: CreateSchemaRequest,
   ): Effect.Effect<
     CreateSchemaResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | RetryableConflictException
-    | SchemaAlreadyExistsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | LimitExceededException | RetryableConflictException | SchemaAlreadyExistsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSchema", input);
   }
@@ -233,17 +116,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: CreateTypedLinkFacetRequest,
   ): Effect.Effect<
     CreateTypedLinkFacetResponse,
-    | AccessDeniedException
-    | FacetAlreadyExistsException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidRuleException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | FacetAlreadyExistsException | FacetValidationException | InternalServiceException | InvalidArnException | InvalidRuleException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("CreateTypedLinkFacet", input);
   }
@@ -251,16 +124,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: DeleteDirectoryRequest,
   ): Effect.Effect<
     DeleteDirectoryResponse,
-    | AccessDeniedException
-    | DirectoryDeletedException
-    | DirectoryNotDisabledException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryDeletedException | DirectoryNotDisabledException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDirectory", input);
   }
@@ -268,16 +132,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: DeleteFacetRequest,
   ): Effect.Effect<
     DeleteFacetResponse,
-    | AccessDeniedException
-    | FacetInUseException
-    | FacetNotFoundException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | FacetInUseException | FacetNotFoundException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteFacet", input);
   }
@@ -285,16 +140,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: DeleteObjectRequest,
   ): Effect.Effect<
     DeleteObjectResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ObjectNotDetachedException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | LimitExceededException | ObjectNotDetachedException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteObject", input);
   }
@@ -302,15 +148,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: DeleteSchemaRequest,
   ): Effect.Effect<
     DeleteSchemaResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | StillContainsLinksException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | StillContainsLinksException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSchema", input);
   }
@@ -318,15 +156,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: DeleteTypedLinkFacetRequest,
   ): Effect.Effect<
     DeleteTypedLinkFacetResponse,
-    | AccessDeniedException
-    | FacetNotFoundException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | FacetNotFoundException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteTypedLinkFacet", input);
   }
@@ -334,17 +164,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: DetachFromIndexRequest,
   ): Effect.Effect<
     DetachFromIndexResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | NotIndexException
-    | ObjectAlreadyDetachedException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | LimitExceededException | NotIndexException | ObjectAlreadyDetachedException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("DetachFromIndex", input);
   }
@@ -352,16 +172,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: DetachObjectRequest,
   ): Effect.Effect<
     DetachObjectResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | NotNodeException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | LimitExceededException | NotNodeException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("DetachObject", input);
   }
@@ -369,16 +180,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: DetachPolicyRequest,
   ): Effect.Effect<
     DetachPolicyResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | NotPolicyException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | LimitExceededException | NotPolicyException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("DetachPolicy", input);
   }
@@ -386,16 +188,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: DetachTypedLinkRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("DetachTypedLink", input);
   }
@@ -403,15 +196,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: DisableDirectoryRequest,
   ): Effect.Effect<
     DisableDirectoryResponse,
-    | AccessDeniedException
-    | DirectoryDeletedException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryDeletedException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("DisableDirectory", input);
   }
@@ -419,15 +204,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: EnableDirectoryRequest,
   ): Effect.Effect<
     EnableDirectoryResponse,
-    | AccessDeniedException
-    | DirectoryDeletedException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryDeletedException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("EnableDirectory", input);
   }
@@ -435,14 +212,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: GetAppliedSchemaVersionRequest,
   ): Effect.Effect<
     GetAppliedSchemaVersionResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("GetAppliedSchemaVersion", input);
   }
@@ -450,13 +220,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: GetDirectoryRequest,
   ): Effect.Effect<
     GetDirectoryResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | LimitExceededException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("GetDirectory", input);
   }
@@ -464,15 +228,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: GetFacetRequest,
   ): Effect.Effect<
     GetFacetResponse,
-    | AccessDeniedException
-    | FacetNotFoundException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | FacetNotFoundException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("GetFacet", input);
   }
@@ -480,16 +236,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: GetLinkAttributesRequest,
   ): Effect.Effect<
     GetLinkAttributesResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("GetLinkAttributes", input);
   }
@@ -497,16 +244,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: GetObjectAttributesRequest,
   ): Effect.Effect<
     GetObjectAttributesResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("GetObjectAttributes", input);
   }
@@ -514,15 +252,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: GetObjectInformationRequest,
   ): Effect.Effect<
     GetObjectInformationResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("GetObjectInformation", input);
   }
@@ -530,14 +260,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: GetSchemaAsJsonRequest,
   ): Effect.Effect<
     GetSchemaAsJsonResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("GetSchemaAsJson", input);
   }
@@ -545,16 +268,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: GetTypedLinkFacetInformationRequest,
   ): Effect.Effect<
     GetTypedLinkFacetInformationResponse,
-    | AccessDeniedException
-    | FacetNotFoundException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | FacetNotFoundException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("GetTypedLinkFacetInformation", input);
   }
@@ -562,15 +276,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListAppliedSchemaArnsRequest,
   ): Effect.Effect<
     ListAppliedSchemaArnsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppliedSchemaArns", input);
   }
@@ -578,15 +284,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListAttachedIndicesRequest,
   ): Effect.Effect<
     ListAttachedIndicesResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListAttachedIndices", input);
   }
@@ -594,15 +292,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListDevelopmentSchemaArnsRequest,
   ): Effect.Effect<
     ListDevelopmentSchemaArnsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListDevelopmentSchemaArns", input);
   }
@@ -610,14 +300,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListDirectoriesRequest,
   ): Effect.Effect<
     ListDirectoriesResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListDirectories", input);
   }
@@ -625,16 +308,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListFacetAttributesRequest,
   ): Effect.Effect<
     ListFacetAttributesResponse,
-    | AccessDeniedException
-    | FacetNotFoundException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | FacetNotFoundException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListFacetAttributes", input);
   }
@@ -642,15 +316,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListFacetNamesRequest,
   ): Effect.Effect<
     ListFacetNamesResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListFacetNames", input);
   }
@@ -658,17 +324,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListIncomingTypedLinksRequest,
   ): Effect.Effect<
     ListIncomingTypedLinksResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListIncomingTypedLinks", input);
   }
@@ -676,18 +332,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListIndexRequest,
   ): Effect.Effect<
     ListIndexResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | NotIndexException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | NotIndexException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListIndex", input);
   }
@@ -695,13 +340,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListManagedSchemaArnsRequest,
   ): Effect.Effect<
     ListManagedSchemaArnsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidNextTokenException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListManagedSchemaArns", input);
   }
@@ -709,17 +348,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListObjectAttributesRequest,
   ): Effect.Effect<
     ListObjectAttributesResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListObjectAttributes", input);
   }
@@ -727,17 +356,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListObjectChildrenRequest,
   ): Effect.Effect<
     ListObjectChildrenResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | NotNodeException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | NotNodeException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListObjectChildren", input);
   }
@@ -745,16 +364,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListObjectParentPathsRequest,
   ): Effect.Effect<
     ListObjectParentPathsResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListObjectParentPaths", input);
   }
@@ -762,17 +372,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListObjectParentsRequest,
   ): Effect.Effect<
     ListObjectParentsResponse,
-    | AccessDeniedException
-    | CannotListParentOfRootException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | CannotListParentOfRootException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListObjectParents", input);
   }
@@ -780,16 +380,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListObjectPoliciesRequest,
   ): Effect.Effect<
     ListObjectPoliciesResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListObjectPolicies", input);
   }
@@ -797,17 +388,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListOutgoingTypedLinksRequest,
   ): Effect.Effect<
     ListOutgoingTypedLinksResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListOutgoingTypedLinks", input);
   }
@@ -815,17 +396,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListPolicyAttachmentsRequest,
   ): Effect.Effect<
     ListPolicyAttachmentsResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | NotPolicyException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | NotPolicyException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListPolicyAttachments", input);
   }
@@ -833,15 +404,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListPublishedSchemaArnsRequest,
   ): Effect.Effect<
     ListPublishedSchemaArnsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListPublishedSchemaArns", input);
   }
@@ -849,15 +412,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidTaggingRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidTaggingRequestException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -865,16 +420,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListTypedLinkFacetAttributesRequest,
   ): Effect.Effect<
     ListTypedLinkFacetAttributesResponse,
-    | AccessDeniedException
-    | FacetNotFoundException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | FacetNotFoundException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListTypedLinkFacetAttributes", input);
   }
@@ -882,15 +428,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: ListTypedLinkFacetNamesRequest,
   ): Effect.Effect<
     ListTypedLinkFacetNamesResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("ListTypedLinkFacetNames", input);
   }
@@ -898,16 +436,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: LookupPolicyRequest,
   ): Effect.Effect<
     LookupPolicyResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | InternalServiceException | InvalidArnException | InvalidNextTokenException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("LookupPolicy", input);
   }
@@ -915,15 +444,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: PublishSchemaRequest,
   ): Effect.Effect<
     PublishSchemaResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | SchemaAlreadyPublishedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | SchemaAlreadyPublishedException | ValidationException | CommonAwsError
   > {
     return this.call("PublishSchema", input);
   }
@@ -931,15 +452,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: PutSchemaFromJsonRequest,
   ): Effect.Effect<
     PutSchemaFromJsonResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidRuleException
-    | InvalidSchemaDocException
-    | LimitExceededException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidRuleException | InvalidSchemaDocException | LimitExceededException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("PutSchemaFromJson", input);
   }
@@ -947,16 +460,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: RemoveFacetFromObjectRequest,
   ): Effect.Effect<
     RemoveFacetFromObjectResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("RemoveFacetFromObject", input);
   }
@@ -964,15 +468,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidTaggingRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidTaggingRequestException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -980,15 +476,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidTaggingRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | InvalidTaggingRequestException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -996,18 +484,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: UpdateFacetRequest,
   ): Effect.Effect<
     UpdateFacetResponse,
-    | AccessDeniedException
-    | FacetNotFoundException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidFacetUpdateException
-    | InvalidRuleException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | FacetNotFoundException | FacetValidationException | InternalServiceException | InvalidArnException | InvalidFacetUpdateException | InvalidRuleException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateFacet", input);
   }
@@ -1015,16 +492,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: UpdateLinkAttributesRequest,
   ): Effect.Effect<
     UpdateLinkAttributesResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateLinkAttributes", input);
   }
@@ -1032,17 +500,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: UpdateObjectAttributesRequest,
   ): Effect.Effect<
     UpdateObjectAttributesResponse,
-    | AccessDeniedException
-    | DirectoryNotEnabledException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | LinkNameAlreadyInUseException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryNotEnabledException | FacetValidationException | InternalServiceException | InvalidArnException | LimitExceededException | LinkNameAlreadyInUseException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateObjectAttributes", input);
   }
@@ -1050,14 +508,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: UpdateSchemaRequest,
   ): Effect.Effect<
     UpdateSchemaResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidArnException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidArnException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSchema", input);
   }
@@ -1065,18 +516,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: UpdateTypedLinkFacetRequest,
   ): Effect.Effect<
     UpdateTypedLinkFacetResponse,
-    | AccessDeniedException
-    | FacetNotFoundException
-    | FacetValidationException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidFacetUpdateException
-    | InvalidRuleException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | FacetNotFoundException | FacetValidationException | InternalServiceException | InvalidArnException | InvalidFacetUpdateException | InvalidRuleException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateTypedLinkFacet", input);
   }
@@ -1084,16 +524,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: UpgradeAppliedSchemaRequest,
   ): Effect.Effect<
     UpgradeAppliedSchemaResponse,
-    | AccessDeniedException
-    | IncompatibleSchemaException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidAttachmentException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | SchemaAlreadyExistsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleSchemaException | InternalServiceException | InvalidArnException | InvalidAttachmentException | ResourceNotFoundException | RetryableConflictException | SchemaAlreadyExistsException | ValidationException | CommonAwsError
   > {
     return this.call("UpgradeAppliedSchema", input);
   }
@@ -1101,16 +532,7 @@ export class CloudDirectory extends AWSServiceClient {
     input: UpgradePublishedSchemaRequest,
   ): Effect.Effect<
     UpgradePublishedSchemaResponse,
-    | AccessDeniedException
-    | IncompatibleSchemaException
-    | InternalServiceException
-    | InvalidArnException
-    | InvalidAttachmentException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | RetryableConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | IncompatibleSchemaException | InternalServiceException | InvalidArnException | InvalidAttachmentException | LimitExceededException | ResourceNotFoundException | RetryableConflictException | ValidationException | CommonAwsError
   > {
     return this.call("UpgradePublishedSchema", input);
   }
@@ -1131,7 +553,8 @@ export interface AddFacetToObjectRequest {
   ObjectAttributeList?: Array<AttributeKeyAndValue>;
   ObjectReference: ObjectReference;
 }
-export interface AddFacetToObjectResponse {}
+export interface AddFacetToObjectResponse {
+}
 export interface ApplySchemaRequest {
   PublishedSchemaArn: string;
   DirectoryArn: string;
@@ -1157,7 +580,8 @@ export interface AttachPolicyRequest {
   PolicyReference: ObjectReference;
   ObjectReference: ObjectReference;
 }
-export interface AttachPolicyResponse {}
+export interface AttachPolicyResponse {
+}
 export interface AttachToIndexRequest {
   DirectoryArn: string;
   IndexReference: ObjectReference;
@@ -1200,7 +624,8 @@ export interface BatchAddFacetToObject {
   ObjectAttributeList: Array<AttributeKeyAndValue>;
   ObjectReference: ObjectReference;
 }
-export interface BatchAddFacetToObjectResponse {}
+export interface BatchAddFacetToObjectResponse {
+}
 export interface BatchAttachObject {
   ParentReference: ObjectReference;
   ChildReference: ObjectReference;
@@ -1213,7 +638,8 @@ export interface BatchAttachPolicy {
   PolicyReference: ObjectReference;
   ObjectReference: ObjectReference;
 }
-export interface BatchAttachPolicyResponse {}
+export interface BatchAttachPolicyResponse {
+}
 export interface BatchAttachToIndex {
   IndexReference: ObjectReference;
   TargetReference: ObjectReference;
@@ -1253,7 +679,8 @@ export interface BatchCreateObjectResponse {
 export interface BatchDeleteObject {
   ObjectReference: ObjectReference;
 }
-export interface BatchDeleteObjectResponse {}
+export interface BatchDeleteObjectResponse {
+}
 export interface BatchDetachFromIndex {
   IndexReference: ObjectReference;
   TargetReference: ObjectReference;
@@ -1273,11 +700,13 @@ export interface BatchDetachPolicy {
   PolicyReference: ObjectReference;
   ObjectReference: ObjectReference;
 }
-export interface BatchDetachPolicyResponse {}
+export interface BatchDetachPolicyResponse {
+}
 export interface BatchDetachTypedLink {
   TypedLinkSpecifier: TypedLinkSpecifier;
 }
-export interface BatchDetachTypedLinkResponse {}
+export interface BatchDetachTypedLinkResponse {
+}
 export interface BatchGetLinkAttributes {
   TypedLinkSpecifier: TypedLinkSpecifier;
   AttributeNames: Array<string>;
@@ -1411,20 +840,7 @@ export interface BatchReadException {
   Type?: BatchReadExceptionType;
   Message?: string;
 }
-export type BatchReadExceptionType =
-  | "ValidationException"
-  | "InvalidArnException"
-  | "ResourceNotFoundException"
-  | "InvalidNextTokenException"
-  | "AccessDeniedException"
-  | "NotNodeException"
-  | "FacetValidationException"
-  | "CannotListParentOfRootException"
-  | "NotIndexException"
-  | "NotPolicyException"
-  | "DirectoryNotEnabledException"
-  | "LimitExceededException"
-  | "InternalServiceException";
+export type BatchReadExceptionType = "ValidationException" | "InvalidArnException" | "ResourceNotFoundException" | "InvalidNextTokenException" | "AccessDeniedException" | "NotNodeException" | "FacetValidationException" | "CannotListParentOfRootException" | "NotIndexException" | "NotPolicyException" | "DirectoryNotEnabledException" | "LimitExceededException" | "InternalServiceException";
 export interface BatchReadOperation {
   ListObjectAttributes?: BatchListObjectAttributes;
   ListObjectChildren?: BatchListObjectChildren;
@@ -1477,12 +893,14 @@ export interface BatchRemoveFacetFromObject {
   SchemaFacet: SchemaFacet;
   ObjectReference: ObjectReference;
 }
-export interface BatchRemoveFacetFromObjectResponse {}
+export interface BatchRemoveFacetFromObjectResponse {
+}
 export interface BatchUpdateLinkAttributes {
   TypedLinkSpecifier: TypedLinkSpecifier;
   AttributeUpdates: Array<LinkAttributeUpdate>;
 }
-export interface BatchUpdateLinkAttributesResponse {}
+export interface BatchUpdateLinkAttributesResponse {
+}
 export interface BatchUpdateObjectAttributes {
   ObjectReference: ObjectReference;
   AttributeUpdates: Array<ObjectAttributeUpdate>;
@@ -1497,25 +915,7 @@ export declare class BatchWriteException extends EffectData.TaggedError(
   readonly Type?: BatchWriteExceptionType;
   readonly Message?: string;
 }> {}
-export type BatchWriteExceptionType =
-  | "InternalServiceException"
-  | "ValidationException"
-  | "InvalidArnException"
-  | "LinkNameAlreadyInUseException"
-  | "StillContainsLinksException"
-  | "FacetValidationException"
-  | "ObjectNotDetachedException"
-  | "ResourceNotFoundException"
-  | "AccessDeniedException"
-  | "InvalidAttachmentException"
-  | "NotIndexException"
-  | "NotNodeException"
-  | "IndexedAttributeMissingException"
-  | "ObjectAlreadyDetachedException"
-  | "NotPolicyException"
-  | "DirectoryNotEnabledException"
-  | "LimitExceededException"
-  | "UnsupportedIndexTypeException";
+export type BatchWriteExceptionType = "InternalServiceException" | "ValidationException" | "InvalidArnException" | "LinkNameAlreadyInUseException" | "StillContainsLinksException" | "FacetValidationException" | "ObjectNotDetachedException" | "ResourceNotFoundException" | "AccessDeniedException" | "InvalidAttachmentException" | "NotIndexException" | "NotNodeException" | "IndexedAttributeMissingException" | "ObjectAlreadyDetachedException" | "NotPolicyException" | "DirectoryNotEnabledException" | "LimitExceededException" | "UnsupportedIndexTypeException";
 export interface BatchWriteOperation {
   CreateObject?: BatchCreateObject;
   AttachObject?: BatchAttachObject;
@@ -1551,8 +951,7 @@ export interface BatchWriteOperationResponse {
   DetachTypedLink?: BatchDetachTypedLinkResponse;
   UpdateLinkAttributes?: BatchUpdateLinkAttributesResponse;
 }
-export type BatchWriteOperationResponseList =
-  Array<BatchWriteOperationResponse>;
+export type BatchWriteOperationResponseList = Array<BatchWriteOperationResponse>;
 export interface BatchWriteRequest {
   DirectoryArn: string;
   Operations: Array<BatchWriteOperation>;
@@ -1589,7 +988,8 @@ export interface CreateFacetRequest {
   ObjectType?: ObjectType;
   FacetStyle?: FacetStyle;
 }
-export interface CreateFacetResponse {}
+export interface CreateFacetResponse {
+}
 export interface CreateIndexRequest {
   DirectoryArn: string;
   OrderedIndexedAttributeList: Array<AttributeKey>;
@@ -1620,7 +1020,8 @@ export interface CreateTypedLinkFacetRequest {
   SchemaArn: string;
   Facet: TypedLinkFacet;
 }
-export interface CreateTypedLinkFacetResponse {}
+export interface CreateTypedLinkFacetResponse {
+}
 export type ClouddirectoryDate = Date | string;
 
 export type DatetimeAttributeValue = Date | string;
@@ -1635,12 +1036,14 @@ export interface DeleteFacetRequest {
   SchemaArn: string;
   Name: string;
 }
-export interface DeleteFacetResponse {}
+export interface DeleteFacetResponse {
+}
 export interface DeleteObjectRequest {
   DirectoryArn: string;
   ObjectReference: ObjectReference;
 }
-export interface DeleteObjectResponse {}
+export interface DeleteObjectResponse {
+}
 export interface DeleteSchemaRequest {
   SchemaArn: string;
 }
@@ -1651,7 +1054,8 @@ export interface DeleteTypedLinkFacetRequest {
   SchemaArn: string;
   Name: string;
 }
-export interface DeleteTypedLinkFacetResponse {}
+export interface DeleteTypedLinkFacetResponse {
+}
 export interface DetachFromIndexRequest {
   DirectoryArn: string;
   IndexReference: ObjectReference;
@@ -1673,7 +1077,8 @@ export interface DetachPolicyRequest {
   PolicyReference: ObjectReference;
   ObjectReference: ObjectReference;
 }
-export interface DetachPolicyResponse {}
+export interface DetachPolicyResponse {
+}
 export interface DetachTypedLinkRequest {
   DirectoryArn: string;
   TypedLinkSpecifier: TypedLinkSpecifier;
@@ -1751,13 +1156,7 @@ export interface FacetAttributeReference {
   TargetFacetName: string;
   TargetAttributeName: string;
 }
-export type FacetAttributeType =
-  | "STRING"
-  | "BINARY"
-  | "BOOLEAN"
-  | "NUMBER"
-  | "DATETIME"
-  | "VARIANT";
+export type FacetAttributeType = "STRING" | "BINARY" | "BOOLEAN" | "NUMBER" | "DATETIME" | "VARIANT";
 export interface FacetAttributeUpdate {
   Attribute?: FacetAttribute;
   Action?: UpdateActionType;
@@ -2181,8 +1580,7 @@ export interface ObjectAttributeUpdate {
 export type ObjectAttributeUpdateList = Array<ObjectAttributeUpdate>;
 export type ObjectIdentifier = string;
 
-export type ObjectIdentifierAndLinkNameList =
-  Array<ObjectIdentifierAndLinkNameTuple>;
+export type ObjectIdentifierAndLinkNameList = Array<ObjectIdentifierAndLinkNameTuple>;
 export interface ObjectIdentifierAndLinkNameTuple {
   ObjectIdentifier?: string;
   LinkName?: string;
@@ -2234,18 +1632,14 @@ export interface PutSchemaFromJsonRequest {
 export interface PutSchemaFromJsonResponse {
   Arn?: string;
 }
-export type RangeMode =
-  | "FIRST"
-  | "LAST"
-  | "LAST_BEFORE_MISSING_VALUES"
-  | "INCLUSIVE"
-  | "EXCLUSIVE";
+export type RangeMode = "FIRST" | "LAST" | "LAST_BEFORE_MISSING_VALUES" | "INCLUSIVE" | "EXCLUSIVE";
 export interface RemoveFacetFromObjectRequest {
   DirectoryArn: string;
   SchemaFacet: SchemaFacet;
   ObjectReference: ObjectReference;
 }
-export interface RemoveFacetFromObjectResponse {}
+export interface RemoveFacetFromObjectResponse {
+}
 export type RequiredAttributeBehavior = "REQUIRED_ALWAYS" | "NOT_REQUIRED";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
@@ -2269,11 +1663,7 @@ export type RuleParameterKey = string;
 export type RuleParameterMap = Record<string, string>;
 export type RuleParameterValue = string;
 
-export type RuleType =
-  | "BINARY_LENGTH"
-  | "NUMBER_COMPARISON"
-  | "STRING_FROM_SET"
-  | "STRING_LENGTH";
+export type RuleType = "BINARY_LENGTH" | "NUMBER_COMPARISON" | "STRING_FROM_SET" | "STRING_LENGTH";
 export declare class SchemaAlreadyExistsException extends EffectData.TaggedError(
   "SchemaAlreadyExistsException",
 )<{
@@ -2314,7 +1704,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsNumberResults = number;
 
 export type TagValue = string;
@@ -2327,12 +1718,7 @@ interface _TypedAttributeValue {
   DatetimeValue?: Date | string;
 }
 
-export type TypedAttributeValue =
-  | (_TypedAttributeValue & { StringValue: string })
-  | (_TypedAttributeValue & { BinaryValue: Uint8Array | string })
-  | (_TypedAttributeValue & { BooleanValue: boolean })
-  | (_TypedAttributeValue & { NumberValue: string })
-  | (_TypedAttributeValue & { DatetimeValue: Date | string });
+export type TypedAttributeValue = (_TypedAttributeValue & { StringValue: string }) | (_TypedAttributeValue & { BinaryValue: Uint8Array | string }) | (_TypedAttributeValue & { BooleanValue: boolean }) | (_TypedAttributeValue & { NumberValue: string }) | (_TypedAttributeValue & { DatetimeValue: Date | string });
 export interface TypedAttributeValueRange {
   StartMode: RangeMode;
   StartValue?: TypedAttributeValue;
@@ -2347,8 +1733,7 @@ export interface TypedLinkAttributeDefinition {
   Rules?: Record<string, Rule>;
   RequiredBehavior: RequiredAttributeBehavior;
 }
-export type TypedLinkAttributeDefinitionList =
-  Array<TypedLinkAttributeDefinition>;
+export type TypedLinkAttributeDefinitionList = Array<TypedLinkAttributeDefinition>;
 export interface TypedLinkAttributeRange {
   AttributeName?: string;
   Range: TypedAttributeValueRange;
@@ -2363,8 +1748,7 @@ export interface TypedLinkFacetAttributeUpdate {
   Attribute: TypedLinkAttributeDefinition;
   Action: UpdateActionType;
 }
-export type TypedLinkFacetAttributeUpdateList =
-  Array<TypedLinkFacetAttributeUpdate>;
+export type TypedLinkFacetAttributeUpdateList = Array<TypedLinkFacetAttributeUpdate>;
 export type TypedLinkName = string;
 
 export type TypedLinkNameList = Array<string>;
@@ -2388,7 +1772,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UpdateActionType = "CREATE_OR_UPDATE" | "DELETE";
 export interface UpdateFacetRequest {
   SchemaArn: string;
@@ -2396,13 +1781,15 @@ export interface UpdateFacetRequest {
   AttributeUpdates?: Array<FacetAttributeUpdate>;
   ObjectType?: ObjectType;
 }
-export interface UpdateFacetResponse {}
+export interface UpdateFacetResponse {
+}
 export interface UpdateLinkAttributesRequest {
   DirectoryArn: string;
   TypedLinkSpecifier: TypedLinkSpecifier;
   AttributeUpdates: Array<LinkAttributeUpdate>;
 }
-export interface UpdateLinkAttributesResponse {}
+export interface UpdateLinkAttributesResponse {
+}
 export interface UpdateObjectAttributesRequest {
   DirectoryArn: string;
   ObjectReference: ObjectReference;
@@ -2424,7 +1811,8 @@ export interface UpdateTypedLinkFacetRequest {
   AttributeUpdates: Array<TypedLinkFacetAttributeUpdate>;
   IdentityAttributeOrder: Array<string>;
 }
-export interface UpdateTypedLinkFacetResponse {}
+export interface UpdateTypedLinkFacetResponse {
+}
 export interface UpgradeAppliedSchemaRequest {
   PublishedSchemaArn: string;
   DirectoryArn: string;
@@ -3494,3 +2882,4 @@ export declare namespace UpgradePublishedSchema {
     | ValidationException
     | CommonAwsError;
 }
+

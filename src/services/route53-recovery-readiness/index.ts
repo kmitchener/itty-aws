@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Route53RecoveryReadiness extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("route53-recovery-readiness", new RestJson1Protocol(), cfg);
+  }
+
   createCell(
     input: CreateCellRequest,
   ): Effect.Effect<
     CreateCellResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCell", input);
   }
@@ -20,12 +20,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: CreateCrossAccountAuthorizationRequest,
   ): Effect.Effect<
     CreateCrossAccountAuthorizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCrossAccountAuthorization", input);
   }
@@ -33,12 +28,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: CreateReadinessCheckRequest,
   ): Effect.Effect<
     CreateReadinessCheckResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateReadinessCheck", input);
   }
@@ -46,12 +36,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: CreateRecoveryGroupRequest,
   ): Effect.Effect<
     CreateRecoveryGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRecoveryGroup", input);
   }
@@ -59,12 +44,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: CreateResourceSetRequest,
   ): Effect.Effect<
     CreateResourceSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateResourceSet", input);
   }
@@ -72,12 +52,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: DeleteCellRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCell", input);
   }
@@ -85,11 +60,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: DeleteCrossAccountAuthorizationRequest,
   ): Effect.Effect<
     DeleteCrossAccountAuthorizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCrossAccountAuthorization", input);
   }
@@ -97,12 +68,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: DeleteReadinessCheckRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteReadinessCheck", input);
   }
@@ -110,12 +76,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: DeleteRecoveryGroupRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRecoveryGroup", input);
   }
@@ -123,12 +84,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: DeleteResourceSetRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteResourceSet", input);
   }
@@ -136,12 +92,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: GetArchitectureRecommendationsRequest,
   ): Effect.Effect<
     GetArchitectureRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetArchitectureRecommendations", input);
   }
@@ -149,12 +100,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: GetCellRequest,
   ): Effect.Effect<
     GetCellResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCell", input);
   }
@@ -162,12 +108,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: GetCellReadinessSummaryRequest,
   ): Effect.Effect<
     GetCellReadinessSummaryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCellReadinessSummary", input);
   }
@@ -175,12 +116,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: GetReadinessCheckRequest,
   ): Effect.Effect<
     GetReadinessCheckResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetReadinessCheck", input);
   }
@@ -188,12 +124,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: GetReadinessCheckResourceStatusRequest,
   ): Effect.Effect<
     GetReadinessCheckResourceStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetReadinessCheckResourceStatus", input);
   }
@@ -201,12 +132,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: GetReadinessCheckStatusRequest,
   ): Effect.Effect<
     GetReadinessCheckStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetReadinessCheckStatus", input);
   }
@@ -214,12 +140,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: GetRecoveryGroupRequest,
   ): Effect.Effect<
     GetRecoveryGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRecoveryGroup", input);
   }
@@ -227,12 +148,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: GetRecoveryGroupReadinessSummaryRequest,
   ): Effect.Effect<
     GetRecoveryGroupReadinessSummaryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRecoveryGroupReadinessSummary", input);
   }
@@ -240,12 +156,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: GetResourceSetRequest,
   ): Effect.Effect<
     GetResourceSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourceSet", input);
   }
@@ -253,11 +164,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: ListCellsRequest,
   ): Effect.Effect<
     ListCellsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCells", input);
   }
@@ -265,11 +172,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: ListCrossAccountAuthorizationsRequest,
   ): Effect.Effect<
     ListCrossAccountAuthorizationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCrossAccountAuthorizations", input);
   }
@@ -277,11 +180,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: ListReadinessChecksRequest,
   ): Effect.Effect<
     ListReadinessChecksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListReadinessChecks", input);
   }
@@ -289,11 +188,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: ListRecoveryGroupsRequest,
   ): Effect.Effect<
     ListRecoveryGroupsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRecoveryGroups", input);
   }
@@ -301,11 +196,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: ListResourceSetsRequest,
   ): Effect.Effect<
     ListResourceSetsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListResourceSets", input);
   }
@@ -313,11 +204,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: ListRulesRequest,
   ): Effect.Effect<
     ListRulesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRules", input);
   }
@@ -325,10 +212,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: ListTagsForResourcesRequest,
   ): Effect.Effect<
     ListTagsForResourcesResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResources", input);
   }
@@ -336,10 +220,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -347,10 +228,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -358,12 +236,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: UpdateCellRequest,
   ): Effect.Effect<
     UpdateCellResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateCell", input);
   }
@@ -371,12 +244,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: UpdateReadinessCheckRequest,
   ): Effect.Effect<
     UpdateReadinessCheckResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateReadinessCheck", input);
   }
@@ -384,12 +252,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: UpdateRecoveryGroupRequest,
   ): Effect.Effect<
     UpdateRecoveryGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRecoveryGroup", input);
   }
@@ -397,12 +260,7 @@ export class Route53RecoveryReadiness extends AWSServiceClient {
     input: UpdateResourceSetRequest,
   ): Effect.Effect<
     UpdateResourceSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateResourceSet", input);
   }
@@ -511,7 +369,8 @@ export interface DeleteCellRequest {
 export interface DeleteCrossAccountAuthorizationRequest {
   CrossAccountAuthorization: string;
 }
-export interface DeleteCrossAccountAuthorizationResponse {}
+export interface DeleteCrossAccountAuthorizationResponse {
+}
 export interface DeleteReadinessCheckRequest {
   ReadinessCheckName: string;
 }
@@ -753,7 +612,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export interface TargetResource {
   NLBResource?: NLBResource;
@@ -1186,3 +1046,4 @@ export declare namespace UpdateResourceSet {
     | ValidationException
     | CommonAwsError;
 }
+

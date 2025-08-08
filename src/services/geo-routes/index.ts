@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class GeoRoutes extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("geo-routes", new RestJson1Protocol(), cfg);
+  }
+
   calculateIsolines(
     input: CalculateIsolinesRequest,
   ): Effect.Effect<
     CalculateIsolinesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CalculateIsolines", input);
   }
@@ -19,11 +20,7 @@ export class GeoRoutes extends AWSServiceClient {
     input: CalculateRouteMatrixRequest,
   ): Effect.Effect<
     CalculateRouteMatrixResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CalculateRouteMatrix", input);
   }
@@ -31,11 +28,7 @@ export class GeoRoutes extends AWSServiceClient {
     input: CalculateRoutesRequest,
   ): Effect.Effect<
     CalculateRoutesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CalculateRoutes", input);
   }
@@ -43,11 +36,7 @@ export class GeoRoutes extends AWSServiceClient {
     input: OptimizeWaypointsRequest,
   ): Effect.Effect<
     OptimizeWaypointsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("OptimizeWaypoints", input);
   }
@@ -55,11 +44,7 @@ export class GeoRoutes extends AWSServiceClient {
     input: SnapToRoadsRequest,
   ): Effect.Effect<
     SnapToRoadsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SnapToRoads", input);
   }
@@ -216,8 +201,7 @@ export interface IsolineAvoidanceAreaGeometry {
   PolylineCorridor?: PolylineCorridor;
   PolylinePolygon?: Array<string>;
 }
-export type IsolineAvoidanceAreaGeometryList =
-  Array<IsolineAvoidanceAreaGeometry>;
+export type IsolineAvoidanceAreaGeometryList = Array<IsolineAvoidanceAreaGeometry>;
 export type IsolineAvoidanceAreaList = Array<IsolineAvoidanceArea>;
 export interface IsolineAvoidanceOptions {
   Areas?: Array<IsolineAvoidanceArea>;
@@ -236,8 +220,7 @@ export interface IsolineAvoidanceOptions {
 export interface IsolineAvoidanceZoneCategory {
   Category?: string;
 }
-export type IsolineAvoidanceZoneCategoryList =
-  Array<IsolineAvoidanceZoneCategory>;
+export type IsolineAvoidanceZoneCategoryList = Array<IsolineAvoidanceZoneCategory>;
 export interface IsolineCarOptions {
   EngineType?: string;
   LicensePlate?: IsolineVehicleLicensePlate;
@@ -518,8 +501,7 @@ export interface RouteDriverScheduleInterval {
   DriveDuration: number;
   RestDuration: number;
 }
-export type RouteDriverScheduleIntervalList =
-  Array<RouteDriverScheduleInterval>;
+export type RouteDriverScheduleIntervalList = Array<RouteDriverScheduleInterval>;
 export interface RouteEmissionType {
   Co2EmissionClass?: string;
   Type: string;
@@ -697,8 +679,7 @@ export interface RouteMatrixAvoidanceOptions {
 export interface RouteMatrixAvoidanceZoneCategory {
   Category?: string;
 }
-export type RouteMatrixAvoidanceZoneCategoryList =
-  Array<RouteMatrixAvoidanceZoneCategory>;
+export type RouteMatrixAvoidanceZoneCategoryList = Array<RouteMatrixAvoidanceZoneCategory>;
 export interface RouteMatrixBoundary {
   Geometry?: RouteMatrixBoundaryGeometry;
   Unbounded?: boolean;
@@ -1388,8 +1369,7 @@ export interface WaypointOptimizationAvoidanceArea {
 export interface WaypointOptimizationAvoidanceAreaGeometry {
   BoundingBox?: Array<number>;
 }
-export type WaypointOptimizationAvoidanceAreaList =
-  Array<WaypointOptimizationAvoidanceArea>;
+export type WaypointOptimizationAvoidanceAreaList = Array<WaypointOptimizationAvoidanceArea>;
 export interface WaypointOptimizationAvoidanceOptions {
   Areas?: Array<WaypointOptimizationAvoidanceArea>;
   CarShuttleTrains?: boolean;
@@ -1414,8 +1394,7 @@ export interface WaypointOptimizationConnection {
   TravelDuration: number;
   WaitDuration: number;
 }
-export type WaypointOptimizationConnectionList =
-  Array<WaypointOptimizationConnection>;
+export type WaypointOptimizationConnectionList = Array<WaypointOptimizationConnection>;
 export type WaypointOptimizationConstraint = string;
 
 export interface WaypointOptimizationDestinationOptions {
@@ -1441,8 +1420,7 @@ export interface WaypointOptimizationFailedConstraint {
   Constraint?: string;
   Reason?: string;
 }
-export type WaypointOptimizationFailedConstraintList =
-  Array<WaypointOptimizationFailedConstraint>;
+export type WaypointOptimizationFailedConstraintList = Array<WaypointOptimizationFailedConstraint>;
 export type WaypointOptimizationHazardousCargoType = string;
 
 export type WaypointOptimizationHazardousCargoTypeList = Array<string>;
@@ -1451,8 +1429,7 @@ export interface WaypointOptimizationImpedingWaypoint {
   Id: string;
   Position: Array<number>;
 }
-export type WaypointOptimizationImpedingWaypointList =
-  Array<WaypointOptimizationImpedingWaypoint>;
+export type WaypointOptimizationImpedingWaypointList = Array<WaypointOptimizationImpedingWaypoint>;
 export interface WaypointOptimizationOptimizedWaypoint {
   ArrivalTime?: string;
   ClusterIndex?: number;
@@ -1460,8 +1437,7 @@ export interface WaypointOptimizationOptimizedWaypoint {
   Id: string;
   Position: Array<number>;
 }
-export type WaypointOptimizationOptimizedWaypointList =
-  Array<WaypointOptimizationOptimizedWaypoint>;
+export type WaypointOptimizationOptimizedWaypointList = Array<WaypointOptimizationOptimizedWaypoint>;
 export interface WaypointOptimizationOriginOptions {
   Id?: string;
 }
@@ -1528,8 +1504,7 @@ export interface WaypointOptimizationWaypoint {
   ServiceDuration?: number;
   SideOfStreet?: WaypointOptimizationSideOfStreetOptions;
 }
-export type WaypointOptimizationWaypointList =
-  Array<WaypointOptimizationWaypoint>;
+export type WaypointOptimizationWaypointList = Array<WaypointOptimizationWaypoint>;
 export type WeightKilograms = number;
 
 export interface WeightPerAxleGroup {
@@ -1593,3 +1568,4 @@ export declare namespace SnapToRoads {
     | ValidationException
     | CommonAwsError;
 }
+

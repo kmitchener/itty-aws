@@ -1,14 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class m2 extends AWSServiceClient {
-  getSignedBluinsightsUrl(input: {}): Effect.Effect<
+  constructor(cfg: any) {
+    super("m2", new RestJson1Protocol(), cfg);
+  }
+
+  getSignedBluinsightsUrl(
+    input: {},
+  ): Effect.Effect<
     GetSignedBluinsightsUrlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSignedBluinsightsUrl", input);
   }
@@ -16,11 +20,7 @@ export class m2 extends AWSServiceClient {
     input: ListEngineVersionsRequest,
   ): Effect.Effect<
     ListEngineVersionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEngineVersions", input);
   }
@@ -28,12 +28,7 @@ export class m2 extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -41,13 +36,7 @@ export class m2 extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -55,12 +44,7 @@ export class m2 extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -121,11 +105,7 @@ interface _BatchJobDefinition {
   scriptBatchJobDefinition?: ScriptBatchJobDefinition;
 }
 
-export type BatchJobDefinition =
-  | (_BatchJobDefinition & { fileBatchJobDefinition: FileBatchJobDefinition })
-  | (_BatchJobDefinition & {
-      scriptBatchJobDefinition: ScriptBatchJobDefinition;
-    });
+export type BatchJobDefinition = (_BatchJobDefinition & { fileBatchJobDefinition: FileBatchJobDefinition }) | (_BatchJobDefinition & { scriptBatchJobDefinition: ScriptBatchJobDefinition });
 export type BatchJobDefinitions = Array<BatchJobDefinition>;
 export type BatchJobExecutionStatus = string;
 
@@ -149,15 +129,7 @@ interface _BatchJobIdentifier {
   restartBatchJobIdentifier?: RestartBatchJobIdentifier;
 }
 
-export type BatchJobIdentifier =
-  | (_BatchJobIdentifier & { fileBatchJobIdentifier: FileBatchJobIdentifier })
-  | (_BatchJobIdentifier & {
-      scriptBatchJobIdentifier: ScriptBatchJobIdentifier;
-    })
-  | (_BatchJobIdentifier & { s3BatchJobIdentifier: S3BatchJobIdentifier })
-  | (_BatchJobIdentifier & {
-      restartBatchJobIdentifier: RestartBatchJobIdentifier;
-    });
+export type BatchJobIdentifier = (_BatchJobIdentifier & { fileBatchJobIdentifier: FileBatchJobIdentifier }) | (_BatchJobIdentifier & { scriptBatchJobIdentifier: ScriptBatchJobIdentifier }) | (_BatchJobIdentifier & { s3BatchJobIdentifier: S3BatchJobIdentifier }) | (_BatchJobIdentifier & { restartBatchJobIdentifier: RestartBatchJobIdentifier });
 export type BatchJobParametersMap = Record<string, string>;
 export type BatchJobStepList = Array<JobStep>;
 export type BatchJobType = string;
@@ -173,7 +145,8 @@ export interface CancelBatchJobExecutionRequest {
   executionId: string;
   authSecretsManagerArn?: string;
 }
-export interface CancelBatchJobExecutionResponse {}
+export interface CancelBatchJobExecutionResponse {
+}
 export type CapacityValue = number;
 
 export type ClientToken = string;
@@ -260,19 +233,13 @@ interface _DatasetDetailOrgAttributes {
   ps?: PsDetailAttributes;
 }
 
-export type DatasetDetailOrgAttributes =
-  | (_DatasetDetailOrgAttributes & { vsam: VsamDetailAttributes })
-  | (_DatasetDetailOrgAttributes & { gdg: GdgDetailAttributes })
-  | (_DatasetDetailOrgAttributes & { po: PoDetailAttributes })
-  | (_DatasetDetailOrgAttributes & { ps: PsDetailAttributes });
+export type DatasetDetailOrgAttributes = (_DatasetDetailOrgAttributes & { vsam: VsamDetailAttributes }) | (_DatasetDetailOrgAttributes & { gdg: GdgDetailAttributes }) | (_DatasetDetailOrgAttributes & { po: PoDetailAttributes }) | (_DatasetDetailOrgAttributes & { ps: PsDetailAttributes });
 interface _DataSetExportConfig {
   s3Location?: string;
   dataSets?: Array<DataSetExportItem>;
 }
 
-export type DataSetExportConfig =
-  | (_DataSetExportConfig & { s3Location: string })
-  | (_DataSetExportConfig & { dataSets: Array<DataSetExportItem> });
+export type DataSetExportConfig = (_DataSetExportConfig & { s3Location: string }) | (_DataSetExportConfig & { dataSets: Array<DataSetExportItem> });
 export interface DataSetExportItem {
   datasetName: string;
   externalLocation: ExternalLocation;
@@ -297,9 +264,7 @@ interface _DataSetImportConfig {
   dataSets?: Array<DataSetImportItem>;
 }
 
-export type DataSetImportConfig =
-  | (_DataSetImportConfig & { s3Location: string })
-  | (_DataSetImportConfig & { dataSets: Array<DataSetImportItem> });
+export type DataSetImportConfig = (_DataSetImportConfig & { s3Location: string }) | (_DataSetImportConfig & { dataSets: Array<DataSetImportItem> });
 export interface DataSetImportItem {
   dataSet: DataSet;
   externalLocation: ExternalLocation;
@@ -326,11 +291,7 @@ interface _DatasetOrgAttributes {
   ps?: PsAttributes;
 }
 
-export type DatasetOrgAttributes =
-  | (_DatasetOrgAttributes & { vsam: VsamAttributes })
-  | (_DatasetOrgAttributes & { gdg: GdgAttributes })
-  | (_DatasetOrgAttributes & { po: PoAttributes })
-  | (_DatasetOrgAttributes & { ps: PsAttributes });
+export type DatasetOrgAttributes = (_DatasetOrgAttributes & { vsam: VsamAttributes }) | (_DatasetOrgAttributes & { gdg: GdgAttributes }) | (_DatasetOrgAttributes & { po: PoAttributes }) | (_DatasetOrgAttributes & { ps: PsAttributes });
 export type DataSetsSummaryList = Array<DataSetSummary>;
 export interface DataSetSummary {
   dataSetName: string;
@@ -347,22 +308,23 @@ interface _Definition {
   content?: string;
 }
 
-export type Definition =
-  | (_Definition & { s3Location: string })
-  | (_Definition & { content: string });
+export type Definition = (_Definition & { s3Location: string }) | (_Definition & { content: string });
 export interface DeleteApplicationFromEnvironmentRequest {
   applicationId: string;
   environmentId: string;
 }
-export interface DeleteApplicationFromEnvironmentResponse {}
+export interface DeleteApplicationFromEnvironmentResponse {
+}
 export interface DeleteApplicationRequest {
   applicationId: string;
 }
-export interface DeleteApplicationResponse {}
+export interface DeleteApplicationResponse {
+}
 export interface DeleteEnvironmentRequest {
   environmentId: string;
 }
-export interface DeleteEnvironmentResponse {}
+export interface DeleteEnvironmentResponse {
+}
 export interface DeployedVersionSummary {
   applicationVersion: number;
   status: string;
@@ -421,7 +383,7 @@ interface _ExternalLocation {
   s3Location?: string;
 }
 
-export type ExternalLocation = _ExternalLocation & { s3Location: string };
+export type ExternalLocation = (_ExternalLocation & { s3Location: string });
 export interface FileBatchJobDefinition {
   fileName: string;
   folderPath?: string;
@@ -597,9 +559,7 @@ interface _JobIdentifier {
   scriptName?: string;
 }
 
-export type JobIdentifier =
-  | (_JobIdentifier & { fileName: string })
-  | (_JobIdentifier & { scriptName: string });
+export type JobIdentifier = (_JobIdentifier & { fileName: string }) | (_JobIdentifier & { scriptName: string });
 export interface JobStep {
   stepNumber?: number;
   stepName?: string;
@@ -822,7 +782,8 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
 export interface StartApplicationRequest {
   applicationId: string;
 }
-export interface StartApplicationResponse {}
+export interface StartApplicationResponse {
+}
 export interface StartBatchJobRequest {
   applicationId: string;
   batchJobIdentifier: BatchJobIdentifier;
@@ -836,15 +797,14 @@ export interface StopApplicationRequest {
   applicationId: string;
   forceStop?: boolean;
 }
-export interface StopApplicationResponse {}
+export interface StopApplicationResponse {
+}
 interface _StorageConfiguration {
   efs?: EfsStorageConfiguration;
   fsx?: FsxStorageConfiguration;
 }
 
-export type StorageConfiguration =
-  | (_StorageConfiguration & { efs: EfsStorageConfiguration })
-  | (_StorageConfiguration & { fsx: FsxStorageConfiguration });
+export type StorageConfiguration = (_StorageConfiguration & { efs: EfsStorageConfiguration }) | (_StorageConfiguration & { fsx: FsxStorageConfiguration });
 export type StorageConfigurationList = Array<StorageConfiguration>;
 export type String100 = string;
 
@@ -868,7 +828,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -885,7 +846,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationRequest {
   applicationId: string;
   description?: string;
@@ -995,3 +957,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

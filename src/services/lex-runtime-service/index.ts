@@ -3,18 +3,18 @@ import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class LexRuntimeService extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("lex-runtime-service", new RestJson1Protocol(), cfg);
+  }
+
   deleteSession(
     input: DeleteSessionRequest,
   ): Effect.Effect<
     DeleteSessionResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteSession", input);
   }
@@ -22,11 +22,7 @@ export class LexRuntimeService extends AWSServiceClient {
     input: GetSessionRequest,
   ): Effect.Effect<
     GetSessionResponse,
-    | BadRequestException
-    | InternalFailureException
-    | LimitExceededException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalFailureException | LimitExceededException | NotFoundException | CommonAwsError
   > {
     return this.call("GetSession", input);
   }
@@ -34,18 +30,7 @@ export class LexRuntimeService extends AWSServiceClient {
     input: PostContentRequest,
   ): Effect.Effect<
     PostContentResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | DependencyFailedException
-    | InternalFailureException
-    | LimitExceededException
-    | LoopDetectedException
-    | NotAcceptableException
-    | NotFoundException
-    | RequestTimeoutException
-    | UnsupportedMediaTypeException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | DependencyFailedException | InternalFailureException | LimitExceededException | LoopDetectedException | NotAcceptableException | NotFoundException | RequestTimeoutException | UnsupportedMediaTypeException | CommonAwsError
   > {
     return this.call("PostContent", input);
   }
@@ -53,15 +38,7 @@ export class LexRuntimeService extends AWSServiceClient {
     input: PostTextRequest,
   ): Effect.Effect<
     PostTextResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | DependencyFailedException
-    | InternalFailureException
-    | LimitExceededException
-    | LoopDetectedException
-    | NotFoundException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | DependencyFailedException | InternalFailureException | LimitExceededException | LoopDetectedException | NotFoundException | CommonAwsError
   > {
     return this.call("PostText", input);
   }
@@ -69,15 +46,7 @@ export class LexRuntimeService extends AWSServiceClient {
     input: PutSessionRequest,
   ): Effect.Effect<
     PutSessionResponse,
-    | BadGatewayException
-    | BadRequestException
-    | ConflictException
-    | DependencyFailedException
-    | InternalFailureException
-    | LimitExceededException
-    | NotAcceptableException
-    | NotFoundException
-    | CommonAwsError
+    BadGatewayException | BadRequestException | ConflictException | DependencyFailedException | InternalFailureException | LimitExceededException | NotAcceptableException | NotFoundException | CommonAwsError
   > {
     return this.call("PutSession", input);
   }
@@ -162,19 +131,8 @@ export interface DialogAction {
   message?: string;
   messageFormat?: MessageFormatType;
 }
-export type DialogActionType =
-  | "ELICIT_INTENT"
-  | "CONFIRM_INTENT"
-  | "ELICIT_SLOT"
-  | "CLOSE"
-  | "DELEGATE";
-export type DialogState =
-  | "ELICIT_INTENT"
-  | "CONFIRM_INTENT"
-  | "ELICIT_SLOT"
-  | "FULFILLED"
-  | "READY_FOR_FULFILLMENT"
-  | "FAILED";
+export type DialogActionType = "ELICIT_INTENT" | "CONFIRM_INTENT" | "ELICIT_SLOT" | "CLOSE" | "DELEGATE";
+export type DialogState = "ELICIT_INTENT" | "CONFIRM_INTENT" | "ELICIT_SLOT" | "FULFILLED" | "READY_FOR_FULFILLMENT" | "FAILED";
 export type Double = number;
 
 export type ErrorMessage = string;
@@ -238,11 +196,7 @@ export declare class LoopDetectedException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type MessageFormatType =
-  | "PLAIN_TEXT"
-  | "CUSTOM_PAYLOAD"
-  | "SSML"
-  | "COMPOSITE";
+export type MessageFormatType = "PLAIN_TEXT" | "CUSTOM_PAYLOAD" | "SSML" | "COMPOSITE";
 export declare class NotAcceptableException extends EffectData.TaggedError(
   "NotAcceptableException",
 )<{
@@ -454,3 +408,4 @@ export declare namespace PutSession {
     | NotFoundException
     | CommonAwsError;
 }
+

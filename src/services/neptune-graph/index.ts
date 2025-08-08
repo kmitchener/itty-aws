@@ -2,18 +2,18 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class NeptuneGraph extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("neptune-graph", new RestJson1Protocol(), cfg);
+  }
+
   cancelQuery(
     input: CancelQueryInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelQuery", input);
   }
@@ -21,13 +21,7 @@ export class NeptuneGraph extends AWSServiceClient {
     input: ExecuteQueryInput,
   ): Effect.Effect<
     ExecuteQueryOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | UnprocessableException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | UnprocessableException | ValidationException | CommonAwsError
   > {
     return this.call("ExecuteQuery", input);
   }
@@ -35,12 +29,7 @@ export class NeptuneGraph extends AWSServiceClient {
     input: GetGraphSummaryInput,
   ): Effect.Effect<
     GetGraphSummaryOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetGraphSummary", input);
   }
@@ -48,12 +37,7 @@ export class NeptuneGraph extends AWSServiceClient {
     input: GetQueryInput,
   ): Effect.Effect<
     GetQueryOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetQuery", input);
   }
@@ -61,11 +45,7 @@ export class NeptuneGraph extends AWSServiceClient {
     input: ListQueriesInput,
   ): Effect.Effect<
     ListQueriesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListQueries", input);
   }
@@ -73,11 +53,7 @@ export class NeptuneGraph extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -85,11 +61,7 @@ export class NeptuneGraph extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -97,11 +69,7 @@ export class NeptuneGraph extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -318,10 +286,7 @@ export interface ExportFilterPropertyAttributes {
   sourcePropertyName?: string;
   multiValueHandling?: MultiValueHandlingType;
 }
-export type ExportFilterPropertyMap = Record<
-  string,
-  ExportFilterPropertyAttributes
->;
+export type ExportFilterPropertyMap = Record<string, ExportFilterPropertyAttributes>;
 export type ExportFilterSourcePropertyName = string;
 
 export type ExportFormat = "PARQUET" | "CSV";
@@ -334,14 +299,7 @@ export interface ExportTaskDetails {
 }
 export type ExportTaskId = string;
 
-export type ExportTaskStatus =
-  | "INITIALIZING"
-  | "EXPORTING"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "CANCELLING"
-  | "CANCELLED"
-  | "DELETED";
+export type ExportTaskStatus = "INITIALIZING" | "EXPORTING" | "SUCCEEDED" | "FAILED" | "CANCELLING" | "CANCELLED" | "DELETED";
 export interface ExportTaskSummary {
   graphId: string;
   roleArn: string;
@@ -481,15 +439,7 @@ export interface GraphSnapshotSummary {
   kmsKeyIdentifier?: string;
 }
 export type GraphSnapshotSummaryList = Array<GraphSnapshotSummary>;
-export type GraphStatus =
-  | "CREATING"
-  | "AVAILABLE"
-  | "DELETING"
-  | "RESETTING"
-  | "UPDATING"
-  | "SNAPSHOTTING"
-  | "FAILED"
-  | "IMPORTING";
+export type GraphStatus = "CREATING" | "AVAILABLE" | "DELETING" | "RESETTING" | "UPDATING" | "SNAPSHOTTING" | "FAILED" | "IMPORTING";
 export interface GraphSummary {
   id: string;
   name: string;
@@ -508,7 +458,7 @@ interface _ImportOptions {
   neptune?: NeptuneImportOptions;
 }
 
-export type ImportOptions = _ImportOptions & { neptune: NeptuneImportOptions };
+export type ImportOptions = (_ImportOptions & { neptune: NeptuneImportOptions });
 export interface ImportTaskDetails {
   status: string;
   startTime: Date | string;
@@ -519,18 +469,7 @@ export interface ImportTaskDetails {
   statementCount: number;
   dictionaryEntryCount: number;
 }
-export type ImportTaskStatus =
-  | "INITIALIZING"
-  | "EXPORTING"
-  | "ANALYZING_DATA"
-  | "IMPORTING"
-  | "REPROVISIONING"
-  | "ROLLING_BACK"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "CANCELLING"
-  | "CANCELLED"
-  | "DELETED";
+export type ImportTaskStatus = "INITIALIZING" | "EXPORTING" | "ANALYZING_DATA" | "IMPORTING" | "REPROVISIONING" | "ROLLING_BACK" | "SUCCEEDED" | "FAILED" | "CANCELLING" | "CANCELLED" | "DELETED";
 export interface ImportTaskSummary {
   graphId?: string;
   taskId: string;
@@ -629,19 +568,14 @@ export type PaginationToken = string;
 
 export type ParquetType = "COLUMNAR";
 export type PlanCacheType = "ENABLED" | "DISABLED" | "AUTO";
-export type PrivateGraphEndpointStatus =
-  | "CREATING"
-  | "AVAILABLE"
-  | "DELETING"
-  | "FAILED";
+export type PrivateGraphEndpointStatus = "CREATING" | "AVAILABLE" | "DELETING" | "FAILED";
 export interface PrivateGraphEndpointSummary {
   vpcId: string;
   subnetIds: Array<string>;
   status: PrivateGraphEndpointStatus;
   vpcEndpointId?: string;
 }
-export type PrivateGraphEndpointSummaryList =
-  Array<PrivateGraphEndpointSummary>;
+export type PrivateGraphEndpointSummaryList = Array<PrivateGraphEndpointSummary>;
 export type ProvisionedMemory = number;
 
 export type QueryLanguage = "OPEN_CYPHER";
@@ -785,7 +719,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export type TaskId = string;
@@ -801,17 +736,13 @@ export declare class UnprocessableException extends EffectData.TaggedError(
   readonly message: string;
   readonly reason: UnprocessableExceptionReason;
 }> {}
-export type UnprocessableExceptionReason =
-  | "QUERY_TIMEOUT"
-  | "INTERNAL_LIMIT_EXCEEDED"
-  | "MEMORY_LIMIT_EXCEEDED"
-  | "STORAGE_LIMIT_EXCEEDED"
-  | "PARTITION_FULL";
+export type UnprocessableExceptionReason = "QUERY_TIMEOUT" | "INTERNAL_LIMIT_EXCEEDED" | "MEMORY_LIMIT_EXCEEDED" | "STORAGE_LIMIT_EXCEEDED" | "PARTITION_FULL";
 export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateGraphInput {
   graphIdentifier: string;
   publicConnectivity?: boolean;
@@ -841,14 +772,7 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly message: string;
   readonly reason?: ValidationExceptionReason;
 }> {}
-export type ValidationExceptionReason =
-  | "CONSTRAINT_VIOLATION"
-  | "ILLEGAL_ARGUMENT"
-  | "MALFORMED_QUERY"
-  | "QUERY_CANCELLED"
-  | "QUERY_TOO_LARGE"
-  | "UNSUPPORTED_OPERATION"
-  | "BAD_REQUEST";
+export type ValidationExceptionReason = "CONSTRAINT_VIOLATION" | "ILLEGAL_ARGUMENT" | "MALFORMED_QUERY" | "QUERY_CANCELLED" | "QUERY_TOO_LARGE" | "UNSUPPORTED_OPERATION" | "BAD_REQUEST";
 export interface VectorSearchConfiguration {
   dimension: number;
 }
@@ -950,3 +874,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class BedrockDataAutomationRuntime extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("bedrock-data-automation-runtime", new AwsJson11Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -20,13 +20,7 @@ export class BedrockDataAutomationRuntime extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -34,12 +28,7 @@ export class BedrockDataAutomationRuntime extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -55,12 +44,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 export interface AssetProcessingConfiguration {
   video?: VideoAssetProcessingConfiguration;
 }
-export type AutomationJobStatus =
-  | "CREATED"
-  | "IN_PROGRESS"
-  | "SUCCESS"
-  | "SERVICE_ERROR"
-  | "CLIENT_ERROR";
+export type AutomationJobStatus = "CREATED" | "IN_PROGRESS" | "SUCCESS" | "SERVICE_ERROR" | "CLIENT_ERROR";
 export interface Blueprint {
   blueprintArn: string;
   version?: string;
@@ -171,7 +155,8 @@ export interface TagResourceRequest {
   resourceARN: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -187,7 +172,8 @@ export interface UntagResourceRequest {
   resourceARN: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -200,9 +186,7 @@ interface _VideoSegmentConfiguration {
   timestampSegment?: TimestampSegment;
 }
 
-export type VideoSegmentConfiguration = _VideoSegmentConfiguration & {
-  timestampSegment: TimestampSegment;
-};
+export type VideoSegmentConfiguration = (_VideoSegmentConfiguration & { timestampSegment: TimestampSegment });
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
@@ -239,3 +223,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

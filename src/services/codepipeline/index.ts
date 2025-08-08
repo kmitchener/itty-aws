@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class CodePipeline extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("codepipeline", new AwsJson11Protocol(), cfg);
+  }
+
   acknowledgeJob(
     input: AcknowledgeJobInput,
   ): Effect.Effect<
     AcknowledgeJobOutput,
-    | InvalidNonceException
-    | JobNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidNonceException | JobNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("AcknowledgeJob", input);
   }
@@ -18,11 +20,7 @@ export class CodePipeline extends AWSServiceClient {
     input: AcknowledgeThirdPartyJobInput,
   ): Effect.Effect<
     AcknowledgeThirdPartyJobOutput,
-    | InvalidClientTokenException
-    | InvalidNonceException
-    | JobNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidClientTokenException | InvalidNonceException | JobNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("AcknowledgeThirdPartyJob", input);
   }
@@ -30,12 +28,7 @@ export class CodePipeline extends AWSServiceClient {
     input: CreateCustomActionTypeInput,
   ): Effect.Effect<
     CreateCustomActionTypeOutput,
-    | ConcurrentModificationException
-    | InvalidTagsException
-    | LimitExceededException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidTagsException | LimitExceededException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCustomActionType", input);
   }
@@ -43,17 +36,7 @@ export class CodePipeline extends AWSServiceClient {
     input: CreatePipelineInput,
   ): Effect.Effect<
     CreatePipelineOutput,
-    | ConcurrentModificationException
-    | InvalidActionDeclarationException
-    | InvalidBlockerDeclarationException
-    | InvalidStageDeclarationException
-    | InvalidStructureException
-    | InvalidTagsException
-    | LimitExceededException
-    | PipelineNameInUseException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidActionDeclarationException | InvalidBlockerDeclarationException | InvalidStageDeclarationException | InvalidStructureException | InvalidTagsException | LimitExceededException | PipelineNameInUseException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePipeline", input);
   }
@@ -93,10 +76,7 @@ export class CodePipeline extends AWSServiceClient {
     input: DisableStageTransitionInput,
   ): Effect.Effect<
     {},
-    | PipelineNotFoundException
-    | StageNotFoundException
-    | ValidationException
-    | CommonAwsError
+    PipelineNotFoundException | StageNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DisableStageTransition", input);
   }
@@ -104,10 +84,7 @@ export class CodePipeline extends AWSServiceClient {
     input: EnableStageTransitionInput,
   ): Effect.Effect<
     {},
-    | PipelineNotFoundException
-    | StageNotFoundException
-    | ValidationException
-    | CommonAwsError
+    PipelineNotFoundException | StageNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("EnableStageTransition", input);
   }
@@ -131,10 +108,7 @@ export class CodePipeline extends AWSServiceClient {
     input: GetPipelineInput,
   ): Effect.Effect<
     GetPipelineOutput,
-    | PipelineNotFoundException
-    | PipelineVersionNotFoundException
-    | ValidationException
-    | CommonAwsError
+    PipelineNotFoundException | PipelineVersionNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetPipeline", input);
   }
@@ -142,10 +116,7 @@ export class CodePipeline extends AWSServiceClient {
     input: GetPipelineExecutionInput,
   ): Effect.Effect<
     GetPipelineExecutionOutput,
-    | PipelineExecutionNotFoundException
-    | PipelineNotFoundException
-    | ValidationException
-    | CommonAwsError
+    PipelineExecutionNotFoundException | PipelineNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetPipelineExecution", input);
   }
@@ -161,11 +132,7 @@ export class CodePipeline extends AWSServiceClient {
     input: GetThirdPartyJobDetailsInput,
   ): Effect.Effect<
     GetThirdPartyJobDetailsOutput,
-    | InvalidClientTokenException
-    | InvalidJobException
-    | JobNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidClientTokenException | InvalidJobException | JobNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetThirdPartyJobDetails", input);
   }
@@ -173,11 +140,7 @@ export class CodePipeline extends AWSServiceClient {
     input: ListActionExecutionsInput,
   ): Effect.Effect<
     ListActionExecutionsOutput,
-    | InvalidNextTokenException
-    | PipelineExecutionNotFoundException
-    | PipelineNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidNextTokenException | PipelineExecutionNotFoundException | PipelineNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListActionExecutions", input);
   }
@@ -193,11 +156,7 @@ export class CodePipeline extends AWSServiceClient {
     input: ListDeployActionExecutionTargetsInput,
   ): Effect.Effect<
     ListDeployActionExecutionTargetsOutput,
-    | ActionExecutionNotFoundException
-    | InvalidNextTokenException
-    | PipelineNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ActionExecutionNotFoundException | InvalidNextTokenException | PipelineNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListDeployActionExecutionTargets", input);
   }
@@ -205,10 +164,7 @@ export class CodePipeline extends AWSServiceClient {
     input: ListPipelineExecutionsInput,
   ): Effect.Effect<
     ListPipelineExecutionsOutput,
-    | InvalidNextTokenException
-    | PipelineNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidNextTokenException | PipelineNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListPipelineExecutions", input);
   }
@@ -224,11 +180,7 @@ export class CodePipeline extends AWSServiceClient {
     input: ListRuleExecutionsInput,
   ): Effect.Effect<
     ListRuleExecutionsOutput,
-    | InvalidNextTokenException
-    | PipelineExecutionNotFoundException
-    | PipelineNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidNextTokenException | PipelineExecutionNotFoundException | PipelineNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListRuleExecutions", input);
   }
@@ -244,11 +196,7 @@ export class CodePipeline extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InvalidArnException
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidArnException | InvalidNextTokenException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -264,14 +212,7 @@ export class CodePipeline extends AWSServiceClient {
     input: OverrideStageConditionInput,
   ): Effect.Effect<
     {},
-    | ConcurrentPipelineExecutionsLimitExceededException
-    | ConditionNotOverridableException
-    | ConflictException
-    | NotLatestPipelineExecutionException
-    | PipelineNotFoundException
-    | StageNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentPipelineExecutionsLimitExceededException | ConditionNotOverridableException | ConflictException | NotLatestPipelineExecutionException | PipelineNotFoundException | StageNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("OverrideStageCondition", input);
   }
@@ -295,12 +236,7 @@ export class CodePipeline extends AWSServiceClient {
     input: PutActionRevisionInput,
   ): Effect.Effect<
     PutActionRevisionOutput,
-    | ActionNotFoundException
-    | ConcurrentPipelineExecutionsLimitExceededException
-    | PipelineNotFoundException
-    | StageNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ActionNotFoundException | ConcurrentPipelineExecutionsLimitExceededException | PipelineNotFoundException | StageNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("PutActionRevision", input);
   }
@@ -308,13 +244,7 @@ export class CodePipeline extends AWSServiceClient {
     input: PutApprovalResultInput,
   ): Effect.Effect<
     PutApprovalResultOutput,
-    | ActionNotFoundException
-    | ApprovalAlreadyCompletedException
-    | InvalidApprovalTokenException
-    | PipelineNotFoundException
-    | StageNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ActionNotFoundException | ApprovalAlreadyCompletedException | InvalidApprovalTokenException | PipelineNotFoundException | StageNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("PutApprovalResult", input);
   }
@@ -322,10 +252,7 @@ export class CodePipeline extends AWSServiceClient {
     input: PutJobFailureResultInput,
   ): Effect.Effect<
     {},
-    | InvalidJobStateException
-    | JobNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidJobStateException | JobNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("PutJobFailureResult", input);
   }
@@ -333,11 +260,7 @@ export class CodePipeline extends AWSServiceClient {
     input: PutJobSuccessResultInput,
   ): Effect.Effect<
     {},
-    | InvalidJobStateException
-    | JobNotFoundException
-    | OutputVariablesSizeExceededException
-    | ValidationException
-    | CommonAwsError
+    InvalidJobStateException | JobNotFoundException | OutputVariablesSizeExceededException | ValidationException | CommonAwsError
   > {
     return this.call("PutJobSuccessResult", input);
   }
@@ -345,11 +268,7 @@ export class CodePipeline extends AWSServiceClient {
     input: PutThirdPartyJobFailureResultInput,
   ): Effect.Effect<
     {},
-    | InvalidClientTokenException
-    | InvalidJobStateException
-    | JobNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidClientTokenException | InvalidJobStateException | JobNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("PutThirdPartyJobFailureResult", input);
   }
@@ -357,11 +276,7 @@ export class CodePipeline extends AWSServiceClient {
     input: PutThirdPartyJobSuccessResultInput,
   ): Effect.Effect<
     {},
-    | InvalidClientTokenException
-    | InvalidJobStateException
-    | JobNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InvalidClientTokenException | InvalidJobStateException | JobNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("PutThirdPartyJobSuccessResult", input);
   }
@@ -369,15 +284,7 @@ export class CodePipeline extends AWSServiceClient {
     input: PutWebhookInput,
   ): Effect.Effect<
     PutWebhookOutput,
-    | ConcurrentModificationException
-    | InvalidTagsException
-    | InvalidWebhookAuthenticationParametersException
-    | InvalidWebhookFilterPatternException
-    | LimitExceededException
-    | PipelineNotFoundException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidTagsException | InvalidWebhookAuthenticationParametersException | InvalidWebhookFilterPatternException | LimitExceededException | PipelineNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("PutWebhook", input);
   }
@@ -393,14 +300,7 @@ export class CodePipeline extends AWSServiceClient {
     input: RetryStageExecutionInput,
   ): Effect.Effect<
     RetryStageExecutionOutput,
-    | ConcurrentPipelineExecutionsLimitExceededException
-    | ConflictException
-    | NotLatestPipelineExecutionException
-    | PipelineNotFoundException
-    | StageNotFoundException
-    | StageNotRetryableException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentPipelineExecutionsLimitExceededException | ConflictException | NotLatestPipelineExecutionException | PipelineNotFoundException | StageNotFoundException | StageNotRetryableException | ValidationException | CommonAwsError
   > {
     return this.call("RetryStageExecution", input);
   }
@@ -408,14 +308,7 @@ export class CodePipeline extends AWSServiceClient {
     input: RollbackStageInput,
   ): Effect.Effect<
     RollbackStageOutput,
-    | ConflictException
-    | PipelineExecutionNotFoundException
-    | PipelineExecutionOutdatedException
-    | PipelineNotFoundException
-    | StageNotFoundException
-    | UnableToRollbackStageException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | PipelineExecutionNotFoundException | PipelineExecutionOutdatedException | PipelineNotFoundException | StageNotFoundException | UnableToRollbackStageException | ValidationException | CommonAwsError
   > {
     return this.call("RollbackStage", input);
   }
@@ -423,11 +316,7 @@ export class CodePipeline extends AWSServiceClient {
     input: StartPipelineExecutionInput,
   ): Effect.Effect<
     StartPipelineExecutionOutput,
-    | ConcurrentPipelineExecutionsLimitExceededException
-    | ConflictException
-    | PipelineNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentPipelineExecutionsLimitExceededException | ConflictException | PipelineNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartPipelineExecution", input);
   }
@@ -435,12 +324,7 @@ export class CodePipeline extends AWSServiceClient {
     input: StopPipelineExecutionInput,
   ): Effect.Effect<
     StopPipelineExecutionOutput,
-    | ConflictException
-    | DuplicatedStopRequestException
-    | PipelineExecutionNotStoppableException
-    | PipelineNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | DuplicatedStopRequestException | PipelineExecutionNotStoppableException | PipelineNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StopPipelineExecution", input);
   }
@@ -448,13 +332,7 @@ export class CodePipeline extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | ConcurrentModificationException
-    | InvalidArnException
-    | InvalidTagsException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArnException | InvalidTagsException | ResourceNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -462,12 +340,7 @@ export class CodePipeline extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | ConcurrentModificationException
-    | InvalidArnException
-    | InvalidTagsException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArnException | InvalidTagsException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -475,10 +348,7 @@ export class CodePipeline extends AWSServiceClient {
     input: UpdateActionTypeInput,
   ): Effect.Effect<
     {},
-    | ActionTypeNotFoundException
-    | RequestFailedException
-    | ValidationException
-    | CommonAwsError
+    ActionTypeNotFoundException | RequestFailedException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateActionType", input);
   }
@@ -486,13 +356,7 @@ export class CodePipeline extends AWSServiceClient {
     input: UpdatePipelineInput,
   ): Effect.Effect<
     UpdatePipelineOutput,
-    | InvalidActionDeclarationException
-    | InvalidBlockerDeclarationException
-    | InvalidStageDeclarationException
-    | InvalidStructureException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
+    InvalidActionDeclarationException | InvalidBlockerDeclarationException | InvalidStageDeclarationException | InvalidStructureException | LimitExceededException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePipeline", input);
   }
@@ -521,14 +385,7 @@ export interface AcknowledgeThirdPartyJobInput {
 export interface AcknowledgeThirdPartyJobOutput {
   status?: JobStatus;
 }
-export type ActionCategory =
-  | "Source"
-  | "Build"
-  | "Deploy"
-  | "Test"
-  | "Invoke"
-  | "Approval"
-  | "Compute";
+export type ActionCategory = "Source" | "Build" | "Deploy" | "Test" | "Invoke" | "Approval" | "Compute";
 export interface ActionConfiguration {
   configuration?: Record<string, string>;
 }
@@ -544,8 +401,7 @@ export interface ActionConfigurationProperty {
   description?: string;
   type?: ActionConfigurationPropertyType;
 }
-export type ActionConfigurationPropertyList =
-  Array<ActionConfigurationProperty>;
+export type ActionConfigurationPropertyList = Array<ActionConfigurationProperty>;
 export type ActionConfigurationPropertyType = "String" | "Number" | "Boolean";
 export type ActionConfigurationQueryableValue = string;
 
@@ -629,11 +485,7 @@ export interface ActionExecutionResult {
   errorDetails?: ErrorDetails;
   logStreamARN?: string;
 }
-export type ActionExecutionStatus =
-  | "InProgress"
-  | "Abandoned"
-  | "Succeeded"
-  | "Failed";
+export type ActionExecutionStatus = "InProgress" | "Abandoned" | "Succeeded" | "Failed";
 export type ActionExecutionToken = string;
 
 export type ActionName = string;
@@ -844,14 +696,7 @@ export interface ConditionExecution {
   summary?: string;
   lastStatusChange?: Date | string;
 }
-export type ConditionExecutionStatus =
-  | "InProgress"
-  | "Failed"
-  | "Errored"
-  | "Succeeded"
-  | "Cancelled"
-  | "Abandoned"
-  | "Overridden";
+export type ConditionExecutionStatus = "InProgress" | "Failed" | "Errored" | "Succeeded" | "Cancelled" | "Abandoned" | "Overridden";
 export type ConditionList = Array<Condition>;
 export declare class ConditionNotOverridableException extends EffectData.TaggedError(
   "ConditionNotOverridableException",
@@ -910,7 +755,8 @@ export interface DeletePipelineInput {
 export interface DeleteWebhookInput {
   name: string;
 }
-export interface DeleteWebhookOutput {}
+export interface DeleteWebhookOutput {
+}
 export interface DeployActionExecutionTarget {
   targetId?: string;
   targetType?: string;
@@ -919,8 +765,7 @@ export interface DeployActionExecutionTarget {
   endTime?: Date | string;
   events?: Array<DeployTargetEvent>;
 }
-export type DeployActionExecutionTargetList =
-  Array<DeployActionExecutionTarget>;
+export type DeployActionExecutionTargetList = Array<DeployActionExecutionTarget>;
 export interface DeployTargetEvent {
   name?: string;
   status?: string;
@@ -936,7 +781,8 @@ export type DeployTargetEventList = Array<DeployTargetEvent>;
 export interface DeregisterWebhookWithThirdPartyInput {
   webhookName?: string;
 }
-export interface DeregisterWebhookWithThirdPartyOutput {}
+export interface DeregisterWebhookWithThirdPartyOutput {
+}
 export type Description = string;
 
 export type DisabledReason = string;
@@ -1015,13 +861,7 @@ export interface FailureDetails {
   message: string;
   externalExecutionId?: string;
 }
-export type FailureType =
-  | "JobFailed"
-  | "ConfigurationError"
-  | "PermissionError"
-  | "RevisionOutOfSync"
-  | "RevisionUnavailable"
-  | "SystemUnavailable";
+export type FailureType = "JobFailed" | "ConfigurationError" | "PermissionError" | "RevisionOutOfSync" | "RevisionUnavailable" | "SystemUnavailable";
 export type FilePath = string;
 
 export type FilePathList = Array<string>;
@@ -1215,14 +1055,7 @@ export declare class JobNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type JobStatus =
-  | "Created"
-  | "Queued"
-  | "Dispatched"
-  | "InProgress"
-  | "TimedOut"
-  | "Succeeded"
-  | "Failed";
+export type JobStatus = "Created" | "Queued" | "Dispatched" | "InProgress" | "TimedOut" | "Succeeded" | "Failed";
 export type JobTimeout = number;
 
 export interface JobWorkerExecutorConfiguration {
@@ -1451,14 +1284,7 @@ export declare class PipelineExecutionOutdatedException extends EffectData.Tagge
 )<{
   readonly message?: string;
 }> {}
-export type PipelineExecutionStatus =
-  | "Cancelled"
-  | "InProgress"
-  | "Stopped"
-  | "Stopping"
-  | "Succeeded"
-  | "Superseded"
-  | "Failed";
+export type PipelineExecutionStatus = "Cancelled" | "InProgress" | "Stopped" | "Stopping" | "Succeeded" | "Superseded" | "Failed";
 export type PipelineExecutionStatusSummary = string;
 
 export interface PipelineExecutionSummary {
@@ -1522,8 +1348,7 @@ export interface PipelineVariableDeclaration {
   defaultValue?: string;
   description?: string;
 }
-export type PipelineVariableDeclarationList =
-  Array<PipelineVariableDeclaration>;
+export type PipelineVariableDeclarationList = Array<PipelineVariableDeclaration>;
 export type PipelineVariableDescription = string;
 
 export type PipelineVariableList = Array<PipelineVariable>;
@@ -1613,7 +1438,8 @@ export type QueryParamMap = Record<string, string>;
 export interface RegisterWebhookWithThirdPartyInput {
   webhookName?: string;
 }
-export interface RegisterWebhookWithThirdPartyOutput {}
+export interface RegisterWebhookWithThirdPartyOutput {
+}
 export declare class RequestFailedException extends EffectData.TaggedError(
   "RequestFailedException",
 )<{
@@ -1746,11 +1572,7 @@ export interface RuleExecutionResult {
   externalExecutionUrl?: string;
   errorDetails?: ErrorDetails;
 }
-export type RuleExecutionStatus =
-  | "InProgress"
-  | "Abandoned"
-  | "Succeeded"
-  | "Failed";
+export type RuleExecutionStatus = "InProgress" | "Abandoned" | "Succeeded" | "Failed";
 export type RuleExecutionToken = string;
 
 export type RuleName = string;
@@ -1827,11 +1649,7 @@ export interface SourceRevisionOverride {
   revisionValue: string;
 }
 export type SourceRevisionOverrideList = Array<SourceRevisionOverride>;
-export type SourceRevisionType =
-  | "COMMIT_ID"
-  | "IMAGE_DIGEST"
-  | "S3_OBJECT_VERSION_ID"
-  | "S3_OBJECT_KEY";
+export type SourceRevisionType = "COMMIT_ID" | "IMAGE_DIGEST" | "S3_OBJECT_VERSION_ID" | "S3_OBJECT_KEY";
 export type StageActionDeclarationList = Array<ActionDeclaration>;
 export type StageBlockerDeclarationList = Array<BlockerDeclaration>;
 export interface StageConditionsExecution {
@@ -1859,14 +1677,7 @@ export interface StageExecution {
   type?: ExecutionType;
 }
 export type StageExecutionList = Array<StageExecution>;
-export type StageExecutionStatus =
-  | "Cancelled"
-  | "InProgress"
-  | "Failed"
-  | "Stopped"
-  | "Stopping"
-  | "Succeeded"
-  | "Skipped";
+export type StageExecutionStatus = "Cancelled" | "InProgress" | "Failed" | "Stopped" | "Stopping" | "Succeeded" | "Skipped";
 export type StageName = string;
 
 export declare class StageNotFoundException extends EffectData.TaggedError(
@@ -1938,7 +1749,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export interface TargetFilter {
@@ -1989,16 +1801,7 @@ export interface TransitionState {
 }
 export type TriggerDetail = string;
 
-export type TriggerType =
-  | "CreatePipeline"
-  | "StartPipelineExecution"
-  | "PollForSourceChanges"
-  | "Webhook"
-  | "CloudWatchEvent"
-  | "PutActionRevision"
-  | "WebhookV2"
-  | "ManualRollback"
-  | "AutomatedRollback";
+export type TriggerType = "CreatePipeline" | "StartPipelineExecution" | "PollForSourceChanges" | "Webhook" | "CloudWatchEvent" | "PutActionRevision" | "WebhookV2" | "ManualRollback" | "AutomatedRollback";
 export declare class UnableToRollbackStageException extends EffectData.TaggedError(
   "UnableToRollbackStageException",
 )<{
@@ -2008,7 +1811,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateActionTypeInput {
   actionType: ActionTypeDeclaration;
 }
@@ -2039,10 +1843,7 @@ export type WebhookAuthConfigurationAllowedIPRange = string;
 
 export type WebhookAuthConfigurationSecretToken = string;
 
-export type WebhookAuthenticationType =
-  | "GITHUB_HMAC"
-  | "IP"
-  | "UNAUTHENTICATED";
+export type WebhookAuthenticationType = "GITHUB_HMAC" | "IP" | "UNAUTHENTICATED";
 export interface WebhookDefinition {
   name: string;
   targetPipeline: string;
@@ -2067,7 +1868,8 @@ export type WebhookName = string;
 
 export declare class WebhookNotFoundException extends EffectData.TaggedError(
   "WebhookNotFoundException",
-)<{}> {}
+)<{
+}> {}
 export type WebhookUrl = string;
 
 export declare namespace AcknowledgeJob {
@@ -2546,3 +2348,4 @@ export declare namespace UpdatePipeline {
     | ValidationException
     | CommonAwsError;
 }
+

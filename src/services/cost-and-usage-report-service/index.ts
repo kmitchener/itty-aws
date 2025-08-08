@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class CostandUsageReportService extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cost-and-usage-report-service", new AwsJson11Protocol(), cfg);
+  }
+
   deleteReportDefinition(
     input: DeleteReportDefinitionRequest,
   ): Effect.Effect<
@@ -23,10 +28,7 @@ export class CostandUsageReportService extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalErrorException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalErrorException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -42,12 +44,7 @@ export class CostandUsageReportService extends AWSServiceClient {
     input: PutReportDefinitionRequest,
   ): Effect.Effect<
     PutReportDefinitionResponse,
-    | DuplicateReportNameException
-    | InternalErrorException
-    | ReportLimitReachedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    DuplicateReportNameException | InternalErrorException | ReportLimitReachedException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("PutReportDefinition", input);
   }
@@ -55,10 +52,7 @@ export class CostandUsageReportService extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalErrorException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalErrorException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -66,10 +60,7 @@ export class CostandUsageReportService extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalErrorException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalErrorException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -81,35 +72,7 @@ export default CostandUsageReportService;
 
 export type AdditionalArtifact = "REDSHIFT" | "QUICKSIGHT" | "ATHENA";
 export type AdditionalArtifactList = Array<AdditionalArtifact>;
-export type AWSRegion =
-  | "CAPE_TOWN"
-  | "HONG_KONG"
-  | "MUMBAI"
-  | "HYDERABAD"
-  | "SINGAPORE"
-  | "SYDNEY"
-  | "JAKARTA"
-  | "TOKYO"
-  | "SEOUL"
-  | "OSAKA"
-  | "CANADA_CENTRAL"
-  | "FRANKFURT"
-  | "ZURICH"
-  | "IRELAND"
-  | "LONDON"
-  | "PARIS"
-  | "STOCKHOLM"
-  | "MILANO"
-  | "SPAIN"
-  | "UAE"
-  | "BAHRAIN"
-  | "SAO_PAULO"
-  | "US_STANDARD"
-  | "OHIO"
-  | "NORTHERN_CALIFORNIA"
-  | "OREGON"
-  | "BEIJING"
-  | "NINGXIA";
+export type AWSRegion = "CAPE_TOWN" | "HONG_KONG" | "MUMBAI" | "HYDERABAD" | "SINGAPORE" | "SYDNEY" | "JAKARTA" | "TOKYO" | "SEOUL" | "OSAKA" | "CANADA_CENTRAL" | "FRANKFURT" | "ZURICH" | "IRELAND" | "LONDON" | "PARIS" | "STOCKHOLM" | "MILANO" | "SPAIN" | "UAE" | "BAHRAIN" | "SAO_PAULO" | "US_STANDARD" | "OHIO" | "NORTHERN_CALIFORNIA" | "OREGON" | "BEIJING" | "NINGXIA";
 export type BillingViewArn = string;
 
 export type CompressionFormat = "ZIP" | "GZIP" | "Parquet";
@@ -158,12 +121,14 @@ export interface ModifyReportDefinitionRequest {
   ReportName: string;
   ReportDefinition: ReportDefinition;
 }
-export interface ModifyReportDefinitionResponse {}
+export interface ModifyReportDefinitionResponse {
+}
 export interface PutReportDefinitionRequest {
   ReportDefinition: ReportDefinition;
   Tags?: Array<Tag>;
 }
-export interface PutReportDefinitionResponse {}
+export interface PutReportDefinitionResponse {
+}
 export type RefreshClosedReports = boolean;
 
 export interface ReportDefinition {
@@ -204,10 +169,7 @@ export type S3Bucket = string;
 
 export type S3Prefix = string;
 
-export type SchemaElement =
-  | "RESOURCES"
-  | "SPLIT_COST_ALLOCATION_DATA"
-  | "MANUAL_DISCOUNT_COMPATIBILITY";
+export type SchemaElement = "RESOURCES" | "SPLIT_COST_ALLOCATION_DATA" | "MANUAL_DISCOUNT_COMPATIBILITY";
 export type SchemaElementList = Array<SchemaElement>;
 export interface Tag {
   Key: string;
@@ -221,7 +183,8 @@ export interface TagResourceRequest {
   ReportName: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TimeUnit = "HOURLY" | "DAILY" | "MONTHLY";
@@ -229,7 +192,8 @@ export interface UntagResourceRequest {
   ReportName: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -247,7 +211,9 @@ export declare namespace DeleteReportDefinition {
 export declare namespace DescribeReportDefinitions {
   export type Input = DescribeReportDefinitionsRequest;
   export type Output = DescribeReportDefinitionsResponse;
-  export type Error = InternalErrorException | CommonAwsError;
+  export type Error =
+    | InternalErrorException
+    | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
@@ -300,3 +266,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

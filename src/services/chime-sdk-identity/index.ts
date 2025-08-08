@@ -1,21 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ChimeSDKIdentity extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("chime-sdk-identity", new RestJson1Protocol(), cfg);
+  }
+
   createAppInstance(
     input: CreateAppInstanceRequest,
   ): Effect.Effect<
     CreateAppInstanceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateAppInstance", input);
   }
@@ -23,15 +20,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: CreateAppInstanceAdminRequest,
   ): Effect.Effect<
     CreateAppInstanceAdminResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateAppInstanceAdmin", input);
   }
@@ -39,15 +28,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: CreateAppInstanceBotRequest,
   ): Effect.Effect<
     CreateAppInstanceBotResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateAppInstanceBot", input);
   }
@@ -55,15 +36,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: CreateAppInstanceUserRequest,
   ): Effect.Effect<
     CreateAppInstanceUserResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("CreateAppInstanceUser", input);
   }
@@ -71,14 +44,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: DeleteAppInstanceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteAppInstance", input);
   }
@@ -86,15 +52,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: DeleteAppInstanceAdminRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteAppInstanceAdmin", input);
   }
@@ -102,15 +60,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: DeleteAppInstanceBotRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteAppInstanceBot", input);
   }
@@ -118,15 +68,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: DeleteAppInstanceUserRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeleteAppInstanceUser", input);
   }
@@ -134,13 +76,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: DeregisterAppInstanceUserEndpointRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DeregisterAppInstanceUserEndpoint", input);
   }
@@ -148,13 +84,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: DescribeAppInstanceRequest,
   ): Effect.Effect<
     DescribeAppInstanceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeAppInstance", input);
   }
@@ -162,13 +92,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: DescribeAppInstanceAdminRequest,
   ): Effect.Effect<
     DescribeAppInstanceAdminResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeAppInstanceAdmin", input);
   }
@@ -176,14 +100,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: DescribeAppInstanceBotRequest,
   ): Effect.Effect<
     DescribeAppInstanceBotResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeAppInstanceBot", input);
   }
@@ -191,13 +108,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: DescribeAppInstanceUserRequest,
   ): Effect.Effect<
     DescribeAppInstanceUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeAppInstanceUser", input);
   }
@@ -205,13 +116,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: DescribeAppInstanceUserEndpointRequest,
   ): Effect.Effect<
     DescribeAppInstanceUserEndpointResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("DescribeAppInstanceUserEndpoint", input);
   }
@@ -219,13 +124,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: GetAppInstanceRetentionSettingsRequest,
   ): Effect.Effect<
     GetAppInstanceRetentionSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("GetAppInstanceRetentionSettings", input);
   }
@@ -233,14 +132,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: ListAppInstanceAdminsRequest,
   ): Effect.Effect<
     ListAppInstanceAdminsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListAppInstanceAdmins", input);
   }
@@ -248,14 +140,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: ListAppInstanceBotsRequest,
   ): Effect.Effect<
     ListAppInstanceBotsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListAppInstanceBots", input);
   }
@@ -263,13 +148,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: ListAppInstancesRequest,
   ): Effect.Effect<
     ListAppInstancesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListAppInstances", input);
   }
@@ -277,13 +156,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: ListAppInstanceUserEndpointsRequest,
   ): Effect.Effect<
     ListAppInstanceUserEndpointsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListAppInstanceUserEndpoints", input);
   }
@@ -291,13 +164,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: ListAppInstanceUsersRequest,
   ): Effect.Effect<
     ListAppInstanceUsersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListAppInstanceUsers", input);
   }
@@ -305,13 +172,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -319,13 +180,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: PutAppInstanceRetentionSettingsRequest,
   ): Effect.Effect<
     PutAppInstanceRetentionSettingsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutAppInstanceRetentionSettings", input);
   }
@@ -333,14 +188,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: PutAppInstanceUserExpirationSettingsRequest,
   ): Effect.Effect<
     PutAppInstanceUserExpirationSettingsResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("PutAppInstanceUserExpirationSettings", input);
   }
@@ -348,15 +196,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: RegisterAppInstanceUserEndpointRequest,
   ): Effect.Effect<
     RegisterAppInstanceUserEndpointResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("RegisterAppInstanceUserEndpoint", input);
   }
@@ -364,14 +204,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -379,13 +212,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -393,14 +220,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: UpdateAppInstanceRequest,
   ): Effect.Effect<
     UpdateAppInstanceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateAppInstance", input);
   }
@@ -408,15 +228,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: UpdateAppInstanceBotRequest,
   ): Effect.Effect<
     UpdateAppInstanceBotResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateAppInstanceBot", input);
   }
@@ -424,15 +236,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: UpdateAppInstanceUserRequest,
   ): Effect.Effect<
     UpdateAppInstanceUserResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ResourceLimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ResourceLimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateAppInstanceUser", input);
   }
@@ -440,14 +244,7 @@ export class ChimeSDKIdentity extends AWSServiceClient {
     input: UpdateAppInstanceUserEndpointRequest,
   ): Effect.Effect<
     UpdateAppInstanceUserEndpointResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottledClientException
-    | UnauthorizedClientException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | ServiceFailureException | ServiceUnavailableException | ThrottledClientException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("UpdateAppInstanceUserEndpoint", input);
   }
@@ -525,8 +322,7 @@ export interface AppInstanceUserEndpointSummary {
   AllowMessages?: AllowMessages;
   EndpointState?: EndpointState;
 }
-export type AppInstanceUserEndpointSummaryList =
-  Array<AppInstanceUserEndpointSummary>;
+export type AppInstanceUserEndpointSummaryList = Array<AppInstanceUserEndpointSummary>;
 export type AppInstanceUserEndpointType = "APNS" | "APNS_SANDBOX" | "GCM";
 export type AppInstanceUserList = Array<AppInstanceUserSummary>;
 export interface AppInstanceUserSummary {
@@ -654,25 +450,8 @@ export interface EndpointState {
   StatusReason?: EndpointStatusReason;
 }
 export type EndpointStatus = "ACTIVE" | "INACTIVE";
-export type EndpointStatusReason =
-  | "INVALID_DEVICE_TOKEN"
-  | "INVALID_PINPOINT_ARN";
-export type ErrorCode =
-  | "BadRequest"
-  | "Conflict"
-  | "Forbidden"
-  | "NotFound"
-  | "PreconditionFailed"
-  | "ResourceLimitExceeded"
-  | "ServiceFailure"
-  | "AccessDenied"
-  | "ServiceUnavailable"
-  | "Throttled"
-  | "Throttling"
-  | "Unauthorized"
-  | "Unprocessable"
-  | "VoiceConnectorGroupAssociationsExist"
-  | "PhoneNumberAssociationsExist";
+export type EndpointStatusReason = "INVALID_DEVICE_TOKEN" | "INVALID_PINPOINT_ARN";
+export type ErrorCode = "BadRequest" | "Conflict" | "Forbidden" | "NotFound" | "PreconditionFailed" | "ResourceLimitExceeded" | "ServiceFailure" | "AccessDenied" | "ServiceUnavailable" | "Throttled" | "Throttling" | "Unauthorized" | "Unprocessable" | "VoiceConnectorGroupAssociationsExist" | "PhoneNumberAssociationsExist";
 export type ExpirationCriterion = "CREATED_TIMESTAMP";
 export type ExpirationDays = number;
 
@@ -1333,3 +1112,4 @@ export declare namespace UpdateAppInstanceUserEndpoint {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+

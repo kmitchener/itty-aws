@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SecurityHub extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("securityhub", new RestJson1Protocol(), cfg);
+  }
+
   acceptAdministratorInvitation(
     input: AcceptAdministratorInvitationRequest,
   ): Effect.Effect<
     AcceptAdministratorInvitationResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("AcceptAdministratorInvitation", input);
   }
@@ -20,12 +20,7 @@ export class SecurityHub extends AWSServiceClient {
     input: AcceptInvitationRequest,
   ): Effect.Effect<
     AcceptInvitationResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("AcceptInvitation", input);
   }
@@ -33,12 +28,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchDeleteAutomationRulesRequest,
   ): Effect.Effect<
     BatchDeleteAutomationRulesResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("BatchDeleteAutomationRules", input);
   }
@@ -46,12 +36,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchDisableStandardsRequest,
   ): Effect.Effect<
     BatchDisableStandardsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("BatchDisableStandards", input);
   }
@@ -59,12 +44,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchEnableStandardsRequest,
   ): Effect.Effect<
     BatchEnableStandardsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("BatchEnableStandards", input);
   }
@@ -72,13 +52,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchGetAutomationRulesRequest,
   ): Effect.Effect<
     BatchGetAutomationRulesResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("BatchGetAutomationRules", input);
   }
@@ -86,13 +60,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchGetConfigurationPolicyAssociationsRequest,
   ): Effect.Effect<
     BatchGetConfigurationPolicyAssociationsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("BatchGetConfigurationPolicyAssociations", input);
   }
@@ -100,11 +68,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchGetSecurityControlsRequest,
   ): Effect.Effect<
     BatchGetSecurityControlsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("BatchGetSecurityControls", input);
   }
@@ -112,11 +76,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchGetStandardsControlAssociationsRequest,
   ): Effect.Effect<
     BatchGetStandardsControlAssociationsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("BatchGetStandardsControlAssociations", input);
   }
@@ -124,11 +84,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchImportFindingsRequest,
   ): Effect.Effect<
     BatchImportFindingsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("BatchImportFindings", input);
   }
@@ -136,12 +92,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchUpdateAutomationRulesRequest,
   ): Effect.Effect<
     BatchUpdateAutomationRulesResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("BatchUpdateAutomationRules", input);
   }
@@ -149,11 +100,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchUpdateFindingsRequest,
   ): Effect.Effect<
     BatchUpdateFindingsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("BatchUpdateFindings", input);
   }
@@ -161,12 +108,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchUpdateFindingsV2Request,
   ): Effect.Effect<
     BatchUpdateFindingsV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchUpdateFindingsV2", input);
   }
@@ -174,12 +116,7 @@ export class SecurityHub extends AWSServiceClient {
     input: BatchUpdateStandardsControlAssociationsRequest,
   ): Effect.Effect<
     BatchUpdateStandardsControlAssociationsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("BatchUpdateStandardsControlAssociations", input);
   }
@@ -187,13 +124,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ConnectorRegistrationsV2Request,
   ): Effect.Effect<
     ConnectorRegistrationsV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ConnectorRegistrationsV2", input);
   }
@@ -201,12 +132,7 @@ export class SecurityHub extends AWSServiceClient {
     input: CreateActionTargetRequest,
   ): Effect.Effect<
     CreateActionTargetResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceConflictException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceConflictException | CommonAwsError
   > {
     return this.call("CreateActionTarget", input);
   }
@@ -214,13 +140,7 @@ export class SecurityHub extends AWSServiceClient {
     input: CreateAggregatorV2Request,
   ): Effect.Effect<
     CreateAggregatorV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAggregatorV2", input);
   }
@@ -228,12 +148,7 @@ export class SecurityHub extends AWSServiceClient {
     input: CreateAutomationRuleRequest,
   ): Effect.Effect<
     CreateAutomationRuleResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateAutomationRule", input);
   }
@@ -241,12 +156,7 @@ export class SecurityHub extends AWSServiceClient {
     input: CreateAutomationRuleV2Request,
   ): Effect.Effect<
     CreateAutomationRuleV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAutomationRuleV2", input);
   }
@@ -254,13 +164,7 @@ export class SecurityHub extends AWSServiceClient {
     input: CreateConfigurationPolicyRequest,
   ): Effect.Effect<
     CreateConfigurationPolicyResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceConflictException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceConflictException | CommonAwsError
   > {
     return this.call("CreateConfigurationPolicy", input);
   }
@@ -268,13 +172,7 @@ export class SecurityHub extends AWSServiceClient {
     input: CreateConnectorV2Request,
   ): Effect.Effect<
     CreateConnectorV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateConnectorV2", input);
   }
@@ -282,12 +180,7 @@ export class SecurityHub extends AWSServiceClient {
     input: CreateFindingAggregatorRequest,
   ): Effect.Effect<
     CreateFindingAggregatorResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("CreateFindingAggregator", input);
   }
@@ -295,12 +188,7 @@ export class SecurityHub extends AWSServiceClient {
     input: CreateInsightRequest,
   ): Effect.Effect<
     CreateInsightResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceConflictException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceConflictException | CommonAwsError
   > {
     return this.call("CreateInsight", input);
   }
@@ -308,13 +196,7 @@ export class SecurityHub extends AWSServiceClient {
     input: CreateMembersRequest,
   ): Effect.Effect<
     CreateMembersResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceConflictException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceConflictException | CommonAwsError
   > {
     return this.call("CreateMembers", input);
   }
@@ -322,13 +204,7 @@ export class SecurityHub extends AWSServiceClient {
     input: CreateTicketV2Request,
   ): Effect.Effect<
     CreateTicketV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateTicketV2", input);
   }
@@ -336,11 +212,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DeclineInvitationsRequest,
   ): Effect.Effect<
     DeclineInvitationsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeclineInvitations", input);
   }
@@ -348,11 +220,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DeleteActionTargetRequest,
   ): Effect.Effect<
     DeleteActionTargetResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteActionTarget", input);
   }
@@ -360,13 +228,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DeleteAggregatorV2Request,
   ): Effect.Effect<
     DeleteAggregatorV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAggregatorV2", input);
   }
@@ -374,13 +236,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DeleteAutomationRuleV2Request,
   ): Effect.Effect<
     DeleteAutomationRuleV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAutomationRuleV2", input);
   }
@@ -388,14 +244,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DeleteConfigurationPolicyRequest,
   ): Effect.Effect<
     DeleteConfigurationPolicyResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceConflictException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteConfigurationPolicy", input);
   }
@@ -403,13 +252,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DeleteConnectorV2Request,
   ): Effect.Effect<
     DeleteConnectorV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteConnectorV2", input);
   }
@@ -417,13 +260,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DeleteFindingAggregatorRequest,
   ): Effect.Effect<
     DeleteFindingAggregatorResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteFindingAggregator", input);
   }
@@ -431,12 +268,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DeleteInsightRequest,
   ): Effect.Effect<
     DeleteInsightResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteInsight", input);
   }
@@ -444,12 +276,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DeleteInvitationsRequest,
   ): Effect.Effect<
     DeleteInvitationsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteInvitations", input);
   }
@@ -457,12 +284,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DeleteMembersRequest,
   ): Effect.Effect<
     DeleteMembersResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteMembers", input);
   }
@@ -470,11 +292,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DescribeActionTargetsRequest,
   ): Effect.Effect<
     DescribeActionTargetsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeActionTargets", input);
   }
@@ -482,12 +300,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DescribeHubRequest,
   ): Effect.Effect<
     DescribeHubResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeHub", input);
   }
@@ -495,11 +308,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DescribeOrganizationConfigurationRequest,
   ): Effect.Effect<
     DescribeOrganizationConfigurationResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("DescribeOrganizationConfiguration", input);
   }
@@ -507,11 +316,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DescribeProductsRequest,
   ): Effect.Effect<
     DescribeProductsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("DescribeProducts", input);
   }
@@ -519,12 +324,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DescribeProductsV2Request,
   ): Effect.Effect<
     DescribeProductsV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeProductsV2", input);
   }
@@ -532,11 +332,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DescribeSecurityHubV2Request,
   ): Effect.Effect<
     DescribeSecurityHubV2Response,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeSecurityHubV2", input);
   }
@@ -544,10 +340,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DescribeStandardsRequest,
   ): Effect.Effect<
     DescribeStandardsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | CommonAwsError
   > {
     return this.call("DescribeStandards", input);
   }
@@ -555,11 +348,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DescribeStandardsControlsRequest,
   ): Effect.Effect<
     DescribeStandardsControlsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeStandardsControls", input);
   }
@@ -567,12 +356,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DisableImportFindingsForProductRequest,
   ): Effect.Effect<
     DisableImportFindingsForProductResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DisableImportFindingsForProduct", input);
   }
@@ -580,12 +364,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DisableOrganizationAdminAccountRequest,
   ): Effect.Effect<
     DisableOrganizationAdminAccountResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("DisableOrganizationAdminAccount", input);
   }
@@ -593,12 +372,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DisableSecurityHubRequest,
   ): Effect.Effect<
     DisableSecurityHubResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DisableSecurityHub", input);
   }
@@ -606,11 +380,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DisableSecurityHubV2Request,
   ): Effect.Effect<
     DisableSecurityHubV2Response,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisableSecurityHubV2", input);
   }
@@ -618,12 +388,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DisassociateFromAdministratorAccountRequest,
   ): Effect.Effect<
     DisassociateFromAdministratorAccountResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DisassociateFromAdministratorAccount", input);
   }
@@ -631,12 +396,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DisassociateFromMasterAccountRequest,
   ): Effect.Effect<
     DisassociateFromMasterAccountResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DisassociateFromMasterAccount", input);
   }
@@ -644,13 +404,7 @@ export class SecurityHub extends AWSServiceClient {
     input: DisassociateMembersRequest,
   ): Effect.Effect<
     DisassociateMembersResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DisassociateMembers", input);
   }
@@ -658,12 +412,7 @@ export class SecurityHub extends AWSServiceClient {
     input: EnableImportFindingsForProductRequest,
   ): Effect.Effect<
     EnableImportFindingsForProductResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceConflictException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceConflictException | CommonAwsError
   > {
     return this.call("EnableImportFindingsForProduct", input);
   }
@@ -671,12 +420,7 @@ export class SecurityHub extends AWSServiceClient {
     input: EnableOrganizationAdminAccountRequest,
   ): Effect.Effect<
     EnableOrganizationAdminAccountResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("EnableOrganizationAdminAccount", input);
   }
@@ -684,12 +428,7 @@ export class SecurityHub extends AWSServiceClient {
     input: EnableSecurityHubRequest,
   ): Effect.Effect<
     EnableSecurityHubResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | LimitExceededException
-    | ResourceConflictException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | LimitExceededException | ResourceConflictException | CommonAwsError
   > {
     return this.call("EnableSecurityHub", input);
   }
@@ -697,11 +436,7 @@ export class SecurityHub extends AWSServiceClient {
     input: EnableSecurityHubV2Request,
   ): Effect.Effect<
     EnableSecurityHubV2Response,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("EnableSecurityHubV2", input);
   }
@@ -709,12 +444,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetAdministratorAccountRequest,
   ): Effect.Effect<
     GetAdministratorAccountResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetAdministratorAccount", input);
   }
@@ -722,13 +452,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetAggregatorV2Request,
   ): Effect.Effect<
     GetAggregatorV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAggregatorV2", input);
   }
@@ -736,13 +460,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetAutomationRuleV2Request,
   ): Effect.Effect<
     GetAutomationRuleV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAutomationRuleV2", input);
   }
@@ -750,13 +468,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetConfigurationPolicyRequest,
   ): Effect.Effect<
     GetConfigurationPolicyResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetConfigurationPolicy", input);
   }
@@ -764,13 +476,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetConfigurationPolicyAssociationRequest,
   ): Effect.Effect<
     GetConfigurationPolicyAssociationResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetConfigurationPolicyAssociation", input);
   }
@@ -778,13 +484,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetConnectorV2Request,
   ): Effect.Effect<
     GetConnectorV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetConnectorV2", input);
   }
@@ -792,11 +492,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetEnabledStandardsRequest,
   ): Effect.Effect<
     GetEnabledStandardsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("GetEnabledStandards", input);
   }
@@ -804,13 +500,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetFindingAggregatorRequest,
   ): Effect.Effect<
     GetFindingAggregatorResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetFindingAggregator", input);
   }
@@ -818,11 +508,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetFindingHistoryRequest,
   ): Effect.Effect<
     GetFindingHistoryResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("GetFindingHistory", input);
   }
@@ -830,11 +516,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetFindingsRequest,
   ): Effect.Effect<
     GetFindingsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("GetFindings", input);
   }
@@ -842,12 +524,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetFindingStatisticsV2Request,
   ): Effect.Effect<
     GetFindingStatisticsV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetFindingStatisticsV2", input);
   }
@@ -855,12 +532,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetFindingsV2Request,
   ): Effect.Effect<
     GetFindingsV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetFindingsV2", input);
   }
@@ -868,12 +540,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetInsightResultsRequest,
   ): Effect.Effect<
     GetInsightResultsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetInsightResults", input);
   }
@@ -881,12 +548,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetInsightsRequest,
   ): Effect.Effect<
     GetInsightsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetInsights", input);
   }
@@ -894,11 +556,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetInvitationsCountRequest,
   ): Effect.Effect<
     GetInvitationsCountResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("GetInvitationsCount", input);
   }
@@ -906,12 +564,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetMasterAccountRequest,
   ): Effect.Effect<
     GetMasterAccountResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetMasterAccount", input);
   }
@@ -919,12 +572,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetMembersRequest,
   ): Effect.Effect<
     GetMembersResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetMembers", input);
   }
@@ -932,13 +580,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetResourcesStatisticsV2Request,
   ): Effect.Effect<
     GetResourcesStatisticsV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcesStatisticsV2", input);
   }
@@ -946,13 +588,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetResourcesV2Request,
   ): Effect.Effect<
     GetResourcesV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcesV2", input);
   }
@@ -960,12 +596,7 @@ export class SecurityHub extends AWSServiceClient {
     input: GetSecurityControlDefinitionRequest,
   ): Effect.Effect<
     GetSecurityControlDefinitionResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetSecurityControlDefinition", input);
   }
@@ -973,12 +604,7 @@ export class SecurityHub extends AWSServiceClient {
     input: InviteMembersRequest,
   ): Effect.Effect<
     InviteMembersResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("InviteMembers", input);
   }
@@ -986,13 +612,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListAggregatorsV2Request,
   ): Effect.Effect<
     ListAggregatorsV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAggregatorsV2", input);
   }
@@ -1000,12 +620,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListAutomationRulesRequest,
   ): Effect.Effect<
     ListAutomationRulesResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListAutomationRules", input);
   }
@@ -1013,12 +628,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListAutomationRulesV2Request,
   ): Effect.Effect<
     ListAutomationRulesV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAutomationRulesV2", input);
   }
@@ -1026,12 +636,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListConfigurationPoliciesRequest,
   ): Effect.Effect<
     ListConfigurationPoliciesResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListConfigurationPolicies", input);
   }
@@ -1039,12 +644,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListConfigurationPolicyAssociationsRequest,
   ): Effect.Effect<
     ListConfigurationPolicyAssociationsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListConfigurationPolicyAssociations", input);
   }
@@ -1052,13 +652,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListConnectorsV2Request,
   ): Effect.Effect<
     ListConnectorsV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListConnectorsV2", input);
   }
@@ -1066,10 +660,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListEnabledProductsForImportRequest,
   ): Effect.Effect<
     ListEnabledProductsForImportResponse,
-    | InternalException
-    | InvalidAccessException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListEnabledProductsForImport", input);
   }
@@ -1077,12 +668,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListFindingAggregatorsRequest,
   ): Effect.Effect<
     ListFindingAggregatorsResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListFindingAggregators", input);
   }
@@ -1090,11 +676,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListInvitationsRequest,
   ): Effect.Effect<
     ListInvitationsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListInvitations", input);
   }
@@ -1102,11 +684,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListMembersRequest,
   ): Effect.Effect<
     ListMembersResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListMembers", input);
   }
@@ -1114,11 +692,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListOrganizationAdminAccountsRequest,
   ): Effect.Effect<
     ListOrganizationAdminAccountsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListOrganizationAdminAccounts", input);
   }
@@ -1126,11 +700,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListSecurityControlDefinitionsRequest,
   ): Effect.Effect<
     ListSecurityControlDefinitionsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListSecurityControlDefinitions", input);
   }
@@ -1138,11 +708,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListStandardsControlAssociationsRequest,
   ): Effect.Effect<
     ListStandardsControlAssociationsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListStandardsControlAssociations", input);
   }
@@ -1150,10 +716,7 @@ export class SecurityHub extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -1161,13 +724,7 @@ export class SecurityHub extends AWSServiceClient {
     input: StartConfigurationPolicyAssociationRequest,
   ): Effect.Effect<
     StartConfigurationPolicyAssociationResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartConfigurationPolicyAssociation", input);
   }
@@ -1175,13 +732,7 @@ export class SecurityHub extends AWSServiceClient {
     input: StartConfigurationPolicyDisassociationRequest,
   ): Effect.Effect<
     StartConfigurationPolicyDisassociationResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartConfigurationPolicyDisassociation", input);
   }
@@ -1189,10 +740,7 @@ export class SecurityHub extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1200,10 +748,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1211,11 +756,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateActionTargetRequest,
   ): Effect.Effect<
     UpdateActionTargetResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateActionTarget", input);
   }
@@ -1223,13 +764,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateAggregatorV2Request,
   ): Effect.Effect<
     UpdateAggregatorV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAggregatorV2", input);
   }
@@ -1237,13 +772,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateAutomationRuleV2Request,
   ): Effect.Effect<
     UpdateAutomationRuleV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAutomationRuleV2", input);
   }
@@ -1251,14 +780,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateConfigurationPolicyRequest,
   ): Effect.Effect<
     UpdateConfigurationPolicyResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceConflictException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateConfigurationPolicy", input);
   }
@@ -1266,13 +788,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateConnectorV2Request,
   ): Effect.Effect<
     UpdateConnectorV2Response,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateConnectorV2", input);
   }
@@ -1280,13 +796,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateFindingAggregatorRequest,
   ): Effect.Effect<
     UpdateFindingAggregatorResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateFindingAggregator", input);
   }
@@ -1294,12 +804,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateFindingsRequest,
   ): Effect.Effect<
     UpdateFindingsResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateFindings", input);
   }
@@ -1307,12 +812,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateInsightRequest,
   ): Effect.Effect<
     UpdateInsightResponse,
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateInsight", input);
   }
@@ -1320,14 +820,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateOrganizationConfigurationRequest,
   ): Effect.Effect<
     UpdateOrganizationConfigurationResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceConflictException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateOrganizationConfiguration", input);
   }
@@ -1335,14 +828,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateSecurityControlRequest,
   ): Effect.Effect<
     UpdateSecurityControlResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateSecurityControl", input);
   }
@@ -1350,13 +836,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateSecurityHubConfigurationRequest,
   ): Effect.Effect<
     UpdateSecurityHubConfigurationResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateSecurityHubConfiguration", input);
   }
@@ -1364,12 +844,7 @@ export class SecurityHub extends AWSServiceClient {
     input: UpdateStandardsControlRequest,
   ): Effect.Effect<
     UpdateStandardsControlResponse,
-    | AccessDeniedException
-    | InternalException
-    | InvalidAccessException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalException | InvalidAccessException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateStandardsControl", input);
   }
@@ -1383,12 +858,14 @@ export interface AcceptAdministratorInvitationRequest {
   AdministratorId: string;
   InvitationId: string;
 }
-export interface AcceptAdministratorInvitationResponse {}
+export interface AcceptAdministratorInvitationResponse {
+}
 export interface AcceptInvitationRequest {
   MasterId: string;
   InvitationId: string;
 }
-export interface AcceptInvitationResponse {}
+export interface AcceptInvitationResponse {
+}
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
@@ -1507,14 +984,11 @@ export interface AutomationRulesAction {
 }
 export type AutomationRulesActionListV2 = Array<AutomationRulesActionV2>;
 export type AutomationRulesActionType = "FINDING_FIELDS_UPDATE";
-export type AutomationRulesActionTypeListV2 =
-  Array<AutomationRulesActionTypeObjectV2>;
+export type AutomationRulesActionTypeListV2 = Array<AutomationRulesActionTypeObjectV2>;
 export interface AutomationRulesActionTypeObjectV2 {
   Type?: AutomationRulesActionTypeV2;
 }
-export type AutomationRulesActionTypeV2 =
-  | "FINDING_FIELDS_UPDATE"
-  | "EXTERNAL_INTEGRATION";
+export type AutomationRulesActionTypeV2 = "FINDING_FIELDS_UPDATE" | "EXTERNAL_INTEGRATION";
 export interface AutomationRulesActionV2 {
   Type: AutomationRulesActionTypeV2;
   FindingFieldsUpdate?: AutomationRulesFindingFieldsUpdateV2;
@@ -1717,8 +1191,7 @@ export interface AwsApiGatewayMethodSettings {
   HttpMethod?: string;
   ResourcePath?: string;
 }
-export type AwsApiGatewayMethodSettingsList =
-  Array<AwsApiGatewayMethodSettings>;
+export type AwsApiGatewayMethodSettingsList = Array<AwsApiGatewayMethodSettings>;
 export interface AwsApiGatewayRestApiDetails {
   Id?: string;
   Name?: string;
@@ -1788,8 +1261,7 @@ export interface AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails {
   OpenIdConnectConfig?: AwsAppSyncGraphQlApiOpenIdConnectConfigDetails;
   UserPoolConfig?: AwsAppSyncGraphQlApiUserPoolConfigDetails;
 }
-export type AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersList =
-  Array<AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails>;
+export type AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersList = Array<AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails>;
 export interface AwsAppSyncGraphQlApiDetails {
   ApiId?: string;
   Id?: string;
@@ -1842,8 +1314,7 @@ export interface AwsAthenaWorkGroupDetails {
   State?: string;
   Configuration?: AwsAthenaWorkGroupConfigurationDetails;
 }
-export type AwsAutoScalingAutoScalingGroupAvailabilityZonesList =
-  Array<AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails>;
+export type AwsAutoScalingAutoScalingGroupAvailabilityZonesList = Array<AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails>;
 export interface AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
   Value?: string;
 }
@@ -1884,8 +1355,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
   LaunchTemplateName?: string;
   Version?: string;
 }
-export type AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList =
-  Array<AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails>;
+export type AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList = Array<AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails>;
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails {
   InstanceType?: string;
   WeightedCapacity?: string;
@@ -1904,8 +1374,7 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails 
   VolumeSize?: number;
   VolumeType?: string;
 }
-export type AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList =
-  Array<AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails>;
+export type AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList = Array<AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails>;
 export interface AwsAutoScalingLaunchConfigurationDetails {
   AssociatePublicIpAddress?: boolean;
   BlockDeviceMappings?: Array<AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails>;
@@ -1939,8 +1408,7 @@ export interface AwsBackupBackupPlanAdvancedBackupSettingsDetails {
   BackupOptions?: Record<string, string>;
   ResourceType?: string;
 }
-export type AwsBackupBackupPlanAdvancedBackupSettingsList =
-  Array<AwsBackupBackupPlanAdvancedBackupSettingsDetails>;
+export type AwsBackupBackupPlanAdvancedBackupSettingsList = Array<AwsBackupBackupPlanAdvancedBackupSettingsDetails>;
 export interface AwsBackupBackupPlanBackupPlanDetails {
   BackupPlanName?: string;
   AdvancedBackupSettings?: Array<AwsBackupBackupPlanAdvancedBackupSettingsDetails>;
@@ -1960,8 +1428,7 @@ export interface AwsBackupBackupPlanRuleCopyActionsDetails {
   DestinationBackupVaultArn?: string;
   Lifecycle?: AwsBackupBackupPlanLifecycleDetails;
 }
-export type AwsBackupBackupPlanRuleCopyActionsList =
-  Array<AwsBackupBackupPlanRuleCopyActionsDetails>;
+export type AwsBackupBackupPlanRuleCopyActionsList = Array<AwsBackupBackupPlanRuleCopyActionsDetails>;
 export interface AwsBackupBackupPlanRuleDetails {
   TargetBackupVault?: string;
   StartWindowMinutes?: number;
@@ -2053,19 +1520,16 @@ export interface AwsCertificateManagerCertificateDomainValidationOption {
   ValidationMethod?: string;
   ValidationStatus?: string;
 }
-export type AwsCertificateManagerCertificateDomainValidationOptions =
-  Array<AwsCertificateManagerCertificateDomainValidationOption>;
+export type AwsCertificateManagerCertificateDomainValidationOptions = Array<AwsCertificateManagerCertificateDomainValidationOption>;
 export interface AwsCertificateManagerCertificateExtendedKeyUsage {
   Name?: string;
   OId?: string;
 }
-export type AwsCertificateManagerCertificateExtendedKeyUsages =
-  Array<AwsCertificateManagerCertificateExtendedKeyUsage>;
+export type AwsCertificateManagerCertificateExtendedKeyUsages = Array<AwsCertificateManagerCertificateExtendedKeyUsage>;
 export interface AwsCertificateManagerCertificateKeyUsage {
   Name?: string;
 }
-export type AwsCertificateManagerCertificateKeyUsages =
-  Array<AwsCertificateManagerCertificateKeyUsage>;
+export type AwsCertificateManagerCertificateKeyUsages = Array<AwsCertificateManagerCertificateKeyUsage>;
 export interface AwsCertificateManagerCertificateOptions {
   CertificateTransparencyLoggingPreference?: string;
 }
@@ -2105,16 +1569,14 @@ export interface AwsCloudFormationStackOutputsDetails {
   OutputKey?: string;
   OutputValue?: string;
 }
-export type AwsCloudFormationStackOutputsList =
-  Array<AwsCloudFormationStackOutputsDetails>;
+export type AwsCloudFormationStackOutputsList = Array<AwsCloudFormationStackOutputsDetails>;
 export interface AwsCloudFrontDistributionCacheBehavior {
   ViewerProtocolPolicy?: string;
 }
 export interface AwsCloudFrontDistributionCacheBehaviors {
   Items?: Array<AwsCloudFrontDistributionCacheBehavior>;
 }
-export type AwsCloudFrontDistributionCacheBehaviorsItemList =
-  Array<AwsCloudFrontDistributionCacheBehavior>;
+export type AwsCloudFrontDistributionCacheBehaviorsItemList = Array<AwsCloudFrontDistributionCacheBehavior>;
 export interface AwsCloudFrontDistributionDefaultCacheBehavior {
   ViewerProtocolPolicy?: string;
 }
@@ -2156,13 +1618,11 @@ export interface AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
   Items?: Array<number>;
   Quantity?: number;
 }
-export type AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList =
-  Array<number>;
+export type AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList = Array<number>;
 export interface AwsCloudFrontDistributionOriginGroups {
   Items?: Array<AwsCloudFrontDistributionOriginGroup>;
 }
-export type AwsCloudFrontDistributionOriginGroupsItemList =
-  Array<AwsCloudFrontDistributionOriginGroup>;
+export type AwsCloudFrontDistributionOriginGroupsItemList = Array<AwsCloudFrontDistributionOriginGroup>;
 export interface AwsCloudFrontDistributionOriginItem {
   DomainName?: string;
   Id?: string;
@@ -2170,8 +1630,7 @@ export interface AwsCloudFrontDistributionOriginItem {
   S3OriginConfig?: AwsCloudFrontDistributionOriginS3OriginConfig;
   CustomOriginConfig?: AwsCloudFrontDistributionOriginCustomOriginConfig;
 }
-export type AwsCloudFrontDistributionOriginItemList =
-  Array<AwsCloudFrontDistributionOriginItem>;
+export type AwsCloudFrontDistributionOriginItemList = Array<AwsCloudFrontDistributionOriginItem>;
 export interface AwsCloudFrontDistributionOrigins {
   Items?: Array<AwsCloudFrontDistributionOriginItem>;
 }
@@ -2236,8 +1695,7 @@ export interface AwsCloudWatchAlarmDimensionsDetails {
   Name?: string;
   Value?: string;
 }
-export type AwsCloudWatchAlarmDimensionsList =
-  Array<AwsCloudWatchAlarmDimensionsDetails>;
+export type AwsCloudWatchAlarmDimensionsList = Array<AwsCloudWatchAlarmDimensionsDetails>;
 export interface AwsCodeBuildProjectArtifactsDetails {
   ArtifactIdentifier?: string;
   EncryptionDisabled?: boolean;
@@ -2249,8 +1707,7 @@ export interface AwsCodeBuildProjectArtifactsDetails {
   Path?: string;
   Type?: string;
 }
-export type AwsCodeBuildProjectArtifactsList =
-  Array<AwsCodeBuildProjectArtifactsDetails>;
+export type AwsCodeBuildProjectArtifactsList = Array<AwsCodeBuildProjectArtifactsDetails>;
 export interface AwsCodeBuildProjectDetails {
   EncryptionKey?: string;
   Artifacts?: Array<AwsCodeBuildProjectArtifactsDetails>;
@@ -2275,8 +1732,7 @@ export interface AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
   Type?: string;
   Value?: string;
 }
-export type AwsCodeBuildProjectEnvironmentEnvironmentVariablesList =
-  Array<AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails>;
+export type AwsCodeBuildProjectEnvironmentEnvironmentVariablesList = Array<AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails>;
 export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
   Credential?: string;
   CredentialProvider?: string;
@@ -2349,8 +1805,7 @@ export interface AwsDmsReplicationInstanceReplicationSubnetGroupDetails {
 export interface AwsDmsReplicationInstanceVpcSecurityGroupsDetails {
   VpcSecurityGroupId?: string;
 }
-export type AwsDmsReplicationInstanceVpcSecurityGroupsList =
-  Array<AwsDmsReplicationInstanceVpcSecurityGroupsDetails>;
+export type AwsDmsReplicationInstanceVpcSecurityGroupsList = Array<AwsDmsReplicationInstanceVpcSecurityGroupsDetails>;
 export interface AwsDmsReplicationTaskDetails {
   CdcStartPosition?: string;
   CdcStartTime?: string;
@@ -2370,8 +1825,7 @@ export interface AwsDynamoDbTableAttributeDefinition {
   AttributeName?: string;
   AttributeType?: string;
 }
-export type AwsDynamoDbTableAttributeDefinitionList =
-  Array<AwsDynamoDbTableAttributeDefinition>;
+export type AwsDynamoDbTableAttributeDefinitionList = Array<AwsDynamoDbTableAttributeDefinition>;
 export interface AwsDynamoDbTableBillingModeSummary {
   BillingMode?: string;
   LastUpdateToPayPerRequestDateTime?: string;
@@ -2409,8 +1863,7 @@ export interface AwsDynamoDbTableGlobalSecondaryIndex {
   Projection?: AwsDynamoDbTableProjection;
   ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput;
 }
-export type AwsDynamoDbTableGlobalSecondaryIndexList =
-  Array<AwsDynamoDbTableGlobalSecondaryIndex>;
+export type AwsDynamoDbTableGlobalSecondaryIndexList = Array<AwsDynamoDbTableGlobalSecondaryIndex>;
 export interface AwsDynamoDbTableKeySchema {
   AttributeName?: string;
   KeyType?: string;
@@ -2422,8 +1875,7 @@ export interface AwsDynamoDbTableLocalSecondaryIndex {
   KeySchema?: Array<AwsDynamoDbTableKeySchema>;
   Projection?: AwsDynamoDbTableProjection;
 }
-export type AwsDynamoDbTableLocalSecondaryIndexList =
-  Array<AwsDynamoDbTableLocalSecondaryIndex>;
+export type AwsDynamoDbTableLocalSecondaryIndexList = Array<AwsDynamoDbTableLocalSecondaryIndex>;
 export interface AwsDynamoDbTableProjection {
   NonKeyAttributes?: Array<string>;
   ProjectionType?: string;
@@ -2450,8 +1902,7 @@ export interface AwsDynamoDbTableReplicaGlobalSecondaryIndex {
   IndexName?: string;
   ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride;
 }
-export type AwsDynamoDbTableReplicaGlobalSecondaryIndexList =
-  Array<AwsDynamoDbTableReplicaGlobalSecondaryIndex>;
+export type AwsDynamoDbTableReplicaGlobalSecondaryIndexList = Array<AwsDynamoDbTableReplicaGlobalSecondaryIndex>;
 export type AwsDynamoDbTableReplicaList = Array<AwsDynamoDbTableReplica>;
 export interface AwsDynamoDbTableRestoreSummary {
   SourceBackupArn?: string;
@@ -2482,8 +1933,7 @@ export interface AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthentica
   SamlProviderArn?: string;
   SelfServiceSamlProviderArn?: string;
 }
-export type AwsEc2ClientVpnEndpointAuthenticationOptionsList =
-  Array<AwsEc2ClientVpnEndpointAuthenticationOptionsDetails>;
+export type AwsEc2ClientVpnEndpointAuthenticationOptionsList = Array<AwsEc2ClientVpnEndpointAuthenticationOptionsDetails>;
 export interface AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails {
   ClientRootCertificateChain?: string;
 }
@@ -2563,8 +2013,7 @@ export interface AwsEc2InstanceMonitoringDetails {
 export interface AwsEc2InstanceNetworkInterfacesDetails {
   NetworkInterfaceId?: string;
 }
-export type AwsEc2InstanceNetworkInterfacesList =
-  Array<AwsEc2InstanceNetworkInterfacesDetails>;
+export type AwsEc2InstanceNetworkInterfacesList = Array<AwsEc2InstanceNetworkInterfacesDetails>;
 export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails {
   DeviceName?: string;
   Ebs?: AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails;
@@ -2581,8 +2030,7 @@ export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
   VolumeSize?: number;
   VolumeType?: string;
 }
-export type AwsEc2LaunchTemplateDataBlockDeviceMappingSetList =
-  Array<AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails>;
+export type AwsEc2LaunchTemplateDataBlockDeviceMappingSetList = Array<AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails>;
 export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails {
   CapacityReservationId?: string;
   CapacityReservationResourceGroupArn?: string;
@@ -2633,14 +2081,12 @@ export interface AwsEc2LaunchTemplateDataDetails {
 export interface AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails {
   Type?: string;
 }
-export type AwsEc2LaunchTemplateDataElasticGpuSpecificationSetList =
-  Array<AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails>;
+export type AwsEc2LaunchTemplateDataElasticGpuSpecificationSetList = Array<AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails>;
 export interface AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails {
   Count?: number;
   Type?: string;
 }
-export type AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetList =
-  Array<AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails>;
+export type AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetList = Array<AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails>;
 export interface AwsEc2LaunchTemplateDataEnclaveOptionsDetails {
   Enabled?: boolean;
 }
@@ -2720,8 +2166,7 @@ export interface AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails {
 export interface AwsEc2LaunchTemplateDataLicenseSetDetails {
   LicenseConfigurationArn?: string;
 }
-export type AwsEc2LaunchTemplateDataLicenseSetList =
-  Array<AwsEc2LaunchTemplateDataLicenseSetDetails>;
+export type AwsEc2LaunchTemplateDataLicenseSetList = Array<AwsEc2LaunchTemplateDataLicenseSetDetails>;
 export interface AwsEc2LaunchTemplateDataMaintenanceOptionsDetails {
   AutoRecovery?: string;
 }
@@ -2759,26 +2204,21 @@ export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
 export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails {
   Ipv4Prefix?: string;
 }
-export type AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesList =
-  Array<AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails>;
+export type AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesList = Array<AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails>;
 export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails {
   Ipv6Address?: string;
 }
-export type AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesList =
-  Array<AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails>;
+export type AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesList = Array<AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails>;
 export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails {
   Ipv6Prefix?: string;
 }
-export type AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesList =
-  Array<AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails>;
-export type AwsEc2LaunchTemplateDataNetworkInterfaceSetList =
-  Array<AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails>;
+export type AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesList = Array<AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails>;
+export type AwsEc2LaunchTemplateDataNetworkInterfaceSetList = Array<AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails>;
 export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails {
   Primary?: boolean;
   PrivateIpAddress?: string;
 }
-export type AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesList =
-  Array<AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails>;
+export type AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesList = Array<AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails>;
 export interface AwsEc2LaunchTemplateDataPlacementDetails {
   Affinity?: string;
   AvailabilityZone?: string;
@@ -2806,8 +2246,7 @@ export interface AwsEc2NetworkAclAssociation {
   NetworkAclId?: string;
   SubnetId?: string;
 }
-export type AwsEc2NetworkAclAssociationList =
-  Array<AwsEc2NetworkAclAssociation>;
+export type AwsEc2NetworkAclAssociationList = Array<AwsEc2NetworkAclAssociation>;
 export interface AwsEc2NetworkAclDetails {
   IsDefault?: boolean;
   NetworkAclId?: string;
@@ -2849,20 +2288,17 @@ export interface AwsEc2NetworkInterfaceDetails {
 export interface AwsEc2NetworkInterfaceIpV6AddressDetail {
   IpV6Address?: string;
 }
-export type AwsEc2NetworkInterfaceIpV6AddressList =
-  Array<AwsEc2NetworkInterfaceIpV6AddressDetail>;
+export type AwsEc2NetworkInterfaceIpV6AddressList = Array<AwsEc2NetworkInterfaceIpV6AddressDetail>;
 export interface AwsEc2NetworkInterfacePrivateIpAddressDetail {
   PrivateIpAddress?: string;
   PrivateDnsName?: string;
 }
-export type AwsEc2NetworkInterfacePrivateIpAddressList =
-  Array<AwsEc2NetworkInterfacePrivateIpAddressDetail>;
+export type AwsEc2NetworkInterfacePrivateIpAddressList = Array<AwsEc2NetworkInterfacePrivateIpAddressDetail>;
 export interface AwsEc2NetworkInterfaceSecurityGroup {
   GroupName?: string;
   GroupId?: string;
 }
-export type AwsEc2NetworkInterfaceSecurityGroupList =
-  Array<AwsEc2NetworkInterfaceSecurityGroup>;
+export type AwsEc2NetworkInterfaceSecurityGroupList = Array<AwsEc2NetworkInterfaceSecurityGroup>;
 export interface AwsEc2RouteTableDetails {
   AssociationSet?: Array<AssociationSetDetails>;
   OwnerId?: string;
@@ -2888,8 +2324,7 @@ export interface AwsEc2SecurityGroupIpPermission {
   Ipv6Ranges?: Array<AwsEc2SecurityGroupIpv6Range>;
   PrefixListIds?: Array<AwsEc2SecurityGroupPrefixListId>;
 }
-export type AwsEc2SecurityGroupIpPermissionList =
-  Array<AwsEc2SecurityGroupIpPermission>;
+export type AwsEc2SecurityGroupIpPermissionList = Array<AwsEc2SecurityGroupIpPermission>;
 export interface AwsEc2SecurityGroupIpRange {
   CidrIp?: string;
 }
@@ -2897,13 +2332,11 @@ export type AwsEc2SecurityGroupIpRangeList = Array<AwsEc2SecurityGroupIpRange>;
 export interface AwsEc2SecurityGroupIpv6Range {
   CidrIpv6?: string;
 }
-export type AwsEc2SecurityGroupIpv6RangeList =
-  Array<AwsEc2SecurityGroupIpv6Range>;
+export type AwsEc2SecurityGroupIpv6RangeList = Array<AwsEc2SecurityGroupIpv6Range>;
 export interface AwsEc2SecurityGroupPrefixListId {
   PrefixListId?: string;
 }
-export type AwsEc2SecurityGroupPrefixListIdList =
-  Array<AwsEc2SecurityGroupPrefixListId>;
+export type AwsEc2SecurityGroupPrefixListIdList = Array<AwsEc2SecurityGroupPrefixListId>;
 export interface AwsEc2SecurityGroupUserIdGroupPair {
   GroupId?: string;
   GroupName?: string;
@@ -2912,8 +2345,7 @@ export interface AwsEc2SecurityGroupUserIdGroupPair {
   VpcId?: string;
   VpcPeeringConnectionId?: string;
 }
-export type AwsEc2SecurityGroupUserIdGroupPairList =
-  Array<AwsEc2SecurityGroupUserIdGroupPair>;
+export type AwsEc2SecurityGroupUserIdGroupPairList = Array<AwsEc2SecurityGroupUserIdGroupPair>;
 export interface AwsEc2SubnetDetails {
   AssignIpv6AddressOnCreation?: boolean;
   AvailabilityZone?: string;
@@ -2985,8 +2417,7 @@ export interface AwsEc2VpcEndpointServiceDetails {
 export interface AwsEc2VpcEndpointServiceServiceTypeDetails {
   ServiceType?: string;
 }
-export type AwsEc2VpcEndpointServiceServiceTypeList =
-  Array<AwsEc2VpcEndpointServiceServiceTypeDetails>;
+export type AwsEc2VpcEndpointServiceServiceTypeList = Array<AwsEc2VpcEndpointServiceServiceTypeDetails>;
 export interface AwsEc2VpcPeeringConnectionDetails {
   AccepterVpcInfo?: AwsEc2VpcPeeringConnectionVpcInfoDetails;
   ExpirationTime?: string;
@@ -3042,14 +2473,12 @@ export interface AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
   ReplayWindowSize?: number;
   TunnelInsideCidr?: string;
 }
-export type AwsEc2VpnConnectionOptionsTunnelOptionsList =
-  Array<AwsEc2VpnConnectionOptionsTunnelOptionsDetails>;
+export type AwsEc2VpnConnectionOptionsTunnelOptionsList = Array<AwsEc2VpnConnectionOptionsTunnelOptionsDetails>;
 export interface AwsEc2VpnConnectionRoutesDetails {
   DestinationCidrBlock?: string;
   State?: string;
 }
-export type AwsEc2VpnConnectionRoutesList =
-  Array<AwsEc2VpnConnectionRoutesDetails>;
+export type AwsEc2VpnConnectionRoutesList = Array<AwsEc2VpnConnectionRoutesDetails>;
 export interface AwsEc2VpnConnectionVgwTelemetryDetails {
   AcceptedRouteCount?: number;
   CertificateArn?: string;
@@ -3058,8 +2487,7 @@ export interface AwsEc2VpnConnectionVgwTelemetryDetails {
   Status?: string;
   StatusMessage?: string;
 }
-export type AwsEc2VpnConnectionVgwTelemetryList =
-  Array<AwsEc2VpnConnectionVgwTelemetryDetails>;
+export type AwsEc2VpnConnectionVgwTelemetryList = Array<AwsEc2VpnConnectionVgwTelemetryDetails>;
 export interface AwsEcrContainerImageDetails {
   RegistryId?: string;
   RepositoryName?: string;
@@ -3087,8 +2515,7 @@ export interface AwsEcsClusterClusterSettingsDetails {
   Name?: string;
   Value?: string;
 }
-export type AwsEcsClusterClusterSettingsList =
-  Array<AwsEcsClusterClusterSettingsDetails>;
+export type AwsEcsClusterClusterSettingsList = Array<AwsEcsClusterClusterSettingsDetails>;
 export interface AwsEcsClusterConfigurationDetails {
   ExecuteCommandConfiguration?: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails;
 }
@@ -3109,8 +2536,7 @@ export interface AwsEcsClusterDefaultCapacityProviderStrategyDetails {
   CapacityProvider?: string;
   Weight?: number;
 }
-export type AwsEcsClusterDefaultCapacityProviderStrategyList =
-  Array<AwsEcsClusterDefaultCapacityProviderStrategyDetails>;
+export type AwsEcsClusterDefaultCapacityProviderStrategyList = Array<AwsEcsClusterDefaultCapacityProviderStrategyDetails>;
 export interface AwsEcsClusterDetails {
   ClusterArn?: string;
   ActiveServicesCount?: number;
@@ -3135,8 +2561,7 @@ export interface AwsEcsServiceCapacityProviderStrategyDetails {
   CapacityProvider?: string;
   Weight?: number;
 }
-export type AwsEcsServiceCapacityProviderStrategyList =
-  Array<AwsEcsServiceCapacityProviderStrategyDetails>;
+export type AwsEcsServiceCapacityProviderStrategyList = Array<AwsEcsServiceCapacityProviderStrategyDetails>;
 export interface AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails {
   Enable?: boolean;
   Rollback?: boolean;
@@ -3179,8 +2604,7 @@ export interface AwsEcsServiceLoadBalancersDetails {
   LoadBalancerName?: string;
   TargetGroupArn?: string;
 }
-export type AwsEcsServiceLoadBalancersList =
-  Array<AwsEcsServiceLoadBalancersDetails>;
+export type AwsEcsServiceLoadBalancersList = Array<AwsEcsServiceLoadBalancersDetails>;
 export interface AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
   AssignPublicIp?: string;
   SecurityGroups?: Array<string>;
@@ -3193,28 +2617,24 @@ export interface AwsEcsServicePlacementConstraintsDetails {
   Expression?: string;
   Type?: string;
 }
-export type AwsEcsServicePlacementConstraintsList =
-  Array<AwsEcsServicePlacementConstraintsDetails>;
+export type AwsEcsServicePlacementConstraintsList = Array<AwsEcsServicePlacementConstraintsDetails>;
 export interface AwsEcsServicePlacementStrategiesDetails {
   Field?: string;
   Type?: string;
 }
-export type AwsEcsServicePlacementStrategiesList =
-  Array<AwsEcsServicePlacementStrategiesDetails>;
+export type AwsEcsServicePlacementStrategiesList = Array<AwsEcsServicePlacementStrategiesDetails>;
 export interface AwsEcsServiceServiceRegistriesDetails {
   ContainerName?: string;
   ContainerPort?: number;
   Port?: number;
   RegistryArn?: string;
 }
-export type AwsEcsServiceServiceRegistriesList =
-  Array<AwsEcsServiceServiceRegistriesDetails>;
+export type AwsEcsServiceServiceRegistriesList = Array<AwsEcsServiceServiceRegistriesDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
   Condition?: string;
   ContainerName?: string;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsDependsOnList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsDependsOnList = Array<AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
   Command?: Array<string>;
   Cpu?: number;
@@ -3264,16 +2684,13 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
   Type?: string;
   Value?: string;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails>;
-export type AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList = Array<AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList = Array<AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
   Hostname?: string;
   IpAddress?: string;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList = Array<AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
   Options?: Record<string, string>;
   Type?: string;
@@ -3303,17 +2720,14 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesD
   HostPath?: string;
   Permissions?: Array<string>;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList = Array<AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
   ContainerPath?: string;
   MountOptions?: Array<string>;
   Size?: number;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails>;
-export type AwsEcsTaskDefinitionContainerDefinitionsList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList = Array<AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsList = Array<AwsEcsTaskDefinitionContainerDefinitionsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
   LogDriver?: string;
   Options?: Record<string, string>;
@@ -3323,22 +2737,19 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretO
   Name?: string;
   ValueFrom?: string;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList = Array<AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
   ContainerPath?: string;
   ReadOnly?: boolean;
   SourceVolume?: string;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsMountPointsList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsMountPointsList = Array<AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
   ContainerPort?: number;
   HostPort?: number;
   Protocol?: string;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList = Array<AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
   CredentialsParameter?: string;
 }
@@ -3346,33 +2757,28 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDet
   Type?: string;
   Value?: string;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList = Array<AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
   Name?: string;
   ValueFrom?: string;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsSecretsList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsSecretsList = Array<AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
   Namespace?: string;
   Value?: string;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList = Array<AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
   HardLimit?: number;
   Name?: string;
   SoftLimit?: number;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsUlimitsList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsUlimitsList = Array<AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails>;
 export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
   ReadOnly?: boolean;
   SourceContainer?: string;
 }
-export type AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList =
-  Array<AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails>;
+export type AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList = Array<AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails>;
 export interface AwsEcsTaskDefinitionDetails {
   ContainerDefinitions?: Array<AwsEcsTaskDefinitionContainerDefinitionsDetails>;
   Cpu?: string;
@@ -3394,14 +2800,12 @@ export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
   DeviceName?: string;
   DeviceType?: string;
 }
-export type AwsEcsTaskDefinitionInferenceAcceleratorsList =
-  Array<AwsEcsTaskDefinitionInferenceAcceleratorsDetails>;
+export type AwsEcsTaskDefinitionInferenceAcceleratorsList = Array<AwsEcsTaskDefinitionInferenceAcceleratorsDetails>;
 export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
   Expression?: string;
   Type?: string;
 }
-export type AwsEcsTaskDefinitionPlacementConstraintsList =
-  Array<AwsEcsTaskDefinitionPlacementConstraintsDetails>;
+export type AwsEcsTaskDefinitionPlacementConstraintsList = Array<AwsEcsTaskDefinitionPlacementConstraintsDetails>;
 export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
   ContainerName?: string;
   ProxyConfigurationProperties?: Array<AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails>;
@@ -3411,8 +2815,7 @@ export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropert
   Name?: string;
   Value?: string;
 }
-export type AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList =
-  Array<AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails>;
+export type AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList = Array<AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails>;
 export interface AwsEcsTaskDefinitionVolumesDetails {
   DockerVolumeConfiguration?: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails;
   EfsVolumeConfiguration?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails;
@@ -3440,8 +2843,7 @@ export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
 export interface AwsEcsTaskDefinitionVolumesHostDetails {
   SourcePath?: string;
 }
-export type AwsEcsTaskDefinitionVolumesList =
-  Array<AwsEcsTaskDefinitionVolumesDetails>;
+export type AwsEcsTaskDefinitionVolumesList = Array<AwsEcsTaskDefinitionVolumesDetails>;
 export interface AwsEcsTaskDetails {
   ClusterArn?: string;
   TaskDefinitionArn?: string;
@@ -3498,8 +2900,7 @@ export interface AwsEksClusterLoggingClusterLoggingDetails {
   Enabled?: boolean;
   Types?: Array<string>;
 }
-export type AwsEksClusterLoggingClusterLoggingList =
-  Array<AwsEksClusterLoggingClusterLoggingDetails>;
+export type AwsEksClusterLoggingClusterLoggingList = Array<AwsEksClusterLoggingClusterLoggingDetails>;
 export interface AwsEksClusterLoggingDetails {
   ClusterLogging?: Array<AwsEksClusterLoggingClusterLoggingDetails>;
 }
@@ -3530,16 +2931,14 @@ export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
   EnvironmentName?: string;
   LinkName?: string;
 }
-export type AwsElasticBeanstalkEnvironmentEnvironmentLinks =
-  Array<AwsElasticBeanstalkEnvironmentEnvironmentLink>;
+export type AwsElasticBeanstalkEnvironmentEnvironmentLinks = Array<AwsElasticBeanstalkEnvironmentEnvironmentLink>;
 export interface AwsElasticBeanstalkEnvironmentOptionSetting {
   Namespace?: string;
   OptionName?: string;
   ResourceName?: string;
   Value?: string;
 }
-export type AwsElasticBeanstalkEnvironmentOptionSettings =
-  Array<AwsElasticBeanstalkEnvironmentOptionSetting>;
+export type AwsElasticBeanstalkEnvironmentOptionSettings = Array<AwsElasticBeanstalkEnvironmentOptionSetting>;
 export interface AwsElasticBeanstalkEnvironmentTier {
   Name?: string;
   Type?: string;
@@ -3607,14 +3006,12 @@ export interface AwsElasticsearchDomainVPCOptions {
   SubnetIds?: Array<string>;
   VPCId?: string;
 }
-export type AwsElbAppCookieStickinessPolicies =
-  Array<AwsElbAppCookieStickinessPolicy>;
+export type AwsElbAppCookieStickinessPolicies = Array<AwsElbAppCookieStickinessPolicy>;
 export interface AwsElbAppCookieStickinessPolicy {
   CookieName?: string;
   PolicyName?: string;
 }
-export type AwsElbLbCookieStickinessPolicies =
-  Array<AwsElbLbCookieStickinessPolicy>;
+export type AwsElbLbCookieStickinessPolicies = Array<AwsElbLbCookieStickinessPolicy>;
 export interface AwsElbLbCookieStickinessPolicy {
   CookieExpirationPeriod?: number;
   PolicyName?: string;
@@ -3629,8 +3026,7 @@ export interface AwsElbLoadBalancerAdditionalAttribute {
   Key?: string;
   Value?: string;
 }
-export type AwsElbLoadBalancerAdditionalAttributeList =
-  Array<AwsElbLoadBalancerAdditionalAttribute>;
+export type AwsElbLoadBalancerAdditionalAttributeList = Array<AwsElbLoadBalancerAdditionalAttribute>;
 export interface AwsElbLoadBalancerAttributes {
   AccessLog?: AwsElbLoadBalancerAccessLog;
   ConnectionDraining?: AwsElbLoadBalancerConnectionDraining;
@@ -3642,8 +3038,7 @@ export interface AwsElbLoadBalancerBackendServerDescription {
   InstancePort?: number;
   PolicyNames?: Array<string>;
 }
-export type AwsElbLoadBalancerBackendServerDescriptions =
-  Array<AwsElbLoadBalancerBackendServerDescription>;
+export type AwsElbLoadBalancerBackendServerDescriptions = Array<AwsElbLoadBalancerBackendServerDescription>;
 export interface AwsElbLoadBalancerConnectionDraining {
   Enabled?: boolean;
   Timeout?: number;
@@ -3695,8 +3090,7 @@ export interface AwsElbLoadBalancerListenerDescription {
   Listener?: AwsElbLoadBalancerListener;
   PolicyNames?: Array<string>;
 }
-export type AwsElbLoadBalancerListenerDescriptions =
-  Array<AwsElbLoadBalancerListenerDescription>;
+export type AwsElbLoadBalancerListenerDescriptions = Array<AwsElbLoadBalancerListenerDescription>;
 export interface AwsElbLoadBalancerPolicies {
   AppCookieStickinessPolicies?: Array<AwsElbAppCookieStickinessPolicy>;
   LbCookieStickinessPolicies?: Array<AwsElbLbCookieStickinessPolicy>;
@@ -3710,8 +3104,7 @@ export interface AwsElbv2LoadBalancerAttribute {
   Key?: string;
   Value?: string;
 }
-export type AwsElbv2LoadBalancerAttributes =
-  Array<AwsElbv2LoadBalancerAttribute>;
+export type AwsElbv2LoadBalancerAttributes = Array<AwsElbv2LoadBalancerAttribute>;
 export interface AwsElbv2LoadBalancerDetails {
   AvailabilityZones?: Array<AvailabilityZone>;
   CanonicalHostedZoneId?: string;
@@ -3746,8 +3139,7 @@ export interface AwsEventsEndpointDetails {
 export interface AwsEventsEndpointEventBusesDetails {
   EventBusArn?: string;
 }
-export type AwsEventsEndpointEventBusesList =
-  Array<AwsEventsEndpointEventBusesDetails>;
+export type AwsEventsEndpointEventBusesList = Array<AwsEventsEndpointEventBusesDetails>;
 export interface AwsEventsEndpointReplicationConfigDetails {
   State?: string;
 }
@@ -3817,8 +3209,7 @@ export interface AwsGuardDutyDetectorFeaturesDetails {
   Name?: string;
   Status?: string;
 }
-export type AwsGuardDutyDetectorFeaturesList =
-  Array<AwsGuardDutyDetectorFeaturesDetails>;
+export type AwsGuardDutyDetectorFeaturesList = Array<AwsGuardDutyDetectorFeaturesDetails>;
 export interface AwsIamAccessKeyDetails {
   UserName?: string;
   Status?: AwsIamAccessKeyStatus;
@@ -3850,8 +3241,7 @@ export interface AwsIamAttachedManagedPolicy {
   PolicyName?: string;
   PolicyArn?: string;
 }
-export type AwsIamAttachedManagedPolicyList =
-  Array<AwsIamAttachedManagedPolicy>;
+export type AwsIamAttachedManagedPolicyList = Array<AwsIamAttachedManagedPolicy>;
 export interface AwsIamGroupDetails {
   AttachedManagedPolicies?: Array<AwsIamAttachedManagedPolicy>;
   CreateDate?: string;
@@ -4088,8 +3478,7 @@ export interface AwsNetworkFirewallFirewallPolicyDetails {
 export interface AwsNetworkFirewallFirewallSubnetMappingsDetails {
   SubnetId?: string;
 }
-export type AwsNetworkFirewallFirewallSubnetMappingsList =
-  Array<AwsNetworkFirewallFirewallSubnetMappingsDetails>;
+export type AwsNetworkFirewallFirewallSubnetMappingsList = Array<AwsNetworkFirewallFirewallSubnetMappingsDetails>;
 export interface AwsNetworkFirewallRuleGroupDetails {
   Capacity?: number;
   Description?: string;
@@ -4182,8 +3571,7 @@ export interface AwsRdsDbClusterAssociatedRole {
   RoleArn?: string;
   Status?: string;
 }
-export type AwsRdsDbClusterAssociatedRoles =
-  Array<AwsRdsDbClusterAssociatedRole>;
+export type AwsRdsDbClusterAssociatedRoles = Array<AwsRdsDbClusterAssociatedRole>;
 export interface AwsRdsDbClusterDetails {
   AllocatedStorage?: number;
   AvailabilityZones?: Array<string>;
@@ -4235,14 +3623,12 @@ export interface AwsRdsDbClusterOptionGroupMembership {
   DbClusterOptionGroupName?: string;
   Status?: string;
 }
-export type AwsRdsDbClusterOptionGroupMemberships =
-  Array<AwsRdsDbClusterOptionGroupMembership>;
+export type AwsRdsDbClusterOptionGroupMemberships = Array<AwsRdsDbClusterOptionGroupMembership>;
 export interface AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute {
   AttributeName?: string;
   AttributeValues?: Array<string>;
 }
-export type AwsRdsDbClusterSnapshotDbClusterSnapshotAttributes =
-  Array<AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute>;
+export type AwsRdsDbClusterSnapshotDbClusterSnapshotAttributes = Array<AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute>;
 export interface AwsRdsDbClusterSnapshotDetails {
   AvailabilityZones?: Array<string>;
   SnapshotCreateTime?: string;
@@ -4276,8 +3662,7 @@ export interface AwsRdsDbInstanceAssociatedRole {
   FeatureName?: string;
   Status?: string;
 }
-export type AwsRdsDbInstanceAssociatedRoles =
-  Array<AwsRdsDbInstanceAssociatedRole>;
+export type AwsRdsDbInstanceAssociatedRoles = Array<AwsRdsDbInstanceAssociatedRole>;
 export interface AwsRdsDbInstanceDetails {
   AssociatedRoles?: Array<AwsRdsDbInstanceAssociatedRole>;
   CACertificateIdentifier?: string;
@@ -4346,14 +3731,12 @@ export interface AwsRdsDbInstanceVpcSecurityGroup {
   VpcSecurityGroupId?: string;
   Status?: string;
 }
-export type AwsRdsDbInstanceVpcSecurityGroups =
-  Array<AwsRdsDbInstanceVpcSecurityGroup>;
+export type AwsRdsDbInstanceVpcSecurityGroups = Array<AwsRdsDbInstanceVpcSecurityGroup>;
 export interface AwsRdsDbOptionGroupMembership {
   OptionGroupName?: string;
   Status?: string;
 }
-export type AwsRdsDbOptionGroupMemberships =
-  Array<AwsRdsDbOptionGroupMembership>;
+export type AwsRdsDbOptionGroupMemberships = Array<AwsRdsDbOptionGroupMembership>;
 export interface AwsRdsDbParameterGroup {
   DbParameterGroupName?: string;
   ParameterApplyStatus?: string;
@@ -4396,8 +3779,7 @@ export interface AwsRdsDbSecurityGroupEc2SecurityGroup {
   Ec2SecurityGroupOwnerId?: string;
   Status?: string;
 }
-export type AwsRdsDbSecurityGroupEc2SecurityGroups =
-  Array<AwsRdsDbSecurityGroupEc2SecurityGroup>;
+export type AwsRdsDbSecurityGroupEc2SecurityGroups = Array<AwsRdsDbSecurityGroupEc2SecurityGroup>;
 export interface AwsRdsDbSecurityGroupIpRange {
   CidrIp?: string;
   Status?: string;
@@ -4477,28 +3859,24 @@ export interface AwsRedshiftClusterClusterNode {
   PrivateIpAddress?: string;
   PublicIpAddress?: string;
 }
-export type AwsRedshiftClusterClusterNodes =
-  Array<AwsRedshiftClusterClusterNode>;
+export type AwsRedshiftClusterClusterNodes = Array<AwsRedshiftClusterClusterNode>;
 export interface AwsRedshiftClusterClusterParameterGroup {
   ClusterParameterStatusList?: Array<AwsRedshiftClusterClusterParameterStatus>;
   ParameterApplyStatus?: string;
   ParameterGroupName?: string;
 }
-export type AwsRedshiftClusterClusterParameterGroups =
-  Array<AwsRedshiftClusterClusterParameterGroup>;
+export type AwsRedshiftClusterClusterParameterGroups = Array<AwsRedshiftClusterClusterParameterGroup>;
 export interface AwsRedshiftClusterClusterParameterStatus {
   ParameterName?: string;
   ParameterApplyStatus?: string;
   ParameterApplyErrorDescription?: string;
 }
-export type AwsRedshiftClusterClusterParameterStatusList =
-  Array<AwsRedshiftClusterClusterParameterStatus>;
+export type AwsRedshiftClusterClusterParameterStatusList = Array<AwsRedshiftClusterClusterParameterStatus>;
 export interface AwsRedshiftClusterClusterSecurityGroup {
   ClusterSecurityGroupName?: string;
   Status?: string;
 }
-export type AwsRedshiftClusterClusterSecurityGroups =
-  Array<AwsRedshiftClusterClusterSecurityGroup>;
+export type AwsRedshiftClusterClusterSecurityGroups = Array<AwsRedshiftClusterClusterSecurityGroup>;
 export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
   DestinationRegion?: string;
   ManualSnapshotRetentionPeriod?: number;
@@ -4510,8 +3888,7 @@ export interface AwsRedshiftClusterDeferredMaintenanceWindow {
   DeferMaintenanceIdentifier?: string;
   DeferMaintenanceStartTime?: string;
 }
-export type AwsRedshiftClusterDeferredMaintenanceWindows =
-  Array<AwsRedshiftClusterDeferredMaintenanceWindow>;
+export type AwsRedshiftClusterDeferredMaintenanceWindows = Array<AwsRedshiftClusterDeferredMaintenanceWindow>;
 export interface AwsRedshiftClusterDetails {
   AllowVersionUpgrade?: boolean;
   AutomatedSnapshotRetentionPeriod?: number;
@@ -4613,8 +3990,7 @@ export interface AwsRedshiftClusterVpcSecurityGroup {
   Status?: string;
   VpcSecurityGroupId?: string;
 }
-export type AwsRedshiftClusterVpcSecurityGroups =
-  Array<AwsRedshiftClusterVpcSecurityGroup>;
+export type AwsRedshiftClusterVpcSecurityGroups = Array<AwsRedshiftClusterVpcSecurityGroup>;
 export interface AwsRoute53HostedZoneConfigDetails {
   Comment?: string;
 }
@@ -4634,8 +4010,7 @@ export interface AwsRoute53HostedZoneVpcDetails {
   Id?: string;
   Region?: string;
 }
-export type AwsRoute53HostedZoneVpcsList =
-  Array<AwsRoute53HostedZoneVpcDetails>;
+export type AwsRoute53HostedZoneVpcsList = Array<AwsRoute53HostedZoneVpcDetails>;
 export interface AwsRoute53QueryLoggingConfigDetails {
   CloudWatchLogsLogGroupArn?: CloudWatchLogsLogGroupArnConfigDetails;
 }
@@ -4691,8 +4066,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOper
   Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails;
   Type?: string;
 }
-export type AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList =
-  Array<AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails>;
+export type AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList = Array<AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails>;
 export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails {
   Key?: string;
   Value?: string;
@@ -4701,21 +4075,18 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagD
   Key?: string;
   Value?: string;
 }
-export type AwsS3BucketBucketLifecycleConfigurationRulesList =
-  Array<AwsS3BucketBucketLifecycleConfigurationRulesDetails>;
+export type AwsS3BucketBucketLifecycleConfigurationRulesList = Array<AwsS3BucketBucketLifecycleConfigurationRulesDetails>;
 export interface AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails {
   Days?: number;
   StorageClass?: string;
 }
-export type AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList =
-  Array<AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails>;
+export type AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList = Array<AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails>;
 export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails {
   Date?: string;
   Days?: number;
   StorageClass?: string;
 }
-export type AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList =
-  Array<AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails>;
+export type AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList = Array<AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails>;
 export interface AwsS3BucketBucketVersioningConfiguration {
   IsMfaDeleteEnabled?: boolean;
   Status?: string;
@@ -4749,8 +4120,7 @@ export interface AwsS3BucketNotificationConfigurationDetail {
   Destination?: string;
   Type?: string;
 }
-export type AwsS3BucketNotificationConfigurationDetails =
-  Array<AwsS3BucketNotificationConfigurationDetail>;
+export type AwsS3BucketNotificationConfigurationDetails = Array<AwsS3BucketNotificationConfigurationDetail>;
 export type AwsS3BucketNotificationConfigurationEvents = Array<string>;
 export interface AwsS3BucketNotificationConfigurationFilter {
   S3KeyFilter?: AwsS3BucketNotificationConfigurationS3KeyFilter;
@@ -4762,11 +4132,8 @@ export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
   Name?: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName;
   Value?: string;
 }
-export type AwsS3BucketNotificationConfigurationS3KeyFilterRuleName =
-  | "PREFIX"
-  | "SUFFIX";
-export type AwsS3BucketNotificationConfigurationS3KeyFilterRules =
-  Array<AwsS3BucketNotificationConfigurationS3KeyFilterRule>;
+export type AwsS3BucketNotificationConfigurationS3KeyFilterRuleName = "PREFIX" | "SUFFIX";
+export type AwsS3BucketNotificationConfigurationS3KeyFilterRules = Array<AwsS3BucketNotificationConfigurationS3KeyFilterRule>;
 export interface AwsS3BucketObjectLockConfiguration {
   ObjectLockEnabled?: string;
   Rule?: AwsS3BucketObjectLockConfigurationRuleDetails;
@@ -4789,8 +4156,7 @@ export interface AwsS3BucketServerSideEncryptionConfiguration {
 export interface AwsS3BucketServerSideEncryptionRule {
   ApplyServerSideEncryptionByDefault?: AwsS3BucketServerSideEncryptionByDefault;
 }
-export type AwsS3BucketServerSideEncryptionRules =
-  Array<AwsS3BucketServerSideEncryptionRule>;
+export type AwsS3BucketServerSideEncryptionRules = Array<AwsS3BucketServerSideEncryptionRule>;
 export interface AwsS3BucketWebsiteConfiguration {
   ErrorDocument?: string;
   IndexDocumentSuffix?: string;
@@ -4816,8 +4182,7 @@ export interface AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
   ReplaceKeyPrefixWith?: string;
   ReplaceKeyWith?: string;
 }
-export type AwsS3BucketWebsiteConfigurationRoutingRules =
-  Array<AwsS3BucketWebsiteConfigurationRoutingRule>;
+export type AwsS3BucketWebsiteConfigurationRoutingRules = Array<AwsS3BucketWebsiteConfigurationRoutingRule>;
 export interface AwsS3ObjectDetails {
   LastModified?: string;
   ETag?: string;
@@ -5021,8 +4386,7 @@ export interface AwsSecurityFindingIdentifier {
   Id: string;
   ProductArn: string;
 }
-export type AwsSecurityFindingIdentifierList =
-  Array<AwsSecurityFindingIdentifier>;
+export type AwsSecurityFindingIdentifierList = Array<AwsSecurityFindingIdentifier>;
 export type AwsSecurityFindingList = Array<AwsSecurityFinding>;
 export interface AwsSnsTopicDetails {
   KmsMasterKeyId?: string;
@@ -5090,8 +4454,7 @@ export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsClou
 export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails {
   CloudWatchLogsLogGroup?: AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails;
 }
-export type AwsStepFunctionStateMachineLoggingConfigurationDestinationsList =
-  Array<AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails>;
+export type AwsStepFunctionStateMachineLoggingConfigurationDestinationsList = Array<AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails>;
 export interface AwsStepFunctionStateMachineLoggingConfigurationDetails {
   Destinations?: Array<AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails>;
   IncludeExecutionData?: boolean;
@@ -5113,8 +4476,7 @@ export interface AwsWafRateBasedRuleMatchPredicate {
   Negated?: boolean;
   Type?: string;
 }
-export type AwsWafRateBasedRuleMatchPredicateList =
-  Array<AwsWafRateBasedRuleMatchPredicate>;
+export type AwsWafRateBasedRuleMatchPredicateList = Array<AwsWafRateBasedRuleMatchPredicate>;
 export interface AwsWafRegionalRateBasedRuleDetails {
   MetricName?: string;
   Name?: string;
@@ -5128,8 +4490,7 @@ export interface AwsWafRegionalRateBasedRuleMatchPredicate {
   Negated?: boolean;
   Type?: string;
 }
-export type AwsWafRegionalRateBasedRuleMatchPredicateList =
-  Array<AwsWafRegionalRateBasedRuleMatchPredicate>;
+export type AwsWafRegionalRateBasedRuleMatchPredicateList = Array<AwsWafRegionalRateBasedRuleMatchPredicate>;
 export interface AwsWafRegionalRuleDetails {
   MetricName?: string;
   Name?: string;
@@ -5151,10 +4512,8 @@ export interface AwsWafRegionalRuleGroupRulesDetails {
   RuleId?: string;
   Type?: string;
 }
-export type AwsWafRegionalRuleGroupRulesList =
-  Array<AwsWafRegionalRuleGroupRulesDetails>;
-export type AwsWafRegionalRulePredicateList =
-  Array<AwsWafRegionalRulePredicateListDetails>;
+export type AwsWafRegionalRuleGroupRulesList = Array<AwsWafRegionalRuleGroupRulesDetails>;
+export type AwsWafRegionalRulePredicateList = Array<AwsWafRegionalRulePredicateListDetails>;
 export interface AwsWafRegionalRulePredicateListDetails {
   DataId?: string;
   Negated?: boolean;
@@ -5167,8 +4526,7 @@ export interface AwsWafRegionalWebAclDetails {
   RulesList?: Array<AwsWafRegionalWebAclRulesListDetails>;
   WebAclId?: string;
 }
-export type AwsWafRegionalWebAclRulesList =
-  Array<AwsWafRegionalWebAclRulesListDetails>;
+export type AwsWafRegionalWebAclRulesList = Array<AwsWafRegionalWebAclRulesListDetails>;
 export interface AwsWafRegionalWebAclRulesListActionDetails {
   Type?: string;
 }
@@ -5390,14 +4748,12 @@ export interface BatchUpdateFindingsUnprocessedFinding {
   ErrorCode: string;
   ErrorMessage: string;
 }
-export type BatchUpdateFindingsUnprocessedFindingsList =
-  Array<BatchUpdateFindingsUnprocessedFinding>;
+export type BatchUpdateFindingsUnprocessedFindingsList = Array<BatchUpdateFindingsUnprocessedFinding>;
 export interface BatchUpdateFindingsV2ProcessedFinding {
   FindingIdentifier?: OcsfFindingIdentifier;
   MetadataUid?: string;
 }
-export type BatchUpdateFindingsV2ProcessedFindingsList =
-  Array<BatchUpdateFindingsV2ProcessedFinding>;
+export type BatchUpdateFindingsV2ProcessedFindingsList = Array<BatchUpdateFindingsV2ProcessedFinding>;
 export interface BatchUpdateFindingsV2Request {
   MetadataUids?: Array<string>;
   FindingIdentifiers?: Array<OcsfFindingIdentifier>;
@@ -5415,13 +4771,8 @@ export interface BatchUpdateFindingsV2UnprocessedFinding {
   ErrorCode?: BatchUpdateFindingsV2UnprocessedFindingErrorCode;
   ErrorMessage?: string;
 }
-export type BatchUpdateFindingsV2UnprocessedFindingErrorCode =
-  | "ResourceNotFoundException"
-  | "ValidationException"
-  | "InternalServerException"
-  | "ConflictException";
-export type BatchUpdateFindingsV2UnprocessedFindingsList =
-  Array<BatchUpdateFindingsV2UnprocessedFinding>;
+export type BatchUpdateFindingsV2UnprocessedFindingErrorCode = "ResourceNotFoundException" | "ValidationException" | "InternalServerException" | "ConflictException";
+export type BatchUpdateFindingsV2UnprocessedFindingsList = Array<BatchUpdateFindingsV2UnprocessedFinding>;
 export interface BatchUpdateStandardsControlAssociationsRequest {
   StandardsControlAssociationUpdates: Array<StandardsControlAssociationUpdate>;
 }
@@ -5492,11 +4843,7 @@ export interface Compliance {
   AssociatedStandards?: Array<AssociatedStandard>;
   SecurityControlParameters?: Array<SecurityControlParameter>;
 }
-export type ComplianceStatus =
-  | "PASSED"
-  | "WARNING"
-  | "FAILED"
-  | "NOT_AVAILABLE";
+export type ComplianceStatus = "PASSED" | "WARNING" | "FAILED" | "NOT_AVAILABLE";
 export interface CompositeFilter {
   StringFilters?: Array<OcsfStringFilter>;
   DateFilters?: Array<OcsfDateFilter>;
@@ -5517,26 +4864,13 @@ interface _ConfigurationOptions {
   EnumList?: EnumListConfigurationOptions;
 }
 
-export type ConfigurationOptions =
-  | (_ConfigurationOptions & { Integer: IntegerConfigurationOptions })
-  | (_ConfigurationOptions & { IntegerList: IntegerListConfigurationOptions })
-  | (_ConfigurationOptions & { Double: DoubleConfigurationOptions })
-  | (_ConfigurationOptions & { String: StringConfigurationOptions })
-  | (_ConfigurationOptions & { StringList: StringListConfigurationOptions })
-  | (_ConfigurationOptions & { Boolean: BooleanConfigurationOptions })
-  | (_ConfigurationOptions & { Enum: EnumConfigurationOptions })
-  | (_ConfigurationOptions & { EnumList: EnumListConfigurationOptions });
+export type ConfigurationOptions = (_ConfigurationOptions & { Integer: IntegerConfigurationOptions }) | (_ConfigurationOptions & { IntegerList: IntegerListConfigurationOptions }) | (_ConfigurationOptions & { Double: DoubleConfigurationOptions }) | (_ConfigurationOptions & { String: StringConfigurationOptions }) | (_ConfigurationOptions & { StringList: StringListConfigurationOptions }) | (_ConfigurationOptions & { Boolean: BooleanConfigurationOptions }) | (_ConfigurationOptions & { Enum: EnumConfigurationOptions }) | (_ConfigurationOptions & { EnumList: EnumListConfigurationOptions });
 export interface ConfigurationPolicyAssociation {
   Target?: Target;
 }
-export type ConfigurationPolicyAssociationList =
-  Array<ConfigurationPolicyAssociationSummary>;
-export type ConfigurationPolicyAssociationsList =
-  Array<ConfigurationPolicyAssociation>;
-export type ConfigurationPolicyAssociationStatus =
-  | "PENDING"
-  | "SUCCESS"
-  | "FAILED";
+export type ConfigurationPolicyAssociationList = Array<ConfigurationPolicyAssociationSummary>;
+export type ConfigurationPolicyAssociationsList = Array<ConfigurationPolicyAssociation>;
+export type ConfigurationPolicyAssociationStatus = "PENDING" | "SUCCESS" | "FAILED";
 export interface ConfigurationPolicyAssociationSummary {
   ConfigurationPolicyId?: string;
   TargetId?: string;
@@ -5546,8 +4880,7 @@ export interface ConfigurationPolicyAssociationSummary {
   AssociationStatus?: ConfigurationPolicyAssociationStatus;
   AssociationStatusMessage?: string;
 }
-export type ConfigurationPolicyAssociationSummaryList =
-  Array<ConfigurationPolicyAssociationSummary>;
+export type ConfigurationPolicyAssociationSummaryList = Array<ConfigurationPolicyAssociationSummary>;
 export interface ConfigurationPolicySummary {
   Arn?: string;
   Id?: string;
@@ -5574,11 +4907,7 @@ export interface ConnectorRegistrationsV2Response {
   ConnectorArn?: string;
   ConnectorId: string;
 }
-export type ConnectorStatus =
-  | "CONNECTED"
-  | "FAILED_TO_CONNECT"
-  | "PENDING_CONFIGURATION"
-  | "PENDING_AUTHORIZATION";
+export type ConnectorStatus = "CONNECTED" | "FAILED_TO_CONNECT" | "PENDING_CONFIGURATION" | "PENDING_AUTHORIZATION";
 export interface ConnectorSummary {
   ConnectorArn?: string;
   ConnectorId: string;
@@ -5715,7 +5044,7 @@ interface _Criteria {
   OcsfFindingCriteria?: OcsfFindingFilters;
 }
 
-export type Criteria = _Criteria & { OcsfFindingCriteria: OcsfFindingFilters };
+export type Criteria = (_Criteria & { OcsfFindingCriteria: OcsfFindingFilters });
 export type CrossAccountMaxResults = number;
 
 export interface CustomDataIdentifiersDetections {
@@ -5724,8 +5053,7 @@ export interface CustomDataIdentifiersDetections {
   Name?: string;
   Occurrences?: Occurrences;
 }
-export type CustomDataIdentifiersDetectionsList =
-  Array<CustomDataIdentifiersDetections>;
+export type CustomDataIdentifiersDetectionsList = Array<CustomDataIdentifiersDetections>;
 export interface CustomDataIdentifiersResult {
   Detections?: Array<CustomDataIdentifiersDetections>;
   TotalCount?: number;
@@ -5769,23 +5097,28 @@ export interface DeleteActionTargetResponse {
 export interface DeleteAggregatorV2Request {
   AggregatorV2Arn: string;
 }
-export interface DeleteAggregatorV2Response {}
+export interface DeleteAggregatorV2Response {
+}
 export interface DeleteAutomationRuleV2Request {
   Identifier: string;
 }
-export interface DeleteAutomationRuleV2Response {}
+export interface DeleteAutomationRuleV2Response {
+}
 export interface DeleteConfigurationPolicyRequest {
   Identifier: string;
 }
-export interface DeleteConfigurationPolicyResponse {}
+export interface DeleteConfigurationPolicyResponse {
+}
 export interface DeleteConnectorV2Request {
   ConnectorId: string;
 }
-export interface DeleteConnectorV2Response {}
+export interface DeleteConnectorV2Response {
+}
 export interface DeleteFindingAggregatorRequest {
   FindingAggregatorArn: string;
 }
-export interface DeleteFindingAggregatorResponse {}
+export interface DeleteFindingAggregatorResponse {
+}
 export interface DeleteInsightRequest {
   InsightArn: string;
 }
@@ -5822,7 +5155,8 @@ export interface DescribeHubResponse {
   AutoEnableControls?: boolean;
   ControlFindingGenerator?: ControlFindingGenerator;
 }
-export interface DescribeOrganizationConfigurationRequest {}
+export interface DescribeOrganizationConfigurationRequest {
+}
 export interface DescribeOrganizationConfigurationResponse {
   AutoEnable?: boolean;
   MemberAccountLimitReached?: boolean;
@@ -5846,7 +5180,8 @@ export interface DescribeProductsV2Response {
   ProductsV2: Array<ProductV2>;
   NextToken?: string;
 }
-export interface DescribeSecurityHubV2Request {}
+export interface DescribeSecurityHubV2Request {
+}
 export interface DescribeSecurityHubV2Response {
   HubV2Arn?: string;
   SubscribedAt?: string;
@@ -5875,24 +5210,35 @@ export type DisabledSecurityControlIdentifierList = Array<string>;
 export interface DisableImportFindingsForProductRequest {
   ProductSubscriptionArn: string;
 }
-export interface DisableImportFindingsForProductResponse {}
+export interface DisableImportFindingsForProductResponse {
+}
 export interface DisableOrganizationAdminAccountRequest {
   AdminAccountId: string;
   Feature?: SecurityHubFeature;
 }
-export interface DisableOrganizationAdminAccountResponse {}
-export interface DisableSecurityHubRequest {}
-export interface DisableSecurityHubResponse {}
-export interface DisableSecurityHubV2Request {}
-export interface DisableSecurityHubV2Response {}
-export interface DisassociateFromAdministratorAccountRequest {}
-export interface DisassociateFromAdministratorAccountResponse {}
-export interface DisassociateFromMasterAccountRequest {}
-export interface DisassociateFromMasterAccountResponse {}
+export interface DisableOrganizationAdminAccountResponse {
+}
+export interface DisableSecurityHubRequest {
+}
+export interface DisableSecurityHubResponse {
+}
+export interface DisableSecurityHubV2Request {
+}
+export interface DisableSecurityHubV2Response {
+}
+export interface DisassociateFromAdministratorAccountRequest {
+}
+export interface DisassociateFromAdministratorAccountResponse {
+}
+export interface DisassociateFromMasterAccountRequest {
+}
+export interface DisassociateFromMasterAccountResponse {
+}
 export interface DisassociateMembersRequest {
   AccountIds: Array<string>;
 }
-export interface DisassociateMembersResponse {}
+export interface DisassociateMembersResponse {
+}
 export interface DnsRequestAction {
   Domain?: string;
   Protocol?: string;
@@ -5926,7 +5272,8 @@ export interface EnableSecurityHubRequest {
   EnableDefaultStandards?: boolean;
   ControlFindingGenerator?: ControlFindingGenerator;
 }
-export interface EnableSecurityHubResponse {}
+export interface EnableSecurityHubResponse {
+}
 export interface EnableSecurityHubV2Request {
   Tags?: Record<string, string>;
 }
@@ -5976,9 +5323,7 @@ export interface FindingHistoryUpdateSource {
   Type?: FindingHistoryUpdateSourceType;
   Identity?: string;
 }
-export type FindingHistoryUpdateSourceType =
-  | "BATCH_UPDATE_FINDINGS"
-  | "BATCH_IMPORT_FINDINGS";
+export type FindingHistoryUpdateSourceType = "BATCH_UPDATE_FINDINGS" | "BATCH_IMPORT_FINDINGS";
 export interface FindingProviderFields {
   Confidence?: number;
   Criticality?: number;
@@ -6000,20 +5345,17 @@ export interface FirewallPolicyDetails {
 export interface FirewallPolicyStatefulRuleGroupReferencesDetails {
   ResourceArn?: string;
 }
-export type FirewallPolicyStatefulRuleGroupReferencesList =
-  Array<FirewallPolicyStatefulRuleGroupReferencesDetails>;
+export type FirewallPolicyStatefulRuleGroupReferencesList = Array<FirewallPolicyStatefulRuleGroupReferencesDetails>;
 export interface FirewallPolicyStatelessCustomActionsDetails {
   ActionDefinition?: StatelessCustomActionDefinition;
   ActionName?: string;
 }
-export type FirewallPolicyStatelessCustomActionsList =
-  Array<FirewallPolicyStatelessCustomActionsDetails>;
+export type FirewallPolicyStatelessCustomActionsList = Array<FirewallPolicyStatelessCustomActionsDetails>;
 export interface FirewallPolicyStatelessRuleGroupReferencesDetails {
   Priority?: number;
   ResourceArn?: string;
 }
-export type FirewallPolicyStatelessRuleGroupReferencesList =
-  Array<FirewallPolicyStatelessRuleGroupReferencesDetails>;
+export type FirewallPolicyStatelessRuleGroupReferencesList = Array<FirewallPolicyStatelessRuleGroupReferencesDetails>;
 export interface GeneratorDetails {
   Name?: string;
   Description?: string;
@@ -6023,7 +5365,8 @@ export interface GeoLocation {
   Lon?: number;
   Lat?: number;
 }
-export interface GetAdministratorAccountRequest {}
+export interface GetAdministratorAccountRequest {
+}
 export interface GetAdministratorAccountResponse {
   Administrator?: Invitation;
 }
@@ -6161,11 +5504,13 @@ export interface GetInsightsResponse {
   Insights: Array<Insight>;
   NextToken?: string;
 }
-export interface GetInvitationsCountRequest {}
+export interface GetInvitationsCountRequest {
+}
 export interface GetInvitationsCountResponse {
   InvitationsCount?: number;
 }
-export interface GetMasterAccountRequest {}
+export interface GetMasterAccountRequest {
+}
 export interface GetMasterAccountResponse {
   Master?: Invitation;
 }
@@ -6200,24 +5545,7 @@ export interface GetSecurityControlDefinitionRequest {
 export interface GetSecurityControlDefinitionResponse {
   SecurityControlDefinition: SecurityControlDefinition;
 }
-export type GroupByField =
-  | "ACTIVITY_NAME"
-  | "CLOUD_ACCOUNT_UID"
-  | "CLOUD_PROVIDER"
-  | "CLOUD_REGION"
-  | "COMPLIANCE_ASSESSMENTS_NAME"
-  | "COMPLIANCE_STATUS"
-  | "COMPLIANCE_CONTROL"
-  | "FINDING_INFO_TITLE"
-  | "FINDING_INFO_TYPES"
-  | "METADATA_PRODUCT_NAME"
-  | "METADATA_PRODUCT_UID"
-  | "RESOURCES_TYPE"
-  | "RESOURCES_UID"
-  | "SEVERITY"
-  | "STATUS"
-  | "VULNERABILITIES_FIX_COVERAGE"
-  | "CLASS_NAME";
+export type GroupByField = "ACTIVITY_NAME" | "CLOUD_ACCOUNT_UID" | "CLOUD_PROVIDER" | "CLOUD_REGION" | "COMPLIANCE_ASSESSMENTS_NAME" | "COMPLIANCE_STATUS" | "COMPLIANCE_CONTROL" | "FINDING_INFO_TITLE" | "FINDING_INFO_TYPES" | "METADATA_PRODUCT_NAME" | "METADATA_PRODUCT_UID" | "RESOURCES_TYPE" | "RESOURCES_UID" | "SEVERITY" | "STATUS" | "VULNERABILITIES_FIX_COVERAGE" | "CLASS_NAME";
 export interface GroupByResult {
   GroupByField?: string;
   GroupByValues?: Array<GroupByValue>;
@@ -6286,15 +5614,9 @@ export interface IntegerListConfigurationOptions {
   Max?: number;
   MaxItems?: number;
 }
-export type IntegrationType =
-  | "SEND_FINDINGS_TO_SECURITY_HUB"
-  | "RECEIVE_FINDINGS_FROM_SECURITY_HUB"
-  | "UPDATE_FINDINGS_IN_SECURITY_HUB";
+export type IntegrationType = "SEND_FINDINGS_TO_SECURITY_HUB" | "RECEIVE_FINDINGS_FROM_SECURITY_HUB" | "UPDATE_FINDINGS_IN_SECURITY_HUB";
 export type IntegrationTypeList = Array<IntegrationType>;
-export type IntegrationV2Type =
-  | "SEND_FINDINGS_TO_SECURITY_HUB"
-  | "RECEIVE_FINDINGS_FROM_SECURITY_HUB"
-  | "UPDATE_FINDINGS_IN_SECURITY_HUB";
+export type IntegrationV2Type = "SEND_FINDINGS_TO_SECURITY_HUB" | "RECEIVE_FINDINGS_FROM_SECURITY_HUB" | "UPDATE_FINDINGS_IN_SECURITY_HUB";
 export type IntegrationV2TypeList = Array<IntegrationV2Type>;
 export declare class InternalException extends EffectData.TaggedError(
   "InternalException",
@@ -6504,32 +5826,13 @@ export interface Malware {
 }
 export type MalwareList = Array<Malware>;
 export type MalwareState = "OBSERVED" | "REMOVAL_FAILED" | "REMOVED";
-export type MalwareType =
-  | "ADWARE"
-  | "BLENDED_THREAT"
-  | "BOTNET_AGENT"
-  | "COIN_MINER"
-  | "EXPLOIT_KIT"
-  | "KEYLOGGER"
-  | "MACRO"
-  | "POTENTIALLY_UNWANTED"
-  | "SPYWARE"
-  | "RANSOMWARE"
-  | "REMOTE_ACCESS"
-  | "ROOTKIT"
-  | "TROJAN"
-  | "VIRUS"
-  | "WORM";
+export type MalwareType = "ADWARE" | "BLENDED_THREAT" | "BOTNET_AGENT" | "COIN_MINER" | "EXPLOIT_KIT" | "KEYLOGGER" | "MACRO" | "POTENTIALLY_UNWANTED" | "SPYWARE" | "RANSOMWARE" | "REMOTE_ACCESS" | "ROOTKIT" | "TROJAN" | "VIRUS" | "WORM";
 export interface MapFilter {
   Key?: string;
   Value?: string;
   Comparison?: MapFilterComparison;
 }
-export type MapFilterComparison =
-  | "EQUALS"
-  | "NOT_EQUALS"
-  | "CONTAINS"
-  | "NOT_CONTAINS";
+export type MapFilterComparison = "EQUALS" | "NOT_EQUALS" | "CONTAINS" | "NOT_CONTAINS";
 export type MapFilterList = Array<MapFilter>;
 export type MaxResults = number;
 
@@ -6637,20 +5940,13 @@ export interface Occurrences {
   Records?: Array<SecurityhubRecord>;
   Cells?: Array<Cell>;
 }
-export type OcsfBooleanField =
-  | "COMPLIANCE_ASSESSMENTS_MEETS_CRITERIA"
-  | "VULNERABILITIES_IS_EXPLOIT_AVAILABLE"
-  | "VULNERABILITIES_IS_FIX_AVAILABLE";
+export type OcsfBooleanField = "COMPLIANCE_ASSESSMENTS_MEETS_CRITERIA" | "VULNERABILITIES_IS_EXPLOIT_AVAILABLE" | "VULNERABILITIES_IS_FIX_AVAILABLE";
 export interface OcsfBooleanFilter {
   FieldName?: OcsfBooleanField;
   Filter?: BooleanFilter;
 }
 export type OcsfBooleanFilterList = Array<OcsfBooleanFilter>;
-export type OcsfDateField =
-  | "FINDING_INFO_CREATED_TIME_DT"
-  | "FINDING_INFO_FIRST_SEEN_TIME_DT"
-  | "FINDING_INFO_LAST_SEEN_TIME_DT"
-  | "FINDING_INFO_MODIFIED_TIME_DT";
+export type OcsfDateField = "FINDING_INFO_CREATED_TIME_DT" | "FINDING_INFO_FIRST_SEEN_TIME_DT" | "FINDING_INFO_LAST_SEEN_TIME_DT" | "FINDING_INFO_MODIFIED_TIME_DT";
 export interface OcsfDateFilter {
   FieldName?: OcsfDateField;
   Filter?: DateFilter;
@@ -6675,51 +5971,13 @@ export interface OcsfMapFilter {
   Filter?: MapFilter;
 }
 export type OcsfMapFilterList = Array<OcsfMapFilter>;
-export type OcsfNumberField =
-  | "ACTIVITY_ID"
-  | "COMPLIANCE_STATUS_ID"
-  | "CONFIDENCE_SCORE"
-  | "SEVERITY_ID"
-  | "STATUS_ID"
-  | "FINDING_INFO_RELATED_EVENTS_COUNT";
+export type OcsfNumberField = "ACTIVITY_ID" | "COMPLIANCE_STATUS_ID" | "CONFIDENCE_SCORE" | "SEVERITY_ID" | "STATUS_ID" | "FINDING_INFO_RELATED_EVENTS_COUNT";
 export interface OcsfNumberFilter {
   FieldName?: OcsfNumberField;
   Filter?: NumberFilter;
 }
 export type OcsfNumberFilterList = Array<OcsfNumberFilter>;
-export type OcsfStringField =
-  | "METADATA_UID"
-  | "ACTIVITY_NAME"
-  | "CLOUD_ACCOUNT_UID"
-  | "CLOUD_PROVIDER"
-  | "CLOUD_REGION"
-  | "COMPLIANCE_ASSESSMENTS_CATEGORY"
-  | "COMPLIANCE_ASSESSMENTS_NAME"
-  | "COMPLIANCE_CONTROL"
-  | "COMPLIANCE_STATUS"
-  | "COMPLIANCE_STANDARDS"
-  | "FINDING_INFO_DESC"
-  | "FINDING_INFO_SRC_URL"
-  | "FINDING_INFO_TITLE"
-  | "FINDING_INFO_TYPES"
-  | "FINDING_INFO_UID"
-  | "FINDING_INFO_RELATED_EVENTS_UID"
-  | "FINDING_INFO_RELATED_EVENTS_PRODUCT_UID"
-  | "FINDING_INFO_RELATED_EVENTS_TITLE"
-  | "METADATA_PRODUCT_NAME"
-  | "METADATA_PRODUCT_UID"
-  | "METADATA_PRODUCT_VENDOR_NAME"
-  | "REMEDIATION_DESC"
-  | "REMEDIATION_REFERENCES"
-  | "RESOURCES_CLOUD_PARTITION"
-  | "RESOURCES_REGION"
-  | "RESOURCES_TYPE"
-  | "RESOURCES_UID"
-  | "SEVERITY"
-  | "STATUS"
-  | "COMMENT"
-  | "VULNERABILITIES_FIX_COVERAGE"
-  | "CLASS_NAME";
+export type OcsfStringField = "METADATA_UID" | "ACTIVITY_NAME" | "CLOUD_ACCOUNT_UID" | "CLOUD_PROVIDER" | "CLOUD_REGION" | "COMPLIANCE_ASSESSMENTS_CATEGORY" | "COMPLIANCE_ASSESSMENTS_NAME" | "COMPLIANCE_CONTROL" | "COMPLIANCE_STATUS" | "COMPLIANCE_STANDARDS" | "FINDING_INFO_DESC" | "FINDING_INFO_SRC_URL" | "FINDING_INFO_TITLE" | "FINDING_INFO_TYPES" | "FINDING_INFO_UID" | "FINDING_INFO_RELATED_EVENTS_UID" | "FINDING_INFO_RELATED_EVENTS_PRODUCT_UID" | "FINDING_INFO_RELATED_EVENTS_TITLE" | "METADATA_PRODUCT_NAME" | "METADATA_PRODUCT_UID" | "METADATA_PRODUCT_VENDOR_NAME" | "REMEDIATION_DESC" | "REMEDIATION_REFERENCES" | "RESOURCES_CLOUD_PARTITION" | "RESOURCES_REGION" | "RESOURCES_TYPE" | "RESOURCES_UID" | "SEVERITY" | "STATUS" | "COMMENT" | "VULNERABILITIES_FIX_COVERAGE" | "CLASS_NAME";
 export interface OcsfStringFilter {
   FieldName?: OcsfStringField;
   Filter?: StringFilter;
@@ -6759,15 +6017,7 @@ interface _ParameterValue {
   EnumList?: Array<string>;
 }
 
-export type ParameterValue =
-  | (_ParameterValue & { Integer: number })
-  | (_ParameterValue & { IntegerList: Array<number> })
-  | (_ParameterValue & { Double: number })
-  | (_ParameterValue & { String: string })
-  | (_ParameterValue & { StringList: Array<string> })
-  | (_ParameterValue & { Boolean: boolean })
-  | (_ParameterValue & { Enum: string })
-  | (_ParameterValue & { EnumList: Array<string> });
+export type ParameterValue = (_ParameterValue & { Integer: number }) | (_ParameterValue & { IntegerList: Array<number> }) | (_ParameterValue & { Double: number }) | (_ParameterValue & { String: string }) | (_ParameterValue & { StringList: Array<string> }) | (_ParameterValue & { Boolean: boolean }) | (_ParameterValue & { Enum: string }) | (_ParameterValue & { EnumList: Array<string> });
 export type ParameterValueType = "DEFAULT" | "CUSTOM";
 export type Partition = "AWS" | "AWS_CN" | "AWS_US_GOV";
 export interface PatchSummary {
@@ -6787,7 +6037,7 @@ interface _Policy {
   SecurityHub?: SecurityHubPolicy;
 }
 
-export type Policy = _Policy & { SecurityHub: SecurityHubPolicy };
+export type Policy = (_Policy & { SecurityHub: SecurityHubPolicy });
 export interface PortProbeAction {
   PortProbeDetails?: Array<PortProbeDetail>;
   Blocked?: boolean;
@@ -6847,17 +6097,13 @@ interface _ProviderConfiguration {
   ServiceNow?: ServiceNowProviderConfiguration;
 }
 
-export type ProviderConfiguration =
-  | (_ProviderConfiguration & { JiraCloud: JiraCloudProviderConfiguration })
-  | (_ProviderConfiguration & { ServiceNow: ServiceNowProviderConfiguration });
+export type ProviderConfiguration = (_ProviderConfiguration & { JiraCloud: JiraCloudProviderConfiguration }) | (_ProviderConfiguration & { ServiceNow: ServiceNowProviderConfiguration });
 interface _ProviderDetail {
   JiraCloud?: JiraCloudDetail;
   ServiceNow?: ServiceNowDetail;
 }
 
-export type ProviderDetail =
-  | (_ProviderDetail & { JiraCloud: JiraCloudDetail })
-  | (_ProviderDetail & { ServiceNow: ServiceNowDetail });
+export type ProviderDetail = (_ProviderDetail & { JiraCloud: JiraCloudDetail }) | (_ProviderDetail & { ServiceNow: ServiceNowDetail });
 export interface ProviderSummary {
   ProviderName?: ConnectorProviderName;
   ConnectorStatus?: ConnectorStatus;
@@ -6866,9 +6112,7 @@ interface _ProviderUpdateConfiguration {
   JiraCloud?: JiraCloudUpdateConfiguration;
 }
 
-export type ProviderUpdateConfiguration = _ProviderUpdateConfiguration & {
-  JiraCloud: JiraCloudUpdateConfiguration;
-};
+export type ProviderUpdateConfiguration = (_ProviderUpdateConfiguration & { JiraCloud: JiraCloudUpdateConfiguration });
 export interface Range {
   Start?: number;
   End?: number;
@@ -6911,15 +6155,7 @@ export interface Resource {
 }
 export type ResourceArn = string;
 
-export type ResourceCategory =
-  | "COMPUTE"
-  | "DATABASE"
-  | "STORAGE"
-  | "CODE"
-  | "AI_ML"
-  | "IDENTITY"
-  | "NETWORK"
-  | "OTHER";
+export type ResourceCategory = "COMPUTE" | "DATABASE" | "STORAGE" | "CODE" | "AI_ML" | "IDENTITY" | "NETWORK" | "OTHER";
 export type ResourceConfig = unknown;
 
 export declare class ResourceConflictException extends EffectData.TaggedError(
@@ -7037,13 +6273,7 @@ export interface ResourceFindingsSummary {
   Severities?: ResourceSeverityBreakdown;
 }
 export type ResourceFindingsSummaryList = Array<ResourceFindingsSummary>;
-export type ResourceGroupByField =
-  | "ACCOUNT_ID"
-  | "REGION"
-  | "RESOURCE_CATEGORY"
-  | "RESOURCE_TYPE"
-  | "RESOURCE_NAME"
-  | "FINDING_TYPE";
+export type ResourceGroupByField = "ACCOUNT_ID" | "REGION" | "RESOURCE_CATEGORY" | "RESOURCE_TYPE" | "RESOURCE_NAME" | "FINDING_TYPE";
 export interface ResourceGroupByRule {
   GroupByField: ResourceGroupByField;
   Filters?: ResourcesFilters;
@@ -7085,9 +6315,7 @@ export interface ResourcesCompositeFilter {
   Operator?: AllowedOperators;
 }
 export type ResourcesCompositeFilterList = Array<ResourcesCompositeFilter>;
-export type ResourcesDateField =
-  | "RESOURCE_DETAIL_CAPTURE_TIME_DT"
-  | "RESOURCE_CREATION_TIME_DT";
+export type ResourcesDateField = "RESOURCE_DETAIL_CAPTURE_TIME_DT" | "RESOURCE_CREATION_TIME_DT";
 export interface ResourcesDateFilter {
   FieldName?: ResourcesDateField;
   Filter?: DateFilter;
@@ -7113,31 +6341,13 @@ export interface ResourcesMapFilter {
   Filter?: MapFilter;
 }
 export type ResourcesMapFilterList = Array<ResourcesMapFilter>;
-export type ResourcesNumberField =
-  | "TOTAL_FINDINGS"
-  | "SEVERITY_OTHER"
-  | "SEVERITY_FATAL"
-  | "SEVERITY_CRITICAL"
-  | "SEVERITY_HIGH"
-  | "SEVERITY_MEDIUM"
-  | "SEVERITY_LOW"
-  | "SEVERITY_INFORMATIONAL"
-  | "SEVERITY_UNKNOWN";
+export type ResourcesNumberField = "TOTAL_FINDINGS" | "SEVERITY_OTHER" | "SEVERITY_FATAL" | "SEVERITY_CRITICAL" | "SEVERITY_HIGH" | "SEVERITY_MEDIUM" | "SEVERITY_LOW" | "SEVERITY_INFORMATIONAL" | "SEVERITY_UNKNOWN";
 export interface ResourcesNumberFilter {
   FieldName?: ResourcesNumberField;
   Filter?: NumberFilter;
 }
 export type ResourcesNumberFilterList = Array<ResourcesNumberFilter>;
-export type ResourcesStringField =
-  | "RESOURCE_ARN"
-  | "RESOURCE_ID"
-  | "ACCOUNT_ID"
-  | "REGION"
-  | "RESOURCE_CATEGORY"
-  | "RESOURCE_TYPE"
-  | "RESOURCE_NAME"
-  | "FINDING_TYPE"
-  | "PRODUCT_NAME";
+export type ResourcesStringField = "RESOURCE_ARN" | "RESOURCE_ID" | "ACCOUNT_ID" | "REGION" | "RESOURCE_CATEGORY" | "RESOURCE_TYPE" | "RESOURCE_NAME" | "FINDING_TYPE" | "PRODUCT_NAME";
 export interface ResourcesStringFilter {
   FieldName?: ResourcesStringField;
   Filter?: StringFilter;
@@ -7186,8 +6396,7 @@ export interface RuleGroupSourceCustomActionsDetails {
   ActionDefinition?: StatelessCustomActionDefinition;
   ActionName?: string;
 }
-export type RuleGroupSourceCustomActionsList =
-  Array<RuleGroupSourceCustomActionsDetails>;
+export type RuleGroupSourceCustomActionsList = Array<RuleGroupSourceCustomActionsDetails>;
 export interface RuleGroupSourceListDetails {
   GeneratedRulesType?: string;
   TargetTypes?: Array<string>;
@@ -7206,14 +6415,12 @@ export interface RuleGroupSourceStatefulRulesHeaderDetails {
   Source?: string;
   SourcePort?: string;
 }
-export type RuleGroupSourceStatefulRulesList =
-  Array<RuleGroupSourceStatefulRulesDetails>;
+export type RuleGroupSourceStatefulRulesList = Array<RuleGroupSourceStatefulRulesDetails>;
 export interface RuleGroupSourceStatefulRulesOptionsDetails {
   Keyword?: string;
   Settings?: Array<string>;
 }
-export type RuleGroupSourceStatefulRulesOptionsList =
-  Array<RuleGroupSourceStatefulRulesOptionsDetails>;
+export type RuleGroupSourceStatefulRulesOptionsList = Array<RuleGroupSourceStatefulRulesOptionsDetails>;
 export type RuleGroupSourceStatefulRulesRuleOptionsSettingsList = Array<string>;
 export interface RuleGroupSourceStatelessRuleDefinition {
   Actions?: Array<string>;
@@ -7231,32 +6438,26 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
   FromPort?: number;
   ToPort?: number;
 }
-export type RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList =
-  Array<RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts>;
+export type RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList = Array<RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts>;
 export interface RuleGroupSourceStatelessRuleMatchAttributesDestinations {
   AddressDefinition?: string;
 }
-export type RuleGroupSourceStatelessRuleMatchAttributesDestinationsList =
-  Array<RuleGroupSourceStatelessRuleMatchAttributesDestinations>;
-export type RuleGroupSourceStatelessRuleMatchAttributesProtocolsList =
-  Array<number>;
+export type RuleGroupSourceStatelessRuleMatchAttributesDestinationsList = Array<RuleGroupSourceStatelessRuleMatchAttributesDestinations>;
+export type RuleGroupSourceStatelessRuleMatchAttributesProtocolsList = Array<number>;
 export interface RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
   FromPort?: number;
   ToPort?: number;
 }
-export type RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList =
-  Array<RuleGroupSourceStatelessRuleMatchAttributesSourcePorts>;
+export type RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList = Array<RuleGroupSourceStatelessRuleMatchAttributesSourcePorts>;
 export interface RuleGroupSourceStatelessRuleMatchAttributesSources {
   AddressDefinition?: string;
 }
-export type RuleGroupSourceStatelessRuleMatchAttributesSourcesList =
-  Array<RuleGroupSourceStatelessRuleMatchAttributesSources>;
+export type RuleGroupSourceStatelessRuleMatchAttributesSourcesList = Array<RuleGroupSourceStatelessRuleMatchAttributesSources>;
 export interface RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
   Flags?: Array<string>;
   Masks?: Array<string>;
 }
-export type RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList =
-  Array<RuleGroupSourceStatelessRuleMatchAttributesTcpFlags>;
+export type RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList = Array<RuleGroupSourceStatelessRuleMatchAttributesTcpFlags>;
 export interface RuleGroupSourceStatelessRulesAndCustomActionsDetails {
   CustomActions?: Array<RuleGroupSourceCustomActionsDetails>;
   StatelessRules?: Array<RuleGroupSourceStatelessRulesDetails>;
@@ -7265,8 +6466,7 @@ export interface RuleGroupSourceStatelessRulesDetails {
   Priority?: number;
   RuleDefinition?: RuleGroupSourceStatelessRuleDefinition;
 }
-export type RuleGroupSourceStatelessRulesList =
-  Array<RuleGroupSourceStatelessRulesDetails>;
+export type RuleGroupSourceStatelessRulesList = Array<RuleGroupSourceStatelessRulesDetails>;
 export interface RuleGroupVariables {
   IpSets?: RuleGroupVariablesIpSetsDetails;
   PortSets?: RuleGroupVariablesPortSetsDetails;
@@ -7299,8 +6499,7 @@ export interface SecurityControlCustomParameter {
   SecurityControlId?: string;
   Parameters?: Record<string, ParameterConfiguration>;
 }
-export type SecurityControlCustomParametersList =
-  Array<SecurityControlCustomParameter>;
+export type SecurityControlCustomParametersList = Array<SecurityControlCustomParameter>;
 export interface SecurityControlDefinition {
   SecurityControlId: string;
   Title: string;
@@ -7368,12 +6567,7 @@ export interface Severity {
   Normalized?: number;
   Original?: string;
 }
-export type SeverityLabel =
-  | "INFORMATIONAL"
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH"
-  | "CRITICAL";
+export type SeverityLabel = "INFORMATIONAL" | "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
 export type SeverityRating = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
 export interface SeverityUpdate {
   Normalized?: number;
@@ -7453,16 +6647,13 @@ export interface StandardsControlAssociationDetail {
   StandardsControlDescription?: string;
   StandardsControlArns?: Array<string>;
 }
-export type StandardsControlAssociationDetails =
-  Array<StandardsControlAssociationDetail>;
+export type StandardsControlAssociationDetails = Array<StandardsControlAssociationDetail>;
 export interface StandardsControlAssociationId {
   SecurityControlId: string;
   StandardsArn: string;
 }
-export type StandardsControlAssociationIds =
-  Array<StandardsControlAssociationId>;
-export type StandardsControlAssociationSummaries =
-  Array<StandardsControlAssociationSummary>;
+export type StandardsControlAssociationIds = Array<StandardsControlAssociationId>;
+export type StandardsControlAssociationSummaries = Array<StandardsControlAssociationSummary>;
 export interface StandardsControlAssociationSummary {
   StandardsArn: string;
   SecurityControlId: string;
@@ -7480,23 +6671,15 @@ export interface StandardsControlAssociationUpdate {
   AssociationStatus: AssociationStatus;
   UpdatedReason?: string;
 }
-export type StandardsControlAssociationUpdates =
-  Array<StandardsControlAssociationUpdate>;
+export type StandardsControlAssociationUpdates = Array<StandardsControlAssociationUpdate>;
 export type StandardsControls = Array<StandardsControl>;
-export type StandardsControlsUpdatable =
-  | "READY_FOR_UPDATES"
-  | "NOT_READY_FOR_UPDATES";
+export type StandardsControlsUpdatable = "READY_FOR_UPDATES" | "NOT_READY_FOR_UPDATES";
 export type StandardsInputParameterMap = Record<string, string>;
 export interface StandardsManagedBy {
   Company?: string;
   Product?: string;
 }
-export type StandardsStatus =
-  | "PENDING"
-  | "READY"
-  | "FAILED"
-  | "DELETING"
-  | "INCOMPLETE";
+export type StandardsStatus = "PENDING" | "READY" | "FAILED" | "DELETING" | "INCOMPLETE";
 export interface StandardsStatusReason {
   StatusReasonCode: StatusReasonCode;
 }
@@ -7532,7 +6715,8 @@ export interface StartConfigurationPolicyDisassociationRequest {
   Target?: Target;
   ConfigurationPolicyIdentifier: string;
 }
-export interface StartConfigurationPolicyDisassociationResponse {}
+export interface StartConfigurationPolicyDisassociationResponse {
+}
 export interface StatelessCustomActionDefinition {
   PublishMetricAction?: StatelessCustomPublishMetricAction;
 }
@@ -7542,16 +6726,12 @@ export interface StatelessCustomPublishMetricAction {
 export interface StatelessCustomPublishMetricActionDimension {
   Value?: string;
 }
-export type StatelessCustomPublishMetricActionDimensionsList =
-  Array<StatelessCustomPublishMetricActionDimension>;
+export type StatelessCustomPublishMetricActionDimensionsList = Array<StatelessCustomPublishMetricActionDimension>;
 export interface StatusReason {
   ReasonCode: string;
   Description?: string;
 }
-export type StatusReasonCode =
-  | "NO_AVAILABLE_CONFIGURATION_RECORDER"
-  | "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED"
-  | "INTERNAL_ERROR";
+export type StatusReasonCode = "NO_AVAILABLE_CONFIGURATION_RECORDER" | "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED" | "INTERNAL_ERROR";
 export type StatusReasonsList = Array<StatusReason>;
 export interface StringConfigurationOptions {
   DefaultValue?: string;
@@ -7562,14 +6742,7 @@ export interface StringFilter {
   Value?: string;
   Comparison?: StringFilterComparison;
 }
-export type StringFilterComparison =
-  | "EQUALS"
-  | "PREFIX"
-  | "NOT_EQUALS"
-  | "PREFIX_NOT_EQUALS"
-  | "CONTAINS"
-  | "NOT_CONTAINS"
-  | "CONTAINS_WORD";
+export type StringFilterComparison = "EQUALS" | "PREFIX" | "NOT_EQUALS" | "PREFIX_NOT_EQUALS" | "CONTAINS" | "NOT_CONTAINS" | "CONTAINS_WORD";
 export type StringFilterList = Array<StringFilter>;
 export type StringList = Array<string>;
 export interface StringListConfigurationOptions {
@@ -7586,7 +6759,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 interface _Target {
@@ -7595,10 +6769,7 @@ interface _Target {
   RootId?: string;
 }
 
-export type Target =
-  | (_Target & { AccountId: string })
-  | (_Target & { OrganizationalUnitId: string })
-  | (_Target & { RootId: string });
+export type Target = (_Target & { AccountId: string }) | (_Target & { OrganizationalUnitId: string }) | (_Target & { RootId: string });
 export type TargetType = "ACCOUNT" | "ORGANIZATIONAL_UNIT" | "ROOT";
 export interface Threat {
   Name?: string;
@@ -7614,26 +6785,9 @@ export interface ThreatIntelIndicator {
   Source?: string;
   SourceUrl?: string;
 }
-export type ThreatIntelIndicatorCategory =
-  | "BACKDOOR"
-  | "CARD_STEALER"
-  | "COMMAND_AND_CONTROL"
-  | "DROP_SITE"
-  | "EXPLOIT_SITE"
-  | "KEYLOGGER";
+export type ThreatIntelIndicatorCategory = "BACKDOOR" | "CARD_STEALER" | "COMMAND_AND_CONTROL" | "DROP_SITE" | "EXPLOIT_SITE" | "KEYLOGGER";
 export type ThreatIntelIndicatorList = Array<ThreatIntelIndicator>;
-export type ThreatIntelIndicatorType =
-  | "DOMAIN"
-  | "EMAIL_ADDRESS"
-  | "HASH_MD5"
-  | "HASH_SHA1"
-  | "HASH_SHA256"
-  | "HASH_SHA512"
-  | "IPV4_ADDRESS"
-  | "IPV6_ADDRESS"
-  | "MUTEX"
-  | "PROCESS"
-  | "URL";
+export type ThreatIntelIndicatorType = "DOMAIN" | "EMAIL_ADDRESS" | "HASH_MD5" | "HASH_SHA1" | "HASH_SHA256" | "HASH_SHA512" | "IPV4_ADDRESS" | "IPV6_ADDRESS" | "MUTEX" | "PROCESS" | "URL";
 export type ThreatList = Array<Threat>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
@@ -7655,13 +6809,8 @@ export interface UnprocessedConfigurationPolicyAssociation {
   ErrorCode?: string;
   ErrorReason?: string;
 }
-export type UnprocessedConfigurationPolicyAssociationList =
-  Array<UnprocessedConfigurationPolicyAssociation>;
-export type UnprocessedErrorCode =
-  | "INVALID_INPUT"
-  | "ACCESS_DENIED"
-  | "NOT_FOUND"
-  | "LIMIT_EXCEEDED";
+export type UnprocessedConfigurationPolicyAssociationList = Array<UnprocessedConfigurationPolicyAssociation>;
+export type UnprocessedErrorCode = "INVALID_INPUT" | "ACCESS_DENIED" | "NOT_FOUND" | "LIMIT_EXCEEDED";
 export interface UnprocessedSecurityControl {
   SecurityControlId: string;
   ErrorCode: UnprocessedErrorCode;
@@ -7673,26 +6822,26 @@ export interface UnprocessedStandardsControlAssociation {
   ErrorCode: UnprocessedErrorCode;
   ErrorReason?: string;
 }
-export type UnprocessedStandardsControlAssociations =
-  Array<UnprocessedStandardsControlAssociation>;
+export type UnprocessedStandardsControlAssociations = Array<UnprocessedStandardsControlAssociation>;
 export interface UnprocessedStandardsControlAssociationUpdate {
   StandardsControlAssociationUpdate: StandardsControlAssociationUpdate;
   ErrorCode: UnprocessedErrorCode;
   ErrorReason?: string;
 }
-export type UnprocessedStandardsControlAssociationUpdates =
-  Array<UnprocessedStandardsControlAssociationUpdate>;
+export type UnprocessedStandardsControlAssociationUpdates = Array<UnprocessedStandardsControlAssociationUpdate>;
 export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateActionTargetRequest {
   ActionTargetArn: string;
   Name?: string;
   Description?: string;
 }
-export interface UpdateActionTargetResponse {}
+export interface UpdateActionTargetResponse {
+}
 export interface UpdateAggregatorV2Request {
   AggregatorV2Arn: string;
   RegionLinkingMode: string;
@@ -7714,8 +6863,7 @@ export interface UpdateAutomationRulesRequestItem {
   Criteria?: AutomationRulesFindingFilters;
   Actions?: Array<AutomationRulesAction>;
 }
-export type UpdateAutomationRulesRequestItemsList =
-  Array<UpdateAutomationRulesRequestItem>;
+export type UpdateAutomationRulesRequestItemsList = Array<UpdateAutomationRulesRequestItem>;
 export interface UpdateAutomationRuleV2Request {
   Identifier: string;
   RuleStatus?: RuleStatusV2;
@@ -7725,7 +6873,8 @@ export interface UpdateAutomationRuleV2Request {
   Criteria?: Criteria;
   Actions?: Array<AutomationRulesActionV2>;
 }
-export interface UpdateAutomationRuleV2Response {}
+export interface UpdateAutomationRuleV2Response {
+}
 export interface UpdateConfigurationPolicyRequest {
   Identifier: string;
   Name?: string;
@@ -7748,7 +6897,8 @@ export interface UpdateConnectorV2Request {
   Description?: string;
   Provider?: ProviderUpdateConfiguration;
 }
-export interface UpdateConnectorV2Response {}
+export interface UpdateConnectorV2Response {
+}
 export interface UpdateFindingAggregatorRequest {
   FindingAggregatorArn: string;
   RegionLinkingMode: string;
@@ -7765,37 +6915,43 @@ export interface UpdateFindingsRequest {
   Note?: NoteUpdate;
   RecordState?: RecordState;
 }
-export interface UpdateFindingsResponse {}
+export interface UpdateFindingsResponse {
+}
 export interface UpdateInsightRequest {
   InsightArn: string;
   Name?: string;
   Filters?: AwsSecurityFindingFilters;
   GroupByAttribute?: string;
 }
-export interface UpdateInsightResponse {}
+export interface UpdateInsightResponse {
+}
 export interface UpdateOrganizationConfigurationRequest {
   AutoEnable: boolean;
   AutoEnableStandards?: AutoEnableStandards;
   OrganizationConfiguration?: OrganizationConfiguration;
 }
-export interface UpdateOrganizationConfigurationResponse {}
+export interface UpdateOrganizationConfigurationResponse {
+}
 export interface UpdateSecurityControlRequest {
   SecurityControlId: string;
   Parameters: Record<string, ParameterConfiguration>;
   LastUpdateReason?: string;
 }
-export interface UpdateSecurityControlResponse {}
+export interface UpdateSecurityControlResponse {
+}
 export interface UpdateSecurityHubConfigurationRequest {
   AutoEnableControls?: boolean;
   ControlFindingGenerator?: ControlFindingGenerator;
 }
-export interface UpdateSecurityHubConfigurationResponse {}
+export interface UpdateSecurityHubConfigurationResponse {
+}
 export interface UpdateStandardsControlRequest {
   StandardsControlArn: string;
   ControlStatus?: ControlStatus;
   DisabledReason?: string;
 }
-export interface UpdateStandardsControlResponse {}
+export interface UpdateStandardsControlResponse {
+}
 export type UpdateStatus = "READY" | "UPDATING";
 export interface UserAccount {
   Uid?: string;
@@ -7807,11 +6963,7 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly Code?: string;
 }> {}
-export type VerificationState =
-  | "UNKNOWN"
-  | "TRUE_POSITIVE"
-  | "FALSE_POSITIVE"
-  | "BENIGN_POSITIVE";
+export type VerificationState = "UNKNOWN" | "TRUE_POSITIVE" | "FALSE_POSITIVE" | "BENIGN_POSITIVE";
 export interface VolumeMount {
   Name?: string;
   MountPath?: string;
@@ -7848,8 +7000,7 @@ export interface VulnerabilityCodeVulnerabilities {
   FilePath?: CodeVulnerabilitiesFilePath;
   SourceArn?: string;
 }
-export type VulnerabilityCodeVulnerabilitiesList =
-  Array<VulnerabilityCodeVulnerabilities>;
+export type VulnerabilityCodeVulnerabilitiesList = Array<VulnerabilityCodeVulnerabilities>;
 export type VulnerabilityExploitAvailable = "YES" | "NO";
 export type VulnerabilityFixAvailable = "YES" | "NO" | "PARTIAL";
 export type VulnerabilityList = Array<Vulnerability>;
@@ -7873,12 +7024,7 @@ export interface WafOverrideAction {
 export interface Workflow {
   Status?: WorkflowStatus;
 }
-export type WorkflowState =
-  | "NEW"
-  | "ASSIGNED"
-  | "IN_PROGRESS"
-  | "DEFERRED"
-  | "RESOLVED";
+export type WorkflowState = "NEW" | "ASSIGNED" | "IN_PROGRESS" | "DEFERRED" | "RESOLVED";
 export type WorkflowStatus = "NEW" | "NOTIFIED" | "RESOLVED" | "SUPPRESSED";
 export interface WorkflowUpdate {
   Status?: WorkflowStatus;
@@ -9147,3 +8293,4 @@ export declare namespace UpdateStandardsControl {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

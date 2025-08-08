@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class CloudFrontKeyValueStore extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cloudfront-keyvaluestore", new RestJson1Protocol(), cfg);
+  }
+
   deleteKey(
     input: DeleteKeyRequest,
   ): Effect.Effect<
     DeleteKeyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteKey", input);
   }
@@ -21,11 +20,7 @@ export class CloudFrontKeyValueStore extends AWSServiceClient {
     input: DescribeKeyValueStoreRequest,
   ): Effect.Effect<
     DescribeKeyValueStoreResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeKeyValueStore", input);
   }
@@ -33,11 +28,7 @@ export class CloudFrontKeyValueStore extends AWSServiceClient {
     input: GetKeyRequest,
   ): Effect.Effect<
     GetKeyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetKey", input);
   }
@@ -45,12 +36,7 @@ export class CloudFrontKeyValueStore extends AWSServiceClient {
     input: ListKeysRequest,
   ): Effect.Effect<
     ListKeysResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListKeys", input);
   }
@@ -58,13 +44,7 @@ export class CloudFrontKeyValueStore extends AWSServiceClient {
     input: PutKeyRequest,
   ): Effect.Effect<
     PutKeyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("PutKey", input);
   }
@@ -72,13 +52,7 @@ export class CloudFrontKeyValueStore extends AWSServiceClient {
     input: UpdateKeysRequest,
   ): Effect.Effect<
     UpdateKeysResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateKeys", input);
   }
@@ -276,3 +250,4 @@ export declare namespace UpdateKeys {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class LakeFormation extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("lakeformation", new RestJson1Protocol(), cfg);
+  }
+
   addLFTagsToResource(
     input: AddLFTagsToResourceRequest,
   ): Effect.Effect<
     AddLFTagsToResourceResponse,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("AddLFTagsToResource", input);
   }
@@ -21,12 +20,7 @@ export class LakeFormation extends AWSServiceClient {
     input: AssumeDecoratedRoleWithSAMLRequest,
   ): Effect.Effect<
     AssumeDecoratedRoleWithSAMLResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("AssumeDecoratedRoleWithSAML", input);
   }
@@ -50,14 +44,7 @@ export class LakeFormation extends AWSServiceClient {
     input: CancelTransactionRequest,
   ): Effect.Effect<
     CancelTransactionResponse,
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | TransactionCommitInProgressException
-    | TransactionCommittedException
-    | CommonAwsError
+    ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | TransactionCommitInProgressException | TransactionCommittedException | CommonAwsError
   > {
     return this.call("CancelTransaction", input);
   }
@@ -65,13 +52,7 @@ export class LakeFormation extends AWSServiceClient {
     input: CommitTransactionRequest,
   ): Effect.Effect<
     CommitTransactionResponse,
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | TransactionCanceledException
-    | CommonAwsError
+    ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | TransactionCanceledException | CommonAwsError
   > {
     return this.call("CommitTransaction", input);
   }
@@ -79,14 +60,7 @@ export class LakeFormation extends AWSServiceClient {
     input: CreateDataCellsFilterRequest,
   ): Effect.Effect<
     CreateDataCellsFilterResponse,
-    | AccessDeniedException
-    | AlreadyExistsException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | ResourceNumberLimitExceededException
-    | CommonAwsError
+    AccessDeniedException | AlreadyExistsException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | ResourceNumberLimitExceededException | CommonAwsError
   > {
     return this.call("CreateDataCellsFilter", input);
   }
@@ -94,13 +68,7 @@ export class LakeFormation extends AWSServiceClient {
     input: CreateLakeFormationIdentityCenterConfigurationRequest,
   ): Effect.Effect<
     CreateLakeFormationIdentityCenterConfigurationResponse,
-    | AccessDeniedException
-    | AlreadyExistsException
-    | ConcurrentModificationException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | AlreadyExistsException | ConcurrentModificationException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("CreateLakeFormationIdentityCenterConfiguration", input);
   }
@@ -108,14 +76,7 @@ export class LakeFormation extends AWSServiceClient {
     input: CreateLakeFormationOptInRequest,
   ): Effect.Effect<
     CreateLakeFormationOptInResponse,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | ResourceNumberLimitExceededException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | ResourceNumberLimitExceededException | CommonAwsError
   > {
     return this.call("CreateLakeFormationOptIn", input);
   }
@@ -123,13 +84,7 @@ export class LakeFormation extends AWSServiceClient {
     input: CreateLFTagRequest,
   ): Effect.Effect<
     CreateLFTagResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | ResourceNumberLimitExceededException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | ResourceNumberLimitExceededException | CommonAwsError
   > {
     return this.call("CreateLFTag", input);
   }
@@ -137,13 +92,7 @@ export class LakeFormation extends AWSServiceClient {
     input: CreateLFTagExpressionRequest,
   ): Effect.Effect<
     CreateLFTagExpressionResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | ResourceNumberLimitExceededException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | ResourceNumberLimitExceededException | CommonAwsError
   > {
     return this.call("CreateLFTagExpression", input);
   }
@@ -151,12 +100,7 @@ export class LakeFormation extends AWSServiceClient {
     input: DeleteDataCellsFilterRequest,
   ): Effect.Effect<
     DeleteDataCellsFilterResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("DeleteDataCellsFilter", input);
   }
@@ -164,13 +108,7 @@ export class LakeFormation extends AWSServiceClient {
     input: DeleteLakeFormationIdentityCenterConfigurationRequest,
   ): Effect.Effect<
     DeleteLakeFormationIdentityCenterConfigurationResponse,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("DeleteLakeFormationIdentityCenterConfiguration", input);
   }
@@ -178,13 +116,7 @@ export class LakeFormation extends AWSServiceClient {
     input: DeleteLakeFormationOptInRequest,
   ): Effect.Effect<
     DeleteLakeFormationOptInResponse,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("DeleteLakeFormationOptIn", input);
   }
@@ -192,12 +124,7 @@ export class LakeFormation extends AWSServiceClient {
     input: DeleteLFTagRequest,
   ): Effect.Effect<
     DeleteLFTagResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("DeleteLFTag", input);
   }
@@ -205,12 +132,7 @@ export class LakeFormation extends AWSServiceClient {
     input: DeleteLFTagExpressionRequest,
   ): Effect.Effect<
     DeleteLFTagExpressionResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("DeleteLFTagExpression", input);
   }
@@ -218,15 +140,7 @@ export class LakeFormation extends AWSServiceClient {
     input: DeleteObjectsOnCancelRequest,
   ): Effect.Effect<
     DeleteObjectsOnCancelResponse,
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | ResourceNotReadyException
-    | TransactionCanceledException
-    | TransactionCommittedException
-    | CommonAwsError
+    ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | ResourceNotReadyException | TransactionCanceledException | TransactionCommittedException | CommonAwsError
   > {
     return this.call("DeleteObjectsOnCancel", input);
   }
@@ -234,11 +148,7 @@ export class LakeFormation extends AWSServiceClient {
     input: DeregisterResourceRequest,
   ): Effect.Effect<
     DeregisterResourceResponse,
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("DeregisterResource", input);
   }
@@ -246,12 +156,7 @@ export class LakeFormation extends AWSServiceClient {
     input: DescribeLakeFormationIdentityCenterConfigurationRequest,
   ): Effect.Effect<
     DescribeLakeFormationIdentityCenterConfigurationResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("DescribeLakeFormationIdentityCenterConfiguration", input);
   }
@@ -259,11 +164,7 @@ export class LakeFormation extends AWSServiceClient {
     input: DescribeResourceRequest,
   ): Effect.Effect<
     DescribeResourceResponse,
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("DescribeResource", input);
   }
@@ -271,11 +172,7 @@ export class LakeFormation extends AWSServiceClient {
     input: DescribeTransactionRequest,
   ): Effect.Effect<
     DescribeTransactionResponse,
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("DescribeTransaction", input);
   }
@@ -283,14 +180,7 @@ export class LakeFormation extends AWSServiceClient {
     input: ExtendTransactionRequest,
   ): Effect.Effect<
     ExtendTransactionResponse,
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | TransactionCanceledException
-    | TransactionCommitInProgressException
-    | TransactionCommittedException
-    | CommonAwsError
+    EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | TransactionCanceledException | TransactionCommitInProgressException | TransactionCommittedException | CommonAwsError
   > {
     return this.call("ExtendTransaction", input);
   }
@@ -298,12 +188,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetDataCellsFilterRequest,
   ): Effect.Effect<
     GetDataCellsFilterResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("GetDataCellsFilter", input);
   }
@@ -311,10 +196,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetDataLakePrincipalRequest,
   ): Effect.Effect<
     GetDataLakePrincipalResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("GetDataLakePrincipal", input);
   }
@@ -322,10 +204,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetDataLakeSettingsRequest,
   ): Effect.Effect<
     GetDataLakeSettingsResponse,
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | CommonAwsError
+    EntityNotFoundException | InternalServiceException | InvalidInputException | CommonAwsError
   > {
     return this.call("GetDataLakeSettings", input);
   }
@@ -333,11 +212,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetEffectivePermissionsForPathRequest,
   ): Effect.Effect<
     GetEffectivePermissionsForPathResponse,
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("GetEffectivePermissionsForPath", input);
   }
@@ -345,12 +220,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetLFTagRequest,
   ): Effect.Effect<
     GetLFTagResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("GetLFTag", input);
   }
@@ -358,12 +228,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetLFTagExpressionRequest,
   ): Effect.Effect<
     GetLFTagExpressionResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("GetLFTagExpression", input);
   }
@@ -371,10 +236,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetQueryStateRequest,
   ): Effect.Effect<
     GetQueryStateResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidInputException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidInputException | CommonAwsError
   > {
     return this.call("GetQueryState", input);
   }
@@ -382,13 +244,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetQueryStatisticsRequest,
   ): Effect.Effect<
     GetQueryStatisticsResponse,
-    | AccessDeniedException
-    | ExpiredException
-    | InternalServiceException
-    | InvalidInputException
-    | StatisticsNotReadyYetException
-    | ThrottledException
-    | CommonAwsError
+    AccessDeniedException | ExpiredException | InternalServiceException | InvalidInputException | StatisticsNotReadyYetException | ThrottledException | CommonAwsError
   > {
     return this.call("GetQueryStatistics", input);
   }
@@ -396,13 +252,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetResourceLFTagsRequest,
   ): Effect.Effect<
     GetResourceLFTagsResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | GlueEncryptionException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | GlueEncryptionException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("GetResourceLFTags", input);
   }
@@ -410,14 +260,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetTableObjectsRequest,
   ): Effect.Effect<
     GetTableObjectsResponse,
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | ResourceNotReadyException
-    | TransactionCanceledException
-    | TransactionCommittedException
-    | CommonAwsError
+    EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | ResourceNotReadyException | TransactionCanceledException | TransactionCommittedException | CommonAwsError
   > {
     return this.call("GetTableObjects", input);
   }
@@ -425,13 +268,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetTemporaryGluePartitionCredentialsRequest,
   ): Effect.Effect<
     GetTemporaryGluePartitionCredentialsResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | PermissionTypeMismatchException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | PermissionTypeMismatchException | CommonAwsError
   > {
     return this.call("GetTemporaryGluePartitionCredentials", input);
   }
@@ -439,13 +276,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetTemporaryGlueTableCredentialsRequest,
   ): Effect.Effect<
     GetTemporaryGlueTableCredentialsResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | PermissionTypeMismatchException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | PermissionTypeMismatchException | CommonAwsError
   > {
     return this.call("GetTemporaryGlueTableCredentials", input);
   }
@@ -453,12 +284,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetWorkUnitResultsRequest,
   ): Effect.Effect<
     GetWorkUnitResultsResponse,
-    | AccessDeniedException
-    | ExpiredException
-    | InternalServiceException
-    | InvalidInputException
-    | ThrottledException
-    | CommonAwsError
+    AccessDeniedException | ExpiredException | InternalServiceException | InvalidInputException | ThrottledException | CommonAwsError
   > {
     return this.call("GetWorkUnitResults", input);
   }
@@ -466,12 +292,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GetWorkUnitsRequest,
   ): Effect.Effect<
     GetWorkUnitsResponse,
-    | AccessDeniedException
-    | ExpiredException
-    | InternalServiceException
-    | InvalidInputException
-    | WorkUnitsNotReadyYetException
-    | CommonAwsError
+    AccessDeniedException | ExpiredException | InternalServiceException | InvalidInputException | WorkUnitsNotReadyYetException | CommonAwsError
   > {
     return this.call("GetWorkUnits", input);
   }
@@ -479,10 +300,7 @@ export class LakeFormation extends AWSServiceClient {
     input: GrantPermissionsRequest,
   ): Effect.Effect<
     GrantPermissionsResponse,
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InvalidInputException
-    | CommonAwsError
+    ConcurrentModificationException | EntityNotFoundException | InvalidInputException | CommonAwsError
   > {
     return this.call("GrantPermissions", input);
   }
@@ -490,11 +308,7 @@ export class LakeFormation extends AWSServiceClient {
     input: ListDataCellsFilterRequest,
   ): Effect.Effect<
     ListDataCellsFilterResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("ListDataCellsFilter", input);
   }
@@ -502,11 +316,7 @@ export class LakeFormation extends AWSServiceClient {
     input: ListLakeFormationOptInsRequest,
   ): Effect.Effect<
     ListLakeFormationOptInsResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("ListLakeFormationOptIns", input);
   }
@@ -514,12 +324,7 @@ export class LakeFormation extends AWSServiceClient {
     input: ListLFTagExpressionsRequest,
   ): Effect.Effect<
     ListLFTagExpressionsResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("ListLFTagExpressions", input);
   }
@@ -527,12 +332,7 @@ export class LakeFormation extends AWSServiceClient {
     input: ListLFTagsRequest,
   ): Effect.Effect<
     ListLFTagsResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("ListLFTags", input);
   }
@@ -540,10 +340,7 @@ export class LakeFormation extends AWSServiceClient {
     input: ListPermissionsRequest,
   ): Effect.Effect<
     ListPermissionsResponse,
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("ListPermissions", input);
   }
@@ -551,10 +348,7 @@ export class LakeFormation extends AWSServiceClient {
     input: ListResourcesRequest,
   ): Effect.Effect<
     ListResourcesResponse,
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("ListResources", input);
   }
@@ -562,11 +356,7 @@ export class LakeFormation extends AWSServiceClient {
     input: ListTableStorageOptimizersRequest,
   ): Effect.Effect<
     ListTableStorageOptimizersResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | CommonAwsError
   > {
     return this.call("ListTableStorageOptimizers", input);
   }
@@ -574,10 +364,7 @@ export class LakeFormation extends AWSServiceClient {
     input: ListTransactionsRequest,
   ): Effect.Effect<
     ListTransactionsResponse,
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("ListTransactions", input);
   }
@@ -593,14 +380,7 @@ export class LakeFormation extends AWSServiceClient {
     input: RegisterResourceRequest,
   ): Effect.Effect<
     RegisterResourceResponse,
-    | AccessDeniedException
-    | AlreadyExistsException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | ResourceNumberLimitExceededException
-    | CommonAwsError
+    AccessDeniedException | AlreadyExistsException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | ResourceNumberLimitExceededException | CommonAwsError
   > {
     return this.call("RegisterResource", input);
   }
@@ -608,14 +388,7 @@ export class LakeFormation extends AWSServiceClient {
     input: RemoveLFTagsFromResourceRequest,
   ): Effect.Effect<
     RemoveLFTagsFromResourceResponse,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | GlueEncryptionException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | EntityNotFoundException | GlueEncryptionException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("RemoveLFTagsFromResource", input);
   }
@@ -623,10 +396,7 @@ export class LakeFormation extends AWSServiceClient {
     input: RevokePermissionsRequest,
   ): Effect.Effect<
     RevokePermissionsResponse,
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InvalidInputException
-    | CommonAwsError
+    ConcurrentModificationException | EntityNotFoundException | InvalidInputException | CommonAwsError
   > {
     return this.call("RevokePermissions", input);
   }
@@ -634,13 +404,7 @@ export class LakeFormation extends AWSServiceClient {
     input: SearchDatabasesByLFTagsRequest,
   ): Effect.Effect<
     SearchDatabasesByLFTagsResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | GlueEncryptionException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | GlueEncryptionException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("SearchDatabasesByLFTags", input);
   }
@@ -648,13 +412,7 @@ export class LakeFormation extends AWSServiceClient {
     input: SearchTablesByLFTagsRequest,
   ): Effect.Effect<
     SearchTablesByLFTagsResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | GlueEncryptionException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | GlueEncryptionException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("SearchTablesByLFTags", input);
   }
@@ -662,11 +420,7 @@ export class LakeFormation extends AWSServiceClient {
     input: StartQueryPlanningRequest,
   ): Effect.Effect<
     StartQueryPlanningResponse,
-    | AccessDeniedException
-    | InternalServiceException
-    | InvalidInputException
-    | ThrottledException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceException | InvalidInputException | ThrottledException | CommonAwsError
   > {
     return this.call("StartQueryPlanning", input);
   }
@@ -682,13 +436,7 @@ export class LakeFormation extends AWSServiceClient {
     input: UpdateDataCellsFilterRequest,
   ): Effect.Effect<
     UpdateDataCellsFilterResponse,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("UpdateDataCellsFilter", input);
   }
@@ -696,13 +444,7 @@ export class LakeFormation extends AWSServiceClient {
     input: UpdateLakeFormationIdentityCenterConfigurationRequest,
   ): Effect.Effect<
     UpdateLakeFormationIdentityCenterConfigurationResponse,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("UpdateLakeFormationIdentityCenterConfiguration", input);
   }
@@ -710,13 +452,7 @@ export class LakeFormation extends AWSServiceClient {
     input: UpdateLFTagRequest,
   ): Effect.Effect<
     UpdateLFTagResponse,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("UpdateLFTag", input);
   }
@@ -724,13 +460,7 @@ export class LakeFormation extends AWSServiceClient {
     input: UpdateLFTagExpressionRequest,
   ): Effect.Effect<
     UpdateLFTagExpressionResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | ResourceNumberLimitExceededException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | ResourceNumberLimitExceededException | CommonAwsError
   > {
     return this.call("UpdateLFTagExpression", input);
   }
@@ -738,11 +468,7 @@ export class LakeFormation extends AWSServiceClient {
     input: UpdateResourceRequest,
   ): Effect.Effect<
     UpdateResourceResponse,
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | CommonAwsError
+    EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | CommonAwsError
   > {
     return this.call("UpdateResource", input);
   }
@@ -750,16 +476,7 @@ export class LakeFormation extends AWSServiceClient {
     input: UpdateTableObjectsRequest,
   ): Effect.Effect<
     UpdateTableObjectsResponse,
-    | ConcurrentModificationException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | OperationTimeoutException
-    | ResourceNotReadyException
-    | TransactionCanceledException
-    | TransactionCommitInProgressException
-    | TransactionCommittedException
-    | CommonAwsError
+    ConcurrentModificationException | EntityNotFoundException | InternalServiceException | InvalidInputException | OperationTimeoutException | ResourceNotReadyException | TransactionCanceledException | TransactionCommitInProgressException | TransactionCommittedException | CommonAwsError
   > {
     return this.call("UpdateTableObjects", input);
   }
@@ -767,11 +484,7 @@ export class LakeFormation extends AWSServiceClient {
     input: UpdateTableStorageOptimizerRequest,
   ): Effect.Effect<
     UpdateTableStorageOptimizerResponse,
-    | AccessDeniedException
-    | EntityNotFoundException
-    | InternalServiceException
-    | InvalidInputException
-    | CommonAwsError
+    AccessDeniedException | EntityNotFoundException | InternalServiceException | InvalidInputException | CommonAwsError
   > {
     return this.call("UpdateTableStorageOptimizer", input);
   }
@@ -803,7 +516,8 @@ export interface AddObjectInput {
   Size: number;
   PartitionValues?: Array<string>;
 }
-export interface AllRowsWildcard {}
+export interface AllRowsWildcard {
+}
 export declare class AlreadyExistsException extends EffectData.TaggedError(
   "AlreadyExistsException",
 )<{
@@ -850,8 +564,7 @@ export interface BatchPermissionsRequestEntry {
   Condition?: Condition;
   PermissionsWithGrantOption?: Array<Permission>;
 }
-export type BatchPermissionsRequestEntryList =
-  Array<BatchPermissionsRequestEntry>;
+export type BatchPermissionsRequestEntryList = Array<BatchPermissionsRequestEntry>;
 export interface BatchRevokePermissionsRequest {
   CatalogId?: string;
   Entries: Array<BatchPermissionsRequestEntry>;
@@ -866,7 +579,8 @@ export type BooleanNullable = boolean;
 export interface CancelTransactionRequest {
   TransactionId: string;
 }
-export interface CancelTransactionResponse {}
+export interface CancelTransactionResponse {
+}
 export type CatalogIdString = string;
 
 export interface CatalogResource {
@@ -887,18 +601,7 @@ export interface CommitTransactionRequest {
 export interface CommitTransactionResponse {
   TransactionStatus?: TransactionStatus;
 }
-export type ComparisonOperator =
-  | "EQ"
-  | "NE"
-  | "LE"
-  | "LT"
-  | "GE"
-  | "GT"
-  | "CONTAINS"
-  | "NOT_CONTAINS"
-  | "BEGINS_WITH"
-  | "IN"
-  | "BETWEEN";
+export type ComparisonOperator = "EQ" | "NE" | "LE" | "LT" | "GE" | "GT" | "CONTAINS" | "NOT_CONTAINS" | "BEGINS_WITH" | "IN" | "BETWEEN";
 export declare class ConcurrentModificationException extends EffectData.TaggedError(
   "ConcurrentModificationException",
 )<{
@@ -914,7 +617,8 @@ export type ContextValue = string;
 export interface CreateDataCellsFilterRequest {
   TableData: DataCellsFilter;
 }
-export interface CreateDataCellsFilterResponse {}
+export interface CreateDataCellsFilterResponse {
+}
 export interface CreateLakeFormationIdentityCenterConfigurationRequest {
   CatalogId?: string;
   InstanceArn?: string;
@@ -929,20 +633,23 @@ export interface CreateLakeFormationOptInRequest {
   Resource: Resource;
   Condition?: Condition;
 }
-export interface CreateLakeFormationOptInResponse {}
+export interface CreateLakeFormationOptInResponse {
+}
 export interface CreateLFTagExpressionRequest {
   Name: string;
   Description?: string;
   CatalogId?: string;
   Expression: Array<LFTag>;
 }
-export interface CreateLFTagExpressionResponse {}
+export interface CreateLFTagExpressionResponse {
+}
 export interface CreateLFTagRequest {
   CatalogId?: string;
   TagKey: string;
   TagValues: Array<string>;
 }
-export interface CreateLFTagResponse {}
+export interface CreateLFTagResponse {
+}
 export type CredentialTimeoutDurationSecondInteger = number;
 
 export type DatabaseLFTagsList = Array<TaggedDatabase>;
@@ -973,16 +680,7 @@ export interface DataLakePrincipal {
 export type DataLakePrincipalList = Array<DataLakePrincipal>;
 export type DataLakePrincipalString = string;
 
-export type DataLakeResourceType =
-  | "CATALOG"
-  | "DATABASE"
-  | "TABLE"
-  | "DATA_LOCATION"
-  | "LF_TAG"
-  | "LF_TAG_POLICY"
-  | "LF_TAG_POLICY_DATABASE"
-  | "LF_TAG_POLICY_TABLE"
-  | "LF_NAMED_TAG_EXPRESSION";
+export type DataLakeResourceType = "CATALOG" | "DATABASE" | "TABLE" | "DATA_LOCATION" | "LF_TAG" | "LF_TAG_POLICY" | "LF_TAG_POLICY_DATABASE" | "LF_TAG_POLICY_TABLE" | "LF_NAMED_TAG_EXPRESSION";
 export interface DataLakeSettings {
   DataLakeAdmins?: Array<DataLakePrincipal>;
   ReadOnlyAdmins?: Array<DataLakePrincipal>;
@@ -1007,27 +705,32 @@ export interface DeleteDataCellsFilterRequest {
   TableName?: string;
   Name?: string;
 }
-export interface DeleteDataCellsFilterResponse {}
+export interface DeleteDataCellsFilterResponse {
+}
 export interface DeleteLakeFormationIdentityCenterConfigurationRequest {
   CatalogId?: string;
 }
-export interface DeleteLakeFormationIdentityCenterConfigurationResponse {}
+export interface DeleteLakeFormationIdentityCenterConfigurationResponse {
+}
 export interface DeleteLakeFormationOptInRequest {
   Principal: DataLakePrincipal;
   Resource: Resource;
   Condition?: Condition;
 }
-export interface DeleteLakeFormationOptInResponse {}
+export interface DeleteLakeFormationOptInResponse {
+}
 export interface DeleteLFTagExpressionRequest {
   Name: string;
   CatalogId?: string;
 }
-export interface DeleteLFTagExpressionResponse {}
+export interface DeleteLFTagExpressionResponse {
+}
 export interface DeleteLFTagRequest {
   CatalogId?: string;
   TagKey: string;
 }
-export interface DeleteLFTagResponse {}
+export interface DeleteLFTagResponse {
+}
 export interface DeleteObjectInput {
   Uri: string;
   ETag?: string;
@@ -1040,11 +743,13 @@ export interface DeleteObjectsOnCancelRequest {
   TransactionId: string;
   Objects: Array<VirtualObject>;
 }
-export interface DeleteObjectsOnCancelResponse {}
+export interface DeleteObjectsOnCancelResponse {
+}
 export interface DeregisterResourceRequest {
   ResourceArn: string;
 }
-export interface DeregisterResourceResponse {}
+export interface DeregisterResourceResponse {
+}
 export interface DescribeLakeFormationIdentityCenterConfigurationRequest {
   CatalogId?: string;
 }
@@ -1105,7 +810,8 @@ export type ExpressionString = string;
 export interface ExtendTransactionRequest {
   TransactionId?: string;
 }
-export interface ExtendTransactionResponse {}
+export interface ExtendTransactionResponse {
+}
 export interface ExternalFilteringConfiguration {
   Status: EnableStatus;
   AuthorizedTargets: Array<string>;
@@ -1126,7 +832,8 @@ export interface GetDataCellsFilterRequest {
 export interface GetDataCellsFilterResponse {
   DataCellsFilter?: DataCellsFilter;
 }
-export interface GetDataLakePrincipalRequest {}
+export interface GetDataLakePrincipalRequest {
+}
 export interface GetDataLakePrincipalResponse {
   Identity?: string;
 }
@@ -1275,7 +982,8 @@ export interface GrantPermissionsRequest {
   Condition?: Condition;
   PermissionsWithGrantOption?: Array<Permission>;
 }
-export interface GrantPermissionsResponse {}
+export interface GrantPermissionsResponse {
+}
 export type HashString = string;
 
 export type IAMRoleArn = string;
@@ -1474,29 +1182,9 @@ export type PartitionValueString = string;
 export type PathString = string;
 
 export type PathStringList = Array<string>;
-export type Permission =
-  | "ALL"
-  | "SELECT"
-  | "ALTER"
-  | "DROP"
-  | "DELETE"
-  | "INSERT"
-  | "DESCRIBE"
-  | "CREATE_DATABASE"
-  | "CREATE_TABLE"
-  | "DATA_LOCATION_ACCESS"
-  | "CREATE_LF_TAG"
-  | "ASSOCIATE"
-  | "GRANT_WITH_LF_TAG_EXPRESSION"
-  | "CREATE_LF_TAG_EXPRESSION"
-  | "CREATE_CATALOG"
-  | "SUPER_USER";
+export type Permission = "ALL" | "SELECT" | "ALTER" | "DROP" | "DELETE" | "INSERT" | "DESCRIBE" | "CREATE_DATABASE" | "CREATE_TABLE" | "DATA_LOCATION_ACCESS" | "CREATE_LF_TAG" | "ASSOCIATE" | "GRANT_WITH_LF_TAG_EXPRESSION" | "CREATE_LF_TAG_EXPRESSION" | "CREATE_CATALOG" | "SUPER_USER";
 export type PermissionList = Array<Permission>;
-export type PermissionType =
-  | "COLUMN_PERMISSION"
-  | "CELL_FILTER_PERMISSION"
-  | "NESTED_PERMISSION"
-  | "NESTED_CELL_PERMISSION";
+export type PermissionType = "COLUMN_PERMISSION" | "CELL_FILTER_PERMISSION" | "NESTED_PERMISSION" | "NESTED_CELL_PERMISSION";
 export type PermissionTypeList = Array<PermissionType>;
 export declare class PermissionTypeMismatchException extends EffectData.TaggedError(
   "PermissionTypeMismatchException",
@@ -1526,13 +1214,13 @@ export interface PrincipalResourcePermissions {
   LastUpdated?: Date | string;
   LastUpdatedBy?: string;
 }
-export type PrincipalResourcePermissionsList =
-  Array<PrincipalResourcePermissions>;
+export type PrincipalResourcePermissionsList = Array<PrincipalResourcePermissions>;
 export interface PutDataLakeSettingsRequest {
   CatalogId?: string;
   DataLakeSettings: DataLakeSettings;
 }
-export interface PutDataLakeSettingsResponse {}
+export interface PutDataLakeSettingsResponse {
+}
 export type QueryIdString = string;
 
 export type QueryParameterMap = Record<string, string>;
@@ -1552,12 +1240,7 @@ export interface QuerySessionContext {
   QueryAuthorizationId?: string;
   AdditionalContext?: Record<string, string>;
 }
-export type QueryStateString =
-  | "PENDING"
-  | "WORKUNITS_AVAILABLE"
-  | "ERROR"
-  | "FINISHED"
-  | "EXPIRED";
+export type QueryStateString = "PENDING" | "WORKUNITS_AVAILABLE" | "ERROR" | "FINISHED" | "EXPIRED";
 export type RAMResourceShareArn = string;
 
 export interface RegisterResourceRequest {
@@ -1568,7 +1251,8 @@ export interface RegisterResourceRequest {
   HybridAccessEnabled?: boolean;
   WithPrivilegedAccess?: boolean;
 }
-export interface RegisterResourceResponse {}
+export interface RegisterResourceResponse {
+}
 export interface RemoveLFTagsFromResourceRequest {
   CatalogId?: string;
   Resource: Resource;
@@ -1624,7 +1308,8 @@ export interface RevokePermissionsRequest {
   Condition?: Condition;
   PermissionsWithGrantOption?: Array<Permission>;
 }
-export interface RevokePermissionsResponse {}
+export interface RevokePermissionsResponse {
+}
 export interface RowFilter {
   FilterExpression?: string;
   AllRowsWildcard?: AllRowsWildcard;
@@ -1688,10 +1373,7 @@ export interface StorageOptimizer {
 export type StorageOptimizerConfig = Record<string, string>;
 export type StorageOptimizerConfigKey = string;
 
-export type StorageOptimizerConfigMap = Record<
-  OptimizerType,
-  Record<string, string>
->;
+export type StorageOptimizerConfigMap = Record<OptimizerType, Record<string, string>>;
 export type StorageOptimizerConfigValue = string;
 
 export type StorageOptimizerList = Array<StorageOptimizer>;
@@ -1715,7 +1397,8 @@ export interface TableResource {
   Name?: string;
   TableWildcard?: TableWildcard;
 }
-export interface TableWildcard {}
+export interface TableWildcard {
+}
 export interface TableWithColumnsResource {
   CatalogId?: string;
   DatabaseName: string;
@@ -1769,17 +1452,8 @@ export interface TransactionDescription {
 export type TransactionDescriptionList = Array<TransactionDescription>;
 export type TransactionIdString = string;
 
-export type TransactionStatus =
-  | "ACTIVE"
-  | "COMMITTED"
-  | "ABORTED"
-  | "COMMIT_IN_PROGRESS";
-export type TransactionStatusFilter =
-  | "ALL"
-  | "COMPLETED"
-  | "ACTIVE"
-  | "COMMITTED"
-  | "ABORTED";
+export type TransactionStatus = "ACTIVE" | "COMMITTED" | "ABORTED" | "COMMIT_IN_PROGRESS";
+export type TransactionStatusFilter = "ALL" | "COMPLETED" | "ACTIVE" | "COMMITTED" | "ABORTED";
 export type TransactionType = "READ_AND_WRITE" | "READ_ONLY";
 export type TrueFalseString = string;
 
@@ -1787,35 +1461,40 @@ export type TrustedResourceOwners = Array<string>;
 export interface UpdateDataCellsFilterRequest {
   TableData: DataCellsFilter;
 }
-export interface UpdateDataCellsFilterResponse {}
+export interface UpdateDataCellsFilterResponse {
+}
 export interface UpdateLakeFormationIdentityCenterConfigurationRequest {
   CatalogId?: string;
   ShareRecipients?: Array<DataLakePrincipal>;
   ApplicationStatus?: ApplicationStatus;
   ExternalFiltering?: ExternalFilteringConfiguration;
 }
-export interface UpdateLakeFormationIdentityCenterConfigurationResponse {}
+export interface UpdateLakeFormationIdentityCenterConfigurationResponse {
+}
 export interface UpdateLFTagExpressionRequest {
   Name: string;
   Description?: string;
   CatalogId?: string;
   Expression: Array<LFTag>;
 }
-export interface UpdateLFTagExpressionResponse {}
+export interface UpdateLFTagExpressionResponse {
+}
 export interface UpdateLFTagRequest {
   CatalogId?: string;
   TagKey: string;
   TagValuesToDelete?: Array<string>;
   TagValuesToAdd?: Array<string>;
 }
-export interface UpdateLFTagResponse {}
+export interface UpdateLFTagResponse {
+}
 export interface UpdateResourceRequest {
   RoleArn: string;
   ResourceArn: string;
   WithFederation?: boolean;
   HybridAccessEnabled?: boolean;
 }
-export interface UpdateResourceResponse {}
+export interface UpdateResourceResponse {
+}
 export interface UpdateTableObjectsRequest {
   CatalogId?: string;
   DatabaseName: string;
@@ -1823,7 +1502,8 @@ export interface UpdateTableObjectsRequest {
   TransactionId?: string;
   WriteOperations: Array<WriteOperation>;
 }
-export interface UpdateTableObjectsResponse {}
+export interface UpdateTableObjectsResponse {
+}
 export interface UpdateTableStorageOptimizerRequest {
   CatalogId?: string;
   DatabaseName: string;
@@ -2584,3 +2264,4 @@ export declare namespace UpdateTableStorageOptimizer {
     | InvalidInputException
     | CommonAwsError;
 }
+

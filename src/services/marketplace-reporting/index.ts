@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MarketplaceReporting extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("marketplace-reporting", new RestJson1Protocol(), cfg);
+  }
+
   getBuyerDashboard(
     input: GetBuyerDashboardInput,
   ): Effect.Effect<
     GetBuyerDashboardOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | UnauthorizedException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetBuyerDashboard", input);
   }
@@ -63,3 +64,4 @@ export declare namespace GetBuyerDashboard {
     | UnauthorizedException
     | CommonAwsError;
 }
+

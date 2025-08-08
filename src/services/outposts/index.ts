@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Outposts extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("outposts", new RestJson1Protocol(), cfg);
+  }
+
   cancelCapacityTask(
     input: CancelCapacityTaskInput,
   ): Effect.Effect<
     CancelCapacityTaskOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CancelCapacityTask", input);
   }
@@ -20,12 +20,7 @@ export class Outposts extends AWSServiceClient {
     input: CancelOrderInput,
   ): Effect.Effect<
     CancelOrderOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CancelOrder", input);
   }
@@ -33,13 +28,7 @@ export class Outposts extends AWSServiceClient {
     input: CreateOrderInput,
   ): Effect.Effect<
     CreateOrderOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateOrder", input);
   }
@@ -47,13 +36,7 @@ export class Outposts extends AWSServiceClient {
     input: CreateOutpostInput,
   ): Effect.Effect<
     CreateOutpostOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateOutpost", input);
   }
@@ -61,12 +44,7 @@ export class Outposts extends AWSServiceClient {
     input: CreateSiteInput,
   ): Effect.Effect<
     CreateSiteOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSite", input);
   }
@@ -74,12 +52,7 @@ export class Outposts extends AWSServiceClient {
     input: DeleteOutpostInput,
   ): Effect.Effect<
     DeleteOutpostOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteOutpost", input);
   }
@@ -87,12 +60,7 @@ export class Outposts extends AWSServiceClient {
     input: DeleteSiteInput,
   ): Effect.Effect<
     DeleteSiteOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteSite", input);
   }
@@ -100,11 +68,7 @@ export class Outposts extends AWSServiceClient {
     input: GetCapacityTaskInput,
   ): Effect.Effect<
     GetCapacityTaskOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetCapacityTask", input);
   }
@@ -112,11 +76,7 @@ export class Outposts extends AWSServiceClient {
     input: GetCatalogItemInput,
   ): Effect.Effect<
     GetCatalogItemOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetCatalogItem", input);
   }
@@ -124,11 +84,7 @@ export class Outposts extends AWSServiceClient {
     input: GetConnectionRequest,
   ): Effect.Effect<
     GetConnectionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetConnection", input);
   }
@@ -136,10 +92,7 @@ export class Outposts extends AWSServiceClient {
     input: GetOrderInput,
   ): Effect.Effect<
     GetOrderOutput,
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetOrder", input);
   }
@@ -147,11 +100,7 @@ export class Outposts extends AWSServiceClient {
     input: GetOutpostInput,
   ): Effect.Effect<
     GetOutpostOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetOutpost", input);
   }
@@ -159,10 +108,7 @@ export class Outposts extends AWSServiceClient {
     input: GetOutpostBillingInformationInput,
   ): Effect.Effect<
     GetOutpostBillingInformationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | CommonAwsError
   > {
     return this.call("GetOutpostBillingInformation", input);
   }
@@ -170,11 +116,7 @@ export class Outposts extends AWSServiceClient {
     input: GetOutpostInstanceTypesInput,
   ): Effect.Effect<
     GetOutpostInstanceTypesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetOutpostInstanceTypes", input);
   }
@@ -182,11 +124,7 @@ export class Outposts extends AWSServiceClient {
     input: GetOutpostSupportedInstanceTypesInput,
   ): Effect.Effect<
     GetOutpostSupportedInstanceTypesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetOutpostSupportedInstanceTypes", input);
   }
@@ -194,11 +132,7 @@ export class Outposts extends AWSServiceClient {
     input: GetSiteInput,
   ): Effect.Effect<
     GetSiteOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetSite", input);
   }
@@ -206,11 +140,7 @@ export class Outposts extends AWSServiceClient {
     input: GetSiteAddressInput,
   ): Effect.Effect<
     GetSiteAddressOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetSiteAddress", input);
   }
@@ -218,11 +148,7 @@ export class Outposts extends AWSServiceClient {
     input: ListAssetInstancesInput,
   ): Effect.Effect<
     ListAssetInstancesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssetInstances", input);
   }
@@ -230,11 +156,7 @@ export class Outposts extends AWSServiceClient {
     input: ListAssetsInput,
   ): Effect.Effect<
     ListAssetsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssets", input);
   }
@@ -242,11 +164,7 @@ export class Outposts extends AWSServiceClient {
     input: ListBlockingInstancesForCapacityTaskInput,
   ): Effect.Effect<
     ListBlockingInstancesForCapacityTaskOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListBlockingInstancesForCapacityTask", input);
   }
@@ -254,11 +172,7 @@ export class Outposts extends AWSServiceClient {
     input: ListCapacityTasksInput,
   ): Effect.Effect<
     ListCapacityTasksOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListCapacityTasks", input);
   }
@@ -266,11 +180,7 @@ export class Outposts extends AWSServiceClient {
     input: ListCatalogItemsInput,
   ): Effect.Effect<
     ListCatalogItemsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListCatalogItems", input);
   }
@@ -278,11 +188,7 @@ export class Outposts extends AWSServiceClient {
     input: ListOrdersInput,
   ): Effect.Effect<
     ListOrdersOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListOrders", input);
   }
@@ -290,10 +196,7 @@ export class Outposts extends AWSServiceClient {
     input: ListOutpostsInput,
   ): Effect.Effect<
     ListOutpostsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListOutposts", input);
   }
@@ -301,10 +204,7 @@ export class Outposts extends AWSServiceClient {
     input: ListSitesInput,
   ): Effect.Effect<
     ListSitesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListSites", input);
   }
@@ -312,10 +212,7 @@ export class Outposts extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -323,12 +220,7 @@ export class Outposts extends AWSServiceClient {
     input: StartCapacityTaskInput,
   ): Effect.Effect<
     StartCapacityTaskOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartCapacityTask", input);
   }
@@ -336,11 +228,7 @@ export class Outposts extends AWSServiceClient {
     input: StartConnectionRequest,
   ): Effect.Effect<
     StartConnectionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartConnection", input);
   }
@@ -348,10 +236,7 @@ export class Outposts extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -359,10 +244,7 @@ export class Outposts extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -370,12 +252,7 @@ export class Outposts extends AWSServiceClient {
     input: UpdateOutpostInput,
   ): Effect.Effect<
     UpdateOutpostOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateOutpost", input);
   }
@@ -383,12 +260,7 @@ export class Outposts extends AWSServiceClient {
     input: UpdateSiteInput,
   ): Effect.Effect<
     UpdateSiteOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSite", input);
   }
@@ -396,12 +268,7 @@ export class Outposts extends AWSServiceClient {
     input: UpdateSiteAddressInput,
   ): Effect.Effect<
     UpdateSiteAddressOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSiteAddress", input);
   }
@@ -409,12 +276,7 @@ export class Outposts extends AWSServiceClient {
     input: UpdateSiteRackPhysicalPropertiesInput,
   ): Effect.Effect<
     UpdateSiteRackPhysicalPropertiesOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSiteRackPhysicalProperties", input);
   }
@@ -489,13 +351,7 @@ export type AvailabilityZoneId = string;
 
 export type AvailabilityZoneIdList = Array<string>;
 export type AvailabilityZoneList = Array<string>;
-export type AWSServiceName =
-  | "AWS"
-  | "EC2"
-  | "ELASTICACHE"
-  | "ELB"
-  | "RDS"
-  | "ROUTE53";
+export type AWSServiceName = "AWS" | "EC2" | "ELASTICACHE" | "ELB" | "RDS" | "ROUTE53";
 export type AWSServiceNameList = Array<AWSServiceName>;
 export interface BlockingInstance {
   InstanceId?: string;
@@ -507,32 +363,22 @@ export interface CancelCapacityTaskInput {
   CapacityTaskId: string;
   OutpostIdentifier: string;
 }
-export interface CancelCapacityTaskOutput {}
+export interface CancelCapacityTaskOutput {
+}
 export interface CancelOrderInput {
   OrderId: string;
 }
-export interface CancelOrderOutput {}
+export interface CancelOrderOutput {
+}
 export interface CapacityTaskFailure {
   Reason: string;
   Type?: CapacityTaskFailureType;
 }
-export type CapacityTaskFailureType =
-  | "UNSUPPORTED_CAPACITY_CONFIGURATION"
-  | "UNEXPECTED_ASSET_STATE"
-  | "BLOCKING_INSTANCES_NOT_EVACUATED"
-  | "INTERNAL_SERVER_ERROR"
-  | "RESOURCE_NOT_FOUND";
+export type CapacityTaskFailureType = "UNSUPPORTED_CAPACITY_CONFIGURATION" | "UNEXPECTED_ASSET_STATE" | "BLOCKING_INSTANCES_NOT_EVACUATED" | "INTERNAL_SERVER_ERROR" | "RESOURCE_NOT_FOUND";
 export type CapacityTaskId = string;
 
 export type CapacityTaskList = Array<CapacityTaskSummary>;
-export type CapacityTaskStatus =
-  | "REQUESTED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED"
-  | "WAITING_FOR_EVACUATION"
-  | "CANCELLATION_IN_PROGRESS"
-  | "CANCELLED";
+export type CapacityTaskStatus = "REQUESTED" | "IN_PROGRESS" | "FAILED" | "COMPLETED" | "WAITING_FOR_EVACUATION" | "CANCELLATION_IN_PROGRESS" | "CANCELLED";
 export type CapacityTaskStatusList = Array<CapacityTaskStatus>;
 export type CapacityTaskStatusReason = string;
 
@@ -637,11 +483,13 @@ export interface CreateSiteOutput {
 export interface DeleteOutpostInput {
   OutpostId: string;
 }
-export interface DeleteOutpostOutput {}
+export interface DeleteOutpostOutput {
+}
 export interface DeleteSiteInput {
   SiteId: string;
 }
-export interface DeleteSiteOutput {}
+export interface DeleteSiteOutput {
+}
 export type DeviceSerialNumber = string;
 
 export type DistrictOrCounty = string;
@@ -815,16 +663,7 @@ export interface LineItemRequest {
   Quantity?: number;
 }
 export type LineItemRequestListDefinition = Array<LineItemRequest>;
-export type LineItemStatus =
-  | "PREPARING"
-  | "BUILDING"
-  | "SHIPPED"
-  | "DELIVERED"
-  | "INSTALLING"
-  | "INSTALLED"
-  | "ERROR"
-  | "CANCELLED"
-  | "REPLACED";
+export type LineItemStatus = "PREPARING" | "BUILDING" | "SHIPPED" | "DELIVERED" | "INSTALLING" | "INSTALLED" | "ERROR" | "CANCELLED" | "REPLACED";
 export type LineItemStatusCounts = Record<LineItemStatus, number>;
 export interface ListAssetInstancesInput {
   OutpostIdentifier: string;
@@ -921,12 +760,7 @@ export interface ListTagsForResourceResponse {
 export type MacAddress = string;
 
 export type MacAddressList = Array<string>;
-export type MaximumSupportedWeightLbs =
-  | "NO_LIMIT"
-  | "MAX_1400_LBS"
-  | "MAX_1600_LBS"
-  | "MAX_1800_LBS"
-  | "MAX_2000_LBS";
+export type MaximumSupportedWeightLbs = "NO_LIMIT" | "MAX_1400_LBS" | "MAX_1600_LBS" | "MAX_1800_LBS" | "MAX_2000_LBS";
 export type MaxResults1000 = number;
 
 export type MaxSize = string;
@@ -942,20 +776,7 @@ export declare class NotFoundException extends EffectData.TaggedError(
 }> {}
 export type NullableDouble = number;
 
-export type OpticalStandard =
-  | "OPTIC_10GBASE_SR"
-  | "OPTIC_10GBASE_IR"
-  | "OPTIC_10GBASE_LR"
-  | "OPTIC_40GBASE_SR"
-  | "OPTIC_40GBASE_ESR"
-  | "OPTIC_40GBASE_IR4_LR4L"
-  | "OPTIC_40GBASE_LR4"
-  | "OPTIC_100GBASE_SR4"
-  | "OPTIC_100GBASE_CWDM4"
-  | "OPTIC_100GBASE_LR4"
-  | "OPTIC_100G_PSM4_MSA"
-  | "OPTIC_1000BASE_LX"
-  | "OPTIC_1000BASE_SX";
+export type OpticalStandard = "OPTIC_10GBASE_SR" | "OPTIC_10GBASE_IR" | "OPTIC_10GBASE_LR" | "OPTIC_40GBASE_SR" | "OPTIC_40GBASE_ESR" | "OPTIC_40GBASE_IR4_LR4L" | "OPTIC_40GBASE_LR4" | "OPTIC_100GBASE_SR4" | "OPTIC_100GBASE_CWDM4" | "OPTIC_100GBASE_LR4" | "OPTIC_100G_PSM4_MSA" | "OPTIC_1000BASE_LX" | "OPTIC_1000BASE_SX";
 export interface Order {
   OutpostId?: string;
   OrderId?: string;
@@ -970,18 +791,7 @@ export interface Order {
 export type OrderId = string;
 
 export type OrderIdList = Array<string>;
-export type OrderStatus =
-  | "RECEIVED"
-  | "PENDING"
-  | "PROCESSING"
-  | "INSTALLING"
-  | "FULFILLED"
-  | "CANCELLED"
-  | "PREPARING"
-  | "IN_PROGRESS"
-  | "DELIVERED"
-  | "COMPLETED"
-  | "ERROR";
+export type OrderStatus = "RECEIVED" | "PENDING" | "PROCESSING" | "INSTALLING" | "FULFILLED" | "CANCELLED" | "PREPARING" | "IN_PROGRESS" | "DELIVERED" | "COMPLETED" | "ERROR";
 export interface OrderSummary {
   OutpostId?: string;
   OrderId?: string;
@@ -1029,17 +839,8 @@ export type PaymentOption = "ALL_UPFRONT" | "NO_UPFRONT" | "PARTIAL_UPFRONT";
 export type PaymentTerm = "THREE_YEARS" | "ONE_YEAR" | "FIVE_YEARS";
 export type PostalCode = string;
 
-export type PowerConnector =
-  | "L6_30P"
-  | "IEC309"
-  | "AH530P7W"
-  | "AH532P6W"
-  | "CS8365C";
-export type PowerDrawKva =
-  | "POWER_5_KVA"
-  | "POWER_10_KVA"
-  | "POWER_15_KVA"
-  | "POWER_30_KVA";
+export type PowerConnector = "L6_30P" | "IEC309" | "AH530P7W" | "AH532P6W" | "CS8365C";
+export type PowerDrawKva = "POWER_5_KVA" | "POWER_10_KVA" | "POWER_15_KVA" | "POWER_30_KVA";
 export type PowerFeedDrop = "ABOVE_RACK" | "BELOW_RACK";
 export type PowerPhase = "SINGLE_PHASE" | "THREE_PHASE";
 export type Quantity = string;
@@ -1166,7 +967,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TaskActionOnBlockingInstances = "WAIT_FOR_EVACUATION" | "FAIL_TASK";
@@ -1180,7 +982,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateOutpostInput {
   OutpostId: string;
   Name?: string;
@@ -1223,22 +1026,8 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
 export interface UpdateSiteRackPhysicalPropertiesOutput {
   Site?: Site;
 }
-export type UplinkCount =
-  | "UPLINK_COUNT_1"
-  | "UPLINK_COUNT_2"
-  | "UPLINK_COUNT_3"
-  | "UPLINK_COUNT_4"
-  | "UPLINK_COUNT_5"
-  | "UPLINK_COUNT_6"
-  | "UPLINK_COUNT_7"
-  | "UPLINK_COUNT_8"
-  | "UPLINK_COUNT_12"
-  | "UPLINK_COUNT_16";
-export type UplinkGbps =
-  | "UPLINK_1G"
-  | "UPLINK_10G"
-  | "UPLINK_40G"
-  | "UPLINK_100G";
+export type UplinkCount = "UPLINK_COUNT_1" | "UPLINK_COUNT_2" | "UPLINK_COUNT_3" | "UPLINK_COUNT_4" | "UPLINK_COUNT_5" | "UPLINK_COUNT_6" | "UPLINK_COUNT_7" | "UPLINK_COUNT_8" | "UPLINK_COUNT_12" | "UPLINK_COUNT_16";
+export type UplinkGbps = "UPLINK_1G" | "UPLINK_10G" | "UPLINK_40G" | "UPLINK_100G";
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -1628,3 +1417,4 @@ export declare namespace UpdateSiteRackPhysicalProperties {
     | ValidationException
     | CommonAwsError;
 }
+

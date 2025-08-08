@@ -1,20 +1,19 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Omics extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("omics", new RestJson1Protocol(), cfg);
+  }
+
   deleteS3AccessPolicy(
     input: DeleteS3AccessPolicyRequest,
   ): Effect.Effect<
     DeleteS3AccessPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteS3AccessPolicy", input);
   }
@@ -22,15 +21,7 @@ export class Omics extends AWSServiceClient {
     input: GetS3AccessPolicyRequest,
   ): Effect.Effect<
     GetS3AccessPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetS3AccessPolicy", input);
   }
@@ -38,14 +29,7 @@ export class Omics extends AWSServiceClient {
     input: PutS3AccessPolicyRequest,
   ): Effect.Effect<
     PutS3AccessPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotSupportedOperationException
-    | RequestTimeoutException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotSupportedOperationException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutS3AccessPolicy", input);
   }
@@ -57,7 +41,8 @@ export interface AbortMultipartReadSetUploadRequest {
   sequenceStoreId: string;
   uploadId: string;
 }
-export interface AbortMultipartReadSetUploadResponse {}
+export interface AbortMultipartReadSetUploadResponse {
+}
 export type Accelerators = string;
 
 export interface AcceptShareRequest {
@@ -165,14 +150,16 @@ export type CacheBehavior = string;
 export interface CancelAnnotationImportRequest {
   jobId: string;
 }
-export interface CancelAnnotationImportResponse {}
+export interface CancelAnnotationImportResponse {
+}
 export interface CancelRunRequest {
   id: string;
 }
 export interface CancelVariantImportRequest {
   jobId: string;
 }
-export interface CancelVariantImportResponse {}
+export interface CancelVariantImportResponse {
+}
 export type ClientToken = string;
 
 export type CommentChar = string;
@@ -185,8 +172,7 @@ export interface CompleteMultipartReadSetUploadRequest {
 export interface CompleteMultipartReadSetUploadResponse {
   readSetId: string;
 }
-export type CompleteReadSetUploadPartList =
-  Array<CompleteReadSetUploadPartListItem>;
+export type CompleteReadSetUploadPartList = Array<CompleteReadSetUploadPartListItem>;
 export interface CompleteReadSetUploadPartListItem {
   partNumber: number;
   partSource: string;
@@ -449,11 +435,13 @@ export interface DeleteReferenceRequest {
   id: string;
   referenceStoreId: string;
 }
-export interface DeleteReferenceResponse {}
+export interface DeleteReferenceResponse {
+}
 export interface DeleteReferenceStoreRequest {
   id: string;
 }
-export interface DeleteReferenceStoreResponse {}
+export interface DeleteReferenceStoreResponse {
+}
 export interface DeleteRunCacheRequest {
   id: string;
 }
@@ -466,11 +454,13 @@ export interface DeleteRunRequest {
 export interface DeleteS3AccessPolicyRequest {
   s3AccessPointArn: string;
 }
-export interface DeleteS3AccessPolicyResponse {}
+export interface DeleteS3AccessPolicyResponse {
+}
 export interface DeleteSequenceStoreRequest {
   id: string;
 }
-export interface DeleteSequenceStoreResponse {}
+export interface DeleteSequenceStoreResponse {
+}
 export interface DeleteShareRequest {
   shareId: string;
 }
@@ -561,9 +551,7 @@ interface _FormatOptions {
   vcfOptions?: VcfOptions;
 }
 
-export type FormatOptions =
-  | (_FormatOptions & { tsvOptions: TsvOptions })
-  | (_FormatOptions & { vcfOptions: VcfOptions });
+export type FormatOptions = (_FormatOptions & { tsvOptions: TsvOptions }) | (_FormatOptions & { vcfOptions: VcfOptions });
 export type FormatToHeader = Record<string, string>;
 export type FormatToHeaderKey = string;
 
@@ -1473,7 +1461,7 @@ interface _ReferenceItem {
   referenceArn?: string;
 }
 
-export type ReferenceItem = _ReferenceItem & { referenceArn: string };
+export type ReferenceItem = (_ReferenceItem & { referenceArn: string });
 export type ReferenceList = Array<ReferenceListItem>;
 export interface ReferenceListItem {
   id: string;
@@ -1772,8 +1760,7 @@ export interface StartReadSetActivationJobResponse {
 export interface StartReadSetActivationJobSourceItem {
   readSetId: string;
 }
-export type StartReadSetActivationJobSourceList =
-  Array<StartReadSetActivationJobSourceItem>;
+export type StartReadSetActivationJobSourceList = Array<StartReadSetActivationJobSourceItem>;
 export interface StartReadSetExportJobRequest {
   sequenceStoreId: string;
   destination: string;
@@ -1812,8 +1799,7 @@ export interface StartReadSetImportJobSourceItem {
   description?: string;
   tags?: Record<string, string>;
 }
-export type StartReadSetImportJobSourceList =
-  Array<StartReadSetImportJobSourceItem>;
+export type StartReadSetImportJobSourceList = Array<StartReadSetImportJobSourceItem>;
 export interface StartReferenceImportJobRequest {
   referenceStoreId: string;
   roleArn: string;
@@ -1833,8 +1819,7 @@ export interface StartReferenceImportJobSourceItem {
   description?: string;
   tags?: Record<string, string>;
 }
-export type StartReferenceImportJobSourceList =
-  Array<StartReferenceImportJobSourceItem>;
+export type StartReferenceImportJobSourceList = Array<StartReferenceImportJobSourceItem>;
 export interface StartRunRequest {
   workflowId?: string;
   workflowType?: string;
@@ -1889,7 +1874,7 @@ interface _StoreOptions {
   tsvStoreOptions?: TsvStoreOptions;
 }
 
-export type StoreOptions = _StoreOptions & { tsvStoreOptions: TsvStoreOptions };
+export type StoreOptions = (_StoreOptions & { tsvStoreOptions: TsvStoreOptions });
 export type StoreStatus = string;
 
 export type StoreType = "SEQUENCE_STORE" | "REFERENCE_STORE";
@@ -1905,7 +1890,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TaskFailureReason = string;
@@ -1964,7 +1950,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAnnotationStoreRequest {
   name: string;
   description?: string;
@@ -2137,9 +2124,7 @@ interface _VersionOptions {
   tsvVersionOptions?: TsvVersionOptions;
 }
 
-export type VersionOptions = _VersionOptions & {
-  tsvVersionOptions: TsvVersionOptions;
-};
+export type VersionOptions = (_VersionOptions & { tsvVersionOptions: TsvVersionOptions });
 export type VersionStatus = string;
 
 export type WorkflowArn = string;
@@ -2266,3 +2251,4 @@ export declare namespace PutS3AccessPolicy {
     | ValidationException
     | CommonAwsError;
 }
+

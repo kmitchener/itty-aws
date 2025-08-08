@@ -1,19 +1,19 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class BedrockAgentCore extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("bedrock-agentcore", new RestJson1Protocol(), cfg);
+  }
+
   getResourceApiKey(
     input: GetResourceApiKeyRequest,
   ): Effect.Effect<
     GetResourceApiKeyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourceApiKey", input);
   }
@@ -21,13 +21,7 @@ export class BedrockAgentCore extends AWSServiceClient {
     input: GetResourceOauth2TokenRequest,
   ): Effect.Effect<
     GetResourceOauth2TokenResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourceOauth2Token", input);
   }
@@ -35,13 +29,7 @@ export class BedrockAgentCore extends AWSServiceClient {
     input: GetWorkloadAccessTokenRequest,
   ): Effect.Effect<
     GetWorkloadAccessTokenResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("GetWorkloadAccessToken", input);
   }
@@ -49,13 +37,7 @@ export class BedrockAgentCore extends AWSServiceClient {
     input: GetWorkloadAccessTokenForJWTRequest,
   ): Effect.Effect<
     GetWorkloadAccessTokenForJWTResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("GetWorkloadAccessTokenForJWT", input);
   }
@@ -63,13 +45,7 @@ export class BedrockAgentCore extends AWSServiceClient {
     input: GetWorkloadAccessTokenForUserIdRequest,
   ): Effect.Effect<
     GetWorkloadAccessTokenForUserIdResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   > {
     return this.call("GetWorkloadAccessTokenForUserId", input);
   }
@@ -77,14 +53,7 @@ export class BedrockAgentCore extends AWSServiceClient {
     input: InvokeCodeInterpreterRequest,
   ): Effect.Effect<
     InvokeCodeInterpreterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("InvokeCodeInterpreter", input);
   }
@@ -159,8 +128,7 @@ export interface CodeInterpreterResult {
 export type CodeInterpreterSessionId = string;
 
 export type CodeInterpreterSessionStatus = "READY" | "TERMINATED";
-export type CodeInterpreterSessionSummaries =
-  Array<CodeInterpreterSessionSummary>;
+export type CodeInterpreterSessionSummaries = Array<CodeInterpreterSessionSummary>;
 export interface CodeInterpreterSessionSummary {
   codeInterpreterIdentifier: string;
   sessionId: string;
@@ -182,27 +150,7 @@ interface _CodeInterpreterStreamOutput {
   validationException?: ValidationException;
 }
 
-export type CodeInterpreterStreamOutput =
-  | (_CodeInterpreterStreamOutput & { result: CodeInterpreterResult })
-  | (_CodeInterpreterStreamOutput & {
-      accessDeniedException: AccessDeniedException;
-    })
-  | (_CodeInterpreterStreamOutput & { conflictException: ConflictException })
-  | (_CodeInterpreterStreamOutput & {
-      internalServerException: InternalServerException;
-    })
-  | (_CodeInterpreterStreamOutput & {
-      resourceNotFoundException: ResourceNotFoundException;
-    })
-  | (_CodeInterpreterStreamOutput & {
-      serviceQuotaExceededException: ServiceQuotaExceededException;
-    })
-  | (_CodeInterpreterStreamOutput & {
-      throttlingException: ThrottlingException;
-    })
-  | (_CodeInterpreterStreamOutput & {
-      validationException: ValidationException;
-    });
+export type CodeInterpreterStreamOutput = (_CodeInterpreterStreamOutput & { result: CodeInterpreterResult }) | (_CodeInterpreterStreamOutput & { accessDeniedException: AccessDeniedException }) | (_CodeInterpreterStreamOutput & { conflictException: ConflictException }) | (_CodeInterpreterStreamOutput & { internalServerException: InternalServerException }) | (_CodeInterpreterStreamOutput & { resourceNotFoundException: ResourceNotFoundException }) | (_CodeInterpreterStreamOutput & { serviceQuotaExceededException: ServiceQuotaExceededException }) | (_CodeInterpreterStreamOutput & { throttlingException: ThrottlingException }) | (_CodeInterpreterStreamOutput & { validationException: ValidationException });
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -212,7 +160,7 @@ interface _Content {
   text?: string;
 }
 
-export type Content = _Content & { text: string };
+export type Content = (_Content & { text: string });
 export interface ContentBlock {
   type: ContentBlockType;
   text?: string;
@@ -225,11 +173,7 @@ export interface ContentBlock {
   resource?: ResourceContent;
 }
 export type ContentBlockList = Array<ContentBlock>;
-export type ContentBlockType =
-  | "TEXT"
-  | "IMAGE"
-  | "EMBEDDED_RESOURCE"
-  | "RESOURCE_LINK";
+export type ContentBlockType = "TEXT" | "IMAGE" | "EMBEDDED_RESOURCE" | "RESOURCE_LINK";
 export interface Conversational {
   content: Content;
   role: Role;
@@ -502,7 +446,7 @@ interface _MemoryContent {
   text?: string;
 }
 
-export type MemoryContent = _MemoryContent & { text: string };
+export type MemoryContent = (_MemoryContent & { text: string });
 export type MemoryId = string;
 
 export interface MemoryRecord {
@@ -544,9 +488,7 @@ interface _PayloadType {
   blob?: unknown;
 }
 
-export type PayloadType =
-  | (_PayloadType & { conversational: Conversational })
-  | (_PayloadType & { blob: unknown });
+export type PayloadType = (_PayloadType & { conversational: Conversational }) | (_PayloadType & { blob: unknown });
 export type PayloadTypeList = Array<PayloadType>;
 export type ProgrammingLanguage = "PYTHON" | "JAVASCRIPT" | "TYPESCRIPT";
 export interface ResourceContent {
@@ -661,18 +603,11 @@ interface _StreamUpdate {
   automationStreamUpdate?: AutomationStreamUpdate;
 }
 
-export type StreamUpdate = _StreamUpdate & {
-  automationStreamUpdate: AutomationStreamUpdate;
-};
+export type StreamUpdate = (_StreamUpdate & { automationStreamUpdate: AutomationStreamUpdate });
 export type StringList = Array<string>;
 export type StringType = string;
 
-export type TaskStatus =
-  | "SUBMITTED"
-  | "WORKING"
-  | "COMPLETED"
-  | "CANCELED"
-  | "FAILED";
+export type TaskStatus = "SUBMITTED" | "WORKING" | "COMPLETED" | "CANCELED" | "FAILED";
 export declare class ThrottledException extends EffectData.TaggedError(
   "ThrottledException",
 )<{
@@ -694,16 +629,7 @@ export interface ToolArguments {
   directoryPath?: string;
   taskId?: string;
 }
-export type ToolName =
-  | "EXECUTE_CODE"
-  | "EXECUTE_COMMAND"
-  | "READ_FILES"
-  | "LIST_FILES"
-  | "REMOVE_FILES"
-  | "WRITE_FILES"
-  | "START_COMMAND_EXECUTION"
-  | "GET_TASK"
-  | "STOP_TASK";
+export type ToolName = "EXECUTE_CODE" | "EXECUTE_COMMAND" | "READ_FILES" | "LIST_FILES" | "REMOVE_FILES" | "WRITE_FILES" | "START_COMMAND_EXECUTION" | "GET_TASK" | "STOP_TASK";
 export interface ToolResultStructuredContent {
   taskId?: string;
   taskStatus?: TaskStatus;
@@ -745,12 +671,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION"
-  | "ROOT_EVENT_IN_OTHER_SESSION"
-  | "RESOURCE_CONFLICT";
+export type ValidationExceptionReason = "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "IDEMPOTENT_PARAMETER_MISMATCH_EXCEPTION" | "ROOT_EVENT_IN_OTHER_SESSION" | "RESOURCE_CONFLICT";
 export interface ViewPort {
   width: number;
   height: number;
@@ -841,3 +762,4 @@ export declare namespace InvokeCodeInterpreter {
     | ValidationException
     | CommonAwsError;
 }
+

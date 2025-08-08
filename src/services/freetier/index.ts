@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class FreeTier extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("freetier", new AwsJson10Protocol(), cfg);
+  }
+
   getAccountActivity(
     input: GetAccountActivityRequest,
   ): Effect.Effect<
     GetAccountActivityResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAccountActivity", input);
   }
@@ -19,12 +20,7 @@ export class FreeTier extends AWSServiceClient {
     input: GetAccountPlanStateRequest,
   ): Effect.Effect<
     GetAccountPlanStateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAccountPlanState", input);
   }
@@ -32,10 +28,7 @@ export class FreeTier extends AWSServiceClient {
     input: GetFreeTierUsageRequest,
   ): Effect.Effect<
     GetFreeTierUsageResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetFreeTierUsage", input);
   }
@@ -43,10 +36,7 @@ export class FreeTier extends AWSServiceClient {
     input: ListAccountActivitiesRequest,
   ): Effect.Effect<
     ListAccountActivitiesResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAccountActivities", input);
   }
@@ -54,12 +44,7 @@ export class FreeTier extends AWSServiceClient {
     input: UpgradeAccountPlanRequest,
   ): Effect.Effect<
     UpgradeAccountPlanResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpgradeAccountPlan", input);
   }
@@ -85,12 +70,8 @@ interface _ActivityReward {
   credit?: MonetaryAmount;
 }
 
-export type ActivityReward = _ActivityReward & { credit: MonetaryAmount };
-export type ActivityStatus =
-  | "NOT_STARTED"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "EXPIRING";
+export type ActivityReward = (_ActivityReward & { credit: MonetaryAmount });
+export type ActivityStatus = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "EXPIRING";
 export interface ActivitySummary {
   activityId: string;
   title: string;
@@ -98,14 +79,7 @@ export interface ActivitySummary {
   status: ActivityStatus;
 }
 export type CurrencyCode = "USD";
-export type Dimension =
-  | "SERVICE"
-  | "OPERATION"
-  | "USAGE_TYPE"
-  | "REGION"
-  | "FREE_TIER_TYPE"
-  | "DESCRIPTION"
-  | "USAGE_PERCENTAGE";
+export type Dimension = "SERVICE" | "OPERATION" | "USAGE_TYPE" | "REGION" | "FREE_TIER_TYPE" | "DESCRIPTION" | "USAGE_PERCENTAGE";
 export interface DimensionValues {
   Key: Dimension;
   Values: Array<string>;
@@ -152,7 +126,8 @@ export interface GetAccountActivityResponse {
   startedAt?: Date | string;
   completedAt?: Date | string;
 }
-export interface GetAccountPlanStateRequest {}
+export interface GetAccountPlanStateRequest {
+}
 export interface GetAccountPlanStateResponse {
   accountId: string;
   accountPlanType: AccountPlanType;
@@ -174,20 +149,7 @@ export declare class InternalServerException extends EffectData.TaggedError(
 )<{
   readonly message: string;
 }> {}
-export type LanguageCode =
-  | "EN_US"
-  | "EN_GB"
-  | "ID_ID"
-  | "DE_DE"
-  | "ES_ES"
-  | "FR_FR"
-  | "JA_JP"
-  | "IT_IT"
-  | "PT_PT"
-  | "KO_KR"
-  | "ZH_CN"
-  | "ZH_TW"
-  | "TR_TR";
+export type LanguageCode = "EN_US" | "EN_GB" | "ID_ID" | "DE_DE" | "ES_ES" | "FR_FR" | "JA_JP" | "IT_IT" | "PT_PT" | "KO_KR" | "ZH_CN" | "ZH_TW" | "TR_TR";
 export interface ListAccountActivitiesRequest {
   filterActivityStatuses?: Array<ActivityStatus>;
   nextToken?: string;
@@ -198,12 +160,7 @@ export interface ListAccountActivitiesResponse {
   activities: Array<ActivitySummary>;
   nextToken?: string;
 }
-export type MatchOption =
-  | "EQUALS"
-  | "STARTS_WITH"
-  | "ENDS_WITH"
-  | "CONTAINS"
-  | "GREATER_THAN_OR_EQUAL";
+export type MatchOption = "EQUALS" | "STARTS_WITH" | "ENDS_WITH" | "CONTAINS" | "GREATER_THAN_OR_EQUAL";
 export type MatchOptions = Array<MatchOption>;
 export type MaxResults = number;
 
@@ -293,3 +250,4 @@ export declare namespace UpgradeAccountPlan {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,22 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ChimeSDKMeetings extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("chime-sdk-meetings", new RestJson1Protocol(), cfg);
+  }
+
   batchCreateAttendee(
     input: BatchCreateAttendeeRequest,
   ): Effect.Effect<
     BatchCreateAttendeeResponse,
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("BatchCreateAttendee", input);
   }
@@ -24,15 +20,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: BatchUpdateAttendeeCapabilitiesExceptRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("BatchUpdateAttendeeCapabilitiesExcept", input);
   }
@@ -40,16 +28,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: CreateAttendeeRequest,
   ): Effect.Effect<
     CreateAttendeeResponse,
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("CreateAttendee", input);
   }
@@ -57,15 +36,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: CreateMeetingRequest,
   ): Effect.Effect<
     CreateMeetingResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | LimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | LimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateMeeting", input);
   }
@@ -73,15 +44,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: CreateMeetingWithAttendeesRequest,
   ): Effect.Effect<
     CreateMeetingWithAttendeesResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | LimitExceededException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | LimitExceededException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateMeetingWithAttendees", input);
   }
@@ -89,14 +52,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: DeleteAttendeeRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteAttendee", input);
   }
@@ -104,14 +60,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: DeleteMeetingRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteMeeting", input);
   }
@@ -119,14 +68,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: GetAttendeeRequest,
   ): Effect.Effect<
     GetAttendeeResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetAttendee", input);
   }
@@ -134,14 +76,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: GetMeetingRequest,
   ): Effect.Effect<
     GetMeetingResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetMeeting", input);
   }
@@ -149,14 +84,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: ListAttendeesRequest,
   ): Effect.Effect<
     ListAttendeesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListAttendees", input);
   }
@@ -164,15 +92,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | ResourceNotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -180,16 +100,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: StartMeetingTranscriptionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("StartMeetingTranscription", input);
   }
@@ -197,15 +108,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: StopMeetingTranscriptionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | UnprocessableEntityException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("StopMeetingTranscription", input);
   }
@@ -213,16 +116,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | TooManyTagsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | ResourceNotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | TooManyTagsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -230,15 +124,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | LimitExceededException | ResourceNotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -246,15 +132,7 @@ export class ChimeSDKMeetings extends AWSServiceClient {
     input: UpdateAttendeeCapabilitiesRequest,
   ): Effect.Effect<
     UpdateAttendeeCapabilitiesResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | NotFoundException
-    | ServiceFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | NotFoundException | ServiceFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateAttendeeCapabilities", input);
   }
@@ -372,8 +250,7 @@ export interface CreateMeetingWithAttendeesRequest {
   TenantIds?: Array<string>;
   Tags?: Array<Tag>;
 }
-export type CreateMeetingWithAttendeesRequestItemList =
-  Array<CreateAttendeeRequestItem>;
+export type CreateMeetingWithAttendeesRequestItemList = Array<CreateAttendeeRequestItem>;
 export interface CreateMeetingWithAttendeesResponse {
   Meeting?: Meeting;
   Attendees?: Array<Attendee>;
@@ -555,7 +432,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TenantId = string;
@@ -578,60 +456,20 @@ export declare class TooManyTagsException extends EffectData.TaggedError(
 }> {}
 export type TranscribeContentIdentificationType = "PII";
 export type TranscribeContentRedactionType = "PII";
-export type TranscribeLanguageCode =
-  | "EN_US"
-  | "EN_GB"
-  | "ES_US"
-  | "FR_CA"
-  | "FR_FR"
-  | "EN_AU"
-  | "IT_IT"
-  | "DE_DE"
-  | "PT_BR"
-  | "JA_JP"
-  | "KO_KR"
-  | "ZH_CN"
-  | "TH_TH"
-  | "HI_IN";
+export type TranscribeLanguageCode = "EN_US" | "EN_GB" | "ES_US" | "FR_CA" | "FR_FR" | "EN_AU" | "IT_IT" | "DE_DE" | "PT_BR" | "JA_JP" | "KO_KR" | "ZH_CN" | "TH_TH" | "HI_IN";
 export type TranscribeLanguageModelName = string;
 
 export type TranscribeLanguageOptions = string;
 
 export type TranscribeMedicalContentIdentificationType = "PHI";
 export type TranscribeMedicalLanguageCode = "EN_US";
-export type TranscribeMedicalRegion =
-  | "US_EAST_1"
-  | "US_EAST_2"
-  | "US_WEST_2"
-  | "AP_SOUTHEAST_2"
-  | "CA_CENTRAL_1"
-  | "EU_WEST_1"
-  | "AUTO";
-export type TranscribeMedicalSpecialty =
-  | "PRIMARYCARE"
-  | "CARDIOLOGY"
-  | "NEUROLOGY"
-  | "ONCOLOGY"
-  | "RADIOLOGY"
-  | "UROLOGY";
+export type TranscribeMedicalRegion = "US_EAST_1" | "US_EAST_2" | "US_WEST_2" | "AP_SOUTHEAST_2" | "CA_CENTRAL_1" | "EU_WEST_1" | "AUTO";
+export type TranscribeMedicalSpecialty = "PRIMARYCARE" | "CARDIOLOGY" | "NEUROLOGY" | "ONCOLOGY" | "RADIOLOGY" | "UROLOGY";
 export type TranscribeMedicalType = "CONVERSATION" | "DICTATION";
 export type TranscribePartialResultsStability = "LOW" | "MEDIUM" | "HIGH";
 export type TranscribePiiEntityTypes = string;
 
-export type TranscribeRegion =
-  | "US_EAST_2"
-  | "US_EAST_1"
-  | "US_WEST_2"
-  | "AP_NORTHEAST_2"
-  | "AP_SOUTHEAST_2"
-  | "AP_NORTHEAST_1"
-  | "CA_CENTRAL_1"
-  | "EU_CENTRAL_1"
-  | "EU_WEST_1"
-  | "EU_WEST_2"
-  | "SA_EAST_1"
-  | "AUTO"
-  | "US_GOV_WEST_1";
+export type TranscribeRegion = "US_EAST_2" | "US_EAST_1" | "US_WEST_2" | "AP_NORTHEAST_2" | "AP_SOUTHEAST_2" | "AP_NORTHEAST_1" | "CA_CENTRAL_1" | "EU_CENTRAL_1" | "EU_WEST_1" | "EU_WEST_2" | "SA_EAST_1" | "AUTO" | "US_GOV_WEST_1";
 export type TranscribeVocabularyFilterMethod = "REMOVE" | "MASK" | "TAG";
 export type TranscribeVocabularyNamesOrFilterNamesString = string;
 
@@ -657,7 +495,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAttendeeCapabilitiesRequest {
   MeetingId: string;
   AttendeeId: string;
@@ -908,3 +747,4 @@ export declare namespace UpdateAttendeeCapabilities {
     | UnauthorizedException
     | CommonAwsError;
 }
+

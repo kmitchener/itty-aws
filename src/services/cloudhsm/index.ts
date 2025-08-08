@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class CloudHSM extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cloudhsm", new AwsJson11Protocol(), cfg);
+  }
+
   addTagsToResource(
     input: AddTagsToResourceRequest,
   ): Effect.Effect<
     AddTagsToResourceResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("AddTagsToResource", input);
   }
@@ -18,10 +20,7 @@ export class CloudHSM extends AWSServiceClient {
     input: CreateHapgRequest,
   ): Effect.Effect<
     CreateHapgResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("CreateHapg", input);
   }
@@ -29,10 +28,7 @@ export class CloudHSM extends AWSServiceClient {
     input: CreateHsmRequest,
   ): Effect.Effect<
     CreateHsmResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("CreateHsm", input);
   }
@@ -40,10 +36,7 @@ export class CloudHSM extends AWSServiceClient {
     input: CreateLunaClientRequest,
   ): Effect.Effect<
     CreateLunaClientResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("CreateLunaClient", input);
   }
@@ -51,10 +44,7 @@ export class CloudHSM extends AWSServiceClient {
     input: DeleteHapgRequest,
   ): Effect.Effect<
     DeleteHapgResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("DeleteHapg", input);
   }
@@ -62,10 +52,7 @@ export class CloudHSM extends AWSServiceClient {
     input: DeleteHsmRequest,
   ): Effect.Effect<
     DeleteHsmResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("DeleteHsm", input);
   }
@@ -73,10 +60,7 @@ export class CloudHSM extends AWSServiceClient {
     input: DeleteLunaClientRequest,
   ): Effect.Effect<
     DeleteLunaClientResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("DeleteLunaClient", input);
   }
@@ -84,10 +68,7 @@ export class CloudHSM extends AWSServiceClient {
     input: DescribeHapgRequest,
   ): Effect.Effect<
     DescribeHapgResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("DescribeHapg", input);
   }
@@ -95,10 +76,7 @@ export class CloudHSM extends AWSServiceClient {
     input: DescribeHsmRequest,
   ): Effect.Effect<
     DescribeHsmResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("DescribeHsm", input);
   }
@@ -106,10 +84,7 @@ export class CloudHSM extends AWSServiceClient {
     input: DescribeLunaClientRequest,
   ): Effect.Effect<
     DescribeLunaClientResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("DescribeLunaClient", input);
   }
@@ -117,10 +92,7 @@ export class CloudHSM extends AWSServiceClient {
     input: GetConfigRequest,
   ): Effect.Effect<
     GetConfigResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("GetConfig", input);
   }
@@ -128,10 +100,7 @@ export class CloudHSM extends AWSServiceClient {
     input: ListAvailableZonesRequest,
   ): Effect.Effect<
     ListAvailableZonesResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("ListAvailableZones", input);
   }
@@ -139,10 +108,7 @@ export class CloudHSM extends AWSServiceClient {
     input: ListHapgsRequest,
   ): Effect.Effect<
     ListHapgsResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("ListHapgs", input);
   }
@@ -150,10 +116,7 @@ export class CloudHSM extends AWSServiceClient {
     input: ListHsmsRequest,
   ): Effect.Effect<
     ListHsmsResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("ListHsms", input);
   }
@@ -161,10 +124,7 @@ export class CloudHSM extends AWSServiceClient {
     input: ListLunaClientsRequest,
   ): Effect.Effect<
     ListLunaClientsResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("ListLunaClients", input);
   }
@@ -172,10 +132,7 @@ export class CloudHSM extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -183,10 +140,7 @@ export class CloudHSM extends AWSServiceClient {
     input: ModifyHapgRequest,
   ): Effect.Effect<
     ModifyHapgResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("ModifyHapg", input);
   }
@@ -194,10 +148,7 @@ export class CloudHSM extends AWSServiceClient {
     input: ModifyHsmRequest,
   ): Effect.Effect<
     ModifyHsmResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("ModifyHsm", input);
   }
@@ -213,10 +164,7 @@ export class CloudHSM extends AWSServiceClient {
     input: RemoveTagsFromResourceRequest,
   ): Effect.Effect<
     RemoveTagsFromResourceResponse,
-    | CloudHsmInternalException
-    | CloudHsmServiceException
-    | InvalidRequestException
-    | CommonAwsError
+    CloudHsmInternalException | CloudHsmServiceException | InvalidRequestException | CommonAwsError
   > {
     return this.call("RemoveTagsFromResource", input);
   }
@@ -381,14 +329,7 @@ export type HsmArn = string;
 export type HsmList = Array<string>;
 export type HsmSerialNumber = string;
 
-export type HsmStatus =
-  | "PENDING"
-  | "RUNNING"
-  | "UPDATING"
-  | "SUSPENDED"
-  | "TERMINATING"
-  | "TERMINATED"
-  | "DEGRADED";
+export type HsmStatus = "PENDING" | "RUNNING" | "UPDATING" | "SUSPENDED" | "TERMINATING" | "TERMINATED" | "DEGRADED";
 export type IamRoleArn = string;
 
 export declare class InvalidRequestException extends EffectData.TaggedError(
@@ -401,7 +342,8 @@ export type IpAddress = string;
 
 export type Label = string;
 
-export interface ListAvailableZonesRequest {}
+export interface ListAvailableZonesRequest {
+}
 export interface ListAvailableZonesResponse {
   AZList?: Array<string>;
 }
@@ -677,7 +619,9 @@ export declare namespace ModifyHsm {
 export declare namespace ModifyLunaClient {
   export type Input = ModifyLunaClientRequest;
   export type Output = ModifyLunaClientResponse;
-  export type Error = CloudHsmServiceException | CommonAwsError;
+  export type Error =
+    | CloudHsmServiceException
+    | CommonAwsError;
 }
 
 export declare namespace RemoveTagsFromResource {
@@ -689,3 +633,4 @@ export declare namespace RemoveTagsFromResource {
     | InvalidRequestException
     | CommonAwsError;
 }
+

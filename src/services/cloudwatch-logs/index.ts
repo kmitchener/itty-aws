@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class CloudWatchLogs extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cloudwatch-logs", new AwsJson11Protocol(), cfg);
+  }
+
   associateKmsKey(
     input: AssociateKmsKeyRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("AssociateKmsKey", input);
   }
@@ -19,11 +20,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: CancelExportTaskRequest,
   ): Effect.Effect<
     {},
-    | InvalidOperationException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidOperationException | InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CancelExportTask", input);
   }
@@ -31,14 +28,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: CreateDeliveryRequest,
   ): Effect.Effect<
     CreateDeliveryResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDelivery", input);
   }
@@ -46,13 +36,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: CreateExportTaskRequest,
   ): Effect.Effect<
     CreateExportTaskResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateExportTask", input);
   }
@@ -60,12 +44,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: CreateLogAnomalyDetectorRequest,
   ): Effect.Effect<
     CreateLogAnomalyDetectorResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateLogAnomalyDetector", input);
   }
@@ -73,12 +52,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: CreateLogGroupRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceAlreadyExistsException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateLogGroup", input);
   }
@@ -86,11 +60,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: CreateLogStreamRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateLogStream", input);
   }
@@ -98,11 +68,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteAccountPolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteAccountPolicy", input);
   }
@@ -110,11 +76,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteDataProtectionPolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteDataProtectionPolicy", input);
   }
@@ -122,13 +84,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteDeliveryRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDelivery", input);
   }
@@ -136,13 +92,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteDeliveryDestinationRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDeliveryDestination", input);
   }
@@ -150,11 +100,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteDeliveryDestinationPolicyRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceUnavailableException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDeliveryDestinationPolicy", input);
   }
@@ -162,13 +108,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteDeliverySourceRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDeliverySource", input);
   }
@@ -176,11 +116,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteDestinationRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteDestination", input);
   }
@@ -188,12 +124,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteIndexPolicyRequest,
   ): Effect.Effect<
     DeleteIndexPolicyResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteIndexPolicy", input);
   }
@@ -201,11 +132,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteIntegrationRequest,
   ): Effect.Effect<
     DeleteIntegrationResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ValidationException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteIntegration", input);
   }
@@ -213,11 +140,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteLogAnomalyDetectorRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteLogAnomalyDetector", input);
   }
@@ -225,11 +148,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteLogGroupRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteLogGroup", input);
   }
@@ -237,11 +156,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteLogStreamRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteLogStream", input);
   }
@@ -249,11 +164,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteMetricFilterRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteMetricFilter", input);
   }
@@ -261,10 +172,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteQueryDefinitionRequest,
   ): Effect.Effect<
     DeleteQueryDefinitionResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteQueryDefinition", input);
   }
@@ -272,11 +180,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -284,11 +188,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteRetentionPolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteRetentionPolicy", input);
   }
@@ -296,11 +196,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteSubscriptionFilterRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteSubscriptionFilter", input);
   }
@@ -308,12 +204,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DeleteTransformerRequest,
   ): Effect.Effect<
     {},
-    | InvalidOperationException
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidOperationException | InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteTransformer", input);
   }
@@ -321,11 +212,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeAccountPoliciesRequest,
   ): Effect.Effect<
     DescribeAccountPoliciesResponse,
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeAccountPolicies", input);
   }
@@ -333,11 +220,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeConfigurationTemplatesRequest,
   ): Effect.Effect<
     DescribeConfigurationTemplatesResponse,
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeConfigurationTemplates", input);
   }
@@ -345,11 +228,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeDeliveriesRequest,
   ): Effect.Effect<
     DescribeDeliveriesResponse,
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDeliveries", input);
   }
@@ -357,11 +236,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeDeliveryDestinationsRequest,
   ): Effect.Effect<
     DescribeDeliveryDestinationsResponse,
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDeliveryDestinations", input);
   }
@@ -369,11 +244,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeDeliverySourcesRequest,
   ): Effect.Effect<
     DescribeDeliverySourcesResponse,
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDeliverySources", input);
   }
@@ -397,12 +268,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeFieldIndexesRequest,
   ): Effect.Effect<
     DescribeFieldIndexesResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeFieldIndexes", input);
   }
@@ -410,12 +276,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeIndexPoliciesRequest,
   ): Effect.Effect<
     DescribeIndexPoliciesResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeIndexPolicies", input);
   }
@@ -431,10 +292,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeLogStreamsRequest,
   ): Effect.Effect<
     DescribeLogStreamsResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeLogStreams", input);
   }
@@ -442,10 +300,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeMetricFiltersRequest,
   ): Effect.Effect<
     DescribeMetricFiltersResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeMetricFilters", input);
   }
@@ -453,10 +308,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeQueriesRequest,
   ): Effect.Effect<
     DescribeQueriesResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeQueries", input);
   }
@@ -480,10 +332,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DescribeSubscriptionFiltersRequest,
   ): Effect.Effect<
     DescribeSubscriptionFiltersResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeSubscriptionFilters", input);
   }
@@ -491,11 +340,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: DisassociateKmsKeyRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DisassociateKmsKey", input);
   }
@@ -503,10 +348,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: FilterLogEventsRequest,
   ): Effect.Effect<
     FilterLogEventsResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("FilterLogEvents", input);
   }
@@ -514,11 +356,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetDataProtectionPolicyRequest,
   ): Effect.Effect<
     GetDataProtectionPolicyResponse,
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetDataProtectionPolicy", input);
   }
@@ -526,12 +364,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetDeliveryRequest,
   ): Effect.Effect<
     GetDeliveryResponse,
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDelivery", input);
   }
@@ -539,12 +372,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetDeliveryDestinationRequest,
   ): Effect.Effect<
     GetDeliveryDestinationResponse,
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDeliveryDestination", input);
   }
@@ -552,10 +380,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetDeliveryDestinationPolicyRequest,
   ): Effect.Effect<
     GetDeliveryDestinationPolicyResponse,
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | ServiceUnavailableException | ValidationException | CommonAwsError
   > {
     return this.call("GetDeliveryDestinationPolicy", input);
   }
@@ -563,12 +388,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetDeliverySourceRequest,
   ): Effect.Effect<
     GetDeliverySourceResponse,
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDeliverySource", input);
   }
@@ -576,10 +396,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetIntegrationRequest,
   ): Effect.Effect<
     GetIntegrationResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetIntegration", input);
   }
@@ -587,11 +404,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetLogAnomalyDetectorRequest,
   ): Effect.Effect<
     GetLogAnomalyDetectorResponse,
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetLogAnomalyDetector", input);
   }
@@ -599,10 +412,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetLogEventsRequest,
   ): Effect.Effect<
     GetLogEventsResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetLogEvents", input);
   }
@@ -610,11 +420,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetLogGroupFieldsRequest,
   ): Effect.Effect<
     GetLogGroupFieldsResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetLogGroupFields", input);
   }
@@ -622,12 +428,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetLogObjectRequest,
   ): Effect.Effect<
     GetLogObjectResponse,
-    | AccessDeniedException
-    | InvalidOperationException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidOperationException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetLogObject", input);
   }
@@ -635,11 +436,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetLogRecordRequest,
   ): Effect.Effect<
     GetLogRecordResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetLogRecord", input);
   }
@@ -647,10 +444,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetQueryResultsRequest,
   ): Effect.Effect<
     GetQueryResultsResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetQueryResults", input);
   }
@@ -658,11 +452,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: GetTransformerRequest,
   ): Effect.Effect<
     GetTransformerResponse,
-    | InvalidOperationException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidOperationException | InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetTransformer", input);
   }
@@ -670,11 +460,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: ListAnomaliesRequest,
   ): Effect.Effect<
     ListAnomaliesResponse,
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListAnomalies", input);
   }
@@ -690,11 +476,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: ListLogAnomalyDetectorsRequest,
   ): Effect.Effect<
     ListLogAnomalyDetectorsResponse,
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListLogAnomalyDetectors", input);
   }
@@ -710,11 +492,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: ListLogGroupsForQueryRequest,
   ): Effect.Effect<
     ListLogGroupsForQueryResponse,
-    | AccessDeniedException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    AccessDeniedException | InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListLogGroupsForQuery", input);
   }
@@ -722,10 +500,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -741,11 +516,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutAccountPolicyRequest,
   ): Effect.Effect<
     PutAccountPolicyResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | OperationAbortedException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutAccountPolicy", input);
   }
@@ -753,12 +524,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutDataProtectionPolicyRequest,
   ): Effect.Effect<
     PutDataProtectionPolicyResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutDataProtectionPolicy", input);
   }
@@ -766,13 +532,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutDeliveryDestinationRequest,
   ): Effect.Effect<
     PutDeliveryDestinationResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutDeliveryDestination", input);
   }
@@ -780,11 +540,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutDeliveryDestinationPolicyRequest,
   ): Effect.Effect<
     PutDeliveryDestinationPolicyResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceUnavailableException | ValidationException | CommonAwsError
   > {
     return this.call("PutDeliveryDestinationPolicy", input);
   }
@@ -792,13 +548,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutDeliverySourceRequest,
   ): Effect.Effect<
     PutDeliverySourceResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutDeliverySource", input);
   }
@@ -806,10 +556,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutDestinationRequest,
   ): Effect.Effect<
     PutDestinationResponse,
-    | InvalidParameterException
-    | OperationAbortedException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutDestination", input);
   }
@@ -817,10 +564,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutDestinationPolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutDestinationPolicy", input);
   }
@@ -828,12 +572,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutIndexPolicyRequest,
   ): Effect.Effect<
     PutIndexPolicyResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutIndexPolicy", input);
   }
@@ -841,11 +580,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutIntegrationRequest,
   ): Effect.Effect<
     PutIntegrationResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | ServiceUnavailableException
-    | ValidationException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | ServiceUnavailableException | ValidationException | CommonAwsError
   > {
     return this.call("PutIntegration", input);
   }
@@ -853,13 +588,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutLogEventsRequest,
   ): Effect.Effect<
     PutLogEventsResponse,
-    | DataAlreadyAcceptedException
-    | InvalidParameterException
-    | InvalidSequenceTokenException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | UnrecognizedClientException
-    | CommonAwsError
+    DataAlreadyAcceptedException | InvalidParameterException | InvalidSequenceTokenException | ResourceNotFoundException | ServiceUnavailableException | UnrecognizedClientException | CommonAwsError
   > {
     return this.call("PutLogEvents", input);
   }
@@ -867,13 +596,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutMetricFilterRequest,
   ): Effect.Effect<
     {},
-    | InvalidOperationException
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidOperationException | InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutMetricFilter", input);
   }
@@ -881,11 +604,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutQueryDefinitionRequest,
   ): Effect.Effect<
     PutQueryDefinitionResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutQueryDefinition", input);
   }
@@ -893,12 +612,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -906,11 +620,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutRetentionPolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutRetentionPolicy", input);
   }
@@ -918,13 +628,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutSubscriptionFilterRequest,
   ): Effect.Effect<
     {},
-    | InvalidOperationException
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidOperationException | InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutSubscriptionFilter", input);
   }
@@ -932,13 +636,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: PutTransformerRequest,
   ): Effect.Effect<
     {},
-    | InvalidOperationException
-    | InvalidParameterException
-    | LimitExceededException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidOperationException | InvalidParameterException | LimitExceededException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("PutTransformer", input);
   }
@@ -946,12 +644,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: StartLiveTailRequest,
   ): Effect.Effect<
     StartLiveTailResponse,
-    | AccessDeniedException
-    | InvalidOperationException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidOperationException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartLiveTail", input);
   }
@@ -959,12 +652,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: StartQueryRequest,
   ): Effect.Effect<
     StartQueryResponse,
-    | InvalidParameterException
-    | LimitExceededException
-    | MalformedQueryException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | LimitExceededException | MalformedQueryException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("StartQuery", input);
   }
@@ -972,10 +660,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: StopQueryRequest,
   ): Effect.Effect<
     StopQueryResponse,
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("StopQuery", input);
   }
@@ -991,11 +676,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | TooManyTagsException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1011,26 +692,23 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: TestTransformerRequest,
   ): Effect.Effect<
     TestTransformerResponse,
-    | InvalidOperationException
-    | InvalidParameterException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidOperationException | InvalidParameterException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("TestTransformer", input);
   }
   untagLogGroup(
     input: UntagLogGroupRequest,
-  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    ResourceNotFoundException | CommonAwsError
+  > {
     return this.call("UntagLogGroup", input);
   }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1038,11 +716,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: UpdateAnomalyRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateAnomaly", input);
   }
@@ -1050,13 +724,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: UpdateDeliveryConfigurationRequest,
   ): Effect.Effect<
     UpdateDeliveryConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateDeliveryConfiguration", input);
   }
@@ -1064,11 +732,7 @@ export class CloudWatchLogs extends AWSServiceClient {
     input: UpdateLogAnomalyDetectorRequest,
   ): Effect.Effect<
     {},
-    | InvalidParameterException
-    | OperationAbortedException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InvalidParameterException | OperationAbortedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UpdateLogAnomalyDetector", input);
   }
@@ -1154,13 +818,7 @@ export interface AnomalyDetector {
 export type AnomalyDetectorArn = string;
 
 export type AnomalyDetectors = Array<AnomalyDetector>;
-export type AnomalyDetectorStatus =
-  | "INITIALIZING"
-  | "TRAINING"
-  | "ANALYZING"
-  | "FAILED"
-  | "DELETED"
-  | "PAUSED";
+export type AnomalyDetectorStatus = "INITIALIZING" | "TRAINING" | "ANALYZING" | "FAILED" | "DELETED" | "PAUSED";
 export type AnomalyId = string;
 
 export type AnomalyVisibilityTime = number;
@@ -1284,11 +942,7 @@ export declare class DataAlreadyAcceptedException extends EffectData.TaggedError
 }> {}
 export type DataProtectionPolicyDocument = string;
 
-export type DataProtectionStatus =
-  | "ACTIVATED"
-  | "DELETED"
-  | "ARCHIVED"
-  | "DISABLED";
+export type DataProtectionStatus = "ACTIVATED" | "DELETED" | "ARCHIVED" | "DISABLED";
 export interface DateTimeConverter {
   source: string;
   target: string;
@@ -1327,12 +981,14 @@ export interface DeleteDestinationRequest {
 export interface DeleteIndexPolicyRequest {
   logGroupIdentifier: string;
 }
-export interface DeleteIndexPolicyResponse {}
+export interface DeleteIndexPolicyResponse {
+}
 export interface DeleteIntegrationRequest {
   integrationName: string;
   force?: boolean;
 }
-export interface DeleteIntegrationResponse {}
+export interface DeleteIntegrationResponse {
+}
 export interface DeleteKeys {
   withKeys: Array<string>;
 }
@@ -1638,24 +1294,11 @@ export type EntityKeyAttributesKey = string;
 
 export type EntityKeyAttributesValue = string;
 
-export type EntityRejectionErrorType =
-  | "INVALID_ENTITY"
-  | "INVALID_TYPE_VALUE"
-  | "INVALID_KEY_ATTRIBUTE"
-  | "INVALID_ATTRIBUTES"
-  | "ENTITY_SIZE_TOO_LARGE"
-  | "UNSUPPORTED_LOG_GROUP_TYPE"
-  | "MISSING_REQUIRED_FIELDS";
+export type EntityRejectionErrorType = "INVALID_ENTITY" | "INVALID_TYPE_VALUE" | "INVALID_KEY_ATTRIBUTE" | "INVALID_ATTRIBUTES" | "ENTITY_SIZE_TOO_LARGE" | "UNSUPPORTED_LOG_GROUP_TYPE" | "MISSING_REQUIRED_FIELDS";
 export type Enumerations = Record<string, number>;
 export type EpochMillis = number;
 
-export type EvaluationFrequency =
-  | "ONE_MIN"
-  | "FIVE_MIN"
-  | "TEN_MIN"
-  | "FIFTEEN_MIN"
-  | "THIRTY_MIN"
-  | "ONE_HOUR";
+export type EvaluationFrequency = "ONE_MIN" | "FIVE_MIN" | "TEN_MIN" | "FIFTEEN_MIN" | "THIRTY_MIN" | "ONE_HOUR";
 export type EventId = string;
 
 export type EventMessage = string;
@@ -1664,12 +1307,7 @@ export type EventNumber = number;
 
 export type EventsLimit = number;
 
-export type EventSource =
-  | "CLOUD_TRAIL"
-  | "ROUTE53_RESOLVER"
-  | "VPC_FLOW"
-  | "EKS_AUDIT"
-  | "AWSWAF";
+export type EventSource = "CLOUD_TRAIL" | "ROUTE53_RESOLVER" | "VPC_FLOW" | "EKS_AUDIT" | "AWSWAF";
 export type ExpectedRevisionId = string;
 
 export type ExportDestinationBucket = string;
@@ -1700,13 +1338,7 @@ export interface ExportTaskStatus {
   code?: ExportTaskStatusCode;
   message?: string;
 }
-export type ExportTaskStatusCode =
-  | "CANCELLED"
-  | "COMPLETED"
-  | "FAILED"
-  | "PENDING"
-  | "PENDING_CANCEL"
-  | "RUNNING";
+export type ExportTaskStatusCode = "CANCELLED" | "COMPLETED" | "FAILED" | "PENDING" | "PENDING_CANCEL" | "RUNNING";
 export type ExportTaskStatusMessage = string;
 
 export type ExtractedValues = Record<string, string>;
@@ -1861,11 +1493,7 @@ interface _GetLogObjectResponseStream {
   InternalStreamingException?: InternalStreamingException;
 }
 
-export type GetLogObjectResponseStream =
-  | (_GetLogObjectResponseStream & { fields: FieldsData })
-  | (_GetLogObjectResponseStream & {
-      InternalStreamingException: InternalStreamingException;
-    });
+export type GetLogObjectResponseStream = (_GetLogObjectResponseStream & { fields: FieldsData }) | (_GetLogObjectResponseStream & { InternalStreamingException: InternalStreamingException });
 export interface GetLogRecordRequest {
   logRecordPointer: string;
   unmask?: boolean;
@@ -1926,9 +1554,7 @@ interface _IntegrationDetails {
   openSearchIntegrationDetails?: OpenSearchIntegrationDetails;
 }
 
-export type IntegrationDetails = _IntegrationDetails & {
-  openSearchIntegrationDetails: OpenSearchIntegrationDetails;
-};
+export type IntegrationDetails = (_IntegrationDetails & { openSearchIntegrationDetails: OpenSearchIntegrationDetails });
 export type IntegrationName = string;
 
 export type IntegrationNamePrefix = string;
@@ -2354,12 +1980,7 @@ export type PolicyDocument = string;
 export type PolicyName = string;
 
 export type PolicyScope = "ACCOUNT" | "RESOURCE";
-export type PolicyType =
-  | "DATA_PROTECTION_POLICY"
-  | "SUBSCRIPTION_FILTER_POLICY"
-  | "FIELD_INDEX_POLICY"
-  | "TRANSFORMER_POLICY"
-  | "METRIC_EXTRACTION_POLICY";
+export type PolicyType = "DATA_PROTECTION_POLICY" | "SUBSCRIPTION_FILTER_POLICY" | "FIELD_INDEX_POLICY" | "TRANSFORMER_POLICY" | "METRIC_EXTRACTION_POLICY";
 export type Priority = string;
 
 export interface Processor {
@@ -2566,14 +2187,7 @@ export interface QueryStatistics {
   estimatedBytesSkipped?: number;
   logGroupsScanned?: number;
 }
-export type QueryStatus =
-  | "Scheduled"
-  | "Running"
-  | "Complete"
-  | "Failed"
-  | "Cancelled"
-  | "Timeout"
-  | "Unknown";
+export type QueryStatus = "Scheduled" | "Running" | "Complete" | "Failed" | "Cancelled" | "Timeout" | "Unknown";
 export type QueryString = string;
 
 export type QuoteCharacter = string;
@@ -2614,9 +2228,7 @@ interface _ResourceConfig {
   openSearchResourceConfig?: OpenSearchResourceConfig;
 }
 
-export type ResourceConfig = _ResourceConfig & {
-  openSearchResourceConfig: OpenSearchResourceConfig;
-};
+export type ResourceConfig = (_ResourceConfig & { openSearchResourceConfig: OpenSearchResourceConfig });
 export type ResourceIdentifier = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -2695,34 +2307,7 @@ export interface SplitStringEntry {
   source: string;
   delimiter: string;
 }
-export type StandardUnit =
-  | "Seconds"
-  | "Microseconds"
-  | "Milliseconds"
-  | "Bytes"
-  | "Kilobytes"
-  | "Megabytes"
-  | "Gigabytes"
-  | "Terabytes"
-  | "Bits"
-  | "Kilobits"
-  | "Megabits"
-  | "Gigabits"
-  | "Terabits"
-  | "Percent"
-  | "Count"
-  | "BytesSecond"
-  | "KilobytesSecond"
-  | "MegabytesSecond"
-  | "GigabytesSecond"
-  | "TerabytesSecond"
-  | "BitsSecond"
-  | "KilobitsSecond"
-  | "MegabitsSecond"
-  | "GigabitsSecond"
-  | "TerabitsSecond"
-  | "CountSecond"
-  | "None";
+export type StandardUnit = "Seconds" | "Microseconds" | "Milliseconds" | "Bytes" | "Kilobytes" | "Megabytes" | "Gigabytes" | "Terabytes" | "Bits" | "Kilobits" | "Megabits" | "Gigabits" | "Terabits" | "Percent" | "Count" | "BytesSecond" | "KilobytesSecond" | "MegabytesSecond" | "GigabytesSecond" | "TerabytesSecond" | "BitsSecond" | "KilobitsSecond" | "MegabitsSecond" | "GigabitsSecond" | "TerabitsSecond" | "CountSecond" | "None";
 export type StartFromHead = boolean;
 
 export type StartLiveTailLogGroupIdentifiers = Array<string>;
@@ -2742,15 +2327,7 @@ interface _StartLiveTailResponseStream {
   SessionStreamingException?: SessionStreamingException;
 }
 
-export type StartLiveTailResponseStream =
-  | (_StartLiveTailResponseStream & { sessionStart: LiveTailSessionStart })
-  | (_StartLiveTailResponseStream & { sessionUpdate: LiveTailSessionUpdate })
-  | (_StartLiveTailResponseStream & {
-      SessionTimeoutException: SessionTimeoutException;
-    })
-  | (_StartLiveTailResponseStream & {
-      SessionStreamingException: SessionStreamingException;
-    });
+export type StartLiveTailResponseStream = (_StartLiveTailResponseStream & { sessionStart: LiveTailSessionStart }) | (_StartLiveTailResponseStream & { sessionUpdate: LiveTailSessionUpdate }) | (_StartLiveTailResponseStream & { SessionTimeoutException: SessionTimeoutException }) | (_StartLiveTailResponseStream & { SessionStreamingException: SessionStreamingException });
 export interface StartQueryRequest {
   queryLanguage?: QueryLanguage;
   logGroupName?: string;
@@ -2915,7 +2492,8 @@ export interface UpdateDeliveryConfigurationRequest {
   fieldDelimiter?: string;
   s3DeliveryConfiguration?: S3DeliveryConfiguration;
 }
-export interface UpdateDeliveryConfigurationResponse {}
+export interface UpdateDeliveryConfigurationResponse {
+}
 export interface UpdateLogAnomalyDetectorRequest {
   anomalyDetectorArn: string;
   evaluationFrequency?: EvaluationFrequency;
@@ -3890,7 +3468,9 @@ export declare namespace TestTransformer {
 export declare namespace UntagLogGroup {
   export type Input = UntagLogGroupRequest;
   export type Output = {};
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
@@ -3937,3 +3517,4 @@ export declare namespace UpdateLogAnomalyDetector {
     | ServiceUnavailableException
     | CommonAwsError;
 }
+

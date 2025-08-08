@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class MarketplaceEntitlementService extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("marketplace-entitlement-service", new AwsJson11Protocol(), cfg);
+  }
+
   getEntitlements(
     input: GetEntitlementsRequest,
   ): Effect.Effect<
     GetEntitlementsResult,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEntitlements", input);
   }
@@ -42,14 +44,8 @@ export type ErrorMessage = string;
 export type FilterValue = string;
 
 export type FilterValueList = Array<string>;
-export type GetEntitlementFilterName =
-  | "CUSTOMER_IDENTIFIER"
-  | "DIMENSION"
-  | "CUSTOMER_AWS_ACCOUNT_ID";
-export type GetEntitlementFilters = Record<
-  GetEntitlementFilterName,
-  Array<string>
->;
+export type GetEntitlementFilterName = "CUSTOMER_IDENTIFIER" | "DIMENSION" | "CUSTOMER_AWS_ACCOUNT_ID";
+export type GetEntitlementFilters = Record<GetEntitlementFilterName, Array<string>>;
 export interface GetEntitlementsRequest {
   ProductCode: string;
   Filter?: Record<GetEntitlementFilterName, Array<string>>;
@@ -96,3 +92,4 @@ export declare namespace GetEntitlements {
     | ThrottlingException
     | CommonAwsError;
 }
+

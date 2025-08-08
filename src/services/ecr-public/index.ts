@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class ECRPUBLIC extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("ecr-public", new AwsJson11Protocol(), cfg);
+  }
+
   batchCheckLayerAvailability(
     input: BatchCheckLayerAvailabilityRequest,
   ): Effect.Effect<
     BatchCheckLayerAvailabilityResponse,
-    | InvalidParameterException
-    | RegistryNotFoundException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RegistryNotFoundException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("BatchCheckLayerAvailability", input);
   }
@@ -20,11 +20,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: BatchDeleteImageRequest,
   ): Effect.Effect<
     BatchDeleteImageResponse,
-    | InvalidParameterException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("BatchDeleteImage", input);
   }
@@ -32,17 +28,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: CompleteLayerUploadRequest,
   ): Effect.Effect<
     CompleteLayerUploadResponse,
-    | EmptyUploadException
-    | InvalidLayerException
-    | InvalidParameterException
-    | LayerAlreadyExistsException
-    | LayerPartTooSmallException
-    | RegistryNotFoundException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | UploadNotFoundException
-    | CommonAwsError
+    EmptyUploadException | InvalidLayerException | InvalidParameterException | LayerAlreadyExistsException | LayerPartTooSmallException | RegistryNotFoundException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | UploadNotFoundException | CommonAwsError
   > {
     return this.call("CompleteLayerUpload", input);
   }
@@ -50,14 +36,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: CreateRepositoryRequest,
   ): Effect.Effect<
     CreateRepositoryResponse,
-    | InvalidParameterException
-    | InvalidTagParameterException
-    | LimitExceededException
-    | RepositoryAlreadyExistsException
-    | ServerException
-    | TooManyTagsException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | InvalidTagParameterException | LimitExceededException | RepositoryAlreadyExistsException | ServerException | TooManyTagsException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("CreateRepository", input);
   }
@@ -65,12 +44,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: DeleteRepositoryRequest,
   ): Effect.Effect<
     DeleteRepositoryResponse,
-    | InvalidParameterException
-    | RepositoryNotEmptyException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RepositoryNotEmptyException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("DeleteRepository", input);
   }
@@ -78,12 +52,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: DeleteRepositoryPolicyRequest,
   ): Effect.Effect<
     DeleteRepositoryPolicyResponse,
-    | InvalidParameterException
-    | RepositoryNotFoundException
-    | RepositoryPolicyNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RepositoryNotFoundException | RepositoryPolicyNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("DeleteRepositoryPolicy", input);
   }
@@ -91,12 +60,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: DescribeImagesRequest,
   ): Effect.Effect<
     DescribeImagesResponse,
-    | ImageNotFoundException
-    | InvalidParameterException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    ImageNotFoundException | InvalidParameterException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("DescribeImages", input);
   }
@@ -104,11 +68,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: DescribeImageTagsRequest,
   ): Effect.Effect<
     DescribeImageTagsResponse,
-    | InvalidParameterException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("DescribeImageTags", input);
   }
@@ -116,10 +76,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: DescribeRegistriesRequest,
   ): Effect.Effect<
     DescribeRegistriesResponse,
-    | InvalidParameterException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("DescribeRegistries", input);
   }
@@ -127,11 +84,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: DescribeRepositoriesRequest,
   ): Effect.Effect<
     DescribeRepositoriesResponse,
-    | InvalidParameterException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("DescribeRepositories", input);
   }
@@ -139,10 +92,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: GetAuthorizationTokenRequest,
   ): Effect.Effect<
     GetAuthorizationTokenResponse,
-    | InvalidParameterException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("GetAuthorizationToken", input);
   }
@@ -158,12 +108,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: GetRepositoryCatalogDataRequest,
   ): Effect.Effect<
     GetRepositoryCatalogDataResponse,
-    | InvalidParameterException
-    | RepositoryCatalogDataNotFoundException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RepositoryCatalogDataNotFoundException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("GetRepositoryCatalogData", input);
   }
@@ -171,12 +116,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: GetRepositoryPolicyRequest,
   ): Effect.Effect<
     GetRepositoryPolicyResponse,
-    | InvalidParameterException
-    | RepositoryNotFoundException
-    | RepositoryPolicyNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RepositoryNotFoundException | RepositoryPolicyNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("GetRepositoryPolicy", input);
   }
@@ -184,12 +124,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: InitiateLayerUploadRequest,
   ): Effect.Effect<
     InitiateLayerUploadResponse,
-    | InvalidParameterException
-    | RegistryNotFoundException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RegistryNotFoundException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("InitiateLayerUpload", input);
   }
@@ -197,11 +132,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InvalidParameterException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -209,18 +140,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: PutImageRequest,
   ): Effect.Effect<
     PutImageResponse,
-    | ImageAlreadyExistsException
-    | ImageDigestDoesNotMatchException
-    | ImageTagAlreadyExistsException
-    | InvalidParameterException
-    | LayersNotFoundException
-    | LimitExceededException
-    | ReferencedImagesNotFoundException
-    | RegistryNotFoundException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    ImageAlreadyExistsException | ImageDigestDoesNotMatchException | ImageTagAlreadyExistsException | InvalidParameterException | LayersNotFoundException | LimitExceededException | ReferencedImagesNotFoundException | RegistryNotFoundException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("PutImage", input);
   }
@@ -228,10 +148,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: PutRegistryCatalogDataRequest,
   ): Effect.Effect<
     PutRegistryCatalogDataResponse,
-    | InvalidParameterException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("PutRegistryCatalogData", input);
   }
@@ -239,11 +156,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: PutRepositoryCatalogDataRequest,
   ): Effect.Effect<
     PutRepositoryCatalogDataResponse,
-    | InvalidParameterException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("PutRepositoryCatalogData", input);
   }
@@ -251,11 +164,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: SetRepositoryPolicyRequest,
   ): Effect.Effect<
     SetRepositoryPolicyResponse,
-    | InvalidParameterException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("SetRepositoryPolicy", input);
   }
@@ -263,13 +172,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InvalidParameterException
-    | InvalidTagParameterException
-    | RepositoryNotFoundException
-    | ServerException
-    | TooManyTagsException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | InvalidTagParameterException | RepositoryNotFoundException | ServerException | TooManyTagsException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -277,13 +180,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InvalidParameterException
-    | InvalidTagParameterException
-    | RepositoryNotFoundException
-    | ServerException
-    | TooManyTagsException
-    | UnsupportedCommandException
-    | CommonAwsError
+    InvalidParameterException | InvalidTagParameterException | RepositoryNotFoundException | ServerException | TooManyTagsException | UnsupportedCommandException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -291,15 +188,7 @@ export class ECRPUBLIC extends AWSServiceClient {
     input: UploadLayerPartRequest,
   ): Effect.Effect<
     UploadLayerPartResponse,
-    | InvalidLayerPartException
-    | InvalidParameterException
-    | LimitExceededException
-    | RegistryNotFoundException
-    | RepositoryNotFoundException
-    | ServerException
-    | UnsupportedCommandException
-    | UploadNotFoundException
-    | CommonAwsError
+    InvalidLayerPartException | InvalidParameterException | LimitExceededException | RegistryNotFoundException | RepositoryNotFoundException | ServerException | UnsupportedCommandException | UploadNotFoundException | CommonAwsError
   > {
     return this.call("UploadLayerPart", input);
   }
@@ -435,11 +324,13 @@ export type ExpirationTimestamp = Date | string;
 
 export type ForceFlag = boolean;
 
-export interface GetAuthorizationTokenRequest {}
+export interface GetAuthorizationTokenRequest {
+}
 export interface GetAuthorizationTokenResponse {
   authorizationData?: AuthorizationData;
 }
-export interface GetRegistryCatalogDataRequest {}
+export interface GetRegistryCatalogDataRequest {
+}
 export interface GetRegistryCatalogDataResponse {
   registryCatalogData: RegistryCatalogData;
 }
@@ -494,14 +385,7 @@ export interface ImageFailure {
   failureCode?: ImageFailureCode;
   failureReason?: string;
 }
-export type ImageFailureCode =
-  | "InvalidImageDigest"
-  | "InvalidImageTag"
-  | "ImageTagDoesNotMatchDigest"
-  | "ImageNotFound"
-  | "MissingDigestAndTag"
-  | "ImageReferencedByManifestList"
-  | "KmsError";
+export type ImageFailureCode = "InvalidImageDigest" | "InvalidImageTag" | "ImageTagDoesNotMatchDigest" | "ImageNotFound" | "MissingDigestAndTag" | "ImageReferencedByManifestList" | "KmsError";
 export type ImageFailureList = Array<ImageFailure>;
 export type ImageFailureReason = string;
 
@@ -792,7 +676,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class TooManyTagsException extends EffectData.TaggedError(
@@ -809,7 +694,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UploadId = string;
 
 export interface UploadLayerPartRequest {
@@ -1113,3 +999,4 @@ export declare namespace UploadLayerPart {
     | UploadNotFoundException
     | CommonAwsError;
 }
+

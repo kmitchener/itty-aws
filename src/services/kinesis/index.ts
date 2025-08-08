@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class Kinesis extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("kinesis", new AwsJson11Protocol(), cfg);
+  }
+
   addTagsToStream(
     input: AddTagsToStreamInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("AddTagsToStream", input);
   }
@@ -20,10 +20,7 @@ export class Kinesis extends AWSServiceClient {
     input: CreateStreamInput,
   ): Effect.Effect<
     {},
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | CommonAwsError
+    InvalidArgumentException | LimitExceededException | ResourceInUseException | CommonAwsError
   > {
     return this.call("CreateStream", input);
   }
@@ -31,12 +28,7 @@ export class Kinesis extends AWSServiceClient {
     input: DecreaseStreamRetentionPeriodInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DecreaseStreamRetentionPeriod", input);
   }
@@ -44,12 +36,7 @@ export class Kinesis extends AWSServiceClient {
     input: DeleteResourcePolicyInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -57,12 +44,7 @@ export class Kinesis extends AWSServiceClient {
     input: DeleteStreamInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteStream", input);
   }
@@ -70,10 +52,7 @@ export class Kinesis extends AWSServiceClient {
     input: DeregisterStreamConsumerInput,
   ): Effect.Effect<
     {},
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArgumentException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeregisterStreamConsumer", input);
   }
@@ -89,11 +68,7 @@ export class Kinesis extends AWSServiceClient {
     input: DescribeStreamInput,
   ): Effect.Effect<
     DescribeStreamOutput,
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeStream", input);
   }
@@ -101,10 +76,7 @@ export class Kinesis extends AWSServiceClient {
     input: DescribeStreamConsumerInput,
   ): Effect.Effect<
     DescribeStreamConsumerOutput,
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArgumentException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeStreamConsumer", input);
   }
@@ -112,11 +84,7 @@ export class Kinesis extends AWSServiceClient {
     input: DescribeStreamSummaryInput,
   ): Effect.Effect<
     DescribeStreamSummaryOutput,
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeStreamSummary", input);
   }
@@ -124,12 +92,7 @@ export class Kinesis extends AWSServiceClient {
     input: DisableEnhancedMonitoringInput,
   ): Effect.Effect<
     EnhancedMonitoringOutput,
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DisableEnhancedMonitoring", input);
   }
@@ -137,12 +100,7 @@ export class Kinesis extends AWSServiceClient {
     input: EnableEnhancedMonitoringInput,
   ): Effect.Effect<
     EnhancedMonitoringOutput,
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("EnableEnhancedMonitoring", input);
   }
@@ -150,19 +108,7 @@ export class Kinesis extends AWSServiceClient {
     input: GetRecordsInput,
   ): Effect.Effect<
     GetRecordsOutput,
-    | AccessDeniedException
-    | ExpiredIteratorException
-    | InternalFailureException
-    | InvalidArgumentException
-    | KMSAccessDeniedException
-    | KMSDisabledException
-    | KMSInvalidStateException
-    | KMSNotFoundException
-    | KMSOptInRequired
-    | KMSThrottlingException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ExpiredIteratorException | InternalFailureException | InvalidArgumentException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | ProvisionedThroughputExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetRecords", input);
   }
@@ -170,12 +116,7 @@ export class Kinesis extends AWSServiceClient {
     input: GetResourcePolicyInput,
   ): Effect.Effect<
     GetResourcePolicyOutput,
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -183,12 +124,7 @@ export class Kinesis extends AWSServiceClient {
     input: GetShardIteratorInput,
   ): Effect.Effect<
     GetShardIteratorOutput,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidArgumentException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidArgumentException | ProvisionedThroughputExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetShardIterator", input);
   }
@@ -196,12 +132,7 @@ export class Kinesis extends AWSServiceClient {
     input: IncreaseStreamRetentionPeriodInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("IncreaseStreamRetentionPeriod", input);
   }
@@ -209,13 +140,7 @@ export class Kinesis extends AWSServiceClient {
     input: ListShardsInput,
   ): Effect.Effect<
     ListShardsOutput,
-    | AccessDeniedException
-    | ExpiredNextTokenException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ExpiredNextTokenException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListShards", input);
   }
@@ -223,12 +148,7 @@ export class Kinesis extends AWSServiceClient {
     input: ListStreamConsumersInput,
   ): Effect.Effect<
     ListStreamConsumersOutput,
-    | ExpiredNextTokenException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ExpiredNextTokenException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListStreamConsumers", input);
   }
@@ -236,10 +156,7 @@ export class Kinesis extends AWSServiceClient {
     input: ListStreamsInput,
   ): Effect.Effect<
     ListStreamsOutput,
-    | ExpiredNextTokenException
-    | InvalidArgumentException
-    | LimitExceededException
-    | CommonAwsError
+    ExpiredNextTokenException | InvalidArgumentException | LimitExceededException | CommonAwsError
   > {
     return this.call("ListStreams", input);
   }
@@ -247,12 +164,7 @@ export class Kinesis extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -260,11 +172,7 @@ export class Kinesis extends AWSServiceClient {
     input: ListTagsForStreamInput,
   ): Effect.Effect<
     ListTagsForStreamOutput,
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForStream", input);
   }
@@ -272,13 +180,7 @@ export class Kinesis extends AWSServiceClient {
     input: MergeShardsInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("MergeShards", input);
   }
@@ -286,18 +188,7 @@ export class Kinesis extends AWSServiceClient {
     input: PutRecordInput,
   ): Effect.Effect<
     PutRecordOutput,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidArgumentException
-    | KMSAccessDeniedException
-    | KMSDisabledException
-    | KMSInvalidStateException
-    | KMSNotFoundException
-    | KMSOptInRequired
-    | KMSThrottlingException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidArgumentException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | ProvisionedThroughputExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutRecord", input);
   }
@@ -305,18 +196,7 @@ export class Kinesis extends AWSServiceClient {
     input: PutRecordsInput,
   ): Effect.Effect<
     PutRecordsOutput,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidArgumentException
-    | KMSAccessDeniedException
-    | KMSDisabledException
-    | KMSInvalidStateException
-    | KMSNotFoundException
-    | KMSOptInRequired
-    | KMSThrottlingException
-    | ProvisionedThroughputExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidArgumentException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | ProvisionedThroughputExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutRecords", input);
   }
@@ -324,12 +204,7 @@ export class Kinesis extends AWSServiceClient {
     input: PutResourcePolicyInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -337,11 +212,7 @@ export class Kinesis extends AWSServiceClient {
     input: RegisterStreamConsumerInput,
   ): Effect.Effect<
     RegisterStreamConsumerOutput,
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("RegisterStreamConsumer", input);
   }
@@ -349,12 +220,7 @@ export class Kinesis extends AWSServiceClient {
     input: RemoveTagsFromStreamInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("RemoveTagsFromStream", input);
   }
@@ -362,13 +228,7 @@ export class Kinesis extends AWSServiceClient {
     input: SplitShardInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("SplitShard", input);
   }
@@ -376,18 +236,7 @@ export class Kinesis extends AWSServiceClient {
     input: StartStreamEncryptionInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | KMSAccessDeniedException
-    | KMSDisabledException
-    | KMSInvalidStateException
-    | KMSNotFoundException
-    | KMSOptInRequired
-    | KMSThrottlingException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartStreamEncryption", input);
   }
@@ -395,12 +244,7 @@ export class Kinesis extends AWSServiceClient {
     input: StopStreamEncryptionInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StopStreamEncryption", input);
   }
@@ -408,12 +252,7 @@ export class Kinesis extends AWSServiceClient {
     input: SubscribeToShardInput,
   ): Effect.Effect<
     SubscribeToShardOutput,
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("SubscribeToShard", input);
   }
@@ -421,12 +260,7 @@ export class Kinesis extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -434,12 +268,7 @@ export class Kinesis extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -447,13 +276,7 @@ export class Kinesis extends AWSServiceClient {
     input: UpdateShardCountInput,
   ): Effect.Effect<
     UpdateShardCountOutput,
-    | AccessDeniedException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateShardCount", input);
   }
@@ -461,11 +284,7 @@ export class Kinesis extends AWSServiceClient {
     input: UpdateStreamModeInput,
   ): Effect.Effect<
     {},
-    | InvalidArgumentException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateStreamMode", input);
   }
@@ -538,7 +357,8 @@ export interface DeregisterStreamConsumerInput {
   ConsumerName?: string;
   ConsumerARN?: string;
 }
-export interface DescribeLimitsInput {}
+export interface DescribeLimitsInput {
+}
 export interface DescribeLimitsOutput {
   ShardLimit: number;
   OpenShardCount: number;
@@ -758,15 +578,7 @@ export interface MergeShardsInput {
   AdjacentShardToMerge: string;
   StreamARN?: string;
 }
-export type MetricsName =
-  | "INCOMING_BYTES"
-  | "INCOMING_RECORDS"
-  | "OUTGOING_BYTES"
-  | "OUTGOING_RECORDS"
-  | "WRITE_PROVISIONED_THROUGHPUT_EXCEEDED"
-  | "READ_PROVISIONED_THROUGHPUT_EXCEEDED"
-  | "ITERATOR_AGE_MILLISECONDS"
-  | "ALL";
+export type MetricsName = "INCOMING_BYTES" | "INCOMING_RECORDS" | "OUTGOING_BYTES" | "OUTGOING_RECORDS" | "WRITE_PROVISIONED_THROUGHPUT_EXCEEDED" | "READ_PROVISIONED_THROUGHPUT_EXCEEDED" | "ITERATOR_AGE_MILLISECONDS" | "ALL";
 export type MetricsNameList = Array<MetricsName>;
 export type MillisBehindLatest = number;
 
@@ -883,24 +695,13 @@ export interface ShardFilter {
   ShardId?: string;
   Timestamp?: Date | string;
 }
-export type ShardFilterType =
-  | "AFTER_SHARD_ID"
-  | "AT_TRIM_HORIZON"
-  | "FROM_TRIM_HORIZON"
-  | "AT_LATEST"
-  | "AT_TIMESTAMP"
-  | "FROM_TIMESTAMP";
+export type ShardFilterType = "AFTER_SHARD_ID" | "AT_TRIM_HORIZON" | "FROM_TRIM_HORIZON" | "AT_LATEST" | "AT_TIMESTAMP" | "FROM_TIMESTAMP";
 export type ShardId = string;
 
 export type ShardIdList = Array<string>;
 export type ShardIterator = string;
 
-export type ShardIteratorType =
-  | "AT_SEQUENCE_NUMBER"
-  | "AFTER_SEQUENCE_NUMBER"
-  | "TRIM_HORIZON"
-  | "LATEST"
-  | "AT_TIMESTAMP";
+export type ShardIteratorType = "AT_SEQUENCE_NUMBER" | "AFTER_SEQUENCE_NUMBER" | "TRIM_HORIZON" | "LATEST" | "AT_TIMESTAMP";
 export type ShardList = Array<Shard>;
 export interface SplitShardInput {
   StreamName?: string;
@@ -988,35 +789,7 @@ interface _SubscribeToShardEventStream {
   InternalFailureException?: InternalFailureException;
 }
 
-export type SubscribeToShardEventStream =
-  | (_SubscribeToShardEventStream & {
-      SubscribeToShardEvent: SubscribeToShardEvent;
-    })
-  | (_SubscribeToShardEventStream & {
-      ResourceNotFoundException: ResourceNotFoundException;
-    })
-  | (_SubscribeToShardEventStream & {
-      ResourceInUseException: ResourceInUseException;
-    })
-  | (_SubscribeToShardEventStream & {
-      KMSDisabledException: KMSDisabledException;
-    })
-  | (_SubscribeToShardEventStream & {
-      KMSInvalidStateException: KMSInvalidStateException;
-    })
-  | (_SubscribeToShardEventStream & {
-      KMSAccessDeniedException: KMSAccessDeniedException;
-    })
-  | (_SubscribeToShardEventStream & {
-      KMSNotFoundException: KMSNotFoundException;
-    })
-  | (_SubscribeToShardEventStream & { KMSOptInRequired: KMSOptInRequired })
-  | (_SubscribeToShardEventStream & {
-      KMSThrottlingException: KMSThrottlingException;
-    })
-  | (_SubscribeToShardEventStream & {
-      InternalFailureException: InternalFailureException;
-    });
+export type SubscribeToShardEventStream = (_SubscribeToShardEventStream & { SubscribeToShardEvent: SubscribeToShardEvent }) | (_SubscribeToShardEventStream & { ResourceNotFoundException: ResourceNotFoundException }) | (_SubscribeToShardEventStream & { ResourceInUseException: ResourceInUseException }) | (_SubscribeToShardEventStream & { KMSDisabledException: KMSDisabledException }) | (_SubscribeToShardEventStream & { KMSInvalidStateException: KMSInvalidStateException }) | (_SubscribeToShardEventStream & { KMSAccessDeniedException: KMSAccessDeniedException }) | (_SubscribeToShardEventStream & { KMSNotFoundException: KMSNotFoundException }) | (_SubscribeToShardEventStream & { KMSOptInRequired: KMSOptInRequired }) | (_SubscribeToShardEventStream & { KMSThrottlingException: KMSThrottlingException }) | (_SubscribeToShardEventStream & { InternalFailureException: InternalFailureException });
 export interface SubscribeToShardInput {
   ConsumerARN: string;
   ShardId: string;
@@ -1138,7 +911,9 @@ export declare namespace DeregisterStreamConsumer {
 export declare namespace DescribeLimits {
   export type Input = DescribeLimitsInput;
   export type Output = DescribeLimitsOutput;
-  export type Error = LimitExceededException | CommonAwsError;
+  export type Error =
+    | LimitExceededException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeStream {
@@ -1496,3 +1271,4 @@ export declare namespace UpdateStreamMode {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

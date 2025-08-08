@@ -2,17 +2,18 @@ import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ApiGatewayV2 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("apigatewayv2", new RestJson1Protocol(), cfg);
+  }
+
   createApi(
     input: CreateApiRequest,
   ): Effect.Effect<
     CreateApiResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateApi", input);
   }
@@ -20,11 +21,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateApiMappingRequest,
   ): Effect.Effect<
     CreateApiMappingResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateApiMapping", input);
   }
@@ -32,11 +29,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateAuthorizerRequest,
   ): Effect.Effect<
     CreateAuthorizerResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateAuthorizer", input);
   }
@@ -44,11 +37,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateDeploymentRequest,
   ): Effect.Effect<
     CreateDeploymentResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateDeployment", input);
   }
@@ -56,12 +45,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateDomainNameRequest,
   ): Effect.Effect<
     CreateDomainNameResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateDomainName", input);
   }
@@ -69,11 +53,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateIntegrationRequest,
   ): Effect.Effect<
     CreateIntegrationResult,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateIntegration", input);
   }
@@ -81,11 +61,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateIntegrationResponseRequest,
   ): Effect.Effect<
     CreateIntegrationResponseResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateIntegrationResponse", input);
   }
@@ -93,11 +69,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateModelRequest,
   ): Effect.Effect<
     CreateModelResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateModel", input);
   }
@@ -105,11 +77,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateRouteRequest,
   ): Effect.Effect<
     CreateRouteResult,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateRoute", input);
   }
@@ -117,11 +85,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateRouteResponseRequest,
   ): Effect.Effect<
     CreateRouteResponseResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateRouteResponse", input);
   }
@@ -129,11 +93,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateRoutingRuleRequest,
   ): Effect.Effect<
     CreateRoutingRuleResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateRoutingRule", input);
   }
@@ -141,11 +101,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: CreateStageRequest,
   ): Effect.Effect<
     CreateStageResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateStage", input);
   }
@@ -177,10 +133,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: DeleteApiMappingRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteApiMapping", input);
   }
@@ -276,10 +229,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: DeleteRoutingRuleRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteRoutingRule", input);
   }
@@ -303,10 +253,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: ExportApiRequest,
   ): Effect.Effect<
     ExportApiResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ExportApi", input);
   }
@@ -322,10 +269,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetApiMappingRequest,
   ): Effect.Effect<
     GetApiMappingResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetApiMapping", input);
   }
@@ -333,10 +277,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetApiMappingsRequest,
   ): Effect.Effect<
     GetApiMappingsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetApiMappings", input);
   }
@@ -344,10 +285,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetApisRequest,
   ): Effect.Effect<
     GetApisResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetApis", input);
   }
@@ -363,10 +301,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetAuthorizersRequest,
   ): Effect.Effect<
     GetAuthorizersResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetAuthorizers", input);
   }
@@ -382,10 +317,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetDeploymentsRequest,
   ): Effect.Effect<
     GetDeploymentsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetDeployments", input);
   }
@@ -401,10 +333,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetDomainNamesRequest,
   ): Effect.Effect<
     GetDomainNamesResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetDomainNames", input);
   }
@@ -428,10 +357,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetIntegrationResponsesRequest,
   ): Effect.Effect<
     GetIntegrationResponsesResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetIntegrationResponses", input);
   }
@@ -439,10 +365,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetIntegrationsRequest,
   ): Effect.Effect<
     GetIntegrationsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetIntegrations", input);
   }
@@ -458,10 +381,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetModelsRequest,
   ): Effect.Effect<
     GetModelsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetModels", input);
   }
@@ -493,10 +413,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetRouteResponsesRequest,
   ): Effect.Effect<
     GetRouteResponsesResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetRouteResponses", input);
   }
@@ -504,10 +421,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetRoutesRequest,
   ): Effect.Effect<
     GetRoutesResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetRoutes", input);
   }
@@ -515,10 +429,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetRoutingRuleRequest,
   ): Effect.Effect<
     GetRoutingRuleResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetRoutingRule", input);
   }
@@ -534,10 +445,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetStagesRequest,
   ): Effect.Effect<
     GetStagesResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetStages", input);
   }
@@ -545,11 +453,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: GetTagsRequest,
   ): Effect.Effect<
     GetTagsResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetTags", input);
   }
@@ -573,11 +477,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: ImportApiRequest,
   ): Effect.Effect<
     ImportApiResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ImportApi", input);
   }
@@ -585,10 +485,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: ListRoutingRulesRequest,
   ): Effect.Effect<
     ListRoutingRulesResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListRoutingRules", input);
   }
@@ -596,11 +493,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: PutRoutingRuleRequest,
   ): Effect.Effect<
     PutRoutingRuleResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutRoutingRule", input);
   }
@@ -608,11 +501,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: ReimportApiRequest,
   ): Effect.Effect<
     ReimportApiResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ReimportApi", input);
   }
@@ -628,11 +517,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -640,11 +525,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -652,11 +533,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateApiRequest,
   ): Effect.Effect<
     UpdateApiResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateApi", input);
   }
@@ -664,11 +541,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateApiMappingRequest,
   ): Effect.Effect<
     UpdateApiMappingResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateApiMapping", input);
   }
@@ -676,11 +549,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateAuthorizerRequest,
   ): Effect.Effect<
     UpdateAuthorizerResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateAuthorizer", input);
   }
@@ -688,11 +557,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateDeploymentRequest,
   ): Effect.Effect<
     UpdateDeploymentResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateDeployment", input);
   }
@@ -700,11 +565,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateDomainNameRequest,
   ): Effect.Effect<
     UpdateDomainNameResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateDomainName", input);
   }
@@ -712,11 +573,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateIntegrationRequest,
   ): Effect.Effect<
     UpdateIntegrationResult,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateIntegration", input);
   }
@@ -724,11 +581,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateIntegrationResponseRequest,
   ): Effect.Effect<
     UpdateIntegrationResponseResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateIntegrationResponse", input);
   }
@@ -736,11 +589,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateModelRequest,
   ): Effect.Effect<
     UpdateModelResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateModel", input);
   }
@@ -748,11 +597,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateRouteRequest,
   ): Effect.Effect<
     UpdateRouteResult,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateRoute", input);
   }
@@ -760,11 +605,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateRouteResponseRequest,
   ): Effect.Effect<
     UpdateRouteResponseResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateRouteResponse", input);
   }
@@ -772,11 +613,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateStageRequest,
   ): Effect.Effect<
     UpdateStageResponse,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateStage", input);
   }
@@ -784,10 +621,7 @@ export class ApiGatewayV2 extends AWSServiceClient {
     input: UpdateVpcLinkRequest,
   ): Effect.Effect<
     UpdateVpcLinkResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateVpcLink", input);
   }
@@ -817,8 +651,7 @@ export type __listOfRouteResponse = Array<RouteResponse>;
 export type __listOfRoutingRule = Array<RoutingRule>;
 export type __listOfRoutingRuleAction = Array<RoutingRuleAction>;
 export type __listOfRoutingRuleCondition = Array<RoutingRuleCondition>;
-export type __listOfRoutingRuleMatchHeaderValue =
-  Array<RoutingRuleMatchHeaderValue>;
+export type __listOfRoutingRuleMatchHeaderValue = Array<RoutingRuleMatchHeaderValue>;
 export type __listOfSelectionKey = Array<string>;
 export type __listOfStage = Array<Stage>;
 export type __listOfVpcLink = Array<VpcLink>;
@@ -1249,7 +1082,8 @@ export interface DeleteStageRequest {
 export interface DeleteVpcLinkRequest {
   VpcLinkId: string;
 }
-export interface DeleteVpcLinkResponse {}
+export interface DeleteVpcLinkResponse {
+}
 export interface Deployment {
   AutoDeployed?: boolean;
   CreatedDate?: Date | string;
@@ -1282,11 +1116,7 @@ export interface DomainNameConfiguration {
   OwnershipVerificationCertificateArn?: string;
 }
 export type DomainNameConfigurations = Array<DomainNameConfiguration>;
-export type DomainNameStatus =
-  | "AVAILABLE"
-  | "UPDATING"
-  | "PENDING_CERTIFICATE_REIMPORT"
-  | "PENDING_OWNERSHIP_VERIFICATION";
+export type DomainNameStatus = "AVAILABLE" | "UPDATING" | "PENDING_CERTIFICATE_REIMPORT" | "PENDING_OWNERSHIP_VERIFICATION";
 export type EndpointType = "REGIONAL" | "EDGE";
 export interface ExportApiRequest {
   ApiId: string;
@@ -1685,12 +1515,7 @@ export interface IntegrationResponse {
   ResponseTemplates?: Record<string, string>;
   TemplateSelectionExpression?: string;
 }
-export type IntegrationType =
-  | "AWS"
-  | "HTTP"
-  | "MOCK"
-  | "HTTP_PROXY"
-  | "AWS_PROXY";
+export type IntegrationType = "AWS" | "HTTP" | "MOCK" | "HTTP_PROXY" | "AWS_PROXY";
 export type IpAddressType = "ipv4" | "dualstack";
 export interface JWTConfiguration {
   Audience?: Array<string>;
@@ -1736,10 +1561,7 @@ export declare class NotFoundException extends EffectData.TaggedError(
 export interface ParameterConstraints {
   Required?: boolean;
 }
-export type PassthroughBehavior =
-  | "WHEN_NO_MATCH"
-  | "NEVER"
-  | "WHEN_NO_TEMPLATES";
+export type PassthroughBehavior = "WHEN_NO_MATCH" | "NEVER" | "WHEN_NO_TEMPLATES";
 export type ProtocolType = "WEBSOCKET" | "HTTP";
 export interface PutRoutingRuleRequest {
   Actions: Array<RoutingRuleAction>;
@@ -1818,10 +1640,7 @@ export interface RouteSettings {
   ThrottlingRateLimit?: number;
 }
 export type RouteSettingsMap = Record<string, RouteSettings>;
-export type RoutingMode =
-  | "API_MAPPING_ONLY"
-  | "ROUTING_RULE_ONLY"
-  | "ROUTING_RULE_THEN_API_MAPPING";
+export type RoutingMode = "API_MAPPING_ONLY" | "ROUTING_RULE_ONLY" | "ROUTING_RULE_THEN_API_MAPPING";
 export interface RoutingRule {
   Actions?: Array<RoutingRuleAction>;
   Conditions?: Array<RoutingRuleCondition>;
@@ -1899,7 +1718,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags?: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TemplateMap = Record<string, string>;
 export interface TlsConfig {
@@ -2198,12 +2018,7 @@ export interface VpcLink {
   VpcLinkStatusMessage?: string;
   VpcLinkVersion?: VpcLinkVersion;
 }
-export type VpcLinkStatus =
-  | "PENDING"
-  | "AVAILABLE"
-  | "DELETING"
-  | "FAILED"
-  | "INACTIVE";
+export type VpcLinkStatus = "PENDING" | "AVAILABLE" | "DELETING" | "FAILED" | "INACTIVE";
 export type VpcLinkVersion = "V2";
 export declare namespace CreateApi {
   export type Input = CreateApiRequest;
@@ -2974,3 +2789,4 @@ export declare namespace UpdateVpcLink {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

@@ -1,21 +1,20 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
+import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class signer extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("signer", new RestJson1Protocol(), cfg);
+  }
+
   addProfilePermission(
     input: AddProfilePermissionRequest,
   ): Effect.Effect<
     AddProfilePermissionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ServiceLimitExceededException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | ResourceNotFoundException | ServiceLimitExceededException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("AddProfilePermission", input);
   }
@@ -23,11 +22,7 @@ export class signer extends AWSServiceClient {
     input: CancelSigningProfileRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CancelSigningProfile", input);
   }
@@ -35,11 +30,7 @@ export class signer extends AWSServiceClient {
     input: DescribeSigningJobRequest,
   ): Effect.Effect<
     DescribeSigningJobResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DescribeSigningJob", input);
   }
@@ -47,11 +38,7 @@ export class signer extends AWSServiceClient {
     input: GetRevocationStatusRequest,
   ): Effect.Effect<
     GetRevocationStatusResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("GetRevocationStatus", input);
   }
@@ -59,11 +46,7 @@ export class signer extends AWSServiceClient {
     input: GetSigningPlatformRequest,
   ): Effect.Effect<
     GetSigningPlatformResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetSigningPlatform", input);
   }
@@ -71,11 +54,7 @@ export class signer extends AWSServiceClient {
     input: GetSigningProfileRequest,
   ): Effect.Effect<
     GetSigningProfileResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetSigningProfile", input);
   }
@@ -83,12 +62,7 @@ export class signer extends AWSServiceClient {
     input: ListProfilePermissionsRequest,
   ): Effect.Effect<
     ListProfilePermissionsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListProfilePermissions", input);
   }
@@ -96,11 +70,7 @@ export class signer extends AWSServiceClient {
     input: ListSigningJobsRequest,
   ): Effect.Effect<
     ListSigningJobsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListSigningJobs", input);
   }
@@ -108,11 +78,7 @@ export class signer extends AWSServiceClient {
     input: ListSigningPlatformsRequest,
   ): Effect.Effect<
     ListSigningPlatformsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("ListSigningPlatforms", input);
   }
@@ -120,10 +86,7 @@ export class signer extends AWSServiceClient {
     input: ListSigningProfilesRequest,
   ): Effect.Effect<
     ListSigningProfilesResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListSigningProfiles", input);
   }
@@ -131,11 +94,7 @@ export class signer extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | InternalServiceErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -143,12 +102,7 @@ export class signer extends AWSServiceClient {
     input: PutSigningProfileRequest,
   ): Effect.Effect<
     PutSigningProfileResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("PutSigningProfile", input);
   }
@@ -156,13 +110,7 @@ export class signer extends AWSServiceClient {
     input: RemoveProfilePermissionRequest,
   ): Effect.Effect<
     RemoveProfilePermissionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("RemoveProfilePermission", input);
   }
@@ -170,12 +118,7 @@ export class signer extends AWSServiceClient {
     input: RevokeSignatureRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("RevokeSignature", input);
   }
@@ -183,12 +126,7 @@ export class signer extends AWSServiceClient {
     input: RevokeSigningProfileRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("RevokeSigningProfile", input);
   }
@@ -196,12 +134,7 @@ export class signer extends AWSServiceClient {
     input: SignPayloadRequest,
   ): Effect.Effect<
     SignPayloadResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("SignPayload", input);
   }
@@ -209,13 +142,7 @@ export class signer extends AWSServiceClient {
     input: StartSigningJobRequest,
   ): Effect.Effect<
     StartSigningJobResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | TooManyRequestsException | ValidationException | CommonAwsError
   > {
     return this.call("StartSigningJob", input);
   }
@@ -223,11 +150,7 @@ export class signer extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | InternalServiceErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -235,11 +158,7 @@ export class signer extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | InternalServiceErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServiceErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -673,7 +592,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -694,7 +614,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -923,3 +844,4 @@ export declare namespace UntagResource {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

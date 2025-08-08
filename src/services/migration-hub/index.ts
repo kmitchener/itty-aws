@@ -1,22 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class MigrationHub extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("migration-hub", new AwsJson11Protocol(), cfg);
+  }
+
   associateCreatedArtifact(
     input: AssociateCreatedArtifactRequest,
   ): Effect.Effect<
     AssociateCreatedArtifactResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | HomeRegionNotSetException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("AssociateCreatedArtifact", input);
   }
@@ -24,17 +20,7 @@ export class MigrationHub extends AWSServiceClient {
     input: AssociateDiscoveredResourceRequest,
   ): Effect.Effect<
     AssociateDiscoveredResourceResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | PolicyErrorException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | HomeRegionNotSetException | InternalServerError | InvalidInputException | PolicyErrorException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("AssociateDiscoveredResource", input);
   }
@@ -42,15 +28,7 @@ export class MigrationHub extends AWSServiceClient {
     input: AssociateSourceResourceRequest,
   ): Effect.Effect<
     AssociateSourceResourceResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("AssociateSourceResource", input);
   }
@@ -58,15 +36,7 @@ export class MigrationHub extends AWSServiceClient {
     input: CreateProgressUpdateStreamRequest,
   ): Effect.Effect<
     CreateProgressUpdateStreamResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | HomeRegionNotSetException | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("CreateProgressUpdateStream", input);
   }
@@ -74,16 +44,7 @@ export class MigrationHub extends AWSServiceClient {
     input: DeleteProgressUpdateStreamRequest,
   ): Effect.Effect<
     DeleteProgressUpdateStreamResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | HomeRegionNotSetException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("DeleteProgressUpdateStream", input);
   }
@@ -91,15 +52,7 @@ export class MigrationHub extends AWSServiceClient {
     input: DescribeApplicationStateRequest,
   ): Effect.Effect<
     DescribeApplicationStateResult,
-    | AccessDeniedException
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | PolicyErrorException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | HomeRegionNotSetException | InternalServerError | InvalidInputException | PolicyErrorException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeApplicationState", input);
   }
@@ -107,14 +60,7 @@ export class MigrationHub extends AWSServiceClient {
     input: DescribeMigrationTaskRequest,
   ): Effect.Effect<
     DescribeMigrationTaskResult,
-    | AccessDeniedException
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | HomeRegionNotSetException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeMigrationTask", input);
   }
@@ -122,16 +68,7 @@ export class MigrationHub extends AWSServiceClient {
     input: DisassociateCreatedArtifactRequest,
   ): Effect.Effect<
     DisassociateCreatedArtifactResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | HomeRegionNotSetException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("DisassociateCreatedArtifact", input);
   }
@@ -139,16 +76,7 @@ export class MigrationHub extends AWSServiceClient {
     input: DisassociateDiscoveredResourceRequest,
   ): Effect.Effect<
     DisassociateDiscoveredResourceResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | HomeRegionNotSetException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("DisassociateDiscoveredResource", input);
   }
@@ -156,15 +84,7 @@ export class MigrationHub extends AWSServiceClient {
     input: DisassociateSourceResourceRequest,
   ): Effect.Effect<
     DisassociateSourceResourceResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("DisassociateSourceResource", input);
   }
@@ -172,16 +92,7 @@ export class MigrationHub extends AWSServiceClient {
     input: ImportMigrationTaskRequest,
   ): Effect.Effect<
     ImportMigrationTaskResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | HomeRegionNotSetException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("ImportMigrationTask", input);
   }
@@ -189,13 +100,7 @@ export class MigrationHub extends AWSServiceClient {
     input: ListApplicationStatesRequest,
   ): Effect.Effect<
     ListApplicationStatesResult,
-    | AccessDeniedException
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | HomeRegionNotSetException | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListApplicationStates", input);
   }
@@ -203,14 +108,7 @@ export class MigrationHub extends AWSServiceClient {
     input: ListCreatedArtifactsRequest,
   ): Effect.Effect<
     ListCreatedArtifactsResult,
-    | AccessDeniedException
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | HomeRegionNotSetException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListCreatedArtifacts", input);
   }
@@ -218,14 +116,7 @@ export class MigrationHub extends AWSServiceClient {
     input: ListDiscoveredResourcesRequest,
   ): Effect.Effect<
     ListDiscoveredResourcesResult,
-    | AccessDeniedException
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | HomeRegionNotSetException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDiscoveredResources", input);
   }
@@ -233,15 +124,7 @@ export class MigrationHub extends AWSServiceClient {
     input: ListMigrationTasksRequest,
   ): Effect.Effect<
     ListMigrationTasksResult,
-    | AccessDeniedException
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | PolicyErrorException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | HomeRegionNotSetException | InternalServerError | InvalidInputException | PolicyErrorException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListMigrationTasks", input);
   }
@@ -249,13 +132,7 @@ export class MigrationHub extends AWSServiceClient {
     input: ListMigrationTaskUpdatesRequest,
   ): Effect.Effect<
     ListMigrationTaskUpdatesResult,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListMigrationTaskUpdates", input);
   }
@@ -263,13 +140,7 @@ export class MigrationHub extends AWSServiceClient {
     input: ListProgressUpdateStreamsRequest,
   ): Effect.Effect<
     ListProgressUpdateStreamsResult,
-    | AccessDeniedException
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | HomeRegionNotSetException | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListProgressUpdateStreams", input);
   }
@@ -277,13 +148,7 @@ export class MigrationHub extends AWSServiceClient {
     input: ListSourceResourcesRequest,
   ): Effect.Effect<
     ListSourceResourcesResult,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSourceResources", input);
   }
@@ -291,17 +156,7 @@ export class MigrationHub extends AWSServiceClient {
     input: NotifyApplicationStateRequest,
   ): Effect.Effect<
     NotifyApplicationStateResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | PolicyErrorException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | HomeRegionNotSetException | InternalServerError | InvalidInputException | PolicyErrorException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("NotifyApplicationState", input);
   }
@@ -309,16 +164,7 @@ export class MigrationHub extends AWSServiceClient {
     input: NotifyMigrationTaskStateRequest,
   ): Effect.Effect<
     NotifyMigrationTaskStateResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | HomeRegionNotSetException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("NotifyMigrationTaskState", input);
   }
@@ -326,16 +172,7 @@ export class MigrationHub extends AWSServiceClient {
     input: PutResourceAttributesRequest,
   ): Effect.Effect<
     PutResourceAttributesResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | HomeRegionNotSetException
-    | InternalServerError
-    | InvalidInputException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedOperation
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | HomeRegionNotSetException | InternalServerError | InvalidInputException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedOperation | CommonAwsError
   > {
     return this.call("PutResourceAttributes", input);
   }
@@ -364,21 +201,24 @@ export interface AssociateCreatedArtifactRequest {
   CreatedArtifact: CreatedArtifact;
   DryRun?: boolean;
 }
-export interface AssociateCreatedArtifactResult {}
+export interface AssociateCreatedArtifactResult {
+}
 export interface AssociateDiscoveredResourceRequest {
   ProgressUpdateStream: string;
   MigrationTaskName: string;
   DiscoveredResource: DiscoveredResource;
   DryRun?: boolean;
 }
-export interface AssociateDiscoveredResourceResult {}
+export interface AssociateDiscoveredResourceResult {
+}
 export interface AssociateSourceResourceRequest {
   ProgressUpdateStream: string;
   MigrationTaskName: string;
   SourceResource: SourceResource;
   DryRun?: boolean;
 }
-export interface AssociateSourceResourceResult {}
+export interface AssociateSourceResourceResult {
+}
 export type ConfigurationId = string;
 
 export interface CreatedArtifact {
@@ -394,12 +234,14 @@ export interface CreateProgressUpdateStreamRequest {
   ProgressUpdateStreamName: string;
   DryRun?: boolean;
 }
-export interface CreateProgressUpdateStreamResult {}
+export interface CreateProgressUpdateStreamResult {
+}
 export interface DeleteProgressUpdateStreamRequest {
   ProgressUpdateStreamName: string;
   DryRun?: boolean;
 }
-export interface DeleteProgressUpdateStreamResult {}
+export interface DeleteProgressUpdateStreamResult {
+}
 export interface DescribeApplicationStateRequest {
   ApplicationId: string;
 }
@@ -420,21 +262,24 @@ export interface DisassociateCreatedArtifactRequest {
   CreatedArtifactName: string;
   DryRun?: boolean;
 }
-export interface DisassociateCreatedArtifactResult {}
+export interface DisassociateCreatedArtifactResult {
+}
 export interface DisassociateDiscoveredResourceRequest {
   ProgressUpdateStream: string;
   MigrationTaskName: string;
   ConfigurationId: string;
   DryRun?: boolean;
 }
-export interface DisassociateDiscoveredResourceResult {}
+export interface DisassociateDiscoveredResourceResult {
+}
 export interface DisassociateSourceResourceRequest {
   ProgressUpdateStream: string;
   MigrationTaskName: string;
   SourceResourceName: string;
   DryRun?: boolean;
 }
-export interface DisassociateSourceResourceResult {}
+export interface DisassociateSourceResourceResult {
+}
 export interface DiscoveredResource {
   ConfigurationId: string;
   Description?: string;
@@ -461,7 +306,8 @@ export interface ImportMigrationTaskRequest {
   MigrationTaskName: string;
   DryRun?: boolean;
 }
-export interface ImportMigrationTaskResult {}
+export interface ImportMigrationTaskResult {
+}
 export declare class InternalServerError extends EffectData.TaggedError(
   "InternalServerError",
 )<{
@@ -579,7 +425,8 @@ export interface NotifyApplicationStateRequest {
   UpdateDateTime?: Date | string;
   DryRun?: boolean;
 }
-export interface NotifyApplicationStateResult {}
+export interface NotifyApplicationStateResult {
+}
 export interface NotifyMigrationTaskStateRequest {
   ProgressUpdateStream: string;
   MigrationTaskName: string;
@@ -588,7 +435,8 @@ export interface NotifyMigrationTaskStateRequest {
   NextUpdateSeconds: number;
   DryRun?: boolean;
 }
-export interface NotifyMigrationTaskStateResult {}
+export interface NotifyMigrationTaskStateResult {
+}
 export declare class PolicyErrorException extends EffectData.TaggedError(
   "PolicyErrorException",
 )<{
@@ -601,31 +449,21 @@ export type ProgressUpdateStream = string;
 export interface ProgressUpdateStreamSummary {
   ProgressUpdateStreamName?: string;
 }
-export type ProgressUpdateStreamSummaryList =
-  Array<ProgressUpdateStreamSummary>;
+export type ProgressUpdateStreamSummaryList = Array<ProgressUpdateStreamSummary>;
 export interface PutResourceAttributesRequest {
   ProgressUpdateStream: string;
   MigrationTaskName: string;
   ResourceAttributeList: Array<ResourceAttribute>;
   DryRun?: boolean;
 }
-export interface PutResourceAttributesResult {}
+export interface PutResourceAttributesResult {
+}
 export interface ResourceAttribute {
   Type: ResourceAttributeType;
   Value: string;
 }
 export type ResourceAttributeList = Array<ResourceAttribute>;
-export type ResourceAttributeType =
-  | "IPV4_ADDRESS"
-  | "IPV6_ADDRESS"
-  | "MAC_ADDRESS"
-  | "FQDN"
-  | "VM_MANAGER_ID"
-  | "VM_MANAGED_OBJECT_REFERENCE"
-  | "VM_NAME"
-  | "VM_PATH"
-  | "BIOS_ID"
-  | "MOTHERBOARD_SERIAL_NUMBER";
+export type ResourceAttributeType = "IPV4_ADDRESS" | "IPV6_ADDRESS" | "MAC_ADDRESS" | "FQDN" | "VM_MANAGER_ID" | "VM_MANAGED_OBJECT_REFERENCE" | "VM_NAME" | "VM_PATH" | "BIOS_ID" | "MOTHERBOARD_SERIAL_NUMBER";
 export type ResourceAttributeValue = string;
 
 export type ResourceName = string;
@@ -990,3 +828,4 @@ export declare namespace PutResourceAttributes {
     | UnauthorizedOperation
     | CommonAwsError;
 }
+

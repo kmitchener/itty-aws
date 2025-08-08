@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class MachineLearning extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("machine-learning", new AwsJson11Protocol(), cfg);
+  }
+
   addTags(
     input: AddTagsInput,
   ): Effect.Effect<
     AddTagsOutput,
-    | InternalServerException
-    | InvalidInputException
-    | InvalidTagException
-    | ResourceNotFoundException
-    | TagLimitExceededException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | InvalidTagException | ResourceNotFoundException | TagLimitExceededException | CommonAwsError
   > {
     return this.call("AddTags", input);
   }
@@ -20,10 +20,7 @@ export class MachineLearning extends AWSServiceClient {
     input: CreateBatchPredictionInput,
   ): Effect.Effect<
     CreateBatchPredictionOutput,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidInputException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
   > {
     return this.call("CreateBatchPrediction", input);
   }
@@ -31,10 +28,7 @@ export class MachineLearning extends AWSServiceClient {
     input: CreateDataSourceFromRDSInput,
   ): Effect.Effect<
     CreateDataSourceFromRDSOutput,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidInputException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
   > {
     return this.call("CreateDataSourceFromRDS", input);
   }
@@ -42,10 +36,7 @@ export class MachineLearning extends AWSServiceClient {
     input: CreateDataSourceFromRedshiftInput,
   ): Effect.Effect<
     CreateDataSourceFromRedshiftOutput,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidInputException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
   > {
     return this.call("CreateDataSourceFromRedshift", input);
   }
@@ -53,10 +44,7 @@ export class MachineLearning extends AWSServiceClient {
     input: CreateDataSourceFromS3Input,
   ): Effect.Effect<
     CreateDataSourceFromS3Output,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidInputException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
   > {
     return this.call("CreateDataSourceFromS3", input);
   }
@@ -64,10 +52,7 @@ export class MachineLearning extends AWSServiceClient {
     input: CreateEvaluationInput,
   ): Effect.Effect<
     CreateEvaluationOutput,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidInputException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
   > {
     return this.call("CreateEvaluation", input);
   }
@@ -75,10 +60,7 @@ export class MachineLearning extends AWSServiceClient {
     input: CreateMLModelInput,
   ): Effect.Effect<
     CreateMLModelOutput,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidInputException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
   > {
     return this.call("CreateMLModel", input);
   }
@@ -86,10 +68,7 @@ export class MachineLearning extends AWSServiceClient {
     input: CreateRealtimeEndpointInput,
   ): Effect.Effect<
     CreateRealtimeEndpointOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("CreateRealtimeEndpoint", input);
   }
@@ -97,10 +76,7 @@ export class MachineLearning extends AWSServiceClient {
     input: DeleteBatchPredictionInput,
   ): Effect.Effect<
     DeleteBatchPredictionOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteBatchPrediction", input);
   }
@@ -108,10 +84,7 @@ export class MachineLearning extends AWSServiceClient {
     input: DeleteDataSourceInput,
   ): Effect.Effect<
     DeleteDataSourceOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteDataSource", input);
   }
@@ -119,10 +92,7 @@ export class MachineLearning extends AWSServiceClient {
     input: DeleteEvaluationInput,
   ): Effect.Effect<
     DeleteEvaluationOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteEvaluation", input);
   }
@@ -130,10 +100,7 @@ export class MachineLearning extends AWSServiceClient {
     input: DeleteMLModelInput,
   ): Effect.Effect<
     DeleteMLModelOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteMLModel", input);
   }
@@ -141,10 +108,7 @@ export class MachineLearning extends AWSServiceClient {
     input: DeleteRealtimeEndpointInput,
   ): Effect.Effect<
     DeleteRealtimeEndpointOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteRealtimeEndpoint", input);
   }
@@ -152,11 +116,7 @@ export class MachineLearning extends AWSServiceClient {
     input: DeleteTagsInput,
   ): Effect.Effect<
     DeleteTagsOutput,
-    | InternalServerException
-    | InvalidInputException
-    | InvalidTagException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | InvalidTagException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteTags", input);
   }
@@ -196,10 +156,7 @@ export class MachineLearning extends AWSServiceClient {
     input: DescribeTagsInput,
   ): Effect.Effect<
     DescribeTagsOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeTags", input);
   }
@@ -207,10 +164,7 @@ export class MachineLearning extends AWSServiceClient {
     input: GetBatchPredictionInput,
   ): Effect.Effect<
     GetBatchPredictionOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetBatchPrediction", input);
   }
@@ -218,10 +172,7 @@ export class MachineLearning extends AWSServiceClient {
     input: GetDataSourceInput,
   ): Effect.Effect<
     GetDataSourceOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetDataSource", input);
   }
@@ -229,10 +180,7 @@ export class MachineLearning extends AWSServiceClient {
     input: GetEvaluationInput,
   ): Effect.Effect<
     GetEvaluationOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetEvaluation", input);
   }
@@ -240,10 +188,7 @@ export class MachineLearning extends AWSServiceClient {
     input: GetMLModelInput,
   ): Effect.Effect<
     GetMLModelOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetMLModel", input);
   }
@@ -251,12 +196,7 @@ export class MachineLearning extends AWSServiceClient {
     input: PredictInput,
   ): Effect.Effect<
     PredictOutput,
-    | InternalServerException
-    | InvalidInputException
-    | LimitExceededException
-    | PredictorNotMountedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | LimitExceededException | PredictorNotMountedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("Predict", input);
   }
@@ -264,10 +204,7 @@ export class MachineLearning extends AWSServiceClient {
     input: UpdateBatchPredictionInput,
   ): Effect.Effect<
     UpdateBatchPredictionOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateBatchPrediction", input);
   }
@@ -275,10 +212,7 @@ export class MachineLearning extends AWSServiceClient {
     input: UpdateDataSourceInput,
   ): Effect.Effect<
     UpdateDataSourceOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateDataSource", input);
   }
@@ -286,10 +220,7 @@ export class MachineLearning extends AWSServiceClient {
     input: UpdateEvaluationInput,
   ): Effect.Effect<
     UpdateEvaluationOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateEvaluation", input);
   }
@@ -297,10 +228,7 @@ export class MachineLearning extends AWSServiceClient {
     input: UpdateMLModelInput,
   ): Effect.Effect<
     UpdateMLModelOutput,
-    | InternalServerException
-    | InvalidInputException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateMLModel", input);
   }
@@ -338,15 +266,7 @@ export interface BatchPrediction {
   TotalRecordCount?: number;
   InvalidRecordCount?: number;
 }
-export type BatchPredictionFilterVariable =
-  | "CREATED_AT"
-  | "LAST_UPDATED_AT"
-  | "STATUS"
-  | "NAME"
-  | "IAM_USER"
-  | "ML_MODEL_ID"
-  | "DATASOURCE_ID"
-  | "DATA_URI";
+export type BatchPredictionFilterVariable = "CREATED_AT" | "LAST_UPDATED_AT" | "STATUS" | "NAME" | "IAM_USER" | "ML_MODEL_ID" | "DATASOURCE_ID" | "DATA_URI";
 export type BatchPredictions = Array<BatchPrediction>;
 export type ComparatorValue = string;
 
@@ -443,13 +363,7 @@ export interface DataSource {
   FinishedAt?: Date | string;
   StartedAt?: Date | string;
 }
-export type DataSourceFilterVariable =
-  | "CREATED_AT"
-  | "LAST_UPDATED_AT"
-  | "STATUS"
-  | "NAME"
-  | "DATA_URI"
-  | "IAM_USER";
+export type DataSourceFilterVariable = "CREATED_AT" | "LAST_UPDATED_AT" | "STATUS" | "NAME" | "DATA_URI" | "IAM_USER";
 export type DataSources = Array<DataSource>;
 export interface DeleteBatchPredictionInput {
   BatchPredictionId: string;
@@ -587,12 +501,7 @@ export type EntityId = string;
 
 export type EntityName = string;
 
-export type EntityStatus =
-  | "PENDING"
-  | "INPROGRESS"
-  | "FAILED"
-  | "COMPLETED"
-  | "DELETED";
+export type EntityStatus = "PENDING" | "INPROGRESS" | "FAILED" | "COMPLETED" | "DELETED";
 export type EpochTime = Date | string;
 
 export type ErrorCode = number;
@@ -615,15 +524,7 @@ export interface Evaluation {
   FinishedAt?: Date | string;
   StartedAt?: Date | string;
 }
-export type EvaluationFilterVariable =
-  | "CREATED_AT"
-  | "LAST_UPDATED_AT"
-  | "STATUS"
-  | "NAME"
-  | "IAM_USER"
-  | "ML_MODEL_ID"
-  | "DATASOURCE_ID"
-  | "DATA_URI";
+export type EvaluationFilterVariable = "CREATED_AT" | "LAST_UPDATED_AT" | "STATUS" | "NAME" | "IAM_USER" | "ML_MODEL_ID" | "DATASOURCE_ID" | "DATA_URI";
 export type Evaluations = Array<Evaluation>;
 export type floatLabel = number;
 
@@ -780,17 +681,7 @@ export interface MLModel {
   FinishedAt?: Date | string;
   StartedAt?: Date | string;
 }
-export type MLModelFilterVariable =
-  | "CREATED_AT"
-  | "LAST_UPDATED_AT"
-  | "STATUS"
-  | "NAME"
-  | "IAM_USER"
-  | "TRAINING_DATASOURCE_ID"
-  | "REAL_TIME_ENDPOINT_STATUS"
-  | "ML_MODEL_TYPE"
-  | "ALGORITHM"
-  | "TRAINING_DATA_URI";
+export type MLModelFilterVariable = "CREATED_AT" | "LAST_UPDATED_AT" | "STATUS" | "NAME" | "IAM_USER" | "TRAINING_DATASOURCE_ID" | "REAL_TIME_ENDPOINT_STATUS" | "ML_MODEL_TYPE" | "ALGORITHM" | "TRAINING_DATA_URI";
 export type MLModelName = string;
 
 export type MLModels = Array<MLModel>;
@@ -935,11 +826,7 @@ export interface Tag {
   Key?: string;
   Value?: string;
 }
-export type TaggableResourceType =
-  | "BATCH_PREDICTION"
-  | "DATASOURCE"
-  | "EVALUATION"
-  | "ML_MODEL";
+export type TaggableResourceType = "BATCH_PREDICTION" | "DATASOURCE" | "EVALUATION" | "ML_MODEL";
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -1269,3 +1156,4 @@ export declare namespace UpdateMLModel {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

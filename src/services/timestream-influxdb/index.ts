@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class TimestreamInfluxDB extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("timestream-influxdb", new AwsJson10Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -21,7 +26,10 @@ export class TimestreamInfluxDB extends AWSServiceClient {
   }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    ResourceNotFoundException | CommonAwsError
+  > {
     return this.call("UntagResource", input);
   }
 }
@@ -42,13 +50,7 @@ export type Arn = string;
 export type Bucket = string;
 
 export type ClusterDeploymentType = "MULTI_NODE_READ_REPLICAS";
-export type ClusterStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "DELETING"
-  | "AVAILABLE"
-  | "FAILED"
-  | "DELETED";
+export type ClusterStatus = "CREATING" | "UPDATING" | "DELETING" | "AVAILABLE" | "FAILED" | "DELETED";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -168,8 +170,7 @@ export interface DbInstanceForClusterSummary {
   deploymentType?: DeploymentType;
   instanceMode?: InstanceMode;
 }
-export type DbInstanceForClusterSummaryList =
-  Array<DbInstanceForClusterSummary>;
+export type DbInstanceForClusterSummaryList = Array<DbInstanceForClusterSummary>;
 export type DbInstanceId = string;
 
 export type DbInstanceIdentifier = string;
@@ -190,16 +191,7 @@ export interface DbInstanceSummary {
   deploymentType?: DeploymentType;
 }
 export type DbInstanceSummaryList = Array<DbInstanceSummary>;
-export type DbInstanceType =
-  | "DB_INFLUX_MEDIUM"
-  | "DB_INFLUX_LARGE"
-  | "DB_INFLUX_XLARGE"
-  | "DB_INFLUX_2XLARGE"
-  | "DB_INFLUX_4XLARGE"
-  | "DB_INFLUX_8XLARGE"
-  | "DB_INFLUX_12XLARGE"
-  | "DB_INFLUX_16XLARGE"
-  | "DB_INFLUX_24XLARGE";
+export type DbInstanceType = "DB_INFLUX_MEDIUM" | "DB_INFLUX_LARGE" | "DB_INFLUX_XLARGE" | "DB_INFLUX_2XLARGE" | "DB_INFLUX_4XLARGE" | "DB_INFLUX_8XLARGE" | "DB_INFLUX_12XLARGE" | "DB_INFLUX_16XLARGE" | "DB_INFLUX_24XLARGE";
 export type DbParameterGroupId = string;
 
 export type DbParameterGroupIdentifier = string;
@@ -213,10 +205,7 @@ export interface DbParameterGroupSummary {
   description?: string;
 }
 export type DbParameterGroupSummaryList = Array<DbParameterGroupSummary>;
-export type DbStorageType =
-  | "INFLUX_IO_INCLUDED_T1"
-  | "INFLUX_IO_INCLUDED_T2"
-  | "INFLUX_IO_INCLUDED_T3";
+export type DbStorageType = "INFLUX_IO_INCLUDED_T1" | "INFLUX_IO_INCLUDED_T2" | "INFLUX_IO_INCLUDED_T3";
 export interface DeleteDbClusterInput {
   dbClusterId: string;
 }
@@ -412,7 +401,7 @@ interface _Parameters {
   InfluxDBv2?: InfluxDBv2Parameters;
 }
 
-export type Parameters = _Parameters & { InfluxDBv2: InfluxDBv2Parameters };
+export type Parameters = (_Parameters & { InfluxDBv2: InfluxDBv2Parameters });
 export type Password = string;
 
 export type Port = number;
@@ -435,16 +424,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 )<{
   readonly message: string;
 }> {}
-export type Status =
-  | "CREATING"
-  | "AVAILABLE"
-  | "DELETING"
-  | "MODIFYING"
-  | "UPDATING"
-  | "DELETED"
-  | "FAILED"
-  | "UPDATING_DEPLOYMENT_TYPE"
-  | "UPDATING_INSTANCE_TYPE";
+export type Status = "CREATING" | "AVAILABLE" | "DELETING" | "MODIFYING" | "UPDATING" | "DELETED" | "FAILED" | "UPDATING_DEPLOYMENT_TYPE" | "UPDATING_INSTANCE_TYPE";
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
@@ -527,7 +507,9 @@ export type VpcSubnetIdList = Array<string>;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -542,5 +524,8 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
+

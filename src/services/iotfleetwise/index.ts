@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class IoTFleetWise extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iotfleetwise", new AwsJson10Protocol(), cfg);
+  }
+
   batchCreateVehicle(
     input: BatchCreateVehicleRequest,
   ): Effect.Effect<
     BatchCreateVehicleResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchCreateVehicle", input);
   }
@@ -20,12 +20,7 @@ export class IoTFleetWise extends AWSServiceClient {
     input: BatchUpdateVehicleRequest,
   ): Effect.Effect<
     BatchUpdateVehicleResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchUpdateVehicle", input);
   }
@@ -33,12 +28,7 @@ export class IoTFleetWise extends AWSServiceClient {
     input: GetEncryptionConfigurationRequest,
   ): Effect.Effect<
     GetEncryptionConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetEncryptionConfiguration", input);
   }
@@ -54,12 +44,7 @@ export class IoTFleetWise extends AWSServiceClient {
     input: GetRegisterAccountStatusRequest,
   ): Effect.Effect<
     GetRegisterAccountStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRegisterAccountStatus", input);
   }
@@ -67,11 +52,7 @@ export class IoTFleetWise extends AWSServiceClient {
     input: GetVehicleStatusRequest,
   ): Effect.Effect<
     GetVehicleStatusResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetVehicleStatus", input);
   }
@@ -79,12 +60,7 @@ export class IoTFleetWise extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -92,13 +68,7 @@ export class IoTFleetWise extends AWSServiceClient {
     input: PutEncryptionConfigurationRequest,
   ): Effect.Effect<
     PutEncryptionConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutEncryptionConfiguration", input);
   }
@@ -106,12 +76,7 @@ export class IoTFleetWise extends AWSServiceClient {
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
     PutLoggingOptionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutLoggingOptions", input);
   }
@@ -119,13 +84,7 @@ export class IoTFleetWise extends AWSServiceClient {
     input: RegisterAccountRequest,
   ): Effect.Effect<
     RegisterAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RegisterAccount", input);
   }
@@ -133,12 +92,7 @@ export class IoTFleetWise extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -146,12 +100,7 @@ export class IoTFleetWise extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -189,7 +138,8 @@ export interface AssociateVehicleFleetRequest {
   vehicleName: string;
   fleetId: string;
 }
-export interface AssociateVehicleFleetResponse {}
+export interface AssociateVehicleFleetResponse {
+}
 export interface Attribute {
   fullyQualifiedName: string;
   dataType: NodeDataType;
@@ -234,11 +184,7 @@ export type campaignArn = string;
 
 export type campaignName = string;
 
-export type CampaignStatus =
-  | "CREATING"
-  | "WAITING_FOR_APPROVAL"
-  | "RUNNING"
-  | "SUSPENDED";
+export type CampaignStatus = "CREATING" | "WAITING_FOR_APPROVAL" | "RUNNING" | "SUSPENDED";
 export type campaignSummaries = Array<CampaignSummary>;
 export interface CampaignSummary {
   arn?: string;
@@ -288,13 +234,7 @@ interface _CollectionScheme {
   conditionBasedCollectionScheme?: ConditionBasedCollectionScheme;
 }
 
-export type CollectionScheme =
-  | (_CollectionScheme & {
-      timeBasedCollectionScheme: TimeBasedCollectionScheme;
-    })
-  | (_CollectionScheme & {
-      conditionBasedCollectionScheme: ConditionBasedCollectionScheme;
-    });
+export type CollectionScheme = (_CollectionScheme & { timeBasedCollectionScheme: TimeBasedCollectionScheme }) | (_CollectionScheme & { conditionBasedCollectionScheme: ConditionBasedCollectionScheme });
 export type Compression = "OFF" | "SNAPPY";
 export interface ConditionBasedCollectionScheme {
   expression: string;
@@ -464,10 +404,7 @@ interface _DataDestinationConfig {
   mqttTopicConfig?: MqttTopicConfig;
 }
 
-export type DataDestinationConfig =
-  | (_DataDestinationConfig & { s3Config: S3Config })
-  | (_DataDestinationConfig & { timestreamConfig: TimestreamConfig })
-  | (_DataDestinationConfig & { mqttTopicConfig: MqttTopicConfig });
+export type DataDestinationConfig = (_DataDestinationConfig & { s3Config: S3Config }) | (_DataDestinationConfig & { timestreamConfig: TimestreamConfig }) | (_DataDestinationConfig & { mqttTopicConfig: MqttTopicConfig });
 export type DataDestinationConfigs = Array<DataDestinationConfig>;
 export type DataExtraDimensionNodePathList = Array<string>;
 export type DataFormat = "JSON" | "PARQUET";
@@ -564,13 +501,12 @@ export interface DisassociateVehicleFleetRequest {
   vehicleName: string;
   fleetId: string;
 }
-export interface DisassociateVehicleFleetResponse {}
+export interface DisassociateVehicleFleetResponse {
+}
 export type double = number;
 
 export type EncryptionStatus = "PENDING" | "SUCCESS" | "FAILURE";
-export type EncryptionType =
-  | "KMS_BASED_ENCRYPTION"
-  | "FLEETWISE_DEFAULT_ENCRYPTION";
+export type EncryptionType = "KMS_BASED_ENCRYPTION" | "FLEETWISE_DEFAULT_ENCRYPTION";
 export type errorMessage = string;
 
 export type eventExpression = string;
@@ -594,7 +530,7 @@ interface _FormattedVss {
   vssJson?: string;
 }
 
-export type FormattedVss = _FormattedVss & { vssJson: string };
+export type FormattedVss = (_FormattedVss & { vssJson: string });
 export type Fqns = Array<string>;
 export type FullyQualifiedName = string;
 
@@ -637,7 +573,8 @@ export interface GetDecoderManifestResponse {
   lastModificationTime: Date | string;
   message?: string;
 }
-export interface GetEncryptionConfigurationRequest {}
+export interface GetEncryptionConfigurationRequest {
+}
 export interface GetEncryptionConfigurationResponse {
   kmsKeyId?: string;
   encryptionStatus: EncryptionStatus;
@@ -657,7 +594,8 @@ export interface GetFleetResponse {
   creationTime: Date | string;
   lastModificationTime: Date | string;
 }
-export interface GetLoggingOptionsRequest {}
+export interface GetLoggingOptionsRequest {
+}
 export interface GetLoggingOptionsResponse {
   cloudWatchLogDelivery: CloudWatchLogDeliveryOptions;
 }
@@ -673,7 +611,8 @@ export interface GetModelManifestResponse {
   creationTime: Date | string;
   lastModificationTime: Date | string;
 }
-export interface GetRegisterAccountStatusRequest {}
+export interface GetRegisterAccountStatusRequest {
+}
 export interface GetRegisterAccountStatusResponse {
   customerAccountId: string;
   accountStatus: RegistrationStatus;
@@ -975,9 +914,7 @@ interface _NetworkFileDefinition {
   canDbc?: CanDbcDefinition;
 }
 
-export type NetworkFileDefinition = _NetworkFileDefinition & {
-  canDbc: CanDbcDefinition;
-};
+export type NetworkFileDefinition = (_NetworkFileDefinition & { canDbc: CanDbcDefinition });
 export type NetworkFileDefinitions = Array<NetworkFileDefinition>;
 export type NetworkFilesList = Array<Uint8Array | string>;
 export interface NetworkInterface {
@@ -988,21 +925,9 @@ export interface NetworkInterface {
   vehicleMiddleware?: VehicleMiddleware;
   customDecodingInterface?: CustomDecodingInterface;
 }
-export type NetworkInterfaceFailureReason =
-  | "DUPLICATE_INTERFACE"
-  | "CONFLICTING_NETWORK_INTERFACE"
-  | "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS"
-  | "CAN_NETWORK_INTERFACE_INFO_IS_NULL"
-  | "OBD_NETWORK_INTERFACE_INFO_IS_NULL"
-  | "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS"
-  | "VEHICLE_MIDDLEWARE_NETWORK_INTERFACE_INFO_IS_NULL"
-  | "CUSTOM_DECODING_SIGNAL_NETWORK_INTERFACE_INFO_IS_NULL";
+export type NetworkInterfaceFailureReason = "DUPLICATE_INTERFACE" | "CONFLICTING_NETWORK_INTERFACE" | "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS" | "CAN_NETWORK_INTERFACE_INFO_IS_NULL" | "OBD_NETWORK_INTERFACE_INFO_IS_NULL" | "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS" | "VEHICLE_MIDDLEWARE_NETWORK_INTERFACE_INFO_IS_NULL" | "CUSTOM_DECODING_SIGNAL_NETWORK_INTERFACE_INFO_IS_NULL";
 export type NetworkInterfaces = Array<NetworkInterface>;
-export type NetworkInterfaceType =
-  | "CAN_INTERFACE"
-  | "OBD_INTERFACE"
-  | "VEHICLE_MIDDLEWARE"
-  | "CUSTOM_DECODING_INTERFACE";
+export type NetworkInterfaceType = "CAN_INTERFACE" | "OBD_INTERFACE" | "VEHICLE_MIDDLEWARE" | "CUSTOM_DECODING_INTERFACE";
 export type nextToken = string;
 
 interface _Node {
@@ -1014,13 +939,7 @@ interface _Node {
   property?: CustomProperty;
 }
 
-export type Node =
-  | (_Node & { branch: Branch })
-  | (_Node & { sensor: Sensor })
-  | (_Node & { actuator: Actuator })
-  | (_Node & { attribute: Attribute })
-  | (_Node & { struct: CustomStruct })
-  | (_Node & { property: CustomProperty });
+export type Node = (_Node & { branch: Branch }) | (_Node & { sensor: Sensor }) | (_Node & { actuator: Actuator }) | (_Node & { attribute: Attribute }) | (_Node & { struct: CustomStruct }) | (_Node & { property: CustomProperty });
 export interface NodeCounts {
   totalNodes?: number;
   totalBranches?: number;
@@ -1031,36 +950,7 @@ export interface NodeCounts {
   totalProperties?: number;
 }
 export type NodeDataEncoding = "BINARY" | "TYPED";
-export type NodeDataType =
-  | "INT8"
-  | "UINT8"
-  | "INT16"
-  | "UINT16"
-  | "INT32"
-  | "UINT32"
-  | "INT64"
-  | "UINT64"
-  | "BOOLEAN"
-  | "FLOAT"
-  | "DOUBLE"
-  | "STRING"
-  | "UNIX_TIMESTAMP"
-  | "INT8_ARRAY"
-  | "UINT8_ARRAY"
-  | "INT16_ARRAY"
-  | "UINT16_ARRAY"
-  | "INT32_ARRAY"
-  | "UINT32_ARRAY"
-  | "INT64_ARRAY"
-  | "UINT64_ARRAY"
-  | "BOOLEAN_ARRAY"
-  | "FLOAT_ARRAY"
-  | "DOUBLE_ARRAY"
-  | "STRING_ARRAY"
-  | "UNIX_TIMESTAMP_ARRAY"
-  | "UNKNOWN"
-  | "STRUCT"
-  | "STRUCT_ARRAY";
+export type NodeDataType = "INT8" | "UINT8" | "INT16" | "UINT16" | "INT32" | "UINT32" | "INT64" | "UINT64" | "BOOLEAN" | "FLOAT" | "DOUBLE" | "STRING" | "UNIX_TIMESTAMP" | "INT8_ARRAY" | "UINT8_ARRAY" | "INT16_ARRAY" | "UINT16_ARRAY" | "INT32_ARRAY" | "UINT32_ARRAY" | "INT64_ARRAY" | "UINT64_ARRAY" | "BOOLEAN_ARRAY" | "FLOAT_ARRAY" | "DOUBLE_ARRAY" | "STRING_ARRAY" | "UNIX_TIMESTAMP_ARRAY" | "UNKNOWN" | "STRUCT" | "STRUCT_ARRAY";
 export type NodePath = string;
 
 export type NodePaths = Array<string>;
@@ -1099,7 +989,8 @@ export interface ObdSignal {
 }
 export type ObdStandard = string;
 
-export interface OnChangeStateTemplateUpdateStrategy {}
+export interface OnChangeStateTemplateUpdateStrategy {
+}
 export interface PeriodicStateTemplateUpdateStrategy {
   stateTemplateUpdateRate: TimePeriod;
 }
@@ -1113,9 +1004,7 @@ interface _PrimitiveMessageDefinition {
   ros2PrimitiveMessageDefinition?: ROS2PrimitiveMessageDefinition;
 }
 
-export type PrimitiveMessageDefinition = _PrimitiveMessageDefinition & {
-  ros2PrimitiveMessageDefinition: ROS2PrimitiveMessageDefinition;
-};
+export type PrimitiveMessageDefinition = (_PrimitiveMessageDefinition & { ros2PrimitiveMessageDefinition: ROS2PrimitiveMessageDefinition });
 export type priority = number;
 
 export type ProtocolName = string;
@@ -1134,7 +1023,8 @@ export interface PutEncryptionConfigurationResponse {
 export interface PutLoggingOptionsRequest {
   cloudWatchLogDelivery: CloudWatchLogDeliveryOptions;
 }
-export interface PutLoggingOptionsResponse {}
+export interface PutLoggingOptionsResponse {
+}
 export interface RegisterAccountRequest {
   timestreamResources?: TimestreamResources;
   iamResources?: IamResources;
@@ -1146,10 +1036,7 @@ export interface RegisterAccountResponse {
   creationTime: Date | string;
   lastModificationTime: Date | string;
 }
-export type RegistrationStatus =
-  | "REGISTRATION_PENDING"
-  | "REGISTRATION_SUCCESS"
-  | "REGISTRATION_FAILURE";
+export type RegistrationStatus = "REGISTRATION_PENDING" | "REGISTRATION_SUCCESS" | "REGISTRATION_FAILURE";
 export type ResourceIdentifier = string;
 
 export type resourceName = string;
@@ -1171,22 +1058,7 @@ export interface ROS2PrimitiveMessageDefinition {
   scaling?: number;
   upperBound?: number;
 }
-export type ROS2PrimitiveType =
-  | "BOOL"
-  | "BYTE"
-  | "CHAR"
-  | "FLOAT32"
-  | "FLOAT64"
-  | "INT8"
-  | "UINT8"
-  | "INT16"
-  | "UINT16"
-  | "INT32"
-  | "UINT32"
-  | "INT64"
-  | "UINT64"
-  | "STRING"
-  | "WSTRING";
+export type ROS2PrimitiveType = "BOOL" | "BYTE" | "CHAR" | "FLOAT32" | "FLOAT64" | "INT8" | "UINT8" | "INT16" | "UINT16" | "INT32" | "UINT32" | "INT64" | "UINT64" | "STRING" | "WSTRING";
 export type S3BucketArn = string;
 
 export interface S3Config {
@@ -1223,37 +1095,15 @@ export interface SignalDecoder {
   messageSignal?: MessageSignal;
   customDecodingSignal?: CustomDecodingSignal;
 }
-export type SignalDecoderFailureReason =
-  | "DUPLICATE_SIGNAL"
-  | "CONFLICTING_SIGNAL"
-  | "SIGNAL_TO_ADD_ALREADY_EXISTS"
-  | "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE"
-  | "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE"
-  | "SIGNAL_NOT_IN_MODEL"
-  | "CAN_SIGNAL_INFO_IS_NULL"
-  | "OBD_SIGNAL_INFO_IS_NULL"
-  | "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL"
-  | "MESSAGE_SIGNAL_INFO_IS_NULL"
-  | "SIGNAL_DECODER_TYPE_INCOMPATIBLE_WITH_MESSAGE_SIGNAL_TYPE"
-  | "STRUCT_SIZE_MISMATCH"
-  | "NO_SIGNAL_IN_CATALOG_FOR_DECODER_SIGNAL"
-  | "SIGNAL_DECODER_INCOMPATIBLE_WITH_SIGNAL_CATALOG"
-  | "EMPTY_MESSAGE_SIGNAL"
-  | "CUSTOM_DECODING_SIGNAL_INFO_IS_NULL";
+export type SignalDecoderFailureReason = "DUPLICATE_SIGNAL" | "CONFLICTING_SIGNAL" | "SIGNAL_TO_ADD_ALREADY_EXISTS" | "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE" | "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE" | "SIGNAL_NOT_IN_MODEL" | "CAN_SIGNAL_INFO_IS_NULL" | "OBD_SIGNAL_INFO_IS_NULL" | "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL" | "MESSAGE_SIGNAL_INFO_IS_NULL" | "SIGNAL_DECODER_TYPE_INCOMPATIBLE_WITH_MESSAGE_SIGNAL_TYPE" | "STRUCT_SIZE_MISMATCH" | "NO_SIGNAL_IN_CATALOG_FOR_DECODER_SIGNAL" | "SIGNAL_DECODER_INCOMPATIBLE_WITH_SIGNAL_CATALOG" | "EMPTY_MESSAGE_SIGNAL" | "CUSTOM_DECODING_SIGNAL_INFO_IS_NULL";
 export type SignalDecoders = Array<SignalDecoder>;
-export type SignalDecoderType =
-  | "CAN_SIGNAL"
-  | "OBD_SIGNAL"
-  | "MESSAGE_SIGNAL"
-  | "CUSTOM_DECODING_SIGNAL";
+export type SignalDecoderType = "CAN_SIGNAL" | "OBD_SIGNAL" | "MESSAGE_SIGNAL" | "CUSTOM_DECODING_SIGNAL";
 interface _SignalFetchConfig {
   timeBased?: TimeBasedSignalFetchConfig;
   conditionBased?: ConditionBasedSignalFetchConfig;
 }
 
-export type SignalFetchConfig =
-  | (_SignalFetchConfig & { timeBased: TimeBasedSignalFetchConfig })
-  | (_SignalFetchConfig & { conditionBased: ConditionBasedSignalFetchConfig });
+export type SignalFetchConfig = (_SignalFetchConfig & { timeBased: TimeBasedSignalFetchConfig }) | (_SignalFetchConfig & { conditionBased: ConditionBasedSignalFetchConfig });
 export interface SignalFetchInformation {
   fullyQualifiedName: string;
   signalFetchConfig: SignalFetchConfig;
@@ -1268,13 +1118,7 @@ export interface SignalInformation {
   dataPartitionId?: string;
 }
 export type SignalInformationList = Array<SignalInformation>;
-export type SignalNodeType =
-  | "SENSOR"
-  | "ACTUATOR"
-  | "ATTRIBUTE"
-  | "BRANCH"
-  | "CUSTOM_STRUCT"
-  | "CUSTOM_PROPERTY";
+export type SignalNodeType = "SENSOR" | "ACTUATOR" | "ATTRIBUTE" | "BRANCH" | "CUSTOM_STRUCT" | "CUSTOM_PROPERTY";
 export type SignalValueType = "INTEGER" | "FLOATING_POINT";
 export type SpoolingMode = "OFF" | "TO_DISK";
 export interface StateTemplateAssociation {
@@ -1301,13 +1145,7 @@ interface _StateTemplateUpdateStrategy {
   onChange?: OnChangeStateTemplateUpdateStrategy;
 }
 
-export type StateTemplateUpdateStrategy =
-  | (_StateTemplateUpdateStrategy & {
-      periodic: PeriodicStateTemplateUpdateStrategy;
-    })
-  | (_StateTemplateUpdateStrategy & {
-      onChange: OnChangeStateTemplateUpdateStrategy;
-    });
+export type StateTemplateUpdateStrategy = (_StateTemplateUpdateStrategy & { periodic: PeriodicStateTemplateUpdateStrategy }) | (_StateTemplateUpdateStrategy & { onChange: OnChangeStateTemplateUpdateStrategy });
 export type statusStr = string;
 
 export type StorageCompressionFormat = "NONE" | "GZIP";
@@ -1335,18 +1173,8 @@ interface _StructuredMessage {
   structuredMessageDefinition?: Array<StructuredMessageFieldNameAndDataTypePair>;
 }
 
-export type StructuredMessage =
-  | (_StructuredMessage & {
-      primitiveMessageDefinition: PrimitiveMessageDefinition;
-    })
-  | (_StructuredMessage & {
-      structuredMessageListDefinition: StructuredMessageListDefinition;
-    })
-  | (_StructuredMessage & {
-      structuredMessageDefinition: Array<StructuredMessageFieldNameAndDataTypePair>;
-    });
-export type StructuredMessageDefinition =
-  Array<StructuredMessageFieldNameAndDataTypePair>;
+export type StructuredMessage = (_StructuredMessage & { primitiveMessageDefinition: PrimitiveMessageDefinition }) | (_StructuredMessage & { structuredMessageListDefinition: StructuredMessageListDefinition }) | (_StructuredMessage & { structuredMessageDefinition: Array<StructuredMessageFieldNameAndDataTypePair> });
+export type StructuredMessageDefinition = Array<StructuredMessageFieldNameAndDataTypePair>;
 export interface StructuredMessageFieldNameAndDataTypePair {
   fieldName: string;
   dataType: StructuredMessage;
@@ -1357,10 +1185,7 @@ export interface StructuredMessageListDefinition {
   listType: StructuredMessageListType;
   capacity?: number;
 }
-export type StructuredMessageListType =
-  | "FIXED_CAPACITY"
-  | "DYNAMIC_UNBOUNDED_CAPACITY"
-  | "DYNAMIC_BOUNDED_CAPACITY";
+export type StructuredMessageListType = "FIXED_CAPACITY" | "DYNAMIC_UNBOUNDED_CAPACITY" | "DYNAMIC_BOUNDED_CAPACITY";
 export type StructureMessageName = string;
 
 export interface Tag {
@@ -1375,7 +1200,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1430,7 +1256,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UpdateCampaignAction = "APPROVE" | "SUSPEND" | "RESUME" | "UPDATE";
 export interface UpdateCampaignRequest {
   name: string;
@@ -1551,14 +1378,8 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
-export type VehicleAssociationBehavior =
-  | "CREATE_IOT_THING"
-  | "VALIDATE_IOT_THING_EXISTS";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
+export type VehicleAssociationBehavior = "CREATE_IOT_THING" | "VALIDATE_IOT_THING_EXISTS";
 export interface VehicleMiddleware {
   name: string;
   protocolName: VehicleMiddlewareProtocol;
@@ -1569,13 +1390,7 @@ export type VehicleMiddlewareProtocol = "ROS_2";
 export type vehicleName = string;
 
 export type vehicles = Array<string>;
-export type VehicleState =
-  | "CREATED"
-  | "READY"
-  | "HEALTHY"
-  | "SUSPENDED"
-  | "DELETING"
-  | "READY_FOR_CHECKIN";
+export type VehicleState = "CREATED" | "READY" | "HEALTHY" | "SUSPENDED" | "DELETING" | "READY_FOR_CHECKIN";
 export interface VehicleStatus {
   campaignName?: string;
   vehicleName?: string;
@@ -1735,3 +1550,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ControlTower extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("controltower", new RestJson1Protocol(), cfg);
+  }
+
   disableControl(
     input: DisableControlInput,
   ): Effect.Effect<
     DisableControlOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisableControl", input);
   }
@@ -42,11 +40,7 @@ export interface BaselineOperation {
   statusMessage?: string;
 }
 export type BaselineOperationStatus = "SUCCEEDED" | "FAILED" | "IN_PROGRESS";
-export type BaselineOperationType =
-  | "ENABLE_BASELINE"
-  | "DISABLE_BASELINE"
-  | "UPDATE_ENABLED_BASELINE"
-  | "RESET_ENABLED_BASELINE";
+export type BaselineOperationType = "ENABLE_BASELINE" | "DISABLE_BASELINE" | "UPDATE_ENABLED_BASELINE" | "RESET_ENABLED_BASELINE";
 export type Baselines = Array<BaselineSummary>;
 export interface BaselineSummary {
   arn: string;
@@ -95,11 +89,7 @@ export interface ControlOperationSummary {
   targetIdentifier?: string;
   enabledControlIdentifier?: string;
 }
-export type ControlOperationType =
-  | "ENABLE_CONTROL"
-  | "DISABLE_CONTROL"
-  | "UPDATE_ENABLED_CONTROL"
-  | "RESET_ENABLED_CONTROL";
+export type ControlOperationType = "ENABLE_CONTROL" | "DISABLE_CONTROL" | "UPDATE_ENABLED_CONTROL" | "RESET_ENABLED_CONTROL";
 export type ControlOperationTypes = Array<ControlOperationType>;
 export interface CreateLandingZoneInput {
   version: string;
@@ -192,8 +182,7 @@ export interface EnabledBaselineParameter {
 export type EnabledBaselineParameterDocument = unknown;
 
 export type EnabledBaselineParameters = Array<EnabledBaselineParameter>;
-export type EnabledBaselineParameterSummaries =
-  Array<EnabledBaselineParameterSummary>;
+export type EnabledBaselineParameterSummaries = Array<EnabledBaselineParameterSummary>;
 export interface EnabledBaselineParameterSummary {
   key: string;
   value: unknown;
@@ -230,8 +219,7 @@ export interface EnabledControlParameter {
   value: unknown;
 }
 export type EnabledControlParameters = Array<EnabledControlParameter>;
-export type EnabledControlParameterSummaries =
-  Array<EnabledControlParameterSummary>;
+export type EnabledControlParameterSummaries = Array<EnabledControlParameterSummary>;
 export interface EnabledControlParameterSummary {
   key: string;
   value: unknown;
@@ -461,7 +449,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export type TargetIdentifier = string;
@@ -482,7 +471,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateEnabledBaselineInput {
   baselineVersion: string;
   parameters?: Array<EnabledBaselineParameter>;
@@ -524,3 +514,4 @@ export declare namespace DisableControl {
     | ValidationException
     | CommonAwsError;
 }
+

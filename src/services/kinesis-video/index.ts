@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class KinesisVideo extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("kinesis-video", new RestJson1Protocol(), cfg);
+  }
+
   createSignalingChannel(
     input: CreateSignalingChannelInput,
   ): Effect.Effect<
     CreateSignalingChannelOutput,
-    | AccessDeniedException
-    | AccountChannelLimitExceededException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceInUseException
-    | TagsPerResourceExceededLimitException
-    | CommonAwsError
+    AccessDeniedException | AccountChannelLimitExceededException | ClientLimitExceededException | InvalidArgumentException | ResourceInUseException | TagsPerResourceExceededLimitException | CommonAwsError
   > {
     return this.call("CreateSignalingChannel", input);
   }
@@ -21,14 +20,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: CreateStreamInput,
   ): Effect.Effect<
     CreateStreamOutput,
-    | AccountStreamLimitExceededException
-    | ClientLimitExceededException
-    | DeviceStreamLimitExceededException
-    | InvalidArgumentException
-    | InvalidDeviceException
-    | ResourceInUseException
-    | TagsPerResourceExceededLimitException
-    | CommonAwsError
+    AccountStreamLimitExceededException | ClientLimitExceededException | DeviceStreamLimitExceededException | InvalidArgumentException | InvalidDeviceException | ResourceInUseException | TagsPerResourceExceededLimitException | CommonAwsError
   > {
     return this.call("CreateStream", input);
   }
@@ -36,12 +28,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: DeleteEdgeConfigurationInput,
   ): Effect.Effect<
     DeleteEdgeConfigurationOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | StreamEdgeConfigurationNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | StreamEdgeConfigurationNotFoundException | CommonAwsError
   > {
     return this.call("DeleteEdgeConfiguration", input);
   }
@@ -49,13 +36,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: DeleteSignalingChannelInput,
   ): Effect.Effect<
     DeleteSignalingChannelOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | VersionMismatchException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceInUseException | ResourceNotFoundException | VersionMismatchException | CommonAwsError
   > {
     return this.call("DeleteSignalingChannel", input);
   }
@@ -63,13 +44,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: DeleteStreamInput,
   ): Effect.Effect<
     DeleteStreamOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | VersionMismatchException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceInUseException | ResourceNotFoundException | VersionMismatchException | CommonAwsError
   > {
     return this.call("DeleteStream", input);
   }
@@ -77,12 +52,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: DescribeEdgeConfigurationInput,
   ): Effect.Effect<
     DescribeEdgeConfigurationOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | StreamEdgeConfigurationNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | StreamEdgeConfigurationNotFoundException | CommonAwsError
   > {
     return this.call("DescribeEdgeConfiguration", input);
   }
@@ -90,11 +60,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: DescribeImageGenerationConfigurationInput,
   ): Effect.Effect<
     DescribeImageGenerationConfigurationOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeImageGenerationConfiguration", input);
   }
@@ -102,11 +68,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: DescribeMappedResourceConfigurationInput,
   ): Effect.Effect<
     DescribeMappedResourceConfigurationOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeMappedResourceConfiguration", input);
   }
@@ -114,11 +76,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: DescribeMediaStorageConfigurationInput,
   ): Effect.Effect<
     DescribeMediaStorageConfigurationOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeMediaStorageConfiguration", input);
   }
@@ -126,11 +84,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: DescribeNotificationConfigurationInput,
   ): Effect.Effect<
     DescribeNotificationConfigurationOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeNotificationConfiguration", input);
   }
@@ -138,11 +92,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: DescribeSignalingChannelInput,
   ): Effect.Effect<
     DescribeSignalingChannelOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeSignalingChannel", input);
   }
@@ -150,11 +100,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: DescribeStreamInput,
   ): Effect.Effect<
     DescribeStreamOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeStream", input);
   }
@@ -162,11 +108,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: GetDataEndpointInput,
   ): Effect.Effect<
     GetDataEndpointOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetDataEndpoint", input);
   }
@@ -174,12 +116,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: GetSignalingChannelEndpointInput,
   ): Effect.Effect<
     GetSignalingChannelEndpointOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetSignalingChannelEndpoint", input);
   }
@@ -187,10 +124,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: ListEdgeAgentConfigurationsInput,
   ): Effect.Effect<
     ListEdgeAgentConfigurationsOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | CommonAwsError
   > {
     return this.call("ListEdgeAgentConfigurations", input);
   }
@@ -198,10 +132,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: ListSignalingChannelsInput,
   ): Effect.Effect<
     ListSignalingChannelsOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | CommonAwsError
   > {
     return this.call("ListSignalingChannels", input);
   }
@@ -217,11 +148,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -229,12 +156,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: ListTagsForStreamInput,
   ): Effect.Effect<
     ListTagsForStreamOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | InvalidResourceFormatException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | InvalidResourceFormatException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForStream", input);
   }
@@ -242,13 +164,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: StartEdgeConfigurationUpdateInput,
   ): Effect.Effect<
     StartEdgeConfigurationUpdateOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NoDataRetentionException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | NoDataRetentionException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartEdgeConfigurationUpdate", input);
   }
@@ -256,12 +172,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | TagsPerResourceExceededLimitException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | TagsPerResourceExceededLimitException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -269,13 +180,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: TagStreamInput,
   ): Effect.Effect<
     TagStreamOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | InvalidResourceFormatException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TagsPerResourceExceededLimitException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | InvalidResourceFormatException | NotAuthorizedException | ResourceNotFoundException | TagsPerResourceExceededLimitException | CommonAwsError
   > {
     return this.call("TagStream", input);
   }
@@ -283,11 +188,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -295,12 +196,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: UntagStreamInput,
   ): Effect.Effect<
     UntagStreamOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | InvalidResourceFormatException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | InvalidResourceFormatException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagStream", input);
   }
@@ -308,13 +204,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: UpdateDataRetentionInput,
   ): Effect.Effect<
     UpdateDataRetentionOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | VersionMismatchException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceInUseException | ResourceNotFoundException | VersionMismatchException | CommonAwsError
   > {
     return this.call("UpdateDataRetention", input);
   }
@@ -322,13 +212,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: UpdateImageGenerationConfigurationInput,
   ): Effect.Effect<
     UpdateImageGenerationConfigurationOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NoDataRetentionException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | NoDataRetentionException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateImageGenerationConfiguration", input);
   }
@@ -336,13 +220,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: UpdateMediaStorageConfigurationInput,
   ): Effect.Effect<
     UpdateMediaStorageConfigurationOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NoDataRetentionException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | NoDataRetentionException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateMediaStorageConfiguration", input);
   }
@@ -350,13 +228,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: UpdateNotificationConfigurationInput,
   ): Effect.Effect<
     UpdateNotificationConfigurationOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NoDataRetentionException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | NoDataRetentionException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateNotificationConfiguration", input);
   }
@@ -364,13 +236,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: UpdateSignalingChannelInput,
   ): Effect.Effect<
     UpdateSignalingChannelOutput,
-    | AccessDeniedException
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | VersionMismatchException
-    | CommonAwsError
+    AccessDeniedException | ClientLimitExceededException | InvalidArgumentException | ResourceInUseException | ResourceNotFoundException | VersionMismatchException | CommonAwsError
   > {
     return this.call("UpdateSignalingChannel", input);
   }
@@ -378,13 +244,7 @@ export class KinesisVideo extends AWSServiceClient {
     input: UpdateStreamInput,
   ): Effect.Effect<
     UpdateStreamOutput,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | VersionMismatchException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceInUseException | ResourceNotFoundException | VersionMismatchException | CommonAwsError
   > {
     return this.call("UpdateStream", input);
   }
@@ -407,15 +267,7 @@ export declare class AccountStreamLimitExceededException extends EffectData.Tagg
 )<{
   readonly Message?: string;
 }> {}
-export type APIName =
-  | "PUT_MEDIA"
-  | "GET_MEDIA"
-  | "LIST_FRAGMENTS"
-  | "GET_MEDIA_FOR_FRAGMENT_LIST"
-  | "GET_HLS_STREAMING_SESSION_URL"
-  | "GET_DASH_STREAMING_SESSION_URL"
-  | "GET_CLIP"
-  | "GET_IMAGES";
+export type APIName = "PUT_MEDIA" | "GET_MEDIA" | "LIST_FRAGMENTS" | "GET_MEDIA_FOR_FRAGMENT_LIST" | "GET_HLS_STREAMING_SESSION_URL" | "GET_DASH_STREAMING_SESSION_URL" | "GET_CLIP" | "GET_IMAGES";
 export interface ChannelInfo {
   ChannelName?: string;
   ChannelARN?: string;
@@ -474,17 +326,20 @@ export interface DeleteEdgeConfigurationInput {
   StreamName?: string;
   StreamARN?: string;
 }
-export interface DeleteEdgeConfigurationOutput {}
+export interface DeleteEdgeConfigurationOutput {
+}
 export interface DeleteSignalingChannelInput {
   ChannelARN: string;
   CurrentVersion?: string;
 }
-export interface DeleteSignalingChannelOutput {}
+export interface DeleteSignalingChannelOutput {
+}
 export interface DeleteStreamInput {
   StreamARN: string;
   CurrentVersion?: string;
 }
-export interface DeleteStreamOutput {}
+export interface DeleteStreamOutput {
+}
 export interface DeletionConfig {
   EdgeRetentionInHours?: number;
   LocalSizeConfig?: LocalSizeConfig;
@@ -657,8 +512,7 @@ export interface ListEdgeAgentConfigurationsEdgeConfig {
   FailedStatusDetails?: string;
   EdgeConfig?: EdgeConfig;
 }
-export type ListEdgeAgentConfigurationsEdgeConfigList =
-  Array<ListEdgeAgentConfigurationsEdgeConfig>;
+export type ListEdgeAgentConfigurationsEdgeConfigList = Array<ListEdgeAgentConfigurationsEdgeConfig>;
 export interface ListEdgeAgentConfigurationsInput {
   HubDeviceArn: string;
   MaxResults?: number;
@@ -712,8 +566,7 @@ export interface LocalSizeConfig {
   MaxLocalMediaSizeInMB?: number;
   StrategyOnFullSize?: StrategyOnFullSize;
 }
-export type MappedResourceConfigurationList =
-  Array<MappedResourceConfigurationListItem>;
+export type MappedResourceConfigurationList = Array<MappedResourceConfigurationListItem>;
 export interface MappedResourceConfigurationListItem {
   Type?: string;
   ARN?: string;
@@ -836,14 +689,7 @@ export interface StreamNameCondition {
   ComparisonOperator?: ComparisonOperator;
   ComparisonValue?: string;
 }
-export type SyncStatus =
-  | "SYNCING"
-  | "ACKNOWLEDGED"
-  | "IN_SYNC"
-  | "SYNC_FAILED"
-  | "DELETING"
-  | "DELETE_FAILED"
-  | "DELETING_ACKNOWLEDGED";
+export type SyncStatus = "SYNCING" | "ACKNOWLEDGED" | "IN_SYNC" | "SYNC_FAILED" | "DELETING" | "DELETE_FAILED" | "DELETING_ACKNOWLEDGED";
 export interface Tag {
   Key: string;
   Value: string;
@@ -857,7 +703,8 @@ export interface TagResourceInput {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export declare class TagsPerResourceExceededLimitException extends EffectData.TaggedError(
   "TagsPerResourceExceededLimitException",
 )<{
@@ -868,7 +715,8 @@ export interface TagStreamInput {
   StreamName?: string;
   Tags: Record<string, string>;
 }
-export interface TagStreamOutput {}
+export interface TagStreamOutput {
+}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -879,13 +727,15 @@ export interface UntagResourceInput {
   ResourceARN: string;
   TagKeyList: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UntagStreamInput {
   StreamARN?: string;
   StreamName?: string;
   TagKeyList: Array<string>;
 }
-export interface UntagStreamOutput {}
+export interface UntagStreamOutput {
+}
 export interface UpdateDataRetentionInput {
   StreamName?: string;
   StreamARN?: string;
@@ -893,33 +743,36 @@ export interface UpdateDataRetentionInput {
   Operation: UpdateDataRetentionOperation;
   DataRetentionChangeInHours: number;
 }
-export type UpdateDataRetentionOperation =
-  | "INCREASE_DATA_RETENTION"
-  | "DECREASE_DATA_RETENTION";
-export interface UpdateDataRetentionOutput {}
+export type UpdateDataRetentionOperation = "INCREASE_DATA_RETENTION" | "DECREASE_DATA_RETENTION";
+export interface UpdateDataRetentionOutput {
+}
 export interface UpdateImageGenerationConfigurationInput {
   StreamName?: string;
   StreamARN?: string;
   ImageGenerationConfiguration?: ImageGenerationConfiguration;
 }
-export interface UpdateImageGenerationConfigurationOutput {}
+export interface UpdateImageGenerationConfigurationOutput {
+}
 export interface UpdateMediaStorageConfigurationInput {
   ChannelARN: string;
   MediaStorageConfiguration: MediaStorageConfiguration;
 }
-export interface UpdateMediaStorageConfigurationOutput {}
+export interface UpdateMediaStorageConfigurationOutput {
+}
 export interface UpdateNotificationConfigurationInput {
   StreamName?: string;
   StreamARN?: string;
   NotificationConfiguration?: NotificationConfiguration;
 }
-export interface UpdateNotificationConfigurationOutput {}
+export interface UpdateNotificationConfigurationOutput {
+}
 export interface UpdateSignalingChannelInput {
   ChannelARN: string;
   CurrentVersion: string;
   SingleMasterConfiguration?: SingleMasterConfiguration;
 }
-export interface UpdateSignalingChannelOutput {}
+export interface UpdateSignalingChannelOutput {
+}
 export interface UpdateStreamInput {
   StreamName?: string;
   StreamARN?: string;
@@ -927,7 +780,8 @@ export interface UpdateStreamInput {
   DeviceName?: string;
   MediaType?: string;
 }
-export interface UpdateStreamOutput {}
+export interface UpdateStreamOutput {
+}
 export interface UploaderConfig {
   ScheduleConfig: ScheduleConfig;
 }
@@ -1297,3 +1151,4 @@ export declare namespace UpdateStream {
     | VersionMismatchException
     | CommonAwsError;
 }
+

@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ApplicationCostProfiler extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("applicationcostprofiler", new RestJson1Protocol(), cfg);
+  }
+
   deleteReportDefinition(
     input: DeleteReportDefinitionRequest,
   ): Effect.Effect<
     DeleteReportDefinitionResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteReportDefinition", input);
   }
@@ -19,11 +20,7 @@ export class ApplicationCostProfiler extends AWSServiceClient {
     input: GetReportDefinitionRequest,
   ): Effect.Effect<
     GetReportDefinitionResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetReportDefinition", input);
   }
@@ -31,11 +28,7 @@ export class ApplicationCostProfiler extends AWSServiceClient {
     input: ImportApplicationUsageRequest,
   ): Effect.Effect<
     ImportApplicationUsageResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ImportApplicationUsage", input);
   }
@@ -43,11 +36,7 @@ export class ApplicationCostProfiler extends AWSServiceClient {
     input: ListReportDefinitionsRequest,
   ): Effect.Effect<
     ListReportDefinitionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListReportDefinitions", input);
   }
@@ -55,12 +44,7 @@ export class ApplicationCostProfiler extends AWSServiceClient {
     input: PutReportDefinitionRequest,
   ): Effect.Effect<
     PutReportDefinitionResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutReportDefinition", input);
   }
@@ -68,11 +52,7 @@ export class ApplicationCostProfiler extends AWSServiceClient {
     input: UpdateReportDefinitionRequest,
   ): Effect.Effect<
     UpdateReportDefinitionResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateReportDefinition", input);
   }
@@ -158,11 +138,7 @@ export type ReportId = string;
 
 export type S3Bucket = string;
 
-export type S3BucketRegion =
-  | "AP_EAST_1"
-  | "ME_SOUTH_1"
-  | "EU_SOUTH_1"
-  | "AF_SOUTH_1";
+export type S3BucketRegion = "AP_EAST_1" | "ME_SOUTH_1" | "EU_SOUTH_1" | "AF_SOUTH_1";
 export type S3Key = string;
 
 export interface S3Location {
@@ -271,3 +247,4 @@ export declare namespace UpdateReportDefinition {
     | ValidationException
     | CommonAwsError;
 }
+

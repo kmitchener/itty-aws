@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class BCMDataExports extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("bcm-data-exports", new AwsJson11Protocol(), cfg);
+  }
+
   createExport(
     input: CreateExportRequest,
   ): Effect.Effect<
     CreateExportResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateExport", input);
   }
@@ -19,11 +20,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: DeleteExportRequest,
   ): Effect.Effect<
     DeleteExportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteExport", input);
   }
@@ -31,11 +28,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: GetExecutionRequest,
   ): Effect.Effect<
     GetExecutionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetExecution", input);
   }
@@ -43,11 +36,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: GetExportRequest,
   ): Effect.Effect<
     GetExportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetExport", input);
   }
@@ -55,10 +44,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: GetTableRequest,
   ): Effect.Effect<
     GetTableResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetTable", input);
   }
@@ -66,11 +52,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: ListExecutionsRequest,
   ): Effect.Effect<
     ListExecutionsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListExecutions", input);
   }
@@ -78,10 +60,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: ListExportsRequest,
   ): Effect.Effect<
     ListExportsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListExports", input);
   }
@@ -89,10 +68,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: ListTablesRequest,
   ): Effect.Effect<
     ListTablesResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTables", input);
   }
@@ -100,11 +76,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -112,11 +84,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -124,11 +92,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -136,11 +100,7 @@ export class BCMDataExports extends AWSServiceClient {
     input: UpdateExportRequest,
   ): Effect.Effect<
     UpdateExportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateExport", input);
   }
@@ -191,18 +151,8 @@ export interface ExecutionStatus {
   CompletedAt?: Date | string;
   LastUpdatedAt?: Date | string;
 }
-export type ExecutionStatusCode =
-  | "INITIATION_IN_PROCESS"
-  | "QUERY_QUEUED"
-  | "QUERY_IN_PROCESS"
-  | "QUERY_FAILURE"
-  | "DELIVERY_IN_PROCESS"
-  | "DELIVERY_SUCCESS"
-  | "DELIVERY_FAILURE";
-export type ExecutionStatusReason =
-  | "INSUFFICIENT_PERMISSION"
-  | "BILL_OWNER_CHANGED"
-  | "INTERNAL_FAILURE";
+export type ExecutionStatusCode = "INITIATION_IN_PROCESS" | "QUERY_QUEUED" | "QUERY_IN_PROCESS" | "QUERY_FAILURE" | "DELIVERY_IN_PROCESS" | "DELIVERY_SUCCESS" | "DELIVERY_FAILURE";
+export type ExecutionStatusReason = "INSUFFICIENT_PERMISSION" | "BILL_OWNER_CHANGED" | "INTERNAL_FAILURE";
 export interface Export {
   ExportArn?: string;
   Name: string;
@@ -369,7 +319,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   ResourceTags: Array<ResourceTag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -381,7 +332,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   ResourceTagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateExportRequest {
   ExportArn: string;
   Export: Export;
@@ -401,11 +353,7 @@ export interface ValidationExceptionField {
   Message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export declare namespace CreateExport {
   export type Input = CreateExportRequest;
   export type Output = CreateExportResponse;
@@ -534,3 +482,4 @@ export declare namespace UpdateExport {
     | ValidationException
     | CommonAwsError;
 }
+

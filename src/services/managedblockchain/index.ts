@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ManagedBlockchain extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("managedblockchain", new RestJson1Protocol(), cfg);
+  }
+
   createAccessor(
     input: CreateAccessorInput,
   ): Effect.Effect<
     CreateAccessorOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceLimitExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceAlreadyExistsException | ResourceLimitExceededException | ThrottlingException | TooManyTagsException | CommonAwsError
   > {
     return this.call("CreateAccessor", input);
   }
@@ -22,16 +20,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: CreateMemberInput,
   ): Effect.Effect<
     CreateMemberOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceLimitExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceAlreadyExistsException | ResourceLimitExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | TooManyTagsException | CommonAwsError
   > {
     return this.call("CreateMember", input);
   }
@@ -39,14 +28,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: CreateNetworkInput,
   ): Effect.Effect<
     CreateNetworkOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceLimitExceededException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceAlreadyExistsException | ResourceLimitExceededException | ThrottlingException | TooManyTagsException | CommonAwsError
   > {
     return this.call("CreateNetwork", input);
   }
@@ -54,16 +36,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: CreateNodeInput,
   ): Effect.Effect<
     CreateNodeOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceLimitExceededException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceAlreadyExistsException | ResourceLimitExceededException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | TooManyTagsException | CommonAwsError
   > {
     return this.call("CreateNode", input);
   }
@@ -71,14 +44,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: CreateProposalInput,
   ): Effect.Effect<
     CreateProposalOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | TooManyTagsException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | TooManyTagsException | CommonAwsError
   > {
     return this.call("CreateProposal", input);
   }
@@ -86,12 +52,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: DeleteAccessorInput,
   ): Effect.Effect<
     DeleteAccessorOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAccessor", input);
   }
@@ -99,13 +60,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: DeleteMemberInput,
   ): Effect.Effect<
     DeleteMemberOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteMember", input);
   }
@@ -113,13 +68,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: DeleteNodeInput,
   ): Effect.Effect<
     DeleteNodeOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteNode", input);
   }
@@ -127,12 +76,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: GetAccessorInput,
   ): Effect.Effect<
     GetAccessorOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetAccessor", input);
   }
@@ -140,12 +84,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: GetMemberInput,
   ): Effect.Effect<
     GetMemberOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetMember", input);
   }
@@ -153,12 +92,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: GetNetworkInput,
   ): Effect.Effect<
     GetNetworkOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetNetwork", input);
   }
@@ -166,12 +100,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: GetNodeInput,
   ): Effect.Effect<
     GetNodeOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetNode", input);
   }
@@ -179,12 +108,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: GetProposalInput,
   ): Effect.Effect<
     GetProposalOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetProposal", input);
   }
@@ -192,11 +116,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: ListAccessorsInput,
   ): Effect.Effect<
     ListAccessorsOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAccessors", input);
   }
@@ -204,13 +124,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: ListInvitationsInput,
   ): Effect.Effect<
     ListInvitationsOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceLimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceLimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListInvitations", input);
   }
@@ -218,11 +132,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: ListMembersInput,
   ): Effect.Effect<
     ListMembersOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListMembers", input);
   }
@@ -230,11 +140,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: ListNetworksInput,
   ): Effect.Effect<
     ListNetworksOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListNetworks", input);
   }
@@ -242,11 +148,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: ListNodesInput,
   ): Effect.Effect<
     ListNodesOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListNodes", input);
   }
@@ -254,12 +156,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: ListProposalsInput,
   ): Effect.Effect<
     ListProposalsOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListProposals", input);
   }
@@ -267,11 +164,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: ListProposalVotesInput,
   ): Effect.Effect<
     ListProposalVotesOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListProposalVotes", input);
   }
@@ -279,11 +172,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -291,13 +180,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: RejectInvitationInput,
   ): Effect.Effect<
     RejectInvitationOutput,
-    | AccessDeniedException
-    | IllegalActionException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IllegalActionException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("RejectInvitation", input);
   }
@@ -305,12 +188,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | TooManyTagsException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -318,11 +196,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ResourceNotReadyException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ResourceNotReadyException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -330,12 +204,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: UpdateMemberInput,
   ): Effect.Effect<
     UpdateMemberOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateMember", input);
   }
@@ -343,12 +212,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: UpdateNodeInput,
   ): Effect.Effect<
     UpdateNodeOutput,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateNode", input);
   }
@@ -356,13 +220,7 @@ export class ManagedBlockchain extends AWSServiceClient {
     input: VoteOnProposalInput,
   ): Effect.Effect<
     VoteOnProposalOutput,
-    | AccessDeniedException
-    | IllegalActionException
-    | InternalServiceErrorException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | IllegalActionException | InternalServiceErrorException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("VoteOnProposal", input);
   }
@@ -391,12 +249,7 @@ export type AccessorBillingTokenString = string;
 
 export type AccessorListMaxResults = number;
 
-export type AccessorNetworkType =
-  | "ETHEREUM_GOERLI"
-  | "ETHEREUM_MAINNET"
-  | "ETHEREUM_MAINNET_AND_GOERLI"
-  | "POLYGON_MAINNET"
-  | "POLYGON_MUMBAI";
+export type AccessorNetworkType = "ETHEREUM_GOERLI" | "ETHEREUM_MAINNET" | "ETHEREUM_MAINNET_AND_GOERLI" | "POLYGON_MAINNET" | "POLYGON_MUMBAI";
 export type AccessorStatus = "AVAILABLE" | "PENDING_DELETION" | "DELETED";
 export interface AccessorSummary {
   Id?: string;
@@ -478,18 +331,21 @@ export interface CreateProposalOutput {
 export interface DeleteAccessorInput {
   AccessorId: string;
 }
-export interface DeleteAccessorOutput {}
+export interface DeleteAccessorOutput {
+}
 export interface DeleteMemberInput {
   NetworkId: string;
   MemberId: string;
 }
-export interface DeleteMemberOutput {}
+export interface DeleteMemberOutput {
+}
 export interface DeleteNodeInput {
   NetworkId: string;
   MemberId?: string;
   NodeId: string;
 }
-export interface DeleteNodeOutput {}
+export interface DeleteNodeOutput {
+}
 export type DescriptionString = string;
 
 export type Edition = "STARTER" | "STANDARD";
@@ -544,7 +400,8 @@ export type InstanceTypeString = string;
 
 export declare class InternalServiceErrorException extends EffectData.TaggedError(
   "InternalServiceErrorException",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidRequestException extends EffectData.TaggedError(
   "InvalidRequestException",
 )<{
@@ -559,12 +416,7 @@ export interface Invitation {
   Arn?: string;
 }
 export type InvitationList = Array<Invitation>;
-export type InvitationStatus =
-  | "PENDING"
-  | "ACCEPTED"
-  | "ACCEPTING"
-  | "REJECTED"
-  | "EXPIRED";
+export type InvitationStatus = "PENDING" | "ACCEPTED" | "ACCEPTING" | "REJECTED" | "EXPIRED";
 export interface InviteAction {
   Principal: string;
 }
@@ -696,14 +548,7 @@ export type MemberListMaxResults = number;
 export interface MemberLogPublishingConfiguration {
   Fabric?: MemberFabricLogPublishingConfiguration;
 }
-export type MemberStatus =
-  | "CREATING"
-  | "AVAILABLE"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "INACCESSIBLE_ENCRYPTION_KEY";
+export type MemberStatus = "CREATING" | "AVAILABLE" | "CREATE_FAILED" | "UPDATING" | "DELETING" | "DELETED" | "INACCESSIBLE_ENCRYPTION_KEY";
 export interface MemberSummary {
   Id?: string;
   Name?: string;
@@ -751,12 +596,7 @@ export type NetworkListMaxResults = number;
 
 export type NetworkMemberNameString = string;
 
-export type NetworkStatus =
-  | "CREATING"
-  | "AVAILABLE"
-  | "CREATE_FAILED"
-  | "DELETING"
-  | "DELETED";
+export type NetworkStatus = "CREATING" | "AVAILABLE" | "CREATE_FAILED" | "DELETING" | "DELETED";
 export interface NetworkSummary {
   Id?: string;
   Name?: string;
@@ -810,16 +650,7 @@ export type NodeListMaxResults = number;
 export interface NodeLogPublishingConfiguration {
   Fabric?: NodeFabricLogPublishingConfiguration;
 }
-export type NodeStatus =
-  | "CREATING"
-  | "AVAILABLE"
-  | "UNHEALTHY"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "FAILED"
-  | "INACCESSIBLE_ENCRYPTION_KEY";
+export type NodeStatus = "CREATING" | "AVAILABLE" | "UNHEALTHY" | "CREATE_FAILED" | "UPDATING" | "DELETING" | "DELETED" | "FAILED" | "INACCESSIBLE_ENCRYPTION_KEY";
 export interface NodeSummary {
   Id?: string;
   Status?: NodeStatus;
@@ -860,12 +691,7 @@ export type ProposalDurationInt = number;
 
 export type ProposalListMaxResults = number;
 
-export type ProposalStatus =
-  | "IN_PROGRESS"
-  | "APPROVED"
-  | "REJECTED"
-  | "EXPIRED"
-  | "ACTION_FAILED";
+export type ProposalStatus = "IN_PROGRESS" | "APPROVED" | "REJECTED" | "EXPIRED" | "ACTION_FAILED";
 export interface ProposalSummary {
   ProposalId?: string;
   Description?: string;
@@ -881,7 +707,8 @@ export type ProposalVoteList = Array<VoteSummary>;
 export interface RejectInvitationInput {
   InvitationId: string;
 }
-export interface RejectInvitationOutput {}
+export interface RejectInvitationOutput {
+}
 export interface RemoveAction {
   MemberId: string;
 }
@@ -919,7 +746,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type ThresholdComparator = "GREATER_THAN" | "GREATER_THAN_OR_EQUAL_TO";
@@ -927,7 +755,8 @@ export type ThresholdPercentageInt = number;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
-)<{}> {}
+)<{
+}> {}
 export type Timestamp = Date | string;
 
 export declare class TooManyTagsException extends EffectData.TaggedError(
@@ -940,20 +769,23 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateMemberInput {
   NetworkId: string;
   MemberId: string;
   LogPublishingConfiguration?: MemberLogPublishingConfiguration;
 }
-export interface UpdateMemberOutput {}
+export interface UpdateMemberOutput {
+}
 export interface UpdateNodeInput {
   NetworkId: string;
   MemberId?: string;
   NodeId: string;
   LogPublishingConfiguration?: NodeLogPublishingConfiguration;
 }
-export interface UpdateNodeOutput {}
+export interface UpdateNodeOutput {
+}
 export type UsernameString = string;
 
 export type VoteCount = number;
@@ -964,7 +796,8 @@ export interface VoteOnProposalInput {
   VoterMemberId: string;
   Vote: VoteValue;
 }
-export interface VoteOnProposalOutput {}
+export interface VoteOnProposalOutput {
+}
 export interface VoteSummary {
   Vote?: VoteValue;
   MemberName?: string;
@@ -1309,3 +1142,4 @@ export declare namespace VoteOnProposal {
     | ThrottlingException
     | CommonAwsError;
 }
+

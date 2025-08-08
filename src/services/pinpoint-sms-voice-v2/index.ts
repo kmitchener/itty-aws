@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class PinpointSMSVoiceV2 extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("pinpoint-sms-voice-v2", new AwsJson10Protocol(), cfg);
+  }
+
   associateOriginationIdentity(
     input: AssociateOriginationIdentityRequest,
   ): Effect.Effect<
     AssociateOriginationIdentityResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateOriginationIdentity", input);
   }
@@ -22,13 +20,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: AssociateProtectConfigurationRequest,
   ): Effect.Effect<
     AssociateProtectConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateProtectConfiguration", input);
   }
@@ -36,13 +28,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: CreateConfigurationSetRequest,
   ): Effect.Effect<
     CreateConfigurationSetResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateConfigurationSet", input);
   }
@@ -50,14 +36,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: CreateEventDestinationRequest,
   ): Effect.Effect<
     CreateEventDestinationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateEventDestination", input);
   }
@@ -65,13 +44,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: CreateOptOutListRequest,
   ): Effect.Effect<
     CreateOptOutListResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateOptOutList", input);
   }
@@ -79,14 +52,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: CreatePoolRequest,
   ): Effect.Effect<
     CreatePoolResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePool", input);
   }
@@ -94,13 +60,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: CreateProtectConfigurationRequest,
   ): Effect.Effect<
     CreateProtectConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateProtectConfiguration", input);
   }
@@ -108,13 +68,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: CreateRegistrationRequest,
   ): Effect.Effect<
     CreateRegistrationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRegistration", input);
   }
@@ -122,14 +76,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: CreateRegistrationAssociationRequest,
   ): Effect.Effect<
     CreateRegistrationAssociationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRegistrationAssociation", input);
   }
@@ -137,13 +84,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: CreateRegistrationAttachmentRequest,
   ): Effect.Effect<
     CreateRegistrationAttachmentResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRegistrationAttachment", input);
   }
@@ -151,14 +92,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: CreateRegistrationVersionRequest,
   ): Effect.Effect<
     CreateRegistrationVersionResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRegistrationVersion", input);
   }
@@ -166,13 +100,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: CreateVerifiedDestinationNumberRequest,
   ): Effect.Effect<
     CreateVerifiedDestinationNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateVerifiedDestinationNumber", input);
   }
@@ -180,12 +108,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteAccountDefaultProtectConfigurationRequest,
   ): Effect.Effect<
     DeleteAccountDefaultProtectConfigurationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAccountDefaultProtectConfiguration", input);
   }
@@ -193,12 +116,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteConfigurationSetRequest,
   ): Effect.Effect<
     DeleteConfigurationSetResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteConfigurationSet", input);
   }
@@ -206,12 +124,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteDefaultMessageTypeRequest,
   ): Effect.Effect<
     DeleteDefaultMessageTypeResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDefaultMessageType", input);
   }
@@ -219,12 +132,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteDefaultSenderIdRequest,
   ): Effect.Effect<
     DeleteDefaultSenderIdResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDefaultSenderId", input);
   }
@@ -232,12 +140,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteEventDestinationRequest,
   ): Effect.Effect<
     DeleteEventDestinationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteEventDestination", input);
   }
@@ -245,13 +148,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteKeywordRequest,
   ): Effect.Effect<
     DeleteKeywordResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteKeyword", input);
   }
@@ -259,11 +156,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteMediaMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     DeleteMediaMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteMediaMessageSpendLimitOverride", input);
   }
@@ -271,13 +164,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteOptedOutNumberRequest,
   ): Effect.Effect<
     DeleteOptedOutNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteOptedOutNumber", input);
   }
@@ -285,13 +172,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteOptOutListRequest,
   ): Effect.Effect<
     DeleteOptOutListResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteOptOutList", input);
   }
@@ -299,13 +180,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeletePoolRequest,
   ): Effect.Effect<
     DeletePoolResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePool", input);
   }
@@ -313,13 +188,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteProtectConfigurationRequest,
   ): Effect.Effect<
     DeleteProtectConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteProtectConfiguration", input);
   }
@@ -327,12 +196,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteProtectConfigurationRuleSetNumberOverrideRequest,
   ): Effect.Effect<
     DeleteProtectConfigurationRuleSetNumberOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteProtectConfigurationRuleSetNumberOverride", input);
   }
@@ -340,13 +204,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteRegistrationRequest,
   ): Effect.Effect<
     DeleteRegistrationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRegistration", input);
   }
@@ -354,13 +212,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteRegistrationAttachmentRequest,
   ): Effect.Effect<
     DeleteRegistrationAttachmentResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRegistrationAttachment", input);
   }
@@ -368,13 +220,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteRegistrationFieldValueRequest,
   ): Effect.Effect<
     DeleteRegistrationFieldValueResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRegistrationFieldValue", input);
   }
@@ -382,12 +228,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -395,11 +236,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteTextMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     DeleteTextMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteTextMessageSpendLimitOverride", input);
   }
@@ -407,13 +244,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteVerifiedDestinationNumberRequest,
   ): Effect.Effect<
     DeleteVerifiedDestinationNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteVerifiedDestinationNumber", input);
   }
@@ -421,11 +252,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DeleteVoiceMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     DeleteVoiceMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteVoiceMessageSpendLimitOverride", input);
   }
@@ -433,11 +260,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeAccountAttributesRequest,
   ): Effect.Effect<
     DescribeAccountAttributesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAccountAttributes", input);
   }
@@ -445,11 +268,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeAccountLimitsRequest,
   ): Effect.Effect<
     DescribeAccountLimitsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAccountLimits", input);
   }
@@ -457,12 +276,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeConfigurationSetsRequest,
   ): Effect.Effect<
     DescribeConfigurationSetsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeConfigurationSets", input);
   }
@@ -470,12 +284,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeKeywordsRequest,
   ): Effect.Effect<
     DescribeKeywordsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeKeywords", input);
   }
@@ -483,12 +292,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeOptedOutNumbersRequest,
   ): Effect.Effect<
     DescribeOptedOutNumbersResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeOptedOutNumbers", input);
   }
@@ -496,12 +300,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeOptOutListsRequest,
   ): Effect.Effect<
     DescribeOptOutListsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeOptOutLists", input);
   }
@@ -509,12 +308,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribePhoneNumbersRequest,
   ): Effect.Effect<
     DescribePhoneNumbersResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePhoneNumbers", input);
   }
@@ -522,12 +316,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribePoolsRequest,
   ): Effect.Effect<
     DescribePoolsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePools", input);
   }
@@ -535,12 +324,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeProtectConfigurationsRequest,
   ): Effect.Effect<
     DescribeProtectConfigurationsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeProtectConfigurations", input);
   }
@@ -548,12 +332,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeRegistrationAttachmentsRequest,
   ): Effect.Effect<
     DescribeRegistrationAttachmentsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRegistrationAttachments", input);
   }
@@ -561,11 +340,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeRegistrationFieldDefinitionsRequest,
   ): Effect.Effect<
     DescribeRegistrationFieldDefinitionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRegistrationFieldDefinitions", input);
   }
@@ -573,12 +348,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeRegistrationFieldValuesRequest,
   ): Effect.Effect<
     DescribeRegistrationFieldValuesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRegistrationFieldValues", input);
   }
@@ -586,12 +356,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeRegistrationsRequest,
   ): Effect.Effect<
     DescribeRegistrationsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRegistrations", input);
   }
@@ -599,11 +364,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeRegistrationSectionDefinitionsRequest,
   ): Effect.Effect<
     DescribeRegistrationSectionDefinitionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRegistrationSectionDefinitions", input);
   }
@@ -611,11 +372,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeRegistrationTypeDefinitionsRequest,
   ): Effect.Effect<
     DescribeRegistrationTypeDefinitionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRegistrationTypeDefinitions", input);
   }
@@ -623,12 +380,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeRegistrationVersionsRequest,
   ): Effect.Effect<
     DescribeRegistrationVersionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeRegistrationVersions", input);
   }
@@ -636,12 +388,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeSenderIdsRequest,
   ): Effect.Effect<
     DescribeSenderIdsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeSenderIds", input);
   }
@@ -649,11 +396,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeSpendLimitsRequest,
   ): Effect.Effect<
     DescribeSpendLimitsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeSpendLimits", input);
   }
@@ -661,12 +404,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DescribeVerifiedDestinationNumbersRequest,
   ): Effect.Effect<
     DescribeVerifiedDestinationNumbersResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeVerifiedDestinationNumbers", input);
   }
@@ -674,13 +412,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DisassociateOriginationIdentityRequest,
   ): Effect.Effect<
     DisassociateOriginationIdentityResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateOriginationIdentity", input);
   }
@@ -688,13 +420,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DisassociateProtectConfigurationRequest,
   ): Effect.Effect<
     DisassociateProtectConfigurationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateProtectConfiguration", input);
   }
@@ -702,13 +428,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: DiscardRegistrationVersionRequest,
   ): Effect.Effect<
     DiscardRegistrationVersionResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DiscardRegistrationVersion", input);
   }
@@ -716,12 +436,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: GetProtectConfigurationCountryRuleSetRequest,
   ): Effect.Effect<
     GetProtectConfigurationCountryRuleSetResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetProtectConfigurationCountryRuleSet", input);
   }
@@ -729,12 +444,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -742,12 +452,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: ListPoolOriginationIdentitiesRequest,
   ): Effect.Effect<
     ListPoolOriginationIdentitiesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPoolOriginationIdentities", input);
   }
@@ -755,12 +460,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: ListProtectConfigurationRuleSetNumberOverridesRequest,
   ): Effect.Effect<
     ListProtectConfigurationRuleSetNumberOverridesResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListProtectConfigurationRuleSetNumberOverrides", input);
   }
@@ -768,12 +468,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: ListRegistrationAssociationsRequest,
   ): Effect.Effect<
     ListRegistrationAssociationsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRegistrationAssociations", input);
   }
@@ -781,12 +476,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -794,14 +484,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: PutKeywordRequest,
   ): Effect.Effect<
     PutKeywordResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutKeyword", input);
   }
@@ -809,12 +492,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: PutMessageFeedbackRequest,
   ): Effect.Effect<
     PutMessageFeedbackResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutMessageFeedback", input);
   }
@@ -822,12 +500,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: PutOptedOutNumberRequest,
   ): Effect.Effect<
     PutOptedOutNumberResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutOptedOutNumber", input);
   }
@@ -835,13 +508,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: PutProtectConfigurationRuleSetNumberOverrideRequest,
   ): Effect.Effect<
     PutProtectConfigurationRuleSetNumberOverrideResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutProtectConfigurationRuleSetNumberOverride", input);
   }
@@ -849,13 +516,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: PutRegistrationFieldValueRequest,
   ): Effect.Effect<
     PutRegistrationFieldValueResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutRegistrationFieldValue", input);
   }
@@ -863,12 +524,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -876,13 +532,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: ReleasePhoneNumberRequest,
   ): Effect.Effect<
     ReleasePhoneNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ReleasePhoneNumber", input);
   }
@@ -890,13 +540,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: ReleaseSenderIdRequest,
   ): Effect.Effect<
     ReleaseSenderIdResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ReleaseSenderId", input);
   }
@@ -904,14 +548,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: RequestPhoneNumberRequest,
   ): Effect.Effect<
     RequestPhoneNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RequestPhoneNumber", input);
   }
@@ -919,13 +556,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: RequestSenderIdRequest,
   ): Effect.Effect<
     RequestSenderIdResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RequestSenderId", input);
   }
@@ -933,14 +564,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SendDestinationNumberVerificationCodeRequest,
   ): Effect.Effect<
     SendDestinationNumberVerificationCodeResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendDestinationNumberVerificationCode", input);
   }
@@ -948,14 +572,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SendMediaMessageRequest,
   ): Effect.Effect<
     SendMediaMessageResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendMediaMessage", input);
   }
@@ -963,14 +580,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SendTextMessageRequest,
   ): Effect.Effect<
     SendTextMessageResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendTextMessage", input);
   }
@@ -978,14 +588,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SendVoiceMessageRequest,
   ): Effect.Effect<
     SendVoiceMessageResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendVoiceMessage", input);
   }
@@ -993,12 +596,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SetAccountDefaultProtectConfigurationRequest,
   ): Effect.Effect<
     SetAccountDefaultProtectConfigurationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SetAccountDefaultProtectConfiguration", input);
   }
@@ -1006,12 +604,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SetDefaultMessageFeedbackEnabledRequest,
   ): Effect.Effect<
     SetDefaultMessageFeedbackEnabledResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SetDefaultMessageFeedbackEnabled", input);
   }
@@ -1019,12 +612,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SetDefaultMessageTypeRequest,
   ): Effect.Effect<
     SetDefaultMessageTypeResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SetDefaultMessageType", input);
   }
@@ -1032,12 +620,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SetDefaultSenderIdRequest,
   ): Effect.Effect<
     SetDefaultSenderIdResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SetDefaultSenderId", input);
   }
@@ -1045,11 +628,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SetMediaMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     SetMediaMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SetMediaMessageSpendLimitOverride", input);
   }
@@ -1057,11 +636,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SetTextMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     SetTextMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SetTextMessageSpendLimitOverride", input);
   }
@@ -1069,11 +644,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SetVoiceMessageSpendLimitOverrideRequest,
   ): Effect.Effect<
     SetVoiceMessageSpendLimitOverrideResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SetVoiceMessageSpendLimitOverride", input);
   }
@@ -1081,13 +652,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: SubmitRegistrationVersionRequest,
   ): Effect.Effect<
     SubmitRegistrationVersionResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SubmitRegistrationVersion", input);
   }
@@ -1095,13 +660,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1109,12 +668,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1122,13 +676,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: UpdateEventDestinationRequest,
   ): Effect.Effect<
     UpdateEventDestinationResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateEventDestination", input);
   }
@@ -1136,13 +684,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: UpdatePhoneNumberRequest,
   ): Effect.Effect<
     UpdatePhoneNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePhoneNumber", input);
   }
@@ -1150,13 +692,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: UpdatePoolRequest,
   ): Effect.Effect<
     UpdatePoolResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePool", input);
   }
@@ -1164,12 +700,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: UpdateProtectConfigurationRequest,
   ): Effect.Effect<
     UpdateProtectConfigurationResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateProtectConfiguration", input);
   }
@@ -1177,12 +708,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: UpdateProtectConfigurationCountryRuleSetRequest,
   ): Effect.Effect<
     UpdateProtectConfigurationCountryRuleSetResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateProtectConfigurationCountryRuleSet", input);
   }
@@ -1190,12 +716,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: UpdateSenderIdRequest,
   ): Effect.Effect<
     UpdateSenderIdResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSenderId", input);
   }
@@ -1203,13 +724,7 @@ export class PinpointSMSVoiceV2 extends AWSServiceClient {
     input: VerifyDestinationNumberRequest,
   ): Effect.Effect<
     VerifyDestinationNumberResult,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("VerifyDestinationNumber", input);
   }
@@ -1298,8 +813,7 @@ export interface ConfigurationSetInformation {
   CreatedTimestamp: Date | string;
   ProtectConfigurationId?: string;
 }
-export type ConfigurationSetInformationList =
-  Array<ConfigurationSetInformation>;
+export type ConfigurationSetInformationList = Array<ConfigurationSetInformation>;
 export type ConfigurationSetName = string;
 
 export type ConfigurationSetNameList = Array<string>;
@@ -1457,7 +971,8 @@ export interface CreateVerifiedDestinationNumberResult {
   Tags?: Array<Tag>;
   CreatedTimestamp: Date | string;
 }
-export interface DeleteAccountDefaultProtectConfigurationRequest {}
+export interface DeleteAccountDefaultProtectConfigurationRequest {
+}
 export interface DeleteAccountDefaultProtectConfigurationResult {
   DefaultProtectConfigurationArn: string;
   DefaultProtectConfigurationId: string;
@@ -1510,7 +1025,8 @@ export interface DeleteKeywordResult {
   KeywordMessage?: string;
   KeywordAction?: string;
 }
-export interface DeleteMediaMessageSpendLimitOverrideRequest {}
+export interface DeleteMediaMessageSpendLimitOverrideRequest {
+}
 export interface DeleteMediaMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
@@ -1617,7 +1133,8 @@ export interface DeleteResourcePolicyResult {
   Policy?: string;
   CreatedTimestamp?: Date | string;
 }
-export interface DeleteTextMessageSpendLimitOverrideRequest {}
+export interface DeleteTextMessageSpendLimitOverrideRequest {
+}
 export interface DeleteTextMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
@@ -1630,7 +1147,8 @@ export interface DeleteVerifiedDestinationNumberResult {
   DestinationPhoneNumber: string;
   CreatedTimestamp: Date | string;
 }
-export interface DeleteVoiceMessageSpendLimitOverrideRequest {}
+export interface DeleteVoiceMessageSpendLimitOverrideRequest {
+}
 export interface DeleteVoiceMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
@@ -1970,8 +1488,7 @@ export interface ListPoolOriginationIdentitiesResult {
   OriginationIdentities?: Array<OriginationIdentityMetadata>;
   NextToken?: string;
 }
-export type ListProtectConfigurationRuleSetNumberOverrideFilter =
-  Array<ProtectConfigurationRuleSetNumberOverrideFilterItem>;
+export type ListProtectConfigurationRuleSetNumberOverrideFilter = Array<ProtectConfigurationRuleSetNumberOverrideFilterItem>;
 export interface ListProtectConfigurationRuleSetNumberOverridesRequest {
   ProtectConfigurationId: string;
   Filters?: Array<ProtectConfigurationRuleSetNumberOverrideFilterItem>;
@@ -2066,8 +1583,7 @@ export interface OriginationIdentityMetadata {
   NumberCapabilities: Array<string>;
   PhoneNumber?: string;
 }
-export type OriginationIdentityMetadataList =
-  Array<OriginationIdentityMetadata>;
+export type OriginationIdentityMetadataList = Array<OriginationIdentityMetadata>;
 export type Owner = string;
 
 export type PhoneNumber = string;
@@ -2136,18 +1652,14 @@ export interface PoolOriginationIdentitiesFilter {
   Name: string;
   Values: Array<string>;
 }
-export type PoolOriginationIdentitiesFilterList =
-  Array<PoolOriginationIdentitiesFilter>;
+export type PoolOriginationIdentitiesFilterList = Array<PoolOriginationIdentitiesFilter>;
 export type PoolOriginationIdentitiesFilterName = string;
 
 export type PoolStatus = string;
 
 export type ProtectConfigurationArn = string;
 
-export type ProtectConfigurationCountryRuleSet = Record<
-  string,
-  ProtectConfigurationCountryRuleSetInformation
->;
+export type ProtectConfigurationCountryRuleSet = Record<string, ProtectConfigurationCountryRuleSetInformation>;
 export interface ProtectConfigurationCountryRuleSetInformation {
   ProtectStatus: string;
 }
@@ -2170,8 +1682,7 @@ export interface ProtectConfigurationInformation {
   AccountDefault: boolean;
   DeletionProtectionEnabled: boolean;
 }
-export type ProtectConfigurationInformationList =
-  Array<ProtectConfigurationInformation>;
+export type ProtectConfigurationInformationList = Array<ProtectConfigurationInformation>;
 export type ProtectConfigurationRuleOverrideAction = string;
 
 export interface ProtectConfigurationRuleSetNumberOverride {
@@ -2187,8 +1698,7 @@ export interface ProtectConfigurationRuleSetNumberOverrideFilterItem {
 }
 export type ProtectConfigurationRuleSetNumberOverrideFilterName = string;
 
-export type ProtectConfigurationRuleSetNumberOverrideList =
-  Array<ProtectConfigurationRuleSetNumberOverride>;
+export type ProtectConfigurationRuleSetNumberOverrideList = Array<ProtectConfigurationRuleSetNumberOverride>;
 export type ProtectStatus = string;
 
 export interface PutKeywordRequest {
@@ -2270,8 +1780,7 @@ export interface RegistrationAssociationFilter {
   Name: string;
   Values: Array<string>;
 }
-export type RegistrationAssociationFilterList =
-  Array<RegistrationAssociationFilter>;
+export type RegistrationAssociationFilterList = Array<RegistrationAssociationFilter>;
 export type RegistrationAssociationFilterName = string;
 
 export interface RegistrationAssociationMetadata {
@@ -2281,14 +1790,12 @@ export interface RegistrationAssociationMetadata {
   IsoCountryCode?: string;
   PhoneNumber?: string;
 }
-export type RegistrationAssociationMetadataList =
-  Array<RegistrationAssociationMetadata>;
+export type RegistrationAssociationMetadataList = Array<RegistrationAssociationMetadata>;
 export interface RegistrationAttachmentFilter {
   Name: string;
   Values: Array<string>;
 }
-export type RegistrationAttachmentFilterList =
-  Array<RegistrationAttachmentFilter>;
+export type RegistrationAttachmentFilterList = Array<RegistrationAttachmentFilter>;
 export type RegistrationAttachmentFilterName = string;
 
 export type RegistrationAttachmentIdList = Array<string>;
@@ -2301,8 +1808,7 @@ export interface RegistrationAttachmentsInformation {
   AttachmentUploadErrorReason?: string;
   CreatedTimestamp: Date | string;
 }
-export type RegistrationAttachmentsInformationList =
-  Array<RegistrationAttachmentsInformation>;
+export type RegistrationAttachmentsInformationList = Array<RegistrationAttachmentsInformation>;
 export interface RegistrationDeniedReasonInformation {
   Reason: string;
   ShortDescription: string;
@@ -2310,8 +1816,7 @@ export interface RegistrationDeniedReasonInformation {
   DocumentationTitle?: string;
   DocumentationLink?: string;
 }
-export type RegistrationDeniedReasonInformationList =
-  Array<RegistrationDeniedReasonInformation>;
+export type RegistrationDeniedReasonInformationList = Array<RegistrationDeniedReasonInformation>;
 export type RegistrationDisassociationBehavior = string;
 
 export interface RegistrationFieldDefinition {
@@ -2323,8 +1828,7 @@ export interface RegistrationFieldDefinition {
   TextValidation?: TextValidation;
   DisplayHints: RegistrationFieldDisplayHints;
 }
-export type RegistrationFieldDefinitionList =
-  Array<RegistrationFieldDefinition>;
+export type RegistrationFieldDefinitionList = Array<RegistrationFieldDefinition>;
 export interface RegistrationFieldDisplayHints {
   Title: string;
   ShortDescription: string;
@@ -2342,8 +1846,7 @@ export interface RegistrationFieldValueInformation {
   RegistrationAttachmentId?: string;
   DeniedReason?: string;
 }
-export type RegistrationFieldValueInformationList =
-  Array<RegistrationFieldValueInformation>;
+export type RegistrationFieldValueInformationList = Array<RegistrationFieldValueInformation>;
 export interface RegistrationFilter {
   Name: string;
   Values: Array<string>;
@@ -2370,8 +1873,7 @@ export interface RegistrationSectionDefinition {
   SectionPath: string;
   DisplayHints: RegistrationSectionDisplayHints;
 }
-export type RegistrationSectionDefinitionList =
-  Array<RegistrationSectionDefinition>;
+export type RegistrationSectionDefinitionList = Array<RegistrationSectionDefinition>;
 export interface RegistrationSectionDisplayHints {
   Title: string;
   ShortDescription: string;
@@ -2417,8 +1919,7 @@ export interface RegistrationVersionInformation {
   RegistrationVersionStatusHistory: RegistrationVersionStatusHistory;
   DeniedReasons?: Array<RegistrationDeniedReasonInformation>;
 }
-export type RegistrationVersionInformationList =
-  Array<RegistrationVersionInformation>;
+export type RegistrationVersionInformationList = Array<RegistrationVersionInformation>;
 export type RegistrationVersionNumber = number;
 
 export type RegistrationVersionNumberList = Array<number>;
@@ -2747,7 +2248,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResult {}
+export interface TagResourceResult {
+}
 export type TagValue = string;
 
 export type TextMessageBody = string;
@@ -2774,7 +2276,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResult {}
+export interface UntagResourceResult {
+}
 export interface UpdateEventDestinationRequest {
   ConfigurationSetName: string;
   EventDestinationName: string;
@@ -2844,10 +2347,7 @@ export interface UpdatePoolResult {
 export interface UpdateProtectConfigurationCountryRuleSetRequest {
   ProtectConfigurationId: string;
   NumberCapability: string;
-  CountryRuleSetUpdates: Record<
-    string,
-    ProtectConfigurationCountryRuleSetInformation
-  >;
+  CountryRuleSetUpdates: Record<string, ProtectConfigurationCountryRuleSetInformation>;
 }
 export interface UpdateProtectConfigurationCountryRuleSetResult {
   ProtectConfigurationArn: string;
@@ -2907,8 +2407,7 @@ export interface VerifiedDestinationNumberFilter {
   Name: string;
   Values: Array<string>;
 }
-export type VerifiedDestinationNumberFilterList =
-  Array<VerifiedDestinationNumberFilter>;
+export type VerifiedDestinationNumberFilterList = Array<VerifiedDestinationNumberFilter>;
 export type VerifiedDestinationNumberFilterName = string;
 
 export type VerifiedDestinationNumberIdList = Array<string>;
@@ -2921,8 +2420,7 @@ export interface VerifiedDestinationNumberInformation {
   Status: string;
   CreatedTimestamp: Date | string;
 }
-export type VerifiedDestinationNumberInformationList =
-  Array<VerifiedDestinationNumberInformation>;
+export type VerifiedDestinationNumberInformationList = Array<VerifiedDestinationNumberInformation>;
 export interface VerifyDestinationNumberRequest {
   VerifiedDestinationNumberId: string;
   VerificationCode: string;
@@ -4061,3 +3559,4 @@ export declare namespace VerifyDestinationNumber {
     | ValidationException
     | CommonAwsError;
 }
+

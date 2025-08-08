@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class Panorama extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("panorama", new RestJson1Protocol(), cfg);
+  }
+
   createApplicationInstance(
     input: CreateApplicationInstanceRequest,
   ): Effect.Effect<
     CreateApplicationInstanceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateApplicationInstance", input);
   }
@@ -19,12 +20,7 @@ export class Panorama extends AWSServiceClient {
     input: CreateJobForDevicesRequest,
   ): Effect.Effect<
     CreateJobForDevicesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CreateJobForDevices", input);
   }
@@ -32,11 +28,7 @@ export class Panorama extends AWSServiceClient {
     input: CreateNodeFromTemplateJobRequest,
   ): Effect.Effect<
     CreateNodeFromTemplateJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("CreateNodeFromTemplateJob", input);
   }
@@ -44,11 +36,7 @@ export class Panorama extends AWSServiceClient {
     input: CreatePackageRequest,
   ): Effect.Effect<
     CreatePackageResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePackage", input);
   }
@@ -56,11 +44,7 @@ export class Panorama extends AWSServiceClient {
     input: CreatePackageImportJobRequest,
   ): Effect.Effect<
     CreatePackageImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePackageImportJob", input);
   }
@@ -68,12 +52,7 @@ export class Panorama extends AWSServiceClient {
     input: DeleteDeviceRequest,
   ): Effect.Effect<
     DeleteDeviceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDevice", input);
   }
@@ -81,12 +60,7 @@ export class Panorama extends AWSServiceClient {
     input: DeletePackageRequest,
   ): Effect.Effect<
     DeletePackageResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePackage", input);
   }
@@ -94,12 +68,7 @@ export class Panorama extends AWSServiceClient {
     input: DeregisterPackageVersionRequest,
   ): Effect.Effect<
     DeregisterPackageVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeregisterPackageVersion", input);
   }
@@ -107,12 +76,7 @@ export class Panorama extends AWSServiceClient {
     input: DescribeApplicationInstanceRequest,
   ): Effect.Effect<
     DescribeApplicationInstanceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeApplicationInstance", input);
   }
@@ -120,12 +84,7 @@ export class Panorama extends AWSServiceClient {
     input: DescribeApplicationInstanceDetailsRequest,
   ): Effect.Effect<
     DescribeApplicationInstanceDetailsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeApplicationInstanceDetails", input);
   }
@@ -133,11 +92,7 @@ export class Panorama extends AWSServiceClient {
     input: DescribeDeviceRequest,
   ): Effect.Effect<
     DescribeDeviceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDevice", input);
   }
@@ -145,12 +100,7 @@ export class Panorama extends AWSServiceClient {
     input: DescribeDeviceJobRequest,
   ): Effect.Effect<
     DescribeDeviceJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDeviceJob", input);
   }
@@ -158,12 +108,7 @@ export class Panorama extends AWSServiceClient {
     input: DescribeNodeRequest,
   ): Effect.Effect<
     DescribeNodeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeNode", input);
   }
@@ -171,11 +116,7 @@ export class Panorama extends AWSServiceClient {
     input: DescribeNodeFromTemplateJobRequest,
   ): Effect.Effect<
     DescribeNodeFromTemplateJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeNodeFromTemplateJob", input);
   }
@@ -183,12 +124,7 @@ export class Panorama extends AWSServiceClient {
     input: DescribePackageRequest,
   ): Effect.Effect<
     DescribePackageResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePackage", input);
   }
@@ -196,11 +132,7 @@ export class Panorama extends AWSServiceClient {
     input: DescribePackageImportJobRequest,
   ): Effect.Effect<
     DescribePackageImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePackageImportJob", input);
   }
@@ -208,12 +140,7 @@ export class Panorama extends AWSServiceClient {
     input: DescribePackageVersionRequest,
   ): Effect.Effect<
     DescribePackageVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DescribePackageVersion", input);
   }
@@ -245,11 +172,7 @@ export class Panorama extends AWSServiceClient {
     input: ListDevicesRequest,
   ): Effect.Effect<
     ListDevicesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListDevices", input);
   }
@@ -257,12 +180,7 @@ export class Panorama extends AWSServiceClient {
     input: ListDevicesJobsRequest,
   ): Effect.Effect<
     ListDevicesJobsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListDevicesJobs", input);
   }
@@ -270,11 +188,7 @@ export class Panorama extends AWSServiceClient {
     input: ListNodeFromTemplateJobsRequest,
   ): Effect.Effect<
     ListNodeFromTemplateJobsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListNodeFromTemplateJobs", input);
   }
@@ -282,10 +196,7 @@ export class Panorama extends AWSServiceClient {
     input: ListNodesRequest,
   ): Effect.Effect<
     ListNodesResponse,
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListNodes", input);
   }
@@ -293,11 +204,7 @@ export class Panorama extends AWSServiceClient {
     input: ListPackageImportJobsRequest,
   ): Effect.Effect<
     ListPackageImportJobsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("ListPackageImportJobs", input);
   }
@@ -305,12 +212,7 @@ export class Panorama extends AWSServiceClient {
     input: ListPackagesRequest,
   ): Effect.Effect<
     ListPackagesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListPackages", input);
   }
@@ -318,10 +220,7 @@ export class Panorama extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -329,12 +228,7 @@ export class Panorama extends AWSServiceClient {
     input: ProvisionDeviceRequest,
   ): Effect.Effect<
     ProvisionDeviceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("ProvisionDevice", input);
   }
@@ -342,11 +236,7 @@ export class Panorama extends AWSServiceClient {
     input: RegisterPackageVersionRequest,
   ): Effect.Effect<
     RegisterPackageVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("RegisterPackageVersion", input);
   }
@@ -354,12 +244,7 @@ export class Panorama extends AWSServiceClient {
     input: RemoveApplicationInstanceRequest,
   ): Effect.Effect<
     RemoveApplicationInstanceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("RemoveApplicationInstance", input);
   }
@@ -367,11 +252,7 @@ export class Panorama extends AWSServiceClient {
     input: SignalApplicationInstanceNodeInstancesRequest,
   ): Effect.Effect<
     SignalApplicationInstanceNodeInstancesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("SignalApplicationInstanceNodeInstances", input);
   }
@@ -379,10 +260,7 @@ export class Panorama extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -390,10 +268,7 @@ export class Panorama extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -401,12 +276,7 @@ export class Panorama extends AWSServiceClient {
     input: UpdateDeviceMetadataRequest,
   ): Effect.Effect<
     UpdateDeviceMetadataResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateDeviceMetadata", input);
   }
@@ -473,8 +343,7 @@ export interface ConflictExceptionErrorArgument {
   Name: string;
   Value: string;
 }
-export type ConflictExceptionErrorArgumentList =
-  Array<ConflictExceptionErrorArgument>;
+export type ConflictExceptionErrorArgumentList = Array<ConflictExceptionErrorArgument>;
 export type ConnectionType = string;
 
 export interface CreateApplicationInstanceRequest {
@@ -547,7 +416,8 @@ export interface DeletePackageRequest {
   PackageId: string;
   ForceDelete?: boolean;
 }
-export interface DeletePackageResponse {}
+export interface DeletePackageResponse {
+}
 export interface DeregisterPackageVersionRequest {
   OwnerAccount?: string;
   PackageId: string;
@@ -555,7 +425,8 @@ export interface DeregisterPackageVersionRequest {
   PatchVersion: string;
   UpdatedLatestPatchVersion?: string;
 }
-export interface DeregisterPackageVersionResponse {}
+export interface DeregisterPackageVersionResponse {
+}
 export interface DescribeApplicationInstanceDetailsRequest {
   ApplicationInstanceId: string;
 }
@@ -920,16 +791,14 @@ interface _ManifestOverridesPayload {
   PayloadData?: string;
 }
 
-export type ManifestOverridesPayload = _ManifestOverridesPayload & {
-  PayloadData: string;
-};
+export type ManifestOverridesPayload = (_ManifestOverridesPayload & { PayloadData: string });
 export type ManifestOverridesPayloadData = string;
 
 interface _ManifestPayload {
   PayloadData?: string;
 }
 
-export type ManifestPayload = _ManifestPayload & { PayloadData: string };
+export type ManifestPayload = (_ManifestPayload & { PayloadData: string });
 export type ManifestPayloadData = string;
 
 export type MarkLatestPatch = boolean;
@@ -1149,11 +1018,13 @@ export interface RegisterPackageVersionRequest {
   PatchVersion: string;
   MarkLatest?: boolean;
 }
-export interface RegisterPackageVersionResponse {}
+export interface RegisterPackageVersionResponse {
+}
 export interface RemoveApplicationInstanceRequest {
   ApplicationInstanceId: string;
 }
-export interface RemoveApplicationInstanceResponse {}
+export interface RemoveApplicationInstanceResponse {
+}
 export interface ReportedRuntimeContextState {
   DesiredState: string;
   RuntimeContextName: string;
@@ -1224,7 +1095,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TemplateKey = string;
@@ -1242,7 +1114,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UpdateCreatedTime = Date | string;
 
 export interface UpdateDeviceMetadataRequest {
@@ -1267,8 +1140,7 @@ export interface ValidationExceptionErrorArgument {
   Name: string;
   Value: string;
 }
-export type ValidationExceptionErrorArgumentList =
-  Array<ValidationExceptionErrorArgument>;
+export type ValidationExceptionErrorArgumentList = Array<ValidationExceptionErrorArgument>;
 export interface ValidationExceptionField {
   Name: string;
   Message: string;
@@ -1656,3 +1528,4 @@ export declare namespace UpdateDeviceMetadata {
     | ValidationException
     | CommonAwsError;
 }
+

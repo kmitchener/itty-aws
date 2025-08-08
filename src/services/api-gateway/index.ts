@@ -3,19 +3,18 @@ import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class APIGateway extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("api-gateway", new RestJson1Protocol(), cfg);
+  }
+
   createApiKey(
     input: CreateApiKeyRequest,
   ): Effect.Effect<
     ApiKey,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateApiKey", input);
   }
@@ -23,13 +22,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateAuthorizerRequest,
   ): Effect.Effect<
     Authorizer,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateAuthorizer", input);
   }
@@ -37,13 +30,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateBasePathMappingRequest,
   ): Effect.Effect<
     BasePathMapping,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateBasePathMapping", input);
   }
@@ -51,14 +38,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateDeploymentRequest,
   ): Effect.Effect<
     Deployment,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateDeployment", input);
   }
@@ -66,13 +46,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateDocumentationPartRequest,
   ): Effect.Effect<
     DocumentationPart,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateDocumentationPart", input);
   }
@@ -80,13 +54,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateDocumentationVersionRequest,
   ): Effect.Effect<
     DocumentationVersion,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateDocumentationVersion", input);
   }
@@ -94,12 +62,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateDomainNameRequest,
   ): Effect.Effect<
     DomainName,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateDomainName", input);
   }
@@ -107,12 +70,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateDomainNameAccessAssociationRequest,
   ): Effect.Effect<
     DomainNameAccessAssociation,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateDomainNameAccessAssociation", input);
   }
@@ -120,13 +78,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateModelRequest,
   ): Effect.Effect<
     Model,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateModel", input);
   }
@@ -134,13 +86,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateRequestValidatorRequest,
   ): Effect.Effect<
     RequestValidator,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateRequestValidator", input);
   }
@@ -148,13 +94,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateResourceRequest,
   ): Effect.Effect<
     Resource,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateResource", input);
   }
@@ -162,12 +102,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateRestApiRequest,
   ): Effect.Effect<
     RestApi,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateRestApi", input);
   }
@@ -175,13 +110,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateStageRequest,
   ): Effect.Effect<
     Stage,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateStage", input);
   }
@@ -189,13 +118,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateUsagePlanRequest,
   ): Effect.Effect<
     UsagePlan,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateUsagePlan", input);
   }
@@ -203,13 +126,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateUsagePlanKeyRequest,
   ): Effect.Effect<
     UsagePlanKey,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateUsagePlanKey", input);
   }
@@ -217,12 +134,7 @@ export class APIGateway extends AWSServiceClient {
     input: CreateVpcLinkRequest,
   ): Effect.Effect<
     VpcLink,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateVpcLink", input);
   }
@@ -230,12 +142,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteApiKeyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteApiKey", input);
   }
@@ -243,12 +150,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteAuthorizerRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteAuthorizer", input);
   }
@@ -256,12 +158,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteBasePathMappingRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteBasePathMapping", input);
   }
@@ -269,12 +166,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteClientCertificateRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteClientCertificate", input);
   }
@@ -282,13 +174,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteDeploymentRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteDeployment", input);
   }
@@ -296,12 +182,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteDocumentationPartRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteDocumentationPart", input);
   }
@@ -309,12 +190,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteDocumentationVersionRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteDocumentationVersion", input);
   }
@@ -322,12 +198,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteDomainNameRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteDomainName", input);
   }
@@ -335,12 +206,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteDomainNameAccessAssociationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteDomainNameAccessAssociation", input);
   }
@@ -348,12 +214,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteGatewayResponseRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteGatewayResponse", input);
   }
@@ -361,12 +222,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteIntegrationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteIntegration", input);
   }
@@ -374,12 +230,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteIntegrationResponseRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteIntegrationResponse", input);
   }
@@ -387,11 +238,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteMethodRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteMethod", input);
   }
@@ -399,12 +246,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteMethodResponseRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteMethodResponse", input);
   }
@@ -412,12 +254,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteModelRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteModel", input);
   }
@@ -425,12 +262,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteRequestValidatorRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteRequestValidator", input);
   }
@@ -438,12 +270,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteResource", input);
   }
@@ -451,12 +278,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteRestApiRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteRestApi", input);
   }
@@ -464,13 +286,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteStageRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteStage", input);
   }
@@ -478,12 +294,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteUsagePlanRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteUsagePlan", input);
   }
@@ -491,12 +302,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteUsagePlanKeyRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteUsagePlanKey", input);
   }
@@ -504,12 +310,7 @@ export class APIGateway extends AWSServiceClient {
     input: DeleteVpcLinkRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteVpcLink", input);
   }
@@ -517,13 +318,7 @@ export class APIGateway extends AWSServiceClient {
     input: FlushStageAuthorizersCacheRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("FlushStageAuthorizersCache", input);
   }
@@ -531,13 +326,7 @@ export class APIGateway extends AWSServiceClient {
     input: FlushStageCacheRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("FlushStageCache", input);
   }
@@ -545,12 +334,7 @@ export class APIGateway extends AWSServiceClient {
     input: GenerateClientCertificateRequest,
   ): Effect.Effect<
     ClientCertificate,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GenerateClientCertificate", input);
   }
@@ -558,11 +342,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetAccountRequest,
   ): Effect.Effect<
     Account,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetAccount", input);
   }
@@ -570,11 +350,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetApiKeyRequest,
   ): Effect.Effect<
     ApiKey,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetApiKey", input);
   }
@@ -582,11 +358,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetApiKeysRequest,
   ): Effect.Effect<
     ApiKeys,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetApiKeys", input);
   }
@@ -594,11 +366,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetAuthorizerRequest,
   ): Effect.Effect<
     Authorizer,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetAuthorizer", input);
   }
@@ -606,11 +374,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetAuthorizersRequest,
   ): Effect.Effect<
     Authorizers,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetAuthorizers", input);
   }
@@ -618,11 +382,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetBasePathMappingRequest,
   ): Effect.Effect<
     BasePathMapping,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetBasePathMapping", input);
   }
@@ -630,11 +390,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetBasePathMappingsRequest,
   ): Effect.Effect<
     BasePathMappings,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetBasePathMappings", input);
   }
@@ -642,11 +398,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetClientCertificateRequest,
   ): Effect.Effect<
     ClientCertificate,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetClientCertificate", input);
   }
@@ -654,11 +406,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetClientCertificatesRequest,
   ): Effect.Effect<
     ClientCertificates,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetClientCertificates", input);
   }
@@ -666,12 +414,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetDeploymentRequest,
   ): Effect.Effect<
     Deployment,
-    | BadRequestException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDeployment", input);
   }
@@ -679,12 +422,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetDeploymentsRequest,
   ): Effect.Effect<
     Deployments,
-    | BadRequestException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDeployments", input);
   }
@@ -692,11 +430,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetDocumentationPartRequest,
   ): Effect.Effect<
     DocumentationPart,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDocumentationPart", input);
   }
@@ -704,11 +438,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetDocumentationPartsRequest,
   ): Effect.Effect<
     DocumentationParts,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDocumentationParts", input);
   }
@@ -716,10 +446,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetDocumentationVersionRequest,
   ): Effect.Effect<
     DocumentationVersion,
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDocumentationVersion", input);
   }
@@ -727,11 +454,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetDocumentationVersionsRequest,
   ): Effect.Effect<
     DocumentationVersions,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDocumentationVersions", input);
   }
@@ -739,11 +462,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetDomainNameRequest,
   ): Effect.Effect<
     DomainName,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDomainName", input);
   }
@@ -751,11 +470,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetDomainNameAccessAssociationsRequest,
   ): Effect.Effect<
     DomainNameAccessAssociations,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDomainNameAccessAssociations", input);
   }
@@ -763,11 +478,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetDomainNamesRequest,
   ): Effect.Effect<
     DomainNames,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetDomainNames", input);
   }
@@ -775,13 +486,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetExportRequest,
   ): Effect.Effect<
     ExportResponse,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetExport", input);
   }
@@ -789,11 +494,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetGatewayResponseRequest,
   ): Effect.Effect<
     GatewayResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetGatewayResponse", input);
   }
@@ -801,11 +502,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetGatewayResponsesRequest,
   ): Effect.Effect<
     GatewayResponses,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetGatewayResponses", input);
   }
@@ -813,11 +510,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetIntegrationRequest,
   ): Effect.Effect<
     Integration,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetIntegration", input);
   }
@@ -825,11 +518,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetIntegrationResponseRequest,
   ): Effect.Effect<
     IntegrationResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetIntegrationResponse", input);
   }
@@ -837,10 +526,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetMethodRequest,
   ): Effect.Effect<
     Method,
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetMethod", input);
   }
@@ -848,10 +534,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetMethodResponseRequest,
   ): Effect.Effect<
     MethodResponse,
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetMethodResponse", input);
   }
@@ -859,11 +542,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetModelRequest,
   ): Effect.Effect<
     Model,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetModel", input);
   }
@@ -871,11 +550,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetModelsRequest,
   ): Effect.Effect<
     Models,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetModels", input);
   }
@@ -883,11 +558,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetModelTemplateRequest,
   ): Effect.Effect<
     Template,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetModelTemplate", input);
   }
@@ -895,11 +566,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetRequestValidatorRequest,
   ): Effect.Effect<
     RequestValidator,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetRequestValidator", input);
   }
@@ -907,11 +574,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetRequestValidatorsRequest,
   ): Effect.Effect<
     RequestValidators,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetRequestValidators", input);
   }
@@ -919,10 +582,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetResourceRequest,
   ): Effect.Effect<
     Resource,
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetResource", input);
   }
@@ -930,11 +590,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetResourcesRequest,
   ): Effect.Effect<
     Resources,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetResources", input);
   }
@@ -942,11 +598,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetRestApiRequest,
   ): Effect.Effect<
     RestApi,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetRestApi", input);
   }
@@ -954,11 +606,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetRestApisRequest,
   ): Effect.Effect<
     RestApis,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetRestApis", input);
   }
@@ -966,13 +614,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetSdkRequest,
   ): Effect.Effect<
     SdkResponse,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetSdk", input);
   }
@@ -980,11 +622,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetSdkTypeRequest,
   ): Effect.Effect<
     SdkType,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetSdkType", input);
   }
@@ -992,11 +630,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetSdkTypesRequest,
   ): Effect.Effect<
     SdkTypes,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetSdkTypes", input);
   }
@@ -1004,13 +638,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetStageRequest,
   ): Effect.Effect<
     Stage,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetStage", input);
   }
@@ -1018,13 +646,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetStagesRequest,
   ): Effect.Effect<
     Stages,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetStages", input);
   }
@@ -1032,11 +654,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetTagsRequest,
   ): Effect.Effect<
     Tags,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetTags", input);
   }
@@ -1044,11 +662,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetUsageRequest,
   ): Effect.Effect<
     Usage,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetUsage", input);
   }
@@ -1056,11 +670,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetUsagePlanRequest,
   ): Effect.Effect<
     UsagePlan,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetUsagePlan", input);
   }
@@ -1068,11 +678,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetUsagePlanKeyRequest,
   ): Effect.Effect<
     UsagePlanKey,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetUsagePlanKey", input);
   }
@@ -1080,11 +686,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetUsagePlanKeysRequest,
   ): Effect.Effect<
     UsagePlanKeys,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetUsagePlanKeys", input);
   }
@@ -1092,11 +694,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetUsagePlansRequest,
   ): Effect.Effect<
     UsagePlans,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetUsagePlans", input);
   }
@@ -1104,11 +702,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetVpcLinkRequest,
   ): Effect.Effect<
     VpcLink,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetVpcLink", input);
   }
@@ -1116,11 +710,7 @@ export class APIGateway extends AWSServiceClient {
     input: GetVpcLinksRequest,
   ): Effect.Effect<
     VpcLinks,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetVpcLinks", input);
   }
@@ -1128,13 +718,7 @@ export class APIGateway extends AWSServiceClient {
     input: ImportApiKeysRequest,
   ): Effect.Effect<
     ApiKeyIds,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ImportApiKeys", input);
   }
@@ -1142,13 +726,7 @@ export class APIGateway extends AWSServiceClient {
     input: ImportDocumentationPartsRequest,
   ): Effect.Effect<
     DocumentationPartIds,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ImportDocumentationParts", input);
   }
@@ -1156,13 +734,7 @@ export class APIGateway extends AWSServiceClient {
     input: ImportRestApiRequest,
   ): Effect.Effect<
     RestApi,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ImportRestApi", input);
   }
@@ -1170,13 +742,7 @@ export class APIGateway extends AWSServiceClient {
     input: PutGatewayResponseRequest,
   ): Effect.Effect<
     GatewayResponse,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("PutGatewayResponse", input);
   }
@@ -1184,13 +750,7 @@ export class APIGateway extends AWSServiceClient {
     input: PutIntegrationRequest,
   ): Effect.Effect<
     Integration,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("PutIntegration", input);
   }
@@ -1198,13 +758,7 @@ export class APIGateway extends AWSServiceClient {
     input: PutIntegrationResponseRequest,
   ): Effect.Effect<
     IntegrationResponse,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("PutIntegrationResponse", input);
   }
@@ -1212,13 +766,7 @@ export class APIGateway extends AWSServiceClient {
     input: PutMethodRequest,
   ): Effect.Effect<
     Method,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("PutMethod", input);
   }
@@ -1226,13 +774,7 @@ export class APIGateway extends AWSServiceClient {
     input: PutMethodResponseRequest,
   ): Effect.Effect<
     MethodResponse,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("PutMethodResponse", input);
   }
@@ -1240,13 +782,7 @@ export class APIGateway extends AWSServiceClient {
     input: PutRestApiRequest,
   ): Effect.Effect<
     RestApi,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("PutRestApi", input);
   }
@@ -1254,12 +790,7 @@ export class APIGateway extends AWSServiceClient {
     input: RejectDomainNameAccessAssociationRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("RejectDomainNameAccessAssociation", input);
   }
@@ -1267,13 +798,7 @@ export class APIGateway extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -1281,11 +806,7 @@ export class APIGateway extends AWSServiceClient {
     input: TestInvokeAuthorizerRequest,
   ): Effect.Effect<
     TestInvokeAuthorizerResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("TestInvokeAuthorizer", input);
   }
@@ -1293,11 +814,7 @@ export class APIGateway extends AWSServiceClient {
     input: TestInvokeMethodRequest,
   ): Effect.Effect<
     TestInvokeMethodResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("TestInvokeMethod", input);
   }
@@ -1305,13 +822,7 @@ export class APIGateway extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -1319,13 +830,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateAccountRequest,
   ): Effect.Effect<
     Account,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateAccount", input);
   }
@@ -1333,13 +838,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateApiKeyRequest,
   ): Effect.Effect<
     ApiKey,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateApiKey", input);
   }
@@ -1347,13 +846,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateAuthorizerRequest,
   ): Effect.Effect<
     Authorizer,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateAuthorizer", input);
   }
@@ -1361,13 +854,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateBasePathMappingRequest,
   ): Effect.Effect<
     BasePathMapping,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateBasePathMapping", input);
   }
@@ -1375,13 +862,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateClientCertificateRequest,
   ): Effect.Effect<
     ClientCertificate,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateClientCertificate", input);
   }
@@ -1389,14 +870,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateDeploymentRequest,
   ): Effect.Effect<
     Deployment,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateDeployment", input);
   }
@@ -1404,13 +878,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateDocumentationPartRequest,
   ): Effect.Effect<
     DocumentationPart,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateDocumentationPart", input);
   }
@@ -1418,13 +886,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateDocumentationVersionRequest,
   ): Effect.Effect<
     DocumentationVersion,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateDocumentationVersion", input);
   }
@@ -1432,13 +894,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateDomainNameRequest,
   ): Effect.Effect<
     DomainName,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateDomainName", input);
   }
@@ -1446,13 +902,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateGatewayResponseRequest,
   ): Effect.Effect<
     GatewayResponse,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateGatewayResponse", input);
   }
@@ -1460,13 +910,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateIntegrationRequest,
   ): Effect.Effect<
     Integration,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateIntegration", input);
   }
@@ -1474,13 +918,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateIntegrationResponseRequest,
   ): Effect.Effect<
     IntegrationResponse,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateIntegrationResponse", input);
   }
@@ -1488,12 +926,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateMethodRequest,
   ): Effect.Effect<
     Method,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateMethod", input);
   }
@@ -1501,13 +934,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateMethodResponseRequest,
   ): Effect.Effect<
     MethodResponse,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateMethodResponse", input);
   }
@@ -1515,13 +942,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateModelRequest,
   ): Effect.Effect<
     Model,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateModel", input);
   }
@@ -1529,13 +950,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateRequestValidatorRequest,
   ): Effect.Effect<
     RequestValidator,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateRequestValidator", input);
   }
@@ -1543,12 +958,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateResourceRequest,
   ): Effect.Effect<
     Resource,
-    | BadRequestException
-    | ConflictException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateResource", input);
   }
@@ -1556,13 +966,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateRestApiRequest,
   ): Effect.Effect<
     RestApi,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateRestApi", input);
   }
@@ -1570,13 +974,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateStageRequest,
   ): Effect.Effect<
     Stage,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateStage", input);
   }
@@ -1584,13 +982,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateUsageRequest,
   ): Effect.Effect<
     Usage,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateUsage", input);
   }
@@ -1598,13 +990,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateUsagePlanRequest,
   ): Effect.Effect<
     UsagePlan,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateUsagePlan", input);
   }
@@ -1612,13 +998,7 @@ export class APIGateway extends AWSServiceClient {
     input: UpdateVpcLinkRequest,
   ): Effect.Effect<
     VpcLink,
-    | BadRequestException
-    | ConflictException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | LimitExceededException | NotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateVpcLink", input);
   }
@@ -1702,21 +1082,8 @@ export type Blob = Uint8Array | string;
 
 export type ApiGatewayBoolean = boolean;
 
-export type CacheClusterSize =
-  | "SIZE_0_POINT_5_GB"
-  | "SIZE_1_POINT_6_GB"
-  | "SIZE_6_POINT_1_GB"
-  | "SIZE_13_POINT_5_GB"
-  | "SIZE_28_POINT_4_GB"
-  | "SIZE_58_POINT_2_GB"
-  | "SIZE_118_GB"
-  | "SIZE_237_GB";
-export type CacheClusterStatus =
-  | "CREATE_IN_PROGRESS"
-  | "AVAILABLE"
-  | "DELETE_IN_PROGRESS"
-  | "NOT_AVAILABLE"
-  | "FLUSH_IN_PROGRESS";
+export type CacheClusterSize = "SIZE_0_POINT_5_GB" | "SIZE_1_POINT_6_GB" | "SIZE_6_POINT_1_GB" | "SIZE_13_POINT_5_GB" | "SIZE_28_POINT_4_GB" | "SIZE_58_POINT_2_GB" | "SIZE_118_GB" | "SIZE_237_GB";
+export type CacheClusterStatus = "CREATE_IN_PROGRESS" | "AVAILABLE" | "DELETE_IN_PROGRESS" | "NOT_AVAILABLE" | "FLUSH_IN_PROGRESS";
 export interface CanarySettings {
   percentTraffic?: number;
   deploymentId?: string;
@@ -2005,19 +1372,7 @@ export interface DocumentationParts {
   items?: Array<DocumentationPart>;
   position?: string;
 }
-export type DocumentationPartType =
-  | "API"
-  | "AUTHORIZER"
-  | "MODEL"
-  | "RESOURCE"
-  | "METHOD"
-  | "PATH_PARAMETER"
-  | "QUERY_PARAMETER"
-  | "REQUEST_HEADER"
-  | "REQUEST_BODY"
-  | "RESPONSE"
-  | "RESPONSE_HEADER"
-  | "RESPONSE_BODY";
+export type DocumentationPartType = "API" | "AUTHORIZER" | "MODEL" | "RESOURCE" | "METHOD" | "PATH_PARAMETER" | "QUERY_PARAMETER" | "REQUEST_HEADER" | "REQUEST_BODY" | "RESPONSE" | "RESPONSE_HEADER" | "RESPONSE_BODY";
 export interface DocumentationVersion {
   version?: string;
   createdDate?: Date | string;
@@ -2066,12 +1421,7 @@ export interface DomainNames {
   items?: Array<DomainName>;
   position?: string;
 }
-export type DomainNameStatus =
-  | "AVAILABLE"
-  | "UPDATING"
-  | "PENDING"
-  | "PENDING_CERTIFICATE_REIMPORT"
-  | "PENDING_OWNERSHIP_VERIFICATION";
+export type DomainNameStatus = "AVAILABLE" | "UPDATING" | "PENDING" | "PENDING_CERTIFICATE_REIMPORT" | "PENDING_OWNERSHIP_VERIFICATION";
 export type Double = number;
 
 export interface EndpointConfiguration {
@@ -2104,33 +1454,13 @@ export interface GatewayResponses {
   items?: Array<GatewayResponse>;
   position?: string;
 }
-export type GatewayResponseType =
-  | "DEFAULT_4XX"
-  | "DEFAULT_5XX"
-  | "RESOURCE_NOT_FOUND"
-  | "UNAUTHORIZED"
-  | "INVALID_API_KEY"
-  | "ACCESS_DENIED"
-  | "AUTHORIZER_FAILURE"
-  | "AUTHORIZER_CONFIGURATION_ERROR"
-  | "INVALID_SIGNATURE"
-  | "EXPIRED_TOKEN"
-  | "MISSING_AUTHENTICATION_TOKEN"
-  | "INTEGRATION_FAILURE"
-  | "INTEGRATION_TIMEOUT"
-  | "API_CONFIGURATION_ERROR"
-  | "UNSUPPORTED_MEDIA_TYPE"
-  | "BAD_REQUEST_PARAMETERS"
-  | "BAD_REQUEST_BODY"
-  | "REQUEST_TOO_LARGE"
-  | "THROTTLED"
-  | "QUOTA_EXCEEDED"
-  | "WAF_FILTERED";
+export type GatewayResponseType = "DEFAULT_4XX" | "DEFAULT_5XX" | "RESOURCE_NOT_FOUND" | "UNAUTHORIZED" | "INVALID_API_KEY" | "ACCESS_DENIED" | "AUTHORIZER_FAILURE" | "AUTHORIZER_CONFIGURATION_ERROR" | "INVALID_SIGNATURE" | "EXPIRED_TOKEN" | "MISSING_AUTHENTICATION_TOKEN" | "INTEGRATION_FAILURE" | "INTEGRATION_TIMEOUT" | "API_CONFIGURATION_ERROR" | "UNSUPPORTED_MEDIA_TYPE" | "BAD_REQUEST_PARAMETERS" | "BAD_REQUEST_BODY" | "REQUEST_TOO_LARGE" | "THROTTLED" | "QUOTA_EXCEEDED" | "WAF_FILTERED";
 export interface GenerateClientCertificateRequest {
   description?: string;
   tags?: Record<string, string>;
 }
-export interface GetAccountRequest {}
+export interface GetAccountRequest {
+}
 export interface GetApiKeyRequest {
   apiKey: string;
   includeValue?: boolean;
@@ -2395,12 +1725,7 @@ export interface IntegrationResponse {
   responseTemplates?: Record<string, string>;
   contentHandling?: ContentHandlingStrategy;
 }
-export type IntegrationType =
-  | "HTTP"
-  | "AWS"
-  | "MOCK"
-  | "HTTP_PROXY"
-  | "AWS_PROXY";
+export type IntegrationType = "HTTP" | "AWS" | "MOCK" | "HTTP_PROXY" | "AWS_PROXY";
 export type IpAddressType = "ipv4" | "dualstack";
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
@@ -2418,8 +1743,7 @@ export type ListOfDeployment = Array<Deployment>;
 export type ListOfDocumentationPart = Array<DocumentationPart>;
 export type ListOfDocumentationVersion = Array<DocumentationVersion>;
 export type ListOfDomainName = Array<DomainName>;
-export type ListOfDomainNameAccessAssociation =
-  Array<DomainNameAccessAssociation>;
+export type ListOfDomainNameAccessAssociation = Array<DomainNameAccessAssociation>;
 export type ListOfEndpointType = Array<EndpointType>;
 export type ListOfGatewayResponse = Array<GatewayResponse>;
 export type ListOfLong = Array<number>;
@@ -2520,10 +1844,7 @@ export interface PatchOperation {
   value?: string;
   from?: string;
 }
-export type PathToMapOfMethodSnapshot = Record<
-  string,
-  Record<string, MethodSnapshot>
->;
+export type PathToMapOfMethodSnapshot = Record<string, Record<string, MethodSnapshot>>;
 export type ProviderARN = string;
 
 export interface PutGatewayResponseRequest {
@@ -2643,10 +1964,7 @@ export interface RestApis {
   items?: Array<RestApi>;
   position?: string;
 }
-export type RoutingMode =
-  | "BASE_PATH_MAPPING_ONLY"
-  | "ROUTING_RULE_ONLY"
-  | "ROUTING_RULE_THEN_BASE_PATH_MAPPING";
+export type RoutingMode = "BASE_PATH_MAPPING_ONLY" | "ROUTING_RULE_ONLY" | "ROUTING_RULE_THEN_BASE_PATH_MAPPING";
 export interface SdkConfigurationProperty {
   name?: string;
   friendlyName?: string;
@@ -2768,10 +2086,7 @@ export declare class TooManyRequestsException extends EffectData.TaggedError(
   readonly retryAfterSeconds?: string;
   readonly message?: string;
 }> {}
-export type UnauthorizedCacheControlHeaderStrategy =
-  | "FAIL_WITH_403"
-  | "SUCCEED_WITH_RESPONSE_HEADER"
-  | "SUCCEED_WITHOUT_RESPONSE_HEADER";
+export type UnauthorizedCacheControlHeaderStrategy = "FAIL_WITH_403" | "SUCCEED_WITH_RESPONSE_HEADER" | "SUCCEED_WITHOUT_RESPONSE_HEADER";
 export declare class UnauthorizedException extends EffectData.TaggedError(
   "UnauthorizedException",
 )<{
@@ -4428,3 +3743,4 @@ export declare namespace UpdateVpcLink {
     | UnauthorizedException
     | CommonAwsError;
 }
+

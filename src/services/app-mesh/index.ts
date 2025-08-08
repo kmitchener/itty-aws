@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class AppMesh extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("app-mesh", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -21,14 +20,7 @@ export class AppMesh extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | TooManyTagsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | TooManyTagsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -36,13 +28,7 @@ export class AppMesh extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -54,7 +40,7 @@ interface _AccessLog {
   file?: FileAccessLog;
 }
 
-export type AccessLog = _AccessLog & { file: FileAccessLog };
+export type AccessLog = (_AccessLog & { file: FileAccessLog });
 export type AccountId = string;
 
 export type Arn = string;
@@ -80,7 +66,7 @@ interface _Backend {
   virtualService?: VirtualServiceBackend;
 }
 
-export type Backend = _Backend & { virtualService: VirtualServiceBackend };
+export type Backend = (_Backend & { virtualService: VirtualServiceBackend });
 export interface BackendDefaults {
   clientPolicy?: ClientPolicy;
 }
@@ -105,9 +91,7 @@ interface _ClientTlsCertificate {
   sds?: ListenerTlsSdsCertificate;
 }
 
-export type ClientTlsCertificate =
-  | (_ClientTlsCertificate & { file: ListenerTlsFileCertificate })
-  | (_ClientTlsCertificate & { sds: ListenerTlsSdsCertificate });
+export type ClientTlsCertificate = (_ClientTlsCertificate & { file: ListenerTlsFileCertificate }) | (_ClientTlsCertificate & { sds: ListenerTlsSdsCertificate });
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -416,12 +400,7 @@ interface _GrpcMetadataMatchMethod {
   suffix?: string;
 }
 
-export type GrpcMetadataMatchMethod =
-  | (_GrpcMetadataMatchMethod & { exact: string })
-  | (_GrpcMetadataMatchMethod & { regex: string })
-  | (_GrpcMetadataMatchMethod & { range: MatchRange })
-  | (_GrpcMetadataMatchMethod & { prefix: string })
-  | (_GrpcMetadataMatchMethod & { suffix: string });
+export type GrpcMetadataMatchMethod = (_GrpcMetadataMatchMethod & { exact: string }) | (_GrpcMetadataMatchMethod & { regex: string }) | (_GrpcMetadataMatchMethod & { range: MatchRange }) | (_GrpcMetadataMatchMethod & { prefix: string }) | (_GrpcMetadataMatchMethod & { suffix: string });
 export interface GrpcRetryPolicy {
   perRetryTimeout: Duration;
   maxRetries: number;
@@ -461,12 +440,7 @@ interface _GrpcRouteMetadataMatchMethod {
   suffix?: string;
 }
 
-export type GrpcRouteMetadataMatchMethod =
-  | (_GrpcRouteMetadataMatchMethod & { exact: string })
-  | (_GrpcRouteMetadataMatchMethod & { regex: string })
-  | (_GrpcRouteMetadataMatchMethod & { range: MatchRange })
-  | (_GrpcRouteMetadataMatchMethod & { prefix: string })
-  | (_GrpcRouteMetadataMatchMethod & { suffix: string });
+export type GrpcRouteMetadataMatchMethod = (_GrpcRouteMetadataMatchMethod & { exact: string }) | (_GrpcRouteMetadataMatchMethod & { regex: string }) | (_GrpcRouteMetadataMatchMethod & { range: MatchRange }) | (_GrpcRouteMetadataMatchMethod & { prefix: string }) | (_GrpcRouteMetadataMatchMethod & { suffix: string });
 export interface GrpcTimeout {
   perRequest?: Duration;
   idle?: Duration;
@@ -481,12 +455,7 @@ interface _HeaderMatchMethod {
   suffix?: string;
 }
 
-export type HeaderMatchMethod =
-  | (_HeaderMatchMethod & { exact: string })
-  | (_HeaderMatchMethod & { regex: string })
-  | (_HeaderMatchMethod & { range: MatchRange })
-  | (_HeaderMatchMethod & { prefix: string })
-  | (_HeaderMatchMethod & { suffix: string });
+export type HeaderMatchMethod = (_HeaderMatchMethod & { exact: string }) | (_HeaderMatchMethod & { regex: string }) | (_HeaderMatchMethod & { range: MatchRange }) | (_HeaderMatchMethod & { prefix: string }) | (_HeaderMatchMethod & { suffix: string });
 export type HeaderName = string;
 
 export type HealthCheckIntervalMillis = number;
@@ -636,11 +605,7 @@ interface _ListenerTimeout {
   grpc?: GrpcTimeout;
 }
 
-export type ListenerTimeout =
-  | (_ListenerTimeout & { tcp: TcpTimeout })
-  | (_ListenerTimeout & { http: HttpTimeout })
-  | (_ListenerTimeout & { http2: HttpTimeout })
-  | (_ListenerTimeout & { grpc: GrpcTimeout });
+export type ListenerTimeout = (_ListenerTimeout & { tcp: TcpTimeout }) | (_ListenerTimeout & { http: HttpTimeout }) | (_ListenerTimeout & { http2: HttpTimeout }) | (_ListenerTimeout & { grpc: GrpcTimeout });
 export interface ListenerTls {
   mode: string;
   certificate: ListenerTlsCertificate;
@@ -655,10 +620,7 @@ interface _ListenerTlsCertificate {
   sds?: ListenerTlsSdsCertificate;
 }
 
-export type ListenerTlsCertificate =
-  | (_ListenerTlsCertificate & { acm: ListenerTlsAcmCertificate })
-  | (_ListenerTlsCertificate & { file: ListenerTlsFileCertificate })
-  | (_ListenerTlsCertificate & { sds: ListenerTlsSdsCertificate });
+export type ListenerTlsCertificate = (_ListenerTlsCertificate & { acm: ListenerTlsAcmCertificate }) | (_ListenerTlsCertificate & { file: ListenerTlsFileCertificate }) | (_ListenerTlsCertificate & { sds: ListenerTlsSdsCertificate });
 export interface ListenerTlsFileCertificate {
   certificateChain: string;
   privateKey: string;
@@ -677,13 +639,7 @@ interface _ListenerTlsValidationContextTrust {
   sds?: TlsValidationContextSdsTrust;
 }
 
-export type ListenerTlsValidationContextTrust =
-  | (_ListenerTlsValidationContextTrust & {
-      file: TlsValidationContextFileTrust;
-    })
-  | (_ListenerTlsValidationContextTrust & {
-      sds: TlsValidationContextSdsTrust;
-    });
+export type ListenerTlsValidationContextTrust = (_ListenerTlsValidationContextTrust & { file: TlsValidationContextFileTrust }) | (_ListenerTlsValidationContextTrust & { sds: TlsValidationContextSdsTrust });
 export interface ListGatewayRoutesInput {
   meshName: string;
   virtualGatewayName: string;
@@ -785,9 +741,7 @@ interface _LoggingFormat {
   json?: Array<JsonFormatRef>;
 }
 
-export type LoggingFormat =
-  | (_LoggingFormat & { text: string })
-  | (_LoggingFormat & { json: Array<JsonFormatRef> });
+export type LoggingFormat = (_LoggingFormat & { text: string }) | (_LoggingFormat & { json: Array<JsonFormatRef> });
 export interface MatchRange {
   start: number;
   end: number;
@@ -918,9 +872,7 @@ interface _ServiceDiscovery {
   awsCloudMap?: AwsCloudMapServiceDiscovery;
 }
 
-export type ServiceDiscovery =
-  | (_ServiceDiscovery & { dns: DnsServiceDiscovery })
-  | (_ServiceDiscovery & { awsCloudMap: AwsCloudMapServiceDiscovery });
+export type ServiceDiscovery = (_ServiceDiscovery & { dns: DnsServiceDiscovery }) | (_ServiceDiscovery & { awsCloudMap: AwsCloudMapServiceDiscovery });
 export type ServiceName = string;
 
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
@@ -951,7 +903,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Array<TagRef>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagsLimit = number;
 
 export type TagValue = string;
@@ -994,10 +947,7 @@ interface _TlsValidationContextTrust {
   sds?: TlsValidationContextSdsTrust;
 }
 
-export type TlsValidationContextTrust =
-  | (_TlsValidationContextTrust & { acm: TlsValidationContextAcmTrust })
-  | (_TlsValidationContextTrust & { file: TlsValidationContextFileTrust })
-  | (_TlsValidationContextTrust & { sds: TlsValidationContextSdsTrust });
+export type TlsValidationContextTrust = (_TlsValidationContextTrust & { acm: TlsValidationContextAcmTrust }) | (_TlsValidationContextTrust & { file: TlsValidationContextFileTrust }) | (_TlsValidationContextTrust & { sds: TlsValidationContextSdsTrust });
 export declare class TooManyRequestsException extends EffectData.TaggedError(
   "TooManyRequestsException",
 )<{
@@ -1012,7 +962,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateGatewayRouteInput {
   gatewayRouteName: string;
   meshName: string;
@@ -1087,9 +1038,7 @@ interface _VirtualGatewayAccessLog {
   file?: VirtualGatewayFileAccessLog;
 }
 
-export type VirtualGatewayAccessLog = _VirtualGatewayAccessLog & {
-  file: VirtualGatewayFileAccessLog;
-};
+export type VirtualGatewayAccessLog = (_VirtualGatewayAccessLog & { file: VirtualGatewayFileAccessLog });
 export interface VirtualGatewayBackendDefaults {
   clientPolicy?: VirtualGatewayClientPolicy;
 }
@@ -1108,27 +1057,14 @@ interface _VirtualGatewayClientTlsCertificate {
   sds?: VirtualGatewayListenerTlsSdsCertificate;
 }
 
-export type VirtualGatewayClientTlsCertificate =
-  | (_VirtualGatewayClientTlsCertificate & {
-      file: VirtualGatewayListenerTlsFileCertificate;
-    })
-  | (_VirtualGatewayClientTlsCertificate & {
-      sds: VirtualGatewayListenerTlsSdsCertificate;
-    });
+export type VirtualGatewayClientTlsCertificate = (_VirtualGatewayClientTlsCertificate & { file: VirtualGatewayListenerTlsFileCertificate }) | (_VirtualGatewayClientTlsCertificate & { sds: VirtualGatewayListenerTlsSdsCertificate });
 interface _VirtualGatewayConnectionPool {
   http?: VirtualGatewayHttpConnectionPool;
   http2?: VirtualGatewayHttp2ConnectionPool;
   grpc?: VirtualGatewayGrpcConnectionPool;
 }
 
-export type VirtualGatewayConnectionPool =
-  | (_VirtualGatewayConnectionPool & { http: VirtualGatewayHttpConnectionPool })
-  | (_VirtualGatewayConnectionPool & {
-      http2: VirtualGatewayHttp2ConnectionPool;
-    })
-  | (_VirtualGatewayConnectionPool & {
-      grpc: VirtualGatewayGrpcConnectionPool;
-    });
+export type VirtualGatewayConnectionPool = (_VirtualGatewayConnectionPool & { http: VirtualGatewayHttpConnectionPool }) | (_VirtualGatewayConnectionPool & { http2: VirtualGatewayHttp2ConnectionPool }) | (_VirtualGatewayConnectionPool & { grpc: VirtualGatewayGrpcConnectionPool });
 export interface VirtualGatewayData {
   meshName: string;
   virtualGatewayName: string;
@@ -1187,16 +1123,7 @@ interface _VirtualGatewayListenerTlsCertificate {
   sds?: VirtualGatewayListenerTlsSdsCertificate;
 }
 
-export type VirtualGatewayListenerTlsCertificate =
-  | (_VirtualGatewayListenerTlsCertificate & {
-      acm: VirtualGatewayListenerTlsAcmCertificate;
-    })
-  | (_VirtualGatewayListenerTlsCertificate & {
-      file: VirtualGatewayListenerTlsFileCertificate;
-    })
-  | (_VirtualGatewayListenerTlsCertificate & {
-      sds: VirtualGatewayListenerTlsSdsCertificate;
-    });
+export type VirtualGatewayListenerTlsCertificate = (_VirtualGatewayListenerTlsCertificate & { acm: VirtualGatewayListenerTlsAcmCertificate }) | (_VirtualGatewayListenerTlsCertificate & { file: VirtualGatewayListenerTlsFileCertificate }) | (_VirtualGatewayListenerTlsCertificate & { sds: VirtualGatewayListenerTlsSdsCertificate });
 export interface VirtualGatewayListenerTlsFileCertificate {
   certificateChain: string;
   privateKey: string;
@@ -1215,13 +1142,7 @@ interface _VirtualGatewayListenerTlsValidationContextTrust {
   sds?: VirtualGatewayTlsValidationContextSdsTrust;
 }
 
-export type VirtualGatewayListenerTlsValidationContextTrust =
-  | (_VirtualGatewayListenerTlsValidationContextTrust & {
-      file: VirtualGatewayTlsValidationContextFileTrust;
-    })
-  | (_VirtualGatewayListenerTlsValidationContextTrust & {
-      sds: VirtualGatewayTlsValidationContextSdsTrust;
-    });
+export type VirtualGatewayListenerTlsValidationContextTrust = (_VirtualGatewayListenerTlsValidationContextTrust & { file: VirtualGatewayTlsValidationContextFileTrust }) | (_VirtualGatewayListenerTlsValidationContextTrust & { sds: VirtualGatewayTlsValidationContextSdsTrust });
 export interface VirtualGatewayLogging {
   accessLog?: VirtualGatewayAccessLog;
 }
@@ -1272,16 +1193,7 @@ interface _VirtualGatewayTlsValidationContextTrust {
   sds?: VirtualGatewayTlsValidationContextSdsTrust;
 }
 
-export type VirtualGatewayTlsValidationContextTrust =
-  | (_VirtualGatewayTlsValidationContextTrust & {
-      acm: VirtualGatewayTlsValidationContextAcmTrust;
-    })
-  | (_VirtualGatewayTlsValidationContextTrust & {
-      file: VirtualGatewayTlsValidationContextFileTrust;
-    })
-  | (_VirtualGatewayTlsValidationContextTrust & {
-      sds: VirtualGatewayTlsValidationContextSdsTrust;
-    });
+export type VirtualGatewayTlsValidationContextTrust = (_VirtualGatewayTlsValidationContextTrust & { acm: VirtualGatewayTlsValidationContextAcmTrust }) | (_VirtualGatewayTlsValidationContextTrust & { file: VirtualGatewayTlsValidationContextFileTrust }) | (_VirtualGatewayTlsValidationContextTrust & { sds: VirtualGatewayTlsValidationContextSdsTrust });
 interface _VirtualNodeConnectionPool {
   tcp?: VirtualNodeTcpConnectionPool;
   http?: VirtualNodeHttpConnectionPool;
@@ -1289,11 +1201,7 @@ interface _VirtualNodeConnectionPool {
   grpc?: VirtualNodeGrpcConnectionPool;
 }
 
-export type VirtualNodeConnectionPool =
-  | (_VirtualNodeConnectionPool & { tcp: VirtualNodeTcpConnectionPool })
-  | (_VirtualNodeConnectionPool & { http: VirtualNodeHttpConnectionPool })
-  | (_VirtualNodeConnectionPool & { http2: VirtualNodeHttp2ConnectionPool })
-  | (_VirtualNodeConnectionPool & { grpc: VirtualNodeGrpcConnectionPool });
+export type VirtualNodeConnectionPool = (_VirtualNodeConnectionPool & { tcp: VirtualNodeTcpConnectionPool }) | (_VirtualNodeConnectionPool & { http: VirtualNodeHttpConnectionPool }) | (_VirtualNodeConnectionPool & { http2: VirtualNodeHttp2ConnectionPool }) | (_VirtualNodeConnectionPool & { grpc: VirtualNodeGrpcConnectionPool });
 export interface VirtualNodeData {
   meshName: string;
   virtualNodeName: string;
@@ -1390,9 +1298,7 @@ interface _VirtualServiceProvider {
   virtualRouter?: VirtualRouterServiceProvider;
 }
 
-export type VirtualServiceProvider =
-  | (_VirtualServiceProvider & { virtualNode: VirtualNodeServiceProvider })
-  | (_VirtualServiceProvider & { virtualRouter: VirtualRouterServiceProvider });
+export type VirtualServiceProvider = (_VirtualServiceProvider & { virtualNode: VirtualNodeServiceProvider }) | (_VirtualServiceProvider & { virtualRouter: VirtualRouterServiceProvider });
 export interface VirtualServiceRef {
   meshName: string;
   virtualServiceName: string;
@@ -1456,3 +1362,4 @@ export declare namespace UntagResource {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

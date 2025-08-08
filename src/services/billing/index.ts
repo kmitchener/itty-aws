@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class Billing extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("billing", new AwsJson10Protocol(), cfg);
+  }
+
   createBillingView(
     input: CreateBillingViewRequest,
   ): Effect.Effect<
     CreateBillingViewResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateBillingView", input);
   }
@@ -21,12 +20,7 @@ export class Billing extends AWSServiceClient {
     input: DeleteBillingViewRequest,
   ): Effect.Effect<
     DeleteBillingViewResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteBillingView", input);
   }
@@ -34,12 +28,7 @@ export class Billing extends AWSServiceClient {
     input: GetBillingViewRequest,
   ): Effect.Effect<
     GetBillingViewResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetBillingView", input);
   }
@@ -47,12 +36,7 @@ export class Billing extends AWSServiceClient {
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -60,11 +44,7 @@ export class Billing extends AWSServiceClient {
     input: ListBillingViewsRequest,
   ): Effect.Effect<
     ListBillingViewsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBillingViews", input);
   }
@@ -72,12 +52,7 @@ export class Billing extends AWSServiceClient {
     input: ListSourceViewsForBillingViewRequest,
   ): Effect.Effect<
     ListSourceViewsForBillingViewResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSourceViewsForBillingView", input);
   }
@@ -85,12 +60,7 @@ export class Billing extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -98,12 +68,7 @@ export class Billing extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -111,12 +76,7 @@ export class Billing extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -124,14 +84,7 @@ export class Billing extends AWSServiceClient {
     input: UpdateBillingViewRequest,
   ): Effect.Effect<
     UpdateBillingViewResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateBillingView", input);
   }
@@ -311,7 +264,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   resourceTags: Array<ResourceTag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export interface TagValues {
   key: string;
   values: Array<string>;
@@ -325,7 +279,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   resourceTagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateBillingViewRequest {
   arn: string;
   name?: string;
@@ -348,11 +303,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export type Value = string;
 
 export type Values = Array<string>;
@@ -477,3 +428,4 @@ export declare namespace UpdateBillingView {
     | ValidationException
     | CommonAwsError;
 }
+

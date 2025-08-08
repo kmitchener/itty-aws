@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SSO extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sso", new RestJson1Protocol(), cfg);
+  }
+
   getRoleCredentials(
     input: GetRoleCredentialsRequest,
   ): Effect.Effect<
     GetRoleCredentialsResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetRoleCredentials", input);
   }
@@ -19,11 +20,7 @@ export class SSO extends AWSServiceClient {
     input: ListAccountRolesRequest,
   ): Effect.Effect<
     ListAccountRolesResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListAccountRoles", input);
   }
@@ -31,11 +28,7 @@ export class SSO extends AWSServiceClient {
     input: ListAccountsRequest,
   ): Effect.Effect<
     ListAccountsResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListAccounts", input);
   }
@@ -43,10 +36,7 @@ export class SSO extends AWSServiceClient {
     input: LogoutRequest,
   ): Effect.Effect<
     {},
-    | InvalidRequestException
-    | TooManyRequestsException
-    | UnauthorizedException
-    | CommonAwsError
+    InvalidRequestException | TooManyRequestsException | UnauthorizedException | CommonAwsError
   > {
     return this.call("Logout", input);
   }
@@ -189,3 +179,4 @@ export declare namespace Logout {
     | UnauthorizedException
     | CommonAwsError;
 }
+

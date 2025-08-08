@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class OSIS extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("osis", new RestJson1Protocol(), cfg);
+  }
+
   createPipeline(
     input: CreatePipelineRequest,
   ): Effect.Effect<
     CreatePipelineResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePipeline", input);
   }
@@ -22,13 +20,7 @@ export class OSIS extends AWSServiceClient {
     input: DeletePipelineRequest,
   ): Effect.Effect<
     DeletePipelineResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePipeline", input);
   }
@@ -36,12 +28,7 @@ export class OSIS extends AWSServiceClient {
     input: GetPipelineRequest,
   ): Effect.Effect<
     GetPipelineResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetPipeline", input);
   }
@@ -49,12 +36,7 @@ export class OSIS extends AWSServiceClient {
     input: GetPipelineBlueprintRequest,
   ): Effect.Effect<
     GetPipelineBlueprintResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetPipelineBlueprint", input);
   }
@@ -62,12 +44,7 @@ export class OSIS extends AWSServiceClient {
     input: GetPipelineChangeProgressRequest,
   ): Effect.Effect<
     GetPipelineChangeProgressResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetPipelineChangeProgress", input);
   }
@@ -75,12 +52,7 @@ export class OSIS extends AWSServiceClient {
     input: ListPipelineBlueprintsRequest,
   ): Effect.Effect<
     ListPipelineBlueprintsResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | InvalidPaginationTokenException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | InvalidPaginationTokenException | ValidationException | CommonAwsError
   > {
     return this.call("ListPipelineBlueprints", input);
   }
@@ -88,12 +60,7 @@ export class OSIS extends AWSServiceClient {
     input: ListPipelinesRequest,
   ): Effect.Effect<
     ListPipelinesResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | InvalidPaginationTokenException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | InvalidPaginationTokenException | ValidationException | CommonAwsError
   > {
     return this.call("ListPipelines", input);
   }
@@ -101,12 +68,7 @@ export class OSIS extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -114,13 +76,7 @@ export class OSIS extends AWSServiceClient {
     input: StartPipelineRequest,
   ): Effect.Effect<
     StartPipelineResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartPipeline", input);
   }
@@ -128,13 +84,7 @@ export class OSIS extends AWSServiceClient {
     input: StopPipelineRequest,
   ): Effect.Effect<
     StopPipelineResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StopPipeline", input);
   }
@@ -142,13 +92,7 @@ export class OSIS extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -156,12 +100,7 @@ export class OSIS extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -169,13 +108,7 @@ export class OSIS extends AWSServiceClient {
     input: UpdatePipelineRequest,
   ): Effect.Effect<
     UpdatePipelineResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePipeline", input);
   }
@@ -183,11 +116,7 @@ export class OSIS extends AWSServiceClient {
     input: ValidatePipelineRequest,
   ): Effect.Effect<
     ValidatePipelineResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ValidationException | CommonAwsError
   > {
     return this.call("ValidatePipeline", input);
   }
@@ -216,22 +145,14 @@ export interface ChangeProgressStage {
   LastUpdatedAt?: Date | string;
 }
 export type ChangeProgressStageList = Array<ChangeProgressStage>;
-export type ChangeProgressStageStatuses =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED";
+export type ChangeProgressStageStatuses = "PENDING" | "IN_PROGRESS" | "COMPLETED" | "FAILED";
 export interface ChangeProgressStatus {
   StartTime?: Date | string;
   Status?: ChangeProgressStatuses;
   TotalNumberOfStages?: number;
   ChangeProgressStages?: Array<ChangeProgressStage>;
 }
-export type ChangeProgressStatuses =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED";
+export type ChangeProgressStatuses = "PENDING" | "IN_PROGRESS" | "COMPLETED" | "FAILED";
 export type ChangeProgressStatusList = Array<ChangeProgressStatus>;
 export type CidrBlock = string;
 
@@ -261,7 +182,8 @@ export interface CreatePipelineResponse {
 export interface DeletePipelineRequest {
   PipelineName: string;
 }
-export interface DeletePipelineResponse {}
+export interface DeletePipelineResponse {
+}
 export declare class DisabledOperationException extends EffectData.TaggedError(
   "DisabledOperationException",
 )<{
@@ -312,7 +234,8 @@ export declare class LimitExceededException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export interface ListPipelineBlueprintsRequest {}
+export interface ListPipelineBlueprintsRequest {
+}
 export interface ListPipelineBlueprintsResponse {
   Blueprints?: Array<PipelineBlueprintSummary>;
 }
@@ -390,17 +313,7 @@ export type PipelineName = string;
 
 export type PipelineRoleArn = string;
 
-export type PipelineStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "CREATE_FAILED"
-  | "UPDATE_FAILED"
-  | "STARTING"
-  | "START_FAILED"
-  | "STOPPING"
-  | "STOPPED";
+export type PipelineStatus = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "CREATE_FAILED" | "UPDATE_FAILED" | "STARTING" | "START_FAILED" | "STOPPING" | "STOPPED";
 export interface PipelineStatusReason {
   Description?: string;
 }
@@ -466,7 +379,8 @@ export interface TagResourceRequest {
   Arn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -475,7 +389,8 @@ export interface UntagResourceRequest {
   Arn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdatePipelineRequest {
   PipelineName: string;
   MinUnits?: number;
@@ -696,3 +611,4 @@ export declare namespace ValidatePipeline {
     | ValidationException
     | CommonAwsError;
 }
+

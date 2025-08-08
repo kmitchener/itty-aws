@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class ApiGatewayManagementApi extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("apigatewaymanagementapi", new RestJson1Protocol(), cfg);
+  }
+
   deleteConnection(
     input: DeleteConnectionRequest,
   ): Effect.Effect<
@@ -23,11 +28,7 @@ export class ApiGatewayManagementApi extends AWSServiceClient {
     input: PostToConnectionRequest,
   ): Effect.Effect<
     {},
-    | ForbiddenException
-    | GoneException
-    | LimitExceededException
-    | PayloadTooLargeException
-    | CommonAwsError
+    ForbiddenException | GoneException | LimitExceededException | PayloadTooLargeException | CommonAwsError
   > {
     return this.call("PostToConnection", input);
   }
@@ -48,7 +49,8 @@ export interface DeleteConnectionRequest {
 }
 export declare class ForbiddenException extends EffectData.TaggedError(
   "ForbiddenException",
-)<{}> {}
+)<{
+}> {}
 export interface GetConnectionRequest {
   ConnectionId: string;
 }
@@ -59,14 +61,16 @@ export interface GetConnectionResponse {
 }
 export declare class GoneException extends EffectData.TaggedError(
   "GoneException",
-)<{}> {}
+)<{
+}> {}
 export interface Identity {
   SourceIp: string;
   UserAgent: string;
 }
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
-)<{}> {}
+)<{
+}> {}
 export declare class PayloadTooLargeException extends EffectData.TaggedError(
   "PayloadTooLargeException",
 )<{
@@ -106,3 +110,4 @@ export declare namespace PostToConnection {
     | PayloadTooLargeException
     | CommonAwsError;
 }
+

@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class MediaPackageVod extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("mediapackage-vod", new RestJson1Protocol(), cfg);
+  }
+
   configureLogs(
     input: ConfigureLogsRequest,
   ): Effect.Effect<
     ConfigureLogsResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("ConfigureLogs", input);
   }
@@ -21,13 +20,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: CreateAssetRequest,
   ): Effect.Effect<
     CreateAssetResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("CreateAsset", input);
   }
@@ -35,13 +28,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: CreatePackagingConfigurationRequest,
   ): Effect.Effect<
     CreatePackagingConfigurationResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("CreatePackagingConfiguration", input);
   }
@@ -49,13 +36,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: CreatePackagingGroupRequest,
   ): Effect.Effect<
     CreatePackagingGroupResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("CreatePackagingGroup", input);
   }
@@ -63,13 +44,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: DeleteAssetRequest,
   ): Effect.Effect<
     DeleteAssetResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("DeleteAsset", input);
   }
@@ -77,13 +52,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: DeletePackagingConfigurationRequest,
   ): Effect.Effect<
     DeletePackagingConfigurationResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("DeletePackagingConfiguration", input);
   }
@@ -91,13 +60,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: DeletePackagingGroupRequest,
   ): Effect.Effect<
     DeletePackagingGroupResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("DeletePackagingGroup", input);
   }
@@ -105,13 +68,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: DescribeAssetRequest,
   ): Effect.Effect<
     DescribeAssetResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("DescribeAsset", input);
   }
@@ -119,13 +76,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: DescribePackagingConfigurationRequest,
   ): Effect.Effect<
     DescribePackagingConfigurationResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("DescribePackagingConfiguration", input);
   }
@@ -133,13 +84,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: DescribePackagingGroupRequest,
   ): Effect.Effect<
     DescribePackagingGroupResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("DescribePackagingGroup", input);
   }
@@ -147,13 +92,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: ListAssetsRequest,
   ): Effect.Effect<
     ListAssetsResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("ListAssets", input);
   }
@@ -161,13 +100,7 @@ export class MediaPackageVod extends AWSServiceClient {
     input: ListPackagingConfigurationsRequest,
   ): Effect.Effect<
     ListPackagingConfigurationsResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("ListPackagingConfigurations", input);
   }
@@ -175,40 +108,39 @@ export class MediaPackageVod extends AWSServiceClient {
     input: ListPackagingGroupsRequest,
   ): Effect.Effect<
     ListPackagingGroupsResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("ListPackagingGroups", input);
   }
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError> {
+  ): Effect.Effect<
+    ListTagsForResourceResponse,
+    CommonAwsError
+  > {
     return this.call("ListTagsForResource", input);
   }
-  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError> {
+  tagResource(
+    input: TagResourceRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("TagResource", input);
   }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("UntagResource", input);
   }
   updatePackagingGroup(
     input: UpdatePackagingGroupRequest,
   ): Effect.Effect<
     UpdatePackagingGroupResponse,
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | UnprocessableEntityException
-    | CommonAwsError
+    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
   > {
     return this.call("UpdatePackagingGroup", input);
   }
@@ -350,15 +282,18 @@ export interface DashPackage {
 export interface DeleteAssetRequest {
   Id: string;
 }
-export interface DeleteAssetResponse {}
+export interface DeleteAssetResponse {
+}
 export interface DeletePackagingConfigurationRequest {
   Id: string;
 }
-export interface DeletePackagingConfigurationResponse {}
+export interface DeletePackagingConfigurationResponse {
+}
 export interface DeletePackagingGroupRequest {
   Id: string;
 }
-export interface DeletePackagingGroupResponse {}
+export interface DeletePackagingGroupResponse {
+}
 export interface DescribeAssetRequest {
   Id: string;
 }
@@ -516,29 +451,11 @@ export interface PackagingGroup {
   Id?: string;
   Tags?: Record<string, string>;
 }
-export type PresetSpeke20Audio =
-  | "PRESET_AUDIO_1"
-  | "PRESET_AUDIO_2"
-  | "PRESET_AUDIO_3"
-  | "SHARED"
-  | "UNENCRYPTED";
-export type PresetSpeke20Video =
-  | "PRESET_VIDEO_1"
-  | "PRESET_VIDEO_2"
-  | "PRESET_VIDEO_3"
-  | "PRESET_VIDEO_4"
-  | "PRESET_VIDEO_5"
-  | "PRESET_VIDEO_6"
-  | "PRESET_VIDEO_7"
-  | "PRESET_VIDEO_8"
-  | "SHARED"
-  | "UNENCRYPTED";
+export type PresetSpeke20Audio = "PRESET_AUDIO_1" | "PRESET_AUDIO_2" | "PRESET_AUDIO_3" | "SHARED" | "UNENCRYPTED";
+export type PresetSpeke20Video = "PRESET_VIDEO_1" | "PRESET_VIDEO_2" | "PRESET_VIDEO_3" | "PRESET_VIDEO_4" | "PRESET_VIDEO_5" | "PRESET_VIDEO_6" | "PRESET_VIDEO_7" | "PRESET_VIDEO_8" | "SHARED" | "UNENCRYPTED";
 export type Profile = "NONE" | "HBBTV_1_5";
 export type ScteMarkersSource = "SEGMENTS" | "MANIFEST";
-export type SegmentTemplateFormat =
-  | "NUMBER_WITH_TIMELINE"
-  | "TIME_WITH_TIMELINE"
-  | "NUMBER_WITH_DURATION";
+export type SegmentTemplateFormat = "NUMBER_WITH_TIMELINE" | "TIME_WITH_TIMELINE" | "NUMBER_WITH_DURATION";
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
   "ServiceUnavailableException",
 )<{
@@ -550,10 +467,7 @@ export interface SpekeKeyProvider {
   SystemIds: Array<string>;
   Url: string;
 }
-export type StreamOrder =
-  | "ORIGINAL"
-  | "VIDEO_BITRATE_ASCENDING"
-  | "VIDEO_BITRATE_DESCENDING";
+export type StreamOrder = "ORIGINAL" | "VIDEO_BITRATE_ASCENDING" | "VIDEO_BITRATE_DESCENDING";
 export interface StreamSelection {
   MaxVideoBitsPerSecond?: number;
   MinVideoBitsPerSecond?: number;
@@ -764,19 +678,22 @@ export declare namespace ListPackagingGroups {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdatePackagingGroup {
@@ -791,3 +708,4 @@ export declare namespace UpdatePackagingGroup {
     | UnprocessableEntityException
     | CommonAwsError;
 }
+

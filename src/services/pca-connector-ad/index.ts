@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class PcaConnectorAd extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("pca-connector-ad", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -20,12 +20,7 @@ export class PcaConnectorAd extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -33,12 +28,7 @@ export class PcaConnectorAd extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -82,101 +72,18 @@ interface _ApplicationPolicy {
   PolicyObjectIdentifier?: string;
 }
 
-export type ApplicationPolicy =
-  | (_ApplicationPolicy & { PolicyType: ApplicationPolicyType })
-  | (_ApplicationPolicy & { PolicyObjectIdentifier: string });
+export type ApplicationPolicy = (_ApplicationPolicy & { PolicyType: ApplicationPolicyType }) | (_ApplicationPolicy & { PolicyObjectIdentifier: string });
 export type ApplicationPolicyList = Array<ApplicationPolicy>;
-export type ApplicationPolicyType =
-  | "ALL_APPLICATION_POLICIES"
-  | "ANY_PURPOSE"
-  | "ATTESTATION_IDENTITY_KEY_CERTIFICATE"
-  | "CERTIFICATE_REQUEST_AGENT"
-  | "CLIENT_AUTHENTICATION"
-  | "CODE_SIGNING"
-  | "CTL_USAGE"
-  | "DIGITAL_RIGHTS"
-  | "DIRECTORY_SERVICE_EMAIL_REPLICATION"
-  | "DISALLOWED_LIST"
-  | "DNS_SERVER_TRUST"
-  | "DOCUMENT_ENCRYPTION"
-  | "DOCUMENT_SIGNING"
-  | "DYNAMIC_CODE_GENERATOR"
-  | "EARLY_LAUNCH_ANTIMALWARE_DRIVER"
-  | "EMBEDDED_WINDOWS_SYSTEM_COMPONENT_VERIFICATION"
-  | "ENCLAVE"
-  | "ENCRYPTING_FILE_SYSTEM"
-  | "ENDORSEMENT_KEY_CERTIFICATE"
-  | "FILE_RECOVERY"
-  | "HAL_EXTENSION"
-  | "IP_SECURITY_END_SYSTEM"
-  | "IP_SECURITY_IKE_INTERMEDIATE"
-  | "IP_SECURITY_TUNNEL_TERMINATION"
-  | "IP_SECURITY_USER"
-  | "ISOLATED_USER_MODE"
-  | "KDC_AUTHENTICATION"
-  | "KERNEL_MODE_CODE_SIGNING"
-  | "KEY_PACK_LICENSES"
-  | "KEY_RECOVERY"
-  | "KEY_RECOVERY_AGENT"
-  | "LICENSE_SERVER_VERIFICATION"
-  | "LIFETIME_SIGNING"
-  | "MICROSOFT_PUBLISHER"
-  | "MICROSOFT_TIME_STAMPING"
-  | "MICROSOFT_TRUST_LIST_SIGNING"
-  | "OCSP_SIGNING"
-  | "OEM_WINDOWS_SYSTEM_COMPONENT_VERIFICATION"
-  | "PLATFORM_CERTIFICATE"
-  | "PREVIEW_BUILD_SIGNING"
-  | "PRIVATE_KEY_ARCHIVAL"
-  | "PROTECTED_PROCESS_LIGHT_VERIFICATION"
-  | "PROTECTED_PROCESS_VERIFICATION"
-  | "QUALIFIED_SUBORDINATION"
-  | "REVOKED_LIST_SIGNER"
-  | "ROOT_PROGRAM_AUTO_UPDATE_CA_REVOCATION"
-  | "ROOT_PROGRAM_AUTO_UPDATE_END_REVOCATION"
-  | "ROOT_PROGRAM_NO_OSCP_FAILOVER_TO_CRL"
-  | "ROOT_LIST_SIGNER"
-  | "SECURE_EMAIL"
-  | "SERVER_AUTHENTICATION"
-  | "SMART_CARD_LOGIN"
-  | "SPC_ENCRYPTED_DIGEST_RETRY_COUNT"
-  | "SPC_RELAXED_PE_MARKER_CHECK"
-  | "TIME_STAMPING"
-  | "WINDOWS_HARDWARE_DRIVER_ATTESTED_VERIFICATION"
-  | "WINDOWS_HARDWARE_DRIVER_EXTENDED_VERIFICATION"
-  | "WINDOWS_HARDWARE_DRIVER_VERIFICATION"
-  | "WINDOWS_HELLO_RECOVERY_KEY_ENCRYPTION"
-  | "WINDOWS_KITS_COMPONENT"
-  | "WINDOWS_RT_VERIFICATION"
-  | "WINDOWS_SOFTWARE_EXTENSION_VERIFICATION"
-  | "WINDOWS_STORE"
-  | "WINDOWS_SYSTEM_COMPONENT_VERIFICATION"
-  | "WINDOWS_TCB_COMPONENT"
-  | "WINDOWS_THIRD_PARTY_APPLICATION_COMPONENT"
-  | "WINDOWS_UPDATE";
+export type ApplicationPolicyType = "ALL_APPLICATION_POLICIES" | "ANY_PURPOSE" | "ATTESTATION_IDENTITY_KEY_CERTIFICATE" | "CERTIFICATE_REQUEST_AGENT" | "CLIENT_AUTHENTICATION" | "CODE_SIGNING" | "CTL_USAGE" | "DIGITAL_RIGHTS" | "DIRECTORY_SERVICE_EMAIL_REPLICATION" | "DISALLOWED_LIST" | "DNS_SERVER_TRUST" | "DOCUMENT_ENCRYPTION" | "DOCUMENT_SIGNING" | "DYNAMIC_CODE_GENERATOR" | "EARLY_LAUNCH_ANTIMALWARE_DRIVER" | "EMBEDDED_WINDOWS_SYSTEM_COMPONENT_VERIFICATION" | "ENCLAVE" | "ENCRYPTING_FILE_SYSTEM" | "ENDORSEMENT_KEY_CERTIFICATE" | "FILE_RECOVERY" | "HAL_EXTENSION" | "IP_SECURITY_END_SYSTEM" | "IP_SECURITY_IKE_INTERMEDIATE" | "IP_SECURITY_TUNNEL_TERMINATION" | "IP_SECURITY_USER" | "ISOLATED_USER_MODE" | "KDC_AUTHENTICATION" | "KERNEL_MODE_CODE_SIGNING" | "KEY_PACK_LICENSES" | "KEY_RECOVERY" | "KEY_RECOVERY_AGENT" | "LICENSE_SERVER_VERIFICATION" | "LIFETIME_SIGNING" | "MICROSOFT_PUBLISHER" | "MICROSOFT_TIME_STAMPING" | "MICROSOFT_TRUST_LIST_SIGNING" | "OCSP_SIGNING" | "OEM_WINDOWS_SYSTEM_COMPONENT_VERIFICATION" | "PLATFORM_CERTIFICATE" | "PREVIEW_BUILD_SIGNING" | "PRIVATE_KEY_ARCHIVAL" | "PROTECTED_PROCESS_LIGHT_VERIFICATION" | "PROTECTED_PROCESS_VERIFICATION" | "QUALIFIED_SUBORDINATION" | "REVOKED_LIST_SIGNER" | "ROOT_PROGRAM_AUTO_UPDATE_CA_REVOCATION" | "ROOT_PROGRAM_AUTO_UPDATE_END_REVOCATION" | "ROOT_PROGRAM_NO_OSCP_FAILOVER_TO_CRL" | "ROOT_LIST_SIGNER" | "SECURE_EMAIL" | "SERVER_AUTHENTICATION" | "SMART_CARD_LOGIN" | "SPC_ENCRYPTED_DIGEST_RETRY_COUNT" | "SPC_RELAXED_PE_MARKER_CHECK" | "TIME_STAMPING" | "WINDOWS_HARDWARE_DRIVER_ATTESTED_VERIFICATION" | "WINDOWS_HARDWARE_DRIVER_EXTENDED_VERIFICATION" | "WINDOWS_HARDWARE_DRIVER_VERIFICATION" | "WINDOWS_HELLO_RECOVERY_KEY_ENCRYPTION" | "WINDOWS_KITS_COMPONENT" | "WINDOWS_RT_VERIFICATION" | "WINDOWS_SOFTWARE_EXTENSION_VERIFICATION" | "WINDOWS_STORE" | "WINDOWS_SYSTEM_COMPONENT_VERIFICATION" | "WINDOWS_TCB_COMPONENT" | "WINDOWS_THIRD_PARTY_APPLICATION_COMPONENT" | "WINDOWS_UPDATE";
 export type CertificateAuthorityArn = string;
 
 export interface CertificateValidity {
   ValidityPeriod: ValidityPeriod;
   RenewalPeriod: ValidityPeriod;
 }
-export type ClientCompatibilityV2 =
-  | "WINDOWS_SERVER_2003"
-  | "WINDOWS_SERVER_2008"
-  | "WINDOWS_SERVER_2008_R2"
-  | "WINDOWS_SERVER_2012"
-  | "WINDOWS_SERVER_2012_R2"
-  | "WINDOWS_SERVER_2016";
-export type ClientCompatibilityV3 =
-  | "WINDOWS_SERVER_2008"
-  | "WINDOWS_SERVER_2008_R2"
-  | "WINDOWS_SERVER_2012"
-  | "WINDOWS_SERVER_2012_R2"
-  | "WINDOWS_SERVER_2016";
-export type ClientCompatibilityV4 =
-  | "WINDOWS_SERVER_2012"
-  | "WINDOWS_SERVER_2012_R2"
-  | "WINDOWS_SERVER_2016";
+export type ClientCompatibilityV2 = "WINDOWS_SERVER_2003" | "WINDOWS_SERVER_2008" | "WINDOWS_SERVER_2008_R2" | "WINDOWS_SERVER_2012" | "WINDOWS_SERVER_2012_R2" | "WINDOWS_SERVER_2016";
+export type ClientCompatibilityV3 = "WINDOWS_SERVER_2008" | "WINDOWS_SERVER_2008_R2" | "WINDOWS_SERVER_2012" | "WINDOWS_SERVER_2012_R2" | "WINDOWS_SERVER_2016";
+export type ClientCompatibilityV4 = "WINDOWS_SERVER_2012" | "WINDOWS_SERVER_2012_R2" | "WINDOWS_SERVER_2016";
 export type ClientToken = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -201,18 +108,7 @@ export type ConnectorArn = string;
 
 export type ConnectorList = Array<ConnectorSummary>;
 export type ConnectorStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED";
-export type ConnectorStatusReason =
-  | "CA_CERTIFICATE_REGISTRATION_FAILED"
-  | "DIRECTORY_ACCESS_DENIED"
-  | "INTERNAL_FAILURE"
-  | "INSUFFICIENT_FREE_ADDRESSES"
-  | "INVALID_SUBNET_IP_PROTOCOL"
-  | "PRIVATECA_ACCESS_DENIED"
-  | "PRIVATECA_RESOURCE_NOT_FOUND"
-  | "SECURITY_GROUP_NOT_IN_VPC"
-  | "VPC_ACCESS_DENIED"
-  | "VPC_ENDPOINT_LIMIT_EXCEEDED"
-  | "VPC_RESOURCE_NOT_FOUND";
+export type ConnectorStatusReason = "CA_CERTIFICATE_REGISTRATION_FAILED" | "DIRECTORY_ACCESS_DENIED" | "INTERNAL_FAILURE" | "INSUFFICIENT_FREE_ADDRESSES" | "INVALID_SUBNET_IP_PROTOCOL" | "PRIVATECA_ACCESS_DENIED" | "PRIVATECA_RESOURCE_NOT_FOUND" | "SECURITY_GROUP_NOT_IN_VPC" | "VPC_ACCESS_DENIED" | "VPC_ENDPOINT_LIMIT_EXCEEDED" | "VPC_RESOURCE_NOT_FOUND";
 export interface ConnectorSummary {
   Arn?: string;
   CertificateAuthorityArn?: string;
@@ -297,18 +193,8 @@ export interface DirectoryRegistration {
 export type DirectoryRegistrationArn = string;
 
 export type DirectoryRegistrationList = Array<DirectoryRegistrationSummary>;
-export type DirectoryRegistrationStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "FAILED";
-export type DirectoryRegistrationStatusReason =
-  | "DIRECTORY_ACCESS_DENIED"
-  | "DIRECTORY_RESOURCE_NOT_FOUND"
-  | "DIRECTORY_NOT_ACTIVE"
-  | "DIRECTORY_NOT_REACHABLE"
-  | "DIRECTORY_TYPE_NOT_SUPPORTED"
-  | "INTERNAL_FAILURE";
+export type DirectoryRegistrationStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED";
+export type DirectoryRegistrationStatusReason = "DIRECTORY_ACCESS_DENIED" | "DIRECTORY_RESOURCE_NOT_FOUND" | "DIRECTORY_NOT_ACTIVE" | "DIRECTORY_NOT_REACHABLE" | "DIRECTORY_TYPE_NOT_SUPPORTED" | "INTERNAL_FAILURE";
 export interface DirectoryRegistrationSummary {
   Arn?: string;
   DirectoryId?: string;
@@ -422,9 +308,7 @@ interface _KeyUsageProperty {
   PropertyFlags?: KeyUsagePropertyFlags;
 }
 
-export type KeyUsageProperty =
-  | (_KeyUsageProperty & { PropertyType: KeyUsagePropertyType })
-  | (_KeyUsageProperty & { PropertyFlags: KeyUsagePropertyFlags });
+export type KeyUsageProperty = (_KeyUsageProperty & { PropertyType: KeyUsagePropertyType }) | (_KeyUsageProperty & { PropertyFlags: KeyUsagePropertyFlags });
 export interface KeyUsagePropertyFlags {
   Decrypt?: boolean;
   KeyAgreement?: boolean;
@@ -484,11 +368,7 @@ export type MaxResults = number;
 
 export type NextToken = string;
 
-export type PrivateKeyAlgorithm =
-  | "RSA"
-  | "ECDH_P256"
-  | "ECDH_P384"
-  | "ECDH_P521";
+export type PrivateKeyAlgorithm = "RSA" | "ECDH_P256" | "ECDH_P384" | "ECDH_P521";
 export interface PrivateKeyAttributesV2 {
   MinimalKeyLength: number;
   KeySpec: KeySpec;
@@ -546,18 +426,8 @@ export interface ServicePrincipalName {
   UpdatedAt?: Date | string;
 }
 export type ServicePrincipalNameList = Array<ServicePrincipalNameSummary>;
-export type ServicePrincipalNameStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "FAILED";
-export type ServicePrincipalNameStatusReason =
-  | "DIRECTORY_ACCESS_DENIED"
-  | "DIRECTORY_NOT_REACHABLE"
-  | "DIRECTORY_RESOURCE_NOT_FOUND"
-  | "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT"
-  | "SPN_LIMIT_EXCEEDED"
-  | "INTERNAL_FAILURE";
+export type ServicePrincipalNameStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED";
+export type ServicePrincipalNameStatusReason = "DIRECTORY_ACCESS_DENIED" | "DIRECTORY_NOT_REACHABLE" | "DIRECTORY_RESOURCE_NOT_FOUND" | "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT" | "SPN_LIMIT_EXCEEDED" | "INTERNAL_FAILURE";
 export interface ServicePrincipalNameSummary {
   DirectoryRegistrationArn?: string;
   ConnectorArn?: string;
@@ -637,10 +507,7 @@ interface _TemplateDefinition {
   TemplateV4?: TemplateV4;
 }
 
-export type TemplateDefinition =
-  | (_TemplateDefinition & { TemplateV2: TemplateV2 })
-  | (_TemplateDefinition & { TemplateV3: TemplateV3 })
-  | (_TemplateDefinition & { TemplateV4: TemplateV4 });
+export type TemplateDefinition = (_TemplateDefinition & { TemplateV2: TemplateV2 }) | (_TemplateDefinition & { TemplateV3: TemplateV3 }) | (_TemplateDefinition & { TemplateV4: TemplateV4 });
 export type TemplateList = Array<TemplateSummary>;
 export type TemplateName = string;
 
@@ -722,26 +589,12 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly Message: string;
   readonly Reason?: ValidationExceptionReason;
 }> {}
-export type ValidationExceptionReason =
-  | "FIELD_VALIDATION_FAILED"
-  | "INVALID_CA_SUBJECT"
-  | "INVALID_PERMISSION"
-  | "INVALID_STATE"
-  | "MISMATCHED_CONNECTOR"
-  | "MISMATCHED_VPC"
-  | "NO_CLIENT_TOKEN"
-  | "UNKNOWN_OPERATION"
-  | "OTHER";
+export type ValidationExceptionReason = "FIELD_VALIDATION_FAILED" | "INVALID_CA_SUBJECT" | "INVALID_PERMISSION" | "INVALID_STATE" | "MISMATCHED_CONNECTOR" | "MISMATCHED_VPC" | "NO_CLIENT_TOKEN" | "UNKNOWN_OPERATION" | "OTHER";
 export interface ValidityPeriod {
   PeriodType: ValidityPeriodType;
   Period: number;
 }
-export type ValidityPeriodType =
-  | "HOURS"
-  | "DAYS"
-  | "WEEKS"
-  | "MONTHS"
-  | "YEARS";
+export type ValidityPeriodType = "HOURS" | "DAYS" | "WEEKS" | "MONTHS" | "YEARS";
 export interface VpcInformation {
   IpAddressType?: IpAddressType;
   SecurityGroupIds: Array<string>;
@@ -781,3 +634,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class savingsplans extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("savingsplans", new RestJson1Protocol(), cfg);
+  }
+
   createSavingsPlan(
     input: CreateSavingsPlanRequest,
   ): Effect.Effect<
     CreateSavingsPlanResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSavingsPlan", input);
   }
@@ -19,11 +20,7 @@ export class savingsplans extends AWSServiceClient {
     input: DeleteQueuedSavingsPlanRequest,
   ): Effect.Effect<
     DeleteQueuedSavingsPlanResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteQueuedSavingsPlan", input);
   }
@@ -63,10 +60,7 @@ export class savingsplans extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -74,11 +68,7 @@ export class savingsplans extends AWSServiceClient {
     input: ReturnSavingsPlanRequest,
   ): Effect.Effect<
     ReturnSavingsPlanResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("ReturnSavingsPlan", input);
   }
@@ -86,11 +76,7 @@ export class savingsplans extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -98,10 +84,7 @@ export class savingsplans extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -133,7 +116,8 @@ export type DateTime = Date | string;
 export interface DeleteQueuedSavingsPlanRequest {
   savingsPlanId: string;
 }
-export interface DeleteQueuedSavingsPlanResponse {}
+export interface DeleteQueuedSavingsPlanResponse {
+}
 export interface DescribeSavingsPlanRatesRequest {
   savingsPlanId: string;
   filters?: Array<SavingsPlanRateFilter>;
@@ -292,8 +276,7 @@ export interface SavingsPlanOfferingFilterElement {
   name?: SavingsPlanOfferingFilterAttribute;
   values?: Array<string>;
 }
-export type SavingsPlanOfferingFiltersList =
-  Array<SavingsPlanOfferingFilterElement>;
+export type SavingsPlanOfferingFiltersList = Array<SavingsPlanOfferingFilterElement>;
 export type SavingsPlanOfferingId = string;
 
 export interface SavingsPlanOfferingProperty {
@@ -301,8 +284,7 @@ export interface SavingsPlanOfferingProperty {
   value?: string;
 }
 export type SavingsPlanOfferingPropertyKey = "REGION" | "INSTANCE_FAMILY";
-export type SavingsPlanOfferingPropertyList =
-  Array<SavingsPlanOfferingProperty>;
+export type SavingsPlanOfferingPropertyList = Array<SavingsPlanOfferingProperty>;
 export interface SavingsPlanOfferingRate {
   savingsPlanOffering?: ParentSavingsPlanOffering;
   rate?: string;
@@ -317,23 +299,18 @@ export interface SavingsPlanOfferingRateFilterElement {
   name?: SavingsPlanRateFilterAttribute;
   values?: Array<string>;
 }
-export type SavingsPlanOfferingRateFiltersList =
-  Array<SavingsPlanOfferingRateFilterElement>;
+export type SavingsPlanOfferingRateFiltersList = Array<SavingsPlanOfferingRateFilterElement>;
 export interface SavingsPlanOfferingRateProperty {
   name?: string;
   value?: string;
 }
-export type SavingsPlanOfferingRatePropertyList =
-  Array<SavingsPlanOfferingRateProperty>;
+export type SavingsPlanOfferingRatePropertyList = Array<SavingsPlanOfferingRateProperty>;
 export type SavingsPlanOfferingRatesList = Array<SavingsPlanOfferingRate>;
 export type SavingsPlanOfferingsList = Array<SavingsPlanOffering>;
 export type SavingsPlanOperation = string;
 
 export type SavingsPlanOperationList = Array<string>;
-export type SavingsPlanPaymentOption =
-  | "ALL_UPFRONT"
-  | "PARTIAL_UPFRONT"
-  | "NO_UPFRONT";
+export type SavingsPlanPaymentOption = "ALL_UPFRONT" | "PARTIAL_UPFRONT" | "NO_UPFRONT";
 export type SavingsPlanPaymentOptionList = Array<SavingsPlanPaymentOption>;
 export type SavingsPlanProductType = "EC2" | "FARGATE" | "LAMBDA" | "SAGEMAKER";
 export type SavingsPlanProductTypeList = Array<SavingsPlanProductType>;
@@ -351,23 +328,9 @@ export interface SavingsPlanRateFilter {
   name?: SavingsPlanRateFilterName;
   values?: Array<string>;
 }
-export type SavingsPlanRateFilterAttribute =
-  | "REGION"
-  | "INSTANCE_FAMILY"
-  | "INSTANCE_TYPE"
-  | "PRODUCT_DESCRIPTION"
-  | "TENANCY"
-  | "PRODUCT_ID";
+export type SavingsPlanRateFilterAttribute = "REGION" | "INSTANCE_FAMILY" | "INSTANCE_TYPE" | "PRODUCT_DESCRIPTION" | "TENANCY" | "PRODUCT_ID";
 export type SavingsPlanRateFilterList = Array<SavingsPlanRateFilter>;
-export type SavingsPlanRateFilterName =
-  | "REGION"
-  | "INSTANCE_TYPE"
-  | "PRODUCT_DESCRIPTION"
-  | "TENANCY"
-  | "PRODUCT_TYPE"
-  | "SERVICE_CODE"
-  | "USAGE_TYPE"
-  | "OPERATION";
+export type SavingsPlanRateFilterName = "REGION" | "INSTANCE_TYPE" | "PRODUCT_DESCRIPTION" | "TENANCY" | "PRODUCT_TYPE" | "SERVICE_CODE" | "USAGE_TYPE" | "OPERATION";
 export type SavingsPlanRateList = Array<SavingsPlanRate>;
 export type SavingsPlanRateOperation = string;
 
@@ -378,19 +341,9 @@ export interface SavingsPlanRateProperty {
   name?: SavingsPlanRatePropertyKey;
   value?: string;
 }
-export type SavingsPlanRatePropertyKey =
-  | "REGION"
-  | "INSTANCE_TYPE"
-  | "INSTANCE_FAMILY"
-  | "PRODUCT_DESCRIPTION"
-  | "TENANCY";
+export type SavingsPlanRatePropertyKey = "REGION" | "INSTANCE_TYPE" | "INSTANCE_FAMILY" | "PRODUCT_DESCRIPTION" | "TENANCY";
 export type SavingsPlanRatePropertyList = Array<SavingsPlanRateProperty>;
-export type SavingsPlanRateServiceCode =
-  | "EC2"
-  | "FARGATE"
-  | "FARGATE_EKS"
-  | "LAMBDA"
-  | "SAGEMAKER";
+export type SavingsPlanRateServiceCode = "EC2" | "FARGATE" | "FARGATE_EKS" | "LAMBDA" | "SAGEMAKER";
 export type SavingsPlanRateServiceCodeList = Array<SavingsPlanRateServiceCode>;
 export type SavingsPlanRateUnit = "HOURS" | "LAMBDA_GB_SECOND" | "REQUEST";
 export type SavingsPlanRateUsageType = string;
@@ -401,25 +354,8 @@ export type SavingsPlansDuration = number;
 export type SavingsPlanServiceCode = string;
 
 export type SavingsPlanServiceCodeList = Array<string>;
-export type SavingsPlansFilterName =
-  | "REGION"
-  | "EC2_INSTANCE_FAMILY"
-  | "COMMITMENT"
-  | "UPFRONT"
-  | "TERM"
-  | "SAVINGS_PLAN_TYPE"
-  | "PAYMENT_OPTION"
-  | "START"
-  | "END";
-export type SavingsPlanState =
-  | "PAYMENT_PENDING"
-  | "PAYMENT_FAILED"
-  | "ACTIVE"
-  | "RETIRED"
-  | "QUEUED"
-  | "QUEUED_DELETED"
-  | "PENDING_RETURN"
-  | "RETURNED";
+export type SavingsPlansFilterName = "REGION" | "EC2_INSTANCE_FAMILY" | "COMMITMENT" | "UPFRONT" | "TERM" | "SAVINGS_PLAN_TYPE" | "PAYMENT_OPTION" | "START" | "END";
+export type SavingsPlanState = "PAYMENT_PENDING" | "PAYMENT_FAILED" | "ACTIVE" | "RETIRED" | "QUEUED" | "QUEUED_DELETED" | "PENDING_RETURN" | "RETURNED";
 export type SavingsPlanStateList = Array<SavingsPlanState>;
 export type SavingsPlanType = "COMPUTE" | "EC2_INSTANCE" | "SAGEMAKER";
 export type SavingsPlanTypeList = Array<SavingsPlanType>;
@@ -441,7 +377,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TermDurationInSeconds = number;
@@ -450,7 +387,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UUID = string;
 
 export type UUIDs = Array<string>;
@@ -558,3 +496,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

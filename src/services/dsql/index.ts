@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class DSQL extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("dsql", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
@@ -21,7 +26,10 @@ export class DSQL extends AWSServiceClient {
   }
   untagResource(
     input: UntagResourceInput,
-  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    ResourceNotFoundException | CommonAwsError
+  > {
     return this.call("UntagResource", input);
   }
 }
@@ -47,17 +55,7 @@ export type ClusterCreationTime = Date | string;
 export type ClusterId = string;
 
 export type ClusterList = Array<ClusterSummary>;
-export type ClusterStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "IDLE"
-  | "INACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "FAILED"
-  | "PENDING_SETUP"
-  | "PENDING_DELETE";
+export type ClusterStatus = "CREATING" | "ACTIVE" | "IDLE" | "INACTIVE" | "UPDATING" | "DELETING" | "DELETED" | "FAILED" | "PENDING_SETUP" | "PENDING_DELETE";
 export interface ClusterSummary {
   identifier: string;
   arn: string;
@@ -102,11 +100,7 @@ export interface EncryptionDetails {
   kmsKeyArn?: string;
   encryptionStatus: EncryptionStatus;
 }
-export type EncryptionStatus =
-  | "ENABLED"
-  | "UPDATING"
-  | "KMS_KEY_INACCESSIBLE"
-  | "ENABLING";
+export type EncryptionStatus = "ENABLED" | "UPDATING" | "KMS_KEY_INACCESSIBLE" | "ENABLING";
 export type EncryptionType = "AWS_OWNED_KMS_KEY" | "CUSTOMER_MANAGED_KMS_KEY";
 export interface GetClusterInput {
   identifier: string;
@@ -226,16 +220,13 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "DELETION_PROTECTION_ENABLED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "DELETION_PROTECTION_ENABLED" | "OTHER";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
   export type Output = ListTagsForResourceOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -250,5 +241,8 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = {};
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
+

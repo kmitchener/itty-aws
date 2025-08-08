@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class OpenSearchServerless extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("opensearchserverless", new AwsJson10Protocol(), cfg);
+  }
+
   batchGetCollection(
     input: BatchGetCollectionRequest,
   ): Effect.Effect<
@@ -39,11 +44,7 @@ export class OpenSearchServerless extends AWSServiceClient {
     input: CreateLifecyclePolicyRequest,
   ): Effect.Effect<
     CreateLifecyclePolicyResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateLifecyclePolicy", input);
   }
@@ -51,11 +52,7 @@ export class OpenSearchServerless extends AWSServiceClient {
     input: CreateSecurityPolicyRequest,
   ): Effect.Effect<
     CreateSecurityPolicyResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateSecurityPolicy", input);
   }
@@ -79,10 +76,7 @@ export class OpenSearchServerless extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -90,12 +84,7 @@ export class OpenSearchServerless extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -103,11 +92,7 @@ export class OpenSearchServerless extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -123,10 +108,7 @@ export class OpenSearchServerless extends AWSServiceClient {
     input: UpdateVpcEndpointRequest,
   ): Effect.Effect<
     UpdateVpcEndpointResponse,
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateVpcEndpoint", input);
   }
@@ -343,7 +325,8 @@ export interface DeleteAccessPolicyRequest {
   name: string;
   clientToken?: string;
 }
-export interface DeleteAccessPolicyResponse {}
+export interface DeleteAccessPolicyResponse {
+}
 export interface DeleteCollectionDetail {
   id?: string;
   name?: string;
@@ -361,18 +344,21 @@ export interface DeleteLifecyclePolicyRequest {
   name: string;
   clientToken?: string;
 }
-export interface DeleteLifecyclePolicyResponse {}
+export interface DeleteLifecyclePolicyResponse {
+}
 export interface DeleteSecurityConfigRequest {
   id: string;
   clientToken?: string;
 }
-export interface DeleteSecurityConfigResponse {}
+export interface DeleteSecurityConfigResponse {
+}
 export interface DeleteSecurityPolicyRequest {
   type: string;
   name: string;
   clientToken?: string;
 }
-export interface DeleteSecurityPolicyResponse {}
+export interface DeleteSecurityPolicyResponse {
+}
 export interface DeleteVpcEndpointDetail {
   id?: string;
   name?: string;
@@ -393,16 +379,14 @@ export interface EffectiveLifecyclePolicyDetail {
   retentionPeriod?: string;
   noMinRetentionPeriod?: boolean;
 }
-export type EffectiveLifecyclePolicyDetails =
-  Array<EffectiveLifecyclePolicyDetail>;
+export type EffectiveLifecyclePolicyDetails = Array<EffectiveLifecyclePolicyDetail>;
 export interface EffectiveLifecyclePolicyErrorDetail {
   type?: string;
   resource?: string;
   errorMessage?: string;
   errorCode?: string;
 }
-export type EffectiveLifecyclePolicyErrorDetails =
-  Array<EffectiveLifecyclePolicyErrorDetail>;
+export type EffectiveLifecyclePolicyErrorDetails = Array<EffectiveLifecyclePolicyErrorDetail>;
 export interface GetAccessPolicyRequest {
   type: string;
   name: string;
@@ -410,11 +394,13 @@ export interface GetAccessPolicyRequest {
 export interface GetAccessPolicyResponse {
   accessPolicyDetail?: AccessPolicyDetail;
 }
-export interface GetAccountSettingsRequest {}
+export interface GetAccountSettingsRequest {
+}
 export interface GetAccountSettingsResponse {
   accountSettingsDetail?: AccountSettingsDetail;
 }
-export interface GetPoliciesStatsRequest {}
+export interface GetPoliciesStatsRequest {
+}
 export interface GetPoliciesStatsResponse {
   AccessPolicyStats?: AccessPolicyStats;
   SecurityPolicyStats?: SecurityPolicyStats;
@@ -492,8 +478,7 @@ export interface LifecyclePolicyResourceIdentifier {
   type: string;
   resource: string;
 }
-export type LifecyclePolicyResourceIdentifiers =
-  Array<LifecyclePolicyResourceIdentifier>;
+export type LifecyclePolicyResourceIdentifiers = Array<LifecyclePolicyResourceIdentifier>;
 export interface LifecyclePolicyStats {
   RetentionPolicyCount?: number;
 }
@@ -695,7 +680,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
@@ -703,7 +689,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAccessPolicyRequest {
   type: string;
   name: string;
@@ -907,7 +894,9 @@ export declare namespace GetAccountSettings {
 export declare namespace GetPoliciesStats {
   export type Input = GetPoliciesStatsRequest;
   export type Output = GetPoliciesStatsResponse;
-  export type Error = InternalServerException | CommonAwsError;
+  export type Error =
+    | InternalServerException
+    | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
@@ -961,3 +950,4 @@ export declare namespace UpdateVpcEndpoint {
     | ValidationException
     | CommonAwsError;
 }
+

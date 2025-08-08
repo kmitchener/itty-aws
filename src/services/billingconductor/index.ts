@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class billingconductor extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("billingconductor", new RestJson1Protocol(), cfg);
+  }
+
   getBillingGroupCostReport(
     input: GetBillingGroupCostReportInput,
   ): Effect.Effect<
     GetBillingGroupCostReportOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetBillingGroupCostReport", input);
   }
@@ -20,12 +20,7 @@ export class billingconductor extends AWSServiceClient {
     input: ListAccountAssociationsInput,
   ): Effect.Effect<
     ListAccountAssociationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAccountAssociations", input);
   }
@@ -33,12 +28,7 @@ export class billingconductor extends AWSServiceClient {
     input: ListBillingGroupCostReportsInput,
   ): Effect.Effect<
     ListBillingGroupCostReportsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListBillingGroupCostReports", input);
   }
@@ -46,12 +36,7 @@ export class billingconductor extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -59,12 +44,7 @@ export class billingconductor extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -72,12 +52,7 @@ export class billingconductor extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -137,8 +112,7 @@ export interface AssociateResourceResponseElement {
   Arn?: string;
   Error?: AssociateResourceError;
 }
-export type AssociateResourcesResponseList =
-  Array<AssociateResourceResponseElement>;
+export type AssociateResourcesResponseList = Array<AssociateResourceResponseElement>;
 export type Association = string;
 
 export interface Attribute {
@@ -189,8 +163,7 @@ export interface BillingGroupCostReportResultElement {
   Currency?: string;
   Attributes?: Array<Attribute>;
 }
-export type BillingGroupCostReportResultsList =
-  Array<BillingGroupCostReportResultElement>;
+export type BillingGroupCostReportResultsList = Array<BillingGroupCostReportResultElement>;
 export type BillingGroupDescription = string;
 
 export type BillingGroupFullArn = string;
@@ -413,8 +386,7 @@ export interface DisassociateResourceResponseElement {
   Arn?: string;
   Error?: AssociateResourceError;
 }
-export type DisassociateResourcesResponseList =
-  Array<DisassociateResourceResponseElement>;
+export type DisassociateResourcesResponseList = Array<DisassociateResourceResponseElement>;
 export interface FreeTierConfig {
   Activated: boolean;
 }
@@ -614,8 +586,7 @@ export interface ListResourcesAssociatedToCustomLineItemResponseElement {
   Relationship?: string;
   EndBillingPeriod?: string;
 }
-export type ListResourcesAssociatedToCustomLineItemResponseList =
-  Array<ListResourcesAssociatedToCustomLineItemResponseElement>;
+export type ListResourcesAssociatedToCustomLineItemResponseList = Array<ListResourcesAssociatedToCustomLineItemResponseElement>;
 export interface ListTagsForResourceRequest {
   ResourceArn: string;
 }
@@ -730,7 +701,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -750,7 +722,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateBillingGroupAccountGrouping {
   AutoAssociate?: boolean;
 }
@@ -929,3 +902,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class codestarnotifications extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("codestar-notifications", new RestJson1Protocol(), cfg);
+  }
+
   createNotificationRule(
     input: CreateNotificationRuleRequest,
   ): Effect.Effect<
     CreateNotificationRuleResult,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | ConfigurationException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | ConfigurationException | LimitExceededException | ResourceAlreadyExistsException | ValidationException | CommonAwsError
   > {
     return this.call("CreateNotificationRule", input);
   }
@@ -21,16 +20,16 @@ export class codestarnotifications extends AWSServiceClient {
     input: DeleteNotificationRuleRequest,
   ): Effect.Effect<
     DeleteNotificationRuleResult,
-    | ConcurrentModificationException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentModificationException | LimitExceededException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteNotificationRule", input);
   }
   deleteTarget(
     input: DeleteTargetRequest,
-  ): Effect.Effect<DeleteTargetResult, ValidationException | CommonAwsError> {
+  ): Effect.Effect<
+    DeleteTargetResult,
+    ValidationException | CommonAwsError
+  > {
     return this.call("DeleteTarget", input);
   }
   describeNotificationRule(
@@ -77,10 +76,7 @@ export class codestarnotifications extends AWSServiceClient {
     input: SubscribeRequest,
   ): Effect.Effect<
     SubscribeResult,
-    | ConfigurationException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConfigurationException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("Subscribe", input);
   }
@@ -88,28 +84,23 @@ export class codestarnotifications extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResult,
-    | ConcurrentModificationException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentModificationException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
   unsubscribe(
     input: UnsubscribeRequest,
-  ): Effect.Effect<UnsubscribeResult, ValidationException | CommonAwsError> {
+  ): Effect.Effect<
+    UnsubscribeResult,
+    ValidationException | CommonAwsError
+  > {
     return this.call("Unsubscribe", input);
   }
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResult,
-    | ConcurrentModificationException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConcurrentModificationException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -117,10 +108,7 @@ export class codestarnotifications extends AWSServiceClient {
     input: UpdateNotificationRuleRequest,
   ): Effect.Effect<
     UpdateNotificationRuleResult,
-    | ConfigurationException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConfigurationException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateNotificationRule", input);
   }
@@ -172,7 +160,8 @@ export interface DeleteTargetRequest {
   TargetAddress: string;
   ForceUnsubscribeAll?: boolean;
 }
-export interface DeleteTargetResult {}
+export interface DeleteTargetResult {
+}
 export interface DescribeNotificationRuleRequest {
   Arn: string;
 }
@@ -237,11 +226,7 @@ export interface ListNotificationRulesFilter {
   Name: ListNotificationRulesFilterName;
   Value: string;
 }
-export type ListNotificationRulesFilterName =
-  | "EVENT_TYPE_ID"
-  | "CREATED_BY"
-  | "RESOURCE"
-  | "TARGET_ADDRESS";
+export type ListNotificationRulesFilterName = "EVENT_TYPE_ID" | "CREATED_BY" | "RESOURCE" | "TARGET_ADDRESS";
 export type ListNotificationRulesFilters = Array<ListNotificationRulesFilter>;
 export type ListNotificationRulesFilterValue = string;
 
@@ -264,10 +249,7 @@ export interface ListTargetsFilter {
   Name: ListTargetsFilterName;
   Value: string;
 }
-export type ListTargetsFilterName =
-  | "TARGET_TYPE"
-  | "TARGET_ADDRESS"
-  | "TARGET_STATUS";
+export type ListTargetsFilterName = "TARGET_TYPE" | "TARGET_ADDRESS" | "TARGET_STATUS";
 export type ListTargetsFilters = Array<ListTargetsFilter>;
 export type ListTargetsFilterValue = string;
 
@@ -345,12 +327,7 @@ export type TargetAddress = string;
 
 export type Targets = Array<Target>;
 export type TargetsBatch = Array<TargetSummary>;
-export type TargetStatus =
-  | "PENDING"
-  | "ACTIVE"
-  | "UNREACHABLE"
-  | "INACTIVE"
-  | "DEACTIVATED";
+export type TargetStatus = "PENDING" | "ACTIVE" | "UNREACHABLE" | "INACTIVE" | "DEACTIVATED";
 export interface TargetSummary {
   TargetAddress?: string;
   TargetType?: string;
@@ -369,7 +346,8 @@ export interface UntagResourceRequest {
   Arn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResult {}
+export interface UntagResourceResult {
+}
 export interface UpdateNotificationRuleRequest {
   Arn: string;
   Name?: string;
@@ -378,7 +356,8 @@ export interface UpdateNotificationRuleRequest {
   Targets?: Array<Target>;
   DetailType?: DetailType;
 }
-export interface UpdateNotificationRuleResult {}
+export interface UpdateNotificationRuleResult {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -410,7 +389,9 @@ export declare namespace DeleteNotificationRule {
 export declare namespace DeleteTarget {
   export type Input = DeleteTargetRequest;
   export type Output = DeleteTargetResult;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNotificationRule {
@@ -482,7 +463,9 @@ export declare namespace TagResource {
 export declare namespace Unsubscribe {
   export type Input = UnsubscribeRequest;
   export type Output = UnsubscribeResult;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
@@ -505,3 +488,4 @@ export declare namespace UpdateNotificationRule {
     | ValidationException
     | CommonAwsError;
 }
+

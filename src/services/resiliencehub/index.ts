@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class resiliencehub extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("resiliencehub", new RestJson1Protocol(), cfg);
+  }
+
   acceptResourceGroupingRecommendations(
     input: AcceptResourceGroupingRecommendationsRequest,
   ): Effect.Effect<
     AcceptResourceGroupingRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AcceptResourceGroupingRecommendations", input);
   }
@@ -20,14 +20,7 @@ export class resiliencehub extends AWSServiceClient {
     input: AddDraftAppVersionResourceMappingsRequest,
   ): Effect.Effect<
     AddDraftAppVersionResourceMappingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AddDraftAppVersionResourceMappings", input);
   }
@@ -35,12 +28,7 @@ export class resiliencehub extends AWSServiceClient {
     input: BatchUpdateRecommendationStatusRequest,
   ): Effect.Effect<
     BatchUpdateRecommendationStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("BatchUpdateRecommendationStatus", input);
   }
@@ -48,14 +36,7 @@ export class resiliencehub extends AWSServiceClient {
     input: CreateAppRequest,
   ): Effect.Effect<
     CreateAppResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateApp", input);
   }
@@ -63,14 +44,7 @@ export class resiliencehub extends AWSServiceClient {
     input: CreateAppVersionAppComponentRequest,
   ): Effect.Effect<
     CreateAppVersionAppComponentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAppVersionAppComponent", input);
   }
@@ -78,14 +52,7 @@ export class resiliencehub extends AWSServiceClient {
     input: CreateAppVersionResourceRequest,
   ): Effect.Effect<
     CreateAppVersionResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateAppVersionResource", input);
   }
@@ -93,14 +60,7 @@ export class resiliencehub extends AWSServiceClient {
     input: CreateRecommendationTemplateRequest,
   ): Effect.Effect<
     CreateRecommendationTemplateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRecommendationTemplate", input);
   }
@@ -108,13 +68,7 @@ export class resiliencehub extends AWSServiceClient {
     input: CreateResiliencyPolicyRequest,
   ): Effect.Effect<
     CreateResiliencyPolicyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateResiliencyPolicy", input);
   }
@@ -122,12 +76,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DeleteAppRequest,
   ): Effect.Effect<
     DeleteAppResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteApp", input);
   }
@@ -135,13 +84,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DeleteAppAssessmentRequest,
   ): Effect.Effect<
     DeleteAppAssessmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAppAssessment", input);
   }
@@ -149,13 +92,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DeleteAppInputSourceRequest,
   ): Effect.Effect<
     DeleteAppInputSourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAppInputSource", input);
   }
@@ -163,13 +100,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DeleteAppVersionAppComponentRequest,
   ): Effect.Effect<
     DeleteAppVersionAppComponentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAppVersionAppComponent", input);
   }
@@ -177,13 +108,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DeleteAppVersionResourceRequest,
   ): Effect.Effect<
     DeleteAppVersionResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAppVersionResource", input);
   }
@@ -191,12 +116,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DeleteRecommendationTemplateRequest,
   ): Effect.Effect<
     DeleteRecommendationTemplateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRecommendationTemplate", input);
   }
@@ -204,13 +124,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DeleteResiliencyPolicyRequest,
   ): Effect.Effect<
     DeleteResiliencyPolicyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteResiliencyPolicy", input);
   }
@@ -218,12 +132,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeAppRequest,
   ): Effect.Effect<
     DescribeAppResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeApp", input);
   }
@@ -231,12 +140,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeAppAssessmentRequest,
   ): Effect.Effect<
     DescribeAppAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAppAssessment", input);
   }
@@ -244,12 +148,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeAppVersionRequest,
   ): Effect.Effect<
     DescribeAppVersionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAppVersion", input);
   }
@@ -257,13 +156,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeAppVersionAppComponentRequest,
   ): Effect.Effect<
     DescribeAppVersionAppComponentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAppVersionAppComponent", input);
   }
@@ -271,13 +164,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeAppVersionResourceRequest,
   ): Effect.Effect<
     DescribeAppVersionResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAppVersionResource", input);
   }
@@ -285,12 +172,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeAppVersionResourcesResolutionStatusRequest,
   ): Effect.Effect<
     DescribeAppVersionResourcesResolutionStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAppVersionResourcesResolutionStatus", input);
   }
@@ -298,12 +180,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeAppVersionTemplateRequest,
   ): Effect.Effect<
     DescribeAppVersionTemplateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeAppVersionTemplate", input);
   }
@@ -311,12 +188,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeDraftAppVersionResourcesImportStatusRequest,
   ): Effect.Effect<
     DescribeDraftAppVersionResourcesImportStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeDraftAppVersionResourcesImportStatus", input);
   }
@@ -324,12 +196,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeMetricsExportRequest,
   ): Effect.Effect<
     DescribeMetricsExportResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeMetricsExport", input);
   }
@@ -337,12 +204,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeResiliencyPolicyRequest,
   ): Effect.Effect<
     DescribeResiliencyPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeResiliencyPolicy", input);
   }
@@ -350,12 +212,7 @@ export class resiliencehub extends AWSServiceClient {
     input: DescribeResourceGroupingRecommendationTaskRequest,
   ): Effect.Effect<
     DescribeResourceGroupingRecommendationTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeResourceGroupingRecommendationTask", input);
   }
@@ -363,14 +220,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ImportResourcesToDraftAppVersionRequest,
   ): Effect.Effect<
     ImportResourcesToDraftAppVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ImportResourcesToDraftAppVersion", input);
   }
@@ -378,12 +228,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAlarmRecommendationsRequest,
   ): Effect.Effect<
     ListAlarmRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAlarmRecommendations", input);
   }
@@ -391,11 +236,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppAssessmentComplianceDriftsRequest,
   ): Effect.Effect<
     ListAppAssessmentComplianceDriftsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppAssessmentComplianceDrifts", input);
   }
@@ -403,11 +244,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppAssessmentResourceDriftsRequest,
   ): Effect.Effect<
     ListAppAssessmentResourceDriftsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppAssessmentResourceDrifts", input);
   }
@@ -415,12 +252,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppAssessmentsRequest,
   ): Effect.Effect<
     ListAppAssessmentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppAssessments", input);
   }
@@ -428,12 +260,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppComponentCompliancesRequest,
   ): Effect.Effect<
     ListAppComponentCompliancesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppComponentCompliances", input);
   }
@@ -441,12 +268,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppComponentRecommendationsRequest,
   ): Effect.Effect<
     ListAppComponentRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppComponentRecommendations", input);
   }
@@ -454,12 +276,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppInputSourcesRequest,
   ): Effect.Effect<
     ListAppInputSourcesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppInputSources", input);
   }
@@ -467,11 +284,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppsRequest,
   ): Effect.Effect<
     ListAppsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListApps", input);
   }
@@ -479,13 +292,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppVersionAppComponentsRequest,
   ): Effect.Effect<
     ListAppVersionAppComponentsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppVersionAppComponents", input);
   }
@@ -493,12 +300,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppVersionResourceMappingsRequest,
   ): Effect.Effect<
     ListAppVersionResourceMappingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppVersionResourceMappings", input);
   }
@@ -506,13 +308,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppVersionResourcesRequest,
   ): Effect.Effect<
     ListAppVersionResourcesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppVersionResources", input);
   }
@@ -520,11 +316,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListAppVersionsRequest,
   ): Effect.Effect<
     ListAppVersionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListAppVersions", input);
   }
@@ -532,11 +324,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListMetricsRequest,
   ): Effect.Effect<
     ListMetricsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListMetrics", input);
   }
@@ -544,11 +332,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListRecommendationTemplatesRequest,
   ): Effect.Effect<
     ListRecommendationTemplatesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRecommendationTemplates", input);
   }
@@ -556,12 +340,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListResiliencyPoliciesRequest,
   ): Effect.Effect<
     ListResiliencyPoliciesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListResiliencyPolicies", input);
   }
@@ -569,12 +348,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListResourceGroupingRecommendationsRequest,
   ): Effect.Effect<
     ListResourceGroupingRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListResourceGroupingRecommendations", input);
   }
@@ -582,13 +356,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListSopRecommendationsRequest,
   ): Effect.Effect<
     ListSopRecommendationsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSopRecommendations", input);
   }
@@ -596,12 +364,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListSuggestedResiliencyPoliciesRequest,
   ): Effect.Effect<
     ListSuggestedResiliencyPoliciesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSuggestedResiliencyPolicies", input);
   }
@@ -609,12 +372,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -622,13 +380,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListTestRecommendationsRequest,
   ): Effect.Effect<
     ListTestRecommendationsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTestRecommendations", input);
   }
@@ -636,13 +388,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ListUnsupportedAppVersionResourcesRequest,
   ): Effect.Effect<
     ListUnsupportedAppVersionResourcesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListUnsupportedAppVersionResources", input);
   }
@@ -650,13 +396,7 @@ export class resiliencehub extends AWSServiceClient {
     input: PublishAppVersionRequest,
   ): Effect.Effect<
     PublishAppVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PublishAppVersion", input);
   }
@@ -664,13 +404,7 @@ export class resiliencehub extends AWSServiceClient {
     input: PutDraftAppVersionTemplateRequest,
   ): Effect.Effect<
     PutDraftAppVersionTemplateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("PutDraftAppVersionTemplate", input);
   }
@@ -678,12 +412,7 @@ export class resiliencehub extends AWSServiceClient {
     input: RejectResourceGroupingRecommendationsRequest,
   ): Effect.Effect<
     RejectResourceGroupingRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RejectResourceGroupingRecommendations", input);
   }
@@ -691,13 +420,7 @@ export class resiliencehub extends AWSServiceClient {
     input: RemoveDraftAppVersionResourceMappingsRequest,
   ): Effect.Effect<
     RemoveDraftAppVersionResourceMappingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RemoveDraftAppVersionResourceMappings", input);
   }
@@ -705,13 +428,7 @@ export class resiliencehub extends AWSServiceClient {
     input: ResolveAppVersionResourcesRequest,
   ): Effect.Effect<
     ResolveAppVersionResourcesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ResolveAppVersionResources", input);
   }
@@ -719,14 +436,7 @@ export class resiliencehub extends AWSServiceClient {
     input: StartAppAssessmentRequest,
   ): Effect.Effect<
     StartAppAssessmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartAppAssessment", input);
   }
@@ -734,13 +444,7 @@ export class resiliencehub extends AWSServiceClient {
     input: StartMetricsExportRequest,
   ): Effect.Effect<
     StartMetricsExportResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartMetricsExport", input);
   }
@@ -748,13 +452,7 @@ export class resiliencehub extends AWSServiceClient {
     input: StartResourceGroupingRecommendationTaskRequest,
   ): Effect.Effect<
     StartResourceGroupingRecommendationTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartResourceGroupingRecommendationTask", input);
   }
@@ -762,12 +460,7 @@ export class resiliencehub extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -775,12 +468,7 @@ export class resiliencehub extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -788,13 +476,7 @@ export class resiliencehub extends AWSServiceClient {
     input: UpdateAppRequest,
   ): Effect.Effect<
     UpdateAppResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateApp", input);
   }
@@ -802,13 +484,7 @@ export class resiliencehub extends AWSServiceClient {
     input: UpdateAppVersionRequest,
   ): Effect.Effect<
     UpdateAppVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAppVersion", input);
   }
@@ -816,13 +492,7 @@ export class resiliencehub extends AWSServiceClient {
     input: UpdateAppVersionAppComponentRequest,
   ): Effect.Effect<
     UpdateAppVersionAppComponentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAppVersionAppComponent", input);
   }
@@ -830,14 +500,7 @@ export class resiliencehub extends AWSServiceClient {
     input: UpdateAppVersionResourceRequest,
   ): Effect.Effect<
     UpdateAppVersionResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAppVersionResource", input);
   }
@@ -845,13 +508,7 @@ export class resiliencehub extends AWSServiceClient {
     input: UpdateResiliencyPolicyRequest,
   ): Effect.Effect<
     UpdateResiliencyPolicyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateResiliencyPolicy", input);
   }
@@ -861,8 +518,7 @@ export class Resiliencehub extends resiliencehub {}
 
 export default resiliencehub;
 
-export type AcceptGroupingRecommendationEntries =
-  Array<AcceptGroupingRecommendationEntry>;
+export type AcceptGroupingRecommendationEntries = Array<AcceptGroupingRecommendationEntry>;
 export interface AcceptGroupingRecommendationEntry {
   groupingRecommendationId: string;
 }
@@ -969,13 +625,7 @@ export interface AppAssessmentSummary {
   driftStatus?: DriftStatus;
 }
 export type AppAssessmentSummaryList = Array<AppAssessmentSummary>;
-export type AppComplianceStatusType =
-  | "POLICY_BREACHED"
-  | "POLICY_MET"
-  | "NOT_ASSESSED"
-  | "CHANGES_DETECTED"
-  | "NOT_APPLICABLE"
-  | "MISSING_POLICY";
+export type AppComplianceStatusType = "POLICY_BREACHED" | "POLICY_MET" | "NOT_ASSESSED" | "CHANGES_DETECTED" | "NOT_APPLICABLE" | "MISSING_POLICY";
 export interface AppComponent {
   name: string;
   type: string;
@@ -1038,8 +688,7 @@ export interface AssessmentRiskRecommendation {
   recommendation?: string;
   appComponents?: Array<string>;
 }
-export type AssessmentRiskRecommendationList =
-  Array<AssessmentRiskRecommendation>;
+export type AssessmentRiskRecommendationList = Array<AssessmentRiskRecommendation>;
 export type AssessmentStatus = "PENDING" | "INPROGRESS" | "FAILED" | "SUCCESS";
 export type AssessmentStatusList = Array<AssessmentStatus>;
 export interface AssessmentSummary {
@@ -1048,8 +697,7 @@ export interface AssessmentSummary {
 }
 export type AwsRegion = string;
 
-export type BatchUpdateRecommendationStatusFailedEntries =
-  Array<BatchUpdateRecommendationStatusFailedEntry>;
+export type BatchUpdateRecommendationStatusFailedEntries = Array<BatchUpdateRecommendationStatusFailedEntry>;
 export interface BatchUpdateRecommendationStatusFailedEntry {
   entryId: string;
   errorMessage: string;
@@ -1063,8 +711,7 @@ export interface BatchUpdateRecommendationStatusResponse {
   successfulEntries: Array<BatchUpdateRecommendationStatusSuccessfulEntry>;
   failedEntries: Array<BatchUpdateRecommendationStatusFailedEntry>;
 }
-export type BatchUpdateRecommendationStatusSuccessfulEntries =
-  Array<BatchUpdateRecommendationStatusSuccessfulEntry>;
+export type BatchUpdateRecommendationStatusSuccessfulEntries = Array<BatchUpdateRecommendationStatusSuccessfulEntry>;
 export interface BatchUpdateRecommendationStatusSuccessfulEntry {
   entryId: string;
   referenceId: string;
@@ -1090,11 +737,7 @@ export interface ComplianceDrift {
   diffType?: DifferenceType;
 }
 export type ComplianceDriftList = Array<ComplianceDrift>;
-export type ComplianceStatus =
-  | "POLICY_BREACHED"
-  | "POLICY_MET"
-  | "NOT_APPLICABLE"
-  | "MISSING_POLICY";
+export type ComplianceStatus = "POLICY_BREACHED" | "POLICY_MET" | "NOT_APPLICABLE" | "MISSING_POLICY";
 export type ComponentCompliancesList = Array<AppComponentCompliance>;
 export interface ComponentRecommendation {
   appComponentName: string;
@@ -1108,21 +751,12 @@ export interface Condition {
   value?: string;
 }
 export type ConditionList = Array<Condition>;
-export type ConditionOperatorType =
-  | "EQUALS"
-  | "NOT_EQUALS"
-  | "GREATER_THEN"
-  | "GREATER_OR_EQUALS"
-  | "LESS_THEN"
-  | "LESS_OR_EQUALS";
+export type ConditionOperatorType = "EQUALS" | "NOT_EQUALS" | "GREATER_THEN" | "GREATER_OR_EQUALS" | "LESS_THEN" | "LESS_OR_EQUALS";
 export interface ConfigRecommendation {
   cost?: Cost;
   appComponentName?: string;
   compliance?: Record<DisruptionType, DisruptionCompliance>;
-  recommendationCompliance?: Record<
-    DisruptionType,
-    RecommendationDisruptionCompliance
-  >;
+  recommendationCompliance?: Record<DisruptionType, RecommendationDisruptionCompliance>;
   optimizationType: ConfigRecommendationOptimizationType;
   name: string;
   description?: string;
@@ -1131,13 +765,7 @@ export interface ConfigRecommendation {
   referenceId: string;
 }
 export type ConfigRecommendationList = Array<ConfigRecommendation>;
-export type ConfigRecommendationOptimizationType =
-  | "LEAST_COST"
-  | "LEAST_CHANGE"
-  | "BEST_AZ_RECOVERY"
-  | "LEAST_ERRORS"
-  | "BEST_ATTAINABLE"
-  | "BEST_REGION_RECOVERY";
+export type ConfigRecommendationOptimizationType = "LEAST_COST" | "LEAST_CHANGE" | "BEST_AZ_RECOVERY" | "LEAST_ERRORS" | "BEST_ATTAINABLE" | "BEST_REGION_RECOVERY";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -1224,10 +852,7 @@ export type CurrencyCode = string;
 
 export type CustomerId = string;
 
-export type DataLocationConstraint =
-  | "ANY_LOCATION"
-  | "SAME_CONTINENT"
-  | "SAME_COUNTRY";
+export type DataLocationConstraint = "ANY_LOCATION" | "SAME_CONTINENT" | "SAME_COUNTRY";
 export interface DeleteAppAssessmentRequest {
   assessmentArn: string;
   clientToken?: string;
@@ -1416,9 +1041,7 @@ export type DocumentName = string;
 export type Double = number;
 
 export type DriftStatus = "NOT_CHECKED" | "NOT_DETECTED" | "DETECTED";
-export type DriftType =
-  | "APPLICATION_COMPLIANCE"
-  | "APP_COMPONENT_RESILIENCY_COMPLIANCE_STATUS";
+export type DriftType = "APPLICATION_COMPLIANCE" | "APP_COMPONENT_RESILIENCY_COMPLIANCE_STATUS";
 export type EksNamespace = string;
 
 export type EksNamespaceList = Array<string>;
@@ -1456,16 +1079,12 @@ export interface EventSubscription {
 }
 export type EventSubscriptionList = Array<EventSubscription>;
 export type EventType = "SCHEDULED_ASSESSMENT_FAILURE" | "DRIFT_DETECTED";
-export type ExcludeRecommendationReason =
-  | "ALREADY_IMPLEMENTED"
-  | "NOT_RELEVANT"
-  | "COMPLEXITY_OF_IMPLEMENTATION";
+export type ExcludeRecommendationReason = "ALREADY_IMPLEMENTED" | "NOT_RELEVANT" | "COMPLEXITY_OF_IMPLEMENTATION";
 export interface Experiment {
   experimentArn?: string;
   experimentTemplateId?: string;
 }
-export type FailedGroupingRecommendationEntries =
-  Array<FailedGroupingRecommendationEntry>;
+export type FailedGroupingRecommendationEntries = Array<FailedGroupingRecommendationEntry>;
 export interface FailedGroupingRecommendationEntry {
   groupingRecommendationId: string;
   errorMessage: string;
@@ -1498,15 +1117,8 @@ export interface GroupingRecommendation {
 }
 export type GroupingRecommendationConfidenceLevel = "HIGH" | "MEDIUM";
 export type GroupingRecommendationList = Array<GroupingRecommendation>;
-export type GroupingRecommendationRejectionReason =
-  | "DISTINCT_BUSINESS_PURPOSE"
-  | "SEPARATE_DATA_CONCERN"
-  | "DISTINCT_USER_GROUP_HANDLING"
-  | "OTHER";
-export type GroupingRecommendationStatusType =
-  | "ACCEPTED"
-  | "REJECTED"
-  | "PENDING_DECISION";
+export type GroupingRecommendationRejectionReason = "DISTINCT_BUSINESS_PURPOSE" | "SEPARATE_DATA_CONCERN" | "DISTINCT_USER_GROUP_HANDLING" | "OTHER";
+export type GroupingRecommendationStatusType = "ACCEPTED" | "REJECTED" | "PENDING_DECISION";
 export interface GroupingResource {
   resourceName: string;
   resourceType: string;
@@ -1515,12 +1127,7 @@ export interface GroupingResource {
   sourceAppComponentIds: Array<string>;
 }
 export type GroupingResourceList = Array<GroupingResource>;
-export type HaArchitecture =
-  | "MULTI_SITE"
-  | "WARM_STANDBY"
-  | "PILOT_LIGHT"
-  | "BACKUP_AND_RESTORE"
-  | "NO_RECOVERY_PLAN";
+export type HaArchitecture = "MULTI_SITE" | "WARM_STANDBY" | "PILOT_LIGHT" | "BACKUP_AND_RESTORE" | "NO_RECOVERY_PLAN";
 export type IamRoleArn = string;
 
 export type IamRoleArnList = Array<string>;
@@ -1778,11 +1385,7 @@ export type LongOptional = number;
 
 export type MaxResults = number;
 
-export type MetricsExportStatusType =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCESS";
+export type MetricsExportStatusType = "PENDING" | "IN_PROGRESS" | "FAILED" | "SUCCESS";
 export type NextToken = string;
 
 export interface PermissionModel {
@@ -1828,15 +1431,8 @@ export interface PutDraftAppVersionTemplateResponse {
   appArn?: string;
   appVersion?: string;
 }
-export type RecommendationCompliance = Record<
-  DisruptionType,
-  RecommendationDisruptionCompliance
->;
-export type RecommendationComplianceStatus =
-  | "BREACHED_UNATTAINABLE"
-  | "BREACHED_CAN_MEET"
-  | "MET_CAN_IMPROVE"
-  | "MISSING_POLICY";
+export type RecommendationCompliance = Record<DisruptionType, RecommendationDisruptionCompliance>;
+export type RecommendationComplianceStatus = "BREACHED_UNATTAINABLE" | "BREACHED_CAN_MEET" | "MET_CAN_IMPROVE" | "MISSING_POLICY";
 export interface RecommendationDisruptionCompliance {
   expectedComplianceStatus: ComplianceStatus;
   expectedRtoInSecs?: number;
@@ -1856,11 +1452,7 @@ export interface RecommendationItem {
   discoveredAlarm?: Alarm;
 }
 export type RecommendationItemList = Array<RecommendationItem>;
-export type RecommendationStatus =
-  | "IMPLEMENTED"
-  | "INACTIVE"
-  | "NOT_IMPLEMENTED"
-  | "EXCLUDED";
+export type RecommendationStatus = "IMPLEMENTED" | "INACTIVE" | "NOT_IMPLEMENTED" | "EXCLUDED";
 export interface RecommendationTemplate {
   templatesLocation?: S3Location;
   assessmentArn: string;
@@ -1878,15 +1470,9 @@ export interface RecommendationTemplate {
   needsReplacements?: boolean;
 }
 export type RecommendationTemplateList = Array<RecommendationTemplate>;
-export type RecommendationTemplateStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCESS";
-export type RecommendationTemplateStatusList =
-  Array<RecommendationTemplateStatus>;
-export type RejectGroupingRecommendationEntries =
-  Array<RejectGroupingRecommendationEntry>;
+export type RecommendationTemplateStatus = "PENDING" | "IN_PROGRESS" | "FAILED" | "SUCCESS";
+export type RecommendationTemplateStatusList = Array<RecommendationTemplateStatus>;
+export type RejectGroupingRecommendationEntries = Array<RejectGroupingRecommendationEntry>;
 export interface RejectGroupingRecommendationEntry {
   groupingRecommendationId: string;
   rejectionReason?: GroupingRecommendationRejectionReason;
@@ -1926,13 +1512,7 @@ export interface ResiliencyPolicy {
   creationTime?: Date | string;
   tags?: Record<string, string>;
 }
-export type ResiliencyPolicyTier =
-  | "MISSION_CRITICAL"
-  | "CRITICAL"
-  | "IMPORTANT"
-  | "CORE_SERVICES"
-  | "NON_CRITICAL"
-  | "NOT_APPLICABLE";
+export type ResiliencyPolicyTier = "MISSION_CRITICAL" | "CRITICAL" | "IMPORTANT" | "CORE_SERVICES" | "NON_CRITICAL" | "NOT_APPLICABLE";
 export interface ResiliencyScore {
   score: number;
   disruptionScore: Record<DisruptionType, number>;
@@ -1973,11 +1553,7 @@ export interface ResourceIdentifier {
   logicalResourceId?: LogicalResourceId;
   resourceType?: string;
 }
-export type ResourceImportStatusType =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCESS";
+export type ResourceImportStatusType = "PENDING" | "IN_PROGRESS" | "FAILED" | "SUCCESS";
 export type ResourceImportStrategyType = "ADD_ONLY" | "REPLACE_ALL";
 export interface ResourceMapping {
   resourceName?: string;
@@ -1990,13 +1566,7 @@ export interface ResourceMapping {
   eksSourceName?: string;
 }
 export type ResourceMappingList = Array<ResourceMapping>;
-export type ResourceMappingType =
-  | "CFN_STACK"
-  | "RESOURCE"
-  | "APP_REGISTRY_APP"
-  | "RESOURCE_GROUP"
-  | "TERRAFORM"
-  | "EKS";
+export type ResourceMappingType = "CFN_STACK" | "RESOURCE" | "APP_REGISTRY_APP" | "RESOURCE_GROUP" | "TERRAFORM" | "EKS";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -2004,16 +1574,8 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly resourceId?: string;
   readonly resourceType?: string;
 }> {}
-export type ResourceResolutionStatusType =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCESS";
-export type ResourcesGroupingRecGenStatusType =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCESS";
+export type ResourceResolutionStatusType = "PENDING" | "IN_PROGRESS" | "FAILED" | "SUCCESS";
+export type ResourcesGroupingRecGenStatusType = "PENDING" | "IN_PROGRESS" | "FAILED" | "SUCCESS";
 export type ResourceSourceType = "APP_TEMPLATE" | "DISCOVERED";
 export type ResourceType = string;
 
@@ -2033,10 +1595,7 @@ export interface ScoringComponentResiliencyScore {
   outstandingCount?: number;
   excludedCount?: number;
 }
-export type ScoringComponentResiliencyScores = Record<
-  ResiliencyScoreType,
-  ScoringComponentResiliencyScore
->;
+export type ScoringComponentResiliencyScores = Record<ResiliencyScoreType, ScoringComponentResiliencyScore>;
 export type Seconds = number;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -2111,7 +1670,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TemplateFormat = "CFN_YAML" | "CFN_JSON";
@@ -2156,7 +1716,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAppRequest {
   appArn: string;
   description?: string;
@@ -2212,8 +1773,7 @@ export interface UpdateRecommendationStatusItem {
   targetAccountId?: string;
   targetRegion?: string;
 }
-export type UpdateRecommendationStatusRequestEntries =
-  Array<UpdateRecommendationStatusRequestEntry>;
+export type UpdateRecommendationStatusRequestEntries = Array<UpdateRecommendationStatusRequestEntry>;
 export interface UpdateRecommendationStatusRequestEntry {
   entryId: string;
   referenceId: string;
@@ -3028,3 +2588,4 @@ export declare namespace UpdateResiliencyPolicy {
     | ValidationException
     | CommonAwsError;
 }
+

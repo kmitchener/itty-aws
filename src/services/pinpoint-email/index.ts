@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class PinpointEmail extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("pinpoint-email", new RestJson1Protocol(), cfg);
+  }
+
   createConfigurationSet(
     input: CreateConfigurationSetRequest,
   ): Effect.Effect<
     CreateConfigurationSetResponse,
-    | AlreadyExistsException
-    | BadRequestException
-    | ConcurrentModificationException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AlreadyExistsException | BadRequestException | ConcurrentModificationException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateConfigurationSet", input);
   }
@@ -21,12 +20,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: CreateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
     CreateConfigurationSetEventDestinationResponse,
-    | AlreadyExistsException
-    | BadRequestException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AlreadyExistsException | BadRequestException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateConfigurationSetEventDestination", input);
   }
@@ -34,12 +28,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: CreateDedicatedIpPoolRequest,
   ): Effect.Effect<
     CreateDedicatedIpPoolResponse,
-    | AlreadyExistsException
-    | BadRequestException
-    | ConcurrentModificationException
-    | LimitExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    AlreadyExistsException | BadRequestException | ConcurrentModificationException | LimitExceededException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateDedicatedIpPool", input);
   }
@@ -47,16 +36,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: CreateDeliverabilityTestReportRequest,
   ): Effect.Effect<
     CreateDeliverabilityTestReportResponse,
-    | AccountSuspendedException
-    | BadRequestException
-    | ConcurrentModificationException
-    | LimitExceededException
-    | MailFromDomainNotVerifiedException
-    | MessageRejected
-    | NotFoundException
-    | SendingPausedException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccountSuspendedException | BadRequestException | ConcurrentModificationException | LimitExceededException | MailFromDomainNotVerifiedException | MessageRejected | NotFoundException | SendingPausedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateDeliverabilityTestReport", input);
   }
@@ -64,11 +44,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: CreateEmailIdentityRequest,
   ): Effect.Effect<
     CreateEmailIdentityResponse,
-    | BadRequestException
-    | ConcurrentModificationException
-    | LimitExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConcurrentModificationException | LimitExceededException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("CreateEmailIdentity", input);
   }
@@ -76,11 +52,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: DeleteConfigurationSetRequest,
   ): Effect.Effect<
     DeleteConfigurationSetResponse,
-    | BadRequestException
-    | ConcurrentModificationException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConcurrentModificationException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteConfigurationSet", input);
   }
@@ -88,10 +60,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: DeleteConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
     DeleteConfigurationSetEventDestinationResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteConfigurationSetEventDestination", input);
   }
@@ -99,11 +68,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: DeleteDedicatedIpPoolRequest,
   ): Effect.Effect<
     DeleteDedicatedIpPoolResponse,
-    | BadRequestException
-    | ConcurrentModificationException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConcurrentModificationException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteDedicatedIpPool", input);
   }
@@ -111,11 +76,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: DeleteEmailIdentityRequest,
   ): Effect.Effect<
     DeleteEmailIdentityResponse,
-    | BadRequestException
-    | ConcurrentModificationException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConcurrentModificationException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("DeleteEmailIdentity", input);
   }
@@ -131,10 +92,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: GetBlacklistReportsRequest,
   ): Effect.Effect<
     GetBlacklistReportsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetBlacklistReports", input);
   }
@@ -142,10 +100,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: GetConfigurationSetRequest,
   ): Effect.Effect<
     GetConfigurationSetResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetConfigurationSet", input);
   }
@@ -153,10 +108,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: GetConfigurationSetEventDestinationsRequest,
   ): Effect.Effect<
     GetConfigurationSetEventDestinationsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetConfigurationSetEventDestinations", input);
   }
@@ -164,10 +116,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: GetDedicatedIpRequest,
   ): Effect.Effect<
     GetDedicatedIpResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetDedicatedIp", input);
   }
@@ -175,10 +124,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: GetDedicatedIpsRequest,
   ): Effect.Effect<
     GetDedicatedIpsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetDedicatedIps", input);
   }
@@ -186,10 +132,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: GetDeliverabilityDashboardOptionsRequest,
   ): Effect.Effect<
     GetDeliverabilityDashboardOptionsResponse,
-    | BadRequestException
-    | LimitExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | LimitExceededException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetDeliverabilityDashboardOptions", input);
   }
@@ -197,10 +140,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: GetDeliverabilityTestReportRequest,
   ): Effect.Effect<
     GetDeliverabilityTestReportResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetDeliverabilityTestReport", input);
   }
@@ -208,10 +148,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: GetDomainDeliverabilityCampaignRequest,
   ): Effect.Effect<
     GetDomainDeliverabilityCampaignResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetDomainDeliverabilityCampaign", input);
   }
@@ -219,10 +156,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: GetDomainStatisticsReportRequest,
   ): Effect.Effect<
     GetDomainStatisticsReportResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetDomainStatisticsReport", input);
   }
@@ -230,10 +164,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: GetEmailIdentityRequest,
   ): Effect.Effect<
     GetEmailIdentityResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("GetEmailIdentity", input);
   }
@@ -257,10 +188,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: ListDeliverabilityTestReportsRequest,
   ): Effect.Effect<
     ListDeliverabilityTestReportsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListDeliverabilityTestReports", input);
   }
@@ -268,10 +196,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: ListDomainDeliverabilityCampaignsRequest,
   ): Effect.Effect<
     ListDomainDeliverabilityCampaignsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListDomainDeliverabilityCampaigns", input);
   }
@@ -287,10 +212,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -314,10 +236,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: PutConfigurationSetDeliveryOptionsRequest,
   ): Effect.Effect<
     PutConfigurationSetDeliveryOptionsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutConfigurationSetDeliveryOptions", input);
   }
@@ -325,10 +244,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: PutConfigurationSetReputationOptionsRequest,
   ): Effect.Effect<
     PutConfigurationSetReputationOptionsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutConfigurationSetReputationOptions", input);
   }
@@ -336,10 +252,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: PutConfigurationSetSendingOptionsRequest,
   ): Effect.Effect<
     PutConfigurationSetSendingOptionsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutConfigurationSetSendingOptions", input);
   }
@@ -347,10 +260,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: PutConfigurationSetTrackingOptionsRequest,
   ): Effect.Effect<
     PutConfigurationSetTrackingOptionsResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutConfigurationSetTrackingOptions", input);
   }
@@ -358,10 +268,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: PutDedicatedIpInPoolRequest,
   ): Effect.Effect<
     PutDedicatedIpInPoolResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutDedicatedIpInPool", input);
   }
@@ -369,10 +276,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: PutDedicatedIpWarmupAttributesRequest,
   ): Effect.Effect<
     PutDedicatedIpWarmupAttributesResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutDedicatedIpWarmupAttributes", input);
   }
@@ -380,12 +284,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: PutDeliverabilityDashboardOptionRequest,
   ): Effect.Effect<
     PutDeliverabilityDashboardOptionResponse,
-    | AlreadyExistsException
-    | BadRequestException
-    | LimitExceededException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AlreadyExistsException | BadRequestException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutDeliverabilityDashboardOption", input);
   }
@@ -393,10 +292,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: PutEmailIdentityDkimAttributesRequest,
   ): Effect.Effect<
     PutEmailIdentityDkimAttributesResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutEmailIdentityDkimAttributes", input);
   }
@@ -404,10 +300,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: PutEmailIdentityFeedbackAttributesRequest,
   ): Effect.Effect<
     PutEmailIdentityFeedbackAttributesResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutEmailIdentityFeedbackAttributes", input);
   }
@@ -415,10 +308,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: PutEmailIdentityMailFromAttributesRequest,
   ): Effect.Effect<
     PutEmailIdentityMailFromAttributesResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("PutEmailIdentityMailFromAttributes", input);
   }
@@ -426,15 +316,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: SendEmailRequest,
   ): Effect.Effect<
     SendEmailResponse,
-    | AccountSuspendedException
-    | BadRequestException
-    | LimitExceededException
-    | MailFromDomainNotVerifiedException
-    | MessageRejected
-    | NotFoundException
-    | SendingPausedException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccountSuspendedException | BadRequestException | LimitExceededException | MailFromDomainNotVerifiedException | MessageRejected | NotFoundException | SendingPausedException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("SendEmail", input);
   }
@@ -442,11 +324,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | ConcurrentModificationException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConcurrentModificationException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -454,11 +332,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | ConcurrentModificationException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConcurrentModificationException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -466,10 +340,7 @@ export class PinpointEmail extends AWSServiceClient {
     input: UpdateConfigurationSetEventDestinationRequest,
   ): Effect.Effect<
     UpdateConfigurationSetEventDestinationResponse,
-    | BadRequestException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UpdateConfigurationSetEventDestination", input);
   }
@@ -523,8 +394,7 @@ export interface CloudWatchDimensionConfiguration {
   DimensionValueSource: DimensionValueSource;
   DefaultDimensionValue: string;
 }
-export type CloudWatchDimensionConfigurations =
-  Array<CloudWatchDimensionConfiguration>;
+export type CloudWatchDimensionConfigurations = Array<CloudWatchDimensionConfiguration>;
 export declare class ConcurrentModificationException extends EffectData.TaggedError(
   "ConcurrentModificationException",
 )<{
@@ -542,7 +412,8 @@ export interface CreateConfigurationSetEventDestinationRequest {
   EventDestinationName: string;
   EventDestination: EventDestinationDefinition;
 }
-export interface CreateConfigurationSetEventDestinationResponse {}
+export interface CreateConfigurationSetEventDestinationResponse {
+}
 export interface CreateConfigurationSetRequest {
   ConfigurationSetName: string;
   TrackingOptions?: TrackingOptions;
@@ -551,12 +422,14 @@ export interface CreateConfigurationSetRequest {
   SendingOptions?: SendingOptions;
   Tags?: Array<Tag>;
 }
-export interface CreateConfigurationSetResponse {}
+export interface CreateConfigurationSetResponse {
+}
 export interface CreateDedicatedIpPoolRequest {
   PoolName: string;
   Tags?: Array<Tag>;
 }
-export interface CreateDedicatedIpPoolResponse {}
+export interface CreateDedicatedIpPoolResponse {
+}
 export interface CreateDeliverabilityTestReportRequest {
   ReportName?: string;
   FromEmailAddress: string;
@@ -597,23 +470,24 @@ export interface DeleteConfigurationSetEventDestinationRequest {
   ConfigurationSetName: string;
   EventDestinationName: string;
 }
-export interface DeleteConfigurationSetEventDestinationResponse {}
+export interface DeleteConfigurationSetEventDestinationResponse {
+}
 export interface DeleteConfigurationSetRequest {
   ConfigurationSetName: string;
 }
-export interface DeleteConfigurationSetResponse {}
+export interface DeleteConfigurationSetResponse {
+}
 export interface DeleteDedicatedIpPoolRequest {
   PoolName: string;
 }
-export interface DeleteDedicatedIpPoolResponse {}
+export interface DeleteDedicatedIpPoolResponse {
+}
 export interface DeleteEmailIdentityRequest {
   EmailIdentity: string;
 }
-export interface DeleteEmailIdentityResponse {}
-export type DeliverabilityDashboardAccountStatus =
-  | "ACTIVE"
-  | "PENDING_EXPIRATION"
-  | "DISABLED";
+export interface DeleteEmailIdentityResponse {
+}
+export type DeliverabilityDashboardAccountStatus = "ACTIVE" | "PENDING_EXPIRATION" | "DISABLED";
 export interface DeliverabilityTestReport {
   ReportId?: string;
   ReportName?: string;
@@ -643,12 +517,7 @@ export interface DkimAttributes {
   Status?: DkimStatus;
   Tokens?: Array<string>;
 }
-export type DkimStatus =
-  | "PENDING"
-  | "SUCCESS"
-  | "FAILED"
-  | "TEMPORARY_FAILURE"
-  | "NOT_STARTED";
+export type DkimStatus = "PENDING" | "SUCCESS" | "FAILED" | "TEMPORARY_FAILURE" | "NOT_STARTED";
 export type DnsToken = string;
 
 export type DnsTokenList = Array<string>;
@@ -670,15 +539,13 @@ export interface DomainDeliverabilityCampaign {
   ProjectedVolume?: number;
   Esps?: Array<string>;
 }
-export type DomainDeliverabilityCampaignList =
-  Array<DomainDeliverabilityCampaign>;
+export type DomainDeliverabilityCampaignList = Array<DomainDeliverabilityCampaign>;
 export interface DomainDeliverabilityTrackingOption {
   Domain?: string;
   SubscriptionStartDate?: Date | string;
   InboxPlacementTrackingOption?: InboxPlacementTrackingOption;
 }
-export type DomainDeliverabilityTrackingOptions =
-  Array<DomainDeliverabilityTrackingOption>;
+export type DomainDeliverabilityTrackingOptions = Array<DomainDeliverabilityTrackingOption>;
 export interface DomainIspPlacement {
   IspName?: string;
   InboxRawCount?: number;
@@ -722,19 +589,12 @@ export interface EventDestinationDefinition {
 export type EventDestinationName = string;
 
 export type EventDestinations = Array<EventDestination>;
-export type EventType =
-  | "SEND"
-  | "REJECT"
-  | "BOUNCE"
-  | "COMPLAINT"
-  | "DELIVERY"
-  | "OPEN"
-  | "CLICK"
-  | "RENDERING_FAILURE";
+export type EventType = "SEND" | "REJECT" | "BOUNCE" | "COMPLAINT" | "DELIVERY" | "OPEN" | "CLICK" | "RENDERING_FAILURE";
 export type EventTypes = Array<EventType>;
 export type GeneralEnforcementStatus = string;
 
-export interface GetAccountRequest {}
+export interface GetAccountRequest {
+}
 export interface GetAccountResponse {
   SendQuota?: SendQuota;
   SendingEnabled?: boolean;
@@ -780,7 +640,8 @@ export interface GetDedicatedIpsResponse {
   DedicatedIps?: Array<DedicatedIp>;
   NextToken?: string;
 }
-export interface GetDeliverabilityDashboardOptionsRequest {}
+export interface GetDeliverabilityDashboardOptionsRequest {
+}
 export interface GetDeliverabilityDashboardOptionsResponse {
   DashboardEnabled: boolean;
   SubscriptionExpiryDate?: Date | string;
@@ -923,11 +784,7 @@ export declare class MailFromDomainNotVerifiedException extends EffectData.Tagge
 )<{
   readonly message?: string;
 }> {}
-export type MailFromDomainStatus =
-  | "PENDING"
-  | "SUCCESS"
-  | "FAILED"
-  | "TEMPORARY_FAILURE";
+export type MailFromDomainStatus = "PENDING" | "SUCCESS" | "FAILED" | "TEMPORARY_FAILURE";
 export type Max24HourSend = number;
 
 export type MaxItems = number;
@@ -989,63 +846,75 @@ export type PoolName = string;
 export interface PutAccountDedicatedIpWarmupAttributesRequest {
   AutoWarmupEnabled?: boolean;
 }
-export interface PutAccountDedicatedIpWarmupAttributesResponse {}
+export interface PutAccountDedicatedIpWarmupAttributesResponse {
+}
 export interface PutAccountSendingAttributesRequest {
   SendingEnabled?: boolean;
 }
-export interface PutAccountSendingAttributesResponse {}
+export interface PutAccountSendingAttributesResponse {
+}
 export interface PutConfigurationSetDeliveryOptionsRequest {
   ConfigurationSetName: string;
   TlsPolicy?: TlsPolicy;
   SendingPoolName?: string;
 }
-export interface PutConfigurationSetDeliveryOptionsResponse {}
+export interface PutConfigurationSetDeliveryOptionsResponse {
+}
 export interface PutConfigurationSetReputationOptionsRequest {
   ConfigurationSetName: string;
   ReputationMetricsEnabled?: boolean;
 }
-export interface PutConfigurationSetReputationOptionsResponse {}
+export interface PutConfigurationSetReputationOptionsResponse {
+}
 export interface PutConfigurationSetSendingOptionsRequest {
   ConfigurationSetName: string;
   SendingEnabled?: boolean;
 }
-export interface PutConfigurationSetSendingOptionsResponse {}
+export interface PutConfigurationSetSendingOptionsResponse {
+}
 export interface PutConfigurationSetTrackingOptionsRequest {
   ConfigurationSetName: string;
   CustomRedirectDomain?: string;
 }
-export interface PutConfigurationSetTrackingOptionsResponse {}
+export interface PutConfigurationSetTrackingOptionsResponse {
+}
 export interface PutDedicatedIpInPoolRequest {
   Ip: string;
   DestinationPoolName: string;
 }
-export interface PutDedicatedIpInPoolResponse {}
+export interface PutDedicatedIpInPoolResponse {
+}
 export interface PutDedicatedIpWarmupAttributesRequest {
   Ip: string;
   WarmupPercentage: number;
 }
-export interface PutDedicatedIpWarmupAttributesResponse {}
+export interface PutDedicatedIpWarmupAttributesResponse {
+}
 export interface PutDeliverabilityDashboardOptionRequest {
   DashboardEnabled: boolean;
   SubscribedDomains?: Array<DomainDeliverabilityTrackingOption>;
 }
-export interface PutDeliverabilityDashboardOptionResponse {}
+export interface PutDeliverabilityDashboardOptionResponse {
+}
 export interface PutEmailIdentityDkimAttributesRequest {
   EmailIdentity: string;
   SigningEnabled?: boolean;
 }
-export interface PutEmailIdentityDkimAttributesResponse {}
+export interface PutEmailIdentityDkimAttributesResponse {
+}
 export interface PutEmailIdentityFeedbackAttributesRequest {
   EmailIdentity: string;
   EmailForwardingEnabled?: boolean;
 }
-export interface PutEmailIdentityFeedbackAttributesResponse {}
+export interface PutEmailIdentityFeedbackAttributesResponse {
+}
 export interface PutEmailIdentityMailFromAttributesRequest {
   EmailIdentity: string;
   MailFromDomain?: string;
   BehaviorOnMxFailure?: BehaviorOnMxFailure;
 }
-export interface PutEmailIdentityMailFromAttributesResponse {}
+export interface PutEmailIdentityMailFromAttributesResponse {
+}
 export interface RawMessage {
   Data: Uint8Array | string;
 }
@@ -1107,7 +976,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface Template {
@@ -1133,13 +1003,15 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateConfigurationSetEventDestinationRequest {
   ConfigurationSetName: string;
   EventDestinationName: string;
   EventDestination: EventDestinationDefinition;
 }
-export interface UpdateConfigurationSetEventDestinationResponse {}
+export interface UpdateConfigurationSetEventDestinationResponse {
+}
 export type Volume = number;
 
 export interface VolumeStatistics {
@@ -1588,3 +1460,4 @@ export declare namespace UpdateConfigurationSetEventDestination {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

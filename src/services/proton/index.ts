@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class Proton extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("proton", new AwsJson10Protocol(), cfg);
+  }
+
   cancelComponentDeployment(
     input: CancelComponentDeploymentInput,
   ): Effect.Effect<
     CancelComponentDeploymentOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelComponentDeployment", input);
   }
@@ -21,13 +20,7 @@ export class Proton extends AWSServiceClient {
     input: CancelEnvironmentDeploymentInput,
   ): Effect.Effect<
     CancelEnvironmentDeploymentOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelEnvironmentDeployment", input);
   }
@@ -35,13 +28,7 @@ export class Proton extends AWSServiceClient {
     input: CancelServiceInstanceDeploymentInput,
   ): Effect.Effect<
     CancelServiceInstanceDeploymentOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelServiceInstanceDeployment", input);
   }
@@ -49,13 +36,7 @@ export class Proton extends AWSServiceClient {
     input: CancelServicePipelineDeploymentInput,
   ): Effect.Effect<
     CancelServicePipelineDeploymentOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelServicePipelineDeployment", input);
   }
@@ -63,12 +44,7 @@ export class Proton extends AWSServiceClient {
     input: GetRepositorySyncStatusInput,
   ): Effect.Effect<
     GetRepositorySyncStatusOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRepositorySyncStatus", input);
   }
@@ -76,11 +52,7 @@ export class Proton extends AWSServiceClient {
     input: GetResourcesSummaryInput,
   ): Effect.Effect<
     GetResourcesSummaryOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetResourcesSummary", input);
   }
@@ -88,12 +60,7 @@ export class Proton extends AWSServiceClient {
     input: GetServiceInstanceSyncStatusInput,
   ): Effect.Effect<
     GetServiceInstanceSyncStatusOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetServiceInstanceSyncStatus", input);
   }
@@ -101,12 +68,7 @@ export class Proton extends AWSServiceClient {
     input: GetTemplateSyncStatusInput,
   ): Effect.Effect<
     GetTemplateSyncStatusOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetTemplateSyncStatus", input);
   }
@@ -114,11 +76,7 @@ export class Proton extends AWSServiceClient {
     input: ListRepositorySyncDefinitionsInput,
   ): Effect.Effect<
     ListRepositorySyncDefinitionsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRepositorySyncDefinitions", input);
   }
@@ -126,12 +84,7 @@ export class Proton extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -139,14 +92,7 @@ export class Proton extends AWSServiceClient {
     input: NotifyResourceDeploymentStatusChangeInput,
   ): Effect.Effect<
     NotifyResourceDeploymentStatusChangeOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("NotifyResourceDeploymentStatusChange", input);
   }
@@ -154,13 +100,7 @@ export class Proton extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -168,13 +108,7 @@ export class Proton extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -241,10 +175,8 @@ export interface CompatibleEnvironmentTemplateInput {
   templateName: string;
   majorVersion: string;
 }
-export type CompatibleEnvironmentTemplateInputList =
-  Array<CompatibleEnvironmentTemplateInput>;
-export type CompatibleEnvironmentTemplateList =
-  Array<CompatibleEnvironmentTemplate>;
+export type CompatibleEnvironmentTemplateInputList = Array<CompatibleEnvironmentTemplateInput>;
+export type CompatibleEnvironmentTemplateList = Array<CompatibleEnvironmentTemplate>;
 export interface Component {
   name: string;
   description?: string;
@@ -561,11 +493,7 @@ interface _DeploymentState {
   component?: ComponentState;
 }
 
-export type DeploymentState =
-  | (_DeploymentState & { serviceInstance: ServiceInstanceState })
-  | (_DeploymentState & { environment: EnvironmentState })
-  | (_DeploymentState & { servicePipeline: ServicePipelineState })
-  | (_DeploymentState & { component: ComponentState });
+export type DeploymentState = (_DeploymentState & { serviceInstance: ServiceInstanceState }) | (_DeploymentState & { environment: EnvironmentState }) | (_DeploymentState & { servicePipeline: ServicePipelineState }) | (_DeploymentState & { component: ComponentState });
 export type DeploymentStatus = string;
 
 export interface DeploymentSummary {
@@ -653,8 +581,7 @@ export interface EnvironmentAccountConnectionSummary {
   status: string;
   componentRoleArn?: string;
 }
-export type EnvironmentAccountConnectionSummaryList =
-  Array<EnvironmentAccountConnectionSummary>;
+export type EnvironmentAccountConnectionSummaryList = Array<EnvironmentAccountConnectionSummary>;
 export type EnvironmentArn = string;
 
 export interface EnvironmentState {
@@ -740,13 +667,13 @@ export interface EnvironmentTemplateVersionSummary {
   createdAt: Date | string;
   lastModifiedAt: Date | string;
 }
-export type EnvironmentTemplateVersionSummaryList =
-  Array<EnvironmentTemplateVersionSummary>;
+export type EnvironmentTemplateVersionSummaryList = Array<EnvironmentTemplateVersionSummary>;
 export type ErrorMessage = string;
 
 export type FullTemplateVersionNumber = string;
 
-export interface GetAccountSettingsInput {}
+export interface GetAccountSettingsInput {
+}
 export interface GetAccountSettingsOutput {
   accountSettings?: AccountSettings;
 }
@@ -808,7 +735,8 @@ export interface GetRepositorySyncStatusInput {
 export interface GetRepositorySyncStatusOutput {
   latestSync?: RepositorySyncAttempt;
 }
-export interface GetResourcesSummaryInput {}
+export interface GetResourcesSummaryInput {
+}
 export interface GetResourcesSummaryOutput {
   counts: CountsSummary;
 }
@@ -1104,7 +1032,8 @@ export interface NotifyResourceDeploymentStatusChangeInput {
   deploymentId?: string;
   statusMessage?: string;
 }
-export interface NotifyResourceDeploymentStatusChangeOutput {}
+export interface NotifyResourceDeploymentStatusChangeOutput {
+}
 export type OpsFilePath = string;
 
 export interface Output {
@@ -1413,8 +1342,7 @@ export interface ServiceTemplateVersionSummary {
   createdAt: Date | string;
   lastModifiedAt: Date | string;
 }
-export type ServiceTemplateVersionSummaryList =
-  Array<ServiceTemplateVersionSummary>;
+export type ServiceTemplateVersionSummaryList = Array<ServiceTemplateVersionSummary>;
 export type SHA = string;
 
 export type SortOrder = string;
@@ -1454,7 +1382,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export type TemplateFileContents = string;
@@ -1479,9 +1408,7 @@ interface _TemplateVersionSourceInput {
   s3?: S3ObjectSource;
 }
 
-export type TemplateVersionSourceInput = _TemplateVersionSourceInput & {
-  s3: S3ObjectSource;
-};
+export type TemplateVersionSourceInput = (_TemplateVersionSourceInput & { s3: S3ObjectSource });
 export type TemplateVersionStatus = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1493,7 +1420,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateAccountSettingsInput {
   pipelineServiceRoleArn?: string;
   pipelineProvisioningRepository?: RepositoryBranchInput;
@@ -1805,3 +1733,4 @@ export declare namespace UntagResource {
     | ValidationException
     | CommonAwsError;
 }
+

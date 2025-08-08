@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class Transfer extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("transfer", new AwsJson11Protocol(), cfg);
+  }
+
   createAccess(
     input: CreateAccessRequest,
   ): Effect.Effect<
     CreateAccessResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceExistsException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("CreateAccess", input);
   }
@@ -20,11 +20,7 @@ export class Transfer extends AWSServiceClient {
     input: DeleteAccessRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteAccess", input);
   }
@@ -32,12 +28,7 @@ export class Transfer extends AWSServiceClient {
     input: DeleteHostKeyRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteHostKey", input);
   }
@@ -45,12 +36,7 @@ export class Transfer extends AWSServiceClient {
     input: DeleteSshPublicKeyRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteSshPublicKey", input);
   }
@@ -58,11 +44,7 @@ export class Transfer extends AWSServiceClient {
     input: DescribeAccessRequest,
   ): Effect.Effect<
     DescribeAccessResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeAccess", input);
   }
@@ -70,11 +52,7 @@ export class Transfer extends AWSServiceClient {
     input: DescribeExecutionRequest,
   ): Effect.Effect<
     DescribeExecutionResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeExecution", input);
   }
@@ -82,11 +60,7 @@ export class Transfer extends AWSServiceClient {
     input: DescribeHostKeyRequest,
   ): Effect.Effect<
     DescribeHostKeyResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeHostKey", input);
   }
@@ -94,11 +68,7 @@ export class Transfer extends AWSServiceClient {
     input: DescribeSecurityPolicyRequest,
   ): Effect.Effect<
     DescribeSecurityPolicyResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DescribeSecurityPolicy", input);
   }
@@ -106,13 +76,7 @@ export class Transfer extends AWSServiceClient {
     input: ImportHostKeyRequest,
   ): Effect.Effect<
     ImportHostKeyResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ImportHostKey", input);
   }
@@ -120,13 +84,7 @@ export class Transfer extends AWSServiceClient {
     input: ImportSshPublicKeyRequest,
   ): Effect.Effect<
     ImportSshPublicKeyResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ImportSshPublicKey", input);
   }
@@ -134,12 +92,7 @@ export class Transfer extends AWSServiceClient {
     input: ListAccessesRequest,
   ): Effect.Effect<
     ListAccessesResponse,
-    | InternalServiceError
-    | InvalidNextTokenException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidNextTokenException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListAccesses", input);
   }
@@ -147,12 +100,7 @@ export class Transfer extends AWSServiceClient {
     input: ListExecutionsRequest,
   ): Effect.Effect<
     ListExecutionsResponse,
-    | InternalServiceError
-    | InvalidNextTokenException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidNextTokenException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListExecutions", input);
   }
@@ -160,11 +108,7 @@ export class Transfer extends AWSServiceClient {
     input: ListFileTransferResultsRequest,
   ): Effect.Effect<
     ListFileTransferResultsResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListFileTransferResults", input);
   }
@@ -172,12 +116,7 @@ export class Transfer extends AWSServiceClient {
     input: ListHostKeysRequest,
   ): Effect.Effect<
     ListHostKeysResponse,
-    | InternalServiceError
-    | InvalidNextTokenException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidNextTokenException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListHostKeys", input);
   }
@@ -185,11 +124,7 @@ export class Transfer extends AWSServiceClient {
     input: ListSecurityPoliciesRequest,
   ): Effect.Effect<
     ListSecurityPoliciesResponse,
-    | InternalServiceError
-    | InvalidNextTokenException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidNextTokenException | InvalidRequestException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListSecurityPolicies", input);
   }
@@ -197,11 +132,7 @@ export class Transfer extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServiceError
-    | InvalidNextTokenException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidNextTokenException | InvalidRequestException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -209,13 +140,7 @@ export class Transfer extends AWSServiceClient {
     input: SendWorkflowStepStateRequest,
   ): Effect.Effect<
     SendWorkflowStepStateResponse,
-    | AccessDeniedException
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("SendWorkflowStepState", input);
   }
@@ -223,12 +148,7 @@ export class Transfer extends AWSServiceClient {
     input: StartDirectoryListingRequest,
   ): Effect.Effect<
     StartDirectoryListingResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartDirectoryListing", input);
   }
@@ -236,12 +156,7 @@ export class Transfer extends AWSServiceClient {
     input: StartFileTransferRequest,
   ): Effect.Effect<
     StartFileTransferResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartFileTransfer", input);
   }
@@ -249,12 +164,7 @@ export class Transfer extends AWSServiceClient {
     input: StartRemoteDeleteRequest,
   ): Effect.Effect<
     StartRemoteDeleteResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartRemoteDelete", input);
   }
@@ -262,12 +172,7 @@ export class Transfer extends AWSServiceClient {
     input: StartRemoteMoveRequest,
   ): Effect.Effect<
     StartRemoteMoveResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartRemoteMove", input);
   }
@@ -275,12 +180,7 @@ export class Transfer extends AWSServiceClient {
     input: StartServerRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartServer", input);
   }
@@ -288,12 +188,7 @@ export class Transfer extends AWSServiceClient {
     input: StopServerRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("StopServer", input);
   }
@@ -301,11 +196,7 @@ export class Transfer extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -313,11 +204,7 @@ export class Transfer extends AWSServiceClient {
     input: TestConnectionRequest,
   ): Effect.Effect<
     TestConnectionResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("TestConnection", input);
   }
@@ -325,11 +212,7 @@ export class Transfer extends AWSServiceClient {
     input: TestIdentityProviderRequest,
   ): Effect.Effect<
     TestIdentityProviderResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("TestIdentityProvider", input);
   }
@@ -337,11 +220,7 @@ export class Transfer extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -349,13 +228,7 @@ export class Transfer extends AWSServiceClient {
     input: UpdateAccessRequest,
   ): Effect.Effect<
     UpdateAccessResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAccess", input);
   }
@@ -363,12 +236,7 @@ export class Transfer extends AWSServiceClient {
     input: UpdateHostKeyRequest,
   ): Effect.Effect<
     UpdateHostKeyResponse,
-    | InternalServiceError
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateHostKey", input);
   }
@@ -816,10 +684,7 @@ interface _DescribedWebAppIdentityProviderDetails {
   IdentityCenterConfig?: DescribedIdentityCenterConfig;
 }
 
-export type DescribedWebAppIdentityProviderDetails =
-  _DescribedWebAppIdentityProviderDetails & {
-    IdentityCenterConfig: DescribedIdentityCenterConfig;
-  };
+export type DescribedWebAppIdentityProviderDetails = (_DescribedWebAppIdentityProviderDetails & { IdentityCenterConfig: DescribedIdentityCenterConfig });
 export interface DescribedWorkflow {
   Arn: string;
   Description?: string;
@@ -901,12 +766,7 @@ export type EfsFileSystemId = string;
 
 export type EfsPath = string;
 
-export type EncryptionAlg =
-  | "AES128_CBC"
-  | "AES192_CBC"
-  | "AES256_CBC"
-  | "DES_EDE3_CBC"
-  | "NONE";
+export type EncryptionAlg = "AES128_CBC" | "AES192_CBC" | "AES256_CBC" | "DES_EDE3_CBC" | "NONE";
 export type EncryptionType = "PGP";
 export interface EndpointDetails {
   AddressAllocationIds?: Array<string>;
@@ -923,26 +783,14 @@ export interface ExecutionError {
 }
 export type ExecutionErrorMessage = string;
 
-export type ExecutionErrorType =
-  | "PERMISSION_DENIED"
-  | "CUSTOM_STEP_FAILED"
-  | "THROTTLED"
-  | "ALREADY_EXISTS"
-  | "NOT_FOUND"
-  | "BAD_REQUEST"
-  | "TIMEOUT"
-  | "INTERNAL_SERVER_ERROR";
+export type ExecutionErrorType = "PERMISSION_DENIED" | "CUSTOM_STEP_FAILED" | "THROTTLED" | "ALREADY_EXISTS" | "NOT_FOUND" | "BAD_REQUEST" | "TIMEOUT" | "INTERNAL_SERVER_ERROR";
 export type ExecutionId = string;
 
 export interface ExecutionResults {
   Steps?: Array<ExecutionStepResult>;
   OnExceptionSteps?: Array<ExecutionStepResult>;
 }
-export type ExecutionStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "EXCEPTION"
-  | "HANDLING_EXCEPTION";
+export type ExecutionStatus = "IN_PROGRESS" | "COMPLETED" | "EXCEPTION" | "HANDLING_EXCEPTION";
 export interface ExecutionStepResult {
   StepType?: WorkflowStepType;
   Outputs?: string;
@@ -998,11 +846,7 @@ export interface IdentityProviderDetails {
   Function?: string;
   SftpAuthenticationMethods?: SftpAuthenticationMethods;
 }
-export type IdentityProviderType =
-  | "SERVICE_MANAGED"
-  | "API_GATEWAY"
-  | "AWS_DIRECTORY_SERVICE"
-  | "AWS_LAMBDA";
+export type IdentityProviderType = "SERVICE_MANAGED" | "API_GATEWAY" | "AWS_DIRECTORY_SERVICE" | "AWS_LAMBDA";
 export interface ImportCertificateRequest {
   Usage: CertificateUsageType;
   Certificate: string;
@@ -1292,13 +1136,7 @@ export type MaxItems = number;
 export type MaxResults = number;
 
 export type MdnResponse = "SYNC" | "NONE";
-export type MdnSigningAlg =
-  | "SHA256"
-  | "SHA384"
-  | "SHA512"
-  | "SHA1"
-  | "NONE"
-  | "DEFAULT";
+export type MdnSigningAlg = "SHA256" | "SHA384" | "SHA512" | "SHA1" | "NONE" | "DEFAULT";
 export type Message = string;
 
 export type MessageSubject = string;
@@ -1419,7 +1257,8 @@ export interface SendWorkflowStepStateRequest {
   Token: string;
   Status: CustomStepStatus;
 }
-export interface SendWorkflowStepStateResponse {}
+export interface SendWorkflowStepStateResponse {
+}
 export type ServerId = string;
 
 export type ServiceErrorMessage = string;
@@ -1438,11 +1277,7 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
 export type SessionId = string;
 
 export type SetStatOption = "DEFAULT" | "ENABLE_NO_OP";
-export type SftpAuthenticationMethods =
-  | "PASSWORD"
-  | "PUBLIC_KEY"
-  | "PUBLIC_KEY_OR_PASSWORD"
-  | "PUBLIC_KEY_AND_PASSWORD";
+export type SftpAuthenticationMethods = "PASSWORD" | "PUBLIC_KEY" | "PUBLIC_KEY_OR_PASSWORD" | "PUBLIC_KEY_AND_PASSWORD";
 export interface SftpConnectorConfig {
   UserSecretId?: string;
   TrustedHostKeys?: Array<string>;
@@ -1511,13 +1346,7 @@ export interface StartRemoteMoveResponse {
 export interface StartServerRequest {
   ServerId: string;
 }
-export type State =
-  | "OFFLINE"
-  | "ONLINE"
-  | "STARTING"
-  | "STOPPING"
-  | "START_FAILED"
-  | "STOP_FAILED";
+export type State = "OFFLINE" | "ONLINE" | "STARTING" | "STOPPING" | "START_FAILED" | "STOP_FAILED";
 export type Status = string;
 
 export type StatusCode = number;
@@ -1580,11 +1409,7 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 export type TlsSessionResumptionMode = "DISABLED" | "ENABLED" | "ENFORCED";
 export type TransferId = string;
 
-export type TransferTableStatus =
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED";
+export type TransferTableStatus = "QUEUED" | "IN_PROGRESS" | "COMPLETED" | "FAILED";
 export interface UntagResourceRequest {
   Arn: string;
   TagKeys: Array<string>;
@@ -1707,10 +1532,7 @@ interface _UpdateWebAppIdentityProviderDetails {
   IdentityCenterConfig?: UpdateWebAppIdentityCenterConfig;
 }
 
-export type UpdateWebAppIdentityProviderDetails =
-  _UpdateWebAppIdentityProviderDetails & {
-    IdentityCenterConfig: UpdateWebAppIdentityCenterConfig;
-  };
+export type UpdateWebAppIdentityProviderDetails = (_UpdateWebAppIdentityProviderDetails & { IdentityCenterConfig: UpdateWebAppIdentityCenterConfig });
 export interface UpdateWebAppRequest {
   WebAppId: string;
   IdentityProviderDetails?: UpdateWebAppIdentityProviderDetails;
@@ -1750,9 +1572,7 @@ interface _WebAppIdentityProviderDetails {
   IdentityCenterConfig?: IdentityCenterConfig;
 }
 
-export type WebAppIdentityProviderDetails = _WebAppIdentityProviderDetails & {
-  IdentityCenterConfig: IdentityCenterConfig;
-};
+export type WebAppIdentityProviderDetails = (_WebAppIdentityProviderDetails & { IdentityCenterConfig: IdentityCenterConfig });
 export type WebAppLogoFile = Uint8Array | string;
 
 export type WebAppTitle = string;
@@ -1763,7 +1583,7 @@ interface _WebAppUnits {
   Provisioned?: number;
 }
 
-export type WebAppUnits = _WebAppUnits & { Provisioned: number };
+export type WebAppUnits = (_WebAppUnits & { Provisioned: number });
 export type WorkflowDescription = string;
 
 export interface WorkflowDetail {
@@ -2127,3 +1947,4 @@ export declare namespace UpdateHostKey {
     | ThrottlingException
     | CommonAwsError;
 }
+

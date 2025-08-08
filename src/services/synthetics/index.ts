@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class synthetics extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("synthetics", new RestJson1Protocol(), cfg);
+  }
+
   associateResource(
     input: AssociateResourceRequest,
   ): Effect.Effect<
     AssociateResourceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateResource", input);
   }
@@ -20,10 +20,7 @@ export class synthetics extends AWSServiceClient {
     input: CreateCanaryRequest,
   ): Effect.Effect<
     CreateCanaryResponse,
-    | InternalServerException
-    | RequestEntityTooLargeException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | RequestEntityTooLargeException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCanary", input);
   }
@@ -31,11 +28,7 @@ export class synthetics extends AWSServiceClient {
     input: CreateGroupRequest,
   ): Effect.Effect<
     CreateGroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateGroup", input);
   }
@@ -43,11 +36,7 @@ export class synthetics extends AWSServiceClient {
     input: DeleteCanaryRequest,
   ): Effect.Effect<
     DeleteCanaryResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCanary", input);
   }
@@ -55,11 +44,7 @@ export class synthetics extends AWSServiceClient {
     input: DeleteGroupRequest,
   ): Effect.Effect<
     DeleteGroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteGroup", input);
   }
@@ -91,11 +76,7 @@ export class synthetics extends AWSServiceClient {
     input: DisassociateResourceRequest,
   ): Effect.Effect<
     DisassociateResourceResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateResource", input);
   }
@@ -111,10 +92,7 @@ export class synthetics extends AWSServiceClient {
     input: GetCanaryRunsRequest,
   ): Effect.Effect<
     GetCanaryRunsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetCanaryRuns", input);
   }
@@ -122,11 +100,7 @@ export class synthetics extends AWSServiceClient {
     input: GetGroupRequest,
   ): Effect.Effect<
     GetGroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("GetGroup", input);
   }
@@ -134,10 +108,7 @@ export class synthetics extends AWSServiceClient {
     input: ListAssociatedGroupsRequest,
   ): Effect.Effect<
     ListAssociatedGroupsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListAssociatedGroups", input);
   }
@@ -145,11 +116,7 @@ export class synthetics extends AWSServiceClient {
     input: ListGroupResourcesRequest,
   ): Effect.Effect<
     ListGroupResourcesResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("ListGroupResources", input);
   }
@@ -165,12 +132,7 @@ export class synthetics extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -178,11 +140,7 @@ export class synthetics extends AWSServiceClient {
     input: StartCanaryRequest,
   ): Effect.Effect<
     StartCanaryResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartCanary", input);
   }
@@ -190,12 +148,7 @@ export class synthetics extends AWSServiceClient {
     input: StartCanaryDryRunRequest,
   ): Effect.Effect<
     StartCanaryDryRunResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StartCanaryDryRun", input);
   }
@@ -203,11 +156,7 @@ export class synthetics extends AWSServiceClient {
     input: StopCanaryRequest,
   ): Effect.Effect<
     StopCanaryResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("StopCanary", input);
   }
@@ -215,12 +164,7 @@ export class synthetics extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -228,12 +172,7 @@ export class synthetics extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalFailureException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalFailureException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -241,13 +180,7 @@ export class synthetics extends AWSServiceClient {
     input: UpdateCanaryRequest,
   ): Effect.Effect<
     UpdateCanaryResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | RequestEntityTooLargeException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | RequestEntityTooLargeException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateCanary", input);
   }
@@ -270,7 +203,8 @@ export interface AssociateResourceRequest {
   GroupIdentifier: string;
   ResourceArn: string;
 }
-export interface AssociateResourceResponse {}
+export interface AssociateResourceResponse {
+}
 export declare class BadRequestException extends EffectData.TaggedError(
   "BadRequestException",
 )<{
@@ -383,29 +317,8 @@ export interface CanaryScheduleOutput {
   DurationInSeconds?: number;
   RetryConfig?: RetryConfigOutput;
 }
-export type CanaryState =
-  | "CREATING"
-  | "READY"
-  | "STARTING"
-  | "RUNNING"
-  | "UPDATING"
-  | "STOPPING"
-  | "STOPPED"
-  | "ERROR"
-  | "DELETING";
-export type CanaryStateReasonCode =
-  | "INVALID_PERMISSIONS"
-  | "CREATE_PENDING"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "UPDATE_PENDING"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_COMPLETE"
-  | "ROLLBACK_COMPLETE"
-  | "ROLLBACK_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_FAILED"
-  | "SYNC_DELETE_IN_PROGRESS";
+export type CanaryState = "CREATING" | "READY" | "STARTING" | "RUNNING" | "UPDATING" | "STOPPING" | "STOPPED" | "ERROR" | "DELETING";
+export type CanaryStateReasonCode = "INVALID_PERMISSIONS" | "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "UPDATE_PENDING" | "UPDATE_IN_PROGRESS" | "UPDATE_COMPLETE" | "ROLLBACK_COMPLETE" | "ROLLBACK_FAILED" | "DELETE_IN_PROGRESS" | "DELETE_FAILED" | "SYNC_DELETE_IN_PROGRESS";
 export interface CanaryStatus {
   State?: CanaryState;
   StateReason?: string;
@@ -454,11 +367,13 @@ export interface DeleteCanaryRequest {
   Name: string;
   DeleteLambda?: boolean;
 }
-export interface DeleteCanaryResponse {}
+export interface DeleteCanaryResponse {
+}
 export interface DeleteGroupRequest {
   GroupIdentifier: string;
 }
-export interface DeleteGroupResponse {}
+export interface DeleteGroupResponse {
+}
 export type Dependencies = Array<Dependency>;
 export interface Dependency {
   Type?: DependencyType;
@@ -497,7 +412,8 @@ export interface DisassociateResourceRequest {
   GroupIdentifier: string;
   ResourceArn: string;
 }
-export interface DisassociateResourceResponse {}
+export interface DisassociateResourceResponse {
+}
 export interface DryRunConfigOutput {
   DryRunId?: string;
   LastDryRunExecutionStatus?: string;
@@ -692,11 +608,13 @@ export interface StartCanaryDryRunResponse {
 export interface StartCanaryRequest {
   Name: string;
 }
-export interface StartCanaryResponse {}
+export interface StartCanaryResponse {
+}
 export interface StopCanaryRequest {
   Name: string;
 }
-export interface StopCanaryResponse {}
+export interface StopCanaryResponse {
+}
 export type SyntheticsString = string;
 
 export type StringList = Array<string>;
@@ -711,7 +629,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -727,7 +646,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateCanaryRequest {
   Name: string;
   Code?: CanaryCodeInput;
@@ -744,7 +664,8 @@ export interface UpdateCanaryRequest {
   ProvisionedResourceCleanup?: ProvisionedResourceCleanupSetting;
   DryRunId?: string;
 }
-export interface UpdateCanaryResponse {}
+export interface UpdateCanaryResponse {
+}
 export type UUID = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -1008,3 +929,4 @@ export declare namespace UpdateCanary {
     | ValidationException
     | CommonAwsError;
 }
+

@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class CloudWatchEvents extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cloudwatch-events", new AwsJson11Protocol(), cfg);
+  }
+
   activateEventSource(
     input: ActivateEventSourceRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalException
-    | InvalidStateException
-    | OperationDisabledException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | InvalidStateException | OperationDisabledException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ActivateEventSource", input);
   }
@@ -20,11 +20,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: CancelReplayRequest,
   ): Effect.Effect<
     CancelReplayResponse,
-    | ConcurrentModificationException
-    | IllegalStatusException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | IllegalStatusException | InternalException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("CancelReplay", input);
   }
@@ -32,11 +28,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: CreateApiDestinationRequest,
   ): Effect.Effect<
     CreateApiDestinationResponse,
-    | InternalException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("CreateApiDestination", input);
   }
@@ -44,13 +36,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: CreateArchiveRequest,
   ): Effect.Effect<
     CreateArchiveResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | InvalidEventPatternException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | InvalidEventPatternException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("CreateArchive", input);
   }
@@ -58,10 +44,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: CreateConnectionRequest,
   ): Effect.Effect<
     CreateConnectionResponse,
-    | InternalException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | CommonAwsError
+    InternalException | LimitExceededException | ResourceAlreadyExistsException | CommonAwsError
   > {
     return this.call("CreateConnection", input);
   }
@@ -69,14 +52,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: CreateEventBusRequest,
   ): Effect.Effect<
     CreateEventBusResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | InvalidStateException
-    | LimitExceededException
-    | OperationDisabledException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | InvalidStateException | LimitExceededException | OperationDisabledException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("CreateEventBus", input);
   }
@@ -84,12 +60,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: CreatePartnerEventSourceRequest,
   ): Effect.Effect<
     CreatePartnerEventSourceResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | LimitExceededException
-    | OperationDisabledException
-    | ResourceAlreadyExistsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | LimitExceededException | OperationDisabledException | ResourceAlreadyExistsException | CommonAwsError
   > {
     return this.call("CreatePartnerEventSource", input);
   }
@@ -97,12 +68,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DeactivateEventSourceRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalException
-    | InvalidStateException
-    | OperationDisabledException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | InvalidStateException | OperationDisabledException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeactivateEventSource", input);
   }
@@ -110,10 +76,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DeauthorizeConnectionRequest,
   ): Effect.Effect<
     DeauthorizeConnectionResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeauthorizeConnection", input);
   }
@@ -121,10 +84,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DeleteApiDestinationRequest,
   ): Effect.Effect<
     DeleteApiDestinationResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteApiDestination", input);
   }
@@ -132,10 +92,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DeleteArchiveRequest,
   ): Effect.Effect<
     DeleteArchiveResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteArchive", input);
   }
@@ -143,10 +100,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DeleteConnectionRequest,
   ): Effect.Effect<
     DeleteConnectionResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteConnection", input);
   }
@@ -162,10 +116,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DeletePartnerEventSourceRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalException
-    | OperationDisabledException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | OperationDisabledException | CommonAwsError
   > {
     return this.call("DeletePartnerEventSource", input);
   }
@@ -173,11 +124,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DeleteRuleRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalException
-    | ManagedRuleException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | ManagedRuleException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteRule", input);
   }
@@ -193,10 +140,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DescribeArchiveRequest,
   ): Effect.Effect<
     DescribeArchiveResponse,
-    | InternalException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeArchive", input);
   }
@@ -220,10 +164,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DescribeEventSourceRequest,
   ): Effect.Effect<
     DescribeEventSourceResponse,
-    | InternalException
-    | OperationDisabledException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | OperationDisabledException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeEventSource", input);
   }
@@ -231,10 +172,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DescribePartnerEventSourceRequest,
   ): Effect.Effect<
     DescribePartnerEventSourceResponse,
-    | InternalException
-    | OperationDisabledException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | OperationDisabledException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribePartnerEventSource", input);
   }
@@ -258,11 +196,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: DisableRuleRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalException
-    | ManagedRuleException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | ManagedRuleException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DisableRule", input);
   }
@@ -270,11 +204,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: EnableRuleRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalException
-    | ManagedRuleException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | ManagedRuleException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("EnableRule", input);
   }
@@ -304,7 +234,10 @@ export class CloudWatchEvents extends AWSServiceClient {
   }
   listEventBuses(
     input: ListEventBusesRequest,
-  ): Effect.Effect<ListEventBusesResponse, InternalException | CommonAwsError> {
+  ): Effect.Effect<
+    ListEventBusesResponse,
+    InternalException | CommonAwsError
+  > {
     return this.call("ListEventBuses", input);
   }
   listEventSources(
@@ -319,10 +252,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: ListPartnerEventSourceAccountsRequest,
   ): Effect.Effect<
     ListPartnerEventSourceAccountsResponse,
-    | InternalException
-    | OperationDisabledException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | OperationDisabledException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListPartnerEventSourceAccounts", input);
   }
@@ -336,7 +266,10 @@ export class CloudWatchEvents extends AWSServiceClient {
   }
   listReplays(
     input: ListReplaysRequest,
-  ): Effect.Effect<ListReplaysResponse, InternalException | CommonAwsError> {
+  ): Effect.Effect<
+    ListReplaysResponse,
+    InternalException | CommonAwsError
+  > {
     return this.call("ListReplays", input);
   }
   listRuleNamesByTarget(
@@ -373,7 +306,10 @@ export class CloudWatchEvents extends AWSServiceClient {
   }
   putEvents(
     input: PutEventsRequest,
-  ): Effect.Effect<PutEventsResponse, InternalException | CommonAwsError> {
+  ): Effect.Effect<
+    PutEventsResponse,
+    InternalException | CommonAwsError
+  > {
     return this.call("PutEvents", input);
   }
   putPartnerEvents(
@@ -388,12 +324,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: PutPermissionRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalException
-    | OperationDisabledException
-    | PolicyLengthExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | OperationDisabledException | PolicyLengthExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutPermission", input);
   }
@@ -401,13 +332,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: PutRuleRequest,
   ): Effect.Effect<
     PutRuleResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | InvalidEventPatternException
-    | LimitExceededException
-    | ManagedRuleException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | InvalidEventPatternException | LimitExceededException | ManagedRuleException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutRule", input);
   }
@@ -415,12 +340,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: PutTargetsRequest,
   ): Effect.Effect<
     PutTargetsResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | LimitExceededException
-    | ManagedRuleException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | LimitExceededException | ManagedRuleException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutTargets", input);
   }
@@ -428,11 +348,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: RemovePermissionRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalException
-    | OperationDisabledException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | OperationDisabledException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("RemovePermission", input);
   }
@@ -440,11 +356,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: RemoveTargetsRequest,
   ): Effect.Effect<
     RemoveTargetsResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | ManagedRuleException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | ManagedRuleException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("RemoveTargets", input);
   }
@@ -452,12 +364,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: StartReplayRequest,
   ): Effect.Effect<
     StartReplayResponse,
-    | InternalException
-    | InvalidEventPatternException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalException | InvalidEventPatternException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("StartReplay", input);
   }
@@ -465,11 +372,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | ManagedRuleException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | ManagedRuleException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -485,11 +388,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | ManagedRuleException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | ManagedRuleException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -497,11 +396,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: UpdateApiDestinationRequest,
   ): Effect.Effect<
     UpdateApiDestinationResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateApiDestination", input);
   }
@@ -509,12 +404,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: UpdateArchiveRequest,
   ): Effect.Effect<
     UpdateArchiveResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | InvalidEventPatternException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | InvalidEventPatternException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateArchive", input);
   }
@@ -522,11 +412,7 @@ export class CloudWatchEvents extends AWSServiceClient {
     input: UpdateConnectionRequest,
   ): Effect.Effect<
     UpdateConnectionResponse,
-    | ConcurrentModificationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InternalException | LimitExceededException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateConnection", input);
   }
@@ -558,14 +444,7 @@ export type ApiDestinationArn = string;
 
 export type ApiDestinationDescription = string;
 
-export type ApiDestinationHttpMethod =
-  | "POST"
-  | "GET"
-  | "HEAD"
-  | "OPTIONS"
-  | "PUT"
-  | "PATCH"
-  | "DELETE";
+export type ApiDestinationHttpMethod = "POST" | "GET" | "HEAD" | "OPTIONS" | "PUT" | "PATCH" | "DELETE";
 export type ApiDestinationInvocationRateLimitPerSecond = number;
 
 export type ApiDestinationName = string;
@@ -589,13 +468,7 @@ export type ArchiveDescription = string;
 export type ArchiveName = string;
 
 export type ArchiveResponseList = Array<Archive>;
-export type ArchiveState =
-  | "ENABLED"
-  | "DISABLED"
-  | "CREATING"
-  | "UPDATING"
-  | "CREATE_FAILED"
-  | "UPDATE_FAILED";
+export type ArchiveState = "ENABLED" | "DISABLED" | "CREATING" | "UPDATING" | "CREATE_FAILED" | "UPDATE_FAILED";
 export type ArchiveStateReason = string;
 
 export type Arn = string;
@@ -669,10 +542,7 @@ export interface ConnectionApiKeyAuthResponseParameters {
 }
 export type ConnectionArn = string;
 
-export type ConnectionAuthorizationType =
-  | "BASIC"
-  | "OAUTH_CLIENT_CREDENTIALS"
-  | "API_KEY";
+export type ConnectionAuthorizationType = "BASIC" | "OAUTH_CLIENT_CREDENTIALS" | "API_KEY";
 export interface ConnectionAuthResponseParameters {
   BasicAuthParameters?: ConnectionBasicAuthResponseParameters;
   OAuthParameters?: ConnectionOAuthResponseParameters;
@@ -718,17 +588,9 @@ export interface ConnectionQueryStringParameter {
   Value?: string;
   IsValueSecret?: boolean;
 }
-export type ConnectionQueryStringParametersList =
-  Array<ConnectionQueryStringParameter>;
+export type ConnectionQueryStringParametersList = Array<ConnectionQueryStringParameter>;
 export type ConnectionResponseList = Array<Connection>;
-export type ConnectionState =
-  | "CREATING"
-  | "UPDATING"
-  | "DELETING"
-  | "AUTHORIZED"
-  | "DEAUTHORIZED"
-  | "AUTHORIZING"
-  | "DEAUTHORIZING";
+export type ConnectionState = "CREATING" | "UPDATING" | "DELETING" | "AUTHORIZED" | "DEAUTHORIZED" | "AUTHORIZING" | "DEAUTHORIZING";
 export type ConnectionStateReason = string;
 
 export interface CreateApiDestinationRequest {
@@ -834,11 +696,13 @@ export interface DeauthorizeConnectionResponse {
 export interface DeleteApiDestinationRequest {
   Name: string;
 }
-export interface DeleteApiDestinationResponse {}
+export interface DeleteApiDestinationResponse {
+}
 export interface DeleteArchiveRequest {
   ArchiveName: string;
 }
-export interface DeleteArchiveResponse {}
+export interface DeleteArchiveResponse {
+}
 export interface DeleteConnectionRequest {
   Name: string;
 }
@@ -1300,8 +1164,7 @@ export interface PutPartnerEventsRequestEntry {
   DetailType?: string;
   Detail?: string;
 }
-export type PutPartnerEventsRequestEntryList =
-  Array<PutPartnerEventsRequestEntry>;
+export type PutPartnerEventsRequestEntryList = Array<PutPartnerEventsRequestEntry>;
 export interface PutPartnerEventsResponse {
   FailedEntryCount?: number;
   Entries?: Array<PutPartnerEventsResultEntry>;
@@ -1311,8 +1174,7 @@ export interface PutPartnerEventsResultEntry {
   ErrorCode?: string;
   ErrorMessage?: string;
 }
-export type PutPartnerEventsResultEntryList =
-  Array<PutPartnerEventsResultEntry>;
+export type PutPartnerEventsResultEntryList = Array<PutPartnerEventsResultEntry>;
 export interface PutPermissionRequest {
   EventBusName?: string;
   Action?: string;
@@ -1412,13 +1274,7 @@ export type ReplayDestinationFilters = Array<string>;
 export type ReplayList = Array<Replay>;
 export type ReplayName = string;
 
-export type ReplayState =
-  | "STARTING"
-  | "RUNNING"
-  | "CANCELLING"
-  | "COMPLETED"
-  | "CANCELLED"
-  | "FAILED";
+export type ReplayState = "STARTING" | "RUNNING" | "CANCELLING" | "COMPLETED" | "CANCELLED" | "FAILED";
 export type ReplayStateReason = string;
 
 export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
@@ -1530,7 +1386,8 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface Target {
@@ -1581,7 +1438,8 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApiDestinationRequest {
   Name: string;
   Description?: string;
@@ -1910,7 +1768,9 @@ export declare namespace EnableRule {
 export declare namespace ListApiDestinations {
   export type Input = ListApiDestinationsRequest;
   export type Output = ListApiDestinationsResponse;
-  export type Error = InternalException | CommonAwsError;
+  export type Error =
+    | InternalException
+    | CommonAwsError;
 }
 
 export declare namespace ListArchives {
@@ -1925,13 +1785,17 @@ export declare namespace ListArchives {
 export declare namespace ListConnections {
   export type Input = ListConnectionsRequest;
   export type Output = ListConnectionsResponse;
-  export type Error = InternalException | CommonAwsError;
+  export type Error =
+    | InternalException
+    | CommonAwsError;
 }
 
 export declare namespace ListEventBuses {
   export type Input = ListEventBusesRequest;
   export type Output = ListEventBusesResponse;
-  export type Error = InternalException | CommonAwsError;
+  export type Error =
+    | InternalException
+    | CommonAwsError;
 }
 
 export declare namespace ListEventSources {
@@ -1965,7 +1829,9 @@ export declare namespace ListPartnerEventSources {
 export declare namespace ListReplays {
   export type Input = ListReplaysRequest;
   export type Output = ListReplaysResponse;
-  export type Error = InternalException | CommonAwsError;
+  export type Error =
+    | InternalException
+    | CommonAwsError;
 }
 
 export declare namespace ListRuleNamesByTarget {
@@ -2007,7 +1873,9 @@ export declare namespace ListTargetsByRule {
 export declare namespace PutEvents {
   export type Input = PutEventsRequest;
   export type Output = PutEventsResponse;
-  export type Error = InternalException | CommonAwsError;
+  export type Error =
+    | InternalException
+    | CommonAwsError;
 }
 
 export declare namespace PutPartnerEvents {
@@ -2154,3 +2022,4 @@ export declare namespace UpdateConnection {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

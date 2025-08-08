@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class odb extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("odb", new AwsJson10Protocol(), cfg);
+  }
+
   acceptMarketplaceRegistration(
     input: AcceptMarketplaceRegistrationInput,
   ): Effect.Effect<
     AcceptMarketplaceRegistrationOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AcceptMarketplaceRegistration", input);
   }
@@ -20,11 +20,7 @@ export class odb extends AWSServiceClient {
     input: GetOciOnboardingStatusInput,
   ): Effect.Effect<
     GetOciOnboardingStatusOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetOciOnboardingStatus", input);
   }
@@ -32,11 +28,7 @@ export class odb extends AWSServiceClient {
     input: InitializeServiceInput,
   ): Effect.Effect<
     InitializeServiceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("InitializeService", input);
   }
@@ -44,11 +36,7 @@ export class odb extends AWSServiceClient {
     input: ListDbSystemShapesInput,
   ): Effect.Effect<
     ListDbSystemShapesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDbSystemShapes", input);
   }
@@ -56,11 +44,7 @@ export class odb extends AWSServiceClient {
     input: ListGiVersionsInput,
   ): Effect.Effect<
     ListGiVersionsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListGiVersions", input);
   }
@@ -68,12 +52,7 @@ export class odb extends AWSServiceClient {
     input: ListSystemVersionsInput,
   ): Effect.Effect<
     ListSystemVersionsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSystemVersions", input);
   }
@@ -108,15 +87,15 @@ export default odb;
 export interface AcceptMarketplaceRegistrationInput {
   marketplaceRegistrationToken: string;
 }
-export interface AcceptMarketplaceRegistrationOutput {}
+export interface AcceptMarketplaceRegistrationOutput {
+}
 export type Access = "ENABLED" | "DISABLED";
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
 }> {}
-export type AutonomousVirtualMachineList =
-  Array<AutonomousVirtualMachineSummary>;
+export type AutonomousVirtualMachineList = Array<AutonomousVirtualMachineSummary>;
 export interface AutonomousVirtualMachineSummary {
   autonomousVirtualMachineId?: string;
   status?: ResourceStatus;
@@ -183,14 +162,12 @@ export interface CloudAutonomousVmCluster {
   timeZone?: string;
   totalContainerDatabases?: number;
 }
-export type CloudAutonomousVmClusterList =
-  Array<CloudAutonomousVmClusterSummary>;
+export type CloudAutonomousVmClusterList = Array<CloudAutonomousVmClusterSummary>;
 export interface CloudAutonomousVmClusterResourceDetails {
   cloudAutonomousVmClusterId?: string;
   unallocatedAdbStorageInTBs?: number;
 }
-export type CloudAutonomousVmClusterResourceDetailsList =
-  Array<CloudAutonomousVmClusterResourceDetails>;
+export type CloudAutonomousVmClusterResourceDetailsList = Array<CloudAutonomousVmClusterResourceDetails>;
 export interface CloudAutonomousVmClusterSummary {
   cloudAutonomousVmClusterId: string;
   cloudAutonomousVmClusterArn?: string;
@@ -282,8 +259,7 @@ export interface CloudExadataInfrastructure {
   storageServerType?: string;
   computeModel?: ComputeModel;
 }
-export type CloudExadataInfrastructureList =
-  Array<CloudExadataInfrastructureSummary>;
+export type CloudExadataInfrastructureList = Array<CloudExadataInfrastructureSummary>;
 export interface CloudExadataInfrastructureSummary {
   cloudExadataInfrastructureId: string;
   displayName?: string;
@@ -545,14 +521,7 @@ export interface DataCollectionOptions {
 export interface DayOfWeek {
   name?: DayOfWeekName;
 }
-export type DayOfWeekName =
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY"
-  | "SUNDAY";
+export type DayOfWeekName = "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY" | "SUNDAY";
 export type DaysOfWeek = Array<DayOfWeek>;
 export interface DbIormConfig {
   dbName?: string;
@@ -592,16 +561,7 @@ export interface DbNode {
 }
 export type DbNodeList = Array<DbNodeSummary>;
 export type DbNodeMaintenanceType = "VMDB_REBOOT_MIGRATION";
-export type DbNodeResourceStatus =
-  | "AVAILABLE"
-  | "FAILED"
-  | "PROVISIONING"
-  | "TERMINATED"
-  | "TERMINATING"
-  | "UPDATING"
-  | "STOPPING"
-  | "STOPPED"
-  | "STARTING";
+export type DbNodeResourceStatus = "AVAILABLE" | "FAILED" | "PROVISIONING" | "TERMINATED" | "TERMINATING" | "UPDATING" | "STOPPING" | "STOPPED" | "STARTING";
 export interface DbNodeSummary {
   dbNodeId?: string;
   dbNodeArn?: string;
@@ -659,11 +619,7 @@ export interface DbServerPatchingDetails {
   timePatchingEnded?: string;
   timePatchingStarted?: string;
 }
-export type DbServerPatchingStatus =
-  | "COMPLETE"
-  | "FAILED"
-  | "MAINTENANCE_IN_PROGRESS"
-  | "SCHEDULED";
+export type DbServerPatchingStatus = "COMPLETE" | "FAILED" | "MAINTENANCE_IN_PROGRESS" | "SCHEDULED";
 export interface DbServerSummary {
   dbServerId?: string;
   status?: ResourceStatus;
@@ -716,24 +672,29 @@ export interface DbSystemShapeSummary {
 export interface DeleteCloudAutonomousVmClusterInput {
   cloudAutonomousVmClusterId: string;
 }
-export interface DeleteCloudAutonomousVmClusterOutput {}
+export interface DeleteCloudAutonomousVmClusterOutput {
+}
 export interface DeleteCloudExadataInfrastructureInput {
   cloudExadataInfrastructureId: string;
 }
-export interface DeleteCloudExadataInfrastructureOutput {}
+export interface DeleteCloudExadataInfrastructureOutput {
+}
 export interface DeleteCloudVmClusterInput {
   cloudVmClusterId: string;
 }
-export interface DeleteCloudVmClusterOutput {}
+export interface DeleteCloudVmClusterOutput {
+}
 export interface DeleteOdbNetworkInput {
   odbNetworkId: string;
   deleteAssociatedResources: boolean;
 }
-export interface DeleteOdbNetworkOutput {}
+export interface DeleteOdbNetworkOutput {
+}
 export interface DeleteOdbPeeringConnectionInput {
   odbPeeringConnectionId: string;
 }
-export interface DeleteOdbPeeringConnectionOutput {}
+export interface DeleteOdbPeeringConnectionOutput {
+}
 export type DiskRedundancy = "HIGH" | "NORMAL";
 export interface ExadataIormConfig {
   dbPlans?: Array<DbIormConfig>;
@@ -782,7 +743,8 @@ export interface GetDbServerInput {
 export interface GetDbServerOutput {
   dbServer?: DbServer;
 }
-export interface GetOciOnboardingStatusInput {}
+export interface GetOciOnboardingStatusInput {
+}
 export interface GetOciOnboardingStatusOutput {
   status?: OciOnboardingStatus;
   existingTenancyActivationLink?: string;
@@ -805,20 +767,17 @@ export interface GiVersionSummary {
   version?: string;
 }
 export type HoursOfDay = Array<number>;
-export interface InitializeServiceInput {}
-export interface InitializeServiceOutput {}
+export interface InitializeServiceInput {
+}
+export interface InitializeServiceOutput {
+}
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
   readonly message: string;
   readonly retryAfterSeconds?: number;
 }> {}
-export type IormLifecycleState =
-  | "BOOTSTRAPPING"
-  | "DISABLED"
-  | "ENABLED"
-  | "FAILED"
-  | "UPDATING";
+export type IormLifecycleState = "BOOTSTRAPPING" | "DISABLED" | "ENABLED" | "FAILED" | "UPDATING";
 export type LicenseModel = "BRING_YOUR_OWN_LICENSE" | "LICENSE_INCLUDED";
 export interface ListAutonomousVirtualMachinesInput {
   maxResults?: number;
@@ -937,11 +896,7 @@ export interface MaintenanceWindow {
   skipRu?: boolean;
   weeksOfMonth?: Array<number>;
 }
-export type ManagedResourceStatus =
-  | "ENABLED"
-  | "ENABLING"
-  | "DISABLED"
-  | "DISABLING";
+export type ManagedResourceStatus = "ENABLED" | "ENABLING" | "DISABLED" | "DISABLING";
 export interface ManagedS3BackupAccess {
   status?: ManagedResourceStatus;
   ipv4Addresses?: Array<string>;
@@ -958,44 +913,15 @@ export interface ManagedServices {
 export interface Month {
   name?: MonthName;
 }
-export type MonthName =
-  | "JANUARY"
-  | "FEBRUARY"
-  | "MARCH"
-  | "APRIL"
-  | "MAY"
-  | "JUNE"
-  | "JULY"
-  | "AUGUST"
-  | "SEPTEMBER"
-  | "OCTOBER"
-  | "NOVEMBER"
-  | "DECEMBER";
+export type MonthName = "JANUARY" | "FEBRUARY" | "MARCH" | "APRIL" | "MAY" | "JUNE" | "JULY" | "AUGUST" | "SEPTEMBER" | "OCTOBER" | "NOVEMBER" | "DECEMBER";
 export type Months = Array<Month>;
-export type Objective =
-  | "AUTO"
-  | "BALANCED"
-  | "BASIC"
-  | "HIGH_THROUGHPUT"
-  | "LOW_LATENCY";
+export type Objective = "AUTO" | "BALANCED" | "BASIC" | "HIGH_THROUGHPUT" | "LOW_LATENCY";
 export interface OciDnsForwardingConfig {
   domainName?: string;
   ociDnsListenerIp?: string;
 }
 export type OciDnsForwardingConfigList = Array<OciDnsForwardingConfig>;
-export type OciOnboardingStatus =
-  | "NOT_STARTED"
-  | "PENDING_LINK_GENERATION"
-  | "PENDING_CUSTOMER_ACTION"
-  | "PENDING_INITIALIZATION"
-  | "ACTIVATING"
-  | "ACTIVE_IN_HOME_REGION"
-  | "ACTIVE"
-  | "ACTIVE_LIMITED"
-  | "FAILED"
-  | "PUBLIC_OFFER_UNSUPPORTED"
-  | "SUSPENDED"
-  | "CANCELED";
+export type OciOnboardingStatus = "NOT_STARTED" | "PENDING_LINK_GENERATION" | "PENDING_CUSTOMER_ACTION" | "PENDING_INITIALIZATION" | "ACTIVATING" | "ACTIVE_IN_HOME_REGION" | "ACTIVE" | "ACTIVE_LIMITED" | "FAILED" | "PUBLIC_OFFER_UNSUPPORTED" | "SUSPENDED" | "CANCELED";
 export interface OdbNetwork {
   odbNetworkId: string;
   displayName?: string;
@@ -1097,14 +1023,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly resourceId: string;
   readonly resourceType: string;
 }> {}
-export type ResourceStatus =
-  | "AVAILABLE"
-  | "FAILED"
-  | "PROVISIONING"
-  | "TERMINATED"
-  | "TERMINATING"
-  | "UPDATING"
-  | "MAINTENANCE_IN_PROGRESS";
+export type ResourceStatus = "AVAILABLE" | "FAILED" | "PROVISIONING" | "TERMINATED" | "TERMINATING" | "UPDATING" | "MAINTENANCE_IN_PROGRESS";
 export type ResponseTagMap = Record<string, string>;
 export interface S3Access {
   status?: ManagedResourceStatus;
@@ -1160,7 +1079,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1173,7 +1093,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateCloudExadataInfrastructureInput {
   cloudExadataInfrastructureId: string;
   maintenanceWindow?: MaintenanceWindow;
@@ -1211,11 +1132,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "UNKNOWN_OPERATION"
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "OTHER";
+export type ValidationExceptionReason = "UNKNOWN_OPERATION" | "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "OTHER";
 export type VpcEndpointType = "SERVICENETWORK";
 export type WeeksOfMonth = Array<number>;
 export interface ZeroEtlAccess {
@@ -1293,7 +1210,9 @@ export declare namespace ListSystemVersions {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -1308,5 +1227,8 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
+

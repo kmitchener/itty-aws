@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class EBS extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("ebs", new RestJson1Protocol(), cfg);
+  }
+
   completeSnapshot(
     input: CompleteSnapshotRequest,
   ): Effect.Effect<
     CompleteSnapshotResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestThrottledException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestThrottledException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CompleteSnapshot", input);
   }
@@ -21,13 +20,7 @@ export class EBS extends AWSServiceClient {
     input: GetSnapshotBlockRequest,
   ): Effect.Effect<
     GetSnapshotBlockResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestThrottledException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestThrottledException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("GetSnapshotBlock", input);
   }
@@ -35,13 +28,7 @@ export class EBS extends AWSServiceClient {
     input: ListChangedBlocksRequest,
   ): Effect.Effect<
     ListChangedBlocksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestThrottledException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestThrottledException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("ListChangedBlocks", input);
   }
@@ -49,13 +36,7 @@ export class EBS extends AWSServiceClient {
     input: ListSnapshotBlocksRequest,
   ): Effect.Effect<
     ListSnapshotBlocksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestThrottledException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestThrottledException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("ListSnapshotBlocks", input);
   }
@@ -63,13 +44,7 @@ export class EBS extends AWSServiceClient {
     input: PutSnapshotBlockRequest,
   ): Effect.Effect<
     PutSnapshotBlockResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | RequestThrottledException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | RequestThrottledException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("PutSnapshotBlock", input);
   }
@@ -77,15 +52,7 @@ export class EBS extends AWSServiceClient {
     input: StartSnapshotRequest,
   ): Effect.Effect<
     StartSnapshotResponse,
-    | AccessDeniedException
-    | ConcurrentLimitExceededException
-    | ConflictException
-    | InternalServerException
-    | RequestThrottledException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentLimitExceededException | ConflictException | InternalServerException | RequestThrottledException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("StartSnapshot", input);
   }
@@ -99,9 +66,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly Reason: AccessDeniedExceptionReason;
 }> {}
-export type AccessDeniedExceptionReason =
-  | "UNAUTHORIZED_ACCOUNT"
-  | "DEPENDENCY_ACCESS_DENIED";
+export type AccessDeniedExceptionReason = "UNAUTHORIZED_ACCOUNT" | "DEPENDENCY_ACCESS_DENIED";
 export interface Block {
   BlockIndex?: number;
   BlockToken?: string;
@@ -229,29 +194,21 @@ export declare class RequestThrottledException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly Reason?: RequestThrottledExceptionReason;
 }> {}
-export type RequestThrottledExceptionReason =
-  | "ACCOUNT_THROTTLED"
-  | "DEPENDENCY_REQUEST_THROTTLED"
-  | "RESOURCE_LEVEL_THROTTLE";
+export type RequestThrottledExceptionReason = "ACCOUNT_THROTTLED" | "DEPENDENCY_REQUEST_THROTTLED" | "RESOURCE_LEVEL_THROTTLE";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
   readonly Reason?: ResourceNotFoundExceptionReason;
 }> {}
-export type ResourceNotFoundExceptionReason =
-  | "SNAPSHOT_NOT_FOUND"
-  | "GRANT_NOT_FOUND"
-  | "DEPENDENCY_RESOURCE_NOT_FOUND"
-  | "IMAGE_NOT_FOUND";
+export type ResourceNotFoundExceptionReason = "SNAPSHOT_NOT_FOUND" | "GRANT_NOT_FOUND" | "DEPENDENCY_RESOURCE_NOT_FOUND" | "IMAGE_NOT_FOUND";
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;
   readonly Reason?: ServiceQuotaExceededExceptionReason;
 }> {}
-export type ServiceQuotaExceededExceptionReason =
-  "DEPENDENCY_SERVICE_QUOTA_EXCEEDED";
+export type ServiceQuotaExceededExceptionReason = "DEPENDENCY_SERVICE_QUOTA_EXCEEDED";
 export type SnapshotId = string;
 
 export type SSEType = "SSE_EBS" | "SSE_KMS" | "NONE";
@@ -298,22 +255,7 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly Reason?: ValidationExceptionReason;
 }> {}
-export type ValidationExceptionReason =
-  | "INVALID_CUSTOMER_KEY"
-  | "INVALID_PAGE_TOKEN"
-  | "INVALID_BLOCK_TOKEN"
-  | "INVALID_GRANT_TOKEN"
-  | "INVALID_SNAPSHOT_ID"
-  | "UNRELATED_SNAPSHOTS"
-  | "INVALID_BLOCK"
-  | "INVALID_CONTENT_ENCODING"
-  | "INVALID_TAG"
-  | "INVALID_DEPENDENCY_REQUEST"
-  | "INVALID_PARAMETER_VALUE"
-  | "INVALID_VOLUME_SIZE"
-  | "CONFLICTING_BLOCK_UPDATE"
-  | "INVALID_IMAGE_ID"
-  | "WRITE_REQUEST_TIMEOUT";
+export type ValidationExceptionReason = "INVALID_CUSTOMER_KEY" | "INVALID_PAGE_TOKEN" | "INVALID_BLOCK_TOKEN" | "INVALID_GRANT_TOKEN" | "INVALID_SNAPSHOT_ID" | "UNRELATED_SNAPSHOTS" | "INVALID_BLOCK" | "INVALID_CONTENT_ENCODING" | "INVALID_TAG" | "INVALID_DEPENDENCY_REQUEST" | "INVALID_PARAMETER_VALUE" | "INVALID_VOLUME_SIZE" | "CONFLICTING_BLOCK_UPDATE" | "INVALID_IMAGE_ID" | "WRITE_REQUEST_TIMEOUT";
 export type VolumeSize = number;
 
 export declare namespace CompleteSnapshot {
@@ -395,3 +337,4 @@ export declare namespace StartSnapshot {
     | ValidationException
     | CommonAwsError;
 }
+

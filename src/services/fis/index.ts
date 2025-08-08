@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class fis extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("fis", new RestJson1Protocol(), cfg);
+  }
+
   createExperimentTemplate(
     input: CreateExperimentTemplateRequest,
   ): Effect.Effect<
     CreateExperimentTemplateResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateExperimentTemplate", input);
   }
@@ -19,11 +20,7 @@ export class fis extends AWSServiceClient {
     input: CreateTargetAccountConfigurationRequest,
   ): Effect.Effect<
     CreateTargetAccountConfigurationResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("CreateTargetAccountConfiguration", input);
   }
@@ -101,7 +98,10 @@ export class fis extends AWSServiceClient {
   }
   listActions(
     input: ListActionsRequest,
-  ): Effect.Effect<ListActionsResponse, ValidationException | CommonAwsError> {
+  ): Effect.Effect<
+    ListActionsResponse,
+    ValidationException | CommonAwsError
+  > {
     return this.call("ListActions", input);
   }
   listExperimentResolvedTargets(
@@ -138,7 +138,10 @@ export class fis extends AWSServiceClient {
   }
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError> {
+  ): Effect.Effect<
+    ListTagsForResourceResponse,
+    CommonAwsError
+  > {
     return this.call("ListTagsForResource", input);
   }
   listTargetAccountConfigurations(
@@ -161,11 +164,7 @@ export class fis extends AWSServiceClient {
     input: StartExperimentRequest,
   ): Effect.Effect<
     StartExperimentResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("StartExperiment", input);
   }
@@ -179,22 +178,25 @@ export class fis extends AWSServiceClient {
   }
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<TagResourceResponse, CommonAwsError> {
+  ): Effect.Effect<
+    TagResourceResponse,
+    CommonAwsError
+  > {
     return this.call("TagResource", input);
   }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<UntagResourceResponse, CommonAwsError> {
+  ): Effect.Effect<
+    UntagResourceResponse,
+    CommonAwsError
+  > {
     return this.call("UntagResource", input);
   }
   updateExperimentTemplate(
     input: UpdateExperimentTemplateRequest,
   ): Effect.Effect<
     UpdateExperimentTemplateResponse,
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateExperimentTemplate", input);
   }
@@ -202,10 +204,7 @@ export class fis extends AWSServiceClient {
     input: UpdateSafetyLeverStateRequest,
   ): Effect.Effect<
     UpdateSafetyLeverStateResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateSafetyLeverState", input);
   }
@@ -278,10 +277,7 @@ export interface CreateExperimentTemplateActionInput {
   targets?: Record<string, string>;
   startAfter?: Array<string>;
 }
-export type CreateExperimentTemplateActionInputMap = Record<
-  string,
-  CreateExperimentTemplateActionInput
->;
+export type CreateExperimentTemplateActionInputMap = Record<string, CreateExperimentTemplateActionInput>;
 export interface CreateExperimentTemplateExperimentOptionsInput {
   accountTargeting?: AccountTargeting;
   emptyTargetResolutionMode?: EmptyTargetResolutionMode;
@@ -316,8 +312,7 @@ export interface CreateExperimentTemplateStopConditionInput {
   source: string;
   value?: string;
 }
-export type CreateExperimentTemplateStopConditionInputList =
-  Array<CreateExperimentTemplateStopConditionInput>;
+export type CreateExperimentTemplateStopConditionInputList = Array<CreateExperimentTemplateStopConditionInput>;
 export interface CreateExperimentTemplateTargetInput {
   resourceType: string;
   resourceArns?: Array<string>;
@@ -326,10 +321,7 @@ export interface CreateExperimentTemplateTargetInput {
   selectionMode: string;
   parameters?: Record<string, string>;
 }
-export type CreateExperimentTemplateTargetInputMap = Record<
-  string,
-  CreateExperimentTemplateTargetInput
->;
+export type CreateExperimentTemplateTargetInputMap = Record<string, CreateExperimentTemplateTargetInput>;
 export interface CreateTargetAccountConfigurationRequest {
   clientToken?: string;
   experimentTemplateId: string;
@@ -408,16 +400,7 @@ export interface ExperimentActionState {
   status?: ExperimentActionStatus;
   reason?: string;
 }
-export type ExperimentActionStatus =
-  | "pending"
-  | "initiating"
-  | "running"
-  | "completed"
-  | "cancelled"
-  | "stopping"
-  | "stopped"
-  | "failed"
-  | "skipped";
+export type ExperimentActionStatus = "pending" | "initiating" | "running" | "completed" | "cancelled" | "stopping" | "stopped" | "failed" | "skipped";
 export type ExperimentActionStatusReason = string;
 
 export type ExperimentActionTargetMap = Record<string, string>;
@@ -464,8 +447,7 @@ export interface ExperimentReportConfiguration {
 export interface ExperimentReportConfigurationCloudWatchDashboard {
   dashboardIdentifier?: string;
 }
-export type ExperimentReportConfigurationCloudWatchDashboardList =
-  Array<ExperimentReportConfigurationCloudWatchDashboard>;
+export type ExperimentReportConfigurationCloudWatchDashboardList = Array<ExperimentReportConfigurationCloudWatchDashboard>;
 export interface ExperimentReportConfigurationDataSources {
   cloudWatchDashboards?: Array<ExperimentReportConfigurationCloudWatchDashboard>;
 }
@@ -497,12 +479,7 @@ export interface ExperimentReportState {
   reason?: string;
   error?: ExperimentReportError;
 }
-export type ExperimentReportStatus =
-  | "pending"
-  | "running"
-  | "completed"
-  | "cancelled"
-  | "failed";
+export type ExperimentReportStatus = "pending" | "running" | "completed" | "cancelled" | "failed";
 export interface ExperimentS3LogConfiguration {
   bucketName?: string;
   prefix?: string;
@@ -514,15 +491,7 @@ export interface ExperimentState {
   reason?: string;
   error?: ExperimentError;
 }
-export type ExperimentStatus =
-  | "pending"
-  | "initiating"
-  | "running"
-  | "completed"
-  | "stopping"
-  | "stopped"
-  | "failed"
-  | "cancelled";
+export type ExperimentStatus = "pending" | "initiating" | "running" | "completed" | "stopping" | "stopped" | "failed" | "cancelled";
 export type ExperimentStatusReason = string;
 
 export interface ExperimentStopCondition {
@@ -553,8 +522,7 @@ export interface ExperimentTargetAccountConfiguration {
   accountId?: string;
   description?: string;
 }
-export type ExperimentTargetAccountConfigurationList =
-  Array<ExperimentTargetAccountConfigurationSummary>;
+export type ExperimentTargetAccountConfigurationList = Array<ExperimentTargetAccountConfigurationSummary>;
 export interface ExperimentTargetAccountConfigurationSummary {
   roleArn?: string;
   accountId?: string;
@@ -605,10 +573,7 @@ export interface ExperimentTemplateAction {
 }
 export type ExperimentTemplateActionDescription = string;
 
-export type ExperimentTemplateActionMap = Record<
-  string,
-  ExperimentTemplateAction
->;
+export type ExperimentTemplateActionMap = Record<string, ExperimentTemplateAction>;
 export type ExperimentTemplateActionName = string;
 
 export type ExperimentTemplateActionParameter = string;
@@ -650,8 +615,7 @@ export interface ExperimentTemplateReportConfiguration {
 export interface ExperimentTemplateReportConfigurationCloudWatchDashboard {
   dashboardIdentifier?: string;
 }
-export type ExperimentTemplateReportConfigurationCloudWatchDashboardList =
-  Array<ExperimentTemplateReportConfigurationCloudWatchDashboard>;
+export type ExperimentTemplateReportConfigurationCloudWatchDashboardList = Array<ExperimentTemplateReportConfigurationCloudWatchDashboard>;
 export interface ExperimentTemplateReportConfigurationDataSources {
   cloudWatchDashboards?: Array<ExperimentTemplateReportConfigurationCloudWatchDashboard>;
 }
@@ -676,8 +640,7 @@ export interface ExperimentTemplateStopCondition {
   source?: string;
   value?: string;
 }
-export type ExperimentTemplateStopConditionList =
-  Array<ExperimentTemplateStopCondition>;
+export type ExperimentTemplateStopConditionList = Array<ExperimentTemplateStopCondition>;
 export interface ExperimentTemplateSummary {
   id?: string;
   arn?: string;
@@ -699,10 +662,8 @@ export interface ExperimentTemplateTargetFilter {
   path?: string;
   values?: Array<string>;
 }
-export type ExperimentTemplateTargetFilterInputList =
-  Array<ExperimentTemplateTargetInputFilter>;
-export type ExperimentTemplateTargetFilterList =
-  Array<ExperimentTemplateTargetFilter>;
+export type ExperimentTemplateTargetFilterInputList = Array<ExperimentTemplateTargetInputFilter>;
+export type ExperimentTemplateTargetFilterList = Array<ExperimentTemplateTargetFilter>;
 export type ExperimentTemplateTargetFilterPath = string;
 
 export type ExperimentTemplateTargetFilterValue = string;
@@ -712,10 +673,7 @@ export interface ExperimentTemplateTargetInputFilter {
   path: string;
   values: Array<string>;
 }
-export type ExperimentTemplateTargetMap = Record<
-  string,
-  ExperimentTemplateTarget
->;
+export type ExperimentTemplateTargetMap = Record<string, ExperimentTemplateTarget>;
 export type ExperimentTemplateTargetName = string;
 
 export type ExperimentTemplateTargetParameterMap = Record<string, string>;
@@ -858,8 +816,7 @@ export type ReportConfigurationCloudWatchDashboardIdentifier = string;
 export interface ReportConfigurationCloudWatchDashboardInput {
   dashboardIdentifier?: string;
 }
-export type ReportConfigurationCloudWatchDashboardInputList =
-  Array<ReportConfigurationCloudWatchDashboardInput>;
+export type ReportConfigurationCloudWatchDashboardInputList = Array<ReportConfigurationCloudWatchDashboardInput>;
 export type ReportConfigurationDuration = string;
 
 export interface ReportConfigurationS3Output {
@@ -942,7 +899,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TargetAccountConfiguration {
@@ -952,8 +910,7 @@ export interface TargetAccountConfiguration {
 }
 export type TargetAccountConfigurationDescription = string;
 
-export type TargetAccountConfigurationList =
-  Array<TargetAccountConfigurationSummary>;
+export type TargetAccountConfigurationList = Array<TargetAccountConfigurationSummary>;
 export type TargetAccountConfigurationsCount = number;
 
 export interface TargetAccountConfigurationSummary {
@@ -985,10 +942,7 @@ export interface TargetResourceTypeParameter {
 }
 export type TargetResourceTypeParameterDescription = string;
 
-export type TargetResourceTypeParameterMap = Record<
-  string,
-  TargetResourceTypeParameter
->;
+export type TargetResourceTypeParameterMap = Record<string, TargetResourceTypeParameter>;
 export type TargetResourceTypeParameterName = string;
 
 export type TargetResourceTypeParameterRequired = boolean;
@@ -1002,7 +956,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys?: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateExperimentTemplateActionInputItem {
   actionId?: string;
   description?: string;
@@ -1010,10 +965,7 @@ export interface UpdateExperimentTemplateActionInputItem {
   targets?: Record<string, string>;
   startAfter?: Array<string>;
 }
-export type UpdateExperimentTemplateActionInputMap = Record<
-  string,
-  UpdateExperimentTemplateActionInputItem
->;
+export type UpdateExperimentTemplateActionInputMap = Record<string, UpdateExperimentTemplateActionInputItem>;
 export interface UpdateExperimentTemplateExperimentOptionsInput {
   emptyTargetResolutionMode?: EmptyTargetResolutionMode;
 }
@@ -1046,8 +998,7 @@ export interface UpdateExperimentTemplateStopConditionInput {
   source: string;
   value?: string;
 }
-export type UpdateExperimentTemplateStopConditionInputList =
-  Array<UpdateExperimentTemplateStopConditionInput>;
+export type UpdateExperimentTemplateStopConditionInputList = Array<UpdateExperimentTemplateStopConditionInput>;
 export interface UpdateExperimentTemplateTargetInput {
   resourceType: string;
   resourceArns?: Array<string>;
@@ -1056,10 +1007,7 @@ export interface UpdateExperimentTemplateTargetInput {
   selectionMode: string;
   parameters?: Record<string, string>;
 }
-export type UpdateExperimentTemplateTargetInputMap = Record<
-  string,
-  UpdateExperimentTemplateTargetInput
->;
+export type UpdateExperimentTemplateTargetInputMap = Record<string, UpdateExperimentTemplateTargetInput>;
 export interface UpdateSafetyLeverStateInput {
   status: SafetyLeverStatusInput;
   reason: string;
@@ -1164,7 +1112,9 @@ export declare namespace GetExperimentTemplate {
 export declare namespace GetSafetyLever {
   export type Input = GetSafetyLeverRequest;
   export type Output = GetSafetyLeverResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace GetTargetAccountConfiguration {
@@ -1188,7 +1138,9 @@ export declare namespace GetTargetResourceType {
 export declare namespace ListActions {
   export type Input = ListActionsRequest;
   export type Output = ListActionsResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace ListExperimentResolvedTargets {
@@ -1203,7 +1155,9 @@ export declare namespace ListExperimentResolvedTargets {
 export declare namespace ListExperiments {
   export type Input = ListExperimentsRequest;
   export type Output = ListExperimentsResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace ListExperimentTargetAccountConfigurations {
@@ -1218,13 +1172,16 @@ export declare namespace ListExperimentTargetAccountConfigurations {
 export declare namespace ListExperimentTemplates {
   export type Input = ListExperimentTemplatesRequest;
   export type Output = ListExperimentTemplatesResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListTargetAccountConfigurations {
@@ -1239,7 +1196,9 @@ export declare namespace ListTargetAccountConfigurations {
 export declare namespace ListTargetResourceTypes {
   export type Input = ListTargetResourceTypesRequest;
   export type Output = ListTargetResourceTypesResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace StartExperiment {
@@ -1265,13 +1224,15 @@ export declare namespace StopExperiment {
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = TagResourceResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdateExperimentTemplate {
@@ -1302,3 +1263,4 @@ export declare namespace UpdateTargetAccountConfiguration {
     | ValidationException
     | CommonAwsError;
 }
+

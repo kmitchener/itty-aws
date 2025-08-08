@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class IoT extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("iot", new RestJson1Protocol(), cfg);
+  }
+
   acceptCertificateTransfer(
     input: AcceptCertificateTransferRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | TransferAlreadyCompletedException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | TransferAlreadyCompletedException | UnauthorizedException | CommonAwsError
   > {
     return this.call("AcceptCertificateTransfer", input);
   }
@@ -22,11 +20,7 @@ export class IoT extends AWSServiceClient {
     input: AddThingToBillingGroupRequest,
   ): Effect.Effect<
     AddThingToBillingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AddThingToBillingGroup", input);
   }
@@ -34,11 +28,7 @@ export class IoT extends AWSServiceClient {
     input: AddThingToThingGroupRequest,
   ): Effect.Effect<
     AddThingToThingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AddThingToThingGroup", input);
   }
@@ -46,13 +36,7 @@ export class IoT extends AWSServiceClient {
     input: AssociateSbomWithPackageVersionRequest,
   ): Effect.Effect<
     AssociateSbomWithPackageVersionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AssociateSbomWithPackageVersion", input);
   }
@@ -60,12 +44,7 @@ export class IoT extends AWSServiceClient {
     input: AssociateTargetsWithJobRequest,
   ): Effect.Effect<
     AssociateTargetsWithJobResponse,
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("AssociateTargetsWithJob", input);
   }
@@ -73,14 +52,7 @@ export class IoT extends AWSServiceClient {
     input: AttachPolicyRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("AttachPolicy", input);
   }
@@ -88,14 +60,7 @@ export class IoT extends AWSServiceClient {
     input: AttachPrincipalPolicyRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("AttachPrincipalPolicy", input);
   }
@@ -103,13 +68,7 @@ export class IoT extends AWSServiceClient {
     input: AttachSecurityProfileRequest,
   ): Effect.Effect<
     AttachSecurityProfileResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | VersionConflictException | CommonAwsError
   > {
     return this.call("AttachSecurityProfile", input);
   }
@@ -117,13 +76,7 @@ export class IoT extends AWSServiceClient {
     input: AttachThingPrincipalRequest,
   ): Effect.Effect<
     AttachThingPrincipalResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("AttachThingPrincipal", input);
   }
@@ -131,11 +84,7 @@ export class IoT extends AWSServiceClient {
     input: CancelAuditMitigationActionsTaskRequest,
   ): Effect.Effect<
     CancelAuditMitigationActionsTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelAuditMitigationActionsTask", input);
   }
@@ -143,11 +92,7 @@ export class IoT extends AWSServiceClient {
     input: CancelAuditTaskRequest,
   ): Effect.Effect<
     CancelAuditTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelAuditTask", input);
   }
@@ -155,14 +100,7 @@ export class IoT extends AWSServiceClient {
     input: CancelCertificateTransferRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | TransferAlreadyCompletedException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | TransferAlreadyCompletedException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CancelCertificateTransfer", input);
   }
@@ -170,11 +108,7 @@ export class IoT extends AWSServiceClient {
     input: CancelDetectMitigationActionsTaskRequest,
   ): Effect.Effect<
     CancelDetectMitigationActionsTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelDetectMitigationActionsTask", input);
   }
@@ -182,12 +116,7 @@ export class IoT extends AWSServiceClient {
     input: CancelJobRequest,
   ): Effect.Effect<
     CancelJobResponse,
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelJob", input);
   }
@@ -195,13 +124,7 @@ export class IoT extends AWSServiceClient {
     input: CancelJobExecutionRequest,
   ): Effect.Effect<
     {},
-    | InvalidRequestException
-    | InvalidStateTransitionException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | VersionConflictException
-    | CommonAwsError
+    InvalidRequestException | InvalidStateTransitionException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | VersionConflictException | CommonAwsError
   > {
     return this.call("CancelJobExecution", input);
   }
@@ -209,13 +132,7 @@ export class IoT extends AWSServiceClient {
     input: ClearDefaultAuthorizerRequest,
   ): Effect.Effect<
     ClearDefaultAuthorizerResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ClearDefaultAuthorizer", input);
   }
@@ -223,12 +140,7 @@ export class IoT extends AWSServiceClient {
     input: ConfirmTopicRuleDestinationRequest,
   ): Effect.Effect<
     ConfirmTopicRuleDestinationResponse,
-    | ConflictingResourceUpdateException
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ConfirmTopicRuleDestination", input);
   }
@@ -236,12 +148,7 @@ export class IoT extends AWSServiceClient {
     input: CreateAuditSuppressionRequest,
   ): Effect.Effect<
     CreateAuditSuppressionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateAuditSuppression", input);
   }
@@ -249,14 +156,7 @@ export class IoT extends AWSServiceClient {
     input: CreateAuthorizerRequest,
   ): Effect.Effect<
     CreateAuthorizerResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateAuthorizer", input);
   }
@@ -264,11 +164,7 @@ export class IoT extends AWSServiceClient {
     input: CreateBillingGroupRequest,
   ): Effect.Effect<
     CreateBillingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateBillingGroup", input);
   }
@@ -276,12 +172,7 @@ export class IoT extends AWSServiceClient {
     input: CreateCertificateFromCsrRequest,
   ): Effect.Effect<
     CreateCertificateFromCsrResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateCertificateFromCsr", input);
   }
@@ -289,14 +180,7 @@ export class IoT extends AWSServiceClient {
     input: CreateCertificateProviderRequest,
   ): Effect.Effect<
     CreateCertificateProviderResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateCertificateProvider", input);
   }
@@ -304,12 +188,7 @@ export class IoT extends AWSServiceClient {
     input: CreateCommandRequest,
   ): Effect.Effect<
     CreateCommandResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCommand", input);
   }
@@ -317,12 +196,7 @@ export class IoT extends AWSServiceClient {
     input: CreateCustomMetricRequest,
   ): Effect.Effect<
     CreateCustomMetricResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateCustomMetric", input);
   }
@@ -330,12 +204,7 @@ export class IoT extends AWSServiceClient {
     input: CreateDimensionRequest,
   ): Effect.Effect<
     CreateDimensionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDimension", input);
   }
@@ -343,15 +212,7 @@ export class IoT extends AWSServiceClient {
     input: CreateDomainConfigurationRequest,
   ): Effect.Effect<
     CreateDomainConfigurationResponse,
-    | CertificateValidationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    CertificateValidationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateDomainConfiguration", input);
   }
@@ -359,14 +220,7 @@ export class IoT extends AWSServiceClient {
     input: CreateDynamicThingGroupRequest,
   ): Effect.Effect<
     CreateDynamicThingGroupResponse,
-    | InternalFailureException
-    | InvalidQueryException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidQueryException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDynamicThingGroup", input);
   }
@@ -374,18 +228,7 @@ export class IoT extends AWSServiceClient {
     input: CreateFleetMetricRequest,
   ): Effect.Effect<
     CreateFleetMetricResponse,
-    | IndexNotReadyException
-    | InternalFailureException
-    | InvalidAggregationException
-    | InvalidQueryException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateFleetMetric", input);
   }
@@ -393,13 +236,7 @@ export class IoT extends AWSServiceClient {
     input: CreateJobRequest,
   ): Effect.Effect<
     CreateJobResponse,
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateJob", input);
   }
@@ -407,13 +244,7 @@ export class IoT extends AWSServiceClient {
     input: CreateJobTemplateRequest,
   ): Effect.Effect<
     CreateJobTemplateResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateJobTemplate", input);
   }
@@ -421,12 +252,7 @@ export class IoT extends AWSServiceClient {
     input: CreateKeysAndCertificateRequest,
   ): Effect.Effect<
     CreateKeysAndCertificateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateKeysAndCertificate", input);
   }
@@ -434,12 +260,7 @@ export class IoT extends AWSServiceClient {
     input: CreateMitigationActionRequest,
   ): Effect.Effect<
     CreateMitigationActionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateMitigationAction", input);
   }
@@ -447,15 +268,7 @@ export class IoT extends AWSServiceClient {
     input: CreateOTAUpdateRequest,
   ): Effect.Effect<
     CreateOTAUpdateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateOTAUpdate", input);
   }
@@ -463,12 +276,7 @@ export class IoT extends AWSServiceClient {
     input: CreatePackageRequest,
   ): Effect.Effect<
     CreatePackageResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePackage", input);
   }
@@ -476,12 +284,7 @@ export class IoT extends AWSServiceClient {
     input: CreatePackageVersionRequest,
   ): Effect.Effect<
     CreatePackageVersionResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreatePackageVersion", input);
   }
@@ -489,14 +292,7 @@ export class IoT extends AWSServiceClient {
     input: CreatePolicyRequest,
   ): Effect.Effect<
     CreatePolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | MalformedPolicyException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | MalformedPolicyException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreatePolicy", input);
   }
@@ -504,15 +300,7 @@ export class IoT extends AWSServiceClient {
     input: CreatePolicyVersionRequest,
   ): Effect.Effect<
     CreatePolicyVersionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | MalformedPolicyException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | VersionsLimitExceededException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | MalformedPolicyException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionsLimitExceededException | CommonAwsError
   > {
     return this.call("CreatePolicyVersion", input);
   }
@@ -520,13 +308,7 @@ export class IoT extends AWSServiceClient {
     input: CreateProvisioningClaimRequest,
   ): Effect.Effect<
     CreateProvisioningClaimResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateProvisioningClaim", input);
   }
@@ -534,13 +316,7 @@ export class IoT extends AWSServiceClient {
     input: CreateProvisioningTemplateRequest,
   ): Effect.Effect<
     CreateProvisioningTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateProvisioningTemplate", input);
   }
@@ -548,14 +324,7 @@ export class IoT extends AWSServiceClient {
     input: CreateProvisioningTemplateVersionRequest,
   ): Effect.Effect<
     CreateProvisioningTemplateVersionResponse,
-    | ConflictingResourceUpdateException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | VersionsLimitExceededException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | VersionsLimitExceededException | CommonAwsError
   > {
     return this.call("CreateProvisioningTemplateVersion", input);
   }
@@ -563,14 +332,7 @@ export class IoT extends AWSServiceClient {
     input: CreateRoleAliasRequest,
   ): Effect.Effect<
     CreateRoleAliasResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateRoleAlias", input);
   }
@@ -578,12 +340,7 @@ export class IoT extends AWSServiceClient {
     input: CreateScheduledAuditRequest,
   ): Effect.Effect<
     CreateScheduledAuditResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateScheduledAudit", input);
   }
@@ -591,11 +348,7 @@ export class IoT extends AWSServiceClient {
     input: CreateSecurityProfileRequest,
   ): Effect.Effect<
     CreateSecurityProfileResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSecurityProfile", input);
   }
@@ -603,15 +356,7 @@ export class IoT extends AWSServiceClient {
     input: CreateStreamRequest,
   ): Effect.Effect<
     CreateStreamResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateStream", input);
   }
@@ -619,14 +364,7 @@ export class IoT extends AWSServiceClient {
     input: CreateThingRequest,
   ): Effect.Effect<
     CreateThingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateThing", input);
   }
@@ -634,11 +372,7 @@ export class IoT extends AWSServiceClient {
     input: CreateThingGroupRequest,
   ): Effect.Effect<
     CreateThingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateThingGroup", input);
   }
@@ -646,13 +380,7 @@ export class IoT extends AWSServiceClient {
     input: CreateThingTypeRequest,
   ): Effect.Effect<
     CreateThingTypeResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateThingType", input);
   }
@@ -660,14 +388,7 @@ export class IoT extends AWSServiceClient {
     input: CreateTopicRuleRequest,
   ): Effect.Effect<
     {},
-    | ConflictingResourceUpdateException
-    | InternalException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | SqlParseException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | SqlParseException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateTopicRule", input);
   }
@@ -675,13 +396,7 @@ export class IoT extends AWSServiceClient {
     input: CreateTopicRuleDestinationRequest,
   ): Effect.Effect<
     CreateTopicRuleDestinationResponse,
-    | ConflictingResourceUpdateException
-    | InternalException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateTopicRuleDestination", input);
   }
@@ -689,11 +404,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteAccountAuditConfigurationRequest,
   ): Effect.Effect<
     DeleteAccountAuditConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAccountAuditConfiguration", input);
   }
@@ -701,10 +412,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteAuditSuppressionRequest,
   ): Effect.Effect<
     DeleteAuditSuppressionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteAuditSuppression", input);
   }
@@ -712,14 +420,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteAuthorizerRequest,
   ): Effect.Effect<
     DeleteAuthorizerResponse,
-    | DeleteConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteAuthorizer", input);
   }
@@ -727,11 +428,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteBillingGroupRequest,
   ): Effect.Effect<
     DeleteBillingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | VersionConflictException | CommonAwsError
   > {
     return this.call("DeleteBillingGroup", input);
   }
@@ -739,14 +436,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteCACertificateRequest,
   ): Effect.Effect<
     DeleteCACertificateResponse,
-    | CertificateStateException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    CertificateStateException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteCACertificate", input);
   }
@@ -754,15 +444,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteCertificateRequest,
   ): Effect.Effect<
     {},
-    | CertificateStateException
-    | DeleteConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    CertificateStateException | DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteCertificate", input);
   }
@@ -770,14 +452,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteCertificateProviderRequest,
   ): Effect.Effect<
     DeleteCertificateProviderResponse,
-    | DeleteConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteCertificateProvider", input);
   }
@@ -785,11 +460,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteCommandRequest,
   ): Effect.Effect<
     DeleteCommandResponse,
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCommand", input);
   }
@@ -797,11 +468,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteCommandExecutionRequest,
   ): Effect.Effect<
     DeleteCommandExecutionResponse,
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCommandExecution", input);
   }
@@ -809,10 +476,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteCustomMetricRequest,
   ): Effect.Effect<
     DeleteCustomMetricResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteCustomMetric", input);
   }
@@ -820,10 +484,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteDimensionRequest,
   ): Effect.Effect<
     DeleteDimensionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDimension", input);
   }
@@ -831,13 +492,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteDomainConfigurationRequest,
   ): Effect.Effect<
     DeleteDomainConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteDomainConfiguration", input);
   }
@@ -845,11 +500,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteDynamicThingGroupRequest,
   ): Effect.Effect<
     DeleteDynamicThingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | VersionConflictException | CommonAwsError
   > {
     return this.call("DeleteDynamicThingGroup", input);
   }
@@ -857,13 +508,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteFleetMetricRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionConflictException | CommonAwsError
   > {
     return this.call("DeleteFleetMetric", input);
   }
@@ -871,13 +516,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteJobRequest,
   ): Effect.Effect<
     {},
-    | InvalidRequestException
-    | InvalidStateTransitionException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | InvalidStateTransitionException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteJob", input);
   }
@@ -885,12 +524,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteJobExecutionRequest,
   ): Effect.Effect<
     {},
-    | InvalidRequestException
-    | InvalidStateTransitionException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | InvalidStateTransitionException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteJobExecution", input);
   }
@@ -898,11 +532,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteJobTemplateRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteJobTemplate", input);
   }
@@ -910,10 +540,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteMitigationActionRequest,
   ): Effect.Effect<
     DeleteMitigationActionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteMitigationAction", input);
   }
@@ -921,14 +548,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteOTAUpdateRequest,
   ): Effect.Effect<
     DeleteOTAUpdateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionConflictException | CommonAwsError
   > {
     return this.call("DeleteOTAUpdate", input);
   }
@@ -936,10 +556,7 @@ export class IoT extends AWSServiceClient {
     input: DeletePackageRequest,
   ): Effect.Effect<
     DeletePackageResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePackage", input);
   }
@@ -947,10 +564,7 @@ export class IoT extends AWSServiceClient {
     input: DeletePackageVersionRequest,
   ): Effect.Effect<
     DeletePackageVersionResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeletePackageVersion", input);
   }
@@ -958,14 +572,7 @@ export class IoT extends AWSServiceClient {
     input: DeletePolicyRequest,
   ): Effect.Effect<
     {},
-    | DeleteConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeletePolicy", input);
   }
@@ -973,14 +580,7 @@ export class IoT extends AWSServiceClient {
     input: DeletePolicyVersionRequest,
   ): Effect.Effect<
     {},
-    | DeleteConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeletePolicyVersion", input);
   }
@@ -988,14 +588,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteProvisioningTemplateRequest,
   ): Effect.Effect<
     DeleteProvisioningTemplateResponse,
-    | ConflictingResourceUpdateException
-    | DeleteConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteProvisioningTemplate", input);
   }
@@ -1003,14 +596,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteProvisioningTemplateVersionRequest,
   ): Effect.Effect<
     DeleteProvisioningTemplateVersionResponse,
-    | ConflictingResourceUpdateException
-    | DeleteConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteProvisioningTemplateVersion", input);
   }
@@ -1018,12 +604,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteRegistrationCodeRequest,
   ): Effect.Effect<
     DeleteRegistrationCodeResponse,
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteRegistrationCode", input);
   }
@@ -1031,14 +612,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteRoleAliasRequest,
   ): Effect.Effect<
     DeleteRoleAliasResponse,
-    | DeleteConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteRoleAlias", input);
   }
@@ -1046,11 +620,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteScheduledAuditRequest,
   ): Effect.Effect<
     DeleteScheduledAuditResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteScheduledAudit", input);
   }
@@ -1058,11 +628,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteSecurityProfileRequest,
   ): Effect.Effect<
     DeleteSecurityProfileResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | VersionConflictException | CommonAwsError
   > {
     return this.call("DeleteSecurityProfile", input);
   }
@@ -1070,14 +636,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteStreamRequest,
   ): Effect.Effect<
     DeleteStreamResponse,
-    | DeleteConflictException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteStream", input);
   }
@@ -1085,14 +644,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteThingRequest,
   ): Effect.Effect<
     DeleteThingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionConflictException | CommonAwsError
   > {
     return this.call("DeleteThing", input);
   }
@@ -1100,11 +652,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteThingGroupRequest,
   ): Effect.Effect<
     DeleteThingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | VersionConflictException | CommonAwsError
   > {
     return this.call("DeleteThingGroup", input);
   }
@@ -1112,13 +660,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteThingTypeRequest,
   ): Effect.Effect<
     DeleteThingTypeResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteThingType", input);
   }
@@ -1126,12 +668,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteTopicRuleRequest,
   ): Effect.Effect<
     {},
-    | ConflictingResourceUpdateException
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteTopicRule", input);
   }
@@ -1139,12 +676,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteTopicRuleDestinationRequest,
   ): Effect.Effect<
     DeleteTopicRuleDestinationResponse,
-    | ConflictingResourceUpdateException
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeleteTopicRuleDestination", input);
   }
@@ -1152,10 +684,7 @@ export class IoT extends AWSServiceClient {
     input: DeleteV2LoggingLevelRequest,
   ): Effect.Effect<
     {},
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalException | InvalidRequestException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("DeleteV2LoggingLevel", input);
   }
@@ -1163,13 +692,7 @@ export class IoT extends AWSServiceClient {
     input: DeprecateThingTypeRequest,
   ): Effect.Effect<
     DeprecateThingTypeResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DeprecateThingType", input);
   }
@@ -1185,11 +708,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeAuditFindingRequest,
   ): Effect.Effect<
     DescribeAuditFindingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAuditFinding", input);
   }
@@ -1197,11 +716,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeAuditMitigationActionsTaskRequest,
   ): Effect.Effect<
     DescribeAuditMitigationActionsTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAuditMitigationActionsTask", input);
   }
@@ -1209,11 +724,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeAuditSuppressionRequest,
   ): Effect.Effect<
     DescribeAuditSuppressionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAuditSuppression", input);
   }
@@ -1221,11 +732,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeAuditTaskRequest,
   ): Effect.Effect<
     DescribeAuditTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeAuditTask", input);
   }
@@ -1233,13 +740,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeAuthorizerRequest,
   ): Effect.Effect<
     DescribeAuthorizerResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeAuthorizer", input);
   }
@@ -1247,11 +748,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeBillingGroupRequest,
   ): Effect.Effect<
     DescribeBillingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeBillingGroup", input);
   }
@@ -1259,13 +756,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeCACertificateRequest,
   ): Effect.Effect<
     DescribeCACertificateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeCACertificate", input);
   }
@@ -1273,13 +764,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeCertificateRequest,
   ): Effect.Effect<
     DescribeCertificateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeCertificate", input);
   }
@@ -1287,13 +772,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeCertificateProviderRequest,
   ): Effect.Effect<
     DescribeCertificateProviderResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeCertificateProvider", input);
   }
@@ -1301,11 +780,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeCustomMetricRequest,
   ): Effect.Effect<
     DescribeCustomMetricResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeCustomMetric", input);
   }
@@ -1313,13 +788,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeDefaultAuthorizerRequest,
   ): Effect.Effect<
     DescribeDefaultAuthorizerResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeDefaultAuthorizer", input);
   }
@@ -1327,11 +796,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeDetectMitigationActionsTaskRequest,
   ): Effect.Effect<
     DescribeDetectMitigationActionsTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDetectMitigationActionsTask", input);
   }
@@ -1339,11 +804,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeDimensionRequest,
   ): Effect.Effect<
     DescribeDimensionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDimension", input);
   }
@@ -1351,13 +812,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeDomainConfigurationRequest,
   ): Effect.Effect<
     DescribeDomainConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeDomainConfiguration", input);
   }
@@ -1365,12 +820,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeEncryptionConfigurationRequest,
   ): Effect.Effect<
     DescribeEncryptionConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeEncryptionConfiguration", input);
   }
@@ -1378,11 +828,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeEndpointRequest,
   ): Effect.Effect<
     DescribeEndpointResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeEndpoint", input);
   }
@@ -1398,13 +844,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeFleetMetricRequest,
   ): Effect.Effect<
     DescribeFleetMetricResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeFleetMetric", input);
   }
@@ -1412,13 +852,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeIndexRequest,
   ): Effect.Effect<
     DescribeIndexResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeIndex", input);
   }
@@ -1426,11 +860,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeJobRequest,
   ): Effect.Effect<
     DescribeJobResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeJob", input);
   }
@@ -1438,11 +868,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeJobExecutionRequest,
   ): Effect.Effect<
     DescribeJobExecutionResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeJobExecution", input);
   }
@@ -1450,11 +876,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeJobTemplateRequest,
   ): Effect.Effect<
     DescribeJobTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeJobTemplate", input);
   }
@@ -1462,11 +884,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeManagedJobTemplateRequest,
   ): Effect.Effect<
     DescribeManagedJobTemplateResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeManagedJobTemplate", input);
   }
@@ -1474,11 +892,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeMitigationActionRequest,
   ): Effect.Effect<
     DescribeMitigationActionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeMitigationAction", input);
   }
@@ -1486,12 +900,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeProvisioningTemplateRequest,
   ): Effect.Effect<
     DescribeProvisioningTemplateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeProvisioningTemplate", input);
   }
@@ -1499,12 +908,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeProvisioningTemplateVersionRequest,
   ): Effect.Effect<
     DescribeProvisioningTemplateVersionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeProvisioningTemplateVersion", input);
   }
@@ -1512,13 +916,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeRoleAliasRequest,
   ): Effect.Effect<
     DescribeRoleAliasResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeRoleAlias", input);
   }
@@ -1526,11 +924,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeScheduledAuditRequest,
   ): Effect.Effect<
     DescribeScheduledAuditResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeScheduledAudit", input);
   }
@@ -1538,11 +932,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeSecurityProfileRequest,
   ): Effect.Effect<
     DescribeSecurityProfileResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeSecurityProfile", input);
   }
@@ -1550,13 +940,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeStreamRequest,
   ): Effect.Effect<
     DescribeStreamResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeStream", input);
   }
@@ -1564,13 +948,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeThingRequest,
   ): Effect.Effect<
     DescribeThingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeThing", input);
   }
@@ -1578,11 +956,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeThingGroupRequest,
   ): Effect.Effect<
     DescribeThingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeThingGroup", input);
   }
@@ -1590,12 +964,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeThingRegistrationTaskRequest,
   ): Effect.Effect<
     DescribeThingRegistrationTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeThingRegistrationTask", input);
   }
@@ -1603,13 +972,7 @@ export class IoT extends AWSServiceClient {
     input: DescribeThingTypeRequest,
   ): Effect.Effect<
     DescribeThingTypeResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DescribeThingType", input);
   }
@@ -1617,13 +980,7 @@ export class IoT extends AWSServiceClient {
     input: DetachPolicyRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DetachPolicy", input);
   }
@@ -1631,13 +988,7 @@ export class IoT extends AWSServiceClient {
     input: DetachPrincipalPolicyRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DetachPrincipalPolicy", input);
   }
@@ -1645,11 +996,7 @@ export class IoT extends AWSServiceClient {
     input: DetachSecurityProfileRequest,
   ): Effect.Effect<
     DetachSecurityProfileResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DetachSecurityProfile", input);
   }
@@ -1657,13 +1004,7 @@ export class IoT extends AWSServiceClient {
     input: DetachThingPrincipalRequest,
   ): Effect.Effect<
     DetachThingPrincipalResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DetachThingPrincipal", input);
   }
@@ -1671,12 +1012,7 @@ export class IoT extends AWSServiceClient {
     input: DisableTopicRuleRequest,
   ): Effect.Effect<
     {},
-    | ConflictingResourceUpdateException
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("DisableTopicRule", input);
   }
@@ -1684,12 +1020,7 @@ export class IoT extends AWSServiceClient {
     input: DisassociateSbomFromPackageVersionRequest,
   ): Effect.Effect<
     DisassociateSbomFromPackageVersionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisassociateSbomFromPackageVersion", input);
   }
@@ -1697,12 +1028,7 @@ export class IoT extends AWSServiceClient {
     input: EnableTopicRuleRequest,
   ): Effect.Effect<
     {},
-    | ConflictingResourceUpdateException
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("EnableTopicRule", input);
   }
@@ -1710,11 +1036,7 @@ export class IoT extends AWSServiceClient {
     input: GetBehaviorModelTrainingSummariesRequest,
   ): Effect.Effect<
     GetBehaviorModelTrainingSummariesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetBehaviorModelTrainingSummaries", input);
   }
@@ -1722,16 +1044,7 @@ export class IoT extends AWSServiceClient {
     input: GetBucketsAggregationRequest,
   ): Effect.Effect<
     GetBucketsAggregationResponse,
-    | IndexNotReadyException
-    | InternalFailureException
-    | InvalidAggregationException
-    | InvalidQueryException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetBucketsAggregation", input);
   }
@@ -1739,16 +1052,7 @@ export class IoT extends AWSServiceClient {
     input: GetCardinalityRequest,
   ): Effect.Effect<
     GetCardinalityResponse,
-    | IndexNotReadyException
-    | InternalFailureException
-    | InvalidAggregationException
-    | InvalidQueryException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetCardinality", input);
   }
@@ -1756,11 +1060,7 @@ export class IoT extends AWSServiceClient {
     input: GetCommandRequest,
   ): Effect.Effect<
     GetCommandResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCommand", input);
   }
@@ -1768,11 +1068,7 @@ export class IoT extends AWSServiceClient {
     input: GetCommandExecutionRequest,
   ): Effect.Effect<
     GetCommandExecutionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCommandExecution", input);
   }
@@ -1780,14 +1076,7 @@ export class IoT extends AWSServiceClient {
     input: GetEffectivePoliciesRequest,
   ): Effect.Effect<
     GetEffectivePoliciesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetEffectivePolicies", input);
   }
@@ -1795,12 +1084,7 @@ export class IoT extends AWSServiceClient {
     input: GetIndexingConfigurationRequest,
   ): Effect.Effect<
     GetIndexingConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetIndexingConfiguration", input);
   }
@@ -1808,11 +1092,7 @@ export class IoT extends AWSServiceClient {
     input: GetJobDocumentRequest,
   ): Effect.Effect<
     GetJobDocumentResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetJobDocument", input);
   }
@@ -1820,10 +1100,7 @@ export class IoT extends AWSServiceClient {
     input: GetLoggingOptionsRequest,
   ): Effect.Effect<
     GetLoggingOptionsResponse,
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalException | InvalidRequestException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetLoggingOptions", input);
   }
@@ -1831,13 +1108,7 @@ export class IoT extends AWSServiceClient {
     input: GetOTAUpdateRequest,
   ): Effect.Effect<
     GetOTAUpdateResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetOTAUpdate", input);
   }
@@ -1845,11 +1116,7 @@ export class IoT extends AWSServiceClient {
     input: GetPackageRequest,
   ): Effect.Effect<
     GetPackageResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPackage", input);
   }
@@ -1865,11 +1132,7 @@ export class IoT extends AWSServiceClient {
     input: GetPackageVersionRequest,
   ): Effect.Effect<
     GetPackageVersionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPackageVersion", input);
   }
@@ -1877,16 +1140,7 @@ export class IoT extends AWSServiceClient {
     input: GetPercentilesRequest,
   ): Effect.Effect<
     GetPercentilesResponse,
-    | IndexNotReadyException
-    | InternalFailureException
-    | InvalidAggregationException
-    | InvalidQueryException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetPercentiles", input);
   }
@@ -1894,13 +1148,7 @@ export class IoT extends AWSServiceClient {
     input: GetPolicyRequest,
   ): Effect.Effect<
     GetPolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetPolicy", input);
   }
@@ -1908,13 +1156,7 @@ export class IoT extends AWSServiceClient {
     input: GetPolicyVersionRequest,
   ): Effect.Effect<
     GetPolicyVersionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetPolicyVersion", input);
   }
@@ -1922,12 +1164,7 @@ export class IoT extends AWSServiceClient {
     input: GetRegistrationCodeRequest,
   ): Effect.Effect<
     GetRegistrationCodeResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetRegistrationCode", input);
   }
@@ -1935,16 +1172,7 @@ export class IoT extends AWSServiceClient {
     input: GetStatisticsRequest,
   ): Effect.Effect<
     GetStatisticsResponse,
-    | IndexNotReadyException
-    | InternalFailureException
-    | InvalidAggregationException
-    | InvalidQueryException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetStatistics", input);
   }
@@ -1952,14 +1180,7 @@ export class IoT extends AWSServiceClient {
     input: GetThingConnectivityDataRequest,
   ): Effect.Effect<
     GetThingConnectivityDataResponse,
-    | IndexNotReadyException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    IndexNotReadyException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetThingConnectivityData", input);
   }
@@ -1967,11 +1188,7 @@ export class IoT extends AWSServiceClient {
     input: GetTopicRuleRequest,
   ): Effect.Effect<
     GetTopicRuleResponse,
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetTopicRule", input);
   }
@@ -1979,11 +1196,7 @@ export class IoT extends AWSServiceClient {
     input: GetTopicRuleDestinationRequest,
   ): Effect.Effect<
     GetTopicRuleDestinationResponse,
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("GetTopicRuleDestination", input);
   }
@@ -1991,10 +1204,7 @@ export class IoT extends AWSServiceClient {
     input: GetV2LoggingOptionsRequest,
   ): Effect.Effect<
     GetV2LoggingOptionsResponse,
-    | InternalException
-    | NotConfiguredException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalException | NotConfiguredException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("GetV2LoggingOptions", input);
   }
@@ -2002,11 +1212,7 @@ export class IoT extends AWSServiceClient {
     input: ListActiveViolationsRequest,
   ): Effect.Effect<
     ListActiveViolationsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListActiveViolations", input);
   }
@@ -2014,14 +1220,7 @@ export class IoT extends AWSServiceClient {
     input: ListAttachedPoliciesRequest,
   ): Effect.Effect<
     ListAttachedPoliciesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListAttachedPolicies", input);
   }
@@ -2029,10 +1228,7 @@ export class IoT extends AWSServiceClient {
     input: ListAuditFindingsRequest,
   ): Effect.Effect<
     ListAuditFindingsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAuditFindings", input);
   }
@@ -2040,10 +1236,7 @@ export class IoT extends AWSServiceClient {
     input: ListAuditMitigationActionsExecutionsRequest,
   ): Effect.Effect<
     ListAuditMitigationActionsExecutionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAuditMitigationActionsExecutions", input);
   }
@@ -2051,10 +1244,7 @@ export class IoT extends AWSServiceClient {
     input: ListAuditMitigationActionsTasksRequest,
   ): Effect.Effect<
     ListAuditMitigationActionsTasksResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAuditMitigationActionsTasks", input);
   }
@@ -2062,10 +1252,7 @@ export class IoT extends AWSServiceClient {
     input: ListAuditSuppressionsRequest,
   ): Effect.Effect<
     ListAuditSuppressionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAuditSuppressions", input);
   }
@@ -2073,10 +1260,7 @@ export class IoT extends AWSServiceClient {
     input: ListAuditTasksRequest,
   ): Effect.Effect<
     ListAuditTasksResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAuditTasks", input);
   }
@@ -2084,12 +1268,7 @@ export class IoT extends AWSServiceClient {
     input: ListAuthorizersRequest,
   ): Effect.Effect<
     ListAuthorizersResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListAuthorizers", input);
   }
@@ -2097,11 +1276,7 @@ export class IoT extends AWSServiceClient {
     input: ListBillingGroupsRequest,
   ): Effect.Effect<
     ListBillingGroupsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListBillingGroups", input);
   }
@@ -2109,12 +1284,7 @@ export class IoT extends AWSServiceClient {
     input: ListCACertificatesRequest,
   ): Effect.Effect<
     ListCACertificatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListCACertificates", input);
   }
@@ -2122,12 +1292,7 @@ export class IoT extends AWSServiceClient {
     input: ListCertificateProvidersRequest,
   ): Effect.Effect<
     ListCertificateProvidersResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListCertificateProviders", input);
   }
@@ -2135,12 +1300,7 @@ export class IoT extends AWSServiceClient {
     input: ListCertificatesRequest,
   ): Effect.Effect<
     ListCertificatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListCertificates", input);
   }
@@ -2148,12 +1308,7 @@ export class IoT extends AWSServiceClient {
     input: ListCertificatesByCARequest,
   ): Effect.Effect<
     ListCertificatesByCAResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListCertificatesByCA", input);
   }
@@ -2161,11 +1316,7 @@ export class IoT extends AWSServiceClient {
     input: ListCommandExecutionsRequest,
   ): Effect.Effect<
     ListCommandExecutionsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCommandExecutions", input);
   }
@@ -2173,10 +1324,7 @@ export class IoT extends AWSServiceClient {
     input: ListCommandsRequest,
   ): Effect.Effect<
     ListCommandsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListCommands", input);
   }
@@ -2184,10 +1332,7 @@ export class IoT extends AWSServiceClient {
     input: ListCustomMetricsRequest,
   ): Effect.Effect<
     ListCustomMetricsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListCustomMetrics", input);
   }
@@ -2195,10 +1340,7 @@ export class IoT extends AWSServiceClient {
     input: ListDetectMitigationActionsExecutionsRequest,
   ): Effect.Effect<
     ListDetectMitigationActionsExecutionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDetectMitigationActionsExecutions", input);
   }
@@ -2206,10 +1348,7 @@ export class IoT extends AWSServiceClient {
     input: ListDetectMitigationActionsTasksRequest,
   ): Effect.Effect<
     ListDetectMitigationActionsTasksResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDetectMitigationActionsTasks", input);
   }
@@ -2217,10 +1356,7 @@ export class IoT extends AWSServiceClient {
     input: ListDimensionsRequest,
   ): Effect.Effect<
     ListDimensionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDimensions", input);
   }
@@ -2228,12 +1364,7 @@ export class IoT extends AWSServiceClient {
     input: ListDomainConfigurationsRequest,
   ): Effect.Effect<
     ListDomainConfigurationsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListDomainConfigurations", input);
   }
@@ -2241,12 +1372,7 @@ export class IoT extends AWSServiceClient {
     input: ListFleetMetricsRequest,
   ): Effect.Effect<
     ListFleetMetricsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListFleetMetrics", input);
   }
@@ -2254,12 +1380,7 @@ export class IoT extends AWSServiceClient {
     input: ListIndicesRequest,
   ): Effect.Effect<
     ListIndicesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListIndices", input);
   }
@@ -2267,11 +1388,7 @@ export class IoT extends AWSServiceClient {
     input: ListJobExecutionsForJobRequest,
   ): Effect.Effect<
     ListJobExecutionsForJobResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListJobExecutionsForJob", input);
   }
@@ -2279,11 +1396,7 @@ export class IoT extends AWSServiceClient {
     input: ListJobExecutionsForThingRequest,
   ): Effect.Effect<
     ListJobExecutionsForThingResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListJobExecutionsForThing", input);
   }
@@ -2291,11 +1404,7 @@ export class IoT extends AWSServiceClient {
     input: ListJobsRequest,
   ): Effect.Effect<
     ListJobsResponse,
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListJobs", input);
   }
@@ -2303,10 +1412,7 @@ export class IoT extends AWSServiceClient {
     input: ListJobTemplatesRequest,
   ): Effect.Effect<
     ListJobTemplatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListJobTemplates", input);
   }
@@ -2314,11 +1420,7 @@ export class IoT extends AWSServiceClient {
     input: ListManagedJobTemplatesRequest,
   ): Effect.Effect<
     ListManagedJobTemplatesResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListManagedJobTemplates", input);
   }
@@ -2326,11 +1428,7 @@ export class IoT extends AWSServiceClient {
     input: ListMetricValuesRequest,
   ): Effect.Effect<
     ListMetricValuesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListMetricValues", input);
   }
@@ -2338,10 +1436,7 @@ export class IoT extends AWSServiceClient {
     input: ListMitigationActionsRequest,
   ): Effect.Effect<
     ListMitigationActionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListMitigationActions", input);
   }
@@ -2349,12 +1444,7 @@ export class IoT extends AWSServiceClient {
     input: ListOTAUpdatesRequest,
   ): Effect.Effect<
     ListOTAUpdatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListOTAUpdates", input);
   }
@@ -2362,12 +1452,7 @@ export class IoT extends AWSServiceClient {
     input: ListOutgoingCertificatesRequest,
   ): Effect.Effect<
     ListOutgoingCertificatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListOutgoingCertificates", input);
   }
@@ -2375,10 +1460,7 @@ export class IoT extends AWSServiceClient {
     input: ListPackagesRequest,
   ): Effect.Effect<
     ListPackagesResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPackages", input);
   }
@@ -2386,10 +1468,7 @@ export class IoT extends AWSServiceClient {
     input: ListPackageVersionsRequest,
   ): Effect.Effect<
     ListPackageVersionsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPackageVersions", input);
   }
@@ -2397,12 +1476,7 @@ export class IoT extends AWSServiceClient {
     input: ListPoliciesRequest,
   ): Effect.Effect<
     ListPoliciesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListPolicies", input);
   }
@@ -2410,13 +1484,7 @@ export class IoT extends AWSServiceClient {
     input: ListPolicyPrincipalsRequest,
   ): Effect.Effect<
     ListPolicyPrincipalsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListPolicyPrincipals", input);
   }
@@ -2424,13 +1492,7 @@ export class IoT extends AWSServiceClient {
     input: ListPolicyVersionsRequest,
   ): Effect.Effect<
     ListPolicyVersionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListPolicyVersions", input);
   }
@@ -2438,13 +1500,7 @@ export class IoT extends AWSServiceClient {
     input: ListPrincipalPoliciesRequest,
   ): Effect.Effect<
     ListPrincipalPoliciesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListPrincipalPolicies", input);
   }
@@ -2452,13 +1508,7 @@ export class IoT extends AWSServiceClient {
     input: ListPrincipalThingsRequest,
   ): Effect.Effect<
     ListPrincipalThingsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListPrincipalThings", input);
   }
@@ -2466,13 +1516,7 @@ export class IoT extends AWSServiceClient {
     input: ListPrincipalThingsV2Request,
   ): Effect.Effect<
     ListPrincipalThingsV2Response,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListPrincipalThingsV2", input);
   }
@@ -2480,11 +1524,7 @@ export class IoT extends AWSServiceClient {
     input: ListProvisioningTemplatesRequest,
   ): Effect.Effect<
     ListProvisioningTemplatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListProvisioningTemplates", input);
   }
@@ -2492,12 +1532,7 @@ export class IoT extends AWSServiceClient {
     input: ListProvisioningTemplateVersionsRequest,
   ): Effect.Effect<
     ListProvisioningTemplateVersionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListProvisioningTemplateVersions", input);
   }
@@ -2505,11 +1540,7 @@ export class IoT extends AWSServiceClient {
     input: ListRelatedResourcesForAuditFindingRequest,
   ): Effect.Effect<
     ListRelatedResourcesForAuditFindingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRelatedResourcesForAuditFinding", input);
   }
@@ -2517,12 +1548,7 @@ export class IoT extends AWSServiceClient {
     input: ListRoleAliasesRequest,
   ): Effect.Effect<
     ListRoleAliasesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListRoleAliases", input);
   }
@@ -2530,11 +1556,7 @@ export class IoT extends AWSServiceClient {
     input: ListSbomValidationResultsRequest,
   ): Effect.Effect<
     ListSbomValidationResultsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListSbomValidationResults", input);
   }
@@ -2542,10 +1564,7 @@ export class IoT extends AWSServiceClient {
     input: ListScheduledAuditsRequest,
   ): Effect.Effect<
     ListScheduledAuditsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListScheduledAudits", input);
   }
@@ -2553,11 +1572,7 @@ export class IoT extends AWSServiceClient {
     input: ListSecurityProfilesRequest,
   ): Effect.Effect<
     ListSecurityProfilesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSecurityProfiles", input);
   }
@@ -2565,11 +1580,7 @@ export class IoT extends AWSServiceClient {
     input: ListSecurityProfilesForTargetRequest,
   ): Effect.Effect<
     ListSecurityProfilesForTargetResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSecurityProfilesForTarget", input);
   }
@@ -2577,12 +1588,7 @@ export class IoT extends AWSServiceClient {
     input: ListStreamsRequest,
   ): Effect.Effect<
     ListStreamsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListStreams", input);
   }
@@ -2590,11 +1596,7 @@ export class IoT extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -2602,14 +1604,7 @@ export class IoT extends AWSServiceClient {
     input: ListTargetsForPolicyRequest,
   ): Effect.Effect<
     ListTargetsForPolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListTargetsForPolicy", input);
   }
@@ -2617,11 +1612,7 @@ export class IoT extends AWSServiceClient {
     input: ListTargetsForSecurityProfileRequest,
   ): Effect.Effect<
     ListTargetsForSecurityProfileResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTargetsForSecurityProfile", input);
   }
@@ -2629,11 +1620,7 @@ export class IoT extends AWSServiceClient {
     input: ListThingGroupsRequest,
   ): Effect.Effect<
     ListThingGroupsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListThingGroups", input);
   }
@@ -2641,11 +1628,7 @@ export class IoT extends AWSServiceClient {
     input: ListThingGroupsForThingRequest,
   ): Effect.Effect<
     ListThingGroupsForThingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListThingGroupsForThing", input);
   }
@@ -2653,13 +1636,7 @@ export class IoT extends AWSServiceClient {
     input: ListThingPrincipalsRequest,
   ): Effect.Effect<
     ListThingPrincipalsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListThingPrincipals", input);
   }
@@ -2667,13 +1644,7 @@ export class IoT extends AWSServiceClient {
     input: ListThingPrincipalsV2Request,
   ): Effect.Effect<
     ListThingPrincipalsV2Response,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListThingPrincipalsV2", input);
   }
@@ -2681,11 +1652,7 @@ export class IoT extends AWSServiceClient {
     input: ListThingRegistrationTaskReportsRequest,
   ): Effect.Effect<
     ListThingRegistrationTaskReportsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListThingRegistrationTaskReports", input);
   }
@@ -2693,11 +1660,7 @@ export class IoT extends AWSServiceClient {
     input: ListThingRegistrationTasksRequest,
   ): Effect.Effect<
     ListThingRegistrationTasksResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListThingRegistrationTasks", input);
   }
@@ -2705,12 +1668,7 @@ export class IoT extends AWSServiceClient {
     input: ListThingsRequest,
   ): Effect.Effect<
     ListThingsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListThings", input);
   }
@@ -2718,11 +1676,7 @@ export class IoT extends AWSServiceClient {
     input: ListThingsInBillingGroupRequest,
   ): Effect.Effect<
     ListThingsInBillingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListThingsInBillingGroup", input);
   }
@@ -2730,11 +1684,7 @@ export class IoT extends AWSServiceClient {
     input: ListThingsInThingGroupRequest,
   ): Effect.Effect<
     ListThingsInThingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListThingsInThingGroup", input);
   }
@@ -2742,12 +1692,7 @@ export class IoT extends AWSServiceClient {
     input: ListThingTypesRequest,
   ): Effect.Effect<
     ListThingTypesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListThingTypes", input);
   }
@@ -2755,11 +1700,7 @@ export class IoT extends AWSServiceClient {
     input: ListTopicRuleDestinationsRequest,
   ): Effect.Effect<
     ListTopicRuleDestinationsResponse,
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListTopicRuleDestinations", input);
   }
@@ -2767,11 +1708,7 @@ export class IoT extends AWSServiceClient {
     input: ListTopicRulesRequest,
   ): Effect.Effect<
     ListTopicRulesResponse,
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ListTopicRules", input);
   }
@@ -2779,11 +1716,7 @@ export class IoT extends AWSServiceClient {
     input: ListV2LoggingLevelsRequest,
   ): Effect.Effect<
     ListV2LoggingLevelsResponse,
-    | InternalException
-    | InvalidRequestException
-    | NotConfiguredException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalException | InvalidRequestException | NotConfiguredException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("ListV2LoggingLevels", input);
   }
@@ -2791,10 +1724,7 @@ export class IoT extends AWSServiceClient {
     input: ListViolationEventsRequest,
   ): Effect.Effect<
     ListViolationEventsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListViolationEvents", input);
   }
@@ -2802,10 +1732,7 @@ export class IoT extends AWSServiceClient {
     input: PutVerificationStateOnViolationRequest,
   ): Effect.Effect<
     PutVerificationStateOnViolationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutVerificationStateOnViolation", input);
   }
@@ -2813,17 +1740,7 @@ export class IoT extends AWSServiceClient {
     input: RegisterCACertificateRequest,
   ): Effect.Effect<
     RegisterCACertificateResponse,
-    | CertificateValidationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | RegistrationCodeValidationException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    CertificateValidationException | InternalFailureException | InvalidRequestException | LimitExceededException | RegistrationCodeValidationException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("RegisterCACertificate", input);
   }
@@ -2831,16 +1748,7 @@ export class IoT extends AWSServiceClient {
     input: RegisterCertificateRequest,
   ): Effect.Effect<
     RegisterCertificateResponse,
-    | CertificateConflictException
-    | CertificateStateException
-    | CertificateValidationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    CertificateConflictException | CertificateStateException | CertificateValidationException | InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("RegisterCertificate", input);
   }
@@ -2848,15 +1756,7 @@ export class IoT extends AWSServiceClient {
     input: RegisterCertificateWithoutCARequest,
   ): Effect.Effect<
     RegisterCertificateWithoutCAResponse,
-    | CertificateStateException
-    | CertificateValidationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    CertificateStateException | CertificateValidationException | InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("RegisterCertificateWithoutCA", input);
   }
@@ -2864,14 +1764,7 @@ export class IoT extends AWSServiceClient {
     input: RegisterThingRequest,
   ): Effect.Effect<
     RegisterThingResponse,
-    | ConflictingResourceUpdateException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceRegistrationFailureException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalFailureException | InvalidRequestException | ResourceRegistrationFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("RegisterThing", input);
   }
@@ -2879,14 +1772,7 @@ export class IoT extends AWSServiceClient {
     input: RejectCertificateTransferRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | TransferAlreadyCompletedException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | TransferAlreadyCompletedException | UnauthorizedException | CommonAwsError
   > {
     return this.call("RejectCertificateTransfer", input);
   }
@@ -2894,11 +1780,7 @@ export class IoT extends AWSServiceClient {
     input: RemoveThingFromBillingGroupRequest,
   ): Effect.Effect<
     RemoveThingFromBillingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("RemoveThingFromBillingGroup", input);
   }
@@ -2906,11 +1788,7 @@ export class IoT extends AWSServiceClient {
     input: RemoveThingFromThingGroupRequest,
   ): Effect.Effect<
     RemoveThingFromThingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("RemoveThingFromThingGroup", input);
   }
@@ -2918,13 +1796,7 @@ export class IoT extends AWSServiceClient {
     input: ReplaceTopicRuleRequest,
   ): Effect.Effect<
     {},
-    | ConflictingResourceUpdateException
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | SqlParseException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | SqlParseException | UnauthorizedException | CommonAwsError
   > {
     return this.call("ReplaceTopicRule", input);
   }
@@ -2932,15 +1804,7 @@ export class IoT extends AWSServiceClient {
     input: SearchIndexRequest,
   ): Effect.Effect<
     SearchIndexResponse,
-    | IndexNotReadyException
-    | InternalFailureException
-    | InvalidQueryException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    IndexNotReadyException | InternalFailureException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("SearchIndex", input);
   }
@@ -2948,14 +1812,7 @@ export class IoT extends AWSServiceClient {
     input: SetDefaultAuthorizerRequest,
   ): Effect.Effect<
     SetDefaultAuthorizerResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("SetDefaultAuthorizer", input);
   }
@@ -2963,13 +1820,7 @@ export class IoT extends AWSServiceClient {
     input: SetDefaultPolicyVersionRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("SetDefaultPolicyVersion", input);
   }
@@ -2977,10 +1828,7 @@ export class IoT extends AWSServiceClient {
     input: SetLoggingOptionsRequest,
   ): Effect.Effect<
     {},
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalException | InvalidRequestException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("SetLoggingOptions", input);
   }
@@ -2988,12 +1836,7 @@ export class IoT extends AWSServiceClient {
     input: SetV2LoggingLevelRequest,
   ): Effect.Effect<
     {},
-    | InternalException
-    | InvalidRequestException
-    | LimitExceededException
-    | NotConfiguredException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalException | InvalidRequestException | LimitExceededException | NotConfiguredException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("SetV2LoggingLevel", input);
   }
@@ -3001,10 +1844,7 @@ export class IoT extends AWSServiceClient {
     input: SetV2LoggingOptionsRequest,
   ): Effect.Effect<
     {},
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | CommonAwsError
+    InternalException | InvalidRequestException | ServiceUnavailableException | CommonAwsError
   > {
     return this.call("SetV2LoggingOptions", input);
   }
@@ -3012,12 +1852,7 @@ export class IoT extends AWSServiceClient {
     input: StartAuditMitigationActionsTaskRequest,
   ): Effect.Effect<
     StartAuditMitigationActionsTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | TaskAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | TaskAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartAuditMitigationActionsTask", input);
   }
@@ -3025,12 +1860,7 @@ export class IoT extends AWSServiceClient {
     input: StartDetectMitigationActionsTaskRequest,
   ): Effect.Effect<
     StartDetectMitigationActionsTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | TaskAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | TaskAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartDetectMitigationActionsTask", input);
   }
@@ -3038,11 +1868,7 @@ export class IoT extends AWSServiceClient {
     input: StartOnDemandAuditTaskRequest,
   ): Effect.Effect<
     StartOnDemandAuditTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartOnDemandAuditTask", input);
   }
@@ -3050,11 +1876,7 @@ export class IoT extends AWSServiceClient {
     input: StartThingRegistrationTaskRequest,
   ): Effect.Effect<
     StartThingRegistrationTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("StartThingRegistrationTask", input);
   }
@@ -3062,12 +1884,7 @@ export class IoT extends AWSServiceClient {
     input: StopThingRegistrationTaskRequest,
   ): Effect.Effect<
     StopThingRegistrationTaskResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("StopThingRegistrationTask", input);
   }
@@ -3075,12 +1892,7 @@ export class IoT extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -3088,14 +1900,7 @@ export class IoT extends AWSServiceClient {
     input: TestAuthorizationRequest,
   ): Effect.Effect<
     TestAuthorizationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("TestAuthorization", input);
   }
@@ -3103,14 +1908,7 @@ export class IoT extends AWSServiceClient {
     input: TestInvokeAuthorizerRequest,
   ): Effect.Effect<
     TestInvokeAuthorizerResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | InvalidResponseException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | InvalidResponseException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("TestInvokeAuthorizer", input);
   }
@@ -3118,15 +1916,7 @@ export class IoT extends AWSServiceClient {
     input: TransferCertificateRequest,
   ): Effect.Effect<
     TransferCertificateResponse,
-    | CertificateStateException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | TransferConflictException
-    | UnauthorizedException
-    | CommonAwsError
+    CertificateStateException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | TransferConflictException | UnauthorizedException | CommonAwsError
   > {
     return this.call("TransferCertificate", input);
   }
@@ -3134,11 +1924,7 @@ export class IoT extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -3146,10 +1932,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateAccountAuditConfigurationRequest,
   ): Effect.Effect<
     UpdateAccountAuditConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAccountAuditConfiguration", input);
   }
@@ -3157,11 +1940,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateAuditSuppressionRequest,
   ): Effect.Effect<
     UpdateAuditSuppressionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateAuditSuppression", input);
   }
@@ -3169,14 +1948,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateAuthorizerRequest,
   ): Effect.Effect<
     UpdateAuthorizerResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateAuthorizer", input);
   }
@@ -3184,12 +1956,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateBillingGroupRequest,
   ): Effect.Effect<
     UpdateBillingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | VersionConflictException | CommonAwsError
   > {
     return this.call("UpdateBillingGroup", input);
   }
@@ -3197,13 +1964,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateCACertificateRequest,
   ): Effect.Effect<
     {},
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateCACertificate", input);
   }
@@ -3211,14 +1972,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateCertificateRequest,
   ): Effect.Effect<
     {},
-    | CertificateStateException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    CertificateStateException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateCertificate", input);
   }
@@ -3226,13 +1980,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateCertificateProviderRequest,
   ): Effect.Effect<
     UpdateCertificateProviderResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateCertificateProvider", input);
   }
@@ -3240,12 +1988,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateCommandRequest,
   ): Effect.Effect<
     UpdateCommandResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateCommand", input);
   }
@@ -3253,11 +1996,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateCustomMetricRequest,
   ): Effect.Effect<
     UpdateCustomMetricResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateCustomMetric", input);
   }
@@ -3265,11 +2004,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateDimensionRequest,
   ): Effect.Effect<
     UpdateDimensionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDimension", input);
   }
@@ -3277,14 +2012,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateDomainConfigurationRequest,
   ): Effect.Effect<
     UpdateDomainConfigurationResponse,
-    | CertificateValidationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    CertificateValidationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateDomainConfiguration", input);
   }
@@ -3292,13 +2020,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateDynamicThingGroupRequest,
   ): Effect.Effect<
     UpdateDynamicThingGroupResponse,
-    | InternalFailureException
-    | InvalidQueryException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | VersionConflictException | CommonAwsError
   > {
     return this.call("UpdateDynamicThingGroup", input);
   }
@@ -3306,12 +2028,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateEncryptionConfigurationRequest,
   ): Effect.Effect<
     UpdateEncryptionConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateEncryptionConfiguration", input);
   }
@@ -3319,10 +2036,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateEventConfigurationsRequest,
   ): Effect.Effect<
     UpdateEventConfigurationsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateEventConfigurations", input);
   }
@@ -3330,17 +2044,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateFleetMetricRequest,
   ): Effect.Effect<
     {},
-    | IndexNotReadyException
-    | InternalFailureException
-    | InvalidAggregationException
-    | InvalidQueryException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | VersionConflictException
-    | CommonAwsError
+    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionConflictException | CommonAwsError
   > {
     return this.call("UpdateFleetMetric", input);
   }
@@ -3348,12 +2052,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateIndexingConfigurationRequest,
   ): Effect.Effect<
     UpdateIndexingConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateIndexingConfiguration", input);
   }
@@ -3361,11 +2060,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateJobRequest,
   ): Effect.Effect<
     {},
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateJob", input);
   }
@@ -3373,11 +2068,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateMitigationActionRequest,
   ): Effect.Effect<
     UpdateMitigationActionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateMitigationAction", input);
   }
@@ -3385,12 +2076,7 @@ export class IoT extends AWSServiceClient {
     input: UpdatePackageRequest,
   ): Effect.Effect<
     UpdatePackageResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePackage", input);
   }
@@ -3398,11 +2084,7 @@ export class IoT extends AWSServiceClient {
     input: UpdatePackageConfigurationRequest,
   ): Effect.Effect<
     UpdatePackageConfigurationResponse,
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePackageConfiguration", input);
   }
@@ -3410,12 +2092,7 @@ export class IoT extends AWSServiceClient {
     input: UpdatePackageVersionRequest,
   ): Effect.Effect<
     UpdatePackageVersionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePackageVersion", input);
   }
@@ -3423,12 +2100,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateProvisioningTemplateRequest,
   ): Effect.Effect<
     UpdateProvisioningTemplateResponse,
-    | ConflictingResourceUpdateException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateProvisioningTemplate", input);
   }
@@ -3436,13 +2108,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateRoleAliasRequest,
   ): Effect.Effect<
     UpdateRoleAliasResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateRoleAlias", input);
   }
@@ -3450,11 +2116,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateScheduledAuditRequest,
   ): Effect.Effect<
     UpdateScheduledAuditResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateScheduledAudit", input);
   }
@@ -3462,12 +2124,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateSecurityProfileRequest,
   ): Effect.Effect<
     UpdateSecurityProfileResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | VersionConflictException | CommonAwsError
   > {
     return this.call("UpdateSecurityProfile", input);
   }
@@ -3475,14 +2132,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateStreamRequest,
   ): Effect.Effect<
     UpdateStreamResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateStream", input);
   }
@@ -3490,14 +2140,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateThingRequest,
   ): Effect.Effect<
     UpdateThingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionConflictException | CommonAwsError
   > {
     return this.call("UpdateThing", input);
   }
@@ -3505,12 +2148,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateThingGroupRequest,
   ): Effect.Effect<
     UpdateThingGroupResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | VersionConflictException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | VersionConflictException | CommonAwsError
   > {
     return this.call("UpdateThingGroup", input);
   }
@@ -3518,11 +2156,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateThingGroupsForThingRequest,
   ): Effect.Effect<
     UpdateThingGroupsForThingResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateThingGroupsForThing", input);
   }
@@ -3530,13 +2164,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateThingTypeRequest,
   ): Effect.Effect<
     UpdateThingTypeResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateThingType", input);
   }
@@ -3544,12 +2172,7 @@ export class IoT extends AWSServiceClient {
     input: UpdateTopicRuleDestinationRequest,
   ): Effect.Effect<
     UpdateTopicRuleDestinationResponse,
-    | ConflictingResourceUpdateException
-    | InternalException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
   > {
     return this.call("UpdateTopicRuleDestination", input);
   }
@@ -3557,10 +2180,7 @@ export class IoT extends AWSServiceClient {
     input: ValidateSecurityProfileBehaviorsRequest,
   ): Effect.Effect<
     ValidateSecurityProfileBehaviorsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   > {
     return this.call("ValidateSecurityProfileBehaviors", input);
   }
@@ -3642,7 +2262,8 @@ export interface AddThingToBillingGroupRequest {
   thingName?: string;
   thingArn?: string;
 }
-export interface AddThingToBillingGroupResponse {}
+export interface AddThingToBillingGroupResponse {
+}
 export interface AddThingToThingGroupRequest {
   thingGroupName?: string;
   thingGroupArn?: string;
@@ -3650,7 +2271,8 @@ export interface AddThingToThingGroupRequest {
   thingArn?: string;
   overrideDynamicGroups?: boolean;
 }
-export interface AddThingToThingGroupResponse {}
+export interface AddThingToThingGroupResponse {
+}
 export type AggregationField = string;
 
 export interface AggregationType {
@@ -3678,11 +2300,7 @@ export type AllowAutoRegistration = boolean;
 export interface Allowed {
   policies?: Array<Policy>;
 }
-export type ApplicationProtocol =
-  | "SECURE_MQTT"
-  | "MQTT_WSS"
-  | "HTTPS"
-  | "DEFAULT";
+export type ApplicationProtocol = "SECURE_MQTT" | "MQTT_WSS" | "HTTPS" | "DEFAULT";
 export type ApproximateSecondsBeforeTimedOut = number;
 
 export type AscendingOrder = boolean;
@@ -3726,11 +2344,7 @@ interface _AssetPropertyVariant {
   booleanValue?: string;
 }
 
-export type AssetPropertyVariant =
-  | (_AssetPropertyVariant & { stringValue: string })
-  | (_AssetPropertyVariant & { integerValue: string })
-  | (_AssetPropertyVariant & { doubleValue: string })
-  | (_AssetPropertyVariant & { booleanValue: string });
+export type AssetPropertyVariant = (_AssetPropertyVariant & { stringValue: string }) | (_AssetPropertyVariant & { integerValue: string }) | (_AssetPropertyVariant & { doubleValue: string }) | (_AssetPropertyVariant & { booleanValue: string });
 export interface AssociateSbomWithPackageVersionRequest {
   packageName: string;
   versionName: string;
@@ -3766,13 +2380,15 @@ export interface AttachSecurityProfileRequest {
   securityProfileName: string;
   securityProfileTargetArn: string;
 }
-export interface AttachSecurityProfileResponse {}
+export interface AttachSecurityProfileResponse {
+}
 export interface AttachThingPrincipalRequest {
   thingName: string;
   principal: string;
   thingPrincipalType?: ThingPrincipalType;
 }
-export interface AttachThingPrincipalResponse {}
+export interface AttachThingPrincipalResponse {
+}
 export type AttributeKey = string;
 
 export type AttributeName = string;
@@ -3801,13 +2417,7 @@ export interface AuditCheckDetails {
 }
 export type AuditCheckName = string;
 
-export type AuditCheckRunStatus =
-  | "IN_PROGRESS"
-  | "WAITING_FOR_DATA_COLLECTION"
-  | "CANCELED"
-  | "COMPLETED_COMPLIANT"
-  | "COMPLETED_NON_COMPLIANT"
-  | "FAILED";
+export type AuditCheckRunStatus = "IN_PROGRESS" | "WAITING_FOR_DATA_COLLECTION" | "CANCELED" | "COMPLETED_COMPLIANT" | "COMPLETED_NON_COMPLIANT" | "FAILED";
 export type AuditCheckToActionsMapping = Record<string, Array<string>>;
 export type AuditCheckToReasonCodeFilter = Record<string, Array<string>>;
 export type AuditDescription = string;
@@ -3840,31 +2450,16 @@ export interface AuditMitigationActionExecutionMetadata {
   errorCode?: string;
   message?: string;
 }
-export type AuditMitigationActionExecutionMetadataList =
-  Array<AuditMitigationActionExecutionMetadata>;
-export type AuditMitigationActionsExecutionStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "CANCELED"
-  | "SKIPPED"
-  | "PENDING";
+export type AuditMitigationActionExecutionMetadataList = Array<AuditMitigationActionExecutionMetadata>;
+export type AuditMitigationActionsExecutionStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED" | "CANCELED" | "SKIPPED" | "PENDING";
 export interface AuditMitigationActionsTaskMetadata {
   taskId?: string;
   startTime?: Date | string;
   taskStatus?: AuditMitigationActionsTaskStatus;
 }
-export type AuditMitigationActionsTaskMetadataList =
-  Array<AuditMitigationActionsTaskMetadata>;
-export type AuditMitigationActionsTaskStatistics = Record<
-  string,
-  TaskStatisticsForAuditCheck
->;
-export type AuditMitigationActionsTaskStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "CANCELED";
+export type AuditMitigationActionsTaskMetadataList = Array<AuditMitigationActionsTaskMetadata>;
+export type AuditMitigationActionsTaskStatistics = Record<string, TaskStatisticsForAuditCheck>;
+export type AuditMitigationActionsTaskStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED" | "CANCELED";
 export interface AuditMitigationActionsTaskTarget {
   auditTaskId?: string;
   findingIds?: Array<string>;
@@ -3875,10 +2470,7 @@ export interface AuditNotificationTarget {
   roleArn?: string;
   enabled?: boolean;
 }
-export type AuditNotificationTargetConfigurations = Record<
-  AuditNotificationType,
-  AuditNotificationTarget
->;
+export type AuditNotificationTargetConfigurations = Record<AuditNotificationType, AuditNotificationTarget>;
 export type AuditNotificationType = "SNS";
 export interface AuditSuppression {
   checkName: string;
@@ -3896,19 +2488,10 @@ export interface AuditTaskMetadata {
   taskType?: AuditTaskType;
 }
 export type AuditTaskMetadataList = Array<AuditTaskMetadata>;
-export type AuditTaskStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED"
-  | "CANCELED";
+export type AuditTaskStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED" | "CANCELED";
 export type AuditTaskType = "ON_DEMAND_AUDIT_TASK" | "SCHEDULED_AUDIT_TASK";
 export type AuthDecision = "ALLOWED" | "EXPLICIT_DENY" | "IMPLICIT_DENY";
-export type AuthenticationType =
-  | "CUSTOM_AUTH_X509"
-  | "CUSTOM_AUTH"
-  | "AWS_X509"
-  | "AWS_SIGV4"
-  | "DEFAULT";
+export type AuthenticationType = "CUSTOM_AUTH_X509" | "CUSTOM_AUTH" | "AWS_X509" | "AWS_SIGV4" | "DEFAULT";
 export interface AuthInfo {
   actionType?: ActionType;
   resources: Array<string>;
@@ -3975,11 +2558,7 @@ export interface AwsJobAbortCriteria {
 export type AwsJobAbortCriteriaAbortAction = "CANCEL";
 export type AwsJobAbortCriteriaAbortThresholdPercentage = number;
 
-export type AwsJobAbortCriteriaFailureType =
-  | "FAILED"
-  | "REJECTED"
-  | "TIMED_OUT"
-  | "ALL";
+export type AwsJobAbortCriteriaFailureType = "FAILED" | "REJECTED" | "TIMED_OUT" | "ALL";
 export type AwsJobAbortCriteriaList = Array<AwsJobAbortCriteria>;
 export type AwsJobAbortCriteriaMinimumNumberOfExecutedThings = number;
 
@@ -4031,14 +2610,10 @@ export interface BehaviorCriteria {
   statisticalThreshold?: StatisticalThreshold;
   mlDetectionConfig?: MachineLearningDetectionConfig;
 }
-export type BehaviorCriteriaType =
-  | "STATIC"
-  | "STATISTICAL"
-  | "MACHINE_LEARNING";
+export type BehaviorCriteriaType = "STATIC" | "STATISTICAL" | "MACHINE_LEARNING";
 export type BehaviorMetric = string;
 
-export type BehaviorModelTrainingSummaries =
-  Array<BehaviorModelTrainingSummary>;
+export type BehaviorModelTrainingSummaries = Array<BehaviorModelTrainingSummary>;
 export interface BehaviorModelTrainingSummary {
   securityProfileName?: string;
   behaviorName?: string;
@@ -4119,18 +2694,21 @@ export type CACertificateUpdateAction = "DEACTIVATE";
 export interface CancelAuditMitigationActionsTaskRequest {
   taskId: string;
 }
-export interface CancelAuditMitigationActionsTaskResponse {}
+export interface CancelAuditMitigationActionsTaskResponse {
+}
 export interface CancelAuditTaskRequest {
   taskId: string;
 }
-export interface CancelAuditTaskResponse {}
+export interface CancelAuditTaskResponse {
+}
 export interface CancelCertificateTransferRequest {
   certificateId: string;
 }
 export interface CancelDetectMitigationActionsTaskRequest {
   taskId: string;
 }
-export interface CancelDetectMitigationActionsTaskResponse {}
+export interface CancelDetectMitigationActionsTaskResponse {
+}
 export type CanceledChecksCount = number;
 
 export type CanceledFindingsCount = number;
@@ -4155,15 +2733,7 @@ export interface CancelJobResponse {
   jobId?: string;
   description?: string;
 }
-export type CannedAccessControlList =
-  | "Private"
-  | "PublicRead"
-  | "PublicReadWrite"
-  | "AwsExecRead"
-  | "AuthenticatedRead"
-  | "BucketOwnerRead"
-  | "BucketOwnerFullControl"
-  | "LogDeliveryWrite";
+export type CannedAccessControlList = "Private" | "PublicRead" | "PublicReadWrite" | "AwsExecRead" | "AuthenticatedRead" | "BucketOwnerRead" | "BucketOwnerFullControl" | "LogDeliveryWrite";
 export interface Certificate {
   certificateArn?: string;
   certificateId?: string;
@@ -4203,8 +2773,7 @@ export type CertificatePathOnDevice = string;
 
 export type CertificatePem = string;
 
-export type CertificateProviderAccountDefaultForOperations =
-  Array<CertificateProviderOperation>;
+export type CertificateProviderAccountDefaultForOperations = Array<CertificateProviderOperation>;
 export type CertificateProviderArn = string;
 
 export type CertificateProviderFunctionArn = string;
@@ -4225,13 +2794,7 @@ export declare class CertificateStateException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type CertificateStatus =
-  | "ACTIVE"
-  | "INACTIVE"
-  | "REVOKED"
-  | "PENDING_TRANSFER"
-  | "REGISTER_INACTIVE"
-  | "PENDING_ACTIVATION";
+export type CertificateStatus = "ACTIVE" | "INACTIVE" | "REVOKED" | "PENDING_TRANSFER" | "REGISTER_INACTIVE" | "PENDING_ACTIVATION";
 export declare class CertificateValidationException extends EffectData.TaggedError(
   "CertificateValidationException",
 )<{
@@ -4249,8 +2812,10 @@ export type CheckCustomConfiguration = Record<ConfigName, string>;
 export type Cidr = string;
 
 export type Cidrs = Array<string>;
-export interface ClearDefaultAuthorizerRequest {}
-export interface ClearDefaultAuthorizerResponse {}
+export interface ClearDefaultAuthorizerRequest {
+}
+export interface ClearDefaultAuthorizerResponse {
+}
 export type ClientCertificateCallbackArn = string;
 
 export interface ClientCertificateConfig {
@@ -4304,10 +2869,7 @@ export type CommandDescription = string;
 
 export type CommandExecutionId = string;
 
-export type CommandExecutionParameterMap = Record<
-  string,
-  CommandParameterValue
->;
+export type CommandExecutionParameterMap = Record<string, CommandParameterValue>;
 export interface CommandExecutionResult {
   S?: string;
   B?: boolean;
@@ -4316,13 +2878,7 @@ export interface CommandExecutionResult {
 export type CommandExecutionResultMap = Record<string, CommandExecutionResult>;
 export type CommandExecutionResultName = string;
 
-export type CommandExecutionStatus =
-  | "CREATED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "REJECTED"
-  | "TIMED_OUT";
+export type CommandExecutionStatus = "CREATED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "REJECTED" | "TIMED_OUT";
 export interface CommandExecutionSummary {
   commandArn?: string;
   executionId?: string;
@@ -4378,23 +2934,11 @@ export interface CommandSummary {
 export type CommandSummaryList = Array<CommandSummary>;
 export type Comment = string;
 
-export type ComparisonOperator =
-  | "LESS_THAN"
-  | "LESS_THAN_EQUALS"
-  | "GREATER_THAN"
-  | "GREATER_THAN_EQUALS"
-  | "IN_CIDR_SET"
-  | "NOT_IN_CIDR_SET"
-  | "IN_PORT_SET"
-  | "NOT_IN_PORT_SET"
-  | "IN_SET"
-  | "NOT_IN_SET";
+export type ComparisonOperator = "LESS_THAN" | "LESS_THAN_EQUALS" | "GREATER_THAN" | "GREATER_THAN_EQUALS" | "IN_CIDR_SET" | "NOT_IN_CIDR_SET" | "IN_PORT_SET" | "NOT_IN_PORT_SET" | "IN_SET" | "NOT_IN_SET";
 export type CompliantChecksCount = number;
 
 export type ConfidenceLevel = "LOW" | "MEDIUM" | "HIGH";
-export type ConfigName =
-  | "CERT_AGE_THRESHOLD_IN_DAYS"
-  | "CERT_EXPIRATION_THRESHOLD_IN_DAYS";
+export type ConfigName = "CERT_AGE_THRESHOLD_IN_DAYS" | "CERT_EXPIRATION_THRESHOLD_IN_DAYS";
 export interface Configuration {
   Enabled?: boolean;
 }
@@ -4411,7 +2955,8 @@ export type ConfirmationToken = string;
 export interface ConfirmTopicRuleDestinationRequest {
   confirmationToken: string;
 }
-export interface ConfirmTopicRuleDestinationResponse {}
+export interface ConfirmTopicRuleDestinationResponse {
+}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -4447,7 +2992,8 @@ export interface CreateAuditSuppressionRequest {
   description?: string;
   clientRequestToken: string;
 }
-export interface CreateAuditSuppressionResponse {}
+export interface CreateAuditSuppressionResponse {
+}
 export interface CreateAuthorizerRequest {
   authorizerName: string;
   authorizerFunctionArn: string;
@@ -4860,11 +3406,7 @@ export type CustomMetricArn = string;
 
 export type CustomMetricDisplayName = string;
 
-export type CustomMetricType =
-  | "STRING_LIST"
-  | "IP_ADDRESS_LIST"
-  | "NUMBER_LIST"
-  | "NUMBER";
+export type CustomMetricType = "STRING_LIST" | "IP_ADDRESS_LIST" | "NUMBER_LIST" | "NUMBER";
 export type DataCollectionPercentage = number;
 
 export type DateType = Date | string;
@@ -4875,7 +3417,8 @@ export type DayOfWeek = "SUN" | "MON" | "TUE" | "WED" | "THU" | "FRI" | "SAT";
 export interface DeleteAccountAuditConfigurationRequest {
   deleteScheduledAudits?: boolean;
 }
-export interface DeleteAccountAuditConfigurationResponse {}
+export interface DeleteAccountAuditConfigurationResponse {
+}
 export type DeleteAdditionalMetricsToRetain = boolean;
 
 export type DeleteAlertTargets = boolean;
@@ -4884,26 +3427,31 @@ export interface DeleteAuditSuppressionRequest {
   checkName: string;
   resourceIdentifier: ResourceIdentifier;
 }
-export interface DeleteAuditSuppressionResponse {}
+export interface DeleteAuditSuppressionResponse {
+}
 export interface DeleteAuthorizerRequest {
   authorizerName: string;
 }
-export interface DeleteAuthorizerResponse {}
+export interface DeleteAuthorizerResponse {
+}
 export type DeleteBehaviors = boolean;
 
 export interface DeleteBillingGroupRequest {
   billingGroupName: string;
   expectedVersion?: number;
 }
-export interface DeleteBillingGroupResponse {}
+export interface DeleteBillingGroupResponse {
+}
 export interface DeleteCACertificateRequest {
   certificateId: string;
 }
-export interface DeleteCACertificateResponse {}
+export interface DeleteCACertificateResponse {
+}
 export interface DeleteCertificateProviderRequest {
   certificateProviderName: string;
 }
-export interface DeleteCertificateProviderResponse {}
+export interface DeleteCertificateProviderResponse {
+}
 export interface DeleteCertificateRequest {
   certificateId: string;
   forceDelete?: boolean;
@@ -4912,7 +3460,8 @@ export interface DeleteCommandExecutionRequest {
   executionId: string;
   targetArn: string;
 }
-export interface DeleteCommandExecutionResponse {}
+export interface DeleteCommandExecutionResponse {
+}
 export interface DeleteCommandRequest {
   commandId: string;
 }
@@ -4927,20 +3476,24 @@ export declare class DeleteConflictException extends EffectData.TaggedError(
 export interface DeleteCustomMetricRequest {
   metricName: string;
 }
-export interface DeleteCustomMetricResponse {}
+export interface DeleteCustomMetricResponse {
+}
 export interface DeleteDimensionRequest {
   name: string;
 }
-export interface DeleteDimensionResponse {}
+export interface DeleteDimensionResponse {
+}
 export interface DeleteDomainConfigurationRequest {
   domainConfigurationName: string;
 }
-export interface DeleteDomainConfigurationResponse {}
+export interface DeleteDomainConfigurationResponse {
+}
 export interface DeleteDynamicThingGroupRequest {
   thingGroupName: string;
   expectedVersion?: number;
 }
-export interface DeleteDynamicThingGroupResponse {}
+export interface DeleteDynamicThingGroupResponse {
+}
 export interface DeleteFleetMetricRequest {
   metricName: string;
   expectedVersion?: number;
@@ -4965,24 +3518,28 @@ export type DeleteMetricsExportConfig = boolean;
 export interface DeleteMitigationActionRequest {
   actionName: string;
 }
-export interface DeleteMitigationActionResponse {}
+export interface DeleteMitigationActionResponse {
+}
 export interface DeleteOTAUpdateRequest {
   otaUpdateId: string;
   deleteStream?: boolean;
   forceDeleteAWSJob?: boolean;
 }
-export interface DeleteOTAUpdateResponse {}
+export interface DeleteOTAUpdateResponse {
+}
 export interface DeletePackageRequest {
   packageName: string;
   clientToken?: string;
 }
-export interface DeletePackageResponse {}
+export interface DeletePackageResponse {
+}
 export interface DeletePackageVersionRequest {
   packageName: string;
   versionName: string;
   clientToken?: string;
 }
-export interface DeletePackageVersionResponse {}
+export interface DeletePackageVersionResponse {
+}
 export interface DeletePolicyRequest {
   policyName: string;
 }
@@ -4993,53 +3550,65 @@ export interface DeletePolicyVersionRequest {
 export interface DeleteProvisioningTemplateRequest {
   templateName: string;
 }
-export interface DeleteProvisioningTemplateResponse {}
+export interface DeleteProvisioningTemplateResponse {
+}
 export interface DeleteProvisioningTemplateVersionRequest {
   templateName: string;
   versionId: number;
 }
-export interface DeleteProvisioningTemplateVersionResponse {}
-export interface DeleteRegistrationCodeRequest {}
-export interface DeleteRegistrationCodeResponse {}
+export interface DeleteProvisioningTemplateVersionResponse {
+}
+export interface DeleteRegistrationCodeRequest {
+}
+export interface DeleteRegistrationCodeResponse {
+}
 export interface DeleteRoleAliasRequest {
   roleAlias: string;
 }
-export interface DeleteRoleAliasResponse {}
+export interface DeleteRoleAliasResponse {
+}
 export interface DeleteScheduledAuditRequest {
   scheduledAuditName: string;
 }
-export interface DeleteScheduledAuditResponse {}
+export interface DeleteScheduledAuditResponse {
+}
 export type DeleteScheduledAudits = boolean;
 
 export interface DeleteSecurityProfileRequest {
   securityProfileName: string;
   expectedVersion?: number;
 }
-export interface DeleteSecurityProfileResponse {}
+export interface DeleteSecurityProfileResponse {
+}
 export type DeleteStream_ = boolean;
 
 export interface DeleteStreamRequest {
   streamId: string;
 }
-export interface DeleteStreamResponse {}
+export interface DeleteStreamResponse {
+}
 export interface DeleteThingGroupRequest {
   thingGroupName: string;
   expectedVersion?: number;
 }
-export interface DeleteThingGroupResponse {}
+export interface DeleteThingGroupResponse {
+}
 export interface DeleteThingRequest {
   thingName: string;
   expectedVersion?: number;
 }
-export interface DeleteThingResponse {}
+export interface DeleteThingResponse {
+}
 export interface DeleteThingTypeRequest {
   thingTypeName: string;
 }
-export interface DeleteThingTypeResponse {}
+export interface DeleteThingTypeResponse {
+}
 export interface DeleteTopicRuleDestinationRequest {
   arn: string;
 }
-export interface DeleteTopicRuleDestinationResponse {}
+export interface DeleteTopicRuleDestinationResponse {
+}
 export interface DeleteTopicRuleRequest {
   ruleName: string;
 }
@@ -5057,18 +3626,17 @@ export interface DeprecateThingTypeRequest {
   thingTypeName: string;
   undoDeprecate?: boolean;
 }
-export interface DeprecateThingTypeResponse {}
+export interface DeprecateThingTypeResponse {
+}
 export type DeprecationDate = Date | string;
 
 export type DeprecationFlag = boolean;
 
-export interface DescribeAccountAuditConfigurationRequest {}
+export interface DescribeAccountAuditConfigurationRequest {
+}
 export interface DescribeAccountAuditConfigurationResponse {
   roleArn?: string;
-  auditNotificationTargetConfigurations?: Record<
-    AuditNotificationType,
-    AuditNotificationTarget
-  >;
+  auditNotificationTargetConfigurations?: Record<AuditNotificationType, AuditNotificationTarget>;
   auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
 }
 export interface DescribeAuditFindingRequest {
@@ -5163,7 +3731,8 @@ export interface DescribeCustomMetricResponse {
   creationDate?: Date | string;
   lastModifiedDate?: Date | string;
 }
-export interface DescribeDefaultAuthorizerRequest {}
+export interface DescribeDefaultAuthorizerRequest {
+}
 export interface DescribeDefaultAuthorizerResponse {
   authorizerDescription?: AuthorizerDescription;
 }
@@ -5203,7 +3772,8 @@ export interface DescribeDomainConfigurationResponse {
   applicationProtocol?: ApplicationProtocol;
   clientCertificateConfig?: ClientCertificateConfig;
 }
-export interface DescribeEncryptionConfigurationRequest {}
+export interface DescribeEncryptionConfigurationRequest {
+}
 export interface DescribeEncryptionConfigurationResponse {
   encryptionType?: EncryptionType;
   kmsKeyArn?: string;
@@ -5217,7 +3787,8 @@ export interface DescribeEndpointRequest {
 export interface DescribeEndpointResponse {
   endpointAddress?: string;
 }
-export interface DescribeEventConfigurationsRequest {}
+export interface DescribeEventConfigurationsRequest {
+}
 export interface DescribeEventConfigurationsResponse {
   eventConfigurations?: Record<EventType, Configuration>;
   creationDate?: Date | string;
@@ -5447,12 +4018,14 @@ export interface DetachSecurityProfileRequest {
   securityProfileName: string;
   securityProfileTargetArn: string;
 }
-export interface DetachSecurityProfileResponse {}
+export interface DetachSecurityProfileResponse {
+}
 export interface DetachThingPrincipalRequest {
   thingName: string;
   principal: string;
 }
-export interface DetachThingPrincipalResponse {}
+export interface DetachThingPrincipalResponse {
+}
 export type DetailsKey = string;
 
 export type DetailsMap = Record<string, string>;
@@ -5471,23 +4044,14 @@ export interface DetectMitigationActionExecution {
 }
 export type DetectMitigationActionExecutionErrorCode = string;
 
-export type DetectMitigationActionExecutionList =
-  Array<DetectMitigationActionExecution>;
-export type DetectMitigationActionExecutionStatus =
-  | "IN_PROGRESS"
-  | "SUCCESSFUL"
-  | "FAILED"
-  | "SKIPPED";
+export type DetectMitigationActionExecutionList = Array<DetectMitigationActionExecution>;
+export type DetectMitigationActionExecutionStatus = "IN_PROGRESS" | "SUCCESSFUL" | "FAILED" | "SKIPPED";
 export interface DetectMitigationActionsTaskStatistics {
   actionsExecuted?: number;
   actionsSkipped?: number;
   actionsFailed?: number;
 }
-export type DetectMitigationActionsTaskStatus =
-  | "IN_PROGRESS"
-  | "SUCCESSFUL"
-  | "FAILED"
-  | "CANCELED";
+export type DetectMitigationActionsTaskStatus = "IN_PROGRESS" | "SUCCESSFUL" | "FAILED" | "CANCELED";
 export interface DetectMitigationActionsTaskSummary {
   taskId?: string;
   taskStatus?: DetectMitigationActionsTaskStatus;
@@ -5500,8 +4064,7 @@ export interface DetectMitigationActionsTaskSummary {
   actionsDefinition?: Array<MitigationAction>;
   taskStatistics?: DetectMitigationActionsTaskStatistics;
 }
-export type DetectMitigationActionsTaskSummaryList =
-  Array<DetectMitigationActionsTaskSummary>;
+export type DetectMitigationActionsTaskSummaryList = Array<DetectMitigationActionsTaskSummary>;
 export interface DetectMitigationActionsTaskTarget {
   violationIds?: Array<string>;
   securityProfileName?: string;
@@ -5532,24 +4095,11 @@ export interface DisassociateSbomFromPackageVersionRequest {
   versionName: string;
   clientToken?: string;
 }
-export interface DisassociateSbomFromPackageVersionResponse {}
+export interface DisassociateSbomFromPackageVersionResponse {
+}
 export type DisconnectReason = string;
 
-export type DisconnectReasonValue =
-  | "AUTH_ERROR"
-  | "CLIENT_INITIATED_DISCONNECT"
-  | "CLIENT_ERROR"
-  | "CONNECTION_LOST"
-  | "DUPLICATE_CLIENTID"
-  | "FORBIDDEN_ACCESS"
-  | "MQTT_KEEP_ALIVE_TIMEOUT"
-  | "SERVER_ERROR"
-  | "SERVER_INITIATED_DISCONNECT"
-  | "THROTTLED"
-  | "WEBSOCKET_TTL_EXPIRATION"
-  | "CUSTOMAUTH_TTL_EXPIRATION"
-  | "UNKNOWN"
-  | "NONE";
+export type DisconnectReasonValue = "AUTH_ERROR" | "CLIENT_INITIATED_DISCONNECT" | "CLIENT_ERROR" | "CONNECTION_LOST" | "DUPLICATE_CLIENTID" | "FORBIDDEN_ACCESS" | "MQTT_KEEP_ALIVE_TIMEOUT" | "SERVER_ERROR" | "SERVER_INITIATED_DISCONNECT" | "THROTTLED" | "WEBSOCKET_TTL_EXPIRATION" | "CUSTOMAUTH_TTL_EXPIRATION" | "UNKNOWN" | "NONE";
 export type DisplayName = string;
 
 export interface DocumentParameter {
@@ -5659,18 +4209,7 @@ export type ErrorMessage2 = string;
 export type EvaluationStatistic = string;
 
 export type EventConfigurations = Record<EventType, Configuration>;
-export type EventType =
-  | "THING"
-  | "THING_GROUP"
-  | "THING_TYPE"
-  | "THING_GROUP_MEMBERSHIP"
-  | "THING_GROUP_HIERARCHY"
-  | "THING_TYPE_ASSOCIATION"
-  | "JOB"
-  | "JOB_EXECUTION"
-  | "POLICY"
-  | "CERTIFICATE"
-  | "CA_CERTIFICATE";
+export type EventType = "THING" | "THING_GROUP" | "THING_TYPE" | "THING_GROUP_MEMBERSHIP" | "THING_GROUP_HIERARCHY" | "THING_TYPE_ASSOCIATION" | "JOB" | "JOB_EXECUTION" | "POLICY" | "CERTIFICATE" | "CA_CERTIFICATE";
 export type Example = string;
 
 export type ExecutionNamePrefix = string;
@@ -5743,34 +4282,7 @@ export interface FleetMetricNameAndArn {
 export type FleetMetricNameAndArnList = Array<FleetMetricNameAndArn>;
 export type FleetMetricPeriod = number;
 
-export type FleetMetricUnit =
-  | "Seconds"
-  | "Microseconds"
-  | "Milliseconds"
-  | "Bytes"
-  | "Kilobytes"
-  | "Megabytes"
-  | "Gigabytes"
-  | "Terabytes"
-  | "Bits"
-  | "Kilobits"
-  | "Megabits"
-  | "Gigabits"
-  | "Terabits"
-  | "Percent"
-  | "Count"
-  | "BytesSecond"
-  | "KilobytesSecond"
-  | "MegabytesSecond"
-  | "GigabytesSecond"
-  | "TerabytesSecond"
-  | "BitsSecond"
-  | "KilobitsSecond"
-  | "MegabitsSecond"
-  | "GigabitsSecond"
-  | "TerabitsSecond"
-  | "CountSecond"
-  | "None";
+export type FleetMetricUnit = "Seconds" | "Microseconds" | "Milliseconds" | "Bytes" | "Kilobytes" | "Megabytes" | "Gigabytes" | "Terabytes" | "Bits" | "Kilobits" | "Megabits" | "Gigabits" | "Terabits" | "Percent" | "Count" | "BytesSecond" | "KilobytesSecond" | "MegabytesSecond" | "GigabytesSecond" | "TerabytesSecond" | "BitsSecond" | "KilobitsSecond" | "MegabitsSecond" | "GigabitsSecond" | "TerabitsSecond" | "CountSecond" | "None";
 export type Forced = boolean;
 
 export type ForceDelete = boolean;
@@ -5864,7 +4376,8 @@ export interface GetEffectivePoliciesRequest {
 export interface GetEffectivePoliciesResponse {
   effectivePolicies?: Array<EffectivePolicy>;
 }
-export interface GetIndexingConfigurationRequest {}
+export interface GetIndexingConfigurationRequest {
+}
 export interface GetIndexingConfigurationResponse {
   thingIndexingConfiguration?: ThingIndexingConfiguration;
   thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
@@ -5876,7 +4389,8 @@ export interface GetJobDocumentRequest {
 export interface GetJobDocumentResponse {
   document?: string;
 }
-export interface GetLoggingOptionsRequest {}
+export interface GetLoggingOptionsRequest {
+}
 export interface GetLoggingOptionsResponse {
   roleArn?: string;
   logLevel?: LogLevel;
@@ -5887,7 +4401,8 @@ export interface GetOTAUpdateRequest {
 export interface GetOTAUpdateResponse {
   otaUpdateInfo?: OTAUpdateInfo;
 }
-export interface GetPackageConfigurationRequest {}
+export interface GetPackageConfigurationRequest {
+}
 export interface GetPackageConfigurationResponse {
   versionUpdateByJobsConfig?: VersionUpdateByJobsConfig;
 }
@@ -5957,7 +4472,8 @@ export interface GetPolicyVersionResponse {
   lastModifiedDate?: Date | string;
   generationId?: string;
 }
-export interface GetRegistrationCodeRequest {}
+export interface GetRegistrationCodeRequest {
+}
 export interface GetRegistrationCodeResponse {
   registrationCode?: string;
 }
@@ -5992,7 +4508,8 @@ export interface GetTopicRuleResponse {
   ruleArn?: string;
   rule?: TopicRule;
 }
-export interface GetV2LoggingOptionsRequest {}
+export interface GetV2LoggingOptionsRequest {
+}
 export interface GetV2LoggingOptionsResponse {
   roleArn?: string;
   defaultLogLevel?: LogLevel;
@@ -6202,11 +4719,7 @@ export interface JobExecution {
   versionNumber?: number;
   approximateSecondsBeforeTimedOut?: number;
 }
-export type JobExecutionFailureType =
-  | "FAILED"
-  | "REJECTED"
-  | "TIMED_OUT"
-  | "ALL";
+export type JobExecutionFailureType = "FAILED" | "REJECTED" | "TIMED_OUT" | "ALL";
 export interface JobExecutionsRetryConfig {
   criteriaList: Array<RetryCriteria>;
 }
@@ -6214,15 +4727,7 @@ export interface JobExecutionsRolloutConfig {
   maximumPerMinute?: number;
   exponentialRate?: ExponentialRolloutRate;
 }
-export type JobExecutionStatus =
-  | "QUEUED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "TIMED_OUT"
-  | "REJECTED"
-  | "REMOVED"
-  | "CANCELED";
+export type JobExecutionStatus = "QUEUED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "TIMED_OUT" | "REJECTED" | "REMOVED" | "CANCELED";
 export interface JobExecutionStatusDetails {
   detailsMap?: Record<string, string>;
 }
@@ -6243,8 +4748,7 @@ export interface JobExecutionSummaryForThing {
   jobId?: string;
   jobExecutionSummary?: JobExecutionSummary;
 }
-export type JobExecutionSummaryForThingList =
-  Array<JobExecutionSummaryForThing>;
+export type JobExecutionSummaryForThingList = Array<JobExecutionSummaryForThing>;
 export type JobId = string;
 
 export interface JobProcessDetails {
@@ -6258,12 +4762,7 @@ export interface JobProcessDetails {
   numberOfRemovedThings?: number;
   numberOfTimedOutThings?: number;
 }
-export type JobStatus =
-  | "IN_PROGRESS"
-  | "CANCELED"
-  | "COMPLETED"
-  | "DELETION_IN_PROGRESS"
-  | "SCHEDULED";
+export type JobStatus = "IN_PROGRESS" | "CANCELED" | "COMPLETED" | "DELETION_IN_PROGRESS" | "SCHEDULED";
 export interface JobSummary {
   jobArn?: string;
   jobId?: string;
@@ -7019,12 +5518,7 @@ export interface LogTargetConfiguration {
 export type LogTargetConfigurations = Array<LogTargetConfiguration>;
 export type LogTargetName = string;
 
-export type LogTargetType =
-  | "DEFAULT"
-  | "THING_GROUP"
-  | "CLIENT_ID"
-  | "SOURCE_IP"
-  | "PRINCIPAL_ID";
+export type LogTargetType = "DEFAULT" | "THING_GROUP" | "CLIENT_ID" | "SOURCE_IP" | "PRINCIPAL_ID";
 export type LongParameterValue = number;
 
 export interface MachineLearningDetectionConfig {
@@ -7139,13 +5633,7 @@ export interface MitigationActionParams {
 }
 export type MitigationActionsTaskId = string;
 
-export type MitigationActionType =
-  | "UPDATE_DEVICE_CERTIFICATE"
-  | "UPDATE_CA_CERTIFICATE"
-  | "ADD_THINGS_TO_THING_GROUP"
-  | "REPLACE_DEFAULT_POLICY_VERSION"
-  | "ENABLE_IOT_LOGGING"
-  | "PUBLISH_FINDING_TO_SNS";
+export type MitigationActionType = "UPDATE_DEVICE_CERTIFICATE" | "UPDATE_CA_CERTIFICATE" | "ADD_THINGS_TO_THING_GROUP" | "REPLACE_DEFAULT_POLICY_VERSION" | "ENABLE_IOT_LOGGING" | "PUBLISH_FINDING_TO_SNS";
 export type ModelStatus = "PENDING_BUILD" | "ACTIVE" | "EXPIRED";
 export interface Mqtt5Configuration {
   propagatingAttributes?: Array<PropagatingAttribute>;
@@ -7251,13 +5739,7 @@ export interface OTAUpdateInfo {
   additionalParameters?: Record<string, string>;
 }
 export type OTAUpdatesSummary = Array<OTAUpdateSummary>;
-export type OTAUpdateStatus =
-  | "CREATE_PENDING"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_FAILED";
+export type OTAUpdateStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED" | "DELETE_IN_PROGRESS" | "DELETE_FAILED";
 export interface OTAUpdateSummary {
   otaUpdateId?: string;
   otaUpdateArn?: string;
@@ -7417,8 +5899,7 @@ export interface ProvisioningTemplateSummary {
   enabled?: boolean;
   type?: TemplateType;
 }
-export type ProvisioningTemplateVersionListing =
-  Array<ProvisioningTemplateVersionSummary>;
+export type ProvisioningTemplateVersionListing = Array<ProvisioningTemplateVersionSummary>;
 export interface ProvisioningTemplateVersionSummary {
   versionId?: number;
   creationDate?: Date | string;
@@ -7446,7 +5927,8 @@ export interface PutVerificationStateOnViolationRequest {
   verificationState: VerificationState;
   verificationStateDescription?: string;
 }
-export interface PutVerificationStateOnViolationResponse {}
+export interface PutVerificationStateOnViolationResponse {
+}
 export type Qos = number;
 
 export type QueryMaxResults = number;
@@ -7563,14 +6045,16 @@ export interface RemoveThingFromBillingGroupRequest {
   thingName?: string;
   thingArn?: string;
 }
-export interface RemoveThingFromBillingGroupResponse {}
+export interface RemoveThingFromBillingGroupResponse {
+}
 export interface RemoveThingFromThingGroupRequest {
   thingGroupName?: string;
   thingGroupArn?: string;
   thingName?: string;
   thingArn?: string;
 }
-export interface RemoveThingFromThingGroupResponse {}
+export interface RemoveThingFromThingGroupResponse {
+}
 export type RemoveThingType = boolean;
 
 export interface ReplaceDefaultPolicyVersionParams {
@@ -7635,16 +6119,7 @@ export declare class ResourceRegistrationFailureException extends EffectData.Tag
   readonly message?: string;
 }> {}
 export type Resources = Array<string>;
-export type ResourceType =
-  | "DEVICE_CERTIFICATE"
-  | "CA_CERTIFICATE"
-  | "IOT_POLICY"
-  | "COGNITO_IDENTITY_POOL"
-  | "CLIENT_ID"
-  | "ACCOUNT_SETTINGS"
-  | "ROLE_ALIAS"
-  | "IAM_ROLE"
-  | "ISSUER_CERTIFICATE";
+export type ResourceType = "DEVICE_CERTIFICATE" | "CA_CERTIFICATE" | "IOT_POLICY" | "COGNITO_IDENTITY_POOL" | "CLIENT_ID" | "ACCOUNT_SETTINGS" | "ROLE_ALIAS" | "IAM_ROLE" | "ISSUER_CERTIFICATE";
 export type ResponseTopic = string;
 
 export type RetryableFailureType = "FAILED" | "TIMED_OUT" | "ALL";
@@ -7712,9 +6187,7 @@ export type SalesforceToken = string;
 export interface Sbom {
   s3Location?: S3Location;
 }
-export type SbomValidationErrorCode =
-  | "INCOMPATIBLE_FORMAT"
-  | "FILE_SIZE_LIMIT_EXCEEDED";
+export type SbomValidationErrorCode = "INCOMPATIBLE_FORMAT" | "FILE_SIZE_LIMIT_EXCEEDED";
 export type SbomValidationErrorMessage = string;
 
 export type SbomValidationResult = "FAILED" | "SUCCEEDED";
@@ -7724,8 +6197,7 @@ export interface SbomValidationResultSummary {
   errorCode?: SbomValidationErrorCode;
   errorMessage?: string;
 }
-export type SbomValidationResultSummaryList =
-  Array<SbomValidationResultSummary>;
+export type SbomValidationResultSummaryList = Array<SbomValidationResultSummary>;
 export type SbomValidationStatus = "IN_PROGRESS" | "FAILED" | "SUCCEEDED";
 export type ScheduledAuditArn = string;
 
@@ -7958,12 +6430,7 @@ export interface Statistics {
   variance?: number;
   stdDeviation?: number;
 }
-export type Status =
-  | "InProgress"
-  | "Completed"
-  | "Failed"
-  | "Cancelled"
-  | "Cancelling";
+export type Status = "InProgress" | "Completed" | "Failed" | "Cancelled" | "Cancelling";
 export type StatusCode = number;
 
 export interface StatusReason {
@@ -7984,7 +6451,8 @@ export interface StepFunctionsAction {
 export interface StopThingRegistrationTaskRequest {
   taskId: string;
 }
-export interface StopThingRegistrationTaskResponse {}
+export interface StopThingRegistrationTaskResponse {
+}
 export interface Stream {
   streamId?: string;
   fileId?: number;
@@ -8065,7 +6533,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type Target = string;
@@ -8338,12 +6807,7 @@ export interface TopicRuleDestinationConfiguration {
 }
 export type TopicRuleDestinationMaxResults = number;
 
-export type TopicRuleDestinationStatus =
-  | "ENABLED"
-  | "IN_PROGRESS"
-  | "DISABLED"
-  | "ERROR"
-  | "DELETING";
+export type TopicRuleDestinationStatus = "ENABLED" | "IN_PROGRESS" | "DISABLED" | "ERROR" | "DELETING";
 export type TopicRuleDestinationSummaries = Array<TopicRuleDestinationSummary>;
 export interface TopicRuleDestinationSummary {
   arn?: string;
@@ -8420,16 +6884,15 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAccountAuditConfigurationRequest {
   roleArn?: string;
-  auditNotificationTargetConfigurations?: Record<
-    AuditNotificationType,
-    AuditNotificationTarget
-  >;
+  auditNotificationTargetConfigurations?: Record<AuditNotificationType, AuditNotificationTarget>;
   auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
 }
-export interface UpdateAccountAuditConfigurationResponse {}
+export interface UpdateAccountAuditConfigurationResponse {
+}
 export interface UpdateAuditSuppressionRequest {
   checkName: string;
   resourceIdentifier: ResourceIdentifier;
@@ -8437,7 +6900,8 @@ export interface UpdateAuditSuppressionRequest {
   suppressIndefinitely?: boolean;
   description?: string;
 }
-export interface UpdateAuditSuppressionResponse {}
+export interface UpdateAuditSuppressionResponse {
+}
 export interface UpdateAuthorizerRequest {
   authorizerName: string;
   authorizerFunctionArn?: string;
@@ -8552,11 +7016,13 @@ export interface UpdateEncryptionConfigurationRequest {
   kmsKeyArn?: string;
   kmsAccessRoleArn?: string;
 }
-export interface UpdateEncryptionConfigurationResponse {}
+export interface UpdateEncryptionConfigurationResponse {
+}
 export interface UpdateEventConfigurationsRequest {
   eventConfigurations?: Record<EventType, Configuration>;
 }
-export interface UpdateEventConfigurationsResponse {}
+export interface UpdateEventConfigurationsResponse {
+}
 export interface UpdateFleetMetricRequest {
   metricName: string;
   queryString?: string;
@@ -8573,7 +7039,8 @@ export interface UpdateIndexingConfigurationRequest {
   thingIndexingConfiguration?: ThingIndexingConfiguration;
   thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
 }
-export interface UpdateIndexingConfigurationResponse {}
+export interface UpdateIndexingConfigurationResponse {
+}
 export interface UpdateJobRequest {
   jobId: string;
   description?: string;
@@ -8597,7 +7064,8 @@ export interface UpdatePackageConfigurationRequest {
   versionUpdateByJobsConfig?: VersionUpdateByJobsConfig;
   clientToken?: string;
 }
-export interface UpdatePackageConfigurationResponse {}
+export interface UpdatePackageConfigurationResponse {
+}
 export interface UpdatePackageRequest {
   packageName: string;
   description?: string;
@@ -8605,7 +7073,8 @@ export interface UpdatePackageRequest {
   unsetDefaultVersion?: boolean;
   clientToken?: string;
 }
-export interface UpdatePackageResponse {}
+export interface UpdatePackageResponse {
+}
 export interface UpdatePackageVersionRequest {
   packageName: string;
   versionName: string;
@@ -8616,7 +7085,8 @@ export interface UpdatePackageVersionRequest {
   recipe?: string;
   clientToken?: string;
 }
-export interface UpdatePackageVersionResponse {}
+export interface UpdatePackageVersionResponse {
+}
 export interface UpdateProvisioningTemplateRequest {
   templateName: string;
   description?: string;
@@ -8626,7 +7096,8 @@ export interface UpdateProvisioningTemplateRequest {
   preProvisioningHook?: ProvisioningHook;
   removePreProvisioningHook?: boolean;
 }
-export interface UpdateProvisioningTemplateResponse {}
+export interface UpdateProvisioningTemplateResponse {
+}
 export interface UpdateRoleAliasRequest {
   roleAlias: string;
   roleArn?: string;
@@ -8699,7 +7170,8 @@ export interface UpdateThingGroupsForThingRequest {
   thingGroupsToRemove?: Array<string>;
   overrideDynamicGroups?: boolean;
 }
-export interface UpdateThingGroupsForThingResponse {}
+export interface UpdateThingGroupsForThingResponse {
+}
 export interface UpdateThingRequest {
   thingName: string;
   thingTypeName?: string;
@@ -8707,17 +7179,20 @@ export interface UpdateThingRequest {
   expectedVersion?: number;
   removeThingType?: boolean;
 }
-export interface UpdateThingResponse {}
+export interface UpdateThingResponse {
+}
 export interface UpdateThingTypeRequest {
   thingTypeName: string;
   thingTypeProperties?: ThingTypeProperties;
 }
-export interface UpdateThingTypeResponse {}
+export interface UpdateThingTypeResponse {
+}
 export interface UpdateTopicRuleDestinationRequest {
   arn: string;
   status: TopicRuleDestinationStatus;
 }
-export interface UpdateTopicRuleDestinationResponse {}
+export interface UpdateTopicRuleDestinationResponse {
+}
 export type Url = string;
 
 export type UseBase64 = boolean;
@@ -8757,11 +7232,7 @@ export type Value = string;
 
 export type Variance = number;
 
-export type VerificationState =
-  | "FALSE_POSITIVE"
-  | "BENIGN_POSITIVE"
-  | "TRUE_POSITIVE"
-  | "UNKNOWN";
+export type VerificationState = "FALSE_POSITIVE" | "BENIGN_POSITIVE" | "TRUE_POSITIVE" | "UNKNOWN";
 export type VerificationStateDescription = string;
 
 export type Version = number;
@@ -8804,10 +7275,7 @@ export interface ViolationEventOccurrenceRange {
   endTime: Date | string;
 }
 export type ViolationEvents = Array<ViolationEvent>;
-export type ViolationEventType =
-  | "IN_ALARM"
-  | "ALARM_CLEARED"
-  | "ALARM_INVALIDATED";
+export type ViolationEventType = "IN_ALARM" | "ALARM_CLEARED" | "ALARM_INVALIDATED";
 export type ViolationId = string;
 
 export interface VpcDestinationConfiguration {
@@ -12126,3 +10594,4 @@ export declare namespace ValidateSecurityProfileBehaviors {
     | ThrottlingException
     | CommonAwsError;
 }
+

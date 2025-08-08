@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class DataExchange extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("dataexchange", new RestJson1Protocol(), cfg);
+  }
+
   acceptDataGrant(
     input: AcceptDataGrantRequest,
   ): Effect.Effect<
     AcceptDataGrantResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AcceptDataGrant", input);
   }
@@ -21,12 +20,7 @@ export class DataExchange extends AWSServiceClient {
     input: CancelJobRequest,
   ): Effect.Effect<
     {},
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CancelJob", input);
   }
@@ -34,13 +28,7 @@ export class DataExchange extends AWSServiceClient {
     input: CreateDataGrantRequest,
   ): Effect.Effect<
     CreateDataGrantResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDataGrant", input);
   }
@@ -48,12 +36,7 @@ export class DataExchange extends AWSServiceClient {
     input: CreateDataSetRequest,
   ): Effect.Effect<
     CreateDataSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateDataSet", input);
   }
@@ -61,12 +44,7 @@ export class DataExchange extends AWSServiceClient {
     input: CreateEventActionRequest,
   ): Effect.Effect<
     CreateEventActionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceLimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateEventAction", input);
   }
@@ -74,13 +52,7 @@ export class DataExchange extends AWSServiceClient {
     input: CreateJobRequest,
   ): Effect.Effect<
     CreateJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateJob", input);
   }
@@ -88,12 +60,7 @@ export class DataExchange extends AWSServiceClient {
     input: CreateRevisionRequest,
   ): Effect.Effect<
     CreateRevisionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateRevision", input);
   }
@@ -101,13 +68,7 @@ export class DataExchange extends AWSServiceClient {
     input: DeleteAssetRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteAsset", input);
   }
@@ -115,12 +76,7 @@ export class DataExchange extends AWSServiceClient {
     input: DeleteDataGrantRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDataGrant", input);
   }
@@ -128,13 +84,7 @@ export class DataExchange extends AWSServiceClient {
     input: DeleteDataSetRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteDataSet", input);
   }
@@ -142,11 +92,7 @@ export class DataExchange extends AWSServiceClient {
     input: DeleteEventActionRequest,
   ): Effect.Effect<
     {},
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteEventAction", input);
   }
@@ -154,13 +100,7 @@ export class DataExchange extends AWSServiceClient {
     input: DeleteRevisionRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteRevision", input);
   }
@@ -168,11 +108,7 @@ export class DataExchange extends AWSServiceClient {
     input: GetAssetRequest,
   ): Effect.Effect<
     GetAssetResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetAsset", input);
   }
@@ -180,12 +116,7 @@ export class DataExchange extends AWSServiceClient {
     input: GetDataGrantRequest,
   ): Effect.Effect<
     GetDataGrantResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDataGrant", input);
   }
@@ -193,11 +124,7 @@ export class DataExchange extends AWSServiceClient {
     input: GetDataSetRequest,
   ): Effect.Effect<
     GetDataSetResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetDataSet", input);
   }
@@ -205,11 +132,7 @@ export class DataExchange extends AWSServiceClient {
     input: GetEventActionRequest,
   ): Effect.Effect<
     GetEventActionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetEventAction", input);
   }
@@ -217,11 +140,7 @@ export class DataExchange extends AWSServiceClient {
     input: GetJobRequest,
   ): Effect.Effect<
     GetJobResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetJob", input);
   }
@@ -229,12 +148,7 @@ export class DataExchange extends AWSServiceClient {
     input: GetReceivedDataGrantRequest,
   ): Effect.Effect<
     GetReceivedDataGrantResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetReceivedDataGrant", input);
   }
@@ -242,11 +156,7 @@ export class DataExchange extends AWSServiceClient {
     input: GetRevisionRequest,
   ): Effect.Effect<
     GetRevisionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRevision", input);
   }
@@ -254,12 +164,7 @@ export class DataExchange extends AWSServiceClient {
     input: ListDataGrantsRequest,
   ): Effect.Effect<
     ListDataGrantsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDataGrants", input);
   }
@@ -267,11 +172,7 @@ export class DataExchange extends AWSServiceClient {
     input: ListDataSetRevisionsRequest,
   ): Effect.Effect<
     ListDataSetRevisionsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDataSetRevisions", input);
   }
@@ -279,11 +180,7 @@ export class DataExchange extends AWSServiceClient {
     input: ListDataSetsRequest,
   ): Effect.Effect<
     ListDataSetsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListDataSets", input);
   }
@@ -291,11 +188,7 @@ export class DataExchange extends AWSServiceClient {
     input: ListEventActionsRequest,
   ): Effect.Effect<
     ListEventActionsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEventActions", input);
   }
@@ -303,11 +196,7 @@ export class DataExchange extends AWSServiceClient {
     input: ListJobsRequest,
   ): Effect.Effect<
     ListJobsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListJobs", input);
   }
@@ -315,12 +204,7 @@ export class DataExchange extends AWSServiceClient {
     input: ListReceivedDataGrantsRequest,
   ): Effect.Effect<
     ListReceivedDataGrantsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListReceivedDataGrants", input);
   }
@@ -328,30 +212,23 @@ export class DataExchange extends AWSServiceClient {
     input: ListRevisionAssetsRequest,
   ): Effect.Effect<
     ListRevisionAssetsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRevisionAssets", input);
   }
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError> {
+  ): Effect.Effect<
+    ListTagsForResourceResponse,
+    CommonAwsError
+  > {
     return this.call("ListTagsForResource", input);
   }
   revokeRevision(
     input: RevokeRevisionRequest,
   ): Effect.Effect<
     RevokeRevisionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RevokeRevision", input);
   }
@@ -359,12 +236,7 @@ export class DataExchange extends AWSServiceClient {
     input: SendApiAssetRequest,
   ): Effect.Effect<
     SendApiAssetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendApiAsset", input);
   }
@@ -372,13 +244,7 @@ export class DataExchange extends AWSServiceClient {
     input: SendDataSetNotificationRequest,
   ): Effect.Effect<
     SendDataSetNotificationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SendDataSetNotification", input);
   }
@@ -386,35 +252,31 @@ export class DataExchange extends AWSServiceClient {
     input: StartJobRequest,
   ): Effect.Effect<
     StartJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartJob", input);
   }
-  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError> {
+  tagResource(
+    input: TagResourceRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("TagResource", input);
   }
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<{}, CommonAwsError> {
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  > {
     return this.call("UntagResource", input);
   }
   updateAsset(
     input: UpdateAssetRequest,
   ): Effect.Effect<
     UpdateAssetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateAsset", input);
   }
@@ -422,12 +284,7 @@ export class DataExchange extends AWSServiceClient {
     input: UpdateDataSetRequest,
   ): Effect.Effect<
     UpdateDataSetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateDataSet", input);
   }
@@ -435,12 +292,7 @@ export class DataExchange extends AWSServiceClient {
     input: UpdateEventActionRequest,
   ): Effect.Effect<
     UpdateEventActionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateEventAction", input);
   }
@@ -448,13 +300,7 @@ export class DataExchange extends AWSServiceClient {
     input: UpdateRevisionRequest,
   ): Effect.Effect<
     UpdateRevisionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateRevision", input);
   }
@@ -1127,15 +973,12 @@ export type ListOfEventActionEntry = Array<EventActionEntry>;
 export type ListOfJobEntry = Array<JobEntry>;
 export type ListOfJobError = Array<JobError>;
 export type ListOfKmsKeysToGrant = Array<KmsKeyToGrant>;
-export type ListOfLakeFormationTagPolicies =
-  Array<LakeFormationTagPolicyDetails>;
+export type ListOfLakeFormationTagPolicies = Array<LakeFormationTagPolicyDetails>;
 export type ListOfLFPermissions = Array<string>;
 export type ListOfLFTags = Array<LFTag>;
 export type ListOfLFTagValues = Array<string>;
-export type ListOfReceivedDataGrantSummariesEntry =
-  Array<ReceivedDataGrantSummariesEntry>;
-export type ListOfRedshiftDataShareAssetSourceEntry =
-  Array<RedshiftDataShareAssetSourceEntry>;
+export type ListOfReceivedDataGrantSummariesEntry = Array<ReceivedDataGrantSummariesEntry>;
+export type ListOfRedshiftDataShareAssetSourceEntry = Array<RedshiftDataShareAssetSourceEntry>;
 export type ListOfRedshiftDataShares = Array<RedshiftDataShareDetails>;
 export type ListOfRevisionDestinationEntry = Array<RevisionDestinationEntry>;
 export type ListOfRevisionEntry = Array<RevisionEntry>;
@@ -1349,7 +1192,8 @@ export interface SendDataSetNotificationRequest {
   Details?: NotificationDetails;
   Type: string;
 }
-export interface SendDataSetNotificationResponse {}
+export interface SendDataSetNotificationResponse {
+}
 export type SenderPrincipal = string;
 
 export type ServerSideEncryptionTypes = string;
@@ -1364,7 +1208,8 @@ export declare class ServiceLimitExceededException extends EffectData.TaggedErro
 export interface StartJobRequest {
   JobId: string;
 }
-export interface StartJobResponse {}
+export interface StartJobResponse {
+}
 export type State = string;
 
 export interface TableLFTagPolicy {
@@ -1775,7 +1620,8 @@ export declare namespace ListRevisionAssets {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RevokeRevision {
@@ -1832,13 +1678,15 @@ export declare namespace StartJob {
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdateAsset {
@@ -1890,3 +1738,4 @@ export declare namespace UpdateRevision {
     | ValidationException
     | CommonAwsError;
 }
+

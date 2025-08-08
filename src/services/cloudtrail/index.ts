@@ -1,29 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class CloudTrail extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cloudtrail", new AwsJson11Protocol(), cfg);
+  }
+
   addTags(
     input: AddTagsRequest,
   ): Effect.Effect<
     AddTagsResponse,
-    | ChannelARNInvalidException
-    | ChannelNotFoundException
-    | CloudTrailARNInvalidException
-    | ConflictException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InvalidTagParameterException
-    | InvalidTrailNameException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | ResourceNotFoundException
-    | ResourceTypeNotSupportedException
-    | TagsLimitExceededException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ChannelARNInvalidException | ChannelNotFoundException | CloudTrailARNInvalidException | ConflictException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InvalidTagParameterException | InvalidTrailNameException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | ResourceNotFoundException | ResourceTypeNotSupportedException | TagsLimitExceededException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("AddTags", input);
   }
@@ -31,17 +20,7 @@ export class CloudTrail extends AWSServiceClient {
     input: CancelQueryRequest,
   ): Effect.Effect<
     CancelQueryResponse,
-    | ConflictException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InactiveQueryException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | QueryIdNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InactiveQueryException | InvalidParameterException | NoManagementAccountSLRExistsException | OperationNotPermittedException | QueryIdNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CancelQuery", input);
   }
@@ -49,19 +28,7 @@ export class CloudTrail extends AWSServiceClient {
     input: CreateChannelRequest,
   ): Effect.Effect<
     CreateChannelResponse,
-    | ChannelAlreadyExistsException
-    | ChannelMaxLimitExceededException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InvalidEventDataStoreCategoryException
-    | InvalidParameterException
-    | InvalidSourceException
-    | InvalidTagParameterException
-    | OperationNotPermittedException
-    | TagsLimitExceededException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ChannelAlreadyExistsException | ChannelMaxLimitExceededException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InvalidEventDataStoreCategoryException | InvalidParameterException | InvalidSourceException | InvalidTagParameterException | OperationNotPermittedException | TagsLimitExceededException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CreateChannel", input);
   }
@@ -69,15 +36,7 @@ export class CloudTrail extends AWSServiceClient {
     input: CreateDashboardRequest,
   ): Effect.Effect<
     CreateDashboardResponse,
-    | ConflictException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InsufficientEncryptionPolicyException
-    | InvalidQueryStatementException
-    | InvalidTagParameterException
-    | ServiceQuotaExceededException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InsufficientEncryptionPolicyException | InvalidQueryStatementException | InvalidTagParameterException | ServiceQuotaExceededException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CreateDashboard", input);
   }
@@ -85,25 +44,7 @@ export class CloudTrail extends AWSServiceClient {
     input: CreateEventDataStoreRequest,
   ): Effect.Effect<
     CreateEventDataStoreResponse,
-    | CloudTrailAccessNotEnabledException
-    | ConflictException
-    | EventDataStoreAlreadyExistsException
-    | EventDataStoreMaxLimitExceededException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InsufficientEncryptionPolicyException
-    | InvalidEventSelectorsException
-    | InvalidKmsKeyIdException
-    | InvalidParameterException
-    | InvalidTagParameterException
-    | KmsException
-    | KmsKeyNotFoundException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | OrganizationNotInAllFeaturesModeException
-    | OrganizationsNotInUseException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailAccessNotEnabledException | ConflictException | EventDataStoreAlreadyExistsException | EventDataStoreMaxLimitExceededException | InsufficientDependencyServiceAccessPermissionException | InsufficientEncryptionPolicyException | InvalidEventSelectorsException | InvalidKmsKeyIdException | InvalidParameterException | InvalidTagParameterException | KmsException | KmsKeyNotFoundException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | OrganizationNotInAllFeaturesModeException | OrganizationsNotInUseException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CreateEventDataStore", input);
   }
@@ -111,40 +52,7 @@ export class CloudTrail extends AWSServiceClient {
     input: CreateTrailRequest,
   ): Effect.Effect<
     CreateTrailResponse,
-    | CloudTrailAccessNotEnabledException
-    | CloudTrailInvalidClientTokenIdException
-    | CloudWatchLogsDeliveryUnavailableException
-    | ConflictException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InsufficientEncryptionPolicyException
-    | InsufficientS3BucketPolicyException
-    | InsufficientSnsTopicPolicyException
-    | InvalidCloudWatchLogsLogGroupArnException
-    | InvalidCloudWatchLogsRoleArnException
-    | InvalidKmsKeyIdException
-    | InvalidParameterCombinationException
-    | InvalidParameterException
-    | InvalidS3BucketNameException
-    | InvalidS3PrefixException
-    | InvalidSnsTopicNameException
-    | InvalidTagParameterException
-    | InvalidTrailNameException
-    | KmsException
-    | KmsKeyDisabledException
-    | KmsKeyNotFoundException
-    | MaximumNumberOfTrailsExceededException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | OrganizationNotInAllFeaturesModeException
-    | OrganizationsNotInUseException
-    | S3BucketDoesNotExistException
-    | TagsLimitExceededException
-    | ThrottlingException
-    | TrailAlreadyExistsException
-    | TrailNotProvidedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailAccessNotEnabledException | CloudTrailInvalidClientTokenIdException | CloudWatchLogsDeliveryUnavailableException | ConflictException | InsufficientDependencyServiceAccessPermissionException | InsufficientEncryptionPolicyException | InsufficientS3BucketPolicyException | InsufficientSnsTopicPolicyException | InvalidCloudWatchLogsLogGroupArnException | InvalidCloudWatchLogsRoleArnException | InvalidKmsKeyIdException | InvalidParameterCombinationException | InvalidParameterException | InvalidS3BucketNameException | InvalidS3PrefixException | InvalidSnsTopicNameException | InvalidTagParameterException | InvalidTrailNameException | KmsException | KmsKeyDisabledException | KmsKeyNotFoundException | MaximumNumberOfTrailsExceededException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | OrganizationNotInAllFeaturesModeException | OrganizationsNotInUseException | S3BucketDoesNotExistException | TagsLimitExceededException | ThrottlingException | TrailAlreadyExistsException | TrailNotProvidedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("CreateTrail", input);
   }
@@ -152,11 +60,7 @@ export class CloudTrail extends AWSServiceClient {
     input: DeleteChannelRequest,
   ): Effect.Effect<
     DeleteChannelResponse,
-    | ChannelARNInvalidException
-    | ChannelNotFoundException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ChannelARNInvalidException | ChannelNotFoundException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteChannel", input);
   }
@@ -164,10 +68,7 @@ export class CloudTrail extends AWSServiceClient {
     input: DeleteDashboardRequest,
   ): Effect.Effect<
     DeleteDashboardResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteDashboard", input);
   }
@@ -175,21 +76,7 @@ export class CloudTrail extends AWSServiceClient {
     input: DeleteEventDataStoreRequest,
   ): Effect.Effect<
     DeleteEventDataStoreResponse,
-    | ChannelExistsForEDSException
-    | ConflictException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreFederationEnabledException
-    | EventDataStoreHasOngoingImportException
-    | EventDataStoreNotFoundException
-    | EventDataStoreTerminationProtectedException
-    | InactiveEventDataStoreException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ChannelExistsForEDSException | ConflictException | EventDataStoreARNInvalidException | EventDataStoreFederationEnabledException | EventDataStoreHasOngoingImportException | EventDataStoreNotFoundException | EventDataStoreTerminationProtectedException | InactiveEventDataStoreException | InsufficientDependencyServiceAccessPermissionException | InvalidParameterException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteEventDataStore", input);
   }
@@ -197,14 +84,7 @@ export class CloudTrail extends AWSServiceClient {
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | ConflictException
-    | OperationNotPermittedException
-    | ResourceARNNotValidException
-    | ResourceNotFoundException
-    | ResourcePolicyNotFoundException
-    | ResourceTypeNotSupportedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | OperationNotPermittedException | ResourceARNNotValidException | ResourceNotFoundException | ResourcePolicyNotFoundException | ResourceTypeNotSupportedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -212,18 +92,7 @@ export class CloudTrail extends AWSServiceClient {
     input: DeleteTrailRequest,
   ): Effect.Effect<
     DeleteTrailResponse,
-    | CloudTrailARNInvalidException
-    | ConflictException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidHomeRegionException
-    | InvalidTrailNameException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | ThrottlingException
-    | TrailNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | ConflictException | InsufficientDependencyServiceAccessPermissionException | InvalidHomeRegionException | InvalidTrailNameException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | ThrottlingException | TrailNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeleteTrail", input);
   }
@@ -231,18 +100,7 @@ export class CloudTrail extends AWSServiceClient {
     input: DeregisterOrganizationDelegatedAdminRequest,
   ): Effect.Effect<
     DeregisterOrganizationDelegatedAdminResponse,
-    | AccountNotFoundException
-    | AccountNotRegisteredException
-    | CloudTrailAccessNotEnabledException
-    | ConflictException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidParameterException
-    | NotOrganizationManagementAccountException
-    | OperationNotPermittedException
-    | OrganizationNotInAllFeaturesModeException
-    | OrganizationsNotInUseException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccountNotFoundException | AccountNotRegisteredException | CloudTrailAccessNotEnabledException | ConflictException | InsufficientDependencyServiceAccessPermissionException | InvalidParameterException | NotOrganizationManagementAccountException | OperationNotPermittedException | OrganizationNotInAllFeaturesModeException | OrganizationsNotInUseException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DeregisterOrganizationDelegatedAdmin", input);
   }
@@ -250,15 +108,7 @@ export class CloudTrail extends AWSServiceClient {
     input: DescribeQueryRequest,
   ): Effect.Effect<
     DescribeQueryResponse,
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | QueryIdNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InvalidParameterException | NoManagementAccountSLRExistsException | OperationNotPermittedException | QueryIdNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DescribeQuery", input);
   }
@@ -266,12 +116,7 @@ export class CloudTrail extends AWSServiceClient {
     input: DescribeTrailsRequest,
   ): Effect.Effect<
     DescribeTrailsResponse,
-    | CloudTrailARNInvalidException
-    | InvalidTrailNameException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | InvalidTrailNameException | NoManagementAccountSLRExistsException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DescribeTrails", input);
   }
@@ -279,21 +124,7 @@ export class CloudTrail extends AWSServiceClient {
     input: DisableFederationRequest,
   ): Effect.Effect<
     DisableFederationResponse,
-    | AccessDeniedException
-    | CloudTrailAccessNotEnabledException
-    | ConcurrentModificationException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | OrganizationNotInAllFeaturesModeException
-    | OrganizationsNotInUseException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | CloudTrailAccessNotEnabledException | ConcurrentModificationException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InsufficientDependencyServiceAccessPermissionException | InvalidParameterException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | OrganizationNotInAllFeaturesModeException | OrganizationsNotInUseException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("DisableFederation", input);
   }
@@ -301,22 +132,7 @@ export class CloudTrail extends AWSServiceClient {
     input: EnableFederationRequest,
   ): Effect.Effect<
     EnableFederationResponse,
-    | AccessDeniedException
-    | CloudTrailAccessNotEnabledException
-    | ConcurrentModificationException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreFederationEnabledException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | OrganizationNotInAllFeaturesModeException
-    | OrganizationsNotInUseException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccessDeniedException | CloudTrailAccessNotEnabledException | ConcurrentModificationException | EventDataStoreARNInvalidException | EventDataStoreFederationEnabledException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InsufficientDependencyServiceAccessPermissionException | InvalidParameterException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | OrganizationNotInAllFeaturesModeException | OrganizationsNotInUseException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("EnableFederation", input);
   }
@@ -324,15 +140,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GenerateQueryRequest,
   ): Effect.Effect<
     GenerateQueryResponse,
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | GenerateResponseException
-    | InactiveEventDataStoreException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    EventDataStoreARNInvalidException | EventDataStoreNotFoundException | GenerateResponseException | InactiveEventDataStoreException | InvalidParameterException | NoManagementAccountSLRExistsException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GenerateQuery", input);
   }
@@ -340,11 +148,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GetChannelRequest,
   ): Effect.Effect<
     GetChannelResponse,
-    | ChannelARNInvalidException
-    | ChannelNotFoundException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ChannelARNInvalidException | ChannelNotFoundException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetChannel", input);
   }
@@ -360,17 +164,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GetEventConfigurationRequest,
   ): Effect.Effect<
     GetEventConfigurationResponse,
-    | CloudTrailARNInvalidException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InvalidEventDataStoreCategoryException
-    | InvalidEventDataStoreStatusException
-    | InvalidParameterCombinationException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InvalidEventDataStoreCategoryException | InvalidEventDataStoreStatusException | InvalidParameterCombinationException | InvalidParameterException | NoManagementAccountSLRExistsException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetEventConfiguration", input);
   }
@@ -378,13 +172,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GetEventDataStoreRequest,
   ): Effect.Effect<
     GetEventDataStoreResponse,
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InvalidParameterException | NoManagementAccountSLRExistsException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetEventDataStore", input);
   }
@@ -392,13 +180,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GetEventSelectorsRequest,
   ): Effect.Effect<
     GetEventSelectorsResponse,
-    | CloudTrailARNInvalidException
-    | InvalidTrailNameException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | TrailNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | InvalidTrailNameException | NoManagementAccountSLRExistsException | OperationNotPermittedException | TrailNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetEventSelectors", input);
   }
@@ -406,11 +188,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GetImportRequest,
   ): Effect.Effect<
     GetImportResponse,
-    | ImportNotFoundException
-    | InvalidParameterException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ImportNotFoundException | InvalidParameterException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetImport", input);
   }
@@ -418,17 +196,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GetInsightSelectorsRequest,
   ): Effect.Effect<
     GetInsightSelectorsResponse,
-    | CloudTrailARNInvalidException
-    | InsightNotEnabledException
-    | InvalidParameterCombinationException
-    | InvalidParameterException
-    | InvalidTrailNameException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | ThrottlingException
-    | TrailNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | InsightNotEnabledException | InvalidParameterCombinationException | InvalidParameterException | InvalidTrailNameException | NoManagementAccountSLRExistsException | OperationNotPermittedException | ThrottlingException | TrailNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetInsightSelectors", input);
   }
@@ -436,18 +204,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GetQueryResultsRequest,
   ): Effect.Effect<
     GetQueryResultsResponse,
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InsufficientEncryptionPolicyException
-    | InvalidMaxResultsException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | QueryIdNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InsufficientEncryptionPolicyException | InvalidMaxResultsException | InvalidNextTokenException | InvalidParameterException | NoManagementAccountSLRExistsException | OperationNotPermittedException | QueryIdNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetQueryResults", input);
   }
@@ -455,13 +212,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | OperationNotPermittedException
-    | ResourceARNNotValidException
-    | ResourceNotFoundException
-    | ResourcePolicyNotFoundException
-    | ResourceTypeNotSupportedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    OperationNotPermittedException | ResourceARNNotValidException | ResourceNotFoundException | ResourcePolicyNotFoundException | ResourceTypeNotSupportedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -469,12 +220,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GetTrailRequest,
   ): Effect.Effect<
     GetTrailResponse,
-    | CloudTrailARNInvalidException
-    | InvalidTrailNameException
-    | OperationNotPermittedException
-    | TrailNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | InvalidTrailNameException | OperationNotPermittedException | TrailNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetTrail", input);
   }
@@ -482,12 +228,7 @@ export class CloudTrail extends AWSServiceClient {
     input: GetTrailStatusRequest,
   ): Effect.Effect<
     GetTrailStatusResponse,
-    | CloudTrailARNInvalidException
-    | InvalidTrailNameException
-    | OperationNotPermittedException
-    | TrailNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | InvalidTrailNameException | OperationNotPermittedException | TrailNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("GetTrailStatus", input);
   }
@@ -495,10 +236,7 @@ export class CloudTrail extends AWSServiceClient {
     input: ListChannelsRequest,
   ): Effect.Effect<
     ListChannelsResponse,
-    | InvalidNextTokenException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidNextTokenException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListChannels", input);
   }
@@ -514,12 +252,7 @@ export class CloudTrail extends AWSServiceClient {
     input: ListEventDataStoresRequest,
   ): Effect.Effect<
     ListEventDataStoresResponse,
-    | InvalidMaxResultsException
-    | InvalidNextTokenException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidMaxResultsException | InvalidNextTokenException | NoManagementAccountSLRExistsException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListEventDataStores", input);
   }
@@ -527,11 +260,7 @@ export class CloudTrail extends AWSServiceClient {
     input: ListImportFailuresRequest,
   ): Effect.Effect<
     ListImportFailuresResponse,
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidNextTokenException | InvalidParameterException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListImportFailures", input);
   }
@@ -539,12 +268,7 @@ export class CloudTrail extends AWSServiceClient {
     input: ListImportsRequest,
   ): Effect.Effect<
     ListImportsResponse,
-    | EventDataStoreARNInvalidException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    EventDataStoreARNInvalidException | InvalidNextTokenException | InvalidParameterException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListImports", input);
   }
@@ -552,10 +276,7 @@ export class CloudTrail extends AWSServiceClient {
     input: ListInsightsMetricDataRequest,
   ): Effect.Effect<
     ListInsightsMetricDataResponse,
-    | InvalidParameterException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidParameterException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListInsightsMetricData", input);
   }
@@ -563,11 +284,7 @@ export class CloudTrail extends AWSServiceClient {
     input: ListPublicKeysRequest,
   ): Effect.Effect<
     ListPublicKeysResponse,
-    | InvalidTimeRangeException
-    | InvalidTokenException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidTimeRangeException | InvalidTokenException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListPublicKeys", input);
   }
@@ -575,18 +292,7 @@ export class CloudTrail extends AWSServiceClient {
     input: ListQueriesRequest,
   ): Effect.Effect<
     ListQueriesResponse,
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InvalidDateRangeException
-    | InvalidMaxResultsException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidQueryStatusException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InvalidDateRangeException | InvalidMaxResultsException | InvalidNextTokenException | InvalidParameterException | InvalidQueryStatusException | NoManagementAccountSLRExistsException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListQueries", input);
   }
@@ -594,19 +300,7 @@ export class CloudTrail extends AWSServiceClient {
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    | ChannelARNInvalidException
-    | CloudTrailARNInvalidException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InvalidTokenException
-    | InvalidTrailNameException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | ResourceNotFoundException
-    | ResourceTypeNotSupportedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ChannelARNInvalidException | CloudTrailARNInvalidException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InvalidTokenException | InvalidTrailNameException | NoManagementAccountSLRExistsException | OperationNotPermittedException | ResourceNotFoundException | ResourceTypeNotSupportedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListTags", input);
   }
@@ -614,9 +308,7 @@ export class CloudTrail extends AWSServiceClient {
     input: ListTrailsRequest,
   ): Effect.Effect<
     ListTrailsResponse,
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("ListTrails", input);
   }
@@ -624,14 +316,7 @@ export class CloudTrail extends AWSServiceClient {
     input: LookupEventsRequest,
   ): Effect.Effect<
     LookupEventsResponse,
-    | InvalidEventCategoryException
-    | InvalidLookupAttributesException
-    | InvalidMaxResultsException
-    | InvalidNextTokenException
-    | InvalidTimeRangeException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidEventCategoryException | InvalidLookupAttributesException | InvalidMaxResultsException | InvalidNextTokenException | InvalidTimeRangeException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("LookupEvents", input);
   }
@@ -639,23 +324,7 @@ export class CloudTrail extends AWSServiceClient {
     input: PutEventConfigurationRequest,
   ): Effect.Effect<
     PutEventConfigurationResponse,
-    | CloudTrailARNInvalidException
-    | ConflictException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InsufficientIAMAccessPermissionException
-    | InvalidEventDataStoreCategoryException
-    | InvalidEventDataStoreStatusException
-    | InvalidParameterCombinationException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | ThrottlingException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | ConflictException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InsufficientDependencyServiceAccessPermissionException | InsufficientIAMAccessPermissionException | InvalidEventDataStoreCategoryException | InvalidEventDataStoreStatusException | InvalidParameterCombinationException | InvalidParameterException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | ThrottlingException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("PutEventConfiguration", input);
   }
@@ -663,19 +332,7 @@ export class CloudTrail extends AWSServiceClient {
     input: PutEventSelectorsRequest,
   ): Effect.Effect<
     PutEventSelectorsResponse,
-    | CloudTrailARNInvalidException
-    | ConflictException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidEventSelectorsException
-    | InvalidHomeRegionException
-    | InvalidTrailNameException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | ThrottlingException
-    | TrailNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | ConflictException | InsufficientDependencyServiceAccessPermissionException | InvalidEventSelectorsException | InvalidHomeRegionException | InvalidTrailNameException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | ThrottlingException | TrailNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("PutEventSelectors", input);
   }
@@ -683,23 +340,7 @@ export class CloudTrail extends AWSServiceClient {
     input: PutInsightSelectorsRequest,
   ): Effect.Effect<
     PutInsightSelectorsResponse,
-    | CloudTrailARNInvalidException
-    | InsufficientEncryptionPolicyException
-    | InsufficientS3BucketPolicyException
-    | InvalidHomeRegionException
-    | InvalidInsightSelectorsException
-    | InvalidParameterCombinationException
-    | InvalidParameterException
-    | InvalidTrailNameException
-    | KmsException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | S3BucketDoesNotExistException
-    | ThrottlingException
-    | TrailNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | InsufficientEncryptionPolicyException | InsufficientS3BucketPolicyException | InvalidHomeRegionException | InvalidInsightSelectorsException | InvalidParameterCombinationException | InvalidParameterException | InvalidTrailNameException | KmsException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | S3BucketDoesNotExistException | ThrottlingException | TrailNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("PutInsightSelectors", input);
   }
@@ -707,14 +348,7 @@ export class CloudTrail extends AWSServiceClient {
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | ConflictException
-    | OperationNotPermittedException
-    | ResourceARNNotValidException
-    | ResourceNotFoundException
-    | ResourcePolicyNotValidException
-    | ResourceTypeNotSupportedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | OperationNotPermittedException | ResourceARNNotValidException | ResourceNotFoundException | ResourcePolicyNotValidException | ResourceTypeNotSupportedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -722,21 +356,7 @@ export class CloudTrail extends AWSServiceClient {
     input: RegisterOrganizationDelegatedAdminRequest,
   ): Effect.Effect<
     RegisterOrganizationDelegatedAdminResponse,
-    | AccountNotFoundException
-    | AccountRegisteredException
-    | CannotDelegateManagementAccountException
-    | CloudTrailAccessNotEnabledException
-    | ConflictException
-    | DelegatedAdminAccountLimitExceededException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InsufficientIAMAccessPermissionException
-    | InvalidParameterException
-    | NotOrganizationManagementAccountException
-    | OperationNotPermittedException
-    | OrganizationNotInAllFeaturesModeException
-    | OrganizationsNotInUseException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccountNotFoundException | AccountRegisteredException | CannotDelegateManagementAccountException | CloudTrailAccessNotEnabledException | ConflictException | DelegatedAdminAccountLimitExceededException | InsufficientDependencyServiceAccessPermissionException | InsufficientIAMAccessPermissionException | InvalidParameterException | NotOrganizationManagementAccountException | OperationNotPermittedException | OrganizationNotInAllFeaturesModeException | OrganizationsNotInUseException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("RegisterOrganizationDelegatedAdmin", input);
   }
@@ -744,22 +364,7 @@ export class CloudTrail extends AWSServiceClient {
     input: RemoveTagsRequest,
   ): Effect.Effect<
     RemoveTagsResponse,
-    | ChannelARNInvalidException
-    | ChannelNotFoundException
-    | CloudTrailARNInvalidException
-    | ConflictException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InvalidTagParameterException
-    | InvalidTrailNameException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | ResourceNotFoundException
-    | ResourceTypeNotSupportedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ChannelARNInvalidException | ChannelNotFoundException | CloudTrailARNInvalidException | ConflictException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InvalidTagParameterException | InvalidTrailNameException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | ResourceNotFoundException | ResourceTypeNotSupportedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("RemoveTags", input);
   }
@@ -767,20 +372,7 @@ export class CloudTrail extends AWSServiceClient {
     input: RestoreEventDataStoreRequest,
   ): Effect.Effect<
     RestoreEventDataStoreResponse,
-    | CloudTrailAccessNotEnabledException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreMaxLimitExceededException
-    | EventDataStoreNotFoundException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidEventDataStoreStatusException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | OrganizationNotInAllFeaturesModeException
-    | OrganizationsNotInUseException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailAccessNotEnabledException | EventDataStoreARNInvalidException | EventDataStoreMaxLimitExceededException | EventDataStoreNotFoundException | InsufficientDependencyServiceAccessPermissionException | InvalidEventDataStoreStatusException | InvalidParameterException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | OrganizationNotInAllFeaturesModeException | OrganizationsNotInUseException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("RestoreEventDataStore", input);
   }
@@ -788,10 +380,7 @@ export class CloudTrail extends AWSServiceClient {
     input: SearchSampleQueriesRequest,
   ): Effect.Effect<
     SearchSampleQueriesResponse,
-    | InvalidParameterException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    InvalidParameterException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("SearchSampleQueries", input);
   }
@@ -799,12 +388,7 @@ export class CloudTrail extends AWSServiceClient {
     input: StartDashboardRefreshRequest,
   ): Effect.Effect<
     StartDashboardRefreshResponse,
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | UnsupportedOperationException
-    | CommonAwsError
+    EventDataStoreNotFoundException | InactiveEventDataStoreException | ResourceNotFoundException | ServiceQuotaExceededException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StartDashboardRefresh", input);
   }
@@ -812,18 +396,7 @@ export class CloudTrail extends AWSServiceClient {
     input: StartEventDataStoreIngestionRequest,
   ): Effect.Effect<
     StartEventDataStoreIngestionResponse,
-    | ConflictException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidEventDataStoreCategoryException
-    | InvalidEventDataStoreStatusException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InsufficientDependencyServiceAccessPermissionException | InvalidEventDataStoreCategoryException | InvalidEventDataStoreStatusException | InvalidParameterException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StartEventDataStoreIngestion", input);
   }
@@ -831,19 +404,7 @@ export class CloudTrail extends AWSServiceClient {
     input: StartImportRequest,
   ): Effect.Effect<
     StartImportResponse,
-    | AccountHasOngoingImportException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | ImportNotFoundException
-    | InactiveEventDataStoreException
-    | InsufficientEncryptionPolicyException
-    | InvalidEventDataStoreCategoryException
-    | InvalidEventDataStoreStatusException
-    | InvalidImportSourceException
-    | InvalidParameterException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    AccountHasOngoingImportException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | ImportNotFoundException | InactiveEventDataStoreException | InsufficientEncryptionPolicyException | InvalidEventDataStoreCategoryException | InvalidEventDataStoreStatusException | InvalidImportSourceException | InvalidParameterException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StartImport", input);
   }
@@ -851,18 +412,7 @@ export class CloudTrail extends AWSServiceClient {
     input: StartLoggingRequest,
   ): Effect.Effect<
     StartLoggingResponse,
-    | CloudTrailARNInvalidException
-    | ConflictException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidHomeRegionException
-    | InvalidTrailNameException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | ThrottlingException
-    | TrailNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | ConflictException | InsufficientDependencyServiceAccessPermissionException | InvalidHomeRegionException | InvalidTrailNameException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | ThrottlingException | TrailNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StartLogging", input);
   }
@@ -870,21 +420,7 @@ export class CloudTrail extends AWSServiceClient {
     input: StartQueryRequest,
   ): Effect.Effect<
     StartQueryResponse,
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InsufficientEncryptionPolicyException
-    | InsufficientS3BucketPolicyException
-    | InvalidParameterException
-    | InvalidQueryStatementException
-    | InvalidS3BucketNameException
-    | InvalidS3PrefixException
-    | MaxConcurrentQueriesException
-    | NoManagementAccountSLRExistsException
-    | OperationNotPermittedException
-    | S3BucketDoesNotExistException
-    | UnsupportedOperationException
-    | CommonAwsError
+    EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InsufficientEncryptionPolicyException | InsufficientS3BucketPolicyException | InvalidParameterException | InvalidQueryStatementException | InvalidS3BucketNameException | InvalidS3PrefixException | MaxConcurrentQueriesException | NoManagementAccountSLRExistsException | OperationNotPermittedException | S3BucketDoesNotExistException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StartQuery", input);
   }
@@ -892,18 +428,7 @@ export class CloudTrail extends AWSServiceClient {
     input: StopEventDataStoreIngestionRequest,
   ): Effect.Effect<
     StopEventDataStoreIngestionResponse,
-    | ConflictException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidEventDataStoreCategoryException
-    | InvalidEventDataStoreStatusException
-    | InvalidParameterException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InsufficientDependencyServiceAccessPermissionException | InvalidEventDataStoreCategoryException | InvalidEventDataStoreStatusException | InvalidParameterException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StopEventDataStoreIngestion", input);
   }
@@ -911,11 +436,7 @@ export class CloudTrail extends AWSServiceClient {
     input: StopImportRequest,
   ): Effect.Effect<
     StopImportResponse,
-    | ImportNotFoundException
-    | InvalidParameterException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ImportNotFoundException | InvalidParameterException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StopImport", input);
   }
@@ -923,18 +444,7 @@ export class CloudTrail extends AWSServiceClient {
     input: StopLoggingRequest,
   ): Effect.Effect<
     StopLoggingResponse,
-    | CloudTrailARNInvalidException
-    | ConflictException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InvalidHomeRegionException
-    | InvalidTrailNameException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | ThrottlingException
-    | TrailNotFoundException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailARNInvalidException | ConflictException | InsufficientDependencyServiceAccessPermissionException | InvalidHomeRegionException | InvalidTrailNameException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | ThrottlingException | TrailNotFoundException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("StopLogging", input);
   }
@@ -942,17 +452,7 @@ export class CloudTrail extends AWSServiceClient {
     input: UpdateChannelRequest,
   ): Effect.Effect<
     UpdateChannelResponse,
-    | ChannelAlreadyExistsException
-    | ChannelARNInvalidException
-    | ChannelNotFoundException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InvalidEventDataStoreCategoryException
-    | InvalidParameterException
-    | OperationNotPermittedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ChannelAlreadyExistsException | ChannelARNInvalidException | ChannelNotFoundException | EventDataStoreARNInvalidException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InvalidEventDataStoreCategoryException | InvalidParameterException | OperationNotPermittedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("UpdateChannel", input);
   }
@@ -960,15 +460,7 @@ export class CloudTrail extends AWSServiceClient {
     input: UpdateDashboardRequest,
   ): Effect.Effect<
     UpdateDashboardResponse,
-    | ConflictException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InsufficientEncryptionPolicyException
-    | InvalidQueryStatementException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | UnsupportedOperationException
-    | CommonAwsError
+    ConflictException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InsufficientEncryptionPolicyException | InvalidQueryStatementException | ResourceNotFoundException | ServiceQuotaExceededException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("UpdateDashboard", input);
   }
@@ -976,27 +468,7 @@ export class CloudTrail extends AWSServiceClient {
     input: UpdateEventDataStoreRequest,
   ): Effect.Effect<
     UpdateEventDataStoreResponse,
-    | CloudTrailAccessNotEnabledException
-    | EventDataStoreAlreadyExistsException
-    | EventDataStoreARNInvalidException
-    | EventDataStoreHasOngoingImportException
-    | EventDataStoreNotFoundException
-    | InactiveEventDataStoreException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InsufficientEncryptionPolicyException
-    | InvalidEventSelectorsException
-    | InvalidInsightSelectorsException
-    | InvalidKmsKeyIdException
-    | InvalidParameterException
-    | KmsException
-    | KmsKeyNotFoundException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | OrganizationNotInAllFeaturesModeException
-    | OrganizationsNotInUseException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailAccessNotEnabledException | EventDataStoreAlreadyExistsException | EventDataStoreARNInvalidException | EventDataStoreHasOngoingImportException | EventDataStoreNotFoundException | InactiveEventDataStoreException | InsufficientDependencyServiceAccessPermissionException | InsufficientEncryptionPolicyException | InvalidEventSelectorsException | InvalidInsightSelectorsException | InvalidKmsKeyIdException | InvalidParameterException | KmsException | KmsKeyNotFoundException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | OrganizationNotInAllFeaturesModeException | OrganizationsNotInUseException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("UpdateEventDataStore", input);
   }
@@ -1004,40 +476,7 @@ export class CloudTrail extends AWSServiceClient {
     input: UpdateTrailRequest,
   ): Effect.Effect<
     UpdateTrailResponse,
-    | CloudTrailAccessNotEnabledException
-    | CloudTrailARNInvalidException
-    | CloudTrailInvalidClientTokenIdException
-    | CloudWatchLogsDeliveryUnavailableException
-    | ConflictException
-    | InsufficientDependencyServiceAccessPermissionException
-    | InsufficientEncryptionPolicyException
-    | InsufficientS3BucketPolicyException
-    | InsufficientSnsTopicPolicyException
-    | InvalidCloudWatchLogsLogGroupArnException
-    | InvalidCloudWatchLogsRoleArnException
-    | InvalidEventSelectorsException
-    | InvalidHomeRegionException
-    | InvalidKmsKeyIdException
-    | InvalidParameterCombinationException
-    | InvalidParameterException
-    | InvalidS3BucketNameException
-    | InvalidS3PrefixException
-    | InvalidSnsTopicNameException
-    | InvalidTrailNameException
-    | KmsException
-    | KmsKeyDisabledException
-    | KmsKeyNotFoundException
-    | NoManagementAccountSLRExistsException
-    | NotOrganizationMasterAccountException
-    | OperationNotPermittedException
-    | OrganizationNotInAllFeaturesModeException
-    | OrganizationsNotInUseException
-    | S3BucketDoesNotExistException
-    | ThrottlingException
-    | TrailNotFoundException
-    | TrailNotProvidedException
-    | UnsupportedOperationException
-    | CommonAwsError
+    CloudTrailAccessNotEnabledException | CloudTrailARNInvalidException | CloudTrailInvalidClientTokenIdException | CloudWatchLogsDeliveryUnavailableException | ConflictException | InsufficientDependencyServiceAccessPermissionException | InsufficientEncryptionPolicyException | InsufficientS3BucketPolicyException | InsufficientSnsTopicPolicyException | InvalidCloudWatchLogsLogGroupArnException | InvalidCloudWatchLogsRoleArnException | InvalidEventSelectorsException | InvalidHomeRegionException | InvalidKmsKeyIdException | InvalidParameterCombinationException | InvalidParameterException | InvalidS3BucketNameException | InvalidS3PrefixException | InvalidSnsTopicNameException | InvalidTrailNameException | KmsException | KmsKeyDisabledException | KmsKeyNotFoundException | NoManagementAccountSLRExistsException | NotOrganizationMasterAccountException | OperationNotPermittedException | OrganizationNotInAllFeaturesModeException | OrganizationsNotInUseException | S3BucketDoesNotExistException | ThrottlingException | TrailNotFoundException | TrailNotProvidedException | UnsupportedOperationException | CommonAwsError
   > {
     return this.call("UpdateTrail", input);
   }
@@ -1078,7 +517,8 @@ export interface AddTagsRequest {
   ResourceId: string;
   TagsList: Array<Tag>;
 }
-export interface AddTagsResponse {}
+export interface AddTagsResponse {
+}
 export interface AdvancedEventSelector {
   Name?: string;
   FieldSelectors: Array<AdvancedFieldSelector>;
@@ -1094,9 +534,7 @@ export interface AdvancedFieldSelector {
   NotEndsWith?: Array<string>;
 }
 export type AdvancedFieldSelectors = Array<AdvancedFieldSelector>;
-export type BillingMode =
-  | "EXTENDABLE_RETENTION_PRICING"
-  | "FIXED_RETENTION_PRICING";
+export type BillingMode = "EXTENDABLE_RETENTION_PRICING" | "FIXED_RETENTION_PRICING";
 export type CloudtrailBoolean = boolean;
 
 export type ByteBuffer = Uint8Array | string;
@@ -1279,12 +717,7 @@ export interface DashboardDetail {
 export type DashboardName = string;
 
 export type Dashboards = Array<DashboardDetail>;
-export type DashboardStatus =
-  | "CREATING"
-  | "CREATED"
-  | "UPDATING"
-  | "UPDATED"
-  | "DELETING";
+export type DashboardStatus = "CREATING" | "CREATED" | "UPDATING" | "UPDATED" | "DELETING";
 export type DashboardType = "MANAGED" | "CUSTOM";
 export interface DataResource {
   Type?: string;
@@ -1302,39 +735,36 @@ export declare class DelegatedAdminAccountLimitExceededException extends EffectD
 export interface DeleteChannelRequest {
   Channel: string;
 }
-export interface DeleteChannelResponse {}
+export interface DeleteChannelResponse {
+}
 export interface DeleteDashboardRequest {
   DashboardId: string;
 }
-export interface DeleteDashboardResponse {}
+export interface DeleteDashboardResponse {
+}
 export interface DeleteEventDataStoreRequest {
   EventDataStore: string;
 }
-export interface DeleteEventDataStoreResponse {}
+export interface DeleteEventDataStoreResponse {
+}
 export interface DeleteResourcePolicyRequest {
   ResourceArn: string;
 }
-export interface DeleteResourcePolicyResponse {}
+export interface DeleteResourcePolicyResponse {
+}
 export interface DeleteTrailRequest {
   Name: string;
 }
-export interface DeleteTrailResponse {}
+export interface DeleteTrailResponse {
+}
 export type DeliveryS3Uri = string;
 
-export type DeliveryStatus =
-  | "SUCCESS"
-  | "FAILED"
-  | "FAILED_SIGNING_FILE"
-  | "PENDING"
-  | "RESOURCE_NOT_FOUND"
-  | "ACCESS_DENIED"
-  | "ACCESS_DENIED_SIGNING_FILE"
-  | "CANCELLED"
-  | "UNKNOWN";
+export type DeliveryStatus = "SUCCESS" | "FAILED" | "FAILED_SIGNING_FILE" | "PENDING" | "RESOURCE_NOT_FOUND" | "ACCESS_DENIED" | "ACCESS_DENIED_SIGNING_FILE" | "CANCELLED" | "UNKNOWN";
 export interface DeregisterOrganizationDelegatedAdminRequest {
   DelegatedAdminAccountId: string;
 }
-export interface DeregisterOrganizationDelegatedAdminResponse {}
+export interface DeregisterOrganizationDelegatedAdminResponse {
+}
 export interface DescribeQueryRequest {
   EventDataStore?: string;
   QueryId?: string;
@@ -1450,13 +880,7 @@ export declare class EventDataStoreNotFoundException extends EffectData.TaggedEr
   readonly Message?: string;
 }> {}
 export type EventDataStores = Array<EventDataStore>;
-export type EventDataStoreStatus =
-  | "CREATED"
-  | "ENABLED"
-  | "PENDING_DELETION"
-  | "STARTING_INGESTION"
-  | "STOPPING_INGESTION"
-  | "STOPPED_INGESTION";
+export type EventDataStoreStatus = "CREATED" | "ENABLED" | "PENDING_DELETION" | "STARTING_INGESTION" | "STOPPING_INGESTION" | "STOPPED_INGESTION";
 export declare class EventDataStoreTerminationProtectedException extends EffectData.TaggedError(
   "EventDataStoreTerminationProtectedException",
 )<{
@@ -1477,11 +901,7 @@ export type EventSource = string;
 export type ExcludeManagementEventSources = Array<string>;
 export type FederationRoleArn = string;
 
-export type FederationStatus =
-  | "ENABLING"
-  | "ENABLED"
-  | "DISABLING"
-  | "DISABLED";
+export type FederationStatus = "ENABLING" | "ENABLED" | "DISABLING" | "DISABLED";
 export interface GenerateQueryRequest {
   EventDataStores: Array<string>;
   Prompt: string;
@@ -1665,12 +1085,7 @@ export interface ImportStatistics {
   EventsCompleted?: number;
   FailedEntries?: number;
 }
-export type ImportStatus =
-  | "INITIALIZING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "STOPPED"
-  | "COMPLETED";
+export type ImportStatus = "INITIALIZING" | "IN_PROGRESS" | "FAILED" | "STOPPED" | "COMPLETED";
 export declare class InactiveEventDataStoreException extends EffectData.TaggedError(
   "InactiveEventDataStoreException",
 )<{
@@ -2000,15 +1415,7 @@ export interface LookupAttribute {
   AttributeKey: LookupAttributeKey;
   AttributeValue: string;
 }
-export type LookupAttributeKey =
-  | "EVENT_ID"
-  | "EVENT_NAME"
-  | "READ_ONLY"
-  | "USERNAME"
-  | "RESOURCE_TYPE"
-  | "RESOURCE_NAME"
-  | "EVENT_SOURCE"
-  | "ACCESS_KEY_ID";
+export type LookupAttributeKey = "EVENT_ID" | "EVENT_NAME" | "READ_ONLY" | "USERNAME" | "RESOURCE_TYPE" | "RESOURCE_NAME" | "EVENT_SOURCE" | "ACCESS_KEY_ID";
 export type LookupAttributesList = Array<LookupAttribute>;
 export type LookupAttributeValue = string;
 
@@ -2180,13 +1587,7 @@ export interface QueryStatisticsForDescribeQuery {
   ExecutionTimeInMillis?: number;
   CreationTime?: Date | string;
 }
-export type QueryStatus =
-  | "QUEUED"
-  | "RUNNING"
-  | "FINISHED"
-  | "FAILED"
-  | "CANCELLED"
-  | "TIMED_OUT";
+export type QueryStatus = "QUEUED" | "RUNNING" | "FINISHED" | "FAILED" | "CANCELLED" | "TIMED_OUT";
 export type ReadWriteType = "ReadOnly" | "WriteOnly" | "All";
 export type RefreshId = string;
 
@@ -2206,12 +1607,14 @@ export type RefreshScheduleStatus = "ENABLED" | "DISABLED";
 export interface RegisterOrganizationDelegatedAdminRequest {
   MemberAccountId: string;
 }
-export interface RegisterOrganizationDelegatedAdminResponse {}
+export interface RegisterOrganizationDelegatedAdminResponse {
+}
 export interface RemoveTagsRequest {
   ResourceId: string;
   TagsList: Array<Tag>;
 }
-export interface RemoveTagsResponse {}
+export interface RemoveTagsResponse {
+}
 export interface RequestWidget {
   QueryStatement: string;
   QueryParameters?: Array<string>;
@@ -2314,8 +1717,7 @@ export interface SearchSampleQueriesSearchResult {
   SQL?: string;
   Relevance?: number;
 }
-export type SearchSampleQueriesSearchResults =
-  Array<SearchSampleQueriesSearchResult>;
+export type SearchSampleQueriesSearchResults = Array<SearchSampleQueriesSearchResult>;
 export type SelectorField = string;
 
 export type SelectorName = string;
@@ -2341,7 +1743,8 @@ export interface StartDashboardRefreshResponse {
 export interface StartEventDataStoreIngestionRequest {
   EventDataStore: string;
 }
-export interface StartEventDataStoreIngestionResponse {}
+export interface StartEventDataStoreIngestionResponse {
+}
 export interface StartImportRequest {
   Destinations?: Array<string>;
   ImportSource?: ImportSource;
@@ -2362,7 +1765,8 @@ export interface StartImportResponse {
 export interface StartLoggingRequest {
   Name: string;
 }
-export interface StartLoggingResponse {}
+export interface StartLoggingResponse {
+}
 export interface StartQueryRequest {
   QueryStatement?: string;
   DeliveryS3Uri?: string;
@@ -2377,7 +1781,8 @@ export interface StartQueryResponse {
 export interface StopEventDataStoreIngestionRequest {
   EventDataStore: string;
 }
-export interface StopEventDataStoreIngestionResponse {}
+export interface StopEventDataStoreIngestionResponse {
+}
 export interface StopImportRequest {
   ImportId: string;
 }
@@ -2395,7 +1800,8 @@ export interface StopImportResponse {
 export interface StopLoggingRequest {
   Name: string;
 }
-export interface StopLoggingResponse {}
+export interface StopLoggingResponse {
+}
 export type CloudtrailString = string;
 
 export interface Tag {
@@ -3040,7 +2446,9 @@ export declare namespace ListChannels {
 export declare namespace ListDashboards {
   export type Input = ListDashboardsRequest;
   export type Output = ListDashboardsResponse;
-  export type Error = UnsupportedOperationException | CommonAwsError;
+  export type Error =
+    | UnsupportedOperationException
+    | CommonAwsError;
 }
 
 export declare namespace ListEventDataStores {
@@ -3544,3 +2952,4 @@ export declare namespace UpdateTrail {
     | UnsupportedOperationException
     | CommonAwsError;
 }
+

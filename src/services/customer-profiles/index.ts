@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class CustomerProfiles extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("customer-profiles", new RestJson1Protocol(), cfg);
+  }
+
   addProfileKey(
     input: AddProfileKeyRequest,
   ): Effect.Effect<
     AddProfileKeyResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("AddProfileKey", input);
   }
@@ -20,12 +20,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: BatchGetCalculatedAttributeForProfileRequest,
   ): Effect.Effect<
     BatchGetCalculatedAttributeForProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchGetCalculatedAttributeForProfile", input);
   }
@@ -33,12 +28,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: BatchGetProfileRequest,
   ): Effect.Effect<
     BatchGetProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchGetProfile", input);
   }
@@ -46,12 +36,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
     CreateCalculatedAttributeDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateCalculatedAttributeDefinition", input);
   }
@@ -59,12 +44,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateDomainRequest,
   ): Effect.Effect<
     CreateDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDomain", input);
   }
@@ -72,12 +52,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateDomainLayoutRequest,
   ): Effect.Effect<
     CreateDomainLayoutResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDomainLayout", input);
   }
@@ -85,12 +60,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateEventStreamRequest,
   ): Effect.Effect<
     CreateEventStreamResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateEventStream", input);
   }
@@ -98,12 +68,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateEventTriggerRequest,
   ): Effect.Effect<
     CreateEventTriggerResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateEventTrigger", input);
   }
@@ -111,12 +76,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateIntegrationWorkflowRequest,
   ): Effect.Effect<
     CreateIntegrationWorkflowResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateIntegrationWorkflow", input);
   }
@@ -124,12 +84,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateProfileRequest,
   ): Effect.Effect<
     CreateProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateProfile", input);
   }
@@ -137,12 +92,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateSegmentDefinitionRequest,
   ): Effect.Effect<
     CreateSegmentDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSegmentDefinition", input);
   }
@@ -150,12 +100,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateSegmentEstimateRequest,
   ): Effect.Effect<
     CreateSegmentEstimateResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSegmentEstimate", input);
   }
@@ -163,12 +108,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateSegmentSnapshotRequest,
   ): Effect.Effect<
     CreateSegmentSnapshotResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSegmentSnapshot", input);
   }
@@ -176,12 +116,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: CreateUploadJobRequest,
   ): Effect.Effect<
     CreateUploadJobResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateUploadJob", input);
   }
@@ -189,12 +124,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
     DeleteCalculatedAttributeDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteCalculatedAttributeDefinition", input);
   }
@@ -202,12 +132,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteDomainRequest,
   ): Effect.Effect<
     DeleteDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDomain", input);
   }
@@ -215,12 +140,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteDomainLayoutRequest,
   ): Effect.Effect<
     DeleteDomainLayoutResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteDomainLayout", input);
   }
@@ -228,12 +148,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteEventStreamRequest,
   ): Effect.Effect<
     DeleteEventStreamResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteEventStream", input);
   }
@@ -241,12 +156,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteEventTriggerRequest,
   ): Effect.Effect<
     DeleteEventTriggerResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteEventTrigger", input);
   }
@@ -254,12 +164,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteIntegrationRequest,
   ): Effect.Effect<
     DeleteIntegrationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteIntegration", input);
   }
@@ -267,12 +172,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteProfileRequest,
   ): Effect.Effect<
     DeleteProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteProfile", input);
   }
@@ -280,12 +180,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteProfileKeyRequest,
   ): Effect.Effect<
     DeleteProfileKeyResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteProfileKey", input);
   }
@@ -293,12 +188,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteProfileObjectRequest,
   ): Effect.Effect<
     DeleteProfileObjectResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteProfileObject", input);
   }
@@ -306,12 +196,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteProfileObjectTypeRequest,
   ): Effect.Effect<
     DeleteProfileObjectTypeResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteProfileObjectType", input);
   }
@@ -319,12 +204,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteSegmentDefinitionRequest,
   ): Effect.Effect<
     DeleteSegmentDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteSegmentDefinition", input);
   }
@@ -332,12 +212,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DeleteWorkflowRequest,
   ): Effect.Effect<
     DeleteWorkflowResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteWorkflow", input);
   }
@@ -345,12 +220,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: DetectProfileObjectTypeRequest,
   ): Effect.Effect<
     DetectProfileObjectTypeResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DetectProfileObjectType", input);
   }
@@ -358,12 +228,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetAutoMergingPreviewRequest,
   ): Effect.Effect<
     GetAutoMergingPreviewResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetAutoMergingPreview", input);
   }
@@ -371,12 +236,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
     GetCalculatedAttributeDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetCalculatedAttributeDefinition", input);
   }
@@ -384,12 +244,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetCalculatedAttributeForProfileRequest,
   ): Effect.Effect<
     GetCalculatedAttributeForProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetCalculatedAttributeForProfile", input);
   }
@@ -397,12 +252,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetDomainRequest,
   ): Effect.Effect<
     GetDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetDomain", input);
   }
@@ -410,12 +260,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetDomainLayoutRequest,
   ): Effect.Effect<
     GetDomainLayoutResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetDomainLayout", input);
   }
@@ -423,12 +268,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetEventStreamRequest,
   ): Effect.Effect<
     GetEventStreamResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEventStream", input);
   }
@@ -436,12 +276,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetEventTriggerRequest,
   ): Effect.Effect<
     GetEventTriggerResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetEventTrigger", input);
   }
@@ -449,12 +284,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetIdentityResolutionJobRequest,
   ): Effect.Effect<
     GetIdentityResolutionJobResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetIdentityResolutionJob", input);
   }
@@ -462,12 +292,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetIntegrationRequest,
   ): Effect.Effect<
     GetIntegrationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetIntegration", input);
   }
@@ -475,12 +300,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetMatchesRequest,
   ): Effect.Effect<
     GetMatchesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetMatches", input);
   }
@@ -488,12 +308,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetProfileObjectTypeRequest,
   ): Effect.Effect<
     GetProfileObjectTypeResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetProfileObjectType", input);
   }
@@ -501,12 +316,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetProfileObjectTypeTemplateRequest,
   ): Effect.Effect<
     GetProfileObjectTypeTemplateResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetProfileObjectTypeTemplate", input);
   }
@@ -514,12 +324,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetSegmentDefinitionRequest,
   ): Effect.Effect<
     GetSegmentDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSegmentDefinition", input);
   }
@@ -527,12 +332,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetSegmentEstimateRequest,
   ): Effect.Effect<
     GetSegmentEstimateResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSegmentEstimate", input);
   }
@@ -540,12 +340,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetSegmentMembershipRequest,
   ): Effect.Effect<
     GetSegmentMembershipResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSegmentMembership", input);
   }
@@ -553,12 +348,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetSegmentSnapshotRequest,
   ): Effect.Effect<
     GetSegmentSnapshotResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSegmentSnapshot", input);
   }
@@ -566,12 +356,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetSimilarProfilesRequest,
   ): Effect.Effect<
     GetSimilarProfilesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetSimilarProfiles", input);
   }
@@ -579,12 +364,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetUploadJobRequest,
   ): Effect.Effect<
     GetUploadJobResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetUploadJob", input);
   }
@@ -592,12 +372,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetUploadJobPathRequest,
   ): Effect.Effect<
     GetUploadJobPathResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetUploadJobPath", input);
   }
@@ -605,12 +380,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetWorkflowRequest,
   ): Effect.Effect<
     GetWorkflowResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetWorkflow", input);
   }
@@ -618,12 +388,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: GetWorkflowStepsRequest,
   ): Effect.Effect<
     GetWorkflowStepsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetWorkflowSteps", input);
   }
@@ -631,12 +396,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListAccountIntegrationsRequest,
   ): Effect.Effect<
     ListAccountIntegrationsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListAccountIntegrations", input);
   }
@@ -644,12 +404,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListCalculatedAttributeDefinitionsRequest,
   ): Effect.Effect<
     ListCalculatedAttributeDefinitionsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListCalculatedAttributeDefinitions", input);
   }
@@ -657,12 +412,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListCalculatedAttributesForProfileRequest,
   ): Effect.Effect<
     ListCalculatedAttributesForProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListCalculatedAttributesForProfile", input);
   }
@@ -670,12 +420,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListDomainLayoutsRequest,
   ): Effect.Effect<
     ListDomainLayoutsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDomainLayouts", input);
   }
@@ -683,12 +428,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListDomainsRequest,
   ): Effect.Effect<
     ListDomainsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDomains", input);
   }
@@ -696,12 +436,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListEventStreamsRequest,
   ): Effect.Effect<
     ListEventStreamsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListEventStreams", input);
   }
@@ -709,12 +444,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListEventTriggersRequest,
   ): Effect.Effect<
     ListEventTriggersResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListEventTriggers", input);
   }
@@ -722,12 +452,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListIdentityResolutionJobsRequest,
   ): Effect.Effect<
     ListIdentityResolutionJobsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListIdentityResolutionJobs", input);
   }
@@ -735,12 +460,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListIntegrationsRequest,
   ): Effect.Effect<
     ListIntegrationsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListIntegrations", input);
   }
@@ -748,12 +468,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListObjectTypeAttributesRequest,
   ): Effect.Effect<
     ListObjectTypeAttributesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListObjectTypeAttributes", input);
   }
@@ -761,12 +476,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ProfileAttributeValuesRequest,
   ): Effect.Effect<
     ProfileAttributeValuesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListProfileAttributeValues", input);
   }
@@ -774,12 +484,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListProfileObjectsRequest,
   ): Effect.Effect<
     ListProfileObjectsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListProfileObjects", input);
   }
@@ -787,12 +492,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListProfileObjectTypesRequest,
   ): Effect.Effect<
     ListProfileObjectTypesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListProfileObjectTypes", input);
   }
@@ -800,12 +500,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListProfileObjectTypeTemplatesRequest,
   ): Effect.Effect<
     ListProfileObjectTypeTemplatesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListProfileObjectTypeTemplates", input);
   }
@@ -813,12 +508,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListRuleBasedMatchesRequest,
   ): Effect.Effect<
     ListRuleBasedMatchesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRuleBasedMatches", input);
   }
@@ -826,12 +516,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListSegmentDefinitionsRequest,
   ): Effect.Effect<
     ListSegmentDefinitionsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSegmentDefinitions", input);
   }
@@ -839,10 +524,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -850,12 +532,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListUploadJobsRequest,
   ): Effect.Effect<
     ListUploadJobsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListUploadJobs", input);
   }
@@ -863,12 +540,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: ListWorkflowsRequest,
   ): Effect.Effect<
     ListWorkflowsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListWorkflows", input);
   }
@@ -876,11 +548,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: MergeProfilesRequest,
   ): Effect.Effect<
     MergeProfilesResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("MergeProfiles", input);
   }
@@ -888,12 +556,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: PutIntegrationRequest,
   ): Effect.Effect<
     PutIntegrationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutIntegration", input);
   }
@@ -901,12 +564,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: PutProfileObjectRequest,
   ): Effect.Effect<
     PutProfileObjectResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutProfileObject", input);
   }
@@ -914,12 +572,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: PutProfileObjectTypeRequest,
   ): Effect.Effect<
     PutProfileObjectTypeResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("PutProfileObjectType", input);
   }
@@ -927,12 +580,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: SearchProfilesRequest,
   ): Effect.Effect<
     SearchProfilesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SearchProfiles", input);
   }
@@ -940,12 +588,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: StartUploadJobRequest,
   ): Effect.Effect<
     StartUploadJobResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartUploadJob", input);
   }
@@ -953,12 +596,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: StopUploadJobRequest,
   ): Effect.Effect<
     StopUploadJobResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("StopUploadJob", input);
   }
@@ -966,10 +604,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -977,10 +612,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -988,12 +620,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: UpdateCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
     UpdateCalculatedAttributeDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateCalculatedAttributeDefinition", input);
   }
@@ -1001,12 +628,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: UpdateDomainRequest,
   ): Effect.Effect<
     UpdateDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDomain", input);
   }
@@ -1014,12 +636,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: UpdateDomainLayoutRequest,
   ): Effect.Effect<
     UpdateDomainLayoutResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateDomainLayout", input);
   }
@@ -1027,12 +644,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: UpdateEventTriggerRequest,
   ): Effect.Effect<
     UpdateEventTriggerResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateEventTrigger", input);
   }
@@ -1040,12 +652,7 @@ export class CustomerProfiles extends AWSServiceClient {
     input: UpdateProfileRequest,
   ): Effect.Effect<
     UpdateProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateProfile", input);
   }
@@ -1126,22 +733,7 @@ export interface AttributeDimension {
   DimensionType: AttributeDimensionType;
   Values: Array<string>;
 }
-export type AttributeDimensionType =
-  | "INCLUSIVE"
-  | "EXCLUSIVE"
-  | "CONTAINS"
-  | "BEGINS_WITH"
-  | "ENDS_WITH"
-  | "BEFORE"
-  | "AFTER"
-  | "BETWEEN"
-  | "NOT_BETWEEN"
-  | "ON"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "GREATER_THAN_OR_EQUAL"
-  | "LESS_THAN_OR_EQUAL"
-  | "EQUAL";
+export type AttributeDimensionType = "INCLUSIVE" | "EXCLUSIVE" | "CONTAINS" | "BEGINS_WITH" | "ENDS_WITH" | "BEFORE" | "AFTER" | "BETWEEN" | "NOT_BETWEEN" | "ON" | "GREATER_THAN" | "LESS_THAN" | "GREATER_THAN_OR_EQUAL" | "LESS_THAN_OR_EQUAL" | "EQUAL";
 export interface AttributeItem {
   Name: string;
 }
@@ -1183,8 +775,7 @@ export interface BatchGetCalculatedAttributeForProfileError {
   Message: string;
   ProfileId: string;
 }
-export type BatchGetCalculatedAttributeForProfileErrorList =
-  Array<BatchGetCalculatedAttributeForProfileError>;
+export type BatchGetCalculatedAttributeForProfileErrorList = Array<BatchGetCalculatedAttributeForProfileError>;
 export type BatchGetCalculatedAttributeForProfileIdList = Array<string>;
 export interface BatchGetCalculatedAttributeForProfileRequest {
   CalculatedAttributeName: string;
@@ -1218,15 +809,13 @@ export type BucketName = string;
 
 export type BucketPrefix = string;
 
-export type CalculatedAttributeDefinitionsList =
-  Array<ListCalculatedAttributeDefinitionItem>;
+export type CalculatedAttributeDefinitionsList = Array<ListCalculatedAttributeDefinitionItem>;
 export interface CalculatedAttributeDimension {
   DimensionType: AttributeDimensionType;
   Values: Array<string>;
   ConditionOverrides?: ConditionOverrides;
 }
-export type CalculatedAttributesForProfileList =
-  Array<ListCalculatedAttributeForProfileItem>;
+export type CalculatedAttributesForProfileList = Array<ListCalculatedAttributeForProfileItem>;
 export interface CalculatedAttributeValue {
   CalculatedAttributeName?: string;
   DisplayName?: string;
@@ -1236,26 +825,8 @@ export interface CalculatedAttributeValue {
   LastObjectTimestamp?: Date | string;
 }
 export type CalculatedAttributeValueList = Array<CalculatedAttributeValue>;
-export type CalculatedCustomAttributes = Record<
-  string,
-  CalculatedAttributeDimension
->;
-export type ComparisonOperator =
-  | "INCLUSIVE"
-  | "EXCLUSIVE"
-  | "CONTAINS"
-  | "BEGINS_WITH"
-  | "ENDS_WITH"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "GREATER_THAN_OR_EQUAL"
-  | "LESS_THAN_OR_EQUAL"
-  | "EQUAL"
-  | "BEFORE"
-  | "AFTER"
-  | "ON"
-  | "BETWEEN"
-  | "NOT_BETWEEN";
+export type CalculatedCustomAttributes = Record<string, CalculatedAttributeDimension>;
+export type ComparisonOperator = "INCLUSIVE" | "EXCLUSIVE" | "CONTAINS" | "BEGINS_WITH" | "ENDS_WITH" | "GREATER_THAN" | "LESS_THAN" | "GREATER_THAN_OR_EQUAL" | "LESS_THAN_OR_EQUAL" | "EQUAL" | "BEFORE" | "AFTER" | "ON" | "BETWEEN" | "NOT_BETWEEN";
 export interface ConditionOverrides {
   Range?: RangeOverride;
 }
@@ -1287,14 +858,7 @@ export interface ContactPreference {
   ProfileId?: string;
   ContactType?: ContactType;
 }
-export type ContactType =
-  | "PHONE_NUMBER"
-  | "MOBILE_PHONE_NUMBER"
-  | "HOME_PHONE_NUMBER"
-  | "BUSINESS_PHONE_NUMBER"
-  | "EMAIL_ADDRESS"
-  | "PERSONAL_EMAIL_ADDRESS"
-  | "BUSINESS_EMAIL_ADDRESS";
+export type ContactType = "PHONE_NUMBER" | "MOBILE_PHONE_NUMBER" | "HOME_PHONE_NUMBER" | "BUSINESS_PHONE_NUMBER" | "EMAIL_ADDRESS" | "PERSONAL_EMAIL_ADDRESS" | "BUSINESS_EMAIL_ADDRESS";
 export interface CreateCalculatedAttributeDefinitionRequest {
   DomainName: string;
   CalculatedAttributeName: string;
@@ -1493,12 +1057,7 @@ export interface DateDimension {
   DimensionType: DateDimensionType;
   Values: Array<string>;
 }
-export type DateDimensionType =
-  | "BEFORE"
-  | "AFTER"
-  | "BETWEEN"
-  | "NOT_BETWEEN"
-  | "ON";
+export type DateDimensionType = "BEFORE" | "AFTER" | "BETWEEN" | "NOT_BETWEEN" | "ON";
 export type DatetimeTypeFieldName = string;
 
 export type DateValues = Array<string>;
@@ -1506,7 +1065,8 @@ export interface DeleteCalculatedAttributeDefinitionRequest {
   DomainName: string;
   CalculatedAttributeName: string;
 }
-export interface DeleteCalculatedAttributeDefinitionResponse {}
+export interface DeleteCalculatedAttributeDefinitionResponse {
+}
 export interface DeleteDomainLayoutRequest {
   DomainName: string;
   LayoutDefinitionName: string;
@@ -1524,7 +1084,8 @@ export interface DeleteEventStreamRequest {
   DomainName: string;
   EventStreamName: string;
 }
-export interface DeleteEventStreamResponse {}
+export interface DeleteEventStreamResponse {
+}
 export interface DeleteEventTriggerRequest {
   DomainName: string;
   EventTriggerName: string;
@@ -1582,7 +1143,8 @@ export interface DeleteWorkflowRequest {
   DomainName: string;
   WorkflowId: string;
 }
-export interface DeleteWorkflowResponse {}
+export interface DeleteWorkflowResponse {
+}
 export type DestinationField = string;
 
 export interface DestinationSummary {
@@ -1608,11 +1170,7 @@ interface _Dimension {
   CalculatedAttributes?: Record<string, CalculatedAttributeDimension>;
 }
 
-export type Dimension =
-  | (_Dimension & { ProfileAttributes: ProfileAttributes })
-  | (_Dimension & {
-      CalculatedAttributes: Record<string, CalculatedAttributeDimension>;
-    });
+export type Dimension = (_Dimension & { ProfileAttributes: ProfileAttributes }) | (_Dimension & { CalculatedAttributes: Record<string, CalculatedAttributeDimension> });
 export type DimensionList = Array<Dimension>;
 export type displayName = string;
 
@@ -1695,12 +1253,7 @@ export interface ExtraLengthValueProfileDimension {
 }
 export type ExtraLengthValues = Array<string>;
 export type Failures = Array<ProfileQueryFailures>;
-export type FieldContentType =
-  | "STRING"
-  | "NUMBER"
-  | "PHONE_NUMBER"
-  | "EMAIL_ADDRESS"
-  | "NAME";
+export type FieldContentType = "STRING" | "NUMBER" | "PHONE_NUMBER" | "EMAIL_ADDRESS" | "NAME";
 export type FieldMap = Record<string, ObjectTypeField>;
 export type fieldName = string;
 
@@ -1742,22 +1295,7 @@ export interface FilterDimension {
   Attributes: Record<string, FilterAttributeDimension>;
 }
 export type FilterDimensionList = Array<FilterDimension>;
-export type FilterDimensionType =
-  | "INCLUSIVE"
-  | "EXCLUSIVE"
-  | "CONTAINS"
-  | "BEGINS_WITH"
-  | "ENDS_WITH"
-  | "BEFORE"
-  | "AFTER"
-  | "BETWEEN"
-  | "NOT_BETWEEN"
-  | "ON"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "GREATER_THAN_OR_EQUAL"
-  | "LESS_THAN_OR_EQUAL"
-  | "EQUAL";
+export type FilterDimensionType = "INCLUSIVE" | "EXCLUSIVE" | "CONTAINS" | "BEGINS_WITH" | "ENDS_WITH" | "BEFORE" | "AFTER" | "BETWEEN" | "NOT_BETWEEN" | "ON" | "GREATER_THAN" | "LESS_THAN" | "GREATER_THAN_OR_EQUAL" | "LESS_THAN_OR_EQUAL" | "EQUAL";
 export interface FilterGroup {
   Type: Type;
   Dimensions: Array<FilterDimension>;
@@ -2097,14 +1635,7 @@ export interface IdentityResolutionJob {
   Message?: string;
 }
 export type IdentityResolutionJobsList = Array<IdentityResolutionJob>;
-export type IdentityResolutionJobStatus =
-  | "PENDING"
-  | "PREPROCESSING"
-  | "FIND_MATCHING"
-  | "MERGING"
-  | "COMPLETED"
-  | "PARTIAL_SUCCESS"
-  | "FAILED";
+export type IdentityResolutionJobStatus = "PENDING" | "PREPROCESSING" | "FIND_MATCHING" | "MERGING" | "COMPLETED" | "PARTIAL_SUCCESS" | "FAILED";
 export type Include = "ALL" | "ANY" | "NONE";
 export type IncludeOptions = "ALL" | "ANY" | "NONE";
 export interface IncrementalPullConfig {
@@ -2123,14 +1654,7 @@ export interface JobSchedule {
   DayOfTheWeek: JobScheduleDayOfTheWeek;
   Time: string;
 }
-export type JobScheduleDayOfTheWeek =
-  | "SUNDAY"
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY";
+export type JobScheduleDayOfTheWeek = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";
 export type JobScheduleTime = string;
 
 export interface JobStats {
@@ -2392,23 +1916,7 @@ export interface ListWorkflowsResponse {
 export type logicalOperator = "AND" | "OR";
 export type long = number;
 
-export type MarketoConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type MarketoConnectorOperator = "PROJECTION" | "LESS_THAN" | "GREATER_THAN" | "BETWEEN" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface MarketoSourceProperties {
   Object: string;
 }
@@ -2497,26 +2005,8 @@ export interface ObjectTypeKey {
 }
 export type ObjectTypeKeyList = Array<ObjectTypeKey>;
 export type ObjectTypeNames = Record<string, string>;
-export type Operator =
-  | "EQUAL_TO"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "NOT_EQUAL_TO";
-export type OperatorPropertiesKeys =
-  | "VALUE"
-  | "VALUES"
-  | "DATA_TYPE"
-  | "UPPER_BOUND"
-  | "LOWER_BOUND"
-  | "SOURCE_DATA_TYPE"
-  | "DESTINATION_DATA_TYPE"
-  | "VALIDATION_ACTION"
-  | "MASK_VALUE"
-  | "MASK_LENGTH"
-  | "TRUNCATE_LENGTH"
-  | "MATH_OPERATION_FIELDS_ORDER"
-  | "CONCAT_FORMAT"
-  | "SUBFIELD_CATEGORY_MAP";
+export type Operator = "EQUAL_TO" | "GREATER_THAN" | "LESS_THAN" | "NOT_EQUAL_TO";
+export type OperatorPropertiesKeys = "VALUE" | "VALUES" | "DATA_TYPE" | "UPPER_BOUND" | "LOWER_BOUND" | "SOURCE_DATA_TYPE" | "DESTINATION_DATA_TYPE" | "VALIDATION_ACTION" | "MASK_VALUE" | "MASK_LENGTH" | "TRUNCATE_LENGTH" | "MATH_OPERATION_FIELDS_ORDER" | "CONCAT_FORMAT" | "SUBFIELD_CATEGORY_MAP";
 export type optionalBoolean = boolean;
 
 export type optionalLong = number;
@@ -2609,8 +2099,7 @@ export type ProfileIdToBeMergedList = Array<string>;
 export type ProfileList = Array<Profile>;
 export type ProfileObjectList = Array<ListProfileObjectsItem>;
 export type ProfileObjectTypeList = Array<ListProfileObjectTypeItem>;
-export type ProfileObjectTypeTemplateList =
-  Array<ListProfileObjectTypeTemplateItem>;
+export type ProfileObjectTypeTemplateList = Array<ListProfileObjectTypeTemplateItem>;
 export interface ProfileQueryFailures {
   ProfileId: string;
   Message: string;
@@ -2710,11 +2199,7 @@ export interface Readiness {
   ProgressPercentage?: number;
   Message?: string;
 }
-export type ReadinessStatus =
-  | "PREPARING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED";
+export type ReadinessStatus = "PREPARING" | "IN_PROGRESS" | "COMPLETED" | "FAILED";
 export type requestValueList = Array<string>;
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
@@ -2752,27 +2237,7 @@ export type RuleLevel = number;
 
 export type s3BucketName = string;
 
-export type S3ConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type S3ConnectorOperator = "PROJECTION" | "LESS_THAN" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface S3ExportingConfig {
   S3BucketName: string;
   S3KeyName?: string;
@@ -2789,28 +2254,7 @@ export interface S3SourceProperties {
   BucketName: string;
   BucketPrefix?: string;
 }
-export type SalesforceConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "CONTAINS"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type SalesforceConnectorOperator = "PROJECTION" | "LESS_THAN" | "CONTAINS" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface SalesforceSourceProperties {
   Object: string;
   EnableDynamicFieldUpdate?: boolean;
@@ -2875,28 +2319,7 @@ export type sensitiveString1To255 = string;
 
 export type sensitiveText = string;
 
-export type ServiceNowConnectorOperator =
-  | "PROJECTION"
-  | "CONTAINS"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type ServiceNowConnectorOperator = "PROJECTION" | "CONTAINS" | "LESS_THAN" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface ServiceNowSourceProperties {
   Object: string;
 }
@@ -2907,12 +2330,7 @@ export interface SourceConnectorProperties {
   ServiceNow?: ServiceNowSourceProperties;
   Zendesk?: ZendeskSourceProperties;
 }
-export type SourceConnectorType =
-  | "SALESFORCE"
-  | "MARKETO"
-  | "ZENDESK"
-  | "SERVICENOW"
-  | "S3";
+export type SourceConnectorType = "SALESFORCE" | "MARKETO" | "ZENDESK" | "SERVICENOW" | "S3";
 export type SourceFields = Array<string>;
 export interface SourceFlowConfig {
   ConnectorProfileName?: string;
@@ -2926,25 +2344,7 @@ export interface SourceSegment {
 export type SourceSegmentList = Array<SourceSegment>;
 export type sqsQueueUrl = string;
 
-export type StandardIdentifier =
-  | "PROFILE"
-  | "ASSET"
-  | "CASE"
-  | "ORDER"
-  | "COMMUNICATION_RECORD"
-  | "AIR_PREFERENCE"
-  | "HOTEL_PREFERENCE"
-  | "AIR_BOOKING"
-  | "AIR_SEGMENT"
-  | "HOTEL_RESERVATION"
-  | "HOTEL_STAY_REVENUE"
-  | "LOYALTY"
-  | "LOYALTY_TRANSACTION"
-  | "LOYALTY_PROMOTION"
-  | "UNIQUE"
-  | "SECONDARY"
-  | "LOOKUP_ONLY"
-  | "NEW_ONLY";
+export type StandardIdentifier = "PROFILE" | "ASSET" | "CASE" | "ORDER" | "COMMUNICATION_RECORD" | "AIR_PREFERENCE" | "HOTEL_PREFERENCE" | "AIR_BOOKING" | "AIR_SEGMENT" | "HOTEL_RESERVATION" | "HOTEL_STAY_REVENUE" | "LOYALTY" | "LOYALTY_TRANSACTION" | "LOYALTY_PROMOTION" | "UNIQUE" | "SECONDARY" | "LOOKUP_ONLY" | "NEW_ONLY";
 export type StandardIdentifierList = Array<StandardIdentifier>;
 export type Start = number;
 
@@ -2952,24 +2352,10 @@ export interface StartUploadJobRequest {
   DomainName: string;
   JobId: string;
 }
-export interface StartUploadJobResponse {}
-export type Statistic =
-  | "FIRST_OCCURRENCE"
-  | "LAST_OCCURRENCE"
-  | "COUNT"
-  | "SUM"
-  | "MINIMUM"
-  | "MAXIMUM"
-  | "AVERAGE"
-  | "MAX_OCCURRENCE";
-export type Status =
-  | "NOT_STARTED"
-  | "IN_PROGRESS"
-  | "COMPLETE"
-  | "FAILED"
-  | "SPLIT"
-  | "RETRY"
-  | "CANCELLED";
+export interface StartUploadJobResponse {
+}
+export type Statistic = "FIRST_OCCURRENCE" | "LAST_OCCURRENCE" | "COUNT" | "SUM" | "MINIMUM" | "MAXIMUM" | "AVERAGE" | "MAX_OCCURRENCE";
+export type Status = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETE" | "FAILED" | "SPLIT" | "RETRY" | "CANCELLED";
 export type StatusCode = number;
 
 export type StatusReason = "VALIDATION_FAILURE" | "INTERNAL_FAILURE";
@@ -2977,19 +2363,15 @@ export interface StopUploadJobRequest {
   DomainName: string;
   JobId: string;
 }
-export interface StopUploadJobResponse {}
+export interface StopUploadJobResponse {
+}
 export type string0To255 = string;
 
 export type string1To1000 = string;
 
 export type string1To255 = string;
 
-export type StringDimensionType =
-  | "INCLUSIVE"
-  | "EXCLUSIVE"
-  | "CONTAINS"
-  | "BEGINS_WITH"
-  | "ENDS_WITH";
+export type StringDimensionType = "INCLUSIVE" | "EXCLUSIVE" | "CONTAINS" | "BEGINS_WITH" | "ENDS_WITH";
 export type stringifiedJson = string;
 
 export type stringTo2048 = string;
@@ -3004,7 +2386,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface Task {
@@ -3016,14 +2399,7 @@ export interface Task {
 }
 export type TaskPropertiesMap = Record<OperatorPropertiesKeys, string>;
 export type Tasks = Array<Task>;
-export type TaskType =
-  | "ARITHMETIC"
-  | "FILTER"
-  | "MAP"
-  | "MASK"
-  | "MERGE"
-  | "TRUNCATE"
-  | "VALIDATE";
+export type TaskType = "ARITHMETIC" | "FILTER" | "MAP" | "MASK" | "MERGE" | "TRUNCATE" | "VALIDATE";
 export type text = string;
 
 export interface Threshold {
@@ -3057,7 +2433,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAddress {
   Address1?: string;
   Address2?: string;
@@ -3195,13 +2572,7 @@ export interface UploadJobItem {
   DataExpiry?: number;
 }
 export type UploadJobsList = Array<UploadJobItem>;
-export type UploadJobStatus =
-  | "CREATED"
-  | "IN_PROGRESS"
-  | "PARTIALLY_SUCCEEDED"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "STOPPED";
+export type UploadJobStatus = "CREATED" | "IN_PROGRESS" | "PARTIALLY_SUCCEEDED" | "SUCCEEDED" | "FAILED" | "STOPPED";
 export type uuid = string;
 
 export type Value = number;
@@ -3228,21 +2599,7 @@ export interface WorkflowStepItem {
 }
 export type WorkflowStepsList = Array<WorkflowStepItem>;
 export type WorkflowType = "APPFLOW_INTEGRATION";
-export type ZendeskConnectorOperator =
-  | "PROJECTION"
-  | "GREATER_THAN"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type ZendeskConnectorOperator = "PROJECTION" | "GREATER_THAN" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface ZendeskSourceProperties {
   Object: string;
 }
@@ -4210,3 +3567,4 @@ export declare namespace UpdateProfile {
     | ThrottlingException
     | CommonAwsError;
 }
+

@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class BackupSearch extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("backupsearch", new RestJson1Protocol(), cfg);
+  }
+
   listSearchJobBackups(
     input: ListSearchJobBackupsInput,
   ): Effect.Effect<
@@ -106,9 +111,7 @@ interface _ExportSpecification {
   s3ExportSpecification?: S3ExportSpecification;
 }
 
-export type ExportSpecification = _ExportSpecification & {
-  s3ExportSpecification: S3ExportSpecification;
-};
+export type ExportSpecification = (_ExportSpecification & { s3ExportSpecification: S3ExportSpecification });
 export type FilePath = string;
 
 export type GenericId = string;
@@ -203,11 +206,7 @@ export interface LongCondition {
   Operator?: LongConditionOperator;
 }
 export type LongConditionList = Array<LongCondition>;
-export type LongConditionOperator =
-  | "EQUALS_TO"
-  | "NOT_EQUALS_TO"
-  | "LESS_THAN_EQUAL_TO"
-  | "GREATER_THAN_EQUAL_TO";
+export type LongConditionOperator = "EQUALS_TO" | "NOT_EQUALS_TO" | "LESS_THAN_EQUAL_TO" | "GREATER_THAN_EQUAL_TO";
 export type ObjectKey = string;
 
 export type RecoveryPoint = string;
@@ -228,9 +227,7 @@ interface _ResultItem {
   EBSResultItem?: EBSResultItem;
 }
 
-export type ResultItem =
-  | (_ResultItem & { S3ResultItem: S3ResultItem })
-  | (_ResultItem & { EBSResultItem: EBSResultItem });
+export type ResultItem = (_ResultItem & { S3ResultItem: S3ResultItem }) | (_ResultItem & { EBSResultItem: EBSResultItem });
 export type Results = Array<ResultItem>;
 export interface S3ExportSpecification {
   DestinationBucket: string;
@@ -267,12 +264,7 @@ export interface SearchJobBackupsResult {
 }
 export type SearchJobBackupsResults = Array<SearchJobBackupsResult>;
 export type SearchJobs = Array<SearchJobSummary>;
-export type SearchJobState =
-  | "RUNNING"
-  | "COMPLETED"
-  | "STOPPING"
-  | "STOPPED"
-  | "FAILED";
+export type SearchJobState = "RUNNING" | "COMPLETED" | "STOPPING" | "STOPPED" | "FAILED";
 export interface SearchJobSummary {
   SearchJobIdentifier?: string;
   SearchJobArn?: string;
@@ -330,28 +322,22 @@ export interface StartSearchResultExportJobOutput {
 export interface StopSearchJobInput {
   SearchJobIdentifier: string;
 }
-export interface StopSearchJobOutput {}
+export interface StopSearchJobOutput {
+}
 export interface StringCondition {
   Value: string;
   Operator?: StringConditionOperator;
 }
 export type StringConditionList = Array<StringCondition>;
-export type StringConditionOperator =
-  | "EQUALS_TO"
-  | "NOT_EQUALS_TO"
-  | "CONTAINS"
-  | "DOES_NOT_CONTAIN"
-  | "BEGINS_WITH"
-  | "ENDS_WITH"
-  | "DOES_NOT_BEGIN_WITH"
-  | "DOES_NOT_END_WITH";
+export type StringConditionOperator = "EQUALS_TO" | "NOT_EQUALS_TO" | "CONTAINS" | "DOES_NOT_CONTAIN" | "BEGINS_WITH" | "ENDS_WITH" | "DOES_NOT_BEGIN_WITH" | "DOES_NOT_END_WITH";
 export type TagKeys = Array<string>;
 export type TagMap = Record<string, string>;
 export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -365,16 +351,13 @@ export interface TimeCondition {
   Operator?: TimeConditionOperator;
 }
 export type TimeConditionList = Array<TimeCondition>;
-export type TimeConditionOperator =
-  | "EQUALS_TO"
-  | "NOT_EQUALS_TO"
-  | "LESS_THAN_EQUAL_TO"
-  | "GREATER_THAN_EQUAL_TO";
+export type TimeConditionOperator = "EQUALS_TO" | "NOT_EQUALS_TO" | "LESS_THAN_EQUAL_TO" | "GREATER_THAN_EQUAL_TO";
 export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -383,29 +366,40 @@ export declare class ValidationException extends EffectData.TaggedError(
 export declare namespace ListSearchJobBackups {
   export type Input = ListSearchJobBackupsInput;
   export type Output = ListSearchJobBackupsOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace ListSearchJobResults {
   export type Input = ListSearchJobResultsInput;
   export type Output = ListSearchJobResultsOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = TagResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
+

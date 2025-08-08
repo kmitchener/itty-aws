@@ -1,24 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class SSOOIDC extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("sso-oidc", new RestJson1Protocol(), cfg);
+  }
+
   createToken(
     input: CreateTokenRequest,
   ): Effect.Effect<
     CreateTokenResponse,
-    | AccessDeniedException
-    | AuthorizationPendingException
-    | ExpiredTokenException
-    | InternalServerException
-    | InvalidClientException
-    | InvalidGrantException
-    | InvalidRequestException
-    | InvalidScopeException
-    | SlowDownException
-    | UnauthorizedClientException
-    | UnsupportedGrantTypeException
-    | CommonAwsError
+    AccessDeniedException | AuthorizationPendingException | ExpiredTokenException | InternalServerException | InvalidClientException | InvalidGrantException | InvalidRequestException | InvalidScopeException | SlowDownException | UnauthorizedClientException | UnsupportedGrantTypeException | CommonAwsError
   > {
     return this.call("CreateToken", input);
   }
@@ -26,19 +20,7 @@ export class SSOOIDC extends AWSServiceClient {
     input: CreateTokenWithIAMRequest,
   ): Effect.Effect<
     CreateTokenWithIAMResponse,
-    | AccessDeniedException
-    | AuthorizationPendingException
-    | ExpiredTokenException
-    | InternalServerException
-    | InvalidClientException
-    | InvalidGrantException
-    | InvalidRequestException
-    | InvalidRequestRegionException
-    | InvalidScopeException
-    | SlowDownException
-    | UnauthorizedClientException
-    | UnsupportedGrantTypeException
-    | CommonAwsError
+    AccessDeniedException | AuthorizationPendingException | ExpiredTokenException | InternalServerException | InvalidClientException | InvalidGrantException | InvalidRequestException | InvalidRequestRegionException | InvalidScopeException | SlowDownException | UnauthorizedClientException | UnsupportedGrantTypeException | CommonAwsError
   > {
     return this.call("CreateTokenWithIAM", input);
   }
@@ -46,13 +28,7 @@ export class SSOOIDC extends AWSServiceClient {
     input: RegisterClientRequest,
   ): Effect.Effect<
     RegisterClientResponse,
-    | InternalServerException
-    | InvalidClientMetadataException
-    | InvalidRedirectUriException
-    | InvalidRequestException
-    | InvalidScopeException
-    | UnsupportedGrantTypeException
-    | CommonAwsError
+    InternalServerException | InvalidClientMetadataException | InvalidRedirectUriException | InvalidRequestException | InvalidScopeException | UnsupportedGrantTypeException | CommonAwsError
   > {
     return this.call("RegisterClient", input);
   }
@@ -60,12 +36,7 @@ export class SSOOIDC extends AWSServiceClient {
     input: StartDeviceAuthorizationRequest,
   ): Effect.Effect<
     StartDeviceAuthorizationResponse,
-    | InternalServerException
-    | InvalidClientException
-    | InvalidRequestException
-    | SlowDownException
-    | UnauthorizedClientException
-    | CommonAwsError
+    InternalServerException | InvalidClientException | InvalidRequestException | SlowDownException | UnauthorizedClientException | CommonAwsError
   > {
     return this.call("StartDeviceAuthorization", input);
   }
@@ -353,3 +324,4 @@ export declare namespace StartDeviceAuthorization {
     | UnauthorizedClientException
     | CommonAwsError;
 }
+

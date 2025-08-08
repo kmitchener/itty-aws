@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class mq extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("mq", new RestJson1Protocol(), cfg);
+  }
+
   createBroker(
     input: CreateBrokerRequest,
   ): Effect.Effect<
     CreateBrokerResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | UnauthorizedException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | UnauthorizedException | CommonAwsError
   > {
     return this.call("CreateBroker", input);
   }
@@ -20,11 +20,7 @@ export class mq extends AWSServiceClient {
     input: CreateConfigurationRequest,
   ): Effect.Effect<
     CreateConfigurationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | CommonAwsError
   > {
     return this.call("CreateConfiguration", input);
   }
@@ -32,11 +28,7 @@ export class mq extends AWSServiceClient {
     input: CreateTagsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("CreateTags", input);
   }
@@ -44,12 +36,7 @@ export class mq extends AWSServiceClient {
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("CreateUser", input);
   }
@@ -57,11 +44,7 @@ export class mq extends AWSServiceClient {
     input: DeleteBrokerRequest,
   ): Effect.Effect<
     DeleteBrokerResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteBroker", input);
   }
@@ -69,12 +52,7 @@ export class mq extends AWSServiceClient {
     input: DeleteConfigurationRequest,
   ): Effect.Effect<
     DeleteConfigurationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteConfiguration", input);
   }
@@ -82,11 +60,7 @@ export class mq extends AWSServiceClient {
     input: DeleteTagsRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteTags", input);
   }
@@ -94,11 +68,7 @@ export class mq extends AWSServiceClient {
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("DeleteUser", input);
   }
@@ -106,11 +76,7 @@ export class mq extends AWSServiceClient {
     input: DescribeBrokerRequest,
   ): Effect.Effect<
     DescribeBrokerResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("DescribeBroker", input);
   }
@@ -118,10 +84,7 @@ export class mq extends AWSServiceClient {
     input: DescribeBrokerEngineTypesRequest,
   ): Effect.Effect<
     DescribeBrokerEngineTypesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | CommonAwsError
   > {
     return this.call("DescribeBrokerEngineTypes", input);
   }
@@ -129,10 +92,7 @@ export class mq extends AWSServiceClient {
     input: DescribeBrokerInstanceOptionsRequest,
   ): Effect.Effect<
     DescribeBrokerInstanceOptionsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | CommonAwsError
   > {
     return this.call("DescribeBrokerInstanceOptions", input);
   }
@@ -140,11 +100,7 @@ export class mq extends AWSServiceClient {
     input: DescribeConfigurationRequest,
   ): Effect.Effect<
     DescribeConfigurationResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("DescribeConfiguration", input);
   }
@@ -152,11 +108,7 @@ export class mq extends AWSServiceClient {
     input: DescribeConfigurationRevisionRequest,
   ): Effect.Effect<
     DescribeConfigurationRevisionResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("DescribeConfigurationRevision", input);
   }
@@ -164,11 +116,7 @@ export class mq extends AWSServiceClient {
     input: DescribeUserRequest,
   ): Effect.Effect<
     DescribeUserResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("DescribeUser", input);
   }
@@ -176,10 +124,7 @@ export class mq extends AWSServiceClient {
     input: ListBrokersRequest,
   ): Effect.Effect<
     ListBrokersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | CommonAwsError
   > {
     return this.call("ListBrokers", input);
   }
@@ -187,11 +132,7 @@ export class mq extends AWSServiceClient {
     input: ListConfigurationRevisionsRequest,
   ): Effect.Effect<
     ListConfigurationRevisionsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("ListConfigurationRevisions", input);
   }
@@ -199,10 +140,7 @@ export class mq extends AWSServiceClient {
     input: ListConfigurationsRequest,
   ): Effect.Effect<
     ListConfigurationsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | CommonAwsError
   > {
     return this.call("ListConfigurations", input);
   }
@@ -210,11 +148,7 @@ export class mq extends AWSServiceClient {
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("ListTags", input);
   }
@@ -222,11 +156,7 @@ export class mq extends AWSServiceClient {
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("ListUsers", input);
   }
@@ -234,11 +164,7 @@ export class mq extends AWSServiceClient {
     input: PromoteRequest,
   ): Effect.Effect<
     PromoteResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("Promote", input);
   }
@@ -246,11 +172,7 @@ export class mq extends AWSServiceClient {
     input: RebootBrokerRequest,
   ): Effect.Effect<
     RebootBrokerResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("RebootBroker", input);
   }
@@ -258,12 +180,7 @@ export class mq extends AWSServiceClient {
     input: UpdateBrokerRequest,
   ): Effect.Effect<
     UpdateBrokerResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateBroker", input);
   }
@@ -271,12 +188,7 @@ export class mq extends AWSServiceClient {
     input: UpdateConfigurationRequest,
   ): Effect.Effect<
     UpdateConfigurationResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateConfiguration", input);
   }
@@ -284,12 +196,7 @@ export class mq extends AWSServiceClient {
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | CommonAwsError
   > {
     return this.call("UpdateUser", input);
   }
@@ -356,14 +263,7 @@ export interface BrokerInstanceOption {
   SupportedDeploymentModes?: Array<DeploymentMode>;
   SupportedEngineVersions?: Array<string>;
 }
-export type BrokerState =
-  | "CREATION_IN_PROGRESS"
-  | "CREATION_FAILED"
-  | "DELETION_IN_PROGRESS"
-  | "RUNNING"
-  | "REBOOT_IN_PROGRESS"
-  | "CRITICAL_ACTION_REQUIRED"
-  | "REPLICA";
+export type BrokerState = "CREATION_IN_PROGRESS" | "CREATION_FAILED" | "DELETION_IN_PROGRESS" | "RUNNING" | "REBOOT_IN_PROGRESS" | "CRITICAL_ACTION_REQUIRED" | "REPLICA";
 export type BrokerStorageType = "EBS" | "EFS";
 export interface BrokerSummary {
   BrokerArn?: string;
@@ -462,7 +362,8 @@ export interface CreateUserRequest {
   Username: string;
   ReplicationUser?: boolean;
 }
-export interface CreateUserResponse {}
+export interface CreateUserResponse {
+}
 export interface DataReplicationCounterpart {
   BrokerId: string;
   Region: string;
@@ -472,14 +373,7 @@ export interface DataReplicationMetadataOutput {
   DataReplicationRole: string;
 }
 export type DataReplicationMode = "NONE" | "CRDR";
-export type DayOfWeek =
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY"
-  | "SUNDAY";
+export type DayOfWeek = "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY" | "SUNDAY";
 export interface DeleteBrokerRequest {
   BrokerId: string;
 }
@@ -500,11 +394,9 @@ export interface DeleteUserRequest {
   BrokerId: string;
   Username: string;
 }
-export interface DeleteUserResponse {}
-export type DeploymentMode =
-  | "SINGLE_INSTANCE"
-  | "ACTIVE_STANDBY_MULTI_AZ"
-  | "CLUSTER_MULTI_AZ";
+export interface DeleteUserResponse {
+}
+export type DeploymentMode = "SINGLE_INSTANCE" | "ACTIVE_STANDBY_MULTI_AZ" | "CLUSTER_MULTI_AZ";
 export interface DescribeBrokerEngineTypesRequest {
   EngineType?: string;
   MaxResults?: number;
@@ -726,16 +618,14 @@ export interface PromoteResponse {
 export interface RebootBrokerRequest {
   BrokerId: string;
 }
-export interface RebootBrokerResponse {}
+export interface RebootBrokerResponse {
+}
 export interface SanitizationWarning {
   AttributeName?: string;
   ElementName?: string;
   Reason: SanitizationWarningReason;
 }
-export type SanitizationWarningReason =
-  | "DISALLOWED_ELEMENT_REMOVED"
-  | "DISALLOWED_ATTRIBUTE_REMOVED"
-  | "INVALID_ATTRIBUTE_VALUE_REMOVED";
+export type SanitizationWarningReason = "DISALLOWED_ELEMENT_REMOVED" | "DISALLOWED_ATTRIBUTE_REMOVED" | "INVALID_ATTRIBUTE_VALUE_REMOVED";
 export declare class UnauthorizedException extends EffectData.TaggedError(
   "UnauthorizedException",
 )<{
@@ -792,7 +682,8 @@ export interface UpdateUserRequest {
   Username: string;
   ReplicationUser?: boolean;
 }
-export interface UpdateUserResponse {}
+export interface UpdateUserResponse {
+}
 export interface User {
   ConsoleAccess?: boolean;
   Groups?: Array<string>;
@@ -1079,3 +970,4 @@ export declare namespace UpdateUser {
     | NotFoundException
     | CommonAwsError;
 }
+

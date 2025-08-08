@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class DynamoDB extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("dynamodb", new AwsJson10Protocol(), cfg);
+  }
+
   batchExecuteStatement(
     input: BatchExecuteStatementInput,
   ): Effect.Effect<
@@ -15,12 +20,7 @@ export class DynamoDB extends AWSServiceClient {
     input: BatchGetItemInput,
   ): Effect.Effect<
     BatchGetItemOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | ProvisionedThroughputExceededException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | ProvisionedThroughputExceededException | RequestLimitExceeded | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("BatchGetItem", input);
   }
@@ -28,14 +28,7 @@ export class DynamoDB extends AWSServiceClient {
     input: BatchWriteItemInput,
   ): Effect.Effect<
     BatchWriteItemOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | ItemCollectionSizeLimitExceededException
-    | ProvisionedThroughputExceededException
-    | ReplicatedWriteConflictException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | ItemCollectionSizeLimitExceededException | ProvisionedThroughputExceededException | ReplicatedWriteConflictException | RequestLimitExceeded | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("BatchWriteItem", input);
   }
@@ -43,14 +36,7 @@ export class DynamoDB extends AWSServiceClient {
     input: CreateBackupInput,
   ): Effect.Effect<
     CreateBackupOutput,
-    | BackupInUseException
-    | ContinuousBackupsUnavailableException
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | TableInUseException
-    | TableNotFoundException
-    | CommonAwsError
+    BackupInUseException | ContinuousBackupsUnavailableException | InternalServerError | InvalidEndpointException | LimitExceededException | TableInUseException | TableNotFoundException | CommonAwsError
   > {
     return this.call("CreateBackup", input);
   }
@@ -58,12 +44,7 @@ export class DynamoDB extends AWSServiceClient {
     input: CreateGlobalTableInput,
   ): Effect.Effect<
     CreateGlobalTableOutput,
-    | GlobalTableAlreadyExistsException
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | TableNotFoundException
-    | CommonAwsError
+    GlobalTableAlreadyExistsException | InternalServerError | InvalidEndpointException | LimitExceededException | TableNotFoundException | CommonAwsError
   > {
     return this.call("CreateGlobalTable", input);
   }
@@ -71,11 +52,7 @@ export class DynamoDB extends AWSServiceClient {
     input: CreateTableInput,
   ): Effect.Effect<
     CreateTableOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | ResourceInUseException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | ResourceInUseException | CommonAwsError
   > {
     return this.call("CreateTable", input);
   }
@@ -83,12 +60,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DeleteBackupInput,
   ): Effect.Effect<
     DeleteBackupOutput,
-    | BackupInUseException
-    | BackupNotFoundException
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | CommonAwsError
+    BackupInUseException | BackupNotFoundException | InternalServerError | InvalidEndpointException | LimitExceededException | CommonAwsError
   > {
     return this.call("DeleteBackup", input);
   }
@@ -96,16 +68,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DeleteItemInput,
   ): Effect.Effect<
     DeleteItemOutput,
-    | ConditionalCheckFailedException
-    | InternalServerError
-    | InvalidEndpointException
-    | ItemCollectionSizeLimitExceededException
-    | ProvisionedThroughputExceededException
-    | ReplicatedWriteConflictException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | TransactionConflictException
-    | CommonAwsError
+    ConditionalCheckFailedException | InternalServerError | InvalidEndpointException | ItemCollectionSizeLimitExceededException | ProvisionedThroughputExceededException | ReplicatedWriteConflictException | RequestLimitExceeded | ResourceNotFoundException | TransactionConflictException | CommonAwsError
   > {
     return this.call("DeleteItem", input);
   }
@@ -113,13 +76,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DeleteResourcePolicyInput,
   ): Effect.Effect<
     DeleteResourcePolicyOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | PolicyNotFoundException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | PolicyNotFoundException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteResourcePolicy", input);
   }
@@ -127,12 +84,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DeleteTableInput,
   ): Effect.Effect<
     DeleteTableOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DeleteTable", input);
   }
@@ -140,10 +92,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DescribeBackupInput,
   ): Effect.Effect<
     DescribeBackupOutput,
-    | BackupNotFoundException
-    | InternalServerError
-    | InvalidEndpointException
-    | CommonAwsError
+    BackupNotFoundException | InternalServerError | InvalidEndpointException | CommonAwsError
   > {
     return this.call("DescribeBackup", input);
   }
@@ -151,10 +100,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DescribeContinuousBackupsInput,
   ): Effect.Effect<
     DescribeContinuousBackupsOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | TableNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | TableNotFoundException | CommonAwsError
   > {
     return this.call("DescribeContinuousBackups", input);
   }
@@ -168,17 +114,17 @@ export class DynamoDB extends AWSServiceClient {
   }
   describeEndpoints(
     input: DescribeEndpointsRequest,
-  ): Effect.Effect<DescribeEndpointsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeEndpointsResponse,
+    CommonAwsError
+  > {
     return this.call("DescribeEndpoints", input);
   }
   describeExport(
     input: DescribeExportInput,
   ): Effect.Effect<
     DescribeExportOutput,
-    | ExportNotFoundException
-    | InternalServerError
-    | LimitExceededException
-    | CommonAwsError
+    ExportNotFoundException | InternalServerError | LimitExceededException | CommonAwsError
   > {
     return this.call("DescribeExport", input);
   }
@@ -186,10 +132,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DescribeGlobalTableInput,
   ): Effect.Effect<
     DescribeGlobalTableOutput,
-    | GlobalTableNotFoundException
-    | InternalServerError
-    | InvalidEndpointException
-    | CommonAwsError
+    GlobalTableNotFoundException | InternalServerError | InvalidEndpointException | CommonAwsError
   > {
     return this.call("DescribeGlobalTable", input);
   }
@@ -197,10 +140,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DescribeGlobalTableSettingsInput,
   ): Effect.Effect<
     DescribeGlobalTableSettingsOutput,
-    | GlobalTableNotFoundException
-    | InternalServerError
-    | InvalidEndpointException
-    | CommonAwsError
+    GlobalTableNotFoundException | InternalServerError | InvalidEndpointException | CommonAwsError
   > {
     return this.call("DescribeGlobalTableSettings", input);
   }
@@ -216,10 +156,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DescribeKinesisStreamingDestinationInput,
   ): Effect.Effect<
     DescribeKinesisStreamingDestinationOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeKinesisStreamingDestination", input);
   }
@@ -235,10 +172,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DescribeTableInput,
   ): Effect.Effect<
     DescribeTableOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeTable", input);
   }
@@ -254,10 +188,7 @@ export class DynamoDB extends AWSServiceClient {
     input: DescribeTimeToLiveInput,
   ): Effect.Effect<
     DescribeTimeToLiveOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeTimeToLive", input);
   }
@@ -265,12 +196,7 @@ export class DynamoDB extends AWSServiceClient {
     input: KinesisStreamingDestinationInput,
   ): Effect.Effect<
     KinesisStreamingDestinationOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DisableKinesisStreamingDestination", input);
   }
@@ -278,12 +204,7 @@ export class DynamoDB extends AWSServiceClient {
     input: KinesisStreamingDestinationInput,
   ): Effect.Effect<
     KinesisStreamingDestinationOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("EnableKinesisStreamingDestination", input);
   }
@@ -291,15 +212,7 @@ export class DynamoDB extends AWSServiceClient {
     input: ExecuteStatementInput,
   ): Effect.Effect<
     ExecuteStatementOutput,
-    | ConditionalCheckFailedException
-    | DuplicateItemException
-    | InternalServerError
-    | ItemCollectionSizeLimitExceededException
-    | ProvisionedThroughputExceededException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | TransactionConflictException
-    | CommonAwsError
+    ConditionalCheckFailedException | DuplicateItemException | InternalServerError | ItemCollectionSizeLimitExceededException | ProvisionedThroughputExceededException | RequestLimitExceeded | ResourceNotFoundException | TransactionConflictException | CommonAwsError
   > {
     return this.call("ExecuteStatement", input);
   }
@@ -307,14 +220,7 @@ export class DynamoDB extends AWSServiceClient {
     input: ExecuteTransactionInput,
   ): Effect.Effect<
     ExecuteTransactionOutput,
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | ProvisionedThroughputExceededException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | TransactionCanceledException
-    | TransactionInProgressException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerError | ProvisionedThroughputExceededException | RequestLimitExceeded | ResourceNotFoundException | TransactionCanceledException | TransactionInProgressException | CommonAwsError
   > {
     return this.call("ExecuteTransaction", input);
   }
@@ -322,13 +228,7 @@ export class DynamoDB extends AWSServiceClient {
     input: ExportTableToPointInTimeInput,
   ): Effect.Effect<
     ExportTableToPointInTimeOutput,
-    | ExportConflictException
-    | InternalServerError
-    | InvalidExportTimeException
-    | LimitExceededException
-    | PointInTimeRecoveryUnavailableException
-    | TableNotFoundException
-    | CommonAwsError
+    ExportConflictException | InternalServerError | InvalidExportTimeException | LimitExceededException | PointInTimeRecoveryUnavailableException | TableNotFoundException | CommonAwsError
   > {
     return this.call("ExportTableToPointInTime", input);
   }
@@ -336,12 +236,7 @@ export class DynamoDB extends AWSServiceClient {
     input: GetItemInput,
   ): Effect.Effect<
     GetItemOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | ProvisionedThroughputExceededException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | ProvisionedThroughputExceededException | RequestLimitExceeded | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetItem", input);
   }
@@ -349,11 +244,7 @@ export class DynamoDB extends AWSServiceClient {
     input: GetResourcePolicyInput,
   ): Effect.Effect<
     GetResourcePolicyOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | PolicyNotFoundException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | PolicyNotFoundException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("GetResourcePolicy", input);
   }
@@ -361,10 +252,7 @@ export class DynamoDB extends AWSServiceClient {
     input: ImportTableInput,
   ): Effect.Effect<
     ImportTableOutput,
-    | ImportConflictException
-    | LimitExceededException
-    | ResourceInUseException
-    | CommonAwsError
+    ImportConflictException | LimitExceededException | ResourceInUseException | CommonAwsError
   > {
     return this.call("ImportTable", input);
   }
@@ -402,7 +290,10 @@ export class DynamoDB extends AWSServiceClient {
   }
   listImports(
     input: ListImportsInput,
-  ): Effect.Effect<ListImportsOutput, LimitExceededException | CommonAwsError> {
+  ): Effect.Effect<
+    ListImportsOutput,
+    LimitExceededException | CommonAwsError
+  > {
     return this.call("ListImports", input);
   }
   listTables(
@@ -417,10 +308,7 @@ export class DynamoDB extends AWSServiceClient {
     input: ListTagsOfResourceInput,
   ): Effect.Effect<
     ListTagsOfResourceOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("ListTagsOfResource", input);
   }
@@ -428,16 +316,7 @@ export class DynamoDB extends AWSServiceClient {
     input: PutItemInput,
   ): Effect.Effect<
     PutItemOutput,
-    | ConditionalCheckFailedException
-    | InternalServerError
-    | InvalidEndpointException
-    | ItemCollectionSizeLimitExceededException
-    | ProvisionedThroughputExceededException
-    | ReplicatedWriteConflictException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | TransactionConflictException
-    | CommonAwsError
+    ConditionalCheckFailedException | InternalServerError | InvalidEndpointException | ItemCollectionSizeLimitExceededException | ProvisionedThroughputExceededException | ReplicatedWriteConflictException | RequestLimitExceeded | ResourceNotFoundException | TransactionConflictException | CommonAwsError
   > {
     return this.call("PutItem", input);
   }
@@ -445,13 +324,7 @@ export class DynamoDB extends AWSServiceClient {
     input: PutResourcePolicyInput,
   ): Effect.Effect<
     PutResourcePolicyOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | PolicyNotFoundException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | PolicyNotFoundException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("PutResourcePolicy", input);
   }
@@ -459,12 +332,7 @@ export class DynamoDB extends AWSServiceClient {
     input: QueryInput,
   ): Effect.Effect<
     QueryOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | ProvisionedThroughputExceededException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | ProvisionedThroughputExceededException | RequestLimitExceeded | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("Query", input);
   }
@@ -472,14 +340,7 @@ export class DynamoDB extends AWSServiceClient {
     input: RestoreTableFromBackupInput,
   ): Effect.Effect<
     RestoreTableFromBackupOutput,
-    | BackupInUseException
-    | BackupNotFoundException
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | TableAlreadyExistsException
-    | TableInUseException
-    | CommonAwsError
+    BackupInUseException | BackupNotFoundException | InternalServerError | InvalidEndpointException | LimitExceededException | TableAlreadyExistsException | TableInUseException | CommonAwsError
   > {
     return this.call("RestoreTableFromBackup", input);
   }
@@ -487,15 +348,7 @@ export class DynamoDB extends AWSServiceClient {
     input: RestoreTableToPointInTimeInput,
   ): Effect.Effect<
     RestoreTableToPointInTimeOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | InvalidRestoreTimeException
-    | LimitExceededException
-    | PointInTimeRecoveryUnavailableException
-    | TableAlreadyExistsException
-    | TableInUseException
-    | TableNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | InvalidRestoreTimeException | LimitExceededException | PointInTimeRecoveryUnavailableException | TableAlreadyExistsException | TableInUseException | TableNotFoundException | CommonAwsError
   > {
     return this.call("RestoreTableToPointInTime", input);
   }
@@ -503,12 +356,7 @@ export class DynamoDB extends AWSServiceClient {
     input: ScanInput,
   ): Effect.Effect<
     ScanOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | ProvisionedThroughputExceededException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | ProvisionedThroughputExceededException | RequestLimitExceeded | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("Scan", input);
   }
@@ -516,12 +364,7 @@ export class DynamoDB extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     {},
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -529,13 +372,7 @@ export class DynamoDB extends AWSServiceClient {
     input: TransactGetItemsInput,
   ): Effect.Effect<
     TransactGetItemsOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | ProvisionedThroughputExceededException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | TransactionCanceledException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | ProvisionedThroughputExceededException | RequestLimitExceeded | ResourceNotFoundException | TransactionCanceledException | CommonAwsError
   > {
     return this.call("TransactGetItems", input);
   }
@@ -543,15 +380,7 @@ export class DynamoDB extends AWSServiceClient {
     input: TransactWriteItemsInput,
   ): Effect.Effect<
     TransactWriteItemsOutput,
-    | IdempotentParameterMismatchException
-    | InternalServerError
-    | InvalidEndpointException
-    | ProvisionedThroughputExceededException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | TransactionCanceledException
-    | TransactionInProgressException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerError | InvalidEndpointException | ProvisionedThroughputExceededException | RequestLimitExceeded | ResourceNotFoundException | TransactionCanceledException | TransactionInProgressException | CommonAwsError
   > {
     return this.call("TransactWriteItems", input);
   }
@@ -559,12 +388,7 @@ export class DynamoDB extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     {},
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -572,11 +396,7 @@ export class DynamoDB extends AWSServiceClient {
     input: UpdateContinuousBackupsInput,
   ): Effect.Effect<
     UpdateContinuousBackupsOutput,
-    | ContinuousBackupsUnavailableException
-    | InternalServerError
-    | InvalidEndpointException
-    | TableNotFoundException
-    | CommonAwsError
+    ContinuousBackupsUnavailableException | InternalServerError | InvalidEndpointException | TableNotFoundException | CommonAwsError
   > {
     return this.call("UpdateContinuousBackups", input);
   }
@@ -592,13 +412,7 @@ export class DynamoDB extends AWSServiceClient {
     input: UpdateGlobalTableInput,
   ): Effect.Effect<
     UpdateGlobalTableOutput,
-    | GlobalTableNotFoundException
-    | InternalServerError
-    | InvalidEndpointException
-    | ReplicaAlreadyExistsException
-    | ReplicaNotFoundException
-    | TableNotFoundException
-    | CommonAwsError
+    GlobalTableNotFoundException | InternalServerError | InvalidEndpointException | ReplicaAlreadyExistsException | ReplicaNotFoundException | TableNotFoundException | CommonAwsError
   > {
     return this.call("UpdateGlobalTable", input);
   }
@@ -606,14 +420,7 @@ export class DynamoDB extends AWSServiceClient {
     input: UpdateGlobalTableSettingsInput,
   ): Effect.Effect<
     UpdateGlobalTableSettingsOutput,
-    | GlobalTableNotFoundException
-    | IndexNotFoundException
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | ReplicaNotFoundException
-    | ResourceInUseException
-    | CommonAwsError
+    GlobalTableNotFoundException | IndexNotFoundException | InternalServerError | InvalidEndpointException | LimitExceededException | ReplicaNotFoundException | ResourceInUseException | CommonAwsError
   > {
     return this.call("UpdateGlobalTableSettings", input);
   }
@@ -621,16 +428,7 @@ export class DynamoDB extends AWSServiceClient {
     input: UpdateItemInput,
   ): Effect.Effect<
     UpdateItemOutput,
-    | ConditionalCheckFailedException
-    | InternalServerError
-    | InvalidEndpointException
-    | ItemCollectionSizeLimitExceededException
-    | ProvisionedThroughputExceededException
-    | ReplicatedWriteConflictException
-    | RequestLimitExceeded
-    | ResourceNotFoundException
-    | TransactionConflictException
-    | CommonAwsError
+    ConditionalCheckFailedException | InternalServerError | InvalidEndpointException | ItemCollectionSizeLimitExceededException | ProvisionedThroughputExceededException | ReplicatedWriteConflictException | RequestLimitExceeded | ResourceNotFoundException | TransactionConflictException | CommonAwsError
   > {
     return this.call("UpdateItem", input);
   }
@@ -638,12 +436,7 @@ export class DynamoDB extends AWSServiceClient {
     input: UpdateKinesisStreamingDestinationInput,
   ): Effect.Effect<
     UpdateKinesisStreamingDestinationOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateKinesisStreamingDestination", input);
   }
@@ -651,12 +444,7 @@ export class DynamoDB extends AWSServiceClient {
     input: UpdateTableInput,
   ): Effect.Effect<
     UpdateTableOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateTable", input);
   }
@@ -664,11 +452,7 @@ export class DynamoDB extends AWSServiceClient {
     input: UpdateTableReplicaAutoScalingInput,
   ): Effect.Effect<
     UpdateTableReplicaAutoScalingOutput,
-    | InternalServerError
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateTableReplicaAutoScaling", input);
   }
@@ -676,12 +460,7 @@ export class DynamoDB extends AWSServiceClient {
     input: UpdateTimeToLiveInput,
   ): Effect.Effect<
     UpdateTimeToLiveOutput,
-    | InternalServerError
-    | InvalidEndpointException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerError | InvalidEndpointException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("UpdateTimeToLive", input);
   }
@@ -689,9 +468,7 @@ export class DynamoDB extends AWSServiceClient {
 
 export default DynamoDB;
 
-export type ApproximateCreationDateTimePrecision =
-  | "MILLISECOND"
-  | "MICROSECOND";
+export type ApproximateCreationDateTimePrecision = "MILLISECOND" | "MICROSECOND";
 export type ArchivalReason = string;
 
 export interface ArchivalSummary {
@@ -723,17 +500,7 @@ interface _AttributeValue {
   BOOL?: boolean;
 }
 
-export type AttributeValue =
-  | (_AttributeValue & { S: string })
-  | (_AttributeValue & { N: string })
-  | (_AttributeValue & { B: Uint8Array | string })
-  | (_AttributeValue & { SS: Array<string> })
-  | (_AttributeValue & { NS: Array<string> })
-  | (_AttributeValue & { BS: Array<Uint8Array | string> })
-  | (_AttributeValue & { M: Record<string, AttributeValue> })
-  | (_AttributeValue & { L: Array<AttributeValue> })
-  | (_AttributeValue & { NULL: boolean })
-  | (_AttributeValue & { BOOL: boolean });
+export type AttributeValue = (_AttributeValue & { S: string }) | (_AttributeValue & { N: string }) | (_AttributeValue & { B: Uint8Array | string }) | (_AttributeValue & { SS: Array<string> }) | (_AttributeValue & { NS: Array<string> }) | (_AttributeValue & { BS: Array<Uint8Array | string> }) | (_AttributeValue & { M: Record<string, AttributeValue> }) | (_AttributeValue & { L: Array<AttributeValue> }) | (_AttributeValue & { NULL: boolean }) | (_AttributeValue & { BOOL: boolean });
 export type AttributeValueList = Array<AttributeValue>;
 export interface AttributeValueUpdate {
   Value?: AttributeValue;
@@ -743,8 +510,7 @@ export interface AutoScalingPolicyDescription {
   PolicyName?: string;
   TargetTrackingScalingPolicyConfiguration?: AutoScalingTargetTrackingScalingPolicyConfigurationDescription;
 }
-export type AutoScalingPolicyDescriptionList =
-  Array<AutoScalingPolicyDescription>;
+export type AutoScalingPolicyDescriptionList = Array<AutoScalingPolicyDescription>;
 export type AutoScalingPolicyName = string;
 
 export interface AutoScalingPolicyUpdate {
@@ -849,27 +615,13 @@ export interface BatchGetItemOutput {
   ConsumedCapacity?: Array<ConsumedCapacity>;
 }
 export type BatchGetRequestMap = Record<string, KeysAndAttributes>;
-export type BatchGetResponseMap = Record<
-  string,
-  Array<Record<string, AttributeValue>>
->;
+export type BatchGetResponseMap = Record<string, Array<Record<string, AttributeValue>>>;
 export interface BatchStatementError {
   Code?: BatchStatementErrorCodeEnum;
   Message?: string;
   Item?: Record<string, AttributeValue>;
 }
-export type BatchStatementErrorCodeEnum =
-  | "ConditionalCheckFailed"
-  | "ItemCollectionSizeLimitExceeded"
-  | "RequestLimitExceeded"
-  | "ValidationError"
-  | "ProvisionedThroughputExceeded"
-  | "TransactionConflict"
-  | "ThrottlingError"
-  | "InternalServerError"
-  | "ResourceNotFound"
-  | "AccessDenied"
-  | "DuplicateItem";
+export type BatchStatementErrorCodeEnum = "ConditionalCheckFailed" | "ItemCollectionSizeLimitExceeded" | "RequestLimitExceeded" | "ValidationError" | "ProvisionedThroughputExceeded" | "TransactionConflict" | "ThrottlingError" | "InternalServerError" | "ResourceNotFound" | "AccessDenied" | "DuplicateItem";
 export interface BatchStatementRequest {
   Statement: string;
   Parameters?: Array<AttributeValue>;
@@ -925,20 +677,7 @@ export type CloudWatchLogGroupArn = string;
 
 export type Code = string;
 
-export type ComparisonOperator =
-  | "EQ"
-  | "NE"
-  | "IN"
-  | "LE"
-  | "LT"
-  | "GE"
-  | "GT"
-  | "BETWEEN"
-  | "NOT_NULL"
-  | "NULL"
-  | "CONTAINS"
-  | "NOT_CONTAINS"
-  | "BEGINS_WITH";
+export type ComparisonOperator = "EQ" | "NE" | "IN" | "LE" | "LT" | "GE" | "GT" | "BETWEEN" | "NOT_NULL" | "NULL" | "CONTAINS" | "NOT_CONTAINS" | "BEGINS_WITH";
 export interface Condition {
   AttributeValueList?: Array<AttributeValue>;
   ComparisonOperator: ComparisonOperator;
@@ -990,12 +729,7 @@ export type ContributorInsightsAction = "ENABLE" | "DISABLE";
 export type ContributorInsightsRule = string;
 
 export type ContributorInsightsRuleList = Array<string>;
-export type ContributorInsightsStatus =
-  | "ENABLING"
-  | "ENABLED"
-  | "DISABLING"
-  | "DISABLED"
-  | "FAILED";
+export type ContributorInsightsStatus = "ENABLING" | "ENABLED" | "DISABLING" | "DISABLED" | "FAILED";
 export type ContributorInsightsSummaries = Array<ContributorInsightsSummary>;
 export interface ContributorInsightsSummary {
   TableName?: string;
@@ -1155,7 +889,8 @@ export interface DescribeContributorInsightsOutput {
   LastUpdateDateTime?: Date | string;
   FailureException?: FailureException;
 }
-export interface DescribeEndpointsRequest {}
+export interface DescribeEndpointsRequest {
+}
 export interface DescribeEndpointsResponse {
   Endpoints: Array<Endpoint>;
 }
@@ -1191,7 +926,8 @@ export interface DescribeKinesisStreamingDestinationOutput {
   TableName?: string;
   KinesisDataStreamDestinations?: Array<KinesisDataStreamDestination>;
 }
-export interface DescribeLimitsInput {}
+export interface DescribeLimitsInput {
+}
 export interface DescribeLimitsOutput {
   AccountMaxReadCapacityUnits?: number;
   AccountMaxWriteCapacityUnits?: number;
@@ -1216,13 +952,7 @@ export interface DescribeTimeToLiveInput {
 export interface DescribeTimeToLiveOutput {
   TimeToLiveDescription?: TimeToLiveDescription;
 }
-export type DestinationStatus =
-  | "ENABLING"
-  | "ACTIVE"
-  | "DISABLING"
-  | "DISABLED"
-  | "ENABLE_FAILED"
-  | "UPDATING";
+export type DestinationStatus = "ENABLING" | "ACTIVE" | "DISABLING" | "DISABLED" | "ENABLE_FAILED" | "UPDATING";
 export type DoubleObject = number;
 
 export declare class DuplicateItemException extends EffectData.TaggedError(
@@ -1405,8 +1135,7 @@ export interface GlobalSecondaryIndexAutoScalingUpdate {
   IndexName?: string;
   ProvisionedWriteCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
 }
-export type GlobalSecondaryIndexAutoScalingUpdateList =
-  Array<GlobalSecondaryIndexAutoScalingUpdate>;
+export type GlobalSecondaryIndexAutoScalingUpdateList = Array<GlobalSecondaryIndexAutoScalingUpdate>;
 export interface GlobalSecondaryIndexDescription {
   IndexName?: string;
   KeySchema?: Array<KeySchemaElement>;
@@ -1420,8 +1149,7 @@ export interface GlobalSecondaryIndexDescription {
   OnDemandThroughput?: OnDemandThroughput;
   WarmThroughput?: GlobalSecondaryIndexWarmThroughputDescription;
 }
-export type GlobalSecondaryIndexDescriptionList =
-  Array<GlobalSecondaryIndexDescription>;
+export type GlobalSecondaryIndexDescriptionList = Array<GlobalSecondaryIndexDescription>;
 export type GlobalSecondaryIndexes = Array<GlobalSecondaryIndexInfo>;
 export interface GlobalSecondaryIndexInfo {
   IndexName?: string;
@@ -1465,8 +1193,7 @@ export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
   ProvisionedWriteCapacityUnits?: number;
   ProvisionedWriteCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
 }
-export type GlobalTableGlobalSecondaryIndexSettingsUpdateList =
-  Array<GlobalTableGlobalSecondaryIndexSettingsUpdate>;
+export type GlobalTableGlobalSecondaryIndexSettingsUpdateList = Array<GlobalTableGlobalSecondaryIndexSettingsUpdate>;
 export type GlobalTableList = Array<GlobalTable>;
 export declare class GlobalTableNotFoundException extends EffectData.TaggedError(
   "GlobalTableNotFoundException",
@@ -1478,14 +1205,12 @@ export interface GlobalTableWitnessDescription {
   RegionName?: string;
   WitnessStatus?: WitnessStatus;
 }
-export type GlobalTableWitnessDescriptionList =
-  Array<GlobalTableWitnessDescription>;
+export type GlobalTableWitnessDescriptionList = Array<GlobalTableWitnessDescription>;
 export interface GlobalTableWitnessGroupUpdate {
   Create?: CreateGlobalTableWitnessGroupMemberAction;
   Delete?: DeleteGlobalTableWitnessGroupMemberAction;
 }
-export type GlobalTableWitnessGroupUpdateList =
-  Array<GlobalTableWitnessGroupUpdate>;
+export type GlobalTableWitnessGroupUpdateList = Array<GlobalTableWitnessGroupUpdate>;
 export declare class IdempotentParameterMismatchException extends EffectData.TaggedError(
   "IdempotentParameterMismatchException",
 )<{
@@ -1511,12 +1236,7 @@ export declare class ImportNotFoundException extends EffectData.TaggedError(
 }> {}
 export type ImportStartTime = Date | string;
 
-export type ImportStatus =
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "CANCELLING"
-  | "CANCELLED"
-  | "FAILED";
+export type ImportStatus = "IN_PROGRESS" | "COMPLETED" | "CANCELLING" | "CANCELLED" | "FAILED";
 export interface ImportSummary {
   ImportArn?: string;
   ImportStatus?: ImportStatus;
@@ -1608,10 +1328,7 @@ export interface ItemCollectionMetrics {
   SizeEstimateRangeGB?: Array<number>;
 }
 export type ItemCollectionMetricsMultiple = Array<ItemCollectionMetrics>;
-export type ItemCollectionMetricsPerTable = Record<
-  string,
-  Array<ItemCollectionMetrics>
->;
+export type ItemCollectionMetricsPerTable = Record<string, Array<ItemCollectionMetrics>>;
 export type ItemCollectionSizeEstimateBound = number;
 
 export type ItemCollectionSizeEstimateRange = Array<number>;
@@ -1762,8 +1479,7 @@ export interface LocalSecondaryIndexDescription {
   ItemCount?: number;
   IndexArn?: string;
 }
-export type LocalSecondaryIndexDescriptionList =
-  Array<LocalSecondaryIndexDescription>;
+export type LocalSecondaryIndexDescriptionList = Array<LocalSecondaryIndexDescription>;
 export type LocalSecondaryIndexes = Array<LocalSecondaryIndexInfo>;
 export interface LocalSecondaryIndexInfo {
   IndexName?: string;
@@ -1948,8 +1664,7 @@ export interface ReplicaAutoScalingDescription {
   ReplicaProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
   ReplicaStatus?: ReplicaStatus;
 }
-export type ReplicaAutoScalingDescriptionList =
-  Array<ReplicaAutoScalingDescription>;
+export type ReplicaAutoScalingDescriptionList = Array<ReplicaAutoScalingDescription>;
 export interface ReplicaAutoScalingUpdate {
   RegionName: string;
   ReplicaGlobalSecondaryIndexUpdates?: Array<ReplicaGlobalSecondaryIndexAutoScalingUpdate>;
@@ -1981,24 +1696,20 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
   ProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
   ProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
 }
-export type ReplicaGlobalSecondaryIndexAutoScalingDescriptionList =
-  Array<ReplicaGlobalSecondaryIndexAutoScalingDescription>;
+export type ReplicaGlobalSecondaryIndexAutoScalingDescriptionList = Array<ReplicaGlobalSecondaryIndexAutoScalingDescription>;
 export interface ReplicaGlobalSecondaryIndexAutoScalingUpdate {
   IndexName?: string;
   ProvisionedReadCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
 }
-export type ReplicaGlobalSecondaryIndexAutoScalingUpdateList =
-  Array<ReplicaGlobalSecondaryIndexAutoScalingUpdate>;
+export type ReplicaGlobalSecondaryIndexAutoScalingUpdateList = Array<ReplicaGlobalSecondaryIndexAutoScalingUpdate>;
 export interface ReplicaGlobalSecondaryIndexDescription {
   IndexName?: string;
   ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
   OnDemandThroughputOverride?: OnDemandThroughputOverride;
   WarmThroughput?: GlobalSecondaryIndexWarmThroughputDescription;
 }
-export type ReplicaGlobalSecondaryIndexDescriptionList =
-  Array<ReplicaGlobalSecondaryIndexDescription>;
-export type ReplicaGlobalSecondaryIndexList =
-  Array<ReplicaGlobalSecondaryIndex>;
+export type ReplicaGlobalSecondaryIndexDescriptionList = Array<ReplicaGlobalSecondaryIndexDescription>;
+export type ReplicaGlobalSecondaryIndexList = Array<ReplicaGlobalSecondaryIndex>;
 export interface ReplicaGlobalSecondaryIndexSettingsDescription {
   IndexName: string;
   IndexStatus?: IndexStatus;
@@ -2007,15 +1718,13 @@ export interface ReplicaGlobalSecondaryIndexSettingsDescription {
   ProvisionedWriteCapacityUnits?: number;
   ProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
 }
-export type ReplicaGlobalSecondaryIndexSettingsDescriptionList =
-  Array<ReplicaGlobalSecondaryIndexSettingsDescription>;
+export type ReplicaGlobalSecondaryIndexSettingsDescriptionList = Array<ReplicaGlobalSecondaryIndexSettingsDescription>;
 export interface ReplicaGlobalSecondaryIndexSettingsUpdate {
   IndexName: string;
   ProvisionedReadCapacityUnits?: number;
   ProvisionedReadCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
 }
-export type ReplicaGlobalSecondaryIndexSettingsUpdateList =
-  Array<ReplicaGlobalSecondaryIndexSettingsUpdate>;
+export type ReplicaGlobalSecondaryIndexSettingsUpdateList = Array<ReplicaGlobalSecondaryIndexSettingsUpdate>;
 export type ReplicaList = Array<Replica>;
 export declare class ReplicaNotFoundException extends EffectData.TaggedError(
   "ReplicaNotFoundException",
@@ -2042,17 +1751,7 @@ export interface ReplicaSettingsUpdate {
   ReplicaTableClass?: TableClass;
 }
 export type ReplicaSettingsUpdateList = Array<ReplicaSettingsUpdate>;
-export type ReplicaStatus =
-  | "CREATING"
-  | "CREATION_FAILED"
-  | "UPDATING"
-  | "DELETING"
-  | "ACTIVE"
-  | "REGION_DISABLED"
-  | "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
-  | "ARCHIVING"
-  | "ARCHIVED"
-  | "REPLICATION_NOT_AUTHORIZED";
+export type ReplicaStatus = "CREATING" | "CREATION_FAILED" | "UPDATING" | "DELETING" | "ACTIVE" | "REGION_DISABLED" | "INACCESSIBLE_ENCRYPTION_CREDENTIALS" | "ARCHIVING" | "ARCHIVED" | "REPLICATION_NOT_AUTHORIZED";
 export type ReplicaStatusDescription = string;
 
 export type ReplicaStatusPercentProgress = string;
@@ -2131,12 +1830,7 @@ export interface RestoreTableToPointInTimeOutput {
 }
 export type ReturnConsumedCapacity = "INDEXES" | "TOTAL" | "NONE";
 export type ReturnItemCollectionMetrics = "SIZE" | "NONE";
-export type ReturnValue =
-  | "NONE"
-  | "ALL_OLD"
-  | "UPDATED_OLD"
-  | "ALL_NEW"
-  | "UPDATED_NEW";
+export type ReturnValue = "NONE" | "ALL_OLD" | "UPDATED_OLD" | "ALL_NEW" | "UPDATED_NEW";
 export type ReturnValuesOnConditionCheckFailure = "ALL_OLD" | "NONE";
 export type S3Bucket = string;
 
@@ -2183,11 +1877,7 @@ export type ScanSegment = number;
 export type ScanTotalSegments = number;
 
 export type SecondaryIndexesCapacityMap = Record<string, Capacity>;
-export type Select =
-  | "ALL_ATTRIBUTES"
-  | "ALL_PROJECTED_ATTRIBUTES"
-  | "SPECIFIC_ATTRIBUTES"
-  | "COUNT";
+export type Select = "ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "SPECIFIC_ATTRIBUTES" | "COUNT";
 export interface SourceTableDetails {
   TableName: string;
   TableId: string;
@@ -2220,12 +1910,7 @@ export interface SSESpecification {
   SSEType?: SSEType;
   KMSMasterKeyId?: string;
 }
-export type SSEStatus =
-  | "ENABLING"
-  | "ENABLED"
-  | "DISABLING"
-  | "DISABLED"
-  | "UPDATING";
+export type SSEStatus = "ENABLING" | "ENABLED" | "DISABLING" | "DISABLED" | "UPDATING";
 export type SSEType = "AES256" | "KMS";
 export type StreamArn = string;
 
@@ -2235,11 +1920,7 @@ export interface StreamSpecification {
   StreamEnabled: boolean;
   StreamViewType?: StreamViewType;
 }
-export type StreamViewType =
-  | "NEW_IMAGE"
-  | "OLD_IMAGE"
-  | "NEW_AND_OLD_IMAGES"
-  | "KEYS_ONLY";
+export type StreamViewType = "NEW_IMAGE" | "OLD_IMAGE" | "NEW_AND_OLD_IMAGES" | "KEYS_ONLY";
 export type DynamodbString = string;
 
 export type StringAttributeValue = string;
@@ -2318,15 +1999,7 @@ export declare class TableNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type TableStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "DELETING"
-  | "ACTIVE"
-  | "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
-  | "ARCHIVING"
-  | "ARCHIVED"
-  | "REPLICATION_NOT_AUTHORIZED";
+export type TableStatus = "CREATING" | "UPDATING" | "DELETING" | "ACTIVE" | "INACCESSIBLE_ENCRYPTION_CREDENTIALS" | "ARCHIVING" | "ARCHIVED" | "REPLICATION_NOT_AUTHORIZED";
 export interface TableWarmThroughputDescription {
   ReadUnitsPerSecond?: number;
   WriteUnitsPerSecond?: number;
@@ -2362,11 +2035,7 @@ export interface TimeToLiveSpecification {
   Enabled: boolean;
   AttributeName: string;
 }
-export type TimeToLiveStatus =
-  | "ENABLING"
-  | "DISABLING"
-  | "ENABLED"
-  | "DISABLED";
+export type TimeToLiveStatus = "ENABLING" | "DISABLING" | "ENABLED" | "DISABLED";
 export interface TransactGetItem {
   Get: Get;
 }
@@ -2713,7 +2382,8 @@ export declare namespace DescribeContributorInsights {
 export declare namespace DescribeEndpoints {
   export type Input = DescribeEndpointsRequest;
   export type Output = DescribeEndpointsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeExport {
@@ -2749,7 +2419,9 @@ export declare namespace DescribeGlobalTableSettings {
 export declare namespace DescribeImport {
   export type Input = DescribeImportInput;
   export type Output = DescribeImportOutput;
-  export type Error = ImportNotFoundException | CommonAwsError;
+  export type Error =
+    | ImportNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeKinesisStreamingDestination {
@@ -2938,7 +2610,9 @@ export declare namespace ListGlobalTables {
 export declare namespace ListImports {
   export type Input = ListImportsInput;
   export type Output = ListImportsOutput;
-  export type Error = LimitExceededException | CommonAwsError;
+  export type Error =
+    | LimitExceededException
+    | CommonAwsError;
 }
 
 export declare namespace ListTables {
@@ -3203,3 +2877,4 @@ export declare namespace UpdateTimeToLive {
     | ResourceNotFoundException
     | CommonAwsError;
 }
+

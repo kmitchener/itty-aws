@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class InternetMonitor extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("internetmonitor", new RestJson1Protocol(), cfg);
+  }
+
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -20,12 +20,7 @@ export class InternetMonitor extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -33,12 +28,7 @@ export class InternetMonitor extends AWSServiceClient {
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerErrorException | NotFoundException | TooManyRequestsException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -99,7 +89,8 @@ export interface CreateMonitorOutput {
 export interface DeleteMonitorInput {
   MonitorName: string;
 }
-export interface DeleteMonitorOutput {}
+export interface DeleteMonitorOutput {
+}
 export type FilterList = Array<string>;
 export interface FilterParameter {
   Field?: string;
@@ -397,7 +388,8 @@ export interface StopQueryInput {
   MonitorName: string;
   QueryId: string;
 }
-export interface StopQueryOutput {}
+export interface StopQueryOutput {
+}
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
@@ -406,7 +398,8 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -427,7 +420,8 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateMonitorInput {
   MonitorName: string;
   ResourcesToAdd?: Array<string>;
@@ -483,3 +477,4 @@ export declare namespace UntagResource {
     | TooManyRequestsException
     | CommonAwsError;
 }
+

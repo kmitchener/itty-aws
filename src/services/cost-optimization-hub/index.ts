@@ -1,17 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class CostOptimizationHub extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cost-optimization-hub", new AwsJson10Protocol(), cfg);
+  }
+
   getPreferences(
     input: GetPreferencesRequest,
   ): Effect.Effect<
     GetPreferencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPreferences", input);
   }
@@ -19,12 +20,7 @@ export class CostOptimizationHub extends AWSServiceClient {
     input: GetRecommendationRequest,
   ): Effect.Effect<
     GetRecommendationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetRecommendation", input);
   }
@@ -32,11 +28,7 @@ export class CostOptimizationHub extends AWSServiceClient {
     input: ListEnrollmentStatusesRequest,
   ): Effect.Effect<
     ListEnrollmentStatusesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListEnrollmentStatuses", input);
   }
@@ -44,11 +36,7 @@ export class CostOptimizationHub extends AWSServiceClient {
     input: ListRecommendationsRequest,
   ): Effect.Effect<
     ListRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRecommendations", input);
   }
@@ -56,11 +44,7 @@ export class CostOptimizationHub extends AWSServiceClient {
     input: ListRecommendationSummariesRequest,
   ): Effect.Effect<
     ListRecommendationSummariesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListRecommendationSummaries", input);
   }
@@ -68,11 +52,7 @@ export class CostOptimizationHub extends AWSServiceClient {
     input: UpdateEnrollmentStatusRequest,
   ): Effect.Effect<
     UpdateEnrollmentStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateEnrollmentStatus", input);
   }
@@ -80,11 +60,7 @@ export class CostOptimizationHub extends AWSServiceClient {
     input: UpdatePreferencesRequest,
   ): Effect.Effect<
     UpdatePreferencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdatePreferences", input);
   }
@@ -107,15 +83,7 @@ export type AccountEnrollmentStatuses = Array<AccountEnrollmentStatus>;
 export type AccountId = string;
 
 export type AccountIdList = Array<string>;
-export type ActionType =
-  | "RIGHTSIZE"
-  | "STOP"
-  | "UPGRADE"
-  | "PURCHASE_SAVINGS_PLANS"
-  | "PURCHASE_RESERVED_INSTANCES"
-  | "MIGRATE_TO_GRAVITON"
-  | "DELETE"
-  | "SCALE_IN";
+export type ActionType = "RIGHTSIZE" | "STOP" | "UPGRADE" | "PURCHASE_SAVINGS_PLANS" | "PURCHASE_RESERVED_INSTANCES" | "MIGRATE_TO_GRAVITON" | "DELETE" | "SCALE_IN";
 export type ActionTypeList = Array<ActionType>;
 export type AllocationStrategy = "PRIORITIZED" | "LOWEST_PRICE";
 export interface AuroraDbClusterStorage {
@@ -184,9 +152,7 @@ export interface Ec2AutoScalingGroupConfiguration {
   type?: Ec2AutoScalingGroupType;
   allocationStrategy?: AllocationStrategy;
 }
-export type Ec2AutoScalingGroupType =
-  | "SINGLE_INSTANCE_TYPE"
-  | "MIXED_INSTANCE_TYPES";
+export type Ec2AutoScalingGroupType = "SINGLE_INSTANCE_TYPE" | "MIXED_INSTANCE_TYPES";
 export interface Ec2Instance {
   configuration?: Ec2InstanceConfiguration;
   costCalculation?: ResourceCostCalculation;
@@ -273,7 +239,8 @@ export interface Filter {
   resourceArns?: Array<string>;
   recommendationIds?: Array<string>;
 }
-export interface GetPreferencesRequest {}
+export interface GetPreferencesRequest {
+}
 export interface GetPreferencesResponse {
   savingsEstimationMode?: SavingsEstimationMode;
   memberAccountDiscountVisibility?: MemberAccountDiscountVisibility;
@@ -307,12 +274,7 @@ export interface GetRecommendationResponse {
   recommendedResourceDetails?: ResourceDetails;
   tags?: Array<Tag>;
 }
-export type ImplementationEffort =
-  | "VERY_LOW"
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH"
-  | "VERY_HIGH";
+export type ImplementationEffort = "VERY_LOW" | "LOW" | "MEDIUM" | "HIGH" | "VERY_HIGH";
 export type ImplementationEffortList = Array<ImplementationEffort>;
 export interface InstanceConfiguration {
   type?: string;
@@ -546,33 +508,7 @@ interface _ResourceDetails {
   memoryDbReservedInstances?: MemoryDbReservedInstances;
 }
 
-export type ResourceDetails =
-  | (_ResourceDetails & { lambdaFunction: LambdaFunction })
-  | (_ResourceDetails & { ecsService: EcsService })
-  | (_ResourceDetails & { ec2Instance: Ec2Instance })
-  | (_ResourceDetails & { ebsVolume: EbsVolume })
-  | (_ResourceDetails & { ec2AutoScalingGroup: Ec2AutoScalingGroup })
-  | (_ResourceDetails & { ec2ReservedInstances: Ec2ReservedInstances })
-  | (_ResourceDetails & { rdsReservedInstances: RdsReservedInstances })
-  | (_ResourceDetails & {
-      elastiCacheReservedInstances: ElastiCacheReservedInstances;
-    })
-  | (_ResourceDetails & {
-      openSearchReservedInstances: OpenSearchReservedInstances;
-    })
-  | (_ResourceDetails & {
-      redshiftReservedInstances: RedshiftReservedInstances;
-    })
-  | (_ResourceDetails & { ec2InstanceSavingsPlans: Ec2InstanceSavingsPlans })
-  | (_ResourceDetails & { computeSavingsPlans: ComputeSavingsPlans })
-  | (_ResourceDetails & { sageMakerSavingsPlans: SageMakerSavingsPlans })
-  | (_ResourceDetails & { rdsDbInstance: RdsDbInstance })
-  | (_ResourceDetails & { rdsDbInstanceStorage: RdsDbInstanceStorage })
-  | (_ResourceDetails & { auroraDbClusterStorage: AuroraDbClusterStorage })
-  | (_ResourceDetails & { dynamoDbReservedCapacity: DynamoDbReservedCapacity })
-  | (_ResourceDetails & {
-      memoryDbReservedInstances: MemoryDbReservedInstances;
-    });
+export type ResourceDetails = (_ResourceDetails & { lambdaFunction: LambdaFunction }) | (_ResourceDetails & { ecsService: EcsService }) | (_ResourceDetails & { ec2Instance: Ec2Instance }) | (_ResourceDetails & { ebsVolume: EbsVolume }) | (_ResourceDetails & { ec2AutoScalingGroup: Ec2AutoScalingGroup }) | (_ResourceDetails & { ec2ReservedInstances: Ec2ReservedInstances }) | (_ResourceDetails & { rdsReservedInstances: RdsReservedInstances }) | (_ResourceDetails & { elastiCacheReservedInstances: ElastiCacheReservedInstances }) | (_ResourceDetails & { openSearchReservedInstances: OpenSearchReservedInstances }) | (_ResourceDetails & { redshiftReservedInstances: RedshiftReservedInstances }) | (_ResourceDetails & { ec2InstanceSavingsPlans: Ec2InstanceSavingsPlans }) | (_ResourceDetails & { computeSavingsPlans: ComputeSavingsPlans }) | (_ResourceDetails & { sageMakerSavingsPlans: SageMakerSavingsPlans }) | (_ResourceDetails & { rdsDbInstance: RdsDbInstance }) | (_ResourceDetails & { rdsDbInstanceStorage: RdsDbInstanceStorage }) | (_ResourceDetails & { auroraDbClusterStorage: AuroraDbClusterStorage }) | (_ResourceDetails & { dynamoDbReservedCapacity: DynamoDbReservedCapacity }) | (_ResourceDetails & { memoryDbReservedInstances: MemoryDbReservedInstances });
 export type ResourceIdList = Array<string>;
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
@@ -586,25 +522,7 @@ export interface ResourcePricing {
   estimatedDiscounts?: EstimatedDiscounts;
   estimatedCostAfterDiscounts?: number;
 }
-export type ResourceType =
-  | "EC2_INSTANCE"
-  | "LAMBDA_FUNCTION"
-  | "EBS_VOLUME"
-  | "ECS_SERVICE"
-  | "EC2_AUTO_SCALING_GROUP"
-  | "EC2_INSTANCE_SAVINGS_PLANS"
-  | "COMPUTE_SAVINGS_PLANS"
-  | "SAGE_MAKER_SAVINGS_PLANS"
-  | "EC2_RESERVED_INSTANCES"
-  | "RDS_RESERVED_INSTANCES"
-  | "OPEN_SEARCH_RESERVED_INSTANCES"
-  | "REDSHIFT_RESERVED_INSTANCES"
-  | "ELASTI_CACHE_RESERVED_INSTANCES"
-  | "RDS_DB_INSTANCE_STORAGE"
-  | "RDS_DB_INSTANCE"
-  | "AURORA_DB_CLUSTER_STORAGE"
-  | "DYNAMO_DB_RESERVED_CAPACITY"
-  | "MEMORY_DB_RESERVED_INSTANCES";
+export type ResourceType = "EC2_INSTANCE" | "LAMBDA_FUNCTION" | "EBS_VOLUME" | "ECS_SERVICE" | "EC2_AUTO_SCALING_GROUP" | "EC2_INSTANCE_SAVINGS_PLANS" | "COMPUTE_SAVINGS_PLANS" | "SAGE_MAKER_SAVINGS_PLANS" | "EC2_RESERVED_INSTANCES" | "RDS_RESERVED_INSTANCES" | "OPEN_SEARCH_RESERVED_INSTANCES" | "REDSHIFT_RESERVED_INSTANCES" | "ELASTI_CACHE_RESERVED_INSTANCES" | "RDS_DB_INSTANCE_STORAGE" | "RDS_DB_INSTANCE" | "AURORA_DB_CLUSTER_STORAGE" | "DYNAMO_DB_RESERVED_CAPACITY" | "MEMORY_DB_RESERVED_INSTANCES";
 export type ResourceTypeList = Array<ResourceType>;
 export interface SageMakerSavingsPlans {
   configuration?: SageMakerSavingsPlansConfiguration;
@@ -762,3 +680,4 @@ export declare namespace UpdatePreferences {
     | ValidationException
     | CommonAwsError;
 }
+

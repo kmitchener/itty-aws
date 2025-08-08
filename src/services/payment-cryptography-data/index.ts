@@ -1,18 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class PaymentCryptographyData extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("payment-cryptography-data", new RestJson1Protocol(), cfg);
+  }
+
   decryptData(
     input: DecryptDataInput,
   ): Effect.Effect<
     DecryptDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DecryptData", input);
   }
@@ -20,12 +20,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: EncryptDataInput,
   ): Effect.Effect<
     EncryptDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("EncryptData", input);
   }
@@ -33,12 +28,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: GenerateCardValidationDataInput,
   ): Effect.Effect<
     GenerateCardValidationDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GenerateCardValidationData", input);
   }
@@ -46,12 +36,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: GenerateMacInput,
   ): Effect.Effect<
     GenerateMacOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GenerateMac", input);
   }
@@ -59,12 +44,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: GenerateMacEmvPinChangeInput,
   ): Effect.Effect<
     GenerateMacEmvPinChangeOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GenerateMacEmvPinChange", input);
   }
@@ -72,12 +52,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: GeneratePinDataInput,
   ): Effect.Effect<
     GeneratePinDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GeneratePinData", input);
   }
@@ -85,12 +60,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: ReEncryptDataInput,
   ): Effect.Effect<
     ReEncryptDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ReEncryptData", input);
   }
@@ -98,12 +68,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: TranslatePinDataInput,
   ): Effect.Effect<
     TranslatePinDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TranslatePinData", input);
   }
@@ -111,13 +76,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: VerifyAuthRequestCryptogramInput,
   ): Effect.Effect<
     VerifyAuthRequestCryptogramOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | VerificationFailedException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | VerificationFailedException | CommonAwsError
   > {
     return this.call("VerifyAuthRequestCryptogram", input);
   }
@@ -125,13 +84,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: VerifyCardValidationDataInput,
   ): Effect.Effect<
     VerifyCardValidationDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | VerificationFailedException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | VerificationFailedException | CommonAwsError
   > {
     return this.call("VerifyCardValidationData", input);
   }
@@ -139,13 +92,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: VerifyMacInput,
   ): Effect.Effect<
     VerifyMacOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | VerificationFailedException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | VerificationFailedException | CommonAwsError
   > {
     return this.call("VerifyMac", input);
   }
@@ -153,13 +100,7 @@ export class PaymentCryptographyData extends AWSServiceClient {
     input: VerifyPinDataInput,
   ): Effect.Effect<
     VerifyPinDataOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | VerificationFailedException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | VerificationFailedException | CommonAwsError
   > {
     return this.call("VerifyPinData", input);
   }
@@ -208,28 +149,7 @@ interface _CardGenerationAttributes {
   DynamicCardVerificationValue?: DynamicCardVerificationValue;
 }
 
-export type CardGenerationAttributes =
-  | (_CardGenerationAttributes & {
-      AmexCardSecurityCodeVersion1: AmexCardSecurityCodeVersion1;
-    })
-  | (_CardGenerationAttributes & {
-      AmexCardSecurityCodeVersion2: AmexCardSecurityCodeVersion2;
-    })
-  | (_CardGenerationAttributes & {
-      CardVerificationValue1: CardVerificationValue1;
-    })
-  | (_CardGenerationAttributes & {
-      CardVerificationValue2: CardVerificationValue2;
-    })
-  | (_CardGenerationAttributes & {
-      CardHolderVerificationValue: CardHolderVerificationValue;
-    })
-  | (_CardGenerationAttributes & {
-      DynamicCardVerificationCode: DynamicCardVerificationCode;
-    })
-  | (_CardGenerationAttributes & {
-      DynamicCardVerificationValue: DynamicCardVerificationValue;
-    });
+export type CardGenerationAttributes = (_CardGenerationAttributes & { AmexCardSecurityCodeVersion1: AmexCardSecurityCodeVersion1 }) | (_CardGenerationAttributes & { AmexCardSecurityCodeVersion2: AmexCardSecurityCodeVersion2 }) | (_CardGenerationAttributes & { CardVerificationValue1: CardVerificationValue1 }) | (_CardGenerationAttributes & { CardVerificationValue2: CardVerificationValue2 }) | (_CardGenerationAttributes & { CardHolderVerificationValue: CardHolderVerificationValue }) | (_CardGenerationAttributes & { DynamicCardVerificationCode: DynamicCardVerificationCode }) | (_CardGenerationAttributes & { DynamicCardVerificationValue: DynamicCardVerificationValue });
 export interface CardHolderVerificationValue {
   UnpredictableNumber: string;
   PanSequenceNumber: string;
@@ -246,31 +166,7 @@ interface _CardVerificationAttributes {
   DiscoverDynamicCardVerificationCode?: DiscoverDynamicCardVerificationCode;
 }
 
-export type CardVerificationAttributes =
-  | (_CardVerificationAttributes & {
-      AmexCardSecurityCodeVersion1: AmexCardSecurityCodeVersion1;
-    })
-  | (_CardVerificationAttributes & {
-      AmexCardSecurityCodeVersion2: AmexCardSecurityCodeVersion2;
-    })
-  | (_CardVerificationAttributes & {
-      CardVerificationValue1: CardVerificationValue1;
-    })
-  | (_CardVerificationAttributes & {
-      CardVerificationValue2: CardVerificationValue2;
-    })
-  | (_CardVerificationAttributes & {
-      CardHolderVerificationValue: CardHolderVerificationValue;
-    })
-  | (_CardVerificationAttributes & {
-      DynamicCardVerificationCode: DynamicCardVerificationCode;
-    })
-  | (_CardVerificationAttributes & {
-      DynamicCardVerificationValue: DynamicCardVerificationValue;
-    })
-  | (_CardVerificationAttributes & {
-      DiscoverDynamicCardVerificationCode: DiscoverDynamicCardVerificationCode;
-    });
+export type CardVerificationAttributes = (_CardVerificationAttributes & { AmexCardSecurityCodeVersion1: AmexCardSecurityCodeVersion1 }) | (_CardVerificationAttributes & { AmexCardSecurityCodeVersion2: AmexCardSecurityCodeVersion2 }) | (_CardVerificationAttributes & { CardVerificationValue1: CardVerificationValue1 }) | (_CardVerificationAttributes & { CardVerificationValue2: CardVerificationValue2 }) | (_CardVerificationAttributes & { CardHolderVerificationValue: CardHolderVerificationValue }) | (_CardVerificationAttributes & { DynamicCardVerificationCode: DynamicCardVerificationCode }) | (_CardVerificationAttributes & { DynamicCardVerificationValue: DynamicCardVerificationValue }) | (_CardVerificationAttributes & { DiscoverDynamicCardVerificationCode: DiscoverDynamicCardVerificationCode });
 export interface CardVerificationValue1 {
   CardExpiryDate: string;
   ServiceCode: string;
@@ -289,13 +185,7 @@ interface _CryptogramAuthResponse {
   ArpcMethod2?: CryptogramVerificationArpcMethod2;
 }
 
-export type CryptogramAuthResponse =
-  | (_CryptogramAuthResponse & {
-      ArpcMethod1: CryptogramVerificationArpcMethod1;
-    })
-  | (_CryptogramAuthResponse & {
-      ArpcMethod2: CryptogramVerificationArpcMethod2;
-    });
+export type CryptogramAuthResponse = (_CryptogramAuthResponse & { ArpcMethod1: CryptogramVerificationArpcMethod1 }) | (_CryptogramAuthResponse & { ArpcMethod2: CryptogramVerificationArpcMethod2 });
 export interface CryptogramVerificationArpcMethod1 {
   AuthResponseCode: string;
 }
@@ -328,12 +218,7 @@ interface _DerivationMethodAttributes {
   Mastercard?: MasterCardAttributes;
 }
 
-export type DerivationMethodAttributes =
-  | (_DerivationMethodAttributes & { EmvCommon: EmvCommonAttributes })
-  | (_DerivationMethodAttributes & { Amex: AmexAttributes })
-  | (_DerivationMethodAttributes & { Visa: VisaAttributes })
-  | (_DerivationMethodAttributes & { Emv2000: Emv2000Attributes })
-  | (_DerivationMethodAttributes & { Mastercard: MasterCardAttributes });
+export type DerivationMethodAttributes = (_DerivationMethodAttributes & { EmvCommon: EmvCommonAttributes }) | (_DerivationMethodAttributes & { Amex: AmexAttributes }) | (_DerivationMethodAttributes & { Visa: VisaAttributes }) | (_DerivationMethodAttributes & { Emv2000: Emv2000Attributes }) | (_DerivationMethodAttributes & { Mastercard: MasterCardAttributes });
 export interface DiscoverDynamicCardVerificationCode {
   CardExpiryDate: string;
   UnpredictableNumber: string;
@@ -348,12 +233,7 @@ export interface DukptDerivationAttributes {
   DukptKeyDerivationType?: DukptDerivationType;
   DukptKeyVariant?: DukptKeyVariant;
 }
-export type DukptDerivationType =
-  | "TDES_2KEY"
-  | "TDES_3KEY"
-  | "AES_128"
-  | "AES_192"
-  | "AES_256";
+export type DukptDerivationType = "TDES_2KEY" | "TDES_3KEY" | "AES_128" | "AES_192" | "AES_256";
 export interface DukptEncryptionAttributes {
   KeySerialNumber: string;
   Mode?: DukptEncryptionMode;
@@ -428,24 +308,8 @@ interface _EncryptionDecryptionAttributes {
   Emv?: EmvEncryptionAttributes;
 }
 
-export type EncryptionDecryptionAttributes =
-  | (_EncryptionDecryptionAttributes & {
-      Symmetric: SymmetricEncryptionAttributes;
-    })
-  | (_EncryptionDecryptionAttributes & {
-      Asymmetric: AsymmetricEncryptionAttributes;
-    })
-  | (_EncryptionDecryptionAttributes & { Dukpt: DukptEncryptionAttributes })
-  | (_EncryptionDecryptionAttributes & { Emv: EmvEncryptionAttributes });
-export type EncryptionMode =
-  | "ECB"
-  | "CBC"
-  | "CFB"
-  | "CFB1"
-  | "CFB8"
-  | "CFB64"
-  | "CFB128"
-  | "OFB";
+export type EncryptionDecryptionAttributes = (_EncryptionDecryptionAttributes & { Symmetric: SymmetricEncryptionAttributes }) | (_EncryptionDecryptionAttributes & { Asymmetric: AsymmetricEncryptionAttributes }) | (_EncryptionDecryptionAttributes & { Dukpt: DukptEncryptionAttributes }) | (_EncryptionDecryptionAttributes & { Emv: EmvEncryptionAttributes });
+export type EncryptionMode = "ECB" | "CBC" | "CFB" | "CFB1" | "CFB8" | "CFB64" | "CFB128" | "OFB";
 export interface GenerateCardValidationDataInput {
   KeyIdentifier: string;
   PrimaryAccountNumber: string;
@@ -572,15 +436,7 @@ export type KeyCheckValueAlgorithm = string;
 
 export type KeyDerivationFunction = "NIST_SP800" | "ANSI_X963";
 export type KeyDerivationHashAlgorithm = "SHA_256" | "SHA_384" | "SHA_512";
-export type MacAlgorithm =
-  | "ISO9797_ALGORITHM1"
-  | "ISO9797_ALGORITHM3"
-  | "CMAC"
-  | "HMAC"
-  | "HMAC_SHA224"
-  | "HMAC_SHA256"
-  | "HMAC_SHA384"
-  | "HMAC_SHA512";
+export type MacAlgorithm = "ISO9797_ALGORITHM1" | "ISO9797_ALGORITHM3" | "CMAC" | "HMAC" | "HMAC_SHA224" | "HMAC_SHA256" | "HMAC_SHA384" | "HMAC_SHA512";
 export interface MacAlgorithmDukpt {
   KeySerialNumber: string;
   DukptKeyVariant: DukptKeyVariant;
@@ -601,12 +457,7 @@ interface _MacAttributes {
   DukptCmac?: MacAlgorithmDukpt;
 }
 
-export type MacAttributes =
-  | (_MacAttributes & { Algorithm: MacAlgorithm })
-  | (_MacAttributes & { EmvMac: MacAlgorithmEmv })
-  | (_MacAttributes & { DukptIso9797Algorithm1: MacAlgorithmDukpt })
-  | (_MacAttributes & { DukptIso9797Algorithm3: MacAlgorithmDukpt })
-  | (_MacAttributes & { DukptCmac: MacAlgorithmDukpt });
+export type MacAttributes = (_MacAttributes & { Algorithm: MacAlgorithm }) | (_MacAttributes & { EmvMac: MacAlgorithmEmv }) | (_MacAttributes & { DukptIso9797Algorithm1: MacAlgorithmDukpt }) | (_MacAttributes & { DukptIso9797Algorithm3: MacAlgorithmDukpt }) | (_MacAttributes & { DukptCmac: MacAlgorithmDukpt });
 export type MacOutputType = string;
 
 export type MacType = string;
@@ -623,14 +474,8 @@ export type MessageDataType = string;
 export type NumberLengthEquals2 = string;
 
 export type PaddingType = "PKCS1" | "OAEP_SHA1" | "OAEP_SHA256" | "OAEP_SHA512";
-export type PinBlockFormatForEmvPinChange =
-  | "ISO_FORMAT_0"
-  | "ISO_FORMAT_1"
-  | "ISO_FORMAT_3";
-export type PinBlockFormatForPinData =
-  | "ISO_FORMAT_0"
-  | "ISO_FORMAT_3"
-  | "ISO_FORMAT_4";
+export type PinBlockFormatForEmvPinChange = "ISO_FORMAT_0" | "ISO_FORMAT_1" | "ISO_FORMAT_3";
+export type PinBlockFormatForPinData = "ISO_FORMAT_0" | "ISO_FORMAT_3" | "ISO_FORMAT_4";
 export type PinBlockLengthEquals16 = string;
 
 export type PinBlockLengthPosition = "NONE" | "FRONT_OF_PIN_BLOCK";
@@ -642,9 +487,7 @@ interface _PinData {
   VerificationValue?: string;
 }
 
-export type PinData =
-  | (_PinData & { PinOffset: string })
-  | (_PinData & { VerificationValue: string });
+export type PinData = (_PinData & { PinOffset: string }) | (_PinData & { VerificationValue: string });
 interface _PinGenerationAttributes {
   VisaPin?: VisaPin;
   VisaPinVerificationValue?: VisaPinVerificationValue;
@@ -654,15 +497,7 @@ interface _PinGenerationAttributes {
   Ibm3624PinFromOffset?: Ibm3624PinFromOffset;
 }
 
-export type PinGenerationAttributes =
-  | (_PinGenerationAttributes & { VisaPin: VisaPin })
-  | (_PinGenerationAttributes & {
-      VisaPinVerificationValue: VisaPinVerificationValue;
-    })
-  | (_PinGenerationAttributes & { Ibm3624PinOffset: Ibm3624PinOffset })
-  | (_PinGenerationAttributes & { Ibm3624NaturalPin: Ibm3624NaturalPin })
-  | (_PinGenerationAttributes & { Ibm3624RandomPin: Ibm3624RandomPin })
-  | (_PinGenerationAttributes & { Ibm3624PinFromOffset: Ibm3624PinFromOffset });
+export type PinGenerationAttributes = (_PinGenerationAttributes & { VisaPin: VisaPin }) | (_PinGenerationAttributes & { VisaPinVerificationValue: VisaPinVerificationValue }) | (_PinGenerationAttributes & { Ibm3624PinOffset: Ibm3624PinOffset }) | (_PinGenerationAttributes & { Ibm3624NaturalPin: Ibm3624NaturalPin }) | (_PinGenerationAttributes & { Ibm3624RandomPin: Ibm3624RandomPin }) | (_PinGenerationAttributes & { Ibm3624PinFromOffset: Ibm3624PinFromOffset });
 export type PinOffsetType = string;
 
 export type PinValidationDataType = string;
@@ -672,9 +507,7 @@ interface _PinVerificationAttributes {
   Ibm3624Pin?: Ibm3624PinVerification;
 }
 
-export type PinVerificationAttributes =
-  | (_PinVerificationAttributes & { VisaPin: VisaPinVerification })
-  | (_PinVerificationAttributes & { Ibm3624Pin: Ibm3624PinVerification });
+export type PinVerificationAttributes = (_PinVerificationAttributes & { VisaPin: VisaPinVerification }) | (_PinVerificationAttributes & { Ibm3624Pin: Ibm3624PinVerification });
 export type PlainTextOutputType = string;
 
 export type PlainTextType = string;
@@ -702,9 +535,7 @@ interface _ReEncryptionAttributes {
   Dukpt?: DukptEncryptionAttributes;
 }
 
-export type ReEncryptionAttributes =
-  | (_ReEncryptionAttributes & { Symmetric: SymmetricEncryptionAttributes })
-  | (_ReEncryptionAttributes & { Dukpt: DukptEncryptionAttributes });
+export type ReEncryptionAttributes = (_ReEncryptionAttributes & { Symmetric: SymmetricEncryptionAttributes }) | (_ReEncryptionAttributes & { Dukpt: DukptEncryptionAttributes });
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -726,26 +557,14 @@ interface _SessionKeyDerivation {
   Visa?: SessionKeyVisa;
 }
 
-export type SessionKeyDerivation =
-  | (_SessionKeyDerivation & { EmvCommon: SessionKeyEmvCommon })
-  | (_SessionKeyDerivation & { Mastercard: SessionKeyMastercard })
-  | (_SessionKeyDerivation & { Emv2000: SessionKeyEmv2000 })
-  | (_SessionKeyDerivation & { Amex: SessionKeyAmex })
-  | (_SessionKeyDerivation & { Visa: SessionKeyVisa });
-export type SessionKeyDerivationMode =
-  | "EMV_COMMON_SESSION_KEY"
-  | "EMV2000"
-  | "AMEX"
-  | "MASTERCARD_SESSION_KEY"
-  | "VISA";
+export type SessionKeyDerivation = (_SessionKeyDerivation & { EmvCommon: SessionKeyEmvCommon }) | (_SessionKeyDerivation & { Mastercard: SessionKeyMastercard }) | (_SessionKeyDerivation & { Emv2000: SessionKeyEmv2000 }) | (_SessionKeyDerivation & { Amex: SessionKeyAmex }) | (_SessionKeyDerivation & { Visa: SessionKeyVisa });
+export type SessionKeyDerivationMode = "EMV_COMMON_SESSION_KEY" | "EMV2000" | "AMEX" | "MASTERCARD_SESSION_KEY" | "VISA";
 interface _SessionKeyDerivationValue {
   ApplicationCryptogram?: string;
   ApplicationTransactionCounter?: string;
 }
 
-export type SessionKeyDerivationValue =
-  | (_SessionKeyDerivationValue & { ApplicationCryptogram: string })
-  | (_SessionKeyDerivationValue & { ApplicationTransactionCounter: string });
+export type SessionKeyDerivationValue = (_SessionKeyDerivationValue & { ApplicationCryptogram: string }) | (_SessionKeyDerivationValue & { ApplicationTransactionCounter: string });
 export interface SessionKeyEmv2000 {
   PrimaryAccountNumber: string;
   PanSequenceNumber: string;
@@ -773,16 +592,7 @@ export interface SymmetricEncryptionAttributes {
   InitializationVector?: string;
   PaddingType?: PaddingType;
 }
-export type SymmetricKeyAlgorithm =
-  | "TDES_2KEY"
-  | "TDES_3KEY"
-  | "AES_128"
-  | "AES_192"
-  | "AES_256"
-  | "HMAC_SHA256"
-  | "HMAC_SHA384"
-  | "HMAC_SHA512"
-  | "HMAC_SHA224";
+export type SymmetricKeyAlgorithm = "TDES_2KEY" | "TDES_3KEY" | "AES_128" | "AES_192" | "AES_256" | "HMAC_SHA256" | "HMAC_SHA384" | "HMAC_SHA512" | "HMAC_SHA224";
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -817,15 +627,12 @@ interface _TranslationIsoFormats {
   IsoFormat4?: TranslationPinDataIsoFormat034;
 }
 
-export type TranslationIsoFormats =
-  | (_TranslationIsoFormats & { IsoFormat0: TranslationPinDataIsoFormat034 })
-  | (_TranslationIsoFormats & { IsoFormat1: TranslationPinDataIsoFormat1 })
-  | (_TranslationIsoFormats & { IsoFormat3: TranslationPinDataIsoFormat034 })
-  | (_TranslationIsoFormats & { IsoFormat4: TranslationPinDataIsoFormat034 });
+export type TranslationIsoFormats = (_TranslationIsoFormats & { IsoFormat0: TranslationPinDataIsoFormat034 }) | (_TranslationIsoFormats & { IsoFormat1: TranslationPinDataIsoFormat1 }) | (_TranslationIsoFormats & { IsoFormat3: TranslationPinDataIsoFormat034 }) | (_TranslationIsoFormats & { IsoFormat4: TranslationPinDataIsoFormat034 });
 export interface TranslationPinDataIsoFormat034 {
   PrimaryAccountNumber: string;
 }
-export interface TranslationPinDataIsoFormat1 {}
+export interface TranslationPinDataIsoFormat1 {
+}
 export type ValidationDataType = string;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -934,11 +741,7 @@ interface _WrappedKeyMaterial {
   DiffieHellmanSymmetricKey?: EcdhDerivationAttributes;
 }
 
-export type WrappedKeyMaterial =
-  | (_WrappedKeyMaterial & { Tr31KeyBlock: string })
-  | (_WrappedKeyMaterial & {
-      DiffieHellmanSymmetricKey: EcdhDerivationAttributes;
-    });
+export type WrappedKeyMaterial = (_WrappedKeyMaterial & { Tr31KeyBlock: string }) | (_WrappedKeyMaterial & { DiffieHellmanSymmetricKey: EcdhDerivationAttributes });
 export declare namespace DecryptData {
   export type Input = DecryptDataInput;
   export type Output = DecryptDataOutput;
@@ -1086,3 +889,4 @@ export declare namespace VerifyPinData {
     | VerificationFailedException
     | CommonAwsError;
 }
+

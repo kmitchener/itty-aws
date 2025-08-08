@@ -766,6 +766,20 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       }
     }
 
+    // Generate protocol import based on the service protocol
+    const protocolImportMap = {
+      "awsJson1_0": { class: "AwsJson10Protocol", file: "awsjson1_0" },
+      "awsJson1_1": { class: "AwsJson11Protocol", file: "awsjson1_1" }, 
+      "restJson1": { class: "RestJson1Protocol", file: "restjson1" },
+      "ec2Query": { class: "Ec2QueryProtocol", file: "ec2query" },
+      "awsQuery": { class: "AwsQueryProtocol", file: "awsquery" },
+      "restXml": { class: "RestXmlProtocol", file: "restxml" }
+    };
+    
+    const protocolInfo = protocolImportMap[protocol] || protocolImportMap["awsJson1_1"];
+    const protocolClass = protocolInfo.class;
+    const protocolFile = protocolInfo.file;
+    
     // Generate imports
     let code = `import type { Effect${needsStreamImport ? ", Stream" : ""}${needsDataImport ? ", Data as EffectData" : ""} } from "effect";\n`;
     if (needsStreamImport) {
@@ -775,7 +789,8 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
       code += `import type { Buffer } from "node:buffer";\n`;
     }
     code += `import type { CommonAwsError } from "../../error.ts";\n`;
-    code += `import { AWSServiceClient } from "../../client.ts";\n\n`;
+    code += `import { AWSServiceClient } from "../../client.ts";\n`;
+    code += `import { ${protocolClass} } from "../../protocols/${protocolFile}.js";\n\n`;
 
     // First pass: Build type name mapping for conflicting types and track all type names
     const allShapes = Object.entries(manifest.shapes)
@@ -845,6 +860,9 @@ const generateServiceCode = (serviceName: string, manifest: Manifest) =>
     }
 
     code += `export class ${consistentInterfaceName} extends AWSServiceClient {\n`;
+    code += `  constructor(cfg: any) {\n`;
+    code += `    super("${serviceName}", new ${protocolClass}(), cfg);\n`;
+    code += `  }\n\n`;
 
     for (const operation of operations) {
       const methodName = toLowerCamelCase(operation.name);

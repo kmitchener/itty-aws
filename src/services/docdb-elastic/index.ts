@@ -1,19 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class DocDBElastic extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("docdb-elastic", new RestJson1Protocol(), cfg);
+  }
+
   applyPendingMaintenanceAction(
     input: ApplyPendingMaintenanceActionInput,
   ): Effect.Effect<
     ApplyPendingMaintenanceActionOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ApplyPendingMaintenanceAction", input);
   }
@@ -21,14 +20,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: CopyClusterSnapshotInput,
   ): Effect.Effect<
     CopyClusterSnapshotOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CopyClusterSnapshot", input);
   }
@@ -36,13 +28,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: CreateClusterInput,
   ): Effect.Effect<
     CreateClusterOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateCluster", input);
   }
@@ -50,14 +36,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: CreateClusterSnapshotInput,
   ): Effect.Effect<
     CreateClusterSnapshotOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateClusterSnapshot", input);
   }
@@ -65,13 +44,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: DeleteClusterInput,
   ): Effect.Effect<
     DeleteClusterOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteCluster", input);
   }
@@ -79,13 +52,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: DeleteClusterSnapshotInput,
   ): Effect.Effect<
     DeleteClusterSnapshotOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteClusterSnapshot", input);
   }
@@ -93,12 +60,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: GetClusterInput,
   ): Effect.Effect<
     GetClusterOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetCluster", input);
   }
@@ -106,12 +68,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: GetClusterSnapshotInput,
   ): Effect.Effect<
     GetClusterSnapshotOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetClusterSnapshot", input);
   }
@@ -119,13 +76,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: GetPendingMaintenanceActionInput,
   ): Effect.Effect<
     GetPendingMaintenanceActionOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("GetPendingMaintenanceAction", input);
   }
@@ -133,11 +84,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: ListClustersInput,
   ): Effect.Effect<
     ListClustersOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListClusters", input);
   }
@@ -145,11 +92,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: ListClusterSnapshotsInput,
   ): Effect.Effect<
     ListClusterSnapshotsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListClusterSnapshots", input);
   }
@@ -157,11 +100,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: ListPendingMaintenanceActionsInput,
   ): Effect.Effect<
     ListPendingMaintenanceActionsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListPendingMaintenanceActions", input);
   }
@@ -169,11 +108,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -181,14 +116,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: RestoreClusterFromSnapshotInput,
   ): Effect.Effect<
     RestoreClusterFromSnapshotOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RestoreClusterFromSnapshot", input);
   }
@@ -196,12 +124,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: StartClusterInput,
   ): Effect.Effect<
     StartClusterOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StartCluster", input);
   }
@@ -209,12 +132,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: StopClusterInput,
   ): Effect.Effect<
     StopClusterOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("StopCluster", input);
   }
@@ -222,11 +140,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -234,11 +148,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -246,13 +156,7 @@ export class DocDBElastic extends AWSServiceClient {
     input: UpdateClusterInput,
   ): Effect.Effect<
     UpdateClusterOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateCluster", input);
   }
@@ -454,8 +358,7 @@ export interface PendingMaintenanceActionDetails {
   currentApplyDate?: string;
   description?: string;
 }
-export type PendingMaintenanceActionDetailsList =
-  Array<PendingMaintenanceActionDetails>;
+export type PendingMaintenanceActionDetailsList = Array<PendingMaintenanceActionDetails>;
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -467,8 +370,7 @@ export interface ResourcePendingMaintenanceAction {
   resourceArn?: string;
   pendingMaintenanceActionDetails?: Array<PendingMaintenanceActionDetails>;
 }
-export type ResourcePendingMaintenanceActionList =
-  Array<ResourcePendingMaintenanceAction>;
+export type ResourcePendingMaintenanceActionList = Array<ResourcePendingMaintenanceAction>;
 export interface RestoreClusterFromSnapshotInput {
   clusterName: string;
   snapshotArn: string;
@@ -518,7 +420,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -531,7 +434,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateClusterInput {
   clusterArn: string;
   authType?: string;
@@ -796,3 +700,4 @@ export declare namespace UpdateCluster {
     | ValidationException
     | CommonAwsError;
 }
+

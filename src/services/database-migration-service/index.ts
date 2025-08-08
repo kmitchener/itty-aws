@@ -1,8 +1,13 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class DatabaseMigrationService extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("database-migration-service", new AwsJson11Protocol(), cfg);
+  }
+
   addTagsToResource(
     input: AddTagsToResourceMessage,
   ): Effect.Effect<
@@ -23,10 +28,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: BatchStartRecommendationsRequest,
   ): Effect.Effect<
     BatchStartRecommendationsResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("BatchStartRecommendations", input);
   }
@@ -34,10 +36,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CancelReplicationTaskAssessmentRunMessage,
   ): Effect.Effect<
     CancelReplicationTaskAssessmentRunResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("CancelReplicationTaskAssessmentRun", input);
   }
@@ -45,12 +44,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateDataMigrationMessage,
   ): Effect.Effect<
     CreateDataMigrationResponse,
-    | FailedDependencyFault
-    | InvalidOperationFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | CommonAwsError
+    FailedDependencyFault | InvalidOperationFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDataMigration", input);
   }
@@ -58,11 +52,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateDataProviderMessage,
   ): Effect.Effect<
     CreateDataProviderResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | ResourceAlreadyExistsFault
-    | ResourceQuotaExceededFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | ResourceAlreadyExistsFault | ResourceQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateDataProvider", input);
   }
@@ -70,14 +60,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateEndpointMessage,
   ): Effect.Effect<
     CreateEndpointResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | S3AccessDeniedFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | S3AccessDeniedFault | CommonAwsError
   > {
     return this.call("CreateEndpoint", input);
   }
@@ -85,17 +68,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateEventSubscriptionMessage,
   ): Effect.Effect<
     CreateEventSubscriptionResponse,
-    | KMSAccessDeniedFault
-    | KMSDisabledFault
-    | KMSInvalidStateFault
-    | KMSNotFoundFault
-    | KMSThrottlingFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | SNSInvalidTopicFault
-    | SNSNoAuthorizationFault
-    | CommonAwsError
+    KMSAccessDeniedFault | KMSDisabledFault | KMSInvalidStateFault | KMSNotFoundFault | KMSThrottlingFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | SNSInvalidTopicFault | SNSNoAuthorizationFault | CommonAwsError
   > {
     return this.call("CreateEventSubscription", input);
   }
@@ -103,12 +76,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateFleetAdvisorCollectorRequest,
   ): Effect.Effect<
     CreateFleetAdvisorCollectorResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceQuotaExceededFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceQuotaExceededFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("CreateFleetAdvisorCollector", input);
   }
@@ -116,16 +84,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateInstanceProfileMessage,
   ): Effect.Effect<
     CreateInstanceProfileResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("CreateInstanceProfile", input);
   }
@@ -133,14 +92,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateMigrationProjectMessage,
   ): Effect.Effect<
     CreateMigrationProjectResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("CreateMigrationProject", input);
   }
@@ -148,15 +100,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateReplicationConfigMessage,
   ): Effect.Effect<
     CreateReplicationConfigResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | InvalidSubnet
-    | KMSKeyNotAccessibleFault
-    | ReplicationSubnetGroupDoesNotCoverEnoughAZs
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | InvalidSubnet | KMSKeyNotAccessibleFault | ReplicationSubnetGroupDoesNotCoverEnoughAZs | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateReplicationConfig", input);
   }
@@ -164,17 +108,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateReplicationInstanceMessage,
   ): Effect.Effect<
     CreateReplicationInstanceResponse,
-    | AccessDeniedFault
-    | InsufficientResourceCapacityFault
-    | InvalidResourceStateFault
-    | InvalidSubnet
-    | KMSKeyNotAccessibleFault
-    | ReplicationSubnetGroupDoesNotCoverEnoughAZs
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | StorageQuotaExceededFault
-    | CommonAwsError
+    AccessDeniedFault | InsufficientResourceCapacityFault | InvalidResourceStateFault | InvalidSubnet | KMSKeyNotAccessibleFault | ReplicationSubnetGroupDoesNotCoverEnoughAZs | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | StorageQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateReplicationInstance", input);
   }
@@ -182,13 +116,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateReplicationSubnetGroupMessage,
   ): Effect.Effect<
     CreateReplicationSubnetGroupResponse,
-    | AccessDeniedFault
-    | InvalidSubnet
-    | ReplicationSubnetGroupDoesNotCoverEnoughAZs
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidSubnet | ReplicationSubnetGroupDoesNotCoverEnoughAZs | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateReplicationSubnetGroup", input);
   }
@@ -196,13 +124,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: CreateReplicationTaskMessage,
   ): Effect.Effect<
     CreateReplicationTaskResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateReplicationTask", input);
   }
@@ -218,10 +140,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteConnectionMessage,
   ): Effect.Effect<
     DeleteConnectionResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteConnection", input);
   }
@@ -229,10 +148,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteDataMigrationMessage,
   ): Effect.Effect<
     DeleteDataMigrationResponse,
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    FailedDependencyFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteDataMigration", input);
   }
@@ -240,11 +156,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteDataProviderMessage,
   ): Effect.Effect<
     DeleteDataProviderResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteDataProvider", input);
   }
@@ -260,10 +172,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteEventSubscriptionMessage,
   ): Effect.Effect<
     DeleteEventSubscriptionResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteEventSubscription", input);
   }
@@ -271,10 +180,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteCollectorRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedFault
-    | CollectorNotFoundFault
-    | InvalidResourceStateFault
-    | CommonAwsError
+    AccessDeniedFault | CollectorNotFoundFault | InvalidResourceStateFault | CommonAwsError
   > {
     return this.call("DeleteFleetAdvisorCollector", input);
   }
@@ -282,10 +188,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteFleetAdvisorDatabasesRequest,
   ): Effect.Effect<
     DeleteFleetAdvisorDatabasesResponse,
-    | AccessDeniedFault
-    | InvalidOperationFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidOperationFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteFleetAdvisorDatabases", input);
   }
@@ -293,11 +196,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteInstanceProfileMessage,
   ): Effect.Effect<
     DeleteInstanceProfileResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteInstanceProfile", input);
   }
@@ -305,11 +204,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteMigrationProjectMessage,
   ): Effect.Effect<
     DeleteMigrationProjectResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteMigrationProject", input);
   }
@@ -317,10 +212,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteReplicationConfigMessage,
   ): Effect.Effect<
     DeleteReplicationConfigResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteReplicationConfig", input);
   }
@@ -336,10 +228,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteReplicationSubnetGroupMessage,
   ): Effect.Effect<
     DeleteReplicationSubnetGroupResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteReplicationSubnetGroup", input);
   }
@@ -355,26 +244,23 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DeleteReplicationTaskAssessmentRunMessage,
   ): Effect.Effect<
     DeleteReplicationTaskAssessmentRunResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteReplicationTaskAssessmentRun", input);
   }
   describeAccountAttributes(
     input: DescribeAccountAttributesMessage,
-  ): Effect.Effect<DescribeAccountAttributesResponse, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeAccountAttributesResponse,
+    CommonAwsError
+  > {
     return this.call("DescribeAccountAttributes", input);
   }
   describeApplicableIndividualAssessments(
     input: DescribeApplicableIndividualAssessmentsMessage,
   ): Effect.Effect<
     DescribeApplicableIndividualAssessmentsResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeApplicableIndividualAssessments", input);
   }
@@ -406,10 +292,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DescribeDataMigrationsMessage,
   ): Effect.Effect<
     DescribeDataMigrationsResponse,
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    FailedDependencyFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeDataMigrations", input);
   }
@@ -417,10 +300,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DescribeDataProvidersMessage,
   ): Effect.Effect<
     DescribeDataProvidersResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeDataProviders", input);
   }
@@ -434,27 +314,42 @@ export class DatabaseMigrationService extends AWSServiceClient {
   }
   describeEndpointSettings(
     input: DescribeEndpointSettingsMessage,
-  ): Effect.Effect<DescribeEndpointSettingsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeEndpointSettingsResponse,
+    CommonAwsError
+  > {
     return this.call("DescribeEndpointSettings", input);
   }
   describeEndpointTypes(
     input: DescribeEndpointTypesMessage,
-  ): Effect.Effect<DescribeEndpointTypesResponse, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeEndpointTypesResponse,
+    CommonAwsError
+  > {
     return this.call("DescribeEndpointTypes", input);
   }
   describeEngineVersions(
     input: DescribeEngineVersionsMessage,
-  ): Effect.Effect<DescribeEngineVersionsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeEngineVersionsResponse,
+    CommonAwsError
+  > {
     return this.call("DescribeEngineVersions", input);
   }
   describeEventCategories(
     input: DescribeEventCategoriesMessage,
-  ): Effect.Effect<DescribeEventCategoriesResponse, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeEventCategoriesResponse,
+    CommonAwsError
+  > {
     return this.call("DescribeEventCategories", input);
   }
   describeEvents(
     input: DescribeEventsMessage,
-  ): Effect.Effect<DescribeEventsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeEventsResponse,
+    CommonAwsError
+  > {
     return this.call("DescribeEvents", input);
   }
   describeEventSubscriptions(
@@ -467,7 +362,10 @@ export class DatabaseMigrationService extends AWSServiceClient {
   }
   describeExtensionPackAssociations(
     input: DescribeExtensionPackAssociationsMessage,
-  ): Effect.Effect<DescribeExtensionPackAssociationsResponse, CommonAwsError> {
+  ): Effect.Effect<
+    DescribeExtensionPackAssociationsResponse,
+    CommonAwsError
+  > {
     return this.call("DescribeExtensionPackAssociations", input);
   }
   describeFleetAdvisorCollectors(
@@ -514,10 +412,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DescribeInstanceProfilesMessage,
   ): Effect.Effect<
     DescribeInstanceProfilesResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeInstanceProfiles", input);
   }
@@ -565,10 +460,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DescribeMigrationProjectsMessage,
   ): Effect.Effect<
     DescribeMigrationProjectsResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeMigrationProjects", input);
   }
@@ -704,10 +596,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: DescribeTableStatisticsMessage,
   ): Effect.Effect<
     DescribeTableStatisticsResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeTableStatistics", input);
   }
@@ -723,10 +612,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ImportCertificateMessage,
   ): Effect.Effect<
     ImportCertificateResponse,
-    | InvalidCertificateFault
-    | ResourceAlreadyExistsFault
-    | ResourceQuotaExceededFault
-    | CommonAwsError
+    InvalidCertificateFault | ResourceAlreadyExistsFault | ResourceQuotaExceededFault | CommonAwsError
   > {
     return this.call("ImportCertificate", input);
   }
@@ -750,10 +636,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ModifyDataMigrationMessage,
   ): Effect.Effect<
     ModifyDataMigrationResponse,
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    FailedDependencyFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyDataMigration", input);
   }
@@ -761,11 +644,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ModifyDataProviderMessage,
   ): Effect.Effect<
     ModifyDataProviderResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyDataProvider", input);
   }
@@ -773,12 +652,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ModifyEndpointMessage,
   ): Effect.Effect<
     ModifyEndpointResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyEndpoint", input);
   }
@@ -786,17 +660,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ModifyEventSubscriptionMessage,
   ): Effect.Effect<
     ModifyEventSubscriptionResponse,
-    | AccessDeniedFault
-    | KMSAccessDeniedFault
-    | KMSDisabledFault
-    | KMSInvalidStateFault
-    | KMSNotFoundFault
-    | KMSThrottlingFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | SNSInvalidTopicFault
-    | SNSNoAuthorizationFault
-    | CommonAwsError
+    AccessDeniedFault | KMSAccessDeniedFault | KMSDisabledFault | KMSInvalidStateFault | KMSNotFoundFault | KMSThrottlingFault | ResourceNotFoundFault | ResourceQuotaExceededFault | SNSInvalidTopicFault | SNSNoAuthorizationFault | CommonAwsError
   > {
     return this.call("ModifyEventSubscription", input);
   }
@@ -804,14 +668,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ModifyInstanceProfileMessage,
   ): Effect.Effect<
     ModifyInstanceProfileResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceNotFoundFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceNotFoundFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyInstanceProfile", input);
   }
@@ -819,13 +676,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ModifyMigrationProjectMessage,
   ): Effect.Effect<
     ModifyMigrationProjectResponse,
-    | AccessDeniedFault
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | FailedDependencyFault | InvalidResourceStateFault | ResourceNotFoundFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyMigrationProject", input);
   }
@@ -833,13 +684,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ModifyReplicationConfigMessage,
   ): Effect.Effect<
     ModifyReplicationConfigResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | InvalidSubnet
-    | KMSKeyNotAccessibleFault
-    | ReplicationSubnetGroupDoesNotCoverEnoughAZs
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | InvalidSubnet | KMSKeyNotAccessibleFault | ReplicationSubnetGroupDoesNotCoverEnoughAZs | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyReplicationConfig", input);
   }
@@ -847,14 +692,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ModifyReplicationInstanceMessage,
   ): Effect.Effect<
     ModifyReplicationInstanceResponse,
-    | AccessDeniedFault
-    | InsufficientResourceCapacityFault
-    | InvalidResourceStateFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | StorageQuotaExceededFault
-    | UpgradeDependencyFailureFault
-    | CommonAwsError
+    AccessDeniedFault | InsufficientResourceCapacityFault | InvalidResourceStateFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | StorageQuotaExceededFault | UpgradeDependencyFailureFault | CommonAwsError
   > {
     return this.call("ModifyReplicationInstance", input);
   }
@@ -862,13 +700,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ModifyReplicationSubnetGroupMessage,
   ): Effect.Effect<
     ModifyReplicationSubnetGroupResponse,
-    | AccessDeniedFault
-    | InvalidSubnet
-    | ReplicationSubnetGroupDoesNotCoverEnoughAZs
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | SubnetAlreadyInUse
-    | CommonAwsError
+    AccessDeniedFault | InvalidSubnet | ReplicationSubnetGroupDoesNotCoverEnoughAZs | ResourceNotFoundFault | ResourceQuotaExceededFault | SubnetAlreadyInUse | CommonAwsError
   > {
     return this.call("ModifyReplicationSubnetGroup", input);
   }
@@ -876,11 +708,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: ModifyReplicationTaskMessage,
   ): Effect.Effect<
     ModifyReplicationTaskResponse,
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("ModifyReplicationTask", input);
   }
@@ -888,12 +716,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: MoveReplicationTaskMessage,
   ): Effect.Effect<
     MoveReplicationTaskResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceNotFoundFault | ResourceQuotaExceededFault | CommonAwsError
   > {
     return this.call("MoveReplicationTask", input);
   }
@@ -909,11 +732,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: RefreshSchemasMessage,
   ): Effect.Effect<
     RefreshSchemasResponse,
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | CommonAwsError
+    InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceNotFoundFault | ResourceQuotaExceededFault | CommonAwsError
   > {
     return this.call("RefreshSchemas", input);
   }
@@ -941,7 +760,9 @@ export class DatabaseMigrationService extends AWSServiceClient {
   > {
     return this.call("RemoveTagsFromResource", input);
   }
-  runFleetAdvisorLsaAnalysis(input: {}): Effect.Effect<
+  runFleetAdvisorLsaAnalysis(
+    input: {},
+  ): Effect.Effect<
     RunFleetAdvisorLsaAnalysisResponse,
     InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
@@ -951,12 +772,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartDataMigrationMessage,
   ): Effect.Effect<
     StartDataMigrationResponse,
-    | FailedDependencyFault
-    | InvalidOperationFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | CommonAwsError
+    FailedDependencyFault | InvalidOperationFault | InvalidResourceStateFault | ResourceNotFoundFault | ResourceQuotaExceededFault | CommonAwsError
   > {
     return this.call("StartDataMigration", input);
   }
@@ -964,15 +780,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartExtensionPackAssociationMessage,
   ): Effect.Effect<
     StartExtensionPackAssociationResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartExtensionPackAssociation", input);
   }
@@ -980,15 +788,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartMetadataModelAssessmentMessage,
   ): Effect.Effect<
     StartMetadataModelAssessmentResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartMetadataModelAssessment", input);
   }
@@ -996,15 +796,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartMetadataModelConversionMessage,
   ): Effect.Effect<
     StartMetadataModelConversionResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartMetadataModelConversion", input);
   }
@@ -1012,15 +804,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartMetadataModelExportAsScriptMessage,
   ): Effect.Effect<
     StartMetadataModelExportAsScriptResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartMetadataModelExportAsScript", input);
   }
@@ -1028,15 +812,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartMetadataModelExportToTargetMessage,
   ): Effect.Effect<
     StartMetadataModelExportToTargetResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartMetadataModelExportToTarget", input);
   }
@@ -1044,15 +820,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartMetadataModelImportMessage,
   ): Effect.Effect<
     StartMetadataModelImportResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | ResourceQuotaExceededFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartMetadataModelImport", input);
   }
@@ -1060,10 +828,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartRecommendationsRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartRecommendations", input);
   }
@@ -1071,10 +836,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartReplicationMessage,
   ): Effect.Effect<
     StartReplicationResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartReplication", input);
   }
@@ -1082,10 +844,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartReplicationTaskMessage,
   ): Effect.Effect<
     StartReplicationTaskResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartReplicationTask", input);
   }
@@ -1101,19 +860,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StartReplicationTaskAssessmentRunMessage,
   ): Effect.Effect<
     StartReplicationTaskAssessmentRunResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSAccessDeniedFault
-    | KMSDisabledFault
-    | KMSFault
-    | KMSInvalidStateFault
-    | KMSKeyNotAccessibleFault
-    | KMSNotFoundFault
-    | ResourceAlreadyExistsFault
-    | ResourceNotFoundFault
-    | S3AccessDeniedFault
-    | S3ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSAccessDeniedFault | KMSDisabledFault | KMSFault | KMSInvalidStateFault | KMSKeyNotAccessibleFault | KMSNotFoundFault | ResourceAlreadyExistsFault | ResourceNotFoundFault | S3AccessDeniedFault | S3ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StartReplicationTaskAssessmentRun", input);
   }
@@ -1121,10 +868,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StopDataMigrationMessage,
   ): Effect.Effect<
     StopDataMigrationResponse,
-    | FailedDependencyFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    FailedDependencyFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StopDataMigration", input);
   }
@@ -1132,10 +876,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: StopReplicationMessage,
   ): Effect.Effect<
     StopReplicationResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | ResourceNotFoundFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | ResourceNotFoundFault | CommonAwsError
   > {
     return this.call("StopReplication", input);
   }
@@ -1151,12 +892,7 @@ export class DatabaseMigrationService extends AWSServiceClient {
     input: TestConnectionMessage,
   ): Effect.Effect<
     TestConnectionResponse,
-    | AccessDeniedFault
-    | InvalidResourceStateFault
-    | KMSKeyNotAccessibleFault
-    | ResourceNotFoundFault
-    | ResourceQuotaExceededFault
-    | CommonAwsError
+    AccessDeniedFault | InvalidResourceStateFault | KMSKeyNotAccessibleFault | ResourceNotFoundFault | ResourceQuotaExceededFault | CommonAwsError
   > {
     return this.call("TestConnection", input);
   }
@@ -1187,7 +923,8 @@ export interface AddTagsToResourceMessage {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface AddTagsToResourceResponse {}
+export interface AddTagsToResourceResponse {
+}
 export interface ApplyPendingMaintenanceActionMessage {
   ReplicationInstanceArn: string;
   ApplyAction: string;
@@ -1211,8 +948,7 @@ export interface BatchStartRecommendationsErrorEntry {
   Message?: string;
   Code?: string;
 }
-export type BatchStartRecommendationsErrorEntryList =
-  Array<BatchStartRecommendationsErrorEntry>;
+export type BatchStartRecommendationsErrorEntryList = Array<BatchStartRecommendationsErrorEntry>;
 export interface BatchStartRecommendationsRequest {
   Data?: Array<StartRecommendationsRequestEntry>;
 }
@@ -1229,15 +965,7 @@ export interface CancelReplicationTaskAssessmentRunMessage {
 export interface CancelReplicationTaskAssessmentRunResponse {
   ReplicationTaskAssessmentRun?: ReplicationTaskAssessmentRun;
 }
-export type CannedAclForObjectsValue =
-  | "NONE"
-  | "PRIVATE"
-  | "PUBLIC_READ"
-  | "PUBLIC_READ_WRITE"
-  | "AUTHENTICATED_READ"
-  | "AWS_EXEC_READ"
-  | "BUCKET_OWNER_READ"
-  | "BUCKET_OWNER_FULL_CONTROL";
+export type CannedAclForObjectsValue = "NONE" | "PRIVATE" | "PUBLIC_READ" | "PUBLIC_READ_WRITE" | "AUTHENTICATED_READ" | "AWS_EXEC_READ" | "BUCKET_OWNER_READ" | "BUCKET_OWNER_FULL_CONTROL";
 export interface Certificate {
   CertificateIdentifier?: string;
   CertificateCreationDate?: Date | string;
@@ -1574,8 +1302,7 @@ export interface DataProviderDescriptorDefinition {
   SecretsManagerSecretId?: string;
   SecretsManagerAccessRoleArn?: string;
 }
-export type DataProviderDescriptorDefinitionList =
-  Array<DataProviderDescriptorDefinition>;
+export type DataProviderDescriptorDefinitionList = Array<DataProviderDescriptorDefinition>;
 export type DataProviderDescriptorList = Array<DataProviderDescriptor>;
 export type DataProviderList = Array<DataProvider>;
 interface _DataProviderSettings {
@@ -1591,36 +1318,9 @@ interface _DataProviderSettings {
   MongoDbSettings?: MongoDbDataProviderSettings;
 }
 
-export type DataProviderSettings =
-  | (_DataProviderSettings & { RedshiftSettings: RedshiftDataProviderSettings })
-  | (_DataProviderSettings & {
-      PostgreSqlSettings: PostgreSqlDataProviderSettings;
-    })
-  | (_DataProviderSettings & { MySqlSettings: MySqlDataProviderSettings })
-  | (_DataProviderSettings & { OracleSettings: OracleDataProviderSettings })
-  | (_DataProviderSettings & {
-      MicrosoftSqlServerSettings: MicrosoftSqlServerDataProviderSettings;
-    })
-  | (_DataProviderSettings & { DocDbSettings: DocDbDataProviderSettings })
-  | (_DataProviderSettings & { MariaDbSettings: MariaDbDataProviderSettings })
-  | (_DataProviderSettings & {
-      IbmDb2LuwSettings: IbmDb2LuwDataProviderSettings;
-    })
-  | (_DataProviderSettings & {
-      IbmDb2zOsSettings: IbmDb2zOsDataProviderSettings;
-    })
-  | (_DataProviderSettings & { MongoDbSettings: MongoDbDataProviderSettings });
-export type DatePartitionDelimiterValue =
-  | "SLASH"
-  | "UNDERSCORE"
-  | "DASH"
-  | "NONE";
-export type DatePartitionSequenceValue =
-  | "YYYYMMDD"
-  | "YYYYMMDDHH"
-  | "YYYYMM"
-  | "MMYYYYDD"
-  | "DDMMYYYY";
+export type DataProviderSettings = (_DataProviderSettings & { RedshiftSettings: RedshiftDataProviderSettings }) | (_DataProviderSettings & { PostgreSqlSettings: PostgreSqlDataProviderSettings }) | (_DataProviderSettings & { MySqlSettings: MySqlDataProviderSettings }) | (_DataProviderSettings & { OracleSettings: OracleDataProviderSettings }) | (_DataProviderSettings & { MicrosoftSqlServerSettings: MicrosoftSqlServerDataProviderSettings }) | (_DataProviderSettings & { DocDbSettings: DocDbDataProviderSettings }) | (_DataProviderSettings & { MariaDbSettings: MariaDbDataProviderSettings }) | (_DataProviderSettings & { IbmDb2LuwSettings: IbmDb2LuwDataProviderSettings }) | (_DataProviderSettings & { IbmDb2zOsSettings: IbmDb2zOsDataProviderSettings }) | (_DataProviderSettings & { MongoDbSettings: MongoDbDataProviderSettings });
+export type DatePartitionDelimiterValue = "SLASH" | "UNDERSCORE" | "DASH" | "NONE";
+export type DatePartitionSequenceValue = "YYYYMMDD" | "YYYYMMDDHH" | "YYYYMM" | "MMYYYYDD" | "DDMMYYYY";
 export interface DefaultErrorDetails {
   Message?: string;
 }
@@ -1697,7 +1397,8 @@ export interface DeleteReplicationInstanceResponse {
 export interface DeleteReplicationSubnetGroupMessage {
   ReplicationSubnetGroupIdentifier: string;
 }
-export interface DeleteReplicationSubnetGroupResponse {}
+export interface DeleteReplicationSubnetGroupResponse {
+}
 export interface DeleteReplicationTaskAssessmentRunMessage {
   ReplicationTaskAssessmentRunArn: string;
 }
@@ -1710,7 +1411,8 @@ export interface DeleteReplicationTaskMessage {
 export interface DeleteReplicationTaskResponse {
   ReplicationTask?: ReplicationTask;
 }
-export interface DescribeAccountAttributesMessage {}
+export interface DescribeAccountAttributesMessage {
+}
 export interface DescribeAccountAttributesResponse {
   AccountQuotas?: Array<AccountQuota>;
   UniqueAccountIdentifier?: string;
@@ -2213,11 +1915,7 @@ export interface EndpointSetting {
 }
 export type EndpointSettingEnumValues = Array<string>;
 export type EndpointSettingsList = Array<EndpointSetting>;
-export type EndpointSettingTypeValue =
-  | "STRING"
-  | "BOOLEAN"
-  | "INTEGER"
-  | "ENUM";
+export type EndpointSettingTypeValue = "STRING" | "BOOLEAN" | "INTEGER" | "ENUM";
 export interface EngineVersion {
   Version?: string;
   Lifecycle?: string;
@@ -2233,9 +1931,7 @@ interface _ErrorDetails {
   defaultErrorDetails?: DefaultErrorDetails;
 }
 
-export type ErrorDetails = _ErrorDetails & {
-  defaultErrorDetails: DefaultErrorDetails;
-};
+export type ErrorDetails = (_ErrorDetails & { defaultErrorDetails: DefaultErrorDetails });
 export interface Event {
   SourceIdentifier?: string;
   SourceType?: SourceType;
@@ -2298,11 +1994,9 @@ export interface FleetAdvisorLsaAnalysisResponse {
   LsaAnalysisId?: string;
   Status?: string;
 }
-export type FleetAdvisorLsaAnalysisResponseList =
-  Array<FleetAdvisorLsaAnalysisResponse>;
+export type FleetAdvisorLsaAnalysisResponseList = Array<FleetAdvisorLsaAnalysisResponse>;
 export type FleetAdvisorSchemaList = Array<SchemaResponse>;
-export type FleetAdvisorSchemaObjectList =
-  Array<FleetAdvisorSchemaObjectResponse>;
+export type FleetAdvisorSchemaObjectList = Array<FleetAdvisorSchemaObjectResponse>;
 export interface FleetAdvisorSchemaObjectResponse {
   SchemaId?: string;
   ObjectType?: string;
@@ -2421,11 +2115,7 @@ export interface InventoryData {
 export type Iso8601DateTime = Date | string;
 
 export type KafkaSaslMechanism = "SCRAM_SHA_512" | "PLAIN";
-export type KafkaSecurityProtocol =
-  | "PLAINTEXT"
-  | "SSL_AUTHENTICATION"
-  | "SSL_ENCRYPTION"
-  | "SASL_SSL";
+export type KafkaSecurityProtocol = "PLAINTEXT" | "SSL_AUTHENTICATION" | "SSL_ENCRYPTION" | "SASL_SSL";
 export interface KafkaSettings {
   Broker?: string;
   Topic?: string;
@@ -2479,7 +2169,9 @@ export declare class KMSDisabledFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSFault extends EffectData.TaggedError("KMSFault")<{
+export declare class KMSFault extends EffectData.TaggedError(
+  "KMSFault",
+)<{
   readonly message?: string;
 }> {}
 export declare class KMSInvalidStateFault extends EffectData.TaggedError(
@@ -2887,8 +2579,7 @@ export interface OrderableReplicationInstance {
   AvailabilityZones?: Array<string>;
   ReleaseStatus?: ReleaseStatusValues;
 }
-export type OrderableReplicationInstanceList =
-  Array<OrderableReplicationInstance>;
+export type OrderableReplicationInstanceList = Array<OrderableReplicationInstance>;
 export type OriginTypeValue = "SOURCE" | "TARGET";
 export type ParquetVersionValue = "PARQUET_1_0" | "PARQUET_2_0";
 export interface PendingMaintenanceAction {
@@ -2900,8 +2591,7 @@ export interface PendingMaintenanceAction {
   Description?: string;
 }
 export type PendingMaintenanceActionDetails = Array<PendingMaintenanceAction>;
-export type PendingMaintenanceActions =
-  Array<ResourcePendingMaintenanceActions>;
+export type PendingMaintenanceActions = Array<ResourcePendingMaintenanceActions>;
 export type PluginNameValue = "NO_PREFERENCE" | "TEST_DECODING" | "PGLOGICAL";
 export type PostgreSQLAuthenticationMethod = "Password" | "IAM";
 export interface PostgreSqlDataProviderSettings {
@@ -2955,8 +2645,7 @@ export interface PremigrationAssessmentStatus {
   ResultKmsKeyArn?: string;
   ResultStatistic?: ReplicationTaskAssessmentRunResultStatistic;
 }
-export type PremigrationAssessmentStatusList =
-  Array<PremigrationAssessmentStatus>;
+export type PremigrationAssessmentStatusList = Array<PremigrationAssessmentStatus>;
 export interface ProvisionData {
   ProvisionState?: string;
   ProvisionedCapacityUnits?: number;
@@ -3079,10 +2768,7 @@ export interface RefreshSchemasStatus {
   LastRefreshDate?: Date | string;
   LastFailureMessage?: string;
 }
-export type RefreshSchemasStatusTypeValue =
-  | "SUCCESSFUL"
-  | "FAILED"
-  | "REFRESHING";
+export type RefreshSchemasStatusTypeValue = "SUCCESSFUL" | "FAILED" | "REFRESHING";
 export type ReleaseStatusValues = "BETA" | "PROD";
 export type ReloadOptionValue = "DATA_RELOAD" | "VALIDATE_ONLY";
 export interface ReloadReplicationTablesMessage {
@@ -3105,7 +2791,8 @@ export interface RemoveTagsFromResourceMessage {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface RemoveTagsFromResourceResponse {}
+export interface RemoveTagsFromResourceResponse {
+}
 export interface Replication {
   ReplicationConfigIdentifier?: string;
   ReplicationConfigArn?: string;
@@ -3249,8 +2936,7 @@ export interface ReplicationTaskAssessmentResult {
   AssessmentResults?: string;
   S3ObjectUrl?: string;
 }
-export type ReplicationTaskAssessmentResultList =
-  Array<ReplicationTaskAssessmentResult>;
+export type ReplicationTaskAssessmentResultList = Array<ReplicationTaskAssessmentResult>;
 export interface ReplicationTaskAssessmentRun {
   ReplicationTaskAssessmentRunArn?: string;
   ReplicationTaskArn?: string;
@@ -3267,8 +2953,7 @@ export interface ReplicationTaskAssessmentRun {
   IsLatestTaskAssessmentRun?: boolean;
   ResultStatistic?: ReplicationTaskAssessmentRunResultStatistic;
 }
-export type ReplicationTaskAssessmentRunList =
-  Array<ReplicationTaskAssessmentRun>;
+export type ReplicationTaskAssessmentRunList = Array<ReplicationTaskAssessmentRun>;
 export interface ReplicationTaskAssessmentRunProgress {
   IndividualAssessmentCount?: number;
   IndividualAssessmentCompletedCount?: number;
@@ -3288,8 +2973,7 @@ export interface ReplicationTaskIndividualAssessment {
   Status?: string;
   ReplicationTaskIndividualAssessmentStartDate?: Date | string;
 }
-export type ReplicationTaskIndividualAssessmentList =
-  Array<ReplicationTaskIndividualAssessment>;
+export type ReplicationTaskIndividualAssessmentList = Array<ReplicationTaskIndividualAssessment>;
 export type ReplicationTaskList = Array<ReplicationTask>;
 export interface ReplicationTaskStats {
   FullLoadProgressPercent?: number;
@@ -3383,10 +3067,7 @@ export interface S3Settings {
   ExpectedBucketOwner?: string;
   GlueCatalogGeneration?: boolean;
 }
-export type SafeguardPolicy =
-  | "RELY_ON_SQL_SERVER_REPLICATION_AGENT"
-  | "EXCLUSIVE_AUTOMATIC_TRUNCATION"
-  | "SHARED_AUTOMATIC_TRUNCATION";
+export type SafeguardPolicy = "RELY_ON_SQL_SERVER_REPLICATION_AGENT" | "EXCLUSIVE_AUTOMATIC_TRUNCATION" | "SHARED_AUTOMATIC_TRUNCATION";
 export interface SCApplicationAttributes {
   S3BucketPath?: string;
   S3BucketRoleArn?: string;
@@ -3507,8 +3188,7 @@ export interface StartRecommendationsRequestEntry {
   DatabaseId: string;
   Settings: RecommendationSettings;
 }
-export type StartRecommendationsRequestEntryList =
-  Array<StartRecommendationsRequestEntry>;
+export type StartRecommendationsRequestEntryList = Array<StartRecommendationsRequestEntry>;
 export interface StartReplicationMessage {
   ReplicationConfigArn: string;
   StartReplicationType: string;
@@ -3517,10 +3197,7 @@ export interface StartReplicationMessage {
   CdcStartPosition?: string;
   CdcStopPosition?: string;
 }
-export type StartReplicationMigrationTypeValue =
-  | "RELOAD_TARGET"
-  | "RESUME_PROCESSING"
-  | "START_REPLICATION";
+export type StartReplicationMigrationTypeValue = "RELOAD_TARGET" | "RESUME_PROCESSING" | "START_REPLICATION";
 export interface StartReplicationResponse {
   Replication?: Replication;
 }
@@ -3555,10 +3232,7 @@ export interface StartReplicationTaskMessage {
 export interface StartReplicationTaskResponse {
   ReplicationTask?: ReplicationTask;
 }
-export type StartReplicationTaskTypeValue =
-  | "START_REPLICATION"
-  | "RESUME_PROCESSING"
-  | "RELOAD_TARGET";
+export type StartReplicationTaskTypeValue = "START_REPLICATION" | "RESUME_PROCESSING" | "RELOAD_TARGET";
 export interface StopDataMigrationMessage {
   DataMigrationIdentifier: string;
 }
@@ -3615,10 +3289,7 @@ export interface SybaseSettings {
   SecretsManagerSecretId?: string;
 }
 export type TableListToReload = Array<TableToReload>;
-export type TablePreparationMode =
-  | "DO_NOTHING"
-  | "TRUNCATE"
-  | "DROP_TABLES_ON_TARGET";
+export type TablePreparationMode = "DO_NOTHING" | "TRUNCATE" | "DROP_TABLES_ON_TARGET";
 export interface TableStatistics {
   SchemaName?: string;
   TableName?: string;
@@ -3679,11 +3350,7 @@ export interface TimestreamSettings {
   CdcInsertsAndUpdates?: boolean;
   EnableMagneticStoreWrites?: boolean;
 }
-export type TlogAccessMode =
-  | "BackupOnly"
-  | "PreferBackup"
-  | "PreferTlog"
-  | "TlogOnly";
+export type TlogAccessMode = "BackupOnly" | "PreferBackup" | "PreferTlog" | "TlogOnly";
 export type TStamp = Date | string;
 
 export interface UpdateSubscriptionsToEventBridgeMessage {
@@ -3716,7 +3383,9 @@ export declare namespace AddTagsToResource {
 export declare namespace ApplyPendingMaintenanceAction {
   export type Input = ApplyPendingMaintenanceActionMessage;
   export type Output = ApplyPendingMaintenanceActionResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace BatchStartRecommendations {
@@ -4045,7 +3714,8 @@ export declare namespace DeleteReplicationTaskAssessmentRun {
 export declare namespace DescribeAccountAttributes {
   export type Input = DescribeAccountAttributesMessage;
   export type Output = DescribeAccountAttributesResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeApplicableIndividualAssessments {
@@ -4061,19 +3731,25 @@ export declare namespace DescribeApplicableIndividualAssessments {
 export declare namespace DescribeCertificates {
   export type Input = DescribeCertificatesMessage;
   export type Output = DescribeCertificatesResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeConnections {
   export type Input = DescribeConnectionsMessage;
   export type Output = DescribeConnectionsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeConversionConfiguration {
   export type Input = DescribeConversionConfigurationMessage;
   export type Output = DescribeConversionConfigurationResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDataMigrations {
@@ -4099,79 +3775,99 @@ export declare namespace DescribeDataProviders {
 export declare namespace DescribeEndpoints {
   export type Input = DescribeEndpointsMessage;
   export type Output = DescribeEndpointsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEndpointSettings {
   export type Input = DescribeEndpointSettingsMessage;
   export type Output = DescribeEndpointSettingsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEndpointTypes {
   export type Input = DescribeEndpointTypesMessage;
   export type Output = DescribeEndpointTypesResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEngineVersions {
   export type Input = DescribeEngineVersionsMessage;
   export type Output = DescribeEngineVersionsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEventCategories {
   export type Input = DescribeEventCategoriesMessage;
   export type Output = DescribeEventCategoriesResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEvents {
   export type Input = DescribeEventsMessage;
   export type Output = DescribeEventsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEventSubscriptions {
   export type Input = DescribeEventSubscriptionsMessage;
   export type Output = DescribeEventSubscriptionsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeExtensionPackAssociations {
   export type Input = DescribeExtensionPackAssociationsMessage;
   export type Output = DescribeExtensionPackAssociationsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFleetAdvisorCollectors {
   export type Input = DescribeFleetAdvisorCollectorsRequest;
   export type Output = DescribeFleetAdvisorCollectorsResponse;
-  export type Error = InvalidResourceStateFault | CommonAwsError;
+  export type Error =
+    | InvalidResourceStateFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFleetAdvisorDatabases {
   export type Input = DescribeFleetAdvisorDatabasesRequest;
   export type Output = DescribeFleetAdvisorDatabasesResponse;
-  export type Error = InvalidResourceStateFault | CommonAwsError;
+  export type Error =
+    | InvalidResourceStateFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFleetAdvisorLsaAnalysis {
   export type Input = DescribeFleetAdvisorLsaAnalysisRequest;
   export type Output = DescribeFleetAdvisorLsaAnalysisResponse;
-  export type Error = InvalidResourceStateFault | CommonAwsError;
+  export type Error =
+    | InvalidResourceStateFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFleetAdvisorSchemaObjectSummary {
   export type Input = DescribeFleetAdvisorSchemaObjectSummaryRequest;
   export type Output = DescribeFleetAdvisorSchemaObjectSummaryResponse;
-  export type Error = InvalidResourceStateFault | CommonAwsError;
+  export type Error =
+    | InvalidResourceStateFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFleetAdvisorSchemas {
   export type Input = DescribeFleetAdvisorSchemasRequest;
   export type Output = DescribeFleetAdvisorSchemasResponse;
-  export type Error = InvalidResourceStateFault | CommonAwsError;
+  export type Error =
+    | InvalidResourceStateFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceProfiles {
@@ -4187,31 +3883,41 @@ export declare namespace DescribeInstanceProfiles {
 export declare namespace DescribeMetadataModelAssessments {
   export type Input = DescribeMetadataModelAssessmentsMessage;
   export type Output = DescribeMetadataModelAssessmentsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMetadataModelConversions {
   export type Input = DescribeMetadataModelConversionsMessage;
   export type Output = DescribeMetadataModelConversionsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMetadataModelExportsAsScript {
   export type Input = DescribeMetadataModelExportsAsScriptMessage;
   export type Output = DescribeMetadataModelExportsAsScriptResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMetadataModelExportsToTarget {
   export type Input = DescribeMetadataModelExportsToTargetMessage;
   export type Output = DescribeMetadataModelExportsToTargetResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMetadataModelImports {
   export type Input = DescribeMetadataModelImportsMessage;
   export type Output = DescribeMetadataModelImportsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMigrationProjects {
@@ -4227,13 +3933,16 @@ export declare namespace DescribeMigrationProjects {
 export declare namespace DescribeOrderableReplicationInstances {
   export type Input = DescribeOrderableReplicationInstancesMessage;
   export type Output = DescribeOrderableReplicationInstancesResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribePendingMaintenanceActions {
   export type Input = DescribePendingMaintenanceActionsMessage;
   export type Output = DescribePendingMaintenanceActionsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeRecommendationLimitations {
@@ -4266,13 +3975,17 @@ export declare namespace DescribeRefreshSchemasStatus {
 export declare namespace DescribeReplicationConfigs {
   export type Input = DescribeReplicationConfigsMessage;
   export type Output = DescribeReplicationConfigsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReplicationInstances {
   export type Input = DescribeReplicationInstancesMessage;
   export type Output = DescribeReplicationInstancesResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReplicationInstanceTaskLogs {
@@ -4287,13 +4000,17 @@ export declare namespace DescribeReplicationInstanceTaskLogs {
 export declare namespace DescribeReplications {
   export type Input = DescribeReplicationsMessage;
   export type Output = DescribeReplicationsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReplicationSubnetGroups {
   export type Input = DescribeReplicationSubnetGroupsMessage;
   export type Output = DescribeReplicationSubnetGroupsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReplicationTableStatistics {
@@ -4308,25 +4025,33 @@ export declare namespace DescribeReplicationTableStatistics {
 export declare namespace DescribeReplicationTaskAssessmentResults {
   export type Input = DescribeReplicationTaskAssessmentResultsMessage;
   export type Output = DescribeReplicationTaskAssessmentResultsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReplicationTaskAssessmentRuns {
   export type Input = DescribeReplicationTaskAssessmentRunsMessage;
   export type Output = DescribeReplicationTaskAssessmentRunsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReplicationTaskIndividualAssessments {
   export type Input = DescribeReplicationTaskIndividualAssessmentsMessage;
   export type Output = DescribeReplicationTaskIndividualAssessmentsResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReplicationTasks {
   export type Input = DescribeReplicationTasksMessage;
   export type Output = DescribeReplicationTasksResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSchemas {
@@ -4351,7 +4076,9 @@ export declare namespace DescribeTableStatistics {
 export declare namespace ExportMetadataModelAssessment {
   export type Input = ExportMetadataModelAssessmentMessage;
   export type Output = ExportMetadataModelAssessmentResponse;
-  export type Error = ResourceNotFoundFault | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundFault
+    | CommonAwsError;
 }
 
 export declare namespace ImportCertificate {
@@ -4787,3 +4514,4 @@ export declare namespace UpdateSubscriptionsToEventBridge {
     | InvalidResourceStateFault
     | CommonAwsError;
 }
+

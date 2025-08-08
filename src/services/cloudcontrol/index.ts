@@ -1,15 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson10Protocol } from "../../protocols/awsjson1_0.js";
 
 export class CloudControl extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("cloudcontrol", new AwsJson10Protocol(), cfg);
+  }
+
   cancelResourceRequest(
     input: CancelResourceRequestInput,
   ): Effect.Effect<
     CancelResourceRequestOutput,
-    | ConcurrentModificationException
-    | RequestTokenNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | RequestTokenNotFoundException | CommonAwsError
   > {
     return this.call("CancelResourceRequest", input);
   }
@@ -17,26 +20,7 @@ export class CloudControl extends AWSServiceClient {
     input: CreateResourceInput,
   ): Effect.Effect<
     CreateResourceOutput,
-    | AlreadyExistsException
-    | ClientTokenConflictException
-    | ConcurrentOperationException
-    | GeneralServiceException
-    | HandlerFailureException
-    | HandlerInternalFailureException
-    | InvalidCredentialsException
-    | InvalidRequestException
-    | NetworkFailureException
-    | NotStabilizedException
-    | NotUpdatableException
-    | PrivateTypeException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceInternalErrorException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | TypeNotFoundException
-    | UnsupportedActionException
-    | CommonAwsError
+    AlreadyExistsException | ClientTokenConflictException | ConcurrentOperationException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError
   > {
     return this.call("CreateResource", input);
   }
@@ -44,26 +28,7 @@ export class CloudControl extends AWSServiceClient {
     input: DeleteResourceInput,
   ): Effect.Effect<
     DeleteResourceOutput,
-    | AlreadyExistsException
-    | ClientTokenConflictException
-    | ConcurrentOperationException
-    | GeneralServiceException
-    | HandlerFailureException
-    | HandlerInternalFailureException
-    | InvalidCredentialsException
-    | InvalidRequestException
-    | NetworkFailureException
-    | NotStabilizedException
-    | NotUpdatableException
-    | PrivateTypeException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceInternalErrorException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | TypeNotFoundException
-    | UnsupportedActionException
-    | CommonAwsError
+    AlreadyExistsException | ClientTokenConflictException | ConcurrentOperationException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError
   > {
     return this.call("DeleteResource", input);
   }
@@ -71,24 +36,7 @@ export class CloudControl extends AWSServiceClient {
     input: GetResourceInput,
   ): Effect.Effect<
     GetResourceOutput,
-    | AlreadyExistsException
-    | GeneralServiceException
-    | HandlerFailureException
-    | HandlerInternalFailureException
-    | InvalidCredentialsException
-    | InvalidRequestException
-    | NetworkFailureException
-    | NotStabilizedException
-    | NotUpdatableException
-    | PrivateTypeException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceInternalErrorException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | TypeNotFoundException
-    | UnsupportedActionException
-    | CommonAwsError
+    AlreadyExistsException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError
   > {
     return this.call("GetResource", input);
   }
@@ -102,31 +50,17 @@ export class CloudControl extends AWSServiceClient {
   }
   listResourceRequests(
     input: ListResourceRequestsInput,
-  ): Effect.Effect<ListResourceRequestsOutput, CommonAwsError> {
+  ): Effect.Effect<
+    ListResourceRequestsOutput,
+    CommonAwsError
+  > {
     return this.call("ListResourceRequests", input);
   }
   listResources(
     input: ListResourcesInput,
   ): Effect.Effect<
     ListResourcesOutput,
-    | AlreadyExistsException
-    | GeneralServiceException
-    | HandlerFailureException
-    | HandlerInternalFailureException
-    | InvalidCredentialsException
-    | InvalidRequestException
-    | NetworkFailureException
-    | NotStabilizedException
-    | NotUpdatableException
-    | PrivateTypeException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceInternalErrorException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | TypeNotFoundException
-    | UnsupportedActionException
-    | CommonAwsError
+    AlreadyExistsException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError
   > {
     return this.call("ListResources", input);
   }
@@ -134,26 +68,7 @@ export class CloudControl extends AWSServiceClient {
     input: UpdateResourceInput,
   ): Effect.Effect<
     UpdateResourceOutput,
-    | AlreadyExistsException
-    | ClientTokenConflictException
-    | ConcurrentOperationException
-    | GeneralServiceException
-    | HandlerFailureException
-    | HandlerInternalFailureException
-    | InvalidCredentialsException
-    | InvalidRequestException
-    | NetworkFailureException
-    | NotStabilizedException
-    | NotUpdatableException
-    | PrivateTypeException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | ServiceInternalErrorException
-    | ServiceLimitExceededException
-    | ThrottlingException
-    | TypeNotFoundException
-    | UnsupportedActionException
-    | CommonAwsError
+    AlreadyExistsException | ClientTokenConflictException | ConcurrentOperationException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError
   > {
     return this.call("UpdateResource", input);
   }
@@ -510,13 +425,16 @@ export declare namespace GetResource {
 export declare namespace GetResourceRequestStatus {
   export type Input = GetResourceRequestStatusInput;
   export type Output = GetResourceRequestStatusOutput;
-  export type Error = RequestTokenNotFoundException | CommonAwsError;
+  export type Error =
+    | RequestTokenNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace ListResourceRequests {
   export type Input = ListResourceRequestsInput;
   export type Output = ListResourceRequestsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListResources {
@@ -568,3 +486,4 @@ export declare namespace UpdateResource {
     | UnsupportedActionException
     | CommonAwsError;
 }
+

@@ -1,16 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class RoboMaker extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("robomaker", new RestJson1Protocol(), cfg);
+  }
+
   batchDeleteWorlds(
     input: BatchDeleteWorldsRequest,
   ): Effect.Effect<
     BatchDeleteWorldsResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchDeleteWorlds", input);
   }
@@ -18,11 +20,7 @@ export class RoboMaker extends AWSServiceClient {
     input: BatchDescribeSimulationJobRequest,
   ): Effect.Effect<
     BatchDescribeSimulationJobResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("BatchDescribeSimulationJob", input);
   }
@@ -30,11 +28,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CancelDeploymentJobRequest,
   ): Effect.Effect<
     CancelDeploymentJobResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelDeploymentJob", input);
   }
@@ -42,11 +36,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CancelSimulationJobRequest,
   ): Effect.Effect<
     CancelSimulationJobResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelSimulationJob", input);
   }
@@ -54,11 +44,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CancelSimulationJobBatchRequest,
   ): Effect.Effect<
     CancelSimulationJobBatchResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelSimulationJobBatch", input);
   }
@@ -66,11 +52,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CancelWorldExportJobRequest,
   ): Effect.Effect<
     CancelWorldExportJobResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelWorldExportJob", input);
   }
@@ -78,11 +60,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CancelWorldGenerationJobRequest,
   ): Effect.Effect<
     CancelWorldGenerationJobResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CancelWorldGenerationJob", input);
   }
@@ -90,14 +68,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateDeploymentJobRequest,
   ): Effect.Effect<
     CreateDeploymentJobResponse,
-    | ConcurrentDeploymentException
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConcurrentDeploymentException | IdempotentParameterMismatchException | InternalServerException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateDeploymentJob", input);
   }
@@ -105,11 +76,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateFleetRequest,
   ): Effect.Effect<
     CreateFleetResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateFleet", input);
   }
@@ -117,12 +84,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateRobotRequest,
   ): Effect.Effect<
     CreateRobotResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateRobot", input);
   }
@@ -130,13 +92,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateRobotApplicationRequest,
   ): Effect.Effect<
     CreateRobotApplicationResponse,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidParameterException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateRobotApplication", input);
   }
@@ -144,12 +100,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateRobotApplicationVersionRequest,
   ): Effect.Effect<
     CreateRobotApplicationVersionResponse,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidParameterException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateRobotApplicationVersion", input);
   }
@@ -157,13 +108,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateSimulationApplicationRequest,
   ): Effect.Effect<
     CreateSimulationApplicationResponse,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidParameterException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSimulationApplication", input);
   }
@@ -171,12 +116,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateSimulationApplicationVersionRequest,
   ): Effect.Effect<
     CreateSimulationApplicationVersionResponse,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidParameterException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSimulationApplicationVersion", input);
   }
@@ -184,14 +124,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateSimulationJobRequest,
   ): Effect.Effect<
     CreateSimulationJobResponse,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateSimulationJob", input);
   }
@@ -199,13 +132,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateWorldExportJobRequest,
   ): Effect.Effect<
     CreateWorldExportJobResponse,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidParameterException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateWorldExportJob", input);
   }
@@ -213,14 +140,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateWorldGenerationJobRequest,
   ): Effect.Effect<
     CreateWorldGenerationJobResponse,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateWorldGenerationJob", input);
   }
@@ -228,13 +148,7 @@ export class RoboMaker extends AWSServiceClient {
     input: CreateWorldTemplateRequest,
   ): Effect.Effect<
     CreateWorldTemplateResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("CreateWorldTemplate", input);
   }
@@ -242,10 +156,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DeleteFleetRequest,
   ): Effect.Effect<
     DeleteFleetResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteFleet", input);
   }
@@ -253,10 +164,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DeleteRobotRequest,
   ): Effect.Effect<
     DeleteRobotResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteRobot", input);
   }
@@ -264,10 +172,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DeleteRobotApplicationRequest,
   ): Effect.Effect<
     DeleteRobotApplicationResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteRobotApplication", input);
   }
@@ -275,10 +180,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DeleteSimulationApplicationRequest,
   ): Effect.Effect<
     DeleteSimulationApplicationResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteSimulationApplication", input);
   }
@@ -286,11 +188,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DeleteWorldTemplateRequest,
   ): Effect.Effect<
     DeleteWorldTemplateResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeleteWorldTemplate", input);
   }
@@ -298,11 +196,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DeregisterRobotRequest,
   ): Effect.Effect<
     DeregisterRobotResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DeregisterRobot", input);
   }
@@ -310,11 +204,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeDeploymentJobRequest,
   ): Effect.Effect<
     DescribeDeploymentJobResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeDeploymentJob", input);
   }
@@ -322,11 +212,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeFleetRequest,
   ): Effect.Effect<
     DescribeFleetResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeFleet", input);
   }
@@ -334,11 +220,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeRobotRequest,
   ): Effect.Effect<
     DescribeRobotResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeRobot", input);
   }
@@ -346,11 +228,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeRobotApplicationRequest,
   ): Effect.Effect<
     DescribeRobotApplicationResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeRobotApplication", input);
   }
@@ -358,11 +236,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeSimulationApplicationRequest,
   ): Effect.Effect<
     DescribeSimulationApplicationResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeSimulationApplication", input);
   }
@@ -370,11 +244,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeSimulationJobRequest,
   ): Effect.Effect<
     DescribeSimulationJobResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeSimulationJob", input);
   }
@@ -382,10 +252,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeSimulationJobBatchRequest,
   ): Effect.Effect<
     DescribeSimulationJobBatchResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
   > {
     return this.call("DescribeSimulationJobBatch", input);
   }
@@ -393,11 +260,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeWorldRequest,
   ): Effect.Effect<
     DescribeWorldResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeWorld", input);
   }
@@ -405,11 +268,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeWorldExportJobRequest,
   ): Effect.Effect<
     DescribeWorldExportJobResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeWorldExportJob", input);
   }
@@ -417,11 +276,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeWorldGenerationJobRequest,
   ): Effect.Effect<
     DescribeWorldGenerationJobResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeWorldGenerationJob", input);
   }
@@ -429,11 +284,7 @@ export class RoboMaker extends AWSServiceClient {
     input: DescribeWorldTemplateRequest,
   ): Effect.Effect<
     DescribeWorldTemplateResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("DescribeWorldTemplate", input);
   }
@@ -441,11 +292,7 @@ export class RoboMaker extends AWSServiceClient {
     input: GetWorldTemplateBodyRequest,
   ): Effect.Effect<
     GetWorldTemplateBodyResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("GetWorldTemplateBody", input);
   }
@@ -453,11 +300,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListDeploymentJobsRequest,
   ): Effect.Effect<
     ListDeploymentJobsResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListDeploymentJobs", input);
   }
@@ -465,11 +308,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListFleetsRequest,
   ): Effect.Effect<
     ListFleetsResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListFleets", input);
   }
@@ -477,10 +316,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListRobotApplicationsRequest,
   ): Effect.Effect<
     ListRobotApplicationsResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRobotApplications", input);
   }
@@ -488,11 +324,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListRobotsRequest,
   ): Effect.Effect<
     ListRobotsResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListRobots", input);
   }
@@ -500,10 +332,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListSimulationApplicationsRequest,
   ): Effect.Effect<
     ListSimulationApplicationsResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSimulationApplications", input);
   }
@@ -519,10 +348,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListSimulationJobsRequest,
   ): Effect.Effect<
     ListSimulationJobsResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListSimulationJobs", input);
   }
@@ -530,11 +356,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListTagsForResource", input);
   }
@@ -542,10 +364,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListWorldExportJobsRequest,
   ): Effect.Effect<
     ListWorldExportJobsResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListWorldExportJobs", input);
   }
@@ -553,10 +372,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListWorldGenerationJobsRequest,
   ): Effect.Effect<
     ListWorldGenerationJobsResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListWorldGenerationJobs", input);
   }
@@ -564,10 +380,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListWorldsRequest,
   ): Effect.Effect<
     ListWorldsResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListWorlds", input);
   }
@@ -575,10 +388,7 @@ export class RoboMaker extends AWSServiceClient {
     input: ListWorldTemplatesRequest,
   ): Effect.Effect<
     ListWorldTemplatesResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
   > {
     return this.call("ListWorldTemplates", input);
   }
@@ -586,12 +396,7 @@ export class RoboMaker extends AWSServiceClient {
     input: RegisterRobotRequest,
   ): Effect.Effect<
     RegisterRobotResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("RegisterRobot", input);
   }
@@ -599,12 +404,7 @@ export class RoboMaker extends AWSServiceClient {
     input: RestartSimulationJobRequest,
   ): Effect.Effect<
     RestartSimulationJobResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("RestartSimulationJob", input);
   }
@@ -612,12 +412,7 @@ export class RoboMaker extends AWSServiceClient {
     input: StartSimulationJobBatchRequest,
   ): Effect.Effect<
     StartSimulationJobBatchResponse,
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    IdempotentParameterMismatchException | InternalServerException | InvalidParameterException | LimitExceededException | ThrottlingException | CommonAwsError
   > {
     return this.call("StartSimulationJobBatch", input);
   }
@@ -625,14 +420,7 @@ export class RoboMaker extends AWSServiceClient {
     input: SyncDeploymentJobRequest,
   ): Effect.Effect<
     SyncDeploymentJobResponse,
-    | ConcurrentDeploymentException
-    | IdempotentParameterMismatchException
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConcurrentDeploymentException | IdempotentParameterMismatchException | InternalServerException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("SyncDeploymentJob", input);
   }
@@ -640,11 +428,7 @@ export class RoboMaker extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -652,11 +436,7 @@ export class RoboMaker extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -664,12 +444,7 @@ export class RoboMaker extends AWSServiceClient {
     input: UpdateRobotApplicationRequest,
   ): Effect.Effect<
     UpdateRobotApplicationResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateRobotApplication", input);
   }
@@ -677,12 +452,7 @@ export class RoboMaker extends AWSServiceClient {
     input: UpdateSimulationApplicationRequest,
   ): Effect.Effect<
     UpdateSimulationApplicationResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateSimulationApplication", input);
   }
@@ -690,11 +460,7 @@ export class RoboMaker extends AWSServiceClient {
     input: UpdateWorldTemplateRequest,
   ): Effect.Effect<
     UpdateWorldTemplateResponse,
-    | InternalServerException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   > {
     return this.call("UpdateWorldTemplate", input);
   }
@@ -734,23 +500,28 @@ export type BoxedBoolean = boolean;
 export interface CancelDeploymentJobRequest {
   job: string;
 }
-export interface CancelDeploymentJobResponse {}
+export interface CancelDeploymentJobResponse {
+}
 export interface CancelSimulationJobBatchRequest {
   batch: string;
 }
-export interface CancelSimulationJobBatchResponse {}
+export interface CancelSimulationJobBatchResponse {
+}
 export interface CancelSimulationJobRequest {
   job: string;
 }
-export interface CancelSimulationJobResponse {}
+export interface CancelSimulationJobResponse {
+}
 export interface CancelWorldExportJobRequest {
   job: string;
 }
-export interface CancelWorldExportJobResponse {}
+export interface CancelWorldExportJobResponse {
+}
 export interface CancelWorldGenerationJobRequest {
   job: string;
 }
-export interface CancelWorldGenerationJobResponse {}
+export interface CancelWorldGenerationJobResponse {
+}
 export type ClientRequestToken = string;
 
 export type Command = string;
@@ -995,25 +766,30 @@ export type DataSourceType = "Prefix" | "Archive" | "File";
 export interface DeleteFleetRequest {
   fleet: string;
 }
-export interface DeleteFleetResponse {}
+export interface DeleteFleetResponse {
+}
 export interface DeleteRobotApplicationRequest {
   application: string;
   applicationVersion?: string;
 }
-export interface DeleteRobotApplicationResponse {}
+export interface DeleteRobotApplicationResponse {
+}
 export interface DeleteRobotRequest {
   robot: string;
 }
-export interface DeleteRobotResponse {}
+export interface DeleteRobotResponse {
+}
 export interface DeleteSimulationApplicationRequest {
   application: string;
   applicationVersion?: string;
 }
-export interface DeleteSimulationApplicationResponse {}
+export interface DeleteSimulationApplicationResponse {
+}
 export interface DeleteWorldTemplateRequest {
   template: string;
 }
-export interface DeleteWorldTemplateResponse {}
+export interface DeleteWorldTemplateResponse {
+}
 export interface DeploymentApplicationConfig {
   application: string;
   applicationVersion: string;
@@ -1036,31 +812,7 @@ export interface DeploymentJob {
   failureCode?: DeploymentJobErrorCode;
   createdAt?: Date | string;
 }
-export type DeploymentJobErrorCode =
-  | "ResourceNotFound"
-  | "EnvironmentSetupError"
-  | "EtagMismatch"
-  | "FailureThresholdBreached"
-  | "RobotDeploymentAborted"
-  | "RobotDeploymentNoResponse"
-  | "RobotAgentConnectionTimeout"
-  | "GreengrassDeploymentFailed"
-  | "InvalidGreengrassGroup"
-  | "MissingRobotArchitecture"
-  | "MissingRobotApplicationArchitecture"
-  | "MissingRobotDeploymentResource"
-  | "GreengrassGroupVersionDoesNotExist"
-  | "LambdaDeleted"
-  | "ExtractingBundleFailure"
-  | "PreLaunchFileFailure"
-  | "PostLaunchFileFailure"
-  | "BadPermissionError"
-  | "DownloadConditionFailed"
-  | "BadLambdaAssociated"
-  | "InternalServerError"
-  | "RobotApplicationDoesNotExist"
-  | "DeploymentFleetDoesNotExist"
-  | "FleetDeploymentTimeout";
+export type DeploymentJobErrorCode = "ResourceNotFound" | "EnvironmentSetupError" | "EtagMismatch" | "FailureThresholdBreached" | "RobotDeploymentAborted" | "RobotDeploymentNoResponse" | "RobotAgentConnectionTimeout" | "GreengrassDeploymentFailed" | "InvalidGreengrassGroup" | "MissingRobotArchitecture" | "MissingRobotApplicationArchitecture" | "MissingRobotDeploymentResource" | "GreengrassGroupVersionDoesNotExist" | "LambdaDeleted" | "ExtractingBundleFailure" | "PreLaunchFileFailure" | "PostLaunchFileFailure" | "BadPermissionError" | "DownloadConditionFailed" | "BadLambdaAssociated" | "InternalServerError" | "RobotApplicationDoesNotExist" | "DeploymentFleetDoesNotExist" | "FleetDeploymentTimeout";
 export type DeploymentJobs = Array<DeploymentJob>;
 export interface DeploymentLaunchConfig {
   packageName: string;
@@ -1069,13 +821,7 @@ export interface DeploymentLaunchConfig {
   postLaunchFile?: string;
   environmentVariables?: Record<string, string>;
 }
-export type DeploymentStatus =
-  | "Pending"
-  | "Preparing"
-  | "InProgress"
-  | "Failed"
-  | "Succeeded"
-  | "Canceled";
+export type DeploymentStatus = "Pending" | "Preparing" | "InProgress" | "Failed" | "Succeeded" | "Canceled";
 export type DeploymentTimeout = number;
 
 export type DeploymentVersion = string;
@@ -1281,8 +1027,7 @@ export interface FailedCreateSimulationJobRequest {
   failureCode?: SimulationJobErrorCode;
   failedAt?: Date | string;
 }
-export type FailedCreateSimulationJobRequests =
-  Array<FailedCreateSimulationJobRequest>;
+export type FailedCreateSimulationJobRequests = Array<FailedCreateSimulationJobRequest>;
 export type FailureBehavior = "Fail" | "Continue";
 export interface FailureSummary {
   totalFailureCount?: number;
@@ -1552,7 +1297,8 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 export interface RestartSimulationJobRequest {
   job: string;
 }
-export interface RestartSimulationJobResponse {}
+export interface RestartSimulationJobResponse {
+}
 export type RevisionId = string;
 
 export interface Robot {
@@ -1594,14 +1340,7 @@ export interface RobotDeployment {
   failureReason?: string;
   failureCode?: DeploymentJobErrorCode;
 }
-export type RobotDeploymentStep =
-  | "ValidatingStep"
-  | "DownloadingExtractingStep"
-  | "ExecutingDownloadCondition"
-  | "PreLaunchStep"
-  | "LaunchingStep"
-  | "PostLaunchStep"
-  | "FinishedStep";
+export type RobotDeploymentStep = "ValidatingStep" | "DownloadingExtractingStep" | "ExecutingDownloadCondition" | "PreLaunchStep" | "LaunchingStep" | "PostLaunchStep" | "FinishedStep";
 export type RobotDeploymentSummary = Array<RobotDeployment>;
 export type Robots = Array<Robot>;
 export interface RobotSoftwareSuite {
@@ -1609,19 +1348,8 @@ export interface RobotSoftwareSuite {
   version?: RobotSoftwareSuiteVersionType;
 }
 export type RobotSoftwareSuiteType = "ROS" | "ROS2" | "General";
-export type RobotSoftwareSuiteVersionType =
-  | "Kinetic"
-  | "Melodic"
-  | "Dashing"
-  | "Foxy";
-export type RobotStatus =
-  | "Available"
-  | "Registered"
-  | "PendingNewDeployment"
-  | "Deploying"
-  | "Failed"
-  | "InSync"
-  | "NoResponse";
+export type RobotSoftwareSuiteVersionType = "Kinetic" | "Melodic" | "Dashing" | "Foxy";
+export type RobotStatus = "Available" | "Registered" | "PendingNewDeployment" | "Deploying" | "Failed" | "InSync" | "NoResponse";
 export type S3Bucket = string;
 
 export type S3Etag = string;
@@ -1660,8 +1388,7 @@ export interface SimulationApplicationConfig {
 }
 export type SimulationApplicationConfigs = Array<SimulationApplicationConfig>;
 export type SimulationApplicationNames = Array<string>;
-export type SimulationApplicationSummaries =
-  Array<SimulationApplicationSummary>;
+export type SimulationApplicationSummaries = Array<SimulationApplicationSummary>;
 export interface SimulationApplicationSummary {
   name?: string;
   arn?: string;
@@ -1694,16 +1421,7 @@ export interface SimulationJob {
   compute?: ComputeResponse;
 }
 export type SimulationJobBatchErrorCode = "InternalServiceError";
-export type SimulationJobBatchStatus =
-  | "Pending"
-  | "InProgress"
-  | "Failed"
-  | "Completed"
-  | "Canceled"
-  | "Canceling"
-  | "Completing"
-  | "TimingOut"
-  | "TimedOut";
+export type SimulationJobBatchStatus = "Pending" | "InProgress" | "Failed" | "Completed" | "Canceled" | "Canceling" | "Completing" | "TimingOut" | "TimedOut";
 export type SimulationJobBatchSummaries = Array<SimulationJobBatchSummary>;
 export interface SimulationJobBatchSummary {
   arn?: string;
@@ -1714,38 +1432,7 @@ export interface SimulationJobBatchSummary {
   pendingRequestCount?: number;
   createdRequestCount?: number;
 }
-export type SimulationJobErrorCode =
-  | "InternalServiceError"
-  | "RobotApplicationCrash"
-  | "SimulationApplicationCrash"
-  | "RobotApplicationHealthCheckFailure"
-  | "SimulationApplicationHealthCheckFailure"
-  | "BadPermissionsRobotApplication"
-  | "BadPermissionsSimulationApplication"
-  | "BadPermissionsS3Object"
-  | "BadPermissionsS3Output"
-  | "BadPermissionsCloudwatchLogs"
-  | "SubnetIpLimitExceeded"
-  | "ENILimitExceeded"
-  | "BadPermissionsUserCredentials"
-  | "InvalidBundleRobotApplication"
-  | "InvalidBundleSimulationApplication"
-  | "InvalidS3Resource"
-  | "ThrottlingError"
-  | "LimitExceeded"
-  | "MismatchedEtag"
-  | "RobotApplicationVersionMismatchedEtag"
-  | "SimulationApplicationVersionMismatchedEtag"
-  | "ResourceNotFound"
-  | "RequestThrottled"
-  | "BatchTimedOut"
-  | "BatchCanceled"
-  | "InvalidInput"
-  | "WrongRegionS3Bucket"
-  | "WrongRegionS3Output"
-  | "WrongRegionRobotApplication"
-  | "WrongRegionSimulationApplication"
-  | "UploadContentMismatchError";
+export type SimulationJobErrorCode = "InternalServiceError" | "RobotApplicationCrash" | "SimulationApplicationCrash" | "RobotApplicationHealthCheckFailure" | "SimulationApplicationHealthCheckFailure" | "BadPermissionsRobotApplication" | "BadPermissionsSimulationApplication" | "BadPermissionsS3Object" | "BadPermissionsS3Output" | "BadPermissionsCloudwatchLogs" | "SubnetIpLimitExceeded" | "ENILimitExceeded" | "BadPermissionsUserCredentials" | "InvalidBundleRobotApplication" | "InvalidBundleSimulationApplication" | "InvalidS3Resource" | "ThrottlingError" | "LimitExceeded" | "MismatchedEtag" | "RobotApplicationVersionMismatchedEtag" | "SimulationApplicationVersionMismatchedEtag" | "ResourceNotFound" | "RequestThrottled" | "BatchTimedOut" | "BatchCanceled" | "InvalidInput" | "WrongRegionS3Bucket" | "WrongRegionS3Output" | "WrongRegionRobotApplication" | "WrongRegionSimulationApplication" | "UploadContentMismatchError";
 export interface SimulationJobRequest {
   outputLocation?: OutputLocation;
   loggingConfig?: LoggingConfig;
@@ -1761,17 +1448,7 @@ export interface SimulationJobRequest {
   tags?: Record<string, string>;
 }
 export type SimulationJobs = Array<SimulationJob>;
-export type SimulationJobStatus =
-  | "Pending"
-  | "Preparing"
-  | "Running"
-  | "Restarting"
-  | "Completed"
-  | "Failed"
-  | "RunningFailed"
-  | "Terminating"
-  | "Terminated"
-  | "Canceled";
+export type SimulationJobStatus = "Pending" | "Preparing" | "Running" | "Restarting" | "Completed" | "Failed" | "RunningFailed" | "Terminating" | "Terminated" | "Canceled";
 export type SimulationJobSummaries = Array<SimulationJobSummary>;
 export interface SimulationJobSummary {
   arn?: string;
@@ -1787,10 +1464,7 @@ export interface SimulationSoftwareSuite {
   name?: SimulationSoftwareSuiteType;
   version?: string;
 }
-export type SimulationSoftwareSuiteType =
-  | "Gazebo"
-  | "RosbagPlay"
-  | "SimulationRuntime";
+export type SimulationSoftwareSuiteType = "Gazebo" | "RosbagPlay" | "SimulationRuntime";
 export type SimulationSoftwareSuiteVersionType = string;
 
 export type SimulationTimeMillis = number;
@@ -1852,7 +1526,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TemplateLocation {
@@ -1888,7 +1563,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateRobotApplicationRequest {
   application: string;
   sources?: Array<SourceConfig>;
@@ -1939,9 +1615,7 @@ export interface UpdateWorldTemplateResponse {
   createdAt?: Date | string;
   lastUpdatedAt?: Date | string;
 }
-export type UploadBehavior =
-  | "UPLOAD_ON_TERMINATE"
-  | "UPLOAD_ROLLING_AUTO_REMOVE";
+export type UploadBehavior = "UPLOAD_ON_TERMINATE" | "UPLOAD_ROLLING_AUTO_REMOVE";
 export interface UploadConfiguration {
   name: string;
   path: string;
@@ -1971,20 +1645,8 @@ export interface WorldCount {
   floorplanCount?: number;
   interiorCountPerFloorplan?: number;
 }
-export type WorldExportJobErrorCode =
-  | "InternalServiceError"
-  | "LimitExceeded"
-  | "ResourceNotFound"
-  | "RequestThrottled"
-  | "InvalidInput"
-  | "AccessDenied";
-export type WorldExportJobStatus =
-  | "Pending"
-  | "Running"
-  | "Completed"
-  | "Failed"
-  | "Canceling"
-  | "Canceled";
+export type WorldExportJobErrorCode = "InternalServiceError" | "LimitExceeded" | "ResourceNotFound" | "RequestThrottled" | "InvalidInput" | "AccessDenied";
+export type WorldExportJobStatus = "Pending" | "Running" | "Completed" | "Failed" | "Canceling" | "Canceled";
 export type WorldExportJobSummaries = Array<WorldExportJobSummary>;
 export interface WorldExportJobSummary {
   arn?: string;
@@ -1999,21 +1661,8 @@ export interface WorldFailure {
   failureCount?: number;
 }
 export type WorldFailures = Array<WorldFailure>;
-export type WorldGenerationJobErrorCode =
-  | "InternalServiceError"
-  | "LimitExceeded"
-  | "ResourceNotFound"
-  | "RequestThrottled"
-  | "InvalidInput"
-  | "AllWorldGenerationFailed";
-export type WorldGenerationJobStatus =
-  | "Pending"
-  | "Running"
-  | "Completed"
-  | "Failed"
-  | "PartialFailed"
-  | "Canceling"
-  | "Canceled";
+export type WorldGenerationJobErrorCode = "InternalServiceError" | "LimitExceeded" | "ResourceNotFound" | "RequestThrottled" | "InvalidInput" | "AllWorldGenerationFailed";
+export type WorldGenerationJobStatus = "Pending" | "Running" | "Completed" | "Failed" | "PartialFailed" | "Canceling" | "Canceled";
 export type WorldGenerationJobSummaries = Array<WorldGenerationJobSummary>;
 export interface WorldGenerationJobSummary {
   arn?: string;
@@ -2670,3 +2319,4 @@ export declare namespace UpdateWorldTemplate {
     | ThrottlingException
     | CommonAwsError;
 }
+

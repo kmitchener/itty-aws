@@ -1,20 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { RestJson1Protocol } from "../../protocols/restjson1.js";
 
 export class DirectoryServiceData extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("directory-service-data", new RestJson1Protocol(), cfg);
+  }
+
   addGroupMember(
     input: AddGroupMemberRequest,
   ): Effect.Effect<
     AddGroupMemberResult,
-    | AccessDeniedException
-    | ConflictException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("AddGroupMember", input);
   }
@@ -22,13 +20,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: CreateGroupRequest,
   ): Effect.Effect<
     CreateGroupResult,
-    | AccessDeniedException
-    | ConflictException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DirectoryUnavailableException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateGroup", input);
   }
@@ -36,13 +28,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResult,
-    | AccessDeniedException
-    | ConflictException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DirectoryUnavailableException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("CreateUser", input);
   }
@@ -50,14 +36,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: DeleteGroupRequest,
   ): Effect.Effect<
     DeleteGroupResult,
-    | AccessDeniedException
-    | ConflictException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteGroup", input);
   }
@@ -65,14 +44,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResult,
-    | AccessDeniedException
-    | ConflictException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DeleteUser", input);
   }
@@ -80,13 +52,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: DescribeGroupRequest,
   ): Effect.Effect<
     DescribeGroupResult,
-    | AccessDeniedException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeGroup", input);
   }
@@ -94,13 +60,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: DescribeUserRequest,
   ): Effect.Effect<
     DescribeUserResult,
-    | AccessDeniedException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DescribeUser", input);
   }
@@ -108,14 +68,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: DisableUserRequest,
   ): Effect.Effect<
     DisableUserResult,
-    | AccessDeniedException
-    | ConflictException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("DisableUser", input);
   }
@@ -123,13 +76,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: ListGroupMembersRequest,
   ): Effect.Effect<
     ListGroupMembersResult,
-    | AccessDeniedException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListGroupMembers", input);
   }
@@ -137,12 +84,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: ListGroupsRequest,
   ): Effect.Effect<
     ListGroupsResult,
-    | AccessDeniedException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryUnavailableException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListGroups", input);
   }
@@ -150,13 +92,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: ListGroupsForMemberRequest,
   ): Effect.Effect<
     ListGroupsForMemberResult,
-    | AccessDeniedException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListGroupsForMember", input);
   }
@@ -164,12 +100,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResult,
-    | AccessDeniedException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryUnavailableException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("ListUsers", input);
   }
@@ -177,14 +108,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: RemoveGroupMemberRequest,
   ): Effect.Effect<
     RemoveGroupMemberResult,
-    | AccessDeniedException
-    | ConflictException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("RemoveGroupMember", input);
   }
@@ -192,12 +116,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: SearchGroupsRequest,
   ): Effect.Effect<
     SearchGroupsResult,
-    | AccessDeniedException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryUnavailableException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchGroups", input);
   }
@@ -205,12 +124,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: SearchUsersRequest,
   ): Effect.Effect<
     SearchUsersResult,
-    | AccessDeniedException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DirectoryUnavailableException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("SearchUsers", input);
   }
@@ -218,14 +132,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: UpdateGroupRequest,
   ): Effect.Effect<
     UpdateGroupResult,
-    | AccessDeniedException
-    | ConflictException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateGroup", input);
   }
@@ -233,14 +140,7 @@ export class DirectoryServiceData extends AWSServiceClient {
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResult,
-    | AccessDeniedException
-    | ConflictException
-    | DirectoryUnavailableException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DirectoryUnavailableException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   > {
     return this.call("UpdateUser", input);
   }
@@ -254,10 +154,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly Reason?: AccessDeniedReason;
 }> {}
-export type AccessDeniedReason =
-  | "IAM_AUTH"
-  | "DIRECTORY_AUTH"
-  | "DATA_DISABLED";
+export type AccessDeniedReason = "IAM_AUTH" | "DIRECTORY_AUTH" | "DATA_DISABLED";
 export interface AddGroupMemberRequest {
   DirectoryId: string;
   GroupName: string;
@@ -265,7 +162,8 @@ export interface AddGroupMemberRequest {
   MemberRealm?: string;
   ClientToken?: string;
 }
-export interface AddGroupMemberResult {}
+export interface AddGroupMemberResult {
+}
 export type Attributes = Record<string, AttributeValue>;
 interface _AttributeValue {
   S?: string;
@@ -274,11 +172,7 @@ interface _AttributeValue {
   SS?: Array<string>;
 }
 
-export type AttributeValue =
-  | (_AttributeValue & { S: string })
-  | (_AttributeValue & { N: number })
-  | (_AttributeValue & { BOOL: boolean })
-  | (_AttributeValue & { SS: Array<string> });
+export type AttributeValue = (_AttributeValue & { S: string }) | (_AttributeValue & { N: number }) | (_AttributeValue & { BOOL: boolean }) | (_AttributeValue & { SS: Array<string> });
 export type BooleanAttributeValue = boolean;
 
 export type ClientToken = string;
@@ -320,13 +214,15 @@ export interface DeleteGroupRequest {
   SAMAccountName: string;
   ClientToken?: string;
 }
-export interface DeleteGroupResult {}
+export interface DeleteGroupResult {
+}
 export interface DeleteUserRequest {
   DirectoryId: string;
   SAMAccountName: string;
   ClientToken?: string;
 }
-export interface DeleteUserResult {}
+export interface DeleteUserResult {
+}
 export interface DescribeGroupRequest {
   DirectoryId: string;
   Realm?: string;
@@ -370,18 +266,14 @@ export declare class DirectoryUnavailableException extends EffectData.TaggedErro
   readonly Message?: string;
   readonly Reason?: DirectoryUnavailableReason;
 }> {}
-export type DirectoryUnavailableReason =
-  | "INVALID_DIRECTORY_STATE"
-  | "DIRECTORY_TIMEOUT"
-  | "DIRECTORY_RESOURCES_EXCEEDED"
-  | "NO_DISK_SPACE"
-  | "TRUST_AUTH_FAILURE";
+export type DirectoryUnavailableReason = "INVALID_DIRECTORY_STATE" | "DIRECTORY_TIMEOUT" | "DIRECTORY_RESOURCES_EXCEEDED" | "NO_DISK_SPACE" | "TRUST_AUTH_FAILURE";
 export interface DisableUserRequest {
   DirectoryId: string;
   SAMAccountName: string;
   ClientToken?: string;
 }
-export interface DisableUserResult {}
+export interface DisableUserResult {
+}
 export type DistinguishedName = string;
 
 export type EmailAddress = string;
@@ -401,11 +293,7 @@ export interface Group {
 export type GroupList = Array<Group>;
 export type GroupName = string;
 
-export type GroupScope =
-  | "DOMAIN_LOCAL"
-  | "GLOBAL"
-  | "UNIVERSAL"
-  | "BUILTIN_LOCAL";
+export type GroupScope = "DOMAIN_LOCAL" | "GLOBAL" | "UNIVERSAL" | "BUILTIN_LOCAL";
 export interface GroupSummary {
   SID: string;
   SAMAccountName: string;
@@ -500,7 +388,8 @@ export interface RemoveGroupMemberRequest {
   MemberRealm?: string;
   ClientToken?: string;
 }
-export interface RemoveGroupMemberResult {}
+export interface RemoveGroupMemberResult {
+}
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -558,7 +447,8 @@ export interface UpdateGroupRequest {
   UpdateType?: UpdateType;
   ClientToken?: string;
 }
-export interface UpdateGroupResult {}
+export interface UpdateGroupResult {
+}
 export type UpdateType = "ADD" | "REPLACE" | "REMOVE";
 export interface UpdateUserRequest {
   DirectoryId: string;
@@ -570,7 +460,8 @@ export interface UpdateUserRequest {
   UpdateType?: UpdateType;
   ClientToken?: string;
 }
-export interface UpdateUserResult {}
+export interface UpdateUserResult {
+}
 export interface User {
   SID?: string;
   SAMAccountName: string;
@@ -601,22 +492,7 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly Message?: string;
   readonly Reason?: ValidationExceptionReason;
 }> {}
-export type ValidationExceptionReason =
-  | "INVALID_REALM"
-  | "INVALID_DIRECTORY_TYPE"
-  | "INVALID_SECONDARY_REGION"
-  | "INVALID_NEXT_TOKEN"
-  | "INVALID_ATTRIBUTE_VALUE"
-  | "INVALID_ATTRIBUTE_NAME"
-  | "INVALID_ATTRIBUTE_FOR_USER"
-  | "INVALID_ATTRIBUTE_FOR_GROUP"
-  | "INVALID_ATTRIBUTE_FOR_SEARCH"
-  | "INVALID_ATTRIBUTE_FOR_MODIFY"
-  | "DUPLICATE_ATTRIBUTE"
-  | "MISSING_ATTRIBUTE"
-  | "ATTRIBUTE_EXISTS"
-  | "LDAP_SIZE_LIMIT_EXCEEDED"
-  | "LDAP_UNSUPPORTED_OPERATION";
+export type ValidationExceptionReason = "INVALID_REALM" | "INVALID_DIRECTORY_TYPE" | "INVALID_SECONDARY_REGION" | "INVALID_NEXT_TOKEN" | "INVALID_ATTRIBUTE_VALUE" | "INVALID_ATTRIBUTE_NAME" | "INVALID_ATTRIBUTE_FOR_USER" | "INVALID_ATTRIBUTE_FOR_GROUP" | "INVALID_ATTRIBUTE_FOR_SEARCH" | "INVALID_ATTRIBUTE_FOR_MODIFY" | "DUPLICATE_ATTRIBUTE" | "MISSING_ATTRIBUTE" | "ATTRIBUTE_EXISTS" | "LDAP_SIZE_LIMIT_EXCEEDED" | "LDAP_UNSUPPORTED_OPERATION";
 export declare namespace AddGroupMember {
   export type Input = AddGroupMemberRequest;
   export type Output = AddGroupMemberResult;
@@ -840,3 +716,4 @@ export declare namespace UpdateUser {
     | ValidationException
     | CommonAwsError;
 }
+

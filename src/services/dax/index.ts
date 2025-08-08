@@ -1,28 +1,18 @@
 import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
+import { AwsJson11Protocol } from "../../protocols/awsjson1_1.js";
 
 export class DAX extends AWSServiceClient {
+  constructor(cfg: any) {
+    super("dax", new AwsJson11Protocol(), cfg);
+  }
+
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
-    | ClusterAlreadyExistsFault
-    | ClusterQuotaForCustomerExceededFault
-    | InsufficientClusterCapacityFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterGroupStateFault
-    | InvalidParameterValueException
-    | InvalidVPCNetworkStateFault
-    | NodeQuotaForClusterExceededFault
-    | NodeQuotaForCustomerExceededFault
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | ServiceQuotaExceededException
-    | SubnetGroupNotFoundFault
-    | TagQuotaPerResourceExceeded
-    | CommonAwsError
+    ClusterAlreadyExistsFault | ClusterQuotaForCustomerExceededFault | InsufficientClusterCapacityFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | InvalidVPCNetworkStateFault | NodeQuotaForClusterExceededFault | NodeQuotaForCustomerExceededFault | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | ServiceQuotaExceededException | SubnetGroupNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
   > {
     return this.call("CreateCluster", input);
   }
@@ -30,13 +20,7 @@ export class DAX extends AWSServiceClient {
     input: CreateParameterGroupRequest,
   ): Effect.Effect<
     CreateParameterGroupResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterGroupStateFault
-    | InvalidParameterValueException
-    | ParameterGroupAlreadyExistsFault
-    | ParameterGroupQuotaExceededFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupAlreadyExistsFault | ParameterGroupQuotaExceededFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("CreateParameterGroup", input);
   }
@@ -44,12 +28,7 @@ export class DAX extends AWSServiceClient {
     input: CreateSubnetGroupRequest,
   ): Effect.Effect<
     CreateSubnetGroupResponse,
-    | InvalidSubnet
-    | ServiceLinkedRoleNotFoundFault
-    | SubnetGroupAlreadyExistsFault
-    | SubnetGroupQuotaExceededFault
-    | SubnetQuotaExceededFault
-    | CommonAwsError
+    InvalidSubnet | ServiceLinkedRoleNotFoundFault | SubnetGroupAlreadyExistsFault | SubnetGroupQuotaExceededFault | SubnetQuotaExceededFault | CommonAwsError
   > {
     return this.call("CreateSubnetGroup", input);
   }
@@ -57,13 +36,7 @@ export class DAX extends AWSServiceClient {
     input: DecreaseReplicationFactorRequest,
   ): Effect.Effect<
     DecreaseReplicationFactorResponse,
-    | ClusterNotFoundFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | NodeNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | NodeNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DecreaseReplicationFactor", input);
   }
@@ -71,12 +44,7 @@ export class DAX extends AWSServiceClient {
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
-    | ClusterNotFoundFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteCluster", input);
   }
@@ -84,12 +52,7 @@ export class DAX extends AWSServiceClient {
     input: DeleteParameterGroupRequest,
   ): Effect.Effect<
     DeleteParameterGroupResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterGroupStateFault
-    | InvalidParameterValueException
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteParameterGroup", input);
   }
@@ -97,10 +60,7 @@ export class DAX extends AWSServiceClient {
     input: DeleteSubnetGroupRequest,
   ): Effect.Effect<
     DeleteSubnetGroupResponse,
-    | ServiceLinkedRoleNotFoundFault
-    | SubnetGroupInUseFault
-    | SubnetGroupNotFoundFault
-    | CommonAwsError
+    ServiceLinkedRoleNotFoundFault | SubnetGroupInUseFault | SubnetGroupNotFoundFault | CommonAwsError
   > {
     return this.call("DeleteSubnetGroup", input);
   }
@@ -108,11 +68,7 @@ export class DAX extends AWSServiceClient {
     input: DescribeClustersRequest,
   ): Effect.Effect<
     DescribeClustersResponse,
-    | ClusterNotFoundFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeClusters", input);
   }
@@ -120,10 +76,7 @@ export class DAX extends AWSServiceClient {
     input: DescribeDefaultParametersRequest,
   ): Effect.Effect<
     DescribeDefaultParametersResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeDefaultParameters", input);
   }
@@ -131,10 +84,7 @@ export class DAX extends AWSServiceClient {
     input: DescribeEventsRequest,
   ): Effect.Effect<
     DescribeEventsResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeEvents", input);
   }
@@ -142,11 +92,7 @@ export class DAX extends AWSServiceClient {
     input: DescribeParameterGroupsRequest,
   ): Effect.Effect<
     DescribeParameterGroupsResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeParameterGroups", input);
   }
@@ -154,11 +100,7 @@ export class DAX extends AWSServiceClient {
     input: DescribeParametersRequest,
   ): Effect.Effect<
     DescribeParametersResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("DescribeParameters", input);
   }
@@ -174,16 +116,7 @@ export class DAX extends AWSServiceClient {
     input: IncreaseReplicationFactorRequest,
   ): Effect.Effect<
     IncreaseReplicationFactorResponse,
-    | ClusterNotFoundFault
-    | InsufficientClusterCapacityFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | InvalidVPCNetworkStateFault
-    | NodeQuotaForClusterExceededFault
-    | NodeQuotaForCustomerExceededFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InsufficientClusterCapacityFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | InvalidVPCNetworkStateFault | NodeQuotaForClusterExceededFault | NodeQuotaForCustomerExceededFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("IncreaseReplicationFactor", input);
   }
@@ -191,13 +124,7 @@ export class DAX extends AWSServiceClient {
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    | ClusterNotFoundFault
-    | InvalidARNFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("ListTags", input);
   }
@@ -205,13 +132,7 @@ export class DAX extends AWSServiceClient {
     input: RebootNodeRequest,
   ): Effect.Effect<
     RebootNodeResponse,
-    | ClusterNotFoundFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | NodeNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | NodeNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("RebootNode", input);
   }
@@ -219,14 +140,7 @@ export class DAX extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ClusterNotFoundFault
-    | InvalidARNFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | TagQuotaPerResourceExceeded
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | TagQuotaPerResourceExceeded | CommonAwsError
   > {
     return this.call("TagResource", input);
   }
@@ -234,14 +148,7 @@ export class DAX extends AWSServiceClient {
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ClusterNotFoundFault
-    | InvalidARNFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | ServiceLinkedRoleNotFoundFault
-    | TagNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidARNFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterValueException | ServiceLinkedRoleNotFoundFault | TagNotFoundFault | CommonAwsError
   > {
     return this.call("UntagResource", input);
   }
@@ -249,14 +156,7 @@ export class DAX extends AWSServiceClient {
     input: UpdateClusterRequest,
   ): Effect.Effect<
     UpdateClusterResponse,
-    | ClusterNotFoundFault
-    | InvalidClusterStateFault
-    | InvalidParameterCombinationException
-    | InvalidParameterGroupStateFault
-    | InvalidParameterValueException
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    ClusterNotFoundFault | InvalidClusterStateFault | InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("UpdateCluster", input);
   }
@@ -264,12 +164,7 @@ export class DAX extends AWSServiceClient {
     input: UpdateParameterGroupRequest,
   ): Effect.Effect<
     UpdateParameterGroupResponse,
-    | InvalidParameterCombinationException
-    | InvalidParameterGroupStateFault
-    | InvalidParameterValueException
-    | ParameterGroupNotFoundFault
-    | ServiceLinkedRoleNotFoundFault
-    | CommonAwsError
+    InvalidParameterCombinationException | InvalidParameterGroupStateFault | InvalidParameterValueException | ParameterGroupNotFoundFault | ServiceLinkedRoleNotFoundFault | CommonAwsError
   > {
     return this.call("UpdateParameterGroup", input);
   }
@@ -277,12 +172,7 @@ export class DAX extends AWSServiceClient {
     input: UpdateSubnetGroupRequest,
   ): Effect.Effect<
     UpdateSubnetGroupResponse,
-    | InvalidSubnet
-    | ServiceLinkedRoleNotFoundFault
-    | SubnetGroupNotFoundFault
-    | SubnetInUse
-    | SubnetQuotaExceededFault
-    | CommonAwsError
+    InvalidSubnet | ServiceLinkedRoleNotFoundFault | SubnetGroupNotFoundFault | SubnetInUse | SubnetQuotaExceededFault | CommonAwsError
   > {
     return this.call("UpdateSubnetGroup", input);
   }
@@ -628,7 +518,8 @@ export declare class ServiceLinkedRoleNotFoundFault extends EffectData.TaggedErr
 }> {}
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
   "ServiceQuotaExceededException",
-)<{}> {}
+)<{
+}> {}
 export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
 export interface SSEDescription {
   Status?: SSEStatus;
@@ -674,7 +565,9 @@ export declare class SubnetGroupQuotaExceededFault extends EffectData.TaggedErro
   readonly message?: string;
 }> {}
 export type SubnetIdentifierList = Array<string>;
-export declare class SubnetInUse extends EffectData.TaggedError("SubnetInUse")<{
+export declare class SubnetInUse extends EffectData.TaggedError(
+  "SubnetInUse",
+)<{
   readonly message?: string;
 }> {}
 export type SubnetList = Array<Subnet>;
@@ -1004,3 +897,4 @@ export declare namespace UpdateSubnetGroup {
     | SubnetQuotaExceededFault
     | CommonAwsError;
 }
+
